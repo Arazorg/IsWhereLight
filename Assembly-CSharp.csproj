@@ -62,6 +62,8 @@
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
      <Compile Include="Assets\Scripts\Char\CharController.cs" />
      <Compile Include="Assets\Scripts\Char\CharCreating.cs" />
      <Compile Include="Assets\Scripts\Char\CharData.cs" />
@@ -78,7 +80,11 @@
      <Compile Include="Assets\Scripts\UI\Bars\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\Bars\ManaBar.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuButton.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceDrag.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\SettingsButtons.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\SettingsInfo.cs" />
      <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponsSpec.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

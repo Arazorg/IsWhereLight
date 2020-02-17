@@ -41,7 +41,6 @@ public class CharGun : MonoBehaviour
         levelBar = GameObject.Find("Canvas").transform.Find("LevelBar").gameObject;
 
         startGun = GameObject.Find(charInfo.startGun);
-        Debug.Log(charInfo.startGun);
         offsetGun = new Vector3(0, 0, 0);
 
         builder = new StringBuilder();

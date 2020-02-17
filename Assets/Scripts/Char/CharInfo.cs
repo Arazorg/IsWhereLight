@@ -21,13 +21,13 @@ public class CharInfo : MonoBehaviour
 
     void Start()
     {
-        if (MenuButton.firstPlay == true)
+        if (MenuButtons.firstPlay == true)
         {
             level = 1;
             mana = maxMana;
             health = maxHealth;
             startGun = "0";
-            MenuButton.firstPlay = false;
+            MenuButtons.firstPlay = false;
         }
         else
         {
