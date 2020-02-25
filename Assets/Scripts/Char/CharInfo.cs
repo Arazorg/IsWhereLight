@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharInfo : MonoBehaviour
 {
@@ -13,11 +11,6 @@ public class CharInfo : MonoBehaviour
     public int maxHealth = 7;
     public int maxMana = 100;
     public string startGun;
-
-    public CharInfo()
-    {
-        
-    }
 
     void Start()
     {
@@ -39,7 +32,7 @@ public class CharInfo : MonoBehaviour
     }
 
     public void SaveChar()
-    {  
+    {
         SaveSystem.SaveChar(this);
     }
 
