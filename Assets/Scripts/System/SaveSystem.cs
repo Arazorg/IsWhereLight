@@ -39,7 +39,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/seetings.bin";
+        string path = Application.persistentDataPath + "/settings.bin";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SettingsData settingsData = new SettingsData(settingsInfo);

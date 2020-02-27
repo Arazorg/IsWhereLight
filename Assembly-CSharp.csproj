@@ -79,8 +79,9 @@
      <Compile Include="Assets\Scripts\System\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\UI\Bars\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\Bars\ManaBar.cs" />
-     <Compile Include="Assets\Scripts\UI\Buttons.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuUI\GameStart.cs" />
+     <Compile Include="Assets\Scripts\UI\GameUI\Buttons.cs" />
+     <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuUI\Background.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceDrag.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\MenuButtons.cs" />

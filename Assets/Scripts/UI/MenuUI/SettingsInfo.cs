@@ -2,14 +2,23 @@
 
 public class SettingsInfo : MonoBehaviour
 {
+    public static SettingsInfo instance;
     public bool musicOn;
     public bool effectsOn;
     //public Transform joystickPosition;
     //public Transform fireActButtonPosition;
-    private SettingsInfo settingsInfo;
     void Start()
     {
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         if (MenuButtons.firstRun == true)
         {
             musicOn = true;
@@ -31,9 +40,9 @@ public class SettingsInfo : MonoBehaviour
 
     public void LoadSettings()
     {
-        SaveSystem.LoadSettings();
+        SettingsData settingsData = SaveSystem.LoadSettings();
 
-        musicOn = settingsInfo.musicOn;
-        effectsOn = settingsInfo.effectsOn;
+        musicOn = settingsData.musicOn;
+        effectsOn = settingsData.effectsOn;
     }
 }
