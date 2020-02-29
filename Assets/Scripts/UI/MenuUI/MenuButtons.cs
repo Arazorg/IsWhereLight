@@ -12,9 +12,9 @@ public class MenuButtons : MonoBehaviour
     private int level;
 
     private AudioManager audioManager;
-    void Start()
-    { 
-        if(File.Exists(Application.persistentDataPath + "/settings.bin"))
+    void Awake()
+    {
+        if (File.Exists(Application.persistentDataPath + "/settings.bin"))
         {
             Debug.Log(1);
             firstRun = false;

@@ -14,10 +14,8 @@ public class SettingsButtons : MonoBehaviour
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = FindObjectOfType<AudioManager>();
-        musicOn = true;
-        effectsOn = true;
-        
-        settingsInfo.effectsOn = effectsOn;
+        musicOn = settingsInfo.musicOn;
+        effectsOn = settingsInfo.effectsOn;
     }
 
     public void InterfaceSettingsOpen()

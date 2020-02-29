@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
-
         if (instance != null)
         {
             Destroy(gameObject);
@@ -37,6 +36,8 @@ public class AudioManager : MonoBehaviour
 
             s.source.outputAudioMixerGroup = mixerGroup;
         }
+        if (musicOn)
+            Play("Theme");
     }
 
     public void Play(string sound)
@@ -51,6 +52,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
+                Debug.Log(s.nameOfSound);
                 s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
                 s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
                 s.source.Play();
