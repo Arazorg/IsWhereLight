@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     private bool musicOn;
     private bool effectsOn;
     private SettingsInfo settingsInfo;
+
     void Awake()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
@@ -52,12 +53,11 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(s.nameOfSound);
                 s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
                 s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
                 s.source.Play();
             }
-        }
+        }    
     }
 
     public void On(string sound)

@@ -10,7 +10,7 @@ public class CharGun : MonoBehaviour
     //Classes
     public CharShooting charShooting;
     public CharInfo charInfo;
-    private Buttons buttons;
+    private GameButtons gameButtons;
     private WeaponsSpec weaponsSpec;
     private Bullet bullet;
 
@@ -34,9 +34,9 @@ public class CharGun : MonoBehaviour
         GameObject gameHandler = GameObject.Find("GameHandler");
         bullet = gameHandler.transform.Find("Bullet").GetComponent<Bullet>();
         weaponsSpec = gameHandler.GetComponent<WeaponsSpec>();
+        gameButtons = gameHandler.GetComponent<GameButtons>();
 
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
-        buttons = fireActButton.GetComponent<Buttons>();
         gunInfoBar = GameObject.Find("Canvas").transform.Find("GunInfoBar").gameObject;
         levelBar = GameObject.Find("Canvas").transform.Find("LevelBar").gameObject;
 
@@ -54,6 +54,7 @@ public class CharGun : MonoBehaviour
     {
         if (coll.gameObject.tag == "Gun")
         {
+            gameButtons.fireActButtonState = 1;//Change Gun
             WeaponsSpec.Gun floorGunInfo;
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().color = Color.green;
@@ -68,15 +69,16 @@ public class CharGun : MonoBehaviour
             {
                 floorGunInfo = GetSpecGun(coll.gameObject.name);
             }
-            gunInfoBar.GetComponentInChildren<Text>().text =
-            builder.Append($"{floorGunInfo.dmg} DMG | {floorGunInfo.crit}% CRIT | {floorGunInfo.mana} MANA").ToString();
+            gunInfoBar.GetComponentInChildren<Text>().text = builder.Append($"{floorGunInfo.dmg} DMG | {floorGunInfo.crit}% CRIT | {floorGunInfo.mana} MANA").ToString();
             builder.Clear();
         }
 
         if (coll.gameObject.tag == "Portal")
         {
+            gameButtons.fireActButtonState = 2;//Activate Portal
             fireActButton.GetComponent<Image>().color = Color.blue;
             fireActButton.GetComponentInChildren<Text>().text = "Enter";
+
         }
 
         if (coll.gameObject.tag == "Chest")
@@ -88,6 +90,7 @@ public class CharGun : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D coll)
     {
+        gameButtons.fireActButtonState = 0;//Fire
         fireActButton.GetComponent<Image>().color = Color.red;
         fireActButton.GetComponentInChildren<Text>().text = "Fire";
         gunInfoBar.SetActive(false);
@@ -128,8 +131,8 @@ public class CharGun : MonoBehaviour
         {
             bullet.dmg = gunSpec.dmg;
             bullet.crit = gunSpec.crit;
-            buttons.mana = gunSpec.mana;
-            buttons.fireRate = gunSpec.fireRate;
+            gameButtons.mana = gunSpec.mana;
+            gameButtons.fireRate = gunSpec.fireRate;
             charShooting.bulletSpeed = gunSpec.speed;
             charShooting.bulletScatterAngle = gunSpec.scatter;
             charShooting.bulletPrefab = gunSpec.bulletPrefab;
@@ -155,6 +158,7 @@ public class CharGun : MonoBehaviour
 
     private void StartGunCreate()
     {
+        Debug.Log("1");
         gun = Instantiate(startGun, gameObject.transform.position + offsetGun, Quaternion.identity);
         gun.transform.SetParent(gameObject.transform);
         gun.transform.CompareTag("Untagged");

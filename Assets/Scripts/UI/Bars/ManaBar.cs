@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ManaBar : MonoBehaviour
 {
-    public CharInfo charInfo;
     public Image imgManaBar;
     public Text textMane;
 
@@ -48,12 +47,5 @@ public class ManaBar : MonoBehaviour
             SetMana(Max, Max, Min);
         else
             SetMana(currentValue + fillAmount, Max, Min);
-    }
-
-    void Start()
-    {
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
-        //Debug.Log("ManaBAr " + charInfo.mana);
-        //SetMana(charInfo.mana, charInfo.maxMana, 0);
     }
 }

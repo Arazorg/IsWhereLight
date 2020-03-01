@@ -16,12 +16,10 @@ public class MenuButtons : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/settings.bin"))
         {
-            Debug.Log(1);
             firstRun = false;
         }
         else
         {
-            Debug.Log(2);
             firstRun = true;
         }
 
