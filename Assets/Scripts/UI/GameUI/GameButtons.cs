@@ -23,14 +23,14 @@ public class GameButtons : MonoBehaviour
     private WeaponsSpec.Gun gun;
     private float nextFire;
     private bool shooting;
-    private bool settingsState;
+    public static bool SettingsState;
 
     void Start()
     {
         Time.timeScale = 1f;
-        settingsState = false;
+        SettingsState = false;
         pausePanel.SetActive(false);
-        settingsPanel.SetActive(settingsState);
+        settingsPanel.SetActive(SettingsState);
         fireActButtonState = 0;
         GameObject character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
@@ -92,8 +92,8 @@ public class GameButtons : MonoBehaviour
         GameIsPaused = false;
         Time.timeScale = 1f;
         pausePanel.SetActive(false);
-        settingsState = false;
-        settingsPanel.SetActive(settingsState);
+        SettingsState = false;
+        settingsPanel.SetActive(SettingsState);
         pauseButton.SetActive(true);
     }
 
@@ -106,8 +106,8 @@ public class GameButtons : MonoBehaviour
 
     public void OpenCloseSettings()
     {
-        settingsState = !settingsState;
-        settingsPanel.SetActive(settingsState);      
+        SettingsState = !SettingsState;
+        settingsPanel.SetActive(SettingsState);      
     }
     
 }

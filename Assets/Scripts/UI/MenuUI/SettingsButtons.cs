@@ -10,6 +10,7 @@ public class SettingsButtons : MonoBehaviour
     private bool effectsOn;
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
+
     void Start()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
@@ -60,4 +61,6 @@ public class SettingsButtons : MonoBehaviour
             audioManager.Off("Effects");
         settingsInfo.effectsOn = effectsOn;
     }
+
+
 }

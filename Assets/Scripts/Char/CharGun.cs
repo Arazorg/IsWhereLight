@@ -158,7 +158,6 @@ public class CharGun : MonoBehaviour
 
     private void StartGunCreate()
     {
-        Debug.Log("1");
         gun = Instantiate(startGun, gameObject.transform.position + offsetGun, Quaternion.identity);
         gun.transform.SetParent(gameObject.transform);
         gun.transform.CompareTag("Untagged");

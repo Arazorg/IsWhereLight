@@ -7,6 +7,7 @@ public class SettingsInfo : MonoBehaviour
     public bool effectsOn;
     //public Transform joystickPosition;
     //public Transform fireActButtonPosition;
+
     void Awake()
     {
         if (instance != null)

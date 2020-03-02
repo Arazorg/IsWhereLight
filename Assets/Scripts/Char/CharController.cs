@@ -16,7 +16,6 @@ public class CharController : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("2");
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         gun = transform.GetChild(0); //Current gun

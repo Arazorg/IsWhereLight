@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\LevelsGeneration\RoomType.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnObjects.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnRooms.cs" />
+     <Compile Include="Assets\Scripts\PauseSettings.cs" />
      <Compile Include="Assets\Scripts\System\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\System\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\UI\Bars\HealthBar.cs" />

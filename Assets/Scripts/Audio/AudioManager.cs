@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
+
         if (instance != null)
         {
             Destroy(gameObject);
