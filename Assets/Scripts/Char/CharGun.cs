@@ -37,8 +37,8 @@ public class CharGun : MonoBehaviour
         gameButtons = gameHandler.GetComponent<GameButtons>();
 
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
-        gunInfoBar = GameObject.Find("Canvas").transform.Find("GunInfoBar").gameObject;
-        levelBar = GameObject.Find("Canvas").transform.Find("LevelBar").gameObject;
+        gunInfoBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("GunInfoBar").gameObject;
+        levelBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("LevelBar").gameObject;
 
         startGun = GameObject.Find(charInfo.startGun);
         offsetGun = new Vector3(0, 0, 0);

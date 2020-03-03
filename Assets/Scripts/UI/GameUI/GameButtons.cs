@@ -10,20 +10,23 @@ public class GameButtons : MonoBehaviour
     private CharShooting charShooting;
     private CharGun charGun;
     private ManaBar manaBar;
+    private SettingsInfo settingsInfo;
 
     //Values
     public GameObject pausePanel;
     public GameObject pauseButton;
     public GameObject settingsPanel;
+    private GameObject joystick;
+    private GameObject fireActButton;
 
     public static bool GameIsPaused = false;
     public float fireRate;
     public int mana;
     public int fireActButtonState;
+    public static bool SettingsState;
     private WeaponsSpec.Gun gun;
     private float nextFire;
     private bool shooting;
-    public static bool SettingsState;
 
     void Start()
     {
@@ -31,13 +34,24 @@ public class GameButtons : MonoBehaviour
         SettingsState = false;
         pausePanel.SetActive(false);
         settingsPanel.SetActive(SettingsState);
+
         fireActButtonState = 0;
+        nextFire = 0.0f;
+        
         GameObject character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
         charGun = character.GetComponent<CharGun>();
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
-        nextFire = 0.0f;
+
+        joystick = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetChild(0).gameObject as GameObject;
+        fireActButton = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetChild(1).gameObject as GameObject;
+
+        joystick.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
+        fireActButton.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
     }
     void Update()
     {
@@ -107,7 +121,6 @@ public class GameButtons : MonoBehaviour
     public void OpenCloseSettings()
     {
         SettingsState = !SettingsState;
-        settingsPanel.SetActive(SettingsState);      
+        settingsPanel.SetActive(SettingsState);
     }
-    
 }
