@@ -43,7 +43,6 @@ public class InterfaceSettings : MonoBehaviour
 
     public void SetStandartPositions()
     {
-        Debug.Log("ejsakd, " + SettingsInfo.startPositions["joystickPosition"][0] + " " +  SettingsInfo.startPositions["joystickPosition"][1]);
         joystick.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(SettingsInfo.startPositions["joystickPosition"][0],
                                 SettingsInfo.startPositions["joystickPosition"][1]);

@@ -8,8 +8,8 @@ public class CharInfo : MonoBehaviour
     public int level;
     public int health;
     public int mana;
-    public int maxHealth = 7;
-    public int maxMana = 100;
+    public int maxHealth;
+    public int maxMana;
     public string startGun;
 
     void Start()
