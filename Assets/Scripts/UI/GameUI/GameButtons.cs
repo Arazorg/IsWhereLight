@@ -9,6 +9,7 @@ public class GameButtons : MonoBehaviour
     private CharInfo charInfo;
     private CharShooting charShooting;
     private CharGun charGun;
+    private CharAction charAction;
     private ManaBar manaBar;
     private SettingsInfo settingsInfo;
 
@@ -41,7 +42,9 @@ public class GameButtons : MonoBehaviour
         GameObject character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
+        charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
+
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
 
@@ -55,6 +58,14 @@ public class GameButtons : MonoBehaviour
     }
     void Update()
     {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
+            {
+                OpenPause();
+            }
+        }
+
         Fire();
     }
 
@@ -69,7 +80,7 @@ public class GameButtons : MonoBehaviour
                 charGun.ChangeGun();
                 break;
             case 2:
-                charGun.ChangeLevel();
+                charAction.ChangeLevel();
                 break;
         }
     }

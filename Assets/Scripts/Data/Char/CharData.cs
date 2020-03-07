@@ -5,14 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class CharData
 {
+    public int money;
     public int health;
-    public int mana;
-    public string startGun;
-    
+    public int mane;
+    public string gun;
+    public string skin;
+
     public CharData(CharInfo charInfo)
     {
+        money = charInfo.money;
         health = charInfo.health;
-        mana = charInfo.mana;
-        startGun = charInfo.startGun;
+        mane = charInfo.mane;
+        gun = charInfo.gun;
+        skin = charInfo.skin;
     }
 }

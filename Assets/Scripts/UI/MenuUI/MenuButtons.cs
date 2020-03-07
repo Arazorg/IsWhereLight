@@ -7,15 +7,17 @@ public class MenuButtons : MonoBehaviour
     public GameObject settings;
     public GameObject settingsButton;
     public GameObject interfaceSettings;
+    public GameObject exitButton;
     public static bool firstPlay;
     public static bool firstRun;
     private int level;
 
     private SettingsInfo settingsInfo;
-
     private AudioManager audioManager;
+
     void Awake()
     {
+        exitButton.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         settingsInfo.InitDictionary();
         if (File.Exists(SaveSystem.CurrentSettingsFile))
@@ -39,18 +41,30 @@ public class MenuButtons : MonoBehaviour
         audioManager.Play("Theme");
     }
 
+    void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                exitButton.SetActive(true);
+            }
+        }
+    }
+
     public void NewGame()
     {
+        settingsInfo.level = 1;
         audioManager.Play("ClickUI");
         firstPlay = true;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Lobby");
     }
 
     public void ContinueGame()
     {
         audioManager.Play("ClickUI");
         firstPlay = false;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Lobby");
     }
 
     public void LinkToVk()
@@ -73,6 +87,13 @@ public class MenuButtons : MonoBehaviour
             settings.SetActive(true);
             settingsButton.SetActive(false);
         }
+    }
+
+    public void AllPanelClose()
+    {
+        settings.SetActive(false);
+        settingsButton.SetActive(true);
+        exitButton.SetActive(false);
     }
 
     public void ExitGame()

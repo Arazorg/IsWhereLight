@@ -10,21 +10,22 @@ public class CharGun : MonoBehaviour
     //Classes
     public CharShooting charShooting;
     public CharInfo charInfo;
+
     private SettingsInfo settingsInfo;
     private GameButtons gameButtons;
     private WeaponsSpec weaponsSpec;
     private Bullet bullet;
 
     //UI GameObjects and UI
-    public GameObject gunInfoBar;
+    private GameObject gunInfoBar;
+    private Button fireActButton;
     private GameObject levelBar;
-    public Button fireActButton;
     private StringBuilder builder;
 
     //Gameobjects
     private GameObject startGun;
     private GameObject floorGun;
-    private GameObject gun;
+    private GameObject currentGun;
 
     //Values
     private WeaponsSpec.Gun gunSpec;
@@ -32,20 +33,21 @@ public class CharGun : MonoBehaviour
 
     void Start()
     {
-        GameObject gameHandler = GameObject.Find("GameHandler");
-        bullet = gameHandler.transform.Find("Bullet").GetComponent<Bullet>();
-        weaponsSpec = gameHandler.GetComponent<WeaponsSpec>();
-        gameButtons = gameHandler.GetComponent<GameButtons>();
-
-        fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
-        gunInfoBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("GunInfoBar").gameObject;
-        levelBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("LevelBar").gameObject;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        startGun = GameObject.Find(charInfo.startGun);
+
+        GameObject gameHandler = GameObject.Find("GameHandler");
+        bullet = gameHandler.GetComponent<Bullet>();
+        weaponsSpec = gameHandler.GetComponent<WeaponsSpec>();
+
+        GameObject gameUI = GameObject.Find("Canvas").transform.Find("GameUI").gameObject;
+        gunInfoBar = gameUI.transform.Find("GunInfoBar").gameObject;
+        levelBar = gameUI.transform.Find("LevelBar").gameObject;
+        gameButtons = gameUI.GetComponent<GameButtons>();
+
+        startGun = GetGunGameObject(charInfo.gun);
+        fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
         offsetGun = new Vector3(0, 0, 0);
-
         builder = new StringBuilder();
-
         StartGunCreate();
         gunInfoBar.SetActive(false);
         levelBar.GetComponentInChildren<Text>().text = settingsInfo.level.ToString();
@@ -73,20 +75,6 @@ public class CharGun : MonoBehaviour
             gunInfoBar.GetComponentInChildren<Text>().text = builder.Append($"{floorGunInfo.dmg} DMG | {floorGunInfo.crit}% CRIT | {floorGunInfo.mana} MANA").ToString();
             builder.Clear();
         }
-
-        if (coll.gameObject.tag == "Portal")
-        {
-            gameButtons.fireActButtonState = 2;//Activate Portal
-            fireActButton.GetComponent<Image>().color = Color.blue;
-            fireActButton.GetComponentInChildren<Text>().text = "Enter";
-
-        }
-
-        if (coll.gameObject.tag == "Chest")
-        {
-            fireActButton.GetComponent<Image>().color = Color.yellow;
-            fireActButton.GetComponentInChildren<Text>().text = "Open";
-        }
     }
 
     void OnTriggerExit2D(Collider2D coll)
@@ -99,32 +87,30 @@ public class CharGun : MonoBehaviour
 
     public void ChangeGun()
     {
-        gun.transform.CompareTag("Gun");
-        Instantiate(gun, gameObject.transform.position, gun.transform.rotation);
-        Destroy(gun);
-        gun = Instantiate(floorGun, gameObject.transform.position + offsetGun, Quaternion.identity);
-        gun.transform.SetParent(gameObject.transform);
-        gun.transform.CompareTag("Untagged");
-        gun.name = (gun.name.Substring(0, gun.name.IndexOf('('))).Replace(" ", string.Empty);
-        charInfo.startGun = gun.name;
-        SetSpecGun(gun.name);
-        charShooting.firePoint = gun.transform.GetChild(0);
+        currentGun.transform.CompareTag("Gun");
+        Instantiate(currentGun, gameObject.transform.position, currentGun.transform.rotation);
+        Destroy(currentGun);
+        currentGun = Instantiate(floorGun, gameObject.transform.position + offsetGun, Quaternion.identity);
+        currentGun.transform.SetParent(gameObject.transform);
+        currentGun.transform.CompareTag("Untagged");
+        currentGun.name = (currentGun.name.Substring(0, currentGun.name.IndexOf('('))).Replace(" ", string.Empty);
+        charInfo.gun = currentGun.name;
+        SetSpecGun(currentGun.name);
+        charShooting.firePoint = currentGun.transform.GetChild(0);
         Destroy(floorGun);
     }
 
-    public void ChangeLevel()
+    private GameObject GetGunGameObject(string name)
     {
-        settingsInfo.level++;
-        settingsInfo.SaveSettings();
-        charInfo.SaveChar();
-        SceneManager.LoadScene("Game");
-    }
-
-    public void OpenChest()
-    {
-        int numberOfGun = Random.Range(0, 2);
-        GameObject creatingGun = GameObject.Find(numberOfGun.ToString());
-        Instantiate(creatingGun, transform.position, transform.rotation);
+        if (weaponsSpec.guns.TryGetValue(name, out gunSpec))
+        {
+            return gunSpec.gunPrefab;
+        }
+        else
+        {
+            Debug.Log($"Current name {name} don't exist");
+            return null;
+        }
     }
 
     private void SetSpecGun(string name)
@@ -147,25 +133,25 @@ public class CharGun : MonoBehaviour
 
     private WeaponsSpec.Gun GetSpecGun(string name)
     {
-        if (weaponsSpec.guns.TryGetValue(name, out WeaponsSpec.Gun gun))
+        if (weaponsSpec.guns.TryGetValue(name, out WeaponsSpec.Gun currentGun))
         {
-            return gun;
+            return currentGun;
         }
         else
         {
             Debug.Log($"Current name {name} don't exist");
-            return gun;
+            return currentGun;
         }
     }
 
     private void StartGunCreate()
     {
-        gun = Instantiate(startGun, gameObject.transform.position + offsetGun, Quaternion.identity);
-        gun.transform.SetParent(gameObject.transform);
-        gun.transform.CompareTag("Untagged");
-        gun.name = (gun.name.Substring(0, gun.name.IndexOf('('))).Replace(" ", string.Empty);
-        SetSpecGun(gun.name);
-        charShooting.firePoint = gun.transform.GetChild(0);
+        currentGun = Instantiate(startGun, gameObject.transform.position + offsetGun, Quaternion.identity);
+        currentGun.transform.SetParent(gameObject.transform);
+        currentGun.transform.CompareTag("Untagged");
+        currentGun.name = (currentGun.name.Substring(0, currentGun.name.IndexOf('('))).Replace(" ", string.Empty);
+        SetSpecGun(currentGun.name);
+        charShooting.firePoint = currentGun.transform.GetChild(0);
     }
 
 

@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public CharInfo charInfo;
     public Image imgHealthBar;
     public Text textHealth;
     public int Min, Max;
     public float CurrentPercent { get; private set; }
     public int CurrentValue { get; private set; }
 
-    public void SetHealth(int health)
+    public void SetHealth(int health, int _Max, int _Min)
     {
+        Max = _Max;
+        Min = _Min;
         if (health != CurrentValue)
         {
             if (Max - Min == 0)
@@ -34,22 +35,16 @@ public class HealthBar : MonoBehaviour
     public void Damage(int damageAmount)
     {
         if (CurrentValue - damageAmount < 0)
-            SetHealth(0);
+            SetHealth(0, Max, Min);
         else
-            SetHealth(CurrentValue - damageAmount);
+            SetHealth(CurrentValue - damageAmount, Max, Min);
     }
 
     public void Heal(int healAmount)
     {
         if (CurrentValue + healAmount > Max)
-            SetHealth(Max);
+            SetHealth(Max, Max, Min);
         else
-            SetHealth(CurrentValue + healAmount);
-    }
-
-    void Start()
-    {
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
-        SetHealth(charInfo.health);
+            SetHealth(CurrentValue + healAmount, Max, Min);
     }
 }

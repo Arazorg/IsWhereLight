@@ -25,16 +25,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColorMask: 15
-    - _FaceDilate: -0.031
+    - _FaceDilate: 0.661
     - _GradientScale: 10
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
-    - _OutlineSoftness: 0.248
-    - _OutlineWidth: 0.232
+    - _OutlineSoftness: 0.127
+    - _OutlineWidth: 0.27
     - _PerspectiveFilter: 0.875
-    - _ScaleRatioA: 0.9
+    - _ScaleRatioA: 0.7226013
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 0.48632288
+    - _ScaleRatioC: 0.10040498
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -47,8 +47,8 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0.944
-    - _UnderlayOffsetY: 0
+    - _UnderlayOffsetX: 0.741
+    - _UnderlayOffsetY: -0.534
     - _UnderlaySoftness: 0.617
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -7798,6 +7798,7 @@ Texture2D:
   m_TextureFormat: 1
   m_MipCount: 1
   m_IsReadable: 0
+  m_IgnoreMasterTextureLimit: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: -92
   m_AlphaIsTransparency: 0

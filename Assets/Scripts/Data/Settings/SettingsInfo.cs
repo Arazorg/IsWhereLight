@@ -11,8 +11,6 @@ public class SettingsInfo : MonoBehaviour
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
-    public float[] hpBarPosition = new float[2];
-    public float[] maneBarPosition = new float[2];
 
     void Awake()
     {
@@ -41,8 +39,6 @@ public class SettingsInfo : MonoBehaviour
         effectsOn = settingsData.effectsOn;
         joystickPosition = settingsData.joystickPosition;
         fireActButtonPosition = settingsData.fireActButtonPosition;
-        hpBarPosition = settingsData.hpBarPosition;
-        maneBarPosition = settingsData.maneBarPosition;
     }
 
     public void InitDictionary()
@@ -65,7 +61,5 @@ public class SettingsInfo : MonoBehaviour
     {
         joystickPosition = startPositions["joystickPosition"];
         fireActButtonPosition = startPositions["fireActButtonPosition"];
-        hpBarPosition = startPositions["hpBarPosition"];
-        maneBarPosition = startPositions["maneBarPosition"];
     }
 }

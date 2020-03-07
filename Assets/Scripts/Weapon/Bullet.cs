@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //Values
-    private WeaponsSpec.Gun gun;
     public float dmg;
     public float crit;
 
