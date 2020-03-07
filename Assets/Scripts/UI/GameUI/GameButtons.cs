@@ -105,6 +105,7 @@ public class GameButtons : MonoBehaviour
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
+        settingsInfo.SaveSettings();
         pausePanel.SetActive(false);
         SettingsState = false;
         settingsPanel.SetActive(SettingsState);
@@ -114,12 +115,14 @@ public class GameButtons : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1f;
+        settingsInfo.SaveSettings();
         charInfo.SaveChar();
         SceneManager.LoadScene("Menu");
     }
 
     public void OpenCloseSettings()
     {
+        settingsInfo.SaveSettings();
         SettingsState = !SettingsState;
         settingsPanel.SetActive(SettingsState);
     }

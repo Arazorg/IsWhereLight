@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Background : MonoBehaviour, IPointerDownHandler
 {
-
     public GameObject settingsButton;
     public GameObject settingsPanel;
     private SettingsInfo settingsInfo;

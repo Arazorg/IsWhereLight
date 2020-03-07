@@ -11,19 +11,27 @@ public class MenuButtons : MonoBehaviour
     public static bool firstRun;
     private int level;
 
+    private SettingsInfo settingsInfo;
+
     private AudioManager audioManager;
     void Awake()
     {
-        if (File.Exists(Application.persistentDataPath + "/settings.bin"))
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        settingsInfo.InitDictionary();
+        if (File.Exists(SaveSystem.CurrentSettingsFile))
         {
             firstRun = false;
+            settingsInfo.LoadSettings();
         }
         else
-        {
+        {    
+            settingsInfo.SetStartSettings();
+            settingsInfo.SaveSettings();
+            Debug.Log(SaveSystem.CurrentSettingsFile);
             firstRun = true;
         }
 
-        level = SaveSystem.LoadChar().level;
+        level = SaveSystem.LoadSettings().level;
         settings.SetActive(false);
         settingsButton.SetActive(true);
         interfaceSettings.SetActive(false);

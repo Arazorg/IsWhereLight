@@ -6,6 +6,7 @@ public class SettingsInfo : MonoBehaviour
     public static SettingsInfo instance;
     public static Dictionary<string, float[]> startPositions = new Dictionary<string, float[]>();
 
+    public int level;
     public bool musicOn;
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
@@ -15,8 +16,6 @@ public class SettingsInfo : MonoBehaviour
 
     void Awake()
     {
-        InitDictionary();
-
         if (instance != null)
         {
             Destroy(gameObject);
@@ -25,18 +24,6 @@ public class SettingsInfo : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-
-        if (MenuButtons.firstRun == true)
-        {
-            musicOn = true;
-            effectsOn = true;
-            SetStartPositions();
-            SaveSettings();
-        }
-        else
-        {
-            LoadSettings();
         }
     }
 
@@ -49,6 +36,7 @@ public class SettingsInfo : MonoBehaviour
     {
         SettingsData settingsData = SaveSystem.LoadSettings();
 
+        level = settingsData.level;
         musicOn = settingsData.musicOn;
         effectsOn = settingsData.effectsOn;
         joystickPosition = settingsData.joystickPosition;
@@ -56,13 +44,23 @@ public class SettingsInfo : MonoBehaviour
         hpBarPosition = settingsData.hpBarPosition;
         maneBarPosition = settingsData.maneBarPosition;
     }
-    private void InitDictionary()
+
+    public void InitDictionary()
     {
         startPositions["joystickPosition"] = new float[2] { 0, 0 };
         startPositions["fireActButtonPosition"] = new float[2] { -200, 250 };
         startPositions["hpBarPosition"] = new float[2] { 200, -100 };
         startPositions["maneBarPosition"] = new float[2] { 200, -175 };
     }
+
+    public void SetStartSettings()
+    {
+        level = 1;
+        musicOn = true;
+        effectsOn = true;
+        SetStartPositions();
+    }
+
     private void SetStartPositions()
     {
         joystickPosition = startPositions["joystickPosition"];
@@ -70,5 +68,4 @@ public class SettingsInfo : MonoBehaviour
         hpBarPosition = startPositions["hpBarPosition"];
         maneBarPosition = startPositions["maneBarPosition"];
     }
-
 }

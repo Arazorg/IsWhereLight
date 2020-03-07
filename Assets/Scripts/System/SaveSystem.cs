@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 
 public static class SaveSystem
 {
+    public static string CurrentCharFile = Application.persistentDataPath +  "/player" + Application.version + ".bin";
+    public static string CurrentSettingsFile = Application.persistentDataPath + "/settings" + Application.version + ".bin";
+
     public static void SaveChar(CharInfo charInfo)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/player.bin";
+        string path = CurrentCharFile;
         FileStream stream = new FileStream(path, FileMode.Create);
 
         CharData charData = new CharData(charInfo);
@@ -19,7 +23,7 @@ public static class SaveSystem
 
     public static CharData LoadChar()
     {
-        string path = Application.persistentDataPath + "/player.bin";
+        string path = CurrentCharFile;
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -39,7 +43,7 @@ public static class SaveSystem
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/settings.bin";
+        string path = CurrentSettingsFile;
         FileStream stream = new FileStream(path, FileMode.Create);
 
         SettingsData settingsData = new SettingsData(settingsInfo);
@@ -50,7 +54,7 @@ public static class SaveSystem
 
     public static SettingsData LoadSettings()
     {
-        string path = Application.persistentDataPath + "/settings.bin";
+        string path = CurrentSettingsFile;
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

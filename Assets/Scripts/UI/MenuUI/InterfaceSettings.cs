@@ -24,8 +24,8 @@ public class InterfaceSettings : MonoBehaviour
         else
         {
             joystick.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(settingsInfo.joystickPosition[0],
-                                settingsInfo.joystickPosition[1]);
+                new Vector3(settingsInfo.joystickPosition[0] + 256,
+                                settingsInfo.joystickPosition[1] + 256);
             fireActButton.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(settingsInfo.fireActButtonPosition[0],
                                 settingsInfo.fireActButtonPosition[1]);
@@ -44,8 +44,8 @@ public class InterfaceSettings : MonoBehaviour
     public void SetStandartPositions()
     {
         joystick.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(SettingsInfo.startPositions["joystickPosition"][0],
-                                SettingsInfo.startPositions["joystickPosition"][1]);
+                new Vector3(SettingsInfo.startPositions["joystickPosition"][0] + 256,
+                                SettingsInfo.startPositions["joystickPosition"][1] + 256);
         fireActButton.GetComponent<RectTransform>().anchoredPosition =
             new Vector3(SettingsInfo.startPositions["fireActButtonPosition"][0],
                             SettingsInfo.startPositions["fireActButtonPosition"][1]);
@@ -54,8 +54,8 @@ public class InterfaceSettings : MonoBehaviour
     private void SetPosition()
     {
         settingsInfo.joystickPosition
-            = new float[] { joystick.GetComponent<RectTransform>().anchoredPosition.x,
-                                joystick.GetComponent<RectTransform>().anchoredPosition.y};
+            = new float[] { joystick.GetComponent<RectTransform>().anchoredPosition.x - 256,
+                                joystick.GetComponent<RectTransform>().anchoredPosition.y - 256};
         settingsInfo.fireActButtonPosition
             = new float[] { fireActButton.GetComponent<RectTransform>().anchoredPosition.x,
                                 fireActButton.GetComponent<RectTransform>().anchoredPosition.y};

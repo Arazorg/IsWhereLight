@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PauseSettings : MonoBehaviour
 {
-    SettingsInfo settingsInfo;
-    AudioManager audioManager;
+    private SettingsInfo settingsInfo;
+    private AudioManager audioManager;
     private bool musicOn;
     private bool effectsOn;
 

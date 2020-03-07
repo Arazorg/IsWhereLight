@@ -10,6 +10,7 @@ public class CharGun : MonoBehaviour
     //Classes
     public CharShooting charShooting;
     public CharInfo charInfo;
+    private SettingsInfo settingsInfo;
     private GameButtons gameButtons;
     private WeaponsSpec weaponsSpec;
     private Bullet bullet;
@@ -39,7 +40,7 @@ public class CharGun : MonoBehaviour
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
         gunInfoBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("GunInfoBar").gameObject;
         levelBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.Find("LevelBar").gameObject;
-
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         startGun = GameObject.Find(charInfo.startGun);
         offsetGun = new Vector3(0, 0, 0);
 
@@ -47,7 +48,7 @@ public class CharGun : MonoBehaviour
 
         StartGunCreate();
         gunInfoBar.SetActive(false);
-        levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
+        levelBar.GetComponentInChildren<Text>().text = settingsInfo.level.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -113,7 +114,8 @@ public class CharGun : MonoBehaviour
 
     public void ChangeLevel()
     {
-        charInfo.level++;
+        settingsInfo.level++;
+        settingsInfo.SaveSettings();
         charInfo.SaveChar();
         SceneManager.LoadScene("Game");
     }

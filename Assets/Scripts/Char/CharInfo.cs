@@ -5,7 +5,6 @@ public class CharInfo : MonoBehaviour
     //Gameobjects
     private ManaBar manaBar;
     //Values
-    public int level;
     public int health;
     public int mana;
     public int maxHealth;
@@ -16,7 +15,6 @@ public class CharInfo : MonoBehaviour
     {
         if (MenuButtons.firstPlay == true)
         {
-            level = 1;
             mana = maxMana;
             health = maxHealth;
             startGun = "0";
@@ -40,7 +38,6 @@ public class CharInfo : MonoBehaviour
     {
         CharData data = SaveSystem.LoadChar();
 
-        level = data.level;
         health = data.health;
         mana = data.mana;
         startGun = data.startGun;
