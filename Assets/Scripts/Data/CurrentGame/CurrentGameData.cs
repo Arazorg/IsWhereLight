@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentGameData : MonoBehaviour
+[System.Serializable]
+public class CurrentGameData
 {
+    public string character;
+    public string skin;
+    public string startGun;
     public bool wildMode;
     public int level;
     public int startMoney;
     public int maxHealth;
     public int maxMane;
-    public string startGun;
-    public string skin;
-
+    
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
+        character = currentGameInfo.character;
         wildMode = currentGameInfo.wildMode;
         level = currentGameInfo.level;
         startMoney = currentGameInfo.startMoney;

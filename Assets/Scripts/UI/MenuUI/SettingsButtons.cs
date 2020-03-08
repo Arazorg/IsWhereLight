@@ -49,6 +49,7 @@ public class SettingsButtons : MonoBehaviour
         else
             audioManager.Off("Theme");
         settingsInfo.musicOn = musicOn;
+        settingsInfo.SaveSettings();
     }
 
     public void EffectsOnOff()
@@ -60,6 +61,7 @@ public class SettingsButtons : MonoBehaviour
         else
             audioManager.Off("Effects");
         settingsInfo.effectsOn = effectsOn;
+        settingsInfo.SaveSettings();
     }
 
 

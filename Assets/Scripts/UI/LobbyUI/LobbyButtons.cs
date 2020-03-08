@@ -13,6 +13,7 @@ public class LobbyButtons : MonoBehaviour
     void Start()
     {
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+        currentGameInfo.SetStandartParametrs();
     }
 
     public void ChooseCharacter()
@@ -27,6 +28,7 @@ public class LobbyButtons : MonoBehaviour
 
     public void GoToGame()
     {
+        currentGameInfo.SaveCurrentGame();
         SceneManager.LoadScene("Game");
     }
 }

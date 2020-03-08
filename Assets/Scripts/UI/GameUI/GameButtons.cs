@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameButtons : MonoBehaviour
 {
     //Classes
+    private CurrentGameInfo currentGameInfo;
     private CharInfo charInfo;
     private CharShooting charShooting;
     private CharGun charGun;
     private CharAction charAction;
     private ManaBar manaBar;
     private SettingsInfo settingsInfo;
+    
 
     //Values
     public GameObject pausePanel;
@@ -136,5 +139,10 @@ public class GameButtons : MonoBehaviour
         settingsInfo.SaveSettings();
         SettingsState = !SettingsState;
         settingsPanel.SetActive(SettingsState);
+    }
+
+    public void Suicide()
+    {
+        SceneManager.LoadScene("FinishGame");
     }
 }

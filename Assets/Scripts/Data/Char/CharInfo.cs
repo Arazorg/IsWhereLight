@@ -17,30 +17,36 @@ public class CharInfo : MonoBehaviour
     {
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
 
-        if (MenuButtons.firstPlay == true)
+        if (MenuButtons.firstPlay)
         {
-            Debug.Log("LOQIEEAN");
             SetStartParametrs();
+            SaveChar();
         }
         else
         {
+            currentGameInfo.LoadCurrentGame();
             LoadChar();
         }
 
         manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").GetComponentInChildren<HealthBar>();
-        manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
-        healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
+        SetObjects();
     }
 
-    public void SetStartParametrs()
+    private void SetStartParametrs()
     {
         money = currentGameInfo.startMoney;
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
         gun = currentGameInfo.startGun;
         skin = currentGameInfo.skin;
-        MenuButtons.firstPlay = false;
+    }
+
+    private void SetObjects()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/" + currentGameInfo.skin);
+        manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
+        healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
     }
 
     public void SaveChar()

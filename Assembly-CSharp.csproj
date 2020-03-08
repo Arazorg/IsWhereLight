@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnObjects.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnRooms.cs" />
      <Compile Include="Assets\Scripts\System\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\UI\FinishOfGameUI\FinishOfGameButton.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\ManaBar.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />

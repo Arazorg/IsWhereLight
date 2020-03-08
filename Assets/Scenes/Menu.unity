@@ -2603,6 +2603,8 @@ MonoBehaviour:
   settingsButton: {fileID: 1982369270}
   interfaceSettings: {fileID: 1999253284}
   exitButton: {fileID: 1647020677}
+  continueButton: {fileID: 446505492}
+  newGameButton: {fileID: 2021912831}
 --- !u!1 &1840222048
 GameObject:
   m_ObjectHideFlags: 0

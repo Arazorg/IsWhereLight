@@ -28,7 +28,7 @@ public class WeaponsSpec : MonoBehaviour
             crit = 10f,
             dmg = 3f,
             mana = 2,
-            gunPrefab = Resources.Load("Prefabs/Guns/Staff") as GameObject,
+            gunPrefab = Resources.Load<GameObject>("Prefabs/Guns/Staff"),
             bulletPrefab = Resources.Load<GameObject>("Prefabs/Guns/Bullets/Bullet")
             
         });

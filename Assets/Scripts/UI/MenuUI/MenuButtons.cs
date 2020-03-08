@@ -8,6 +8,8 @@ public class MenuButtons : MonoBehaviour
     public GameObject settingsButton;
     public GameObject interfaceSettings;
     public GameObject exitButton;
+    public GameObject continueButton;
+    public GameObject newGameButton;
     public static bool firstPlay;
     public static bool firstRun;
     private int level;
@@ -20,17 +22,30 @@ public class MenuButtons : MonoBehaviour
         exitButton.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         settingsInfo.InitDictionary();
+
         if (File.Exists(SaveSystem.CurrentSettingsFile))
         {
             firstRun = false;
             settingsInfo.LoadSettings();
         }
         else
-        {    
+        {
             settingsInfo.SetStartSettings();
             settingsInfo.SaveSettings();
-            Debug.Log(SaveSystem.CurrentSettingsFile);
             firstRun = true;
+        }
+
+        if (File.Exists(SaveSystem.CurrentGameFile))
+        {
+            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-400, 200);
+            continueButton.SetActive(true);
+            firstPlay = false;
+        }
+        else
+        {
+            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 200);
+            continueButton.SetActive(false);
+            firstPlay = true;
         }
 
         level = SaveSystem.LoadSettings().level;
@@ -64,7 +79,7 @@ public class MenuButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         firstPlay = false;
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Game");
     }
 
     public void LinkToVk()

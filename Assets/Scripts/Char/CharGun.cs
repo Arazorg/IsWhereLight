@@ -33,6 +33,7 @@ public class CharGun : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite.name);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
 
         GameObject gameHandler = GameObject.Find("GameHandler");

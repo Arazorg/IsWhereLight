@@ -6,13 +6,14 @@ public class CurrentGameInfo : MonoBehaviour
 {
     public static CurrentGameInfo instance;
 
+    public string character;
+    public string skin;
+    public string startGun;
     public bool wildMode;
     public int level;
     public int startMoney;
     public int maxHealth;
     public int maxMane;
-    public string startGun;
-    public string skin;
 
     void Awake()
     {       
@@ -25,10 +26,34 @@ public class CurrentGameInfo : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        SetStandartGame();
     }
 
-    private void SetStandartGame()
+    public void SaveCurrentGame()
+    {
+        SaveSystem.SaveCurrentGame(this);
+    }
+
+    public void LoadCurrentGame()
+    {
+        CurrentGameData currentGameData = SaveSystem.LoadCurrentGame();
+
+        character = currentGameData.character;
+        skin = currentGameData.skin;
+        startGun = currentGameData.startGun;
+
+        wildMode = currentGameData.wildMode;
+        level = currentGameData.level;
+        startMoney = currentGameData.startMoney;
+        maxHealth = currentGameData.maxHealth;
+        maxMane = currentGameData.maxMane;
+    }
+
+    private void GetStandartParametrs(string character)
+    {
+
+    }
+
+    public void SetStandartParametrs()
     {
         wildMode = false;
         level = 1;
@@ -36,6 +61,6 @@ public class CurrentGameInfo : MonoBehaviour
         maxHealth = 5;
         maxMane = 100;
         startGun = "Staff";
-        skin = "KhightSkin";
+        skin = "MageSkin";
     }
 }
