@@ -3,7 +3,6 @@
 [System.Serializable]
 public class SettingsData
 {
-    public int level;
     public bool musicOn;
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
@@ -11,7 +10,6 @@ public class SettingsData
 
     public SettingsData(SettingsInfo settingsInfo)
     {
-        level = settingsInfo.level;
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
         joystickPosition = settingsInfo.joystickPosition;

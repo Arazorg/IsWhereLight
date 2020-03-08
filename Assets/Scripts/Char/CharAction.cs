@@ -9,6 +9,7 @@ public class CharAction : MonoBehaviour
     private GameObject gunInfoBar;
     private Button fireActButton;
     private CharInfo charInfo;
+    private CurrentGameInfo currentGameInfo;
     private SettingsInfo settingsInfo;
     private GameButtons gameButtons;
 
@@ -41,7 +42,7 @@ public class CharAction : MonoBehaviour
 
     public void ChangeLevel()
     {
-        settingsInfo.level++;
+        charInfo.level++;
         settingsInfo.SaveSettings();
         charInfo.SaveChar();
         SceneManager.LoadScene("Game");

@@ -7,6 +7,7 @@ public class CharInfo : MonoBehaviour
     private HealthBar healthBar;
     private CurrentGameInfo currentGameInfo;
     //Values
+    public int level;
     public int money;
     public int health;
     public int mane;
@@ -22,6 +23,7 @@ public class CharInfo : MonoBehaviour
         {
             SetStartParametrs();
             SaveChar();
+            MenuButtons.firstPlay = false;
         }
         else
         {
@@ -36,6 +38,7 @@ public class CharInfo : MonoBehaviour
 
     private void SetStartParametrs()
     {
+        level = 1;
         money = currentGameInfo.startMoney;
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
@@ -58,6 +61,7 @@ public class CharInfo : MonoBehaviour
     public void LoadChar()
     {
         CharData data = SaveSystem.LoadChar();
+        level = data.level;
         health = data.health;
         mane = data.mane;
         gun = data.gun;

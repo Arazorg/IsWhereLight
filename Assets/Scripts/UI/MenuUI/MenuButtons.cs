@@ -48,7 +48,6 @@ public class MenuButtons : MonoBehaviour
             firstPlay = true;
         }
 
-        level = SaveSystem.LoadSettings().level;
         settings.SetActive(false);
         settingsButton.SetActive(true);
         interfaceSettings.SetActive(false);
@@ -69,7 +68,6 @@ public class MenuButtons : MonoBehaviour
 
     public void NewGame()
     {
-        settingsInfo.level = 1;
         audioManager.Play("ClickUI");
         firstPlay = true;
         SceneManager.LoadScene("Lobby");

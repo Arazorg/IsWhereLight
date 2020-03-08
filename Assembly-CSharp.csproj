@@ -83,6 +83,8 @@
      <Compile Include="Assets\Scripts\LevelsGeneration\RoomType.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnObjects.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnRooms.cs" />
+     <Compile Include="Assets\Scripts\Specifications\CharactersSpec.cs" />
+     <Compile Include="Assets\Scripts\Specifications\WeaponsSpec.cs" />
      <Compile Include="Assets\Scripts\System\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\UI\FinishOfGameUI\FinishOfGameButton.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\HealthBar.cs" />
@@ -95,7 +97,6 @@
      <Compile Include="Assets\Scripts\UI\MenuUI\MenuButtons.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\SettingsButtons.cs" />
      <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
-     <Compile Include="Assets\Scripts\Weapon\WeaponsSpec.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

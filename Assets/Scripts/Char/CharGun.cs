@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
-using UnityEngine.SceneManagement;
 
 public class CharGun : MonoBehaviour
 {
@@ -33,7 +30,6 @@ public class CharGun : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite.name);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
 
         GameObject gameHandler = GameObject.Find("GameHandler");
@@ -51,7 +47,7 @@ public class CharGun : MonoBehaviour
         builder = new StringBuilder();
         StartGunCreate();
         gunInfoBar.SetActive(false);
-        levelBar.GetComponentInChildren<Text>().text = settingsInfo.level.ToString();
+        levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D coll)

@@ -9,7 +9,6 @@ public class CurrentGameData
     public string skin;
     public string startGun;
     public bool wildMode;
-    public int level;
     public int startMoney;
     public int maxHealth;
     public int maxMane;
@@ -18,7 +17,6 @@ public class CurrentGameData
     {
         character = currentGameInfo.character;
         wildMode = currentGameInfo.wildMode;
-        level = currentGameInfo.level;
         startMoney = currentGameInfo.startMoney;
         maxHealth = currentGameInfo.maxHealth;
         maxMane = currentGameInfo.maxMane;

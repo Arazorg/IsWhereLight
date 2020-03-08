@@ -10,7 +10,6 @@ public class CurrentGameInfo : MonoBehaviour
     public string skin;
     public string startGun;
     public bool wildMode;
-    public int level;
     public int startMoney;
     public int maxHealth;
     public int maxMane;
@@ -42,7 +41,6 @@ public class CurrentGameInfo : MonoBehaviour
         startGun = currentGameData.startGun;
 
         wildMode = currentGameData.wildMode;
-        level = currentGameData.level;
         startMoney = currentGameData.startMoney;
         maxHealth = currentGameData.maxHealth;
         maxMane = currentGameData.maxMane;
@@ -56,7 +54,6 @@ public class CurrentGameInfo : MonoBehaviour
     public void SetStandartParametrs()
     {
         wildMode = false;
-        level = 1;
         startMoney = 0;
         maxHealth = 5;
         maxMane = 100;

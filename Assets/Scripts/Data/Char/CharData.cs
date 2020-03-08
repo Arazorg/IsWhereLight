@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class CharData
 {
+    public int level;
     public int money;
     public int health;
     public int mane;
@@ -14,6 +15,7 @@ public class CharData
 
     public CharData(CharInfo charInfo)
     {
+        level = charInfo.level;
         money = charInfo.money;
         health = charInfo.health;
         mane = charInfo.mane;
