@@ -18,7 +18,7 @@ public class LobbyButtons : MonoBehaviour
 
     public void ChooseCharacter()
     {
-        currentGameInfo.skin = EventSystem.current.currentSelectedGameObject.name;
+        currentGameInfo.character = EventSystem.current.currentSelectedGameObject.name;
     }
 
     public void GoToMenu()

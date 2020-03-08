@@ -10,6 +10,7 @@ public class CharData
     public int mane;
     public string gun;
     public string skin;
+    public string character;
 
     public CharData(CharInfo charInfo)
     {
@@ -18,5 +19,6 @@ public class CharData
         mane = charInfo.mane;
         gun = charInfo.gun;
         skin = charInfo.skin;
+        character = charInfo.character;
     }
 }

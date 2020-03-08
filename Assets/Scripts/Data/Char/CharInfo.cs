@@ -12,6 +12,7 @@ public class CharInfo : MonoBehaviour
     public int mane;
     public string gun;
     public string skin;
+    public string character;
 
     void Start()
     {
@@ -39,12 +40,12 @@ public class CharInfo : MonoBehaviour
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
         gun = currentGameInfo.startGun;
-        skin = currentGameInfo.skin;
+        character = currentGameInfo.character;
     }
 
     private void SetObjects()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/" + currentGameInfo.skin);
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/" + currentGameInfo.character);
         manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
         healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
     }
@@ -61,7 +62,7 @@ public class CharInfo : MonoBehaviour
         mane = data.mane;
         gun = data.gun;
         money = data.money;
-        skin = data.skin;
+        character = data.character;
     }
 
     public void SpendMana(int spendAmount)
