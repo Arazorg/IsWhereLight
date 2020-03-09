@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5585711232506675578}
   - component: {fileID: 5573117679734072193}
   m_Layer: 0
-  m_Name: 1
+  m_Name: NewStaff
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1d10001d8e6d5594da9585a1c7bb8901, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9b25dabea4fb214180226172dac287a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.115384616, y: 0.9307692}
+    oldSize: {x: 0.24, y: 0.88}
     newSize: {x: 0.15, y: 1.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
