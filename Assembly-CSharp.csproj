@@ -91,6 +91,7 @@
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\ManaBar.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\PauseSettings.cs" />
+     <Compile Include="Assets\Scripts\UI\LobbyUI\CharInfoBar.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\LobbyButtons.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceDrag.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />

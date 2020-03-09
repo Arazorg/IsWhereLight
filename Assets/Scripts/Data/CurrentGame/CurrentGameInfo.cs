@@ -59,6 +59,6 @@ public class CurrentGameInfo : MonoBehaviour
         maxHealth = 5;
         maxMane = 100;
         startGun = "Staff";
-        character = "KhightSkin";
+        character = "Khight";
     }
 }

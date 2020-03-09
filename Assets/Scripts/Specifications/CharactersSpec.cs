@@ -5,21 +5,31 @@ using UnityEngine;
 public class CharactersSpec : MonoBehaviour
 {
     public struct Character
-    {
-        public float speed;     
-        public int maxMana;
+    {     
+        public int maxMane;
         public int maxHealth;
-        public GameObject startGun;
+        public string startGun;
+        public string[] skins;
     }
 
-    void Start()
-    {
-        
-    }
+    public Dictionary<string, Character> characters = new Dictionary<string, Character>();
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        characters.Add("Knight", new Character()
+        {
+            maxMane = 100,
+            maxHealth = 7,
+            startGun = "Staff",
+            skins = new string[] { "Knight" }
+        });
+
+        characters.Add("Mage", new Character()
+        {
+            maxMane = 200,
+            maxHealth = 4,
+            startGun = "NewStaff",
+            skins = new string[] { "Mage" }
+        });
     }
 }
