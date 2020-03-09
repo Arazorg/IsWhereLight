@@ -20,7 +20,8 @@ public class LobbyButtons : MonoBehaviour
     {
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-        currentGameInfo.SetStandartParametrs();
+        charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
+        SetSpecChar("Knight");
         SetInfoBar();
     }
 
@@ -42,7 +43,7 @@ public class LobbyButtons : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    private void SetSpecChar(string name)
+    public void SetSpecChar(string name)
     {
         if (charactersSpec.characters.TryGetValue(name, out charSpec))
         {
@@ -58,7 +59,7 @@ public class LobbyButtons : MonoBehaviour
 
     private void SetInfoBar()
     {
-        healthText.text = "Health :" + currentGameInfo.maxHealth.ToString();
+        healthText.text = "Health : " + currentGameInfo.maxHealth.ToString();
         maneText.text = "Mane : " + currentGameInfo.maxMane.ToString();
         gunText.text = "Gun : " + currentGameInfo.startGun.ToString();
     }

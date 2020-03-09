@@ -46,19 +46,4 @@ public class CurrentGameInfo : MonoBehaviour
         maxHealth = currentGameData.maxHealth;
         maxMane = currentGameData.maxMane;
     }
-
-    private void GetStandartParametrs(string character)
-    {
-
-    }
-
-    public void SetStandartParametrs()
-    {
-        wildMode = false;
-        startMoney = 0;
-        maxHealth = 5;
-        maxMane = 100;
-        startGun = "Staff";
-        character = "Khight";
-    }
 }
