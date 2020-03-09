@@ -14,10 +14,14 @@ public class CharController : MonoBehaviour
     private Transform gun;
     private Rigidbody2D rb;
     private GameObject[] enemies;
+    private CharInfo charInfo;
     private bool m_FacingRight = true;
 
     void Start()
     {
+        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
+        Debug.Log("Animations/" + charInfo.character + "/" + charInfo.character);
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/" + charInfo.character + "/" + charInfo.character);
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         gun = transform.GetChild(0); //Current gun
