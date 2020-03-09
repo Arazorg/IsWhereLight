@@ -9,27 +9,40 @@ using UnityEngine.UI;
 public class LobbyButtons : MonoBehaviour
 {
     public Button goToMenuButton;
+    public Button nextCharButton;
+    public Button prevCharButton;
+    public Animator animator;
     private CurrentGameInfo currentGameInfo;
     private CharactersSpec charactersSpec;
     private CharactersSpec.Character charSpec;
+
+    public Text characterText;
     public Text healthText;
     public Text maneText;
     public Text gunText;
 
+    private string[] characters;
+    public int charCounter;
     void Start()
     {
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
-        SetSpecChar("Knight");
-        SetInfoBar();
+        charCounter = 0;
+        characters = new string[] { "Knight", "Mage" };
+        ChooseCharacter();
     }
 
     public void ChooseCharacter()
     {
-        currentGameInfo.character = EventSystem.current.currentSelectedGameObject.name;
+        currentGameInfo.character = characters[charCounter];
         SetSpecChar(currentGameInfo.character);
         SetInfoBar();
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>
+            ("Animations/" + characters[charCounter] + "/" + characters[charCounter]);
+        Debug.Log("Animations/" + characters[charCounter] + "/" + characters[charCounter]);
+        animator.SetFloat("Speed", 1);
+        characterText.text = characters[charCounter];
     }
 
     public void GoToMenu()
@@ -62,5 +75,19 @@ public class LobbyButtons : MonoBehaviour
         healthText.text = "Health : " + currentGameInfo.maxHealth.ToString();
         maneText.text = "Mane : " + currentGameInfo.maxMane.ToString();
         gunText.text = "Gun : " + currentGameInfo.startGun.ToString();
+    }
+
+    public void NextChar()
+    {
+        if (charCounter + 1 < characters.Length)
+            charCounter++;
+        ChooseCharacter();
+    }
+
+    public void PrevChar()
+    {
+        if(charCounter - 1 >= 0)
+            charCounter--;
+        ChooseCharacter();
     }
 }

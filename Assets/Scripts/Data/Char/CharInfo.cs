@@ -48,7 +48,6 @@ public class CharInfo : MonoBehaviour
 
     private void SetObjects()
     {
-        //gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/" + currentGameInfo.character);
         manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
         healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
     }
