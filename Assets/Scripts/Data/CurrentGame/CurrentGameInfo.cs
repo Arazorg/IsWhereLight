@@ -10,6 +10,7 @@ public class CurrentGameInfo : MonoBehaviour
     public string skin;
     public string startGun;
     public bool wildMode;
+
     public int startMoney;
     public int maxHealth;
     public int maxMane;

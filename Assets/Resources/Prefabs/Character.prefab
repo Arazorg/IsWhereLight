@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 376914118}
   - component: {fileID: 4952567868302082640}
   - component: {fileID: -4743250278244837176}
+  - component: {fileID: 2124288211051524171}
   m_Layer: 2
   m_Name: Character
   m_TagString: Player
@@ -77,7 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b0800fb6321ef6e4587564b1ac5e26fa, type: 3}
+  m_Sprite: {fileID: -6656158544584412218, guid: 5385aa5d46452754592c803b18391574,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,18 +103,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.008342743, y: -0.0041713715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7033333, y: 0.7033333}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 8.88, y: 5.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69, y: 0.69}
+  m_Size: {x: 0.48306274, y: 0.9879761}
   m_EdgeRadius: 0
 --- !u!50 &-4659355296405908417
 Rigidbody2D:
@@ -165,7 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
-  speed: 8
+  animator: {fileID: 2124288211051524171}
+  speed: 5
 --- !u!114 &376914118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charShooting: {fileID: 2330422614162298416}
   charInfo: {fileID: 4952567868302082640}
-  gunInfoBar: {fileID: 0}
-  fireActButton: {fileID: 0}
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,11 +195,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a2d27c669f89e4b8435185e4902633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  money: 0
   health: 7
-  mana: 100
-  maxHealth: 7
-  maxMana: 100
-  startGun: Staff
+  mane: 0
+  gun: 
+  skin: 
+  character: 
 --- !u!114 &-4743250278244837176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +214,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff5483979ad6f54cae9337622398907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2124288211051524171
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216328486193946668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

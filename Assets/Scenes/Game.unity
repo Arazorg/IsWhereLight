@@ -1942,7 +1942,6 @@ MonoBehaviour:
   skin: 
   startGun: 
   wildMode: 0
-  level: 0
   startMoney: 0
   maxHealth: 0
   maxMane: 0

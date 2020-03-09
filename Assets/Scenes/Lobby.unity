@@ -223,7 +223,6 @@ MonoBehaviour:
   skin: 
   startGun: 
   wildMode: 0
-  level: 0
   startMoney: 0
   maxHealth: 0
   maxMane: 0
@@ -340,7 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b54dfdd9559c54db3d4fd24a9d4813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   musicOn: 0
   effectsOn: 0
   joystickPosition:
@@ -1259,7 +1257,7 @@ GameObject:
   - component: {fileID: 1421252150}
   - component: {fileID: 1421252149}
   m_Layer: 5
-  m_Name: KhightSkin
+  m_Name: kinganim_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

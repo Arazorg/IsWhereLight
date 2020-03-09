@@ -43,7 +43,7 @@ public class CharGun : MonoBehaviour
 
         startGun = GetGunGameObject(charInfo.gun);
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
-        offsetGun = new Vector3(0, 0, 0);
+        offsetGun = new Vector3(0, -0.3f, 0);
         builder = new StringBuilder();
         StartGunCreate();
         gunInfoBar.SetActive(false);
