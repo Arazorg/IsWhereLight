@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharInfo : MonoBehaviour
 {
@@ -27,8 +28,13 @@ public class CharInfo : MonoBehaviour
         }
         else
         {
-            currentGameInfo.LoadCurrentGame();
-            LoadChar();
+            if(currentGameInfo.LoadCurrentGame())
+                LoadChar();
+            else
+            {
+                SaveSystem.DeleteCurrentGame();
+                SceneManager.LoadScene("Menu");
+            }            
         }
 
         manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
@@ -59,13 +65,13 @@ public class CharInfo : MonoBehaviour
 
     public void LoadChar()
     {
-        CharData data = SaveSystem.LoadChar();
-        level = data.level;
-        health = data.health;
-        mane = data.mane;
-        gun = data.gun;
-        money = data.money;
-        character = data.character;
+        CharData charData = SaveSystem.LoadChar();
+        level = charData.level;
+        health = charData.health;
+        mane = charData.mane;
+        gun = charData.gun;
+        money = charData.money;
+        character = charData.character;
     }
 
     public void SpendMana(int spendAmount)

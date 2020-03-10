@@ -32,11 +32,15 @@ public class SettingsInfo : MonoBehaviour
     public void LoadSettings()
     {
         SettingsData settingsData = SaveSystem.LoadSettings();
-
-        musicOn = settingsData.musicOn;
-        effectsOn = settingsData.effectsOn;
-        joystickPosition = settingsData.joystickPosition;
-        fireActButtonPosition = settingsData.fireActButtonPosition;
+        if (settingsData != null)
+        {
+            musicOn = settingsData.musicOn;
+            effectsOn = settingsData.effectsOn;
+            joystickPosition = settingsData.joystickPosition;
+            fireActButtonPosition = settingsData.fireActButtonPosition;
+        }
+        else
+            SetStartSettings();
     }
 
     public void InitDictionary()
@@ -52,6 +56,7 @@ public class SettingsInfo : MonoBehaviour
         musicOn = true;
         effectsOn = true;
         SetStartPositions();
+        SaveSettings();
     }
 
     private void SetStartPositions()

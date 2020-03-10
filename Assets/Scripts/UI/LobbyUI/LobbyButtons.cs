@@ -13,6 +13,7 @@ public class LobbyButtons : MonoBehaviour
     public Button prevCharButton;
     public Animator animator;
     private CurrentGameInfo currentGameInfo;
+    private ProgressInfo progressInfo;
     private CharactersSpec charactersSpec;
     private CharactersSpec.Character charSpec;
 
@@ -20,6 +21,7 @@ public class LobbyButtons : MonoBehaviour
     public Text healthText;
     public Text maneText;
     public Text gunText;
+    public Text moneyText;
 
     private string[] characters;
     public int charCounter;
@@ -28,9 +30,11 @@ public class LobbyButtons : MonoBehaviour
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
+        progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         charCounter = 0;
         characters = new string[] { "Knight", "Mage" };
         ChooseCharacter();
+        moneyText.text = progressInfo.playerMoney.ToString();
     }
 
     public void ChooseCharacter()
@@ -80,14 +84,18 @@ public class LobbyButtons : MonoBehaviour
     public void NextChar()
     {
         if (charCounter + 1 < characters.Length)
+        {
             charCounter++;
-        ChooseCharacter();
+            ChooseCharacter();
+        }
     }
 
     public void PrevChar()
     {
         if(charCounter - 1 >= 0)
+        {      
             charCounter--;
-        ChooseCharacter();
+            ChooseCharacter();
+        }   
     }
 }

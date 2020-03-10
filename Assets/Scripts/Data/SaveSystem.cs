@@ -8,6 +8,7 @@ public static class SaveSystem
     public static string CurrentCharFile = Application.persistentDataPath + "/player" + Application.version + ".bin";
     public static string CurrentSettingsFile = Application.persistentDataPath + "/settings" + Application.version + ".bin";
     public static string CurrentGameFile = Application.persistentDataPath + "/currentGame" + Application.version + ".bin";
+    public static string ProgressFile = Application.persistentDataPath + "/progress" + Application.version + ".bin";
 
     public static void SaveChar(CharInfo charInfo)
     {
@@ -94,6 +95,37 @@ public static class SaveSystem
             CurrentGameData currentGameData = formatter.Deserialize(stream) as CurrentGameData;
             stream.Close();
             return currentGameData;
+        }
+        else
+        {
+            Debug.Log("Save file not found in" + path);
+            return null;
+        }
+    }
+
+    public static void SaveProgress(ProgressInfo progressInfo)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+
+        string path = ProgressFile;
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        ProgressData progressData = new ProgressData(progressInfo);
+
+        formatter.Serialize(stream, progressData);
+        stream.Close();
+    }
+
+    public static ProgressData LoadProgress()
+    {
+        string path = ProgressFile;
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            ProgressData progressData = formatter.Deserialize(stream) as ProgressData;
+            stream.Close();
+            return progressData;
         }
         else
         {

@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressData : MonoBehaviour
+[System.Serializable]
+public class ProgressData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int playerMoney;
 
-    // Update is called once per frame
-    void Update()
+    public ProgressData(ProgressInfo progressInfo)
     {
-        
+        playerMoney = progressInfo.playerMoney;
     }
 }

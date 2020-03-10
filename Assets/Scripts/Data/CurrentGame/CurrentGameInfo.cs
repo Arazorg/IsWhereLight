@@ -33,17 +33,24 @@ public class CurrentGameInfo : MonoBehaviour
         SaveSystem.SaveCurrentGame(this);
     }
 
-    public void LoadCurrentGame()
+    public bool LoadCurrentGame()
     {
         CurrentGameData currentGameData = SaveSystem.LoadCurrentGame();
+        if(currentGameData != null)
+        {
+            character = currentGameData.character;
+            skin = currentGameData.skin;
+            startGun = currentGameData.startGun;
 
-        character = currentGameData.character;
-        skin = currentGameData.skin;
-        startGun = currentGameData.startGun;
-
-        wildMode = currentGameData.wildMode;
-        startMoney = currentGameData.startMoney;
-        maxHealth = currentGameData.maxHealth;
-        maxMane = currentGameData.maxMane;
+            wildMode = currentGameData.wildMode;
+            startMoney = currentGameData.startMoney;
+            maxHealth = currentGameData.maxHealth;
+            maxMane = currentGameData.maxMane;
+            return true;
+        }
+        else
+        {
+            return false;
+        }     
     }
 }

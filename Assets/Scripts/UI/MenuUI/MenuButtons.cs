@@ -12,26 +12,35 @@ public class MenuButtons : MonoBehaviour
     public GameObject newGameButton;
     public static bool firstPlay;
     public static bool firstRun;
-    private int level;
 
     private SettingsInfo settingsInfo;
+    private ProgressInfo progressInfo;
     private AudioManager audioManager;
 
     void Awake()
     {
         exitButton.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
 
         if (File.Exists(SaveSystem.CurrentSettingsFile))
         {
-            firstRun = false;
             settingsInfo.LoadSettings();
         }
         else
         {
             settingsInfo.SetStartSettings();
-            settingsInfo.SaveSettings();
+        }
+
+        if (File.Exists(SaveSystem.ProgressFile))
+        {
+            progressInfo.LoadProgress();
+            firstRun = false;
+        }
+        else
+        {
+            progressInfo.SetStartProgress();
             firstRun = true;
         }
 

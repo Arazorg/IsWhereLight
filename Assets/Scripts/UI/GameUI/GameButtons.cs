@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameButtons : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameButtons : MonoBehaviour
     public GameObject pausePanel;
     public GameObject pauseButton;
     public GameObject settingsPanel;
+    public Text moneyText;
     private GameObject joystick;
     private GameObject fireActButton;
 
@@ -58,6 +60,7 @@ public class GameButtons : MonoBehaviour
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+        moneyText.text = charInfo.money.ToString();
     }
     void Update()
     {
@@ -144,5 +147,12 @@ public class GameButtons : MonoBehaviour
     public void Suicide()
     {
         SceneManager.LoadScene("FinishGame");
+        FinishOfGameButton.finishGameMoney = charInfo.money;
+    }
+
+    public void PlusMoney()
+    {
+        charInfo.money++;
+        moneyText.text = charInfo.money.ToString();
     }
 }

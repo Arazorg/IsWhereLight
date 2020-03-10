@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class ProgressInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ProgressInfo instance;
+    public int playerMoney;
+
+    void Awake()
     {
-        
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveProgress()
     {
-        
+        SaveSystem.SaveProgress(this);
+    }
+
+    public void LoadProgress()
+    {
+        ProgressData progressData = SaveSystem.LoadProgress();
+        if (progressData != null)
+            playerMoney = progressData.playerMoney;
+        else
+            SetStartProgress();
+    }
+
+    public void SetStartProgress()
+    {
+        playerMoney = 0;
+        SaveProgress();
     }
 }
