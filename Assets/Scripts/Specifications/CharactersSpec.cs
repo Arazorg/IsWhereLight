@@ -10,6 +10,7 @@ public class CharactersSpec : MonoBehaviour
         public int maxHealth;
         public string startGun;
         public string[] skins;
+        public int price;
     }
 
     public Dictionary<string, Character> characters = new Dictionary<string, Character>();
@@ -29,7 +30,8 @@ public class CharactersSpec : MonoBehaviour
             maxMane = 200,
             maxHealth = 4,
             startGun = "NewStaff",
-            skins = new string[] { "Mage" }
+            skins = new string[] { "Mage" },
+            price = 200
         });
     }
 }

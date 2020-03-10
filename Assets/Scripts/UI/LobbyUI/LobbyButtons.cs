@@ -9,8 +9,10 @@ using UnityEngine.UI;
 public class LobbyButtons : MonoBehaviour
 {
     public Button goToMenuButton;
+    public Button goToGameButton;
     public Button nextCharButton;
     public Button prevCharButton;
+    public Button buyButton;
     public Animator animator;
     private CurrentGameInfo currentGameInfo;
     private ProgressInfo progressInfo;
@@ -22,9 +24,12 @@ public class LobbyButtons : MonoBehaviour
     public Text maneText;
     public Text gunText;
     public Text moneyText;
+    public Text priceText;
 
     private string[] characters;
     public int charCounter;
+    public int charPrice;
+
     void Start()
     {
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
@@ -42,11 +47,32 @@ public class LobbyButtons : MonoBehaviour
         currentGameInfo.character = characters[charCounter];
         SetSpecChar(currentGameInfo.character);
         SetInfoBar();
+        ChoosenCharacterUI();
+    }
+
+    public void ChoosenCharacterUI()
+    {
         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>
             ("Animations/" + characters[charCounter] + "/" + characters[charCounter]);
-        Debug.Log("Animations/" + characters[charCounter] + "/" + characters[charCounter]);
         animator.SetFloat("Speed", 1);
         characterText.text = characters[charCounter];
+        priceText.text = charPrice.ToString();
+        buyButton.gameObject.SetActive(!progressInfo.CharacterAccess(characters[charCounter]));
+        GameBuyButtonAccess();
+    }
+
+    public void GameBuyButtonAccess()
+    {
+        if (progressInfo.CharacterAccess(characters[charCounter]))
+        {
+            goToGameButton.gameObject.SetActive(true);
+            buyButton.gameObject.SetActive(false);
+        }   
+        else
+        {
+            goToGameButton.gameObject.SetActive(false);
+            buyButton.gameObject.SetActive(true);
+        }       
     }
 
     public void GoToMenu()
@@ -67,6 +93,7 @@ public class LobbyButtons : MonoBehaviour
             currentGameInfo.maxHealth = charSpec.maxHealth;
             currentGameInfo.maxMane = charSpec.maxMane;
             currentGameInfo.startGun = charSpec.startGun;
+            charPrice = charSpec.price;
         }
         else
         {
@@ -97,5 +124,17 @@ public class LobbyButtons : MonoBehaviour
             charCounter--;
             ChooseCharacter();
         }   
+    }
+
+    public void BuyCharacter()
+    {
+        if (progressInfo.playerMoney >= charPrice)
+        {
+            progressInfo.characters[characters[charCounter]] = true;
+            progressInfo.playerMoney -= charPrice;
+            moneyText.text = progressInfo.playerMoney.ToString();
+            GameBuyButtonAccess();
+            progressInfo.SaveProgress();
+        }           
     }
 }

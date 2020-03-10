@@ -171,7 +171,7 @@ public class GameButtons : MonoBehaviour
 
     public void PlusMoney()
     {
-        charInfo.money++;
+        charInfo.money += 100;
         moneyText.text = charInfo.money.ToString();
     }
 }
