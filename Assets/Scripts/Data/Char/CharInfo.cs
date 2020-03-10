@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharInfo : MonoBehaviour
 {
@@ -16,44 +17,21 @@ public class CharInfo : MonoBehaviour
     public string skin;
     public string character;
 
-    void Start()
+    public void SetStartParametrs()
     {
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-
-        if (MenuButtons.firstPlay)
-        {
-            SetStartParametrs();
-            SaveChar();
-            MenuButtons.firstPlay = false;
-        }
-        else
-        {
-            if(currentGameInfo.LoadCurrentGame())
-                LoadChar();
-            else
-            {
-                SaveSystem.DeleteCurrentGame();
-                SceneManager.LoadScene("Menu");
-            }            
-        }
-
-        manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
-        healthBar = GameObject.Find("Canvas").GetComponentInChildren<HealthBar>();
-        SetObjects();
-    }
-
-    private void SetStartParametrs()
-    {
         level = 1;
         money = currentGameInfo.startMoney;
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
         gun = currentGameInfo.startGun;
         character = currentGameInfo.character;
+        SetObjects();
     }
 
     private void SetObjects()
     {
+        FindObjects();
         manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
         healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
     }
@@ -72,6 +50,7 @@ public class CharInfo : MonoBehaviour
         gun = charData.gun;
         money = charData.money;
         character = charData.character;
+        SetObjects();
     }
 
     public void SpendMana(int spendAmount)
@@ -88,6 +67,13 @@ public class CharInfo : MonoBehaviour
             mane = currentGameInfo.maxMane;
         else
             mane += fillAmount;
+    }
+
+    private void FindObjects()
+    {
+        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+        manaBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<ManaBar>();
+        healthBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<HealthBar>();
     }
 
 }

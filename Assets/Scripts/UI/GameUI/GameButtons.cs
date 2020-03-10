@@ -43,7 +43,9 @@ public class GameButtons : MonoBehaviour
 
         fireActButtonState = 0;
         nextFire = 0.0f;
-        
+
+        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+
         GameObject character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
@@ -60,6 +62,23 @@ public class GameButtons : MonoBehaviour
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+
+        if (MenuButtons.firstPlay)
+        {
+            charInfo.SetStartParametrs();
+            charInfo.SaveChar();
+            MenuButtons.firstPlay = false;
+        }
+        else
+        {
+            if (currentGameInfo.LoadCurrentGame())
+                charInfo.LoadChar();
+            else
+            {
+                SaveSystem.DeleteCurrentGame();
+                SceneManager.LoadScene("Menu");
+            }
+        }
         moneyText.text = charInfo.money.ToString();
     }
     void Update()
