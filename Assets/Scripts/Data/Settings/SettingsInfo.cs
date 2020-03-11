@@ -6,6 +6,7 @@ public class SettingsInfo : MonoBehaviour
     public static SettingsInfo instance;
     public static Dictionary<string, float[]> startPositions = new Dictionary<string, float[]>();
 
+    public string currentLocalization;
     public bool musicOn;
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
@@ -34,6 +35,7 @@ public class SettingsInfo : MonoBehaviour
         SettingsData settingsData = SaveSystem.LoadSettings();
         if (settingsData != null)
         {
+            currentLocalization = settingsData.currentLocalization;
             musicOn = settingsData.musicOn;
             effectsOn = settingsData.effectsOn;
             joystickPosition = settingsData.joystickPosition;
@@ -53,6 +55,8 @@ public class SettingsInfo : MonoBehaviour
 
     public void SetStartSettings()
     {
+        currentLocalization = "localizedText_en";
+        Debug.Log(currentLocalization);
         musicOn = true;
         effectsOn = true;
         SetStartPositions();

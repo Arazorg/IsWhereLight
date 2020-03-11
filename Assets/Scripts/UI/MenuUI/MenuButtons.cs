@@ -27,14 +27,13 @@ public class MenuButtons : MonoBehaviour
 
     void Awake()
     {
-        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-        localizationManager.LoadLocalizedText("localizedText_en");
-        exitButton.gameObject.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
-        audioManager = FindObjectOfType<AudioManager>();
         FilesCheck();
+        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
+        localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
+        audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Theme");
         SetStartObjectsActive();
     }
@@ -52,6 +51,7 @@ public class MenuButtons : MonoBehaviour
 
     private void SetStartObjectsActive()
     {
+        exitButton.gameObject.SetActive(false);
         localization.SetActive(false);
         secretCode.SetActive(false);
         settings.SetActive(false);

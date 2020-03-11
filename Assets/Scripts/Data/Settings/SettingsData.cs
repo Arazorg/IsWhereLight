@@ -3,6 +3,7 @@
 [System.Serializable]
 public class SettingsData
 {
+    public string currentLocalization;
     public bool musicOn;
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
@@ -10,6 +11,7 @@ public class SettingsData
 
     public SettingsData(SettingsInfo settingsInfo)
     {
+        currentLocalization = settingsInfo.currentLocalization;
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
         joystickPosition = settingsInfo.joystickPosition;

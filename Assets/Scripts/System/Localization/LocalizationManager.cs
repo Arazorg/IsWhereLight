@@ -6,7 +6,7 @@ using UnityEngine;
 public class LocalizationManager : MonoBehaviour
 {
     public static LocalizationManager instance;
-
+    private SettingsInfo settingsInfo;
     private Dictionary<string, string> localizedText;
     private bool isReady = false;
     private readonly string missingStringText = "Localized text not found";
@@ -23,21 +23,24 @@ public class LocalizationManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         texts = GameObject.FindGameObjectsWithTag("Text");
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+
     }
 
     public void LoadLocalizedText(string fileName)
     {
         localizedText = new Dictionary<string, string>();
 
-        TextAsset test = Resources.Load<TextAsset>(Path.Combine("LocalizationFiles/", fileName));
-        string dataAsJson = test.text;
+        TextAsset localizationFile = Resources.Load<TextAsset>(Path.Combine("LocalizationFiles/", fileName));
+        string dataAsJson = localizationFile.text;
         LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
 
         for (int i = 0; i < loadedData.items.Length; i++)
         {
             localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
         }
-
+        settingsInfo.currentLocalization = fileName;
+        settingsInfo.SaveSettings();
         Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
         RefreshText();
         isReady = true;
