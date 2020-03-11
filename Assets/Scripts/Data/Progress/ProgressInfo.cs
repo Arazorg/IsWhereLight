@@ -5,7 +5,9 @@ using UnityEngine;
 public class ProgressInfo : MonoBehaviour
 {
     public static ProgressInfo instance;
+
     public Dictionary<string, bool> characters = new Dictionary<string, bool>();
+    public Dictionary<string, int> secretCodes = new Dictionary<string, int>();
     public int playerMoney;
 
     void Awake()
@@ -33,20 +35,19 @@ public class ProgressInfo : MonoBehaviour
         {
             playerMoney = progressData.playerMoney;
             characters = progressData.characters;
+            secretCodes = progressData.secretCodes;
         }
         else
         {
-            Debug.Log("!!!!!!!!!!");
             SetStartProgress();
         }
-           
     }
 
     public void SetStartProgress()
     {
         playerMoney = 0;
-        characters.Add("Knight", true);
-        characters.Add("Mage", false);
+        CharactersInit();
+        SecretCodesInit();
         SaveProgress();
     }
 
@@ -56,5 +57,33 @@ public class ProgressInfo : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private void CharactersInit()
+    {
+        characters.Add("Knight", true);
+        characters.Add("Mage", false);
+    }
+
+    private void SecretCodesInit()
+    {
+        secretCodes.Add("arazorg", 999);
+        secretCodes.Add("valerick", 1000);
+    }
+
+    public string CheckSecretCode(string code)
+    {
+        if (secretCodes.ContainsKey(code))
+        {
+            if (secretCodes[code] != 0)
+            {
+                playerMoney += secretCodes[code];
+                secretCodes[code] = 0;
+                SaveProgress();
+                return "correct code";
+            }
+            return "code already used";
+        }
+        return "incorrect code";
     }
 }

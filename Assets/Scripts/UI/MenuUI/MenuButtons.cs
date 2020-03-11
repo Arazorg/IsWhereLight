@@ -1,15 +1,20 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
     public GameObject settings;
     public GameObject settingsButton;
+    public InputField secretCodeField;
+    public GameObject secretCodePanel;
     public GameObject interfaceSettings;
     public GameObject exitButton;
     public GameObject continueButton;
     public GameObject newGameButton;
+
     public static bool firstPlay;
     public static bool firstRun;
 
@@ -57,6 +62,7 @@ public class MenuButtons : MonoBehaviour
             firstPlay = true;
         }
 
+        secretCodePanel.SetActive(false);
         settings.SetActive(false);
         settingsButton.SetActive(true);
         interfaceSettings.SetActive(false);
@@ -111,8 +117,24 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
+    public void SecretCodePanelOpen()
+    {
+        secretCodePanel.SetActive(true);
+    }
+
+    public void SecretCodePanelClose()
+    {
+        secretCodePanel.SetActive(false);
+    }
+
+    public void CheckSecretCode()
+    {
+        Debug.Log(progressInfo.CheckSecretCode(secretCodeField.text));
+    }
+
     public void AllPanelClose()
     {
+        secretCodePanel.SetActive(false);
         settings.SetActive(false);
         settingsButton.SetActive(true);
         exitButton.SetActive(false);
@@ -123,5 +145,4 @@ public class MenuButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         Application.Quit();
     }
-
 }
