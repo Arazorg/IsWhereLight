@@ -50,30 +50,6 @@ TextureImporter:
   - first:
       213: 1901474272737849966
     second: MageSprite_15
-  - first:
-      213: -5365729157629981022
-    second: MageSprite_16
-  - first:
-      213: 5253578655983797640
-    second: MageSprite_17
-  - first:
-      213: 1217613269675053555
-    second: MageSprite_18
-  - first:
-      213: 1262647462462174093
-    second: MageSprite_19
-  - first:
-      213: 8524816117913088695
-    second: MageSprite_20
-  - first:
-      213: -5823835652898041270
-    second: MageSprite_21
-  - first:
-      213: 3753041138463961812
-    second: MageSprite_22
-  - first:
-      213: 625240160759465798
-    second: MageSprite_23
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -155,6 +131,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -174,9 +162,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,9 +183,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,9 +204,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,9 +225,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 300
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,9 +246,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,9 +267,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,9 +288,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,9 +309,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 700
-        y: 100
+        y: 107
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,10 +329,10 @@ TextureImporter:
       name: MageSprite_8
       rect:
         serializedVersion: 2
-        x: 800
-        y: 100
+        x: 0
+        y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,10 +350,10 @@ TextureImporter:
       name: MageSprite_9
       rect:
         serializedVersion: 2
-        x: 900
-        y: 100
+        x: 100
+        y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,10 +371,10 @@ TextureImporter:
       name: MageSprite_10
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 100
+        x: 200
+        y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,10 +392,10 @@ TextureImporter:
       name: MageSprite_11
       rect:
         serializedVersion: 2
-        x: 1100
-        y: 100
+        x: 300
+        y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,10 +413,10 @@ TextureImporter:
       name: MageSprite_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 400
         y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,10 +434,10 @@ TextureImporter:
       name: MageSprite_13
       rect:
         serializedVersion: 2
-        x: 100
+        x: 500
         y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -467,10 +455,10 @@ TextureImporter:
       name: MageSprite_14
       rect:
         serializedVersion: 2
-        x: 200
+        x: 600
         y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,10 +476,10 @@ TextureImporter:
       name: MageSprite_15
       rect:
         serializedVersion: 2
-        x: 300
+        x: 700
         y: 0
         width: 100
-        height: 100
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -501,174 +489,6 @@ TextureImporter:
       bones: []
       spriteID: e627510d6c4636a10800000000000000
       internalID: 1901474272737849966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_16
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ae428e82c91985b0800000000000000
-      internalID: -5365729157629981022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_17
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8850d75f3f578e840800000000000000
-      internalID: 5253578655983797640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_18
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f198cc41d4d5e010800000000000000
-      internalID: 1217613269675053555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_19
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d833b946d23d58110800000000000000
-      internalID: 1262647462462174093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_20
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b2fbb3c71b3e4670800000000000000
-      internalID: 8524816117913088695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_21
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a42d1c664549d2fa0800000000000000
-      internalID: -5823835652898041270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_22
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d2729de70b751430800000000000000
-      internalID: 3753041138463961812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MageSprite_23
-      rect:
-        serializedVersion: 2
-        x: 1100
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64740611d9c4da800800000000000000
-      internalID: 625240160759465798
       vertices: []
       indices: 
       edges: []
