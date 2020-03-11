@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsButtons : MonoBehaviour
 {
     public GameObject settings;
-    public GameObject settingsButton;
+    public GameObject localization;
+    public GameObject secretCode;
     public GameObject interfaceSettings;
     public GameObject menu;
-    private bool musicOn;
-    private bool effectsOn;
+    public Button settingsButton;
+
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
+    private LocalizationManager localizationManager;
+
+    private bool musicOn;
+    private bool effectsOn;
 
     void Start()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         audioManager = FindObjectOfType<AudioManager>();
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
@@ -33,10 +40,10 @@ public class SettingsButtons : MonoBehaviour
     {
         settingsInfo.SaveSettings();
         audioManager.Play("ClickUI");
-        if (settingsButton.activeSelf == false)
+        if (settingsButton.gameObject.activeSelf == false)
         {
             settings.SetActive(false);
-            settingsButton.SetActive(true);
+            settingsButton.gameObject.SetActive(true);
         }
     }
 
@@ -64,5 +71,28 @@ public class SettingsButtons : MonoBehaviour
         settingsInfo.SaveSettings();
     }
 
+    public void SecretCodePanelOpen()
+    {
+        secretCode.SetActive(true);
+    }
 
+    public void SecretCodePanelClose()
+    {
+        secretCode.SetActive(false);
+    }
+
+    public void LocalizationPanelOpen()
+    {
+        localization.SetActive(true);
+    }
+
+    public void LocalizationPanelClose()
+    {
+        localization.SetActive(false);
+    }
+
+     public void ChangeLanguage(string fileName)
+     {
+        localizationManager.LoadLocalizedText(fileName);
+     }
 }

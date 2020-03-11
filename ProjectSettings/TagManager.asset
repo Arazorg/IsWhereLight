@@ -11,6 +11,7 @@ TagManager:
   - StandartBullet
   - Portal
   - Chest
+  - Text
   layers:
   - Default
   - TransparentFX

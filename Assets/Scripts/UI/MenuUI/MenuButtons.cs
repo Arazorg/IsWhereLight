@@ -7,28 +7,60 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
     public GameObject settings;
-    public GameObject settingsButton;
-    public InputField secretCodeField;
-    public GameObject secretCodePanel;
+    public GameObject localization;
+    public GameObject secretCode;
     public GameObject interfaceSettings;
-    public GameObject exitButton;
-    public GameObject continueButton;
-    public GameObject newGameButton;
 
+    public Button settingsButton;
+    public Button exitButton;
+    public Button continueButton;
+    public Button newGameButton;
+    public InputField secretCodeField;
+    
     public static bool firstPlay;
     public static bool firstRun;
 
     private SettingsInfo settingsInfo;
     private ProgressInfo progressInfo;
     private AudioManager audioManager;
+    private LocalizationManager localizationManager;
 
     void Awake()
     {
-        exitButton.SetActive(false);
+        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
+        localizationManager.LoadLocalizedText("localizedText_ru.json");
+        exitButton.gameObject.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
+        audioManager = FindObjectOfType<AudioManager>();
+        FilesCheck();
+        audioManager.Play("Theme");
+        SetStartObjectsActive();
+    }
 
+    void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                exitButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void SetStartObjectsActive()
+    {
+        localization.SetActive(false);
+        secretCode.SetActive(false);
+        settings.SetActive(false);
+        settingsButton.gameObject.SetActive(true);
+        interfaceSettings.SetActive(false);
+    }
+
+    private void FilesCheck()
+    {
         if (File.Exists(SaveSystem.CurrentSettingsFile))
         {
             settingsInfo.LoadSettings();
@@ -52,33 +84,20 @@ public class MenuButtons : MonoBehaviour
         if (File.Exists(SaveSystem.CurrentGameFile))
         {
             newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-400, 200);
-            continueButton.SetActive(true);
+            continueButton.gameObject.SetActive(true);
             firstPlay = false;
         }
         else
         {
             newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 200);
-            continueButton.SetActive(false);
+            continueButton.gameObject.SetActive(false);
             firstPlay = true;
         }
-
-        secretCodePanel.SetActive(false);
-        settings.SetActive(false);
-        settingsButton.SetActive(true);
-        interfaceSettings.SetActive(false);
-        audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play("Theme");
     }
 
-    void Update()
+    public void CheckSecretCode()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                exitButton.SetActive(true);
-            }
-        }
+        Debug.Log(progressInfo.CheckSecretCode(secretCodeField.text));
     }
 
     public void NewGame()
@@ -110,34 +129,20 @@ public class MenuButtons : MonoBehaviour
     public void SettingsPanelOpen()
     {
         audioManager.Play("ClickUI");
-        if (settingsButton.activeSelf == true)
+        if (settingsButton.gameObject.activeSelf == true)
         {
             settings.SetActive(true);
-            settingsButton.SetActive(false);
+            settingsButton.gameObject.SetActive(false);
         }
-    }
-
-    public void SecretCodePanelOpen()
-    {
-        secretCodePanel.SetActive(true);
-    }
-
-    public void SecretCodePanelClose()
-    {
-        secretCodePanel.SetActive(false);
-    }
-
-    public void CheckSecretCode()
-    {
-        Debug.Log(progressInfo.CheckSecretCode(secretCodeField.text));
     }
 
     public void AllPanelClose()
     {
-        secretCodePanel.SetActive(false);
+        localization.SetActive(false);
+        secretCode.SetActive(false);
         settings.SetActive(false);
-        settingsButton.SetActive(true);
-        exitButton.SetActive(false);
+        exitButton.gameObject.SetActive(false);
+        settingsButton.gameObject.SetActive(true);
     }
 
     public void ExitGame()
