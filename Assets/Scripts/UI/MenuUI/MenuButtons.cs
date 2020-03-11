@@ -28,7 +28,7 @@ public class MenuButtons : MonoBehaviour
     void Awake()
     {
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-        localizationManager.LoadLocalizedText("localizedText_ru.json");
+        localizationManager.LoadLocalizedText("localizedText_en");
         exitButton.gameObject.SetActive(false);
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();

@@ -28,24 +28,17 @@ public class LocalizationManager : MonoBehaviour
     public void LoadLocalizedText(string fileName)
     {
         localizedText = new Dictionary<string, string>();
-        string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
 
-        if (File.Exists(filePath))
+        TextAsset test = Resources.Load<TextAsset>(Path.Combine("LocalizationFiles/", fileName));
+        string dataAsJson = test.text;
+        LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+
+        for (int i = 0; i < loadedData.items.Length; i++)
         {
-            string dataAsJson = File.ReadAllText(filePath);
-            LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
-
-            for (int i = 0; i < loadedData.items.Length; i++)
-            {
-                localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
-            }
-
-            Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
+            localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
         }
-        else
-        {
-            Debug.LogError("Cannot find file!");
-        }
+
+        Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
         RefreshText();
         isReady = true;
     }
@@ -71,5 +64,10 @@ public class LocalizationManager : MonoBehaviour
             LocalizedText localizedText = text.GetComponent<LocalizedText>();
             localizedText.SetLocalization();
         }
+    }
+
+    public void CreateLocalizationFile()
+    {
+
     }
 }
