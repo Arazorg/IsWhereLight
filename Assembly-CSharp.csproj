@@ -89,7 +89,8 @@
      <Compile Include="Assets\Scripts\System\Localization\LocalizationData.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationManager.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizedText.cs" />
-     <Compile Include="Assets\Scripts\System\StartupManager.cs" />
+     <Compile Include="Assets\Scripts\System\Startup\MenuLoader.cs" />
+     <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\Scripts\UI\FinishOfGameUI\FinishOfGameButton.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\ManaBar.cs" />

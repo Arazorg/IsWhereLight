@@ -16,7 +16,7 @@ public class MenuButtons : MonoBehaviour
     public Button continueButton;
     public Button newGameButton;
     public InputField secretCodeField;
-    
+
     public static bool firstPlay;
     public static bool firstRun;
 
@@ -31,8 +31,7 @@ public class MenuButtons : MonoBehaviour
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
         FilesCheck();
-        if (GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>() == null)
-            Debug.Log("!");
+
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
