@@ -31,6 +31,8 @@ public class MenuButtons : MonoBehaviour
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
         FilesCheck();
+        if (GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>() == null)
+            Debug.Log("!");
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
@@ -149,5 +151,10 @@ public class MenuButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         Application.Quit();
+    }
+
+    public void ChangeLanguage(string file)
+    {
+        localizationManager.LoadLocalizedText(file);
     }
 }

@@ -1828,6 +1828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b54dfdd9559c54db3d4fd24a9d4813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLocalization: 
   musicOn: 0
   effectsOn: 0
   joystickPosition:
@@ -2560,8 +2561,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1259456493}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1815751197}
+        m_MethodName: ChangeLanguage
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2688,8 +2689,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1259456493}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1815751197}
+        m_MethodName: ChangeLanguage
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

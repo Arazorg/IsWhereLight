@@ -44,7 +44,7 @@ public class LocalizedTextEditor : EditorWindow
 
     private void LoadGameData()
     {
-        string filePath = EditorUtility.OpenFilePanel("Select localization data file", Application.streamingAssetsPath, "json");
+        string filePath = EditorUtility.OpenFilePanel("Select localization data file", "C:\\Users\\Arazorg\\Documents\\unity\\IsWhereLight\\Assets\\Resources", "json");
 
         if (!string.IsNullOrEmpty(filePath))
         {
@@ -56,7 +56,7 @@ public class LocalizedTextEditor : EditorWindow
 
     private void SaveGameData()
     {
-        string filePath = EditorUtility.SaveFilePanel("Save localization data file", Application.streamingAssetsPath, "", "json");
+        string filePath = EditorUtility.SaveFilePanel("Save localization data file", "C:\\Users\\Arazorg\\Documents\\unity\\IsWhereLight\\Assets\\Resources", "", "json");
 
         if (!string.IsNullOrEmpty(filePath))
         {

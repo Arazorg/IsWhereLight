@@ -22,7 +22,6 @@ public class LocalizationManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        texts = GameObject.FindGameObjectsWithTag("Text");
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
 
     }
@@ -62,6 +61,7 @@ public class LocalizationManager : MonoBehaviour
 
     public void RefreshText()
     {
+        texts = GameObject.FindGameObjectsWithTag("Text");
         foreach (var text in texts)
         {
             LocalizedText localizedText = text.GetComponent<LocalizedText>();
