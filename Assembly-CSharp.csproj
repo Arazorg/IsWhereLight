@@ -78,7 +78,9 @@
      <Compile Include="Assets\Scripts\Data\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\Data\Settings\SettingsData.cs" />
      <Compile Include="Assets\Scripts\Data\Settings\SettingsInfo.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\LevelGeneration.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\RoomType.cs" />
      <Compile Include="Assets\Scripts\LevelsGeneration\SpawnObjects.cs" />

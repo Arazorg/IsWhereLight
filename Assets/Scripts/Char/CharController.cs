@@ -27,9 +27,10 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
+        bool move = MoveChar();
         if (!RotateGunToEnemy())
         {
-            if (MoveChar())
+            if (move)
             {
                 gunAngle = RotateGun();
             }
@@ -37,7 +38,7 @@ public class CharController : MonoBehaviour
             {
                 transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
             }
-        }        
+        }
     }
 
     private float RotateGun()
@@ -99,7 +100,6 @@ public class CharController : MonoBehaviour
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;
-
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

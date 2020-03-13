@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LocalizedText : MonoBehaviour
 {
     public string key;
-    Text text;
+    TextMeshProUGUI text;
 
     void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         text.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
 
     public void SetLocalization()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         text.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
 }
