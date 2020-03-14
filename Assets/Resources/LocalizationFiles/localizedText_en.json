@@ -1,1 +1,19 @@
-{"items":[{"key":"game_title","value":"castle"}]}
+{
+  "items": [
+
+    {
+      "key": "game_title",
+      "value": "castle"
+    },
+
+    {
+      "key": "new_game_button",
+      "value": "New Game"
+    },
+
+    {
+      "key": "continue_game_button",
+      "value": "Continue Game"
+    }
+  ]
+}

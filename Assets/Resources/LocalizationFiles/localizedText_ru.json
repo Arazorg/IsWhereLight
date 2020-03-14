@@ -1,1 +1,19 @@
-{"items":[{"key":"game_title","value":"замок"}]}
+{
+  "items": [
+
+    {
+      "key": "game_title",
+      "value": "замок"
+    },
+
+    {
+      "key": "new_game_button",
+      "value": "Новая Игра"
+    },
+
+    {
+      "key": "continue_game_button",
+      "value": "Продолжить Игру"
+    }
+  ]
+}
