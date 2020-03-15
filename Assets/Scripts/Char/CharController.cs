@@ -27,10 +27,9 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        bool move = MoveChar();
         if (!RotateGunToEnemy())
         {
-            if (move)
+            if (MoveChar())
             {
                 gunAngle = RotateGun();
             }
@@ -72,7 +71,7 @@ public class CharController : MonoBehaviour
 
             if (hit.collider.tag == "Enemy")
             {
-                float gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x, 
+                gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x, 
                     closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
                 gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
                 return true;

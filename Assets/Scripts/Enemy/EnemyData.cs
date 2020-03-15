@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemies/Standart Enemy", fileName = "New Enemy")]
 public class EnemyData : ScriptableObject
 {
-    [Tooltip("Main animator")]
+    [Tooltip("Основной аниматор")]
     [SerializeField] private RuntimeAnimatorController mainAnimator;
     public RuntimeAnimatorController MainAnimator
     {
@@ -13,7 +13,7 @@ public class EnemyData : ScriptableObject
         protected set { } 
     }
 
-    [Tooltip("Speed of enemy")]
+    [Tooltip("Скорость врага")]
     [SerializeField] private float speed;
     public float Speed
     {
@@ -21,7 +21,15 @@ public class EnemyData : ScriptableObject
         protected set { }
     }
 
-    [Tooltip("Attack of enemy")]
+    [Tooltip("Здоровье врага")]
+    [SerializeField] private float health;
+    public float Health
+    {
+        get { return health; }
+        protected set { }
+    }
+
+    [Tooltip("Атака врага")]
     [SerializeField] private float attack;
     public float Attack
     {
