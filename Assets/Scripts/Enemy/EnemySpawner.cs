@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
             currentEnemies.Enqueue(prefab);
         }
 
-        Enemy.OnEnemyDeath += ReturnEnemy;
+        //Enemy.OnEnemyDeath += ReturnEnemy;
     }
 
     private IEnumerator Spawn()
@@ -65,10 +65,10 @@ public class EnemySpawner : MonoBehaviour
     /// Возврат объекта обратно в пул и подготовка к повторному использованию
     /// </summary>
     /// <param name="enemy"></param>
-    private void ReturnEnemy(GameObject enemy)
+    private void ReturnEnemy(GameObject _enemy)
     {
-        enemy.transform.position = transform.position;
-        enemy.SetActive(false);
-        currentEnemies.Enqueue(enemy);
+        _enemy.transform.position = transform.position;
+        _enemy.SetActive(false);
+        currentEnemies.Enqueue(_enemy);
     }
 }

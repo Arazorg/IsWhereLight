@@ -27,15 +27,38 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
+        rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
+                                     Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
+
         if (!RotateGunToEnemy())
         {
-            if (MoveChar())
+            if (joystick.Horizontal > 0 && !m_FacingRight)
+                Flip();
+            else if (joystick.Horizontal < 0 && m_FacingRight)
+                Flip();
+
+            if (joystick.Horizontal != 0 && joystick.Vertical != 0)
             {
                 gunAngle = RotateGun();
             }
             else
             {
                 transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+            }
+        }
+        else
+        {
+            
+            if(0 <= gunAngle  && gunAngle <= 180)
+            {
+                m_FacingRight = false;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                m_FacingRight = true;
+                transform.localScale = new Vector3(1, 1, 1); 
             }
         }
     }
@@ -73,26 +96,11 @@ public class CharController : MonoBehaviour
             {
                 gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x, 
                     closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+                gun = transform.GetChild(0);
                 gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
                 return true;
             }
         }
-        return false;
-    }
-
-    private bool MoveChar()
-    {
-        animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
-        if (joystick.Horizontal > 0 && !m_FacingRight)
-            Flip();
-        else if (joystick.Horizontal < 0 && m_FacingRight)
-            Flip();
-
-        rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal* speed, 0.8f),
-                                     Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
-        
-        if (new Vector2(joystick.Horizontal, joystick.Vertical) != Vector2.zero)
-            return true;
         return false;
     }
 

@@ -17,7 +17,6 @@ public class CharGun : MonoBehaviour
     private GameObject gunInfoBar;
     private Button fireActButton;
     private GameObject levelBar;
-    private StringBuilder builder;
 
     //Gameobjects
     private GameObject startGun;
@@ -43,8 +42,7 @@ public class CharGun : MonoBehaviour
 
         startGun = GetGunGameObject(charInfo.gun);
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
-        offsetGun = new Vector3(0, -0.3f, 0);
-        builder = new StringBuilder();
+        offsetGun = new Vector3(0, -0.35f, 0);
         StartGunCreate();
         gunInfoBar.SetActive(false);
         levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
@@ -58,7 +56,7 @@ public class CharGun : MonoBehaviour
             WeaponsSpec.Gun floorGunInfo;
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().color = Color.green;
-            fireActButton.GetComponentInChildren<Text>().text = "Catch";
+            //fireActButton.GetComponentInChildren<Text>().text = "Catch";
             gunInfoBar.SetActive(true);
             try
             {
@@ -69,8 +67,7 @@ public class CharGun : MonoBehaviour
             {
                 floorGunInfo = GetSpecGun(coll.gameObject.name);
             }
-            gunInfoBar.GetComponentInChildren<Text>().text = builder.Append($"{floorGunInfo.dmg} DMG | {floorGunInfo.crit}% CRIT | {floorGunInfo.mana} MANA").ToString();
-            builder.Clear();
+            gunInfoBar.GetComponentInChildren<Text>().text = $"{floorGunInfo.dmg} DMG | {floorGunInfo.crit}% CRIT | {floorGunInfo.mana} MANA";
         }
     }
 
@@ -78,7 +75,7 @@ public class CharGun : MonoBehaviour
     {
         gameButtons.fireActButtonState = 0;//Fire
         fireActButton.GetComponent<Image>().color = Color.red;
-        fireActButton.GetComponentInChildren<Text>().text = "Fire";
+        //fireActButton.GetComponentInChildren<Text>().text = "Fire";
         gunInfoBar.SetActive(false);
     }
 
@@ -89,10 +86,12 @@ public class CharGun : MonoBehaviour
         Destroy(currentGun);
         currentGun = Instantiate(floorGun, gameObject.transform.position + offsetGun, Quaternion.identity);
         currentGun.transform.SetParent(gameObject.transform);
+        currentGun.transform.localScale = new Vector3(1, 1, 1);
         currentGun.transform.CompareTag("Untagged");
         currentGun.name = (currentGun.name.Substring(0, currentGun.name.IndexOf('('))).Replace(" ", string.Empty);
         charInfo.gun = currentGun.name;
         SetSpecGun(currentGun.name);
+
         charShooting.firePoint = currentGun.transform.GetChild(0);
         Destroy(floorGun);
     }

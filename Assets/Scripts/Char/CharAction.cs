@@ -29,14 +29,14 @@ public class CharAction : MonoBehaviour
         {
             gameButtons.fireActButtonState = 2;//Activate Portal
             fireActButton.GetComponent<Image>().color = Color.blue;
-            fireActButton.GetComponentInChildren<Text>().text = "Enter";
+            //fireActButton.GetComponentInChildren<Text>().text = "Enter";
 
         }
 
         if (coll.gameObject.tag == "Chest")
         {
             fireActButton.GetComponent<Image>().color = Color.yellow;
-            fireActButton.GetComponentInChildren<Text>().text = "Open";
+           // fireActButton.GetComponentInChildren<Text>().text = "Open";
         }
     }
 

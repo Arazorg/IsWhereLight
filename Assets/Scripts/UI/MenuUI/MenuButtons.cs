@@ -84,13 +84,13 @@ public class MenuButtons : MonoBehaviour
 
         if (File.Exists(SaveSystem.CurrentGameFile))
         {
-            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-400, 200);
+            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-350, 250);
             continueButton.gameObject.SetActive(true);
             firstPlay = false;
         }
         else
         {
-            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 200);
+            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 250);
             continueButton.gameObject.SetActive(false);
             firstPlay = true;
         }
