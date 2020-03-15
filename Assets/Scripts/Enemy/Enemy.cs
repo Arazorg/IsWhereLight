@@ -14,24 +14,25 @@ public class Enemy : MonoBehaviour
     public void Init(EnemyData _data)
     {
         data = _data;
-        GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        //GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
     }
 
     /// <summary>
     /// Attack of current enemy
     /// </summary>
-    public float Attack
+    public int Attack
     {
-        get { Debug.Log(data.Attack);
+        get
+        {
             return data.Attack;
         }
         protected set { }
     }
 
-    public float Health
+    public int Health
     {
-        get {
-            Debug.Log(data.Health);
+        get
+        {
             return data.Health;
         }
         protected set { }

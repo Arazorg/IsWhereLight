@@ -9,29 +9,29 @@ public class EnemyData : ScriptableObject
     [SerializeField] private RuntimeAnimatorController mainAnimator;
     public RuntimeAnimatorController MainAnimator
     {
-        get { return MainAnimator; }
+        get { return mainAnimator; }
         protected set { } 
     }
 
     [Tooltip("Скорость врага")]
-    [SerializeField] private float speed;
-    public float Speed
+    [SerializeField] private int speed;
+    public int Speed
     {
         get { return speed; }
         protected set { }
     }
 
     [Tooltip("Здоровье врага")]
-    [SerializeField] private float health;
-    public float Health
+    [SerializeField] private int health;
+    public int Health
     {
         get { return health; }
         protected set { }
     }
 
     [Tooltip("Атака врага")]
-    [SerializeField] private float attack;
-    public float Attack
+    [SerializeField] private int attack;
+    public int Attack
     {
         get { return attack; }
         protected set { }

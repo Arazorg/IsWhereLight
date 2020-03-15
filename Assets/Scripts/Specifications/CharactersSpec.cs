@@ -20,7 +20,7 @@ public class CharactersSpec : MonoBehaviour
         characters.Add("Knight", new Character()
         {
             maxMane = 100,
-            maxHealth = 7,
+            maxHealth = 150,
             startGun = "Staff",
             skins = new string[] { "Knight" }
         });
@@ -28,7 +28,7 @@ public class CharactersSpec : MonoBehaviour
         characters.Add("Mage", new Character()
         {
             maxMane = 200,
-            maxHealth = 4,
+            maxHealth = 50,
             startGun = "NewStaff",
             skins = new string[] { "Mage" },
             price = 200

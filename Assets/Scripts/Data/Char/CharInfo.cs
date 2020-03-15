@@ -69,6 +69,15 @@ public class CharInfo : MonoBehaviour
             mane += fillAmount;
     }
 
+    public void SpendHealth(int spendAmount)
+    {
+        if (health - spendAmount < 0)
+            health = 0;
+        else
+            health -= spendAmount;
+        healthBar.Damage(spendAmount);
+    }
+
     private void FindObjects()
     {
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();

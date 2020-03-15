@@ -27,16 +27,17 @@ public class EnemySpawner : MonoBehaviour
         Enemies = new Dictionary<GameObject, Enemy>();
         currentEnemies = new Queue<GameObject>();
 
-        for (int i = 0; i < poolCount; i++)
+        for (int i = 0; i < poolCount; ++i)
         {
-            var prefab = Instantiate(enemyPrefab);
+            var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-5,5), Random.Range(-5, 5), 0), new Quaternion(0,0,0,0));
             var script = prefab.GetComponent<Enemy>();
-            prefab.SetActive(false);
+            //prefab.SetActive(false);
             Enemies.Add(prefab, script);
             currentEnemies.Enqueue(prefab);
+            
         }
-
-        //Enemy.OnEnemyDeath += ReturnEnemy;
+        Enemy.OnEnemyDeath += ReturnEnemy;
+        StartCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()
@@ -51,6 +52,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
             if(currentEnemies.Count > 0)
             {
+                Debug.Log("!");
                 //получение компонентов и активация врага
                 var enemy = currentEnemies.Dequeue();
                 var script = Enemies[enemy];

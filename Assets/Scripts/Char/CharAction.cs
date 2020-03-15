@@ -38,6 +38,21 @@ public class CharAction : MonoBehaviour
             fireActButton.GetComponent<Image>().color = Color.yellow;
            // fireActButton.GetComponentInChildren<Text>().text = "Open";
         }
+
+        if (coll.gameObject.tag == "Enemy")
+        {
+            var obj = coll.gameObject;
+            if(EnemySpawner.Enemies.ContainsKey(obj))
+            {
+                int spend =  EnemySpawner.Enemies[obj].Attack;
+                Debug.Log(spend);
+                charInfo.SpendHealth(spend);
+                if (charInfo.health < 0)
+                {
+                    gameButtons.Suicide();
+                }
+            }
+        }
     }
 
     public void ChangeLevel()

@@ -5,11 +5,10 @@ using UnityEngine;
 public class CharCreating : MonoBehaviour
 {
     public GameObject character;
-    public Transform startPosition;
     private CurrentGameInfo currentGameInfo;
 
     void Start()
     {
-        Instantiate(character, startPosition.position, Quaternion.identity);
+        Instantiate(character, new Vector3(0,0,0), Quaternion.identity);
     }
 }

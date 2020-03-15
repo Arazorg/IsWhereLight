@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
-  speed: 3
-  health: 15
+  speed: 10
+  health: 10
   attack: 8

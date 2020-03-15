@@ -81,10 +81,6 @@
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyData.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
-     <Compile Include="Assets\Scripts\LevelsGeneration\LevelGeneration.cs" />
-     <Compile Include="Assets\Scripts\LevelsGeneration\RoomType.cs" />
-     <Compile Include="Assets\Scripts\LevelsGeneration\SpawnObjects.cs" />
-     <Compile Include="Assets\Scripts\LevelsGeneration\SpawnRooms.cs" />
      <Compile Include="Assets\Scripts\Specifications\CharactersSpec.cs" />
      <Compile Include="Assets\Scripts\Specifications\WeaponsSpec.cs" />
      <Compile Include="Assets\Scripts\System\Camera\CameraFollow.cs" />
