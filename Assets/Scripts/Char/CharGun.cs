@@ -19,6 +19,8 @@ public class CharGun : MonoBehaviour
     private GameObject levelBar;
 
     //Gameobjects
+    public Sprite pick_up_image;
+    private Sprite fire_image;
     private GameObject startGun;
     private GameObject floorGun;
     private GameObject currentGun;
@@ -46,6 +48,8 @@ public class CharGun : MonoBehaviour
         StartGunCreate();
         gunInfoBar.SetActive(false);
         levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
+
+        fire_image = fireActButton.GetComponent<Image>().sprite;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -55,7 +59,7 @@ public class CharGun : MonoBehaviour
             gameButtons.fireActButtonState = 1;//Change Gun
             WeaponsSpec.Gun floorGunInfo;
             floorGun = coll.gameObject;
-            fireActButton.GetComponent<Image>().color = Color.green;
+            fireActButton.GetComponent<Image>().sprite = pick_up_image;
             //fireActButton.GetComponentInChildren<Text>().text = "Catch";
             gunInfoBar.SetActive(true);
             try
@@ -74,7 +78,7 @@ public class CharGun : MonoBehaviour
     void OnTriggerExit2D(Collider2D coll)
     {
         gameButtons.fireActButtonState = 0;//Fire
-        fireActButton.GetComponent<Image>().color = Color.red;
+        fireActButton.GetComponent<Image>().sprite = fire_image;
         //fireActButton.GetComponentInChildren<Text>().text = "Fire";
         gunInfoBar.SetActive(false);
     }

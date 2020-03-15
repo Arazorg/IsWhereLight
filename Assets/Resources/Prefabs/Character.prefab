@@ -182,6 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charShooting: {fileID: 2330422614162298416}
   charInfo: {fileID: 4952567868302082640}
+  pick_up_image: {fileID: -3794294518773832241, guid: 77ee393f6e59402439f384c940bfa026,
+    type: 3}
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0
