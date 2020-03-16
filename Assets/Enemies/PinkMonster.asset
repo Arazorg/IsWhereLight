@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18157a2e42c9a76499a846bc8ee26b5b, type: 3}
-  m_Name: Knight
+  m_Name: PinkMonster
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
-  speed: 5
-  health: 25
-  attack: 5
+  mainAnimator: {fileID: 9100000, guid: cc37b882b1082c64780c57e14b4621b8, type: 2}
+  speed: 10
+  health: 10
+  attack: 8
