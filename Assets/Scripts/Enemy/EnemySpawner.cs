@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
         {
             var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-5,5), Random.Range(-5, 5), 0), new Quaternion(0,0,0,0));
             var script = prefab.GetComponent<Enemy>();
-            //prefab.SetActive(false);
+            prefab.SetActive(false);
             Enemies.Add(prefab, script);
             currentEnemies.Enqueue(prefab);
             
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
             if(currentEnemies.Count > 0)
             {
-                Debug.Log("!");
+                Debug.Log("enemies" + currentEnemies.Count);
                 //получение компонентов и активация врага
                 var enemy = currentEnemies.Dequeue();
                 var script = Enemies[enemy];
@@ -69,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="enemy"></param>
     private void ReturnEnemy(GameObject _enemy)
     {
-        _enemy.transform.position = transform.position;
+        _enemy.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
         _enemy.SetActive(false);
         currentEnemies.Enqueue(_enemy);
     }

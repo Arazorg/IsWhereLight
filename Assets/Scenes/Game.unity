@@ -2407,7 +2407,7 @@ MonoBehaviour:
   enemySettings:
   - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
   - {fileID: 11400000, guid: d895c3d42808bf544b414ec1933d5d49, type: 2}
-  poolCount: 2
+  poolCount: 5
   enemyPrefab: {fileID: 916175458000518923, guid: df978e6e9fd8430478128d2695cce7d2,
     type: 3}
   spawnTime: 1

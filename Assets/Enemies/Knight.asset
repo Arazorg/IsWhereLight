@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18157a2e42c9a76499a846bc8ee26b5b, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
+  mainAnimator: {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
   speed: 5
-  health: 10
+  health: 25
   attack: 5

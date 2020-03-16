@@ -10,7 +10,7 @@ public class EnemyData : ScriptableObject
     public RuntimeAnimatorController MainAnimator
     {
         get { return mainAnimator; }
-        protected set { } 
+        protected set { }
     }
 
     [Tooltip("Скорость врага")]
@@ -26,7 +26,6 @@ public class EnemyData : ScriptableObject
     public int Health
     {
         get { return health; }
-        protected set { }
     }
 
     [Tooltip("Атака врага")]
