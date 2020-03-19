@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PinkMonster
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: cc37b882b1082c64780c57e14b4621b8, type: 2}
-  speed: 10
+  speed: 4
   health: 10
   attack: 8

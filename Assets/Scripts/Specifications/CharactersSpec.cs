@@ -21,7 +21,7 @@ public class CharactersSpec : MonoBehaviour
         {
             maxMane = 100,
             maxHealth = 150,
-            startGun = "Staff",
+            startGun = "Pistol",
             skins = new string[] { "Knight" }
         });
 
@@ -29,7 +29,7 @@ public class CharactersSpec : MonoBehaviour
         {
             maxMane = 200,
             maxHealth = 50,
-            startGun = "NewStaff",
+            startGun = "Staff",
             skins = new string[] { "Mage" },
             price = 200
         });

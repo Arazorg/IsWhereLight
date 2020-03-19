@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -7,62 +8,103 @@ using UnityEngine.UI;
 
 public class GameButtons : MonoBehaviour
 {
-    //Classes
-    private CurrentGameInfo currentGameInfo;
+    [Tooltip("UI магазина оружия")]
+    [SerializeField] private GameObject weaponStoreUI;
+
+    [Tooltip("UI паузы")]
+    [SerializeField] private GameObject pausePanel;
+
+    [Tooltip("UI магазина оружия")]
+    [SerializeField] private Text moneyText;
+
+    [Tooltip("Джойстик")]
+    [SerializeField] private GameObject joystick;
+
+    [Tooltip("Кнопка паузы")]
+    [SerializeField] private Button pauseButton;
+
+    [Tooltip("Кнопка стрельбы и действий")]
+    [SerializeField] private Button fireActButton;
+
+
+    //Переменные состояния
+    public static int FireActButtonState;
+    public static bool IsGamePausedState;
+    public static bool IsGamePausedPanelState;
+    public static bool IsWeaponStoreState;
+
+    //Скрипты персонажа
     private CharInfo charInfo;
     private CharShooting charShooting;
     private CharGun charGun;
     private CharAction charAction;
+
+    //Скрипты
     private ManaBar manaBar;
     private SettingsInfo settingsInfo;
-    
+    private CurrentGameInfo currentGameInfo;
 
-    //Values
-    public GameObject pausePanel;
-    public GameObject pauseButton;
-    public GameObject settingsPanel;
-    public Text moneyText;
-    private GameObject joystick;
-    private GameObject fireActButton;
+    //UI Скрипты
+    private PauseUI pauseUI;
+    private WeaponStoreUI weaponStore;
+    private PauseSettings pauseSettingsUI;
 
-    public static bool GameIsPaused = false;
     public float fireRate;
     public int mana;
-    public int fireActButtonState;
-    public static bool SettingsState;
-    private WeaponsSpec.Gun gun;
-    private float nextFire;
+    private float nextFire = 0.0f;
     private bool shooting;
 
     void Start()
     {
         Time.timeScale = 1f;
-        SettingsState = false;
-        pausePanel.SetActive(false);
-        settingsPanel.SetActive(SettingsState);
-
-        fireActButtonState = 0;
-        nextFire = 0.0f;
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
 
+        SetUIScripts();
+        SetCharScripts();
+        StartUIActive();
+        SetStartUIPosition();
+        CheckFirstPlay();
+
+        moneyText.text = charInfo.money.ToString();
+
+        FireActButtonState = 0;
+        IsGamePausedState = false;
+        IsGamePausedPanelState = false;
+        IsWeaponStoreState = false;
+    }
+
+
+    private void SetUIScripts()
+    {
+        pauseUI = GameObject.Find("Canvas").GetComponentInChildren<PauseUI>();
+        weaponStore = GameObject.Find("Canvas").GetComponentInChildren<WeaponStoreUI>();
+        pauseSettingsUI = GameObject.Find("Canvas").GetComponentInChildren<PauseSettings>();
+
+    }
+
+    private void SetCharScripts()
+    {
         GameObject character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
         charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
+    }
 
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
+    private void StartUIActive()
+    {
+        IsGamePausedPanelState = false;
+        IsWeaponStoreState = false;
+        pausePanel.SetActive(IsGamePausedPanelState);
+        pausePanel.SetActive(IsWeaponStoreState);
+        fireActButton.GetComponent<Image>().color = Color.red;
+    }
 
-        joystick = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetChild(0).gameObject as GameObject;
-        fireActButton = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetChild(1).gameObject as GameObject;
-
-        joystick.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
-        fireActButton.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
-
+    private void CheckFirstPlay()
+    {
         if (MenuButtons.firstPlay)
         {
             charInfo.SetStartParametrs();
@@ -79,8 +121,16 @@ public class GameButtons : MonoBehaviour
                 SceneManager.LoadScene("Menu");
             }
         }
-        moneyText.text = charInfo.money.ToString();
     }
+
+    private void SetStartUIPosition()
+    {
+        joystick.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
+        fireActButton.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+    }
+
     void Update()
     {
         if (Application.platform == RuntimePlatform.Android)
@@ -94,9 +144,18 @@ public class GameButtons : MonoBehaviour
         Fire();
     }
 
+    public void OpenPause()
+    {
+        Time.timeScale = 0f;
+        IsGamePausedState = true;
+        IsGamePausedPanelState = true;
+        pausePanel.SetActive(IsGamePausedPanelState);
+        pauseButton.gameObject.SetActive(false);
+    }
+
     public void FireActState()
     {
-        switch (fireActButtonState)
+        switch (FireActButtonState)
         {
             case 0:
                 shooting = true;
@@ -105,9 +164,15 @@ public class GameButtons : MonoBehaviour
                 charGun.ChangeGun();
                 break;
             case 2:
-                charAction.ChangeLevel();
+                OpenWeaponStore();
                 break;
         }
+    }
+
+    private void OpenWeaponStore()
+    {
+        IsWeaponStoreState = true;
+        weaponStoreUI.SetActive(IsWeaponStoreState);
     }
 
     private void Fire()
@@ -129,49 +194,15 @@ public class GameButtons : MonoBehaviour
         shooting = false;
     }
 
-    public void OpenPause()
-    {
-        GameIsPaused = true;
-        Time.timeScale = 0f;
-        pausePanel.SetActive(true);
-        pauseButton.SetActive(false);
-    }
-
-    public void ClosePause()
-    {
-        GameIsPaused = false;
-        Time.timeScale = 1f;
-        settingsInfo.SaveSettings();
-        pausePanel.SetActive(false);
-        SettingsState = false;
-        settingsPanel.SetActive(SettingsState);
-        pauseButton.SetActive(true);
-    }
-
-    public void GoToMenu()
-    {
-        Time.timeScale = 1f;
-        settingsInfo.SaveSettings();
-        charInfo.SaveChar();
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void OpenCloseSettings()
-    {
-        settingsInfo.SaveSettings();
-        SettingsState = !SettingsState;
-        settingsPanel.SetActive(SettingsState);
-    }
-
-    public void Suicide()
-    {
-        SceneManager.LoadScene("FinishGame");
-        FinishOfGameButton.finishGameMoney = charInfo.money;
-    }
 
     public void PlusMoney()
     {
         charInfo.money += 100;
         moneyText.text = charInfo.money.ToString();
+    }
+
+    public void Death()
+    {
+        charAction.Death();
     }
 }

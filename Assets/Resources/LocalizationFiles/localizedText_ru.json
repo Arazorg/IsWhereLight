@@ -14,6 +14,11 @@
     {
       "key": "continue_game_button",
       "value": "Продолжить Игру"
+    },
+
+    {
+      "key": "suicide_button",
+      "value": "Суицид"
     }
   ]
 }

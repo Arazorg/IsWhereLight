@@ -12,6 +12,7 @@ TagManager:
   - Portal
   - Chest
   - Text
+  - WeaponStore
   layers:
   - Default
   - TransparentFX

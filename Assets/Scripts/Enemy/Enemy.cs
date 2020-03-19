@@ -11,25 +11,14 @@ public class Enemy : MonoBehaviour
     /// Initialization of enemy
     /// </summary>
     /// <param name="data"></param>
-    public void Init(EnemyData _data)
+    public void Init(EnemyData data)
     {
-        data = _data;
+        this.data = data;
+        attack = Attack;
         health = Health;
-        GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-       // GetComponent<Animator>().SetFloat("Speed", 1f);
-    }
-
-    /// <summary>
-    /// Animator of current enemy
-    /// </summary>
-    private Animator mainAnimator;
-    public RuntimeAnimatorController MainAnimator
-    {
-        get
-        {
-            return data.MainAnimator;
-        }
-        protected set { }
+        GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        transform.tag = "Untagged";
+        // GetComponent<Animator>().SetFloat("Speed", 1f);
     }
 
     /// <summary>
@@ -55,10 +44,7 @@ public class Enemy : MonoBehaviour
         {
             return data.Health;
         }
-        protected set
-        {
-            health = data.Health;
-        }
+        protected set { }
     }
 
     public static Action<GameObject> OnEnemyDeath;
@@ -66,12 +52,10 @@ public class Enemy : MonoBehaviour
     void Death()
     {
         OnEnemyDeath(gameObject);
-        Debug.Log("death of enemy");
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("damage" + health);
         if (collision.gameObject.tag == "StandartBullet")
             health -= 5;
         if (health <= 0)
@@ -82,6 +66,7 @@ public class Enemy : MonoBehaviour
     {
         transform.tag = "Enemy";
     }
+
     void OnBecameInvisible()
     {
         transform.tag = "Untagged";

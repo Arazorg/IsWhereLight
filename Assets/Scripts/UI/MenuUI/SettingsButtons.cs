@@ -16,6 +16,7 @@ public class SettingsButtons : MonoBehaviour
 
     private bool musicOn;
     private bool effectsOn;
+    public static bool IsLocalizationPanelState = false;
 
     void Start()
     {
@@ -81,18 +82,14 @@ public class SettingsButtons : MonoBehaviour
         secretCode.SetActive(false);
     }
 
-    public void LocalizationPanelOpen()
+    public void OpenCloseLocalizationPanel()
     {
-        localization.SetActive(true);
+        IsLocalizationPanelState = !IsLocalizationPanelState;
+        localization.SetActive(IsLocalizationPanelState);
     }
 
-    public void LocalizationPanelClose()
+    public void ChangeLanguage(string fileName)
     {
-        localization.SetActive(false);
-    }
-
-     public void ChangeLanguage(string fileName)
-     {
         localizationManager.LoadLocalizedText(fileName);
-     }
+    }
 }

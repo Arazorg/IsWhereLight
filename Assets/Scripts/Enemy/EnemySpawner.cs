@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < poolCount; ++i)
         {
-            var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-5,5), Random.Range(-5, 5), 0), new Quaternion(0,0,0,0));
+            var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-25,25), Random.Range(-25, 25), 0), new Quaternion(0,0,0,0));
             var script = prefab.GetComponent<Enemy>();
             prefab.SetActive(false);
             Enemies.Add(prefab, script);
@@ -52,12 +52,10 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnTime);
             if(currentEnemies.Count > 0)
             {
-                Debug.Log("enemies" + currentEnemies.Count);
                 //получение компонентов и активация врага
                 var enemy = currentEnemies.Dequeue();
                 var script = Enemies[enemy];
                 enemy.SetActive(true);
-
                 int rand = Random.Range(0, enemySettings.Count);
                 script.Init(enemySettings[rand]);
             }

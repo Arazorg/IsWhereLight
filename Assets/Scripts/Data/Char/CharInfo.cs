@@ -59,6 +59,7 @@ public class CharInfo : MonoBehaviour
             mane = 0;
         else
             mane -= spendAmount;
+        manaBar.Spend(spendAmount);
     }
 
     public void FillMana(int fillAmount)

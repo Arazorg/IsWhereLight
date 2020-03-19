@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 80bc9eedc4cf62842903702bc861d249, type: 2}
-  speed: 5
+  speed: 3
   health: 25
   attack: 5

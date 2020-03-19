@@ -11,48 +11,50 @@ public class CharAction : MonoBehaviour
     private CharInfo charInfo;
     private CurrentGameInfo currentGameInfo;
     private SettingsInfo settingsInfo;
-    private GameButtons gameButtons;
 
     void Start()
     {
         GameObject gameUI = GameObject.Find("Canvas").transform.Find("GameUI").gameObject;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
-        gameButtons = gameUI.GetComponent<GameButtons>();
         gunInfoBar = gameUI.transform.Find("GunInfoBar").gameObject;
         fireActButton = gameUI.transform.Find("FireActButton").GetComponent<Button>();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Portal")
-        {
-            gameButtons.fireActButtonState = 2;//Activate Portal
-            fireActButton.GetComponent<Image>().color = Color.blue;
-            //fireActButton.GetComponentInChildren<Text>().text = "Enter";
 
+        if (coll.gameObject.tag == "WeaponStore")
+        {
+            GameButtons.FireActButtonState = 2;
+            fireActButton.GetComponent<Image>().color = Color.magenta;
         }
 
         if (coll.gameObject.tag == "Chest")
         {
+            GameButtons.FireActButtonState = 3;
             fireActButton.GetComponent<Image>().color = Color.yellow;
-           // fireActButton.GetComponentInChildren<Text>().text = "Open";
         }
-
         if (coll.gameObject.tag == "Enemy")
         {
             var obj = coll.gameObject;
-            if(EnemySpawner.Enemies.ContainsKey(obj))
+            if (EnemySpawner.Enemies.ContainsKey(obj))
             {
-                int spend =  EnemySpawner.Enemies[obj].Attack;
+                int spend = EnemySpawner.Enemies[obj].Attack;
                 Debug.Log(spend);
                 charInfo.SpendHealth(spend);
                 if (charInfo.health < 0)
                 {
-                    gameButtons.Suicide();
+                    Death();
                 }
             }
         }
+    }
+
+    public void Death()
+    {
+        SceneManager.LoadScene("FinishGame");
+        FinishOfGameButton.finishGameMoney = charInfo.money;
     }
 
     public void ChangeLevel()
@@ -61,12 +63,5 @@ public class CharAction : MonoBehaviour
         settingsInfo.SaveSettings();
         charInfo.SaveChar();
         SceneManager.LoadScene("Game");
-    }
-
-    public void OpenChest()
-    {
-        int numberOfGun = Random.Range(0, 2);
-        GameObject creatingGun = GameObject.Find(numberOfGun.ToString());
-        Instantiate(creatingGun, transform.position, transform.rotation);
     }
 }
