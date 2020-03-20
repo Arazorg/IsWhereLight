@@ -40,7 +40,7 @@ public class LocalizationManager : MonoBehaviour
         }
         settingsInfo.currentLocalization = fileName;
         settingsInfo.SaveSettings();
-        Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
+        //Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
         RefreshText();
         isReady = true;
     }

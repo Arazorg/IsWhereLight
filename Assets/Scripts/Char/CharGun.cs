@@ -5,7 +5,6 @@ using System.Text;
 public class CharGun : MonoBehaviour
 {
     //Classes
-    public CharShooting charShooting;
     public CharInfo charInfo;
 
     private WeaponSpawner weaponSpawner;
@@ -22,7 +21,6 @@ public class CharGun : MonoBehaviour
 
     //Gameobjects
     private GameObject floorGun;
-    private Transform currentGun;
 
     //Values
     [Tooltip("Смещение оружия")]
@@ -105,6 +103,5 @@ public class CharGun : MonoBehaviour
     {
         WeaponSpawner.currentCharWeapon.SetActive(true);
         WeaponSpawner.currentCharWeapon.transform.position = transform.position + offsetGun;
-        charShooting.firePoint = WeaponSpawner.currentCharWeapon.transform.GetChild(0);
     }
 }

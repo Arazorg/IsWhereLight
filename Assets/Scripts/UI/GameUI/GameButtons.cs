@@ -50,8 +50,8 @@ public class GameButtons : MonoBehaviour
     private PauseSettings pauseSettingsUI;
 
     public float fireRate;
-    public int mana;
-    private float nextFire = 0.0f;
+    public int manecost;
+    private float nextFire;
     private bool shooting;
 
     void Start()
@@ -74,6 +74,9 @@ public class GameButtons : MonoBehaviour
         IsGamePausedState = false;
         IsGamePausedPanelState = false;
         IsWeaponStoreState = false;
+
+        nextFire = 0.0f;
+        
     }
 
 
@@ -181,8 +184,8 @@ public class GameButtons : MonoBehaviour
         {
             if (Time.time > nextFire)
             {
-                manaBar.Spend(mana);
-                charInfo.SpendMana(mana);
+                manaBar.Spend(manecost);
+                charInfo.SpendMana(manecost);
                 charShooting.Shoot();
                 nextFire = Time.time + fireRate;
             }
@@ -204,5 +207,11 @@ public class GameButtons : MonoBehaviour
     public void Death()
     {
         charAction.Death();
+    }
+
+    public void SetWeaponInfo(Weapon weapon)
+    {
+        fireRate = weapon.FireRate;
+        manecost = weapon.Manecost;
     }
 }

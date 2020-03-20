@@ -6,10 +6,6 @@ public class Bullet : MonoBehaviour
 {
     private BulletData data;
 
-    //Values
-    public float dmg;
-    public float crit;
-
     /// <summary>
     /// Initialization of weapon
     /// </summary>

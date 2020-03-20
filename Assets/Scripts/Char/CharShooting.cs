@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class CharShooting : MonoBehaviour
 {
-    //Gameobjects
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    BulletSpawner bulletSpawner;
 
     //Values
-    public float bulletSpeed;
-    public float bulletScatterAngle;
+    private float bulletSpeed;
+    private float bulletScatterAngle;
 
     public void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
+        bulletSpawner.Spawn();
+        Rigidbody2D rb = bulletSpawner.currentWeaponBullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(bulletSpawner.currentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
+    }
+
+    public void SetBulletInfo(Bullet bullet)
+    {
+        bulletSpawner = transform.GetChild(0).GetComponent<BulletSpawner>();
+        bulletSpeed = bullet.Speed;
+        bulletScatterAngle = bullet.Scatter;
     }
 }
 
