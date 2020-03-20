@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Staff
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 21300000, guid: f9b25dabea4fb214180226172dac287a, type: 3}
+  weaponName: Staff
   fireRate: 0.45
   damage: 6
   critChance: 25

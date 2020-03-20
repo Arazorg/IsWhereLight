@@ -21,6 +21,19 @@ public class Weapon : MonoBehaviour
     public static Action<GameObject> OnWeaponBuy;
 
     /// <summary>
+    /// Name of weapon
+    /// </summary>
+    private string weaponName;
+    public string WeaponName
+    {
+        get
+        {
+            return data.WeaponName;
+        }
+        protected set { }
+    }
+
+    /// <summary>
     /// Fire rate of current weapon
     /// </summary>
     private float fireRate;

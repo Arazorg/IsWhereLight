@@ -25,7 +25,8 @@ public class CharGun : MonoBehaviour
     private Transform currentGun;
 
     //Values
-    private Vector3 offsetGun;
+    [Tooltip("Смещение оружия")]
+    [SerializeField] private Vector3 offsetGun;
 
     void Start()
     {
@@ -41,8 +42,7 @@ public class CharGun : MonoBehaviour
 
         offsetGun = new Vector3(0, -0.35f, 0);
         weaponSpawner.Spawn(charInfo.gun, transform);
-        currentGun = transform.GetChild(0);
-        StartGunCreate();
+        SetWeaponParam();
 
         gunInfoBar.SetActive(false);
         levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
@@ -62,6 +62,7 @@ public class CharGun : MonoBehaviour
         }
     }
 
+    
     void OnTriggerExit2D(Collider2D coll)
     {
         GameButtons.FireActButtonState = 0;//Fire
@@ -72,15 +73,14 @@ public class CharGun : MonoBehaviour
 
     public void ChangeGun()
     {
-        currentGun.transform.CompareTag("Gun");
-        //Instantiate(currentGun, gameObject.transform.position, currentGun.transform.rotation);
-        //Destroy(currentGun);
-        currentGun.transform.SetParent(gameObject.transform);
-        currentGun.transform.localScale = new Vector3(1, 1, 1);
-        currentGun.transform.CompareTag("Untagged");
-        charInfo.gun = currentGun.name;
-        charShooting.firePoint = currentGun.transform.GetChild(0);
-        Destroy(floorGun);
+        weaponSpawner.Spawn(WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().WeaponName,
+                               gameObject.transform.position,
+                                   WeaponSpawner.currentCharWeapon.transform.rotation);
+        Destroy(WeaponSpawner.currentCharWeapon);
+
+        weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName, transform);
+        Destroy(floorGun.gameObject);
+        SetWeaponParam();
     }
 
     private void GetSpecGun(Collider2D coll)
@@ -101,10 +101,10 @@ public class CharGun : MonoBehaviour
         }        
     }
 
-    private void StartGunCreate()
+    private void SetWeaponParam()
     {
-        currentGun.CompareTag("Untagged");
-        currentGun.position += offsetGun;
-        charShooting.firePoint = currentGun.transform.GetChild(0);
+        WeaponSpawner.currentCharWeapon.SetActive(true);
+        WeaponSpawner.currentCharWeapon.transform.position = transform.position + offsetGun;
+        charShooting.firePoint = WeaponSpawner.currentCharWeapon.transform.GetChild(0);
     }
 }
