@@ -919,7 +919,7 @@ MonoBehaviour:
   pauseButton: {fileID: 1818413473}
   fireActButton: {fileID: 1213606761}
   fireRate: 0
-  mana: 0
+  manecost: 0
 --- !u!1 &365765965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,12 +1523,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 627122315310295263, guid: 77ee393f6e59402439f384c940bfa026, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ea3f6a0323aa0b4e8c9b3afb3029094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.25, y: 0.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2509,8 +2509,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.96}
-    newSize: {x: 0.96, y: 0.96}
+    oldSize: {x: 1.3333334, y: 1.44}
+    newSize: {x: 1.3333334, y: 1.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2528,7 +2528,7 @@ Animator:
   m_GameObject: {fileID: 1399598867}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91073d5550db30d42a382b8f27967798, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2597,7 +2597,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3333334, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -3600,7 +3600,12 @@ MonoBehaviour:
   enemySettings:
   - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
   - {fileID: 11400000, guid: d895c3d42808bf544b414ec1933d5d49, type: 2}
-  poolCount: 5
+  - {fileID: 11400000, guid: 6c0e89ca546a43345a97dd70324a97e5, type: 2}
+  - {fileID: 11400000, guid: b9f12ff922d910841b7af59225384532, type: 2}
+  - {fileID: 11400000, guid: d50c4d8d3b4c32a4caaf7972e907522d, type: 2}
+  - {fileID: 11400000, guid: 60e6ff4eddc99444a92393c4b4cab2ae, type: 2}
+  - {fileID: 11400000, guid: 152e4a425462cca4e948e8500ba984dd, type: 2}
+  poolCount: 12
   enemyPrefab: {fileID: 916175458000518923, guid: df978e6e9fd8430478128d2695cce7d2,
     type: 3}
   spawnTime: 1
@@ -3946,12 +3951,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 627122315310295263, guid: 77ee393f6e59402439f384c940bfa026, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0ea3f6a0323aa0b4e8c9b3afb3029094, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.25, y: 0.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

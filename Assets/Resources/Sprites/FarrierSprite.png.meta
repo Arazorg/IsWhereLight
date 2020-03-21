@@ -1,55 +1,61 @@
 fileFormatVersion: 2
-guid: eaed21e1f4262af448bea8814837576c
+guid: f2a7382eaa859844c8ac0b8045254dda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4956304763537234713
-    second: MageSprite_0
+      213: 8998946087628008612
+    second: FarrierSprite_0
   - first:
-      213: -3374811275576539360
-    second: MageSprite_1
+      213: 219895858454457103
+    second: FarrierSprite_1
   - first:
-      213: -2357742418097792886
-    second: MageSprite_2
+      213: 9143130022657939451
+    second: FarrierSprite_2
   - first:
-      213: 5212470391915583067
-    second: MageSprite_3
+      213: -5089063668320269609
+    second: FarrierSprite_3
   - first:
-      213: -4689492200997037861
-    second: MageSprite_4
+      213: 2730667237887999733
+    second: FarrierSprite_4
   - first:
-      213: 2529903254553234302
-    second: MageSprite_5
+      213: 5882746496500899250
+    second: FarrierSprite_5
   - first:
-      213: 4443881000555200595
-    second: MageSprite_6
+      213: 7497626133510876045
+    second: FarrierSprite_6
   - first:
-      213: 7430317620594440652
-    second: MageSprite_7
+      213: -8774405539311730771
+    second: FarrierSprite_7
   - first:
-      213: -1098656402235872050
-    second: MageSprite_8
+      213: -7065722831807547454
+    second: FarrierSprite_8
   - first:
-      213: -6113158371335483292
-    second: MageSprite_9
+      213: -3769299074230342843
+    second: FarrierSprite_9
   - first:
-      213: 7174288008689065664
-    second: MageSprite_10
+      213: -4883710748451457619
+    second: FarrierSprite_10
   - first:
-      213: -4098264770150661445
-    second: MageSprite_11
+      213: -7205290912965778569
+    second: FarrierSprite_11
   - first:
-      213: 2577096586074557548
-    second: MageSprite_12
+      213: -8644078491442833656
+    second: FarrierSprite_12
   - first:
-      213: 7821435983698162992
-    second: MageSprite_13
+      213: -811389891632640061
+    second: FarrierSprite_13
   - first:
-      213: -311734012063595457
-    second: MageSprite_14
+      213: -7092064850630304535
+    second: FarrierSprite_14
   - first:
-      213: 1901474272737849966
-    second: MageSprite_15
+      213: 8704005548623716945
+    second: FarrierSprite_15
+  - first:
+      213: 7272252170189412473
+    second: FarrierSprite_16
+  - first:
+      213: -8814349384698694540
+    second: FarrierSprite_17
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -158,13 +164,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MageSprite_0
+      name: FarrierSprite_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91b963d3ce458c440800000000000000
-      internalID: 4956304763537234713
+      spriteID: 4ac65f9c9cda2ec70800000000000000
+      internalID: 8998946087628008612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_1
+      name: FarrierSprite_1
       rect:
         serializedVersion: 2
         x: 100
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 027074f76034a21d0800000000000000
-      internalID: -3374811275576539360
+      spriteID: f0be1c24e1a3d0300800000000000000
+      internalID: 219895858454457103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_2
+      name: FarrierSprite_2
       rect:
         serializedVersion: 2
         x: 200
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +220,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a88196933cd974fd0800000000000000
-      internalID: -2357742418097792886
+      spriteID: bf75cbf205ce2ee70800000000000000
+      internalID: 9143130022657939451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_3
+      name: FarrierSprite_3
       rect:
         serializedVersion: 2
         x: 300
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +241,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b569e50643a665840800000000000000
-      internalID: 5212470391915583067
+      spriteID: 7da8c628e830069b0800000000000000
+      internalID: -5089063668320269609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_4
+      name: FarrierSprite_4
       rect:
         serializedVersion: 2
         x: 400
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +262,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd85b9e60b39beeb0800000000000000
-      internalID: -4689492200997037861
+      spriteID: 5fe7c1a926745e520800000000000000
+      internalID: 2730667237887999733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_5
+      name: FarrierSprite_5
       rect:
         serializedVersion: 2
         x: 500
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +283,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7b00c32b950c1320800000000000000
-      internalID: 2529903254553234302
+      spriteID: 2bd1c9b35c6b3a150800000000000000
+      internalID: 5882746496500899250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_6
+      name: FarrierSprite_6
       rect:
         serializedVersion: 2
         x: 600
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,20 +304,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 350433ea936dbad30800000000000000
-      internalID: 4443881000555200595
+      spriteID: d8be99a8e3bec0860800000000000000
+      internalID: 7497626133510876045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_7
+      name: FarrierSprite_7
       rect:
         serializedVersion: 2
         x: 700
-        y: 110
+        y: 108
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,20 +325,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc97bd7228acd1760800000000000000
-      internalID: 7430317620594440652
+      spriteID: dafba1a96ac0b3680800000000000000
+      internalID: -8774405539311730771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_8
+      name: FarrierSprite_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecca586b2d9c0c0f0800000000000000
-      internalID: -1098656402235872050
+      spriteID: 2c77eb0358281fd90800000000000000
+      internalID: -7065722831807547454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_9
+      name: FarrierSprite_9
       rect:
         serializedVersion: 2
         x: 100
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,20 +367,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 460d7d4a9d2b92ba0800000000000000
-      internalID: -6113158371335483292
+      spriteID: 54baa4c6672c0bbc0800000000000000
+      internalID: -3769299074230342843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_10
+      name: FarrierSprite_10
       rect:
         serializedVersion: 2
         x: 200
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,20 +388,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ce9142dee0309360800000000000000
-      internalID: 7174288008689065664
+      spriteID: da53bc403f2993cb0800000000000000
+      internalID: -4883710748451457619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_11
+      name: FarrierSprite_11
       rect:
         serializedVersion: 2
         x: 300
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,20 +409,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb20ca3b7e90027c0800000000000000
-      internalID: -4098264770150661445
+      spriteID: 7732355071aa10c90800000000000000
+      internalID: -7205290912965778569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_12
+      name: FarrierSprite_12
       rect:
         serializedVersion: 2
         x: 400
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,20 +430,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6c88d4e0bfa3c320800000000000000
-      internalID: 2577096586074557548
+      spriteID: 80794fa09601a0880800000000000000
+      internalID: -8644078491442833656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_13
+      name: FarrierSprite_13
       rect:
         serializedVersion: 2
         x: 500
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,20 +451,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03579c166925b8c60800000000000000
-      internalID: 7821435983698162992
+      spriteID: 3cfc4e6413d5db4f0800000000000000
+      internalID: -811389891632640061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_14
+      name: FarrierSprite_14
       rect:
         serializedVersion: 2
         x: 600
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,20 +472,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f34ca82519f7cabf0800000000000000
-      internalID: -311734012063595457
+      spriteID: 9ec952ef79ce39d90800000000000000
+      internalID: -7092064850630304535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MageSprite_15
+      name: FarrierSprite_15
       rect:
         serializedVersion: 2
         x: 700
         y: 0
         width: 100
-        height: 110
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,8 +493,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e627510d6c4636a10800000000000000
-      internalID: 1901474272737849966
+      spriteID: 152eeb04ee6dac870800000000000000
+      internalID: 8704005548623716945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarrierSprite_16
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 100
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978143991da3ce460800000000000000
+      internalID: 7272252170189412473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarrierSprite_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 100
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474f9de5fe32da580800000000000000
+      internalID: -8814349384698694540
       vertices: []
       indices: 
       edges: []
