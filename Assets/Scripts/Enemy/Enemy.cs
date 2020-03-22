@@ -21,6 +21,32 @@ public class Enemy : MonoBehaviour
         // GetComponent<Animator>().SetFloat("Speed", 1f);
     }
 
+    private bool isEnemyHitted = false;
+    private bool isEnterFirst = true;
+    private float timeToOff;
+
+    private void Update()
+    {
+        if (isEnemyHitted)
+        {
+            if (isEnterFirst)
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                timeToOff = Time.time + 0.1f;
+                isEnterFirst = false;
+            }
+            else
+            {
+                if (Time.time > timeToOff)
+                {
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    isEnemyHitted = false;
+                    isEnterFirst = true;
+                }
+            }
+        }
+    }
+
     /// <summary>
     /// Attack of current enemy
     /// </summary>
@@ -56,6 +82,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        isEnemyHitted = true;
         if (coll.gameObject.tag == "StandartBullet")
             health -= 5;
         if (health <= 0)
