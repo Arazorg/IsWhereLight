@@ -82,9 +82,12 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        isEnemyHitted = true;
         if (coll.gameObject.tag == "StandartBullet")
-            health -= 5;
+        {
+            isEnemyHitted = true;
+            health -= WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().Damage;
+        }
+
         if (health <= 0)
             Death();
         Debug.Log("попал " + health);
