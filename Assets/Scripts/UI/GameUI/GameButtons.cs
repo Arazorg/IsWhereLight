@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,9 +10,6 @@ public class GameButtons : MonoBehaviour
     [Tooltip("UI паузы")]
     [SerializeField] private GameObject pausePanel;
 
-    [Tooltip("UI магазина оружия")]
-    [SerializeField] private Text moneyText;
-
     [Tooltip("Джойстик")]
     [SerializeField] private GameObject joystick;
 
@@ -26,8 +19,10 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Кнопка стрельбы и действий")]
     [SerializeField] private Button fireActButton;
 
+    [Tooltip("UI магазина оружия")]
+    [SerializeField] private Text moneyText;
 
-    //Переменные состояния
+    //Переменные состояния UI элементов
     public static int FireActButtonState;
     public static bool IsGamePausedState;
     public static bool IsGamePausedPanelState;
@@ -49,6 +44,7 @@ public class GameButtons : MonoBehaviour
     private WeaponStoreUI weaponStore;
     private PauseSettings pauseSettingsUI;
 
+    //Переменные
     public float fireRate;
     public int manecost;
     private float nextFire;

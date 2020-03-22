@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InterfaceSettings : MonoBehaviour
 {
-    public GameObject interfaceSettings;
-    public GameObject menu;
-    public GameObject joystick;
-    public GameObject fireActButton;
+    [Tooltip("UI панели меню")]
+    [SerializeField] private GameObject menuPanel;
+
+    [Tooltip("UI Джойстик")]
+    [SerializeField] private GameObject joystick;
+
+    [Tooltip("UI кнопки действия, атаки")]
+    [SerializeField] private GameObject fireActButton;
+
+    //Скрипты
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
 
@@ -32,17 +39,18 @@ public class InterfaceSettings : MonoBehaviour
         }
     }
 
-    public void InterfaceSettingsExit()
+    public void InterfaceSettingsPanelClose()
     {
+        audioManager.Play("ClickUI");
         SetPosition();
         settingsInfo.SaveSettings();
-        audioManager.Play("ClickUI");
-        menu.SetActive(true);
-        interfaceSettings.SetActive(false);
+        menuPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void SetStandartPositions()
     {
+        audioManager.Play("ClickUI");
         joystick.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(SettingsInfo.startPositions["joystickPosition"][0] + 256,
                                 SettingsInfo.startPositions["joystickPosition"][1] + 256);
@@ -53,6 +61,7 @@ public class InterfaceSettings : MonoBehaviour
 
     private void SetPosition()
     {
+        audioManager.Play("ClickUI");
         settingsInfo.joystickPosition
             = new float[] { joystick.GetComponent<RectTransform>().anchoredPosition.x - 256,
                                 joystick.GetComponent<RectTransform>().anchoredPosition.y - 256};

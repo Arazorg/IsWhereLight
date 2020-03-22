@@ -71,19 +71,21 @@ public class ProgressInfo : MonoBehaviour
         secretCodes.Add("valerick", 1000);
     }
 
-    public string CheckSecretCode(string code)
+    public int CheckSecretCode(string code)
     {
+        int money;
         if (secretCodes.ContainsKey(code))
         {
             if (secretCodes[code] != 0)
             {
                 playerMoney += secretCodes[code];
+                money = secretCodes[code];
                 secretCodes[code] = 0;
                 SaveProgress();
-                return "correct code";
+                return money;
             }
-            return "code already used";
+            return 0;
         }
-        return "incorrect code";
+        return -1;
     }
 }

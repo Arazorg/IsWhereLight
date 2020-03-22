@@ -39,7 +39,6 @@ public class CharGun : MonoBehaviour
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
 
         offsetGun = new Vector3(0, -0.35f, 0);
-        Debug.Log(charInfo.weapon);
         weaponSpawner.Spawn(charInfo.weapon, transform);
         SetWeaponParam();
 

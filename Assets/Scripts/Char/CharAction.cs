@@ -43,8 +43,9 @@ public class CharAction : MonoBehaviour
                 int spend = EnemySpawner.Enemies[obj].Attack;
                 Debug.Log(spend);
                 charInfo.Damage(spend);
-                if (charInfo.health < 0)
+                if (charInfo.health <= 0)
                 {
+                    Debug.Log("!");
                     Death();
                 }
             }

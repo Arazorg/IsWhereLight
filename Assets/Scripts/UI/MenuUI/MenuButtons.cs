@@ -1,25 +1,42 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    public GameObject settings;
-    public GameObject localization;
-    public GameObject secretCode;
-    public GameObject interfaceSettings;
+    [Tooltip("UI панели настроек")]
+    [SerializeField] private GameObject settingsPanel;
 
-    public Button settingsButton;
-    public Button exitButton;
-    public Button continueButton;
-    public Button newGameButton;
-    public InputField secretCodeField;
+    [Tooltip("UI панели локализации")]
+    [SerializeField] private GameObject localizationPanel;
 
+    [Tooltip("UI панели секретного кода")]
+    [SerializeField] private GameObject secretCode;
+
+    [Tooltip("UI панели настроек интерфейса")]
+    [SerializeField] private GameObject interfaceSettings;
+
+    [Tooltip("Кнопка настроек")]
+    [SerializeField] private Button settingsButton;
+
+    [Tooltip("Кнопка выхода из игры")]
+    [SerializeField] private Button exitButton;
+
+    [Tooltip("Кнопка 'продолжить игру'")]
+    [SerializeField] private Button continueButton;
+
+    [Tooltip("Кнопка 'новая игра'")]
+    [SerializeField] private Button newGameButton;
+
+    //Переменные состояния игры
     public static bool firstPlay;
     public static bool firstRun;
 
+    //Переменные состояния UI элементов
+    public static bool IsSettingPanelState;
+
+    //Скрипты
     private SettingsInfo settingsInfo;
     private ProgressInfo progressInfo;
     private AudioManager audioManager;
@@ -36,7 +53,6 @@ public class MenuButtons : MonoBehaviour
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Theme");
-        Debug.Log("Theme");
         SetStartObjectsActive();
     }
 
@@ -54,9 +70,9 @@ public class MenuButtons : MonoBehaviour
     private void SetStartObjectsActive()
     {
         exitButton.gameObject.SetActive(false);
-        localization.SetActive(false);
+        localizationPanel.SetActive(false);
         secretCode.SetActive(false);
-        settings.SetActive(false);
+        settingsPanel.SetActive(false);
         settingsButton.gameObject.SetActive(true);
         interfaceSettings.SetActive(false);
     }
@@ -96,12 +112,6 @@ public class MenuButtons : MonoBehaviour
             firstPlay = true;
         }
     }
-
-    public void CheckSecretCode()
-    {
-        Debug.Log(progressInfo.CheckSecretCode(secretCodeField.text));
-    }
-
     public void NewGame()
     {
         audioManager.Play("ClickUI");
@@ -133,16 +143,18 @@ public class MenuButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         if (settingsButton.gameObject.activeSelf == true)
         {
-            settings.SetActive(true);
-            settingsButton.gameObject.SetActive(false);
+            IsSettingPanelState = true;
+            settingsPanel.SetActive(IsSettingPanelState);
+            settingsButton.gameObject.SetActive(!IsSettingPanelState);
         }
     }
 
     public void AllPanelClose()
     {
-        localization.SetActive(false);
+        audioManager.Play("ClickUI");
+        localizationPanel.SetActive(false);
         secretCode.SetActive(false);
-        settings.SetActive(false);
+        settingsPanel.SetActive(false);
         exitButton.gameObject.SetActive(false);
         settingsButton.gameObject.SetActive(true);
     }
@@ -151,10 +163,5 @@ public class MenuButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         Application.Quit();
-    }
-
-    public void ChangeLanguage(string file)
-    {
-        localizationManager.LoadLocalizedText(file);
     }
 }

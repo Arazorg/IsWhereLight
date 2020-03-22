@@ -1,28 +1,51 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsButtons : MonoBehaviour
 {
-    public GameObject settings;
-    public GameObject localization;
-    public GameObject secretCode;
-    public GameObject interfaceSettings;
-    public GameObject menu;
-    public Button settingsButton;
 
+    [Tooltip("UI панели локализации")]
+    [SerializeField] private GameObject localizationPanel;
+
+    [Tooltip("UI панели секретного кода")]
+    [SerializeField] private GameObject secretCodePanel;
+
+    [Tooltip("UI панели настроек интерфейса")]
+    [SerializeField] private GameObject interfaceSettingsPanel;
+
+    [Tooltip("UI панели меню")]
+    [SerializeField] private GameObject menuPanel;
+
+    [Tooltip("Кнопка настроек")]
+    [SerializeField] private Button settingsButton;
+
+    [Tooltip("Поля ввода секретного кода")]
+    [SerializeField] private InputField secretCodeField;
+
+    [Tooltip("Текст полученных денег")]
+    [SerializeField] private TextMeshProUGUI moneyPlusText;
+
+    //Скрипты
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
     private LocalizationManager localizationManager;
+    private ProgressInfo progressInfo;
 
+    //Переменные состояния игры
+    public static bool IsLocalizationPanelState = false;
+    public static bool IsSecretPanelState = false;
     private bool musicOn;
     private bool effectsOn;
-    public static bool IsLocalizationPanelState = false;
+    
 
     void Start()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
+        progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         audioManager = FindObjectOfType<AudioManager>();
+
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
     }
@@ -30,10 +53,11 @@ public class SettingsButtons : MonoBehaviour
     public void InterfaceSettingsOpen()
     {
         audioManager.Play("ClickUI");
-        if (interfaceSettings.activeSelf == false)
+        if (interfaceSettingsPanel.activeSelf == false)
         {
-            menu.SetActive(false);
-            interfaceSettings.SetActive(true);
+            menuPanel.GetComponent<MenuButtons>().AllPanelClose();
+            menuPanel.SetActive(false);
+            interfaceSettingsPanel.SetActive(true);
         }
     }
 
@@ -43,7 +67,8 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         if (settingsButton.gameObject.activeSelf == false)
         {
-            settings.SetActive(false);
+            MenuButtons.IsSettingPanelState = !MenuButtons.IsSettingPanelState;
+            gameObject.SetActive(MenuButtons.IsSettingPanelState);
             settingsButton.gameObject.SetActive(true);
         }
     }
@@ -72,24 +97,50 @@ public class SettingsButtons : MonoBehaviour
         settingsInfo.SaveSettings();
     }
 
-    public void SecretCodePanelOpen()
+    public void SecretCodePanelOpenClose()
     {
-        secretCode.SetActive(true);
+        audioManager.Play("ClickUI");
+        IsSecretPanelState = !IsSecretPanelState;
+        IsLocalizationPanelState = false;
+        secretCodePanel.SetActive(IsSecretPanelState);
+        localizationPanel.SetActive(IsLocalizationPanelState);
     }
 
-    public void SecretCodePanelClose()
+    public void LocalizationPanelOpenClose()
     {
-        secretCode.SetActive(false);
-    }
-
-    public void OpenCloseLocalizationPanel()
-    {
+        audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState;
-        localization.SetActive(IsLocalizationPanelState);
+        IsSecretPanelState = false;
+        localizationPanel.SetActive(IsLocalizationPanelState);
+        secretCodePanel.SetActive(IsSecretPanelState);
     }
 
     public void ChangeLanguage(string fileName)
     {
+        audioManager.Play("ClickUI");
         localizationManager.LoadLocalizedText(fileName);
+    }
+
+    public void CheckSecretCode()
+    {
+        int money;
+        audioManager.Play("ClickUI");
+        money = progressInfo.CheckSecretCode(secretCodeField.text);
+        if (money != 0 && money != -1)
+        {
+            moneyPlusText.fontSize = 64;
+            moneyPlusText.text = "+" + money.ToString();
+        }
+        else if(money == 0)
+        {
+            moneyPlusText.fontSize = 36;
+            moneyPlusText.text = "You already use this code";
+        }
+        else
+        {
+            moneyPlusText.fontSize = 36;
+            moneyPlusText.text = "This code does not exist";
+        }
+            
     }
 }
