@@ -34,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
             prefab.SetActive(false);
             Enemies.Add(prefab, script);
             currentEnemies.Enqueue(prefab);
-            
         }
         Enemy.OnEnemyDeath += ReturnEnemy;
         StartCoroutine(Spawn());

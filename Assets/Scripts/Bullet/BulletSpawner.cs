@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
+    //public static BulletSpawner instance;
+
     CharShooting charShooting;
 
-    [Tooltip("Ссылка на базовый префаб врага")]
+    [Tooltip("Ссылка на базовый префаб пули")]
     [SerializeField] private GameObject bulletPrefab;
 
     [Tooltip("Место спауна пули")]
@@ -23,12 +25,14 @@ public class BulletSpawner : MonoBehaviour
         currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
-        currentWeaponBullet.SetActive(true);       
+        currentWeaponBullet.SetActive(true);
+        Destroy(currentWeaponBullet, 5);
     }
 
-    public void SetBullet(BulletData bulletData)
+    public void SetBullet(BulletData _bulletData)
     {
-        this.bulletData = bulletData;
+        spawnPosition = transform.GetChild(0);
+        bulletData = _bulletData;
 
         if (charShooting == null)
             charShooting = GameObject.Find("Character(Clone)").GetComponent<CharShooting>();
@@ -38,6 +42,6 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
         charShooting.SetBulletInfo(currentBulletScript);
-        currentWeaponBullet.SetActive(false);
+        Destroy(currentWeaponBullet);
     }
 }

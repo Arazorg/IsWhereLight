@@ -8,7 +8,7 @@ public class CurrentGameInfo : MonoBehaviour
 
     public string character;
     public string skin;
-    public string startGun;
+    public string startWeapon;
     public bool wildMode;
 
     public int startMoney;
@@ -40,7 +40,7 @@ public class CurrentGameInfo : MonoBehaviour
         {
             character = currentGameData.character;
             skin = currentGameData.skin;
-            startGun = currentGameData.startGun;
+            startWeapon = currentGameData.startWeapon;
 
             wildMode = currentGameData.wildMode;
             startMoney = currentGameData.startMoney;

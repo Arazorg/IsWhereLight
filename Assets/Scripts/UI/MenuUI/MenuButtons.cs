@@ -36,6 +36,7 @@ public class MenuButtons : MonoBehaviour
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Theme");
+        Debug.Log("Theme");
         SetStartObjectsActive();
     }
 

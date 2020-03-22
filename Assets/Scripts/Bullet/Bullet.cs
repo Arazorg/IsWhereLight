@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     private BulletData data;
 
     /// <summary>
-    /// Initialization of weapon
+    /// Initialization of bullet
     /// </summary>
     /// <param name="data"></param>
     public void Init(BulletData data)
@@ -16,8 +16,9 @@ public class Bullet : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
     }
 
+
     /// <summary>
-    /// Crit chance of current weapon
+    /// Speed of current bullet
     /// </summary>
     private float speed;
     public float Speed
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour
     }
 
     /// <summary>
-    /// Manecost of current weapon
+    /// Scatter of current bullet
     /// </summary>
     private float scatter;
     public float Scatter
@@ -42,11 +43,12 @@ public class Bullet : MonoBehaviour
         protected set { }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
+        
         if(gameObject.tag == "StandartBullet")
         {
-            if (collision.collider.tag == "Untagged" || collision.collider.tag == "Enemy")
+            if (collider.tag == "Untagged" || collider.tag == "Enemy")
             {
                 Destroy(gameObject);
             }

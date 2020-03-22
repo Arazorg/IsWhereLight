@@ -143,7 +143,6 @@ public class GameButtons : MonoBehaviour
                 OpenPause();
             }
         }
-
         Fire();
     }
 
@@ -180,12 +179,11 @@ public class GameButtons : MonoBehaviour
 
     private void Fire()
     {
-        if (manaBar.currentValue > 0 && shooting)
+        if (charInfo.mane > 0 && shooting)
         {
             if (Time.time > nextFire)
             {
-                manaBar.Spend(manecost);
-                charInfo.SpendMana(manecost);
+                charInfo.SpendMana(manecost);          
                 charShooting.Shoot();
                 nextFire = Time.time + fireRate;
             }

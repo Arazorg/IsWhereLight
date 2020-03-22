@@ -5,47 +5,26 @@ using UnityEngine.UI;
 
 public class ManaBar : MonoBehaviour
 {
-    public Image imgManaBar;
+    public Image imgManeBar;
     public Text textMane;
 
     private int Min, Max;
     public float currentPercent;
     public int currentValue;
 
-    public void SetMana(int mana, int _Max, int _Min)
+    public void SetMaxMin(int mane, int _Max, int _Min)
     {
-        Max = _Max;
+        currentValue = mane;
         Min = _Min;
-        if (mana != currentValue)
-        {
-            if (Max - Min == 0)
-            {
-                currentValue = 0;
-                currentPercent = 0;
-            }
-            else
-            {
-                currentValue = mana;
-                currentPercent = (float)currentValue / (float)(Max - Min);
-            }
-        }
-        textMane.text = string.Format("{0} / {1}", currentValue, (Max - Min));
-        imgManaBar.fillAmount = currentPercent;
+        Max = _Max;
+        SetMane(mane);
     }
 
-    public void Spend(int spendAmount)
-    {
-        if (currentValue - spendAmount < 0)
-            SetMana(0, Max, Min);
-        else
-            SetMana(currentValue - spendAmount, Max, Min);
-    }
 
-    public void Fill(int fillAmount)
+    public void SetMane(int currentMane)
     {
-        if (currentValue + fillAmount > Max)
-            SetMana(Max, Max, Min);
-        else
-            SetMana(currentValue + fillAmount, Max, Min);
+        currentPercent = (float)currentMane / (float)(Max - Min);
+        textMane.text = string.Format("{0} / {1}", currentMane, (Max - Min));
+        imgManeBar.fillAmount = currentPercent;
     }
 }

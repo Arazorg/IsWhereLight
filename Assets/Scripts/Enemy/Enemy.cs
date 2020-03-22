@@ -54,12 +54,13 @@ public class Enemy : MonoBehaviour
         OnEnemyDeath(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (collision.gameObject.tag == "StandartBullet")
+        if (coll.gameObject.tag == "StandartBullet")
             health -= 5;
         if (health <= 0)
             Death();
+        Debug.Log("попал " + health);
     }
 
     void OnBecameVisible()

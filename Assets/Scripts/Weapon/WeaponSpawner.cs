@@ -6,6 +6,7 @@ public class WeaponSpawner : MonoBehaviour
 {
     BulletSpawner bulletSpawner;
     GameButtons gameButtons;
+    CharInfo charInfo;
 
     [Tooltip("Список настроек для оружия")]
     [SerializeField] private List<WeaponData> weaponSettings;
@@ -28,6 +29,7 @@ public class WeaponSpawner : MonoBehaviour
 
     private void Start()
     {
+        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         Weapons = new Dictionary<GameObject, Weapon>();
         countOfWeapon = 0;
     }
@@ -45,7 +47,7 @@ public class WeaponSpawner : MonoBehaviour
                 script.Init(data);
                 prefab.transform.tag = "Gun";
                 prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 Weapons.Add(prefab, script);
             }
         }
@@ -59,16 +61,18 @@ public class WeaponSpawner : MonoBehaviour
             {
                 currentCharWeapon = Instantiate(weaponPrefab, transform);
                 currentWeaponScript = currentCharWeapon.GetComponent<Weapon>();
-                currentWeaponScript.Init(data);
+                currentCharWeapon.GetComponent<Weapon>().Init(data);
                 currentCharWeapon.transform.tag = "Untagged";
                 currentCharWeapon.SetActive(false);
                 currentCharWeapon.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                Weapons.Add(currentCharWeapon, currentWeaponScript);
+                Weapons.Add(currentCharWeapon, currentCharWeapon.GetComponent<Weapon>());
 
                 bulletSpawner = currentCharWeapon.GetComponent<BulletSpawner>();
                 gameButtons = GameObject.Find("Canvas").transform.Find("GameUI").GetComponent<GameButtons>();
+
                 bulletSpawner.SetBullet(currentWeaponScript.Bullet);
-                gameButtons.SetWeaponInfo(currentWeaponScript);
+                gameButtons.SetWeaponInfo(currentCharWeapon.GetComponent<Weapon>());
+                charInfo.weapon = currentCharWeapon.GetComponent<Weapon>().WeaponName;
             }
         }   
     }
@@ -84,7 +88,7 @@ public class WeaponSpawner : MonoBehaviour
                 script.Init(data);
                 prefab.transform.tag = "Gun";
                 prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 0;
+                prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 Weapons.Add(prefab, script);
             }
         }

@@ -13,7 +13,7 @@ public class CharInfo : MonoBehaviour
     public int money;
     public int health;
     public int mane;
-    public string gun;
+    public string weapon;
     public string skin;
     public string character;
 
@@ -24,7 +24,7 @@ public class CharInfo : MonoBehaviour
         money = currentGameInfo.startMoney;
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
-        gun = currentGameInfo.startGun;
+        weapon = currentGameInfo.startWeapon;
         character = currentGameInfo.character;
         SetObjects();
     }
@@ -32,8 +32,8 @@ public class CharInfo : MonoBehaviour
     private void SetObjects()
     {
         FindObjects();
-        manaBar.SetMana(mane, currentGameInfo.maxMane, 0);
-        healthBar.SetHealth(health, currentGameInfo.maxHealth, 0);
+        manaBar.SetMaxMin(mane, currentGameInfo.maxMane, 0);
+        healthBar.SetMaxMin(health, currentGameInfo.maxHealth, 0);
     }
 
     public void SaveChar()
@@ -47,19 +47,19 @@ public class CharInfo : MonoBehaviour
         level = charData.level;
         health = charData.health;
         mane = charData.mane;
-        gun = charData.gun;
+        weapon = charData.weapon;
         money = charData.money;
         character = charData.character;
         SetObjects();
     }
 
-    public void SpendMana(int spendAmount)
+    public void SpendMana(int manecost)
     {
-        if (mane - spendAmount < 0)
+        if (mane - manecost < 0)
             mane = 0;
         else
-            mane -= spendAmount;
-        manaBar.Spend(spendAmount);
+            mane -= manecost;
+        manaBar.SetMane(mane);
     }
 
     public void FillMana(int fillAmount)
@@ -70,13 +70,22 @@ public class CharInfo : MonoBehaviour
             mane += fillAmount;
     }
 
-    public void SpendHealth(int spendAmount)
+    public void Damage(int damage)
     {
-        if (health - spendAmount < 0)
+        if (health - damage < 0)
             health = 0;
         else
-            health -= spendAmount;
-        healthBar.Damage(spendAmount);
+            health -= damage;
+        healthBar.SetHealth(health);
+    }
+
+    public void Healing(int healing)
+    {
+        if (health + healing > currentGameInfo.maxHealth)
+            health = currentGameInfo.maxHealth;
+        else
+            health += healing;
+        healthBar.SetHealth(health);
     }
 
     private void FindObjects()

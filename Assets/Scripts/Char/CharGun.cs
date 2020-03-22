@@ -39,7 +39,8 @@ public class CharGun : MonoBehaviour
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
 
         offsetGun = new Vector3(0, -0.35f, 0);
-        weaponSpawner.Spawn(charInfo.gun, transform);
+        Debug.Log(charInfo.weapon);
+        weaponSpawner.Spawn(charInfo.weapon, transform);
         SetWeaponParam();
 
         gunInfoBar.SetActive(false);
@@ -71,6 +72,7 @@ public class CharGun : MonoBehaviour
 
     public void ChangeGun()
     {
+        WeaponSpawner.currentCharWeapon.transform.SetParent(null);
         weaponSpawner.Spawn(WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().WeaponName,
                                gameObject.transform.position,
                                    WeaponSpawner.currentCharWeapon.transform.rotation);
