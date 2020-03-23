@@ -23,11 +23,25 @@ public class LightingManager : MonoBehaviour
         {
             TimeOfDay += Time.deltaTime;
             TimeOfDay %= 24;
-            UpdateLighting(TimeOfDay / 24f);
+            if(TimeOfDay >= 12)
+            {
+                UpdateLighting((12f / TimeOfDay) - 0.5f);
+            }
+            else
+            {
+                UpdateLighting(TimeOfDay / 12f);
+            }
         }
         else
         {
-            UpdateLighting(TimeOfDay / 24f);
+            if (TimeOfDay >= 12)
+            {
+                UpdateLighting((12f / TimeOfDay) - 0.5f);
+            }
+            else
+            {
+                UpdateLighting(TimeOfDay / 12f);
+            }
         }
     }
 
