@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             if (isEnterFirst)
             {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                timeToOff = Time.time + 0.1f;
+                timeToOff = Time.time + 0.05f;
                 isEnterFirst = false;
             }
             else

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject explosionPrefab;
     private BulletData data;
 
     /// <summary>
@@ -50,6 +51,8 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Untagged" || collider.tag == "Enemy")
             {
+                GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
                 Destroy(gameObject);
             }
         }   
