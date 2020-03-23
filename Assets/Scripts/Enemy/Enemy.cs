@@ -90,7 +90,6 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
             Death();
-        Debug.Log("попал " + health);
     }
 
     void OnBecameVisible()

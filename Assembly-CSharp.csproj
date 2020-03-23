@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Specifications\CharactersSpec.cs" />
      <Compile Include="Assets\Scripts\System\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\System\LightingManager.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationData.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationManager.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizedText.cs" />
