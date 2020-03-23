@@ -84,8 +84,13 @@ public class Enemy : MonoBehaviour
     {
         if (coll.gameObject.tag == "StandartBullet")
         {
+            int damage = WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().Damage;
             isEnemyHitted = true;
-            health -= WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().Damage;
+            bool isCriticalHit = UnityEngine.Random.Range(0, 100) < WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().CritChance;
+            if(isCriticalHit)
+                damage *= 2;
+            health -= damage;
+            PopupDamage.Create(transform.position, damage, isCriticalHit);
         }
 
         if (health <= 0)
