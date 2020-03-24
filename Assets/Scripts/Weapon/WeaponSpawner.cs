@@ -47,7 +47,7 @@ public class WeaponSpawner : MonoBehaviour
                 script.Init(data);
                 prefab.transform.tag = "Gun";
                 prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 Weapons.Add(prefab, script);
             }
         }
@@ -64,7 +64,7 @@ public class WeaponSpawner : MonoBehaviour
                 currentCharWeapon.GetComponent<Weapon>().Init(data);
                 currentCharWeapon.transform.tag = "Untagged";
                 currentCharWeapon.SetActive(false);
-                currentCharWeapon.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                currentCharWeapon.GetComponent<SpriteRenderer>().sortingOrder = 3;
                 Weapons.Add(currentCharWeapon, currentCharWeapon.GetComponent<Weapon>());
 
                 bulletSpawner = currentCharWeapon.GetComponent<BulletSpawner>();

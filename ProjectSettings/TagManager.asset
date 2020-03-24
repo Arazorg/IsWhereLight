@@ -13,6 +13,7 @@ TagManager:
   - Chest
   - Text
   - WeaponStore
+  - Floor
   layers:
   - Default
   - TransparentFX
