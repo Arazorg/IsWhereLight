@@ -29,13 +29,12 @@ public class CharAction : MonoBehaviour
             GameButtons.FireActButtonState = 2;
             fireActButton.GetComponent<Image>().color = Color.magenta;
         }
-
-        if (coll.gameObject.tag == "Chest")
+        else if (coll.gameObject.tag == "Chest")
         {
             GameButtons.FireActButtonState = 3;
             fireActButton.GetComponent<Image>().color = Color.yellow;
         }
-        if (coll.gameObject.tag == "Enemy")
+        else if (coll.gameObject.tag == "Enemy")
         {
             var obj = coll.gameObject;
             if (EnemySpawner.Enemies.ContainsKey(obj))

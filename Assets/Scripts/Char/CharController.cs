@@ -15,7 +15,8 @@ public class CharController : MonoBehaviour
     private GameObject[] enemies;
     private CharInfo charInfo;
     private bool m_FacingRight = true;
-
+    private float speedModification;
+    private GameObject currentFloor;
     void Start()
     {
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
@@ -27,9 +28,16 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
+        if (FloorSpawner.Floors.ContainsKey(currentFloor))
+        {
+            speedModification = FloorSpawner.Floors[currentFloor].SpeedModification;
+        }
+        else
+            Debug.Log("!");
+            
         animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
-        rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
-                                     Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
+        rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed , 0.8f),
+                                     Mathf.Lerp(0, joystick.Vertical * speed , 0.8f));
 
         if (!RotateGunToEnemy())
         {
@@ -110,5 +118,13 @@ public class CharController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Floor")
+        {
+            currentFloor = coll.gameObject;
+        }
     }
 }
