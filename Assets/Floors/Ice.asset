@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7f929e62037344f8180b3f47a83adb, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: 
-  mainSprite: {fileID: 21300000, guid: b03f14eb29c0bc54e96022e49ff8f4cd, type: 3}
+  mainSprite: {fileID: 21300000, guid: ce0e15a3be8ff224cbf7b92042eab732, type: 3}
   floorName: Ice
   material: {fileID: 6200000, guid: e42df1aebaee4994f8f5a142d09bd3d6, type: 2}
   speedModification: 1.2

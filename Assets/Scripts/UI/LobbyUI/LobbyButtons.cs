@@ -19,12 +19,12 @@ public class LobbyButtons : MonoBehaviour
     private CharactersSpec charactersSpec;
     private CharactersSpec.Character charSpec;
 
-    public Text characterText;
-    public Text healthText;
-    public Text maneText;
-    public Text gunText;
-    public Text moneyText;
-    public Text priceText;
+    public TextMeshProUGUI characterText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI maneText;
+    public TextMeshProUGUI gunText;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI priceText;
 
     private string[] characters;
     public int charCounter;

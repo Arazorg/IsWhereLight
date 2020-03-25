@@ -25,7 +25,7 @@ public class LightingManager : MonoBehaviour
             TimeOfDay %= 24;
             if(TimeOfDay >= 12)
             {
-                UpdateLighting((12f / TimeOfDay) - 0.5f);
+                UpdateLighting((12f / TimeOfDay) - 0.1f);
             }
             else
             {
@@ -36,7 +36,7 @@ public class LightingManager : MonoBehaviour
         {
             if (TimeOfDay >= 12)
             {
-                UpdateLighting((12f / TimeOfDay) - 0.5f);
+                UpdateLighting((12f / TimeOfDay) - 0.1f);
             }
             else
             {

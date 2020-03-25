@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7f929e62037344f8180b3f47a83adb, type: 3}
   m_Name: Grass
   m_EditorClassIdentifier: 
-  mainSprite: {fileID: 21300000, guid: babd12268fa0a2c4aa8ee876d24ffd19, type: 3}
+  mainSprite: {fileID: 21300000, guid: 7040e8aadee0d4a48a03d0be3bb2ca85, type: 3}
   floorName: Grass
   material: {fileID: 6200000, guid: fee156982be9393489a8910c7e0559c2, type: 2}
   speedModification: 0.75
