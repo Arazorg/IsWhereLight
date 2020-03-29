@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Shark
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 76c64eb161736bc4691c2a90ab5ee999, type: 2}
-  speed: 6
+  speed: 200
   health: 18
   attack: 5
+  target: Building
+  enemyName: Shark

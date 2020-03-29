@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: TreeMonster
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: a832a319abb313b43900bf5d1ff07c71, type: 2}
-  speed: 4
+  speed: 200
   health: 15
   attack: 6
+  target: Player
+  enemyName: TreeMonster

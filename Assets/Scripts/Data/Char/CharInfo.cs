@@ -8,6 +8,8 @@ public class CharInfo : MonoBehaviour
     private ManaBar manaBar;
     private HealthBar healthBar;
     private CurrentGameInfo currentGameInfo;
+    private CharAction charAction;
+
     //Values
     public int level;
     public int money;
@@ -19,6 +21,7 @@ public class CharInfo : MonoBehaviour
 
     public void SetStartParametrs()
     {
+        charAction = GetComponent<CharAction>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         level = 1;
         money = currentGameInfo.startMoney;
@@ -76,7 +79,13 @@ public class CharInfo : MonoBehaviour
             health = 0;
         else
             health -= damage;
+
         healthBar.SetHealth(health);
+
+        if (health <= 0)
+        {
+            charAction.Death();
+        }
     }
 
     public void Healing(int healing)

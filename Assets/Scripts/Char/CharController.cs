@@ -32,13 +32,11 @@ public class CharController : MonoBehaviour
         {
             speedModification = FloorSpawner.Floors[currentFloor].SpeedModification;
         }
-        else
-            Debug.Log("!");
-            
+          
         animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
         rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed , 0.8f),
                                      Mathf.Lerp(0, joystick.Vertical * speed , 0.8f));
-
+        
         if (!RotateGunToEnemy())
         {
             if (joystick.Horizontal > 0 && !m_FacingRight)

@@ -11,6 +11,9 @@ public class CharAction : MonoBehaviour
     private CharInfo charInfo;
     private CurrentGameInfo currentGameInfo;
     private SettingsInfo settingsInfo;
+    private float timeToOff;
+    public bool isEnterFirst;
+    public bool isPlayerHitted;
 
     void Start()
     {
@@ -21,6 +24,10 @@ public class CharAction : MonoBehaviour
         fireActButton = gameUI.transform.Find("FireActButton").GetComponent<Button>();
     }
 
+    void Update()
+    {
+        PlayerHitted();
+    }
     void OnTriggerEnter2D(Collider2D coll)
     {
 
@@ -34,18 +41,25 @@ public class CharAction : MonoBehaviour
             GameButtons.FireActButtonState = 3;
             fireActButton.GetComponent<Image>().color = Color.yellow;
         }
-        else if (coll.gameObject.tag == "Enemy")
+    }
+
+    public void PlayerHitted()
+    {
+        if (isPlayerHitted)
         {
-            var obj = coll.gameObject;
-            if (EnemySpawner.Enemies.ContainsKey(obj))
+            if (isEnterFirst)
             {
-                int spend = EnemySpawner.Enemies[obj].Attack;
-                Debug.Log(spend);
-                charInfo.Damage(spend);
-                if (charInfo.health <= 0)
+                GetComponent<SpriteRenderer>().color = Color.red;
+                timeToOff = Time.time + 0.05f;
+                isEnterFirst = false;
+            }
+            else
+            {
+                if (Time.time > timeToOff)
                 {
-                    Debug.Log("!");
-                    Death();
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                    isPlayerHitted = false;
+                    isEnterFirst = true;
                 }
             }
         }

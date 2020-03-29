@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Alien
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 801ace24f4b2d9349bdc758508e84589, type: 2}
-  speed: 5
+  speed: 200
   health: 20
   attack: 8
+  target: Building
+  enemyName: Alien

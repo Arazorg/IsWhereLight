@@ -8,66 +8,58 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<EnemyData> enemySettings;
 
     [Tooltip("Количество объектов в пуле")]
-    [SerializeField] private int poolCount;
+    [SerializeField] private int enemyCount;
 
     [Tooltip("Ссылка на базовый префаб врага")]
     [SerializeField] private GameObject enemyPrefab;
-
-    [Tooltip("Время между спауном врагов")]
-    [SerializeField] private float spawnTime;
 
     /// <summary>
     /// Словарь для скриптов
     /// </summary>
     public static Dictionary<GameObject, Enemy> Enemies;
-    private Queue<GameObject> currentEnemies;
 
     private void Start()
     {
         Enemies = new Dictionary<GameObject, Enemy>();
-        currentEnemies = new Queue<GameObject>();
-
-        for (int i = 0; i < poolCount; ++i)
+        for (int i = 0; i < enemyCount; i++)
         {
-            var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-25,25), Random.Range(-25, 25), 0), new Quaternion(0,0,0,0));
-            var script = prefab.GetComponent<Enemy>();
-            prefab.SetActive(false);
-            Enemies.Add(prefab, script);
-            currentEnemies.Enqueue(prefab);
+            Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
         }
-        Enemy.OnEnemyDeath += ReturnEnemy;
-        StartCoroutine(Spawn());
+
+        foreach (var enemy in Enemies)
+        {
+            enemy.Key.SetActive(true);
+        }
+
+        Enemy.OnEnemyDeath += DestroyEnemy;
     }
 
-    private IEnumerator Spawn()
+
+    public void Spawn(string enemyName)
     {
-        if(spawnTime == 0)
+        foreach (var data in enemySettings)
         {
-            Debug.LogError("Не выставленно время спауна, заданное стандартное время - 1 сек.");
-            spawnTime = 1;
-        }
-        while(true)
-        {
-            yield return new WaitForSeconds(spawnTime);
-            if(currentEnemies.Count > 0)
+            if (data.name == enemyName)
             {
-                //получение компонентов и активация врага
-                var enemy = currentEnemies.Dequeue();
-                var script = Enemies[enemy];
-                enemy.SetActive(true);
-                int rand = Random.Range(0, enemySettings.Count);
-                script.Init(enemySettings[rand]);
+                var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), 0), new Quaternion(0, 0, 0, 0));
+                var script = prefab.GetComponent<Enemy>();
+                prefab.SetActive(false);
+                script.Init(data);
+                prefab.transform.tag = "Enemy";
+                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                Enemies.Add(prefab, script);
             }
         }
     }
+
     /// <summary>
-    /// Возврат объекта обратно в пул и подготовка к повторному использованию
+    /// Удаление врага и генерация нового
     /// </summary>
     /// <param name="enemy"></param>
-    private void ReturnEnemy(GameObject _enemy)
+    private void DestroyEnemy(GameObject enemy)
     {
-        _enemy.transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
-        _enemy.SetActive(false);
-        currentEnemies.Enqueue(_enemy);
+        Destroy(enemy);
+        Enemies.Remove(enemy);
+        Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
     }
 }

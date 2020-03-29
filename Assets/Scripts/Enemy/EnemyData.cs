@@ -35,4 +35,30 @@ public class EnemyData : ScriptableObject
         get { return attack; }
         protected set { }
     }
+
+    [Tooltip("Цель атаки врага")]
+    [SerializeField] private string target;
+    public string Target
+    {
+        set
+        {
+            target = value;
+        }
+        get { return target; }
+    }
+
+    [Tooltip("Имя врага")]
+    [SerializeField] private string enemyName;
+    public string EnemyName
+    {
+        get { return enemyName; }
+    }
+
+    [Tooltip("Частота атаки врага")]
+    [SerializeField] private float fireRate;
+    public float FireRate
+    {
+        get { return fireRate; }
+        protected set { }
+    }
 }
