@@ -62,7 +62,6 @@
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
-     <Compile Include="Assets\Pathfinding.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Audio\Sound.cs" />
      <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
@@ -98,6 +97,16 @@
      <Compile Include="Assets\Scripts\System\Localization\LocalizationData.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationManager.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizedText.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\FunctionPeriodic.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\FunctionTimer.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\FunctionUpdater.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\Grid.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\GridNode.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\MeshUtils.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\Pathfinding.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathfindingGridSetup.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathfindingParams.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathfindingVisual.cs" />
      <Compile Include="Assets\Scripts\System\Startup\MenuLoader.cs" />
      <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\Scripts\UI\FinishOfGameUI\FinishOfGameButton.cs" />
@@ -114,6 +123,7 @@
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\MenuButtons.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\SettingsButtons.cs" />
+     <Compile Include="Assets\Scripts\Utils\UtilsClass.cs" />
      <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponData.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponSpawner.cs" />
