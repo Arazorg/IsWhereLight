@@ -72,74 +72,20 @@
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.CacheServer">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ScriptableBuildPipeline.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Burst">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Entities.Properties">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Entities.Properties.dll</HintPath>
@@ -156,8 +102,14 @@
  <Reference Include="Unity.Burst.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Collections">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Scenes.Hybrid">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Scenes.Hybrid.dll</HintPath>
@@ -165,8 +117,20 @@
  <Reference Include="Unity.Scenes.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Scenes.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Mathematics.Extensions">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Mathematics.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
@@ -174,8 +138,23 @@
  <Reference Include="Unity.Mathematics.Extensions.Hybrid">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Entities.BuildUtils">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Entities.BuildUtils.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Entities.Hybrid.EndToEnd.Tests">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Entities.Hybrid.EndToEnd.Tests.dll</HintPath>
@@ -189,6 +168,15 @@
  <Reference Include="Unity.Properties">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Properties.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Entities">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
  </Reference>
@@ -201,8 +189,20 @@
  <Reference Include="Unity.ScriptableBuildPipeline">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ShaderGraph.Editor">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Mathematics.Editor">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Transforms.Hybrid">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
@@ -396,14 +396,14 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:/Program Files/Unity/2019.3.3f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="ICSharpCode.NRefactory">
- <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/PackageCache/com.unity.render-pipelines.core@7.2.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/PackageCache/com.unity.burst@1.3.0-preview.5/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="System.Runtime.CompilerServices.Unsafe">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/PackageCache/com.unity.collections@0.7.0-preview.2/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.NRefactory">
+ <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/PackageCache/com.unity.render-pipelines.core@7.2.1/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>C:/Users/Arazorg/Documents/unity/IsWhereLight/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

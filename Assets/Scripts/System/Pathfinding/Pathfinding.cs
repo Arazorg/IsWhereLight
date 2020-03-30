@@ -1,45 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Unity.Mathematics;
 using Unity.Collections;
-using System;
-using CodeMonkey.Utils;
 using Unity.Jobs;
 using Unity.Burst;
+using Unity.Entities;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinding : ComponentSystem
 {
-
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_COST = 14;
 
-    private void Start()
+    protected override void OnUpdate()
     {
-        FunctionPeriodic.Create(() => {
-            float startTime = Time.realtimeSinceStartup;
-
-            int findPathJobCount = 250;
-            NativeArray<JobHandle> jobHandleArray = new NativeArray<JobHandle>(findPathJobCount, Allocator.TempJob);
-
-            for (int i = 0; i < findPathJobCount; i++)
+        Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
+            Debug.Log("FindPath!");
+            FindPathJob findPathJob = new FindPathJob
             {
-                FindPathJob findPathJob = new FindPathJob
-                {
-                    startPosition = new int2(0, 0),
-                    endPosition = new int2(19, 19)
-                };
-                jobHandleArray[i] = findPathJob.Schedule();
-            }
+                startPosition = pathfindingParams.startPosition,
+                endPosition = pathfindingParams.endPosition
+            };
+            findPathJob.Run();
 
-            JobHandle.CompleteAll(jobHandleArray);
-            jobHandleArray.Dispose();
-
-            Debug.Log("Time: " + ((Time.realtimeSinceStartup - startTime) * 1000f));
-        }, 1f);
+            PostUpdateCommands.RemoveComponent<PathfindingParams>(entity);
+        });
     }
 
-    [BurstCompile]
+   // [BurstCompile]
     private struct FindPathJob : IJob
     {
 
@@ -189,11 +175,13 @@ public class Pathfinding : MonoBehaviour
             {
                 // Found a path
                 NativeList<int2> path = CalculatePath(pathNodeArray, endNode);
-                /*
-                foreach (int2 pathPosition in path) {
-                    Debug.Log(pathPosition);
+
+                for (int i = 0; i < path.Length; i++)
+                {
+                    Debug.Log(path[i]);
                 }
-                */
+
+                
                 path.Dispose();
             }
 
