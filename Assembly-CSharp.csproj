@@ -103,6 +103,11 @@
      <Compile Include="Assets\Scripts\System\Pathfinding\Grid.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\GridNode.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\MeshUtils.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathFollow.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathFollowSystem.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathFollowSystem_Simple.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathPosition.cs" />
+     <Compile Include="Assets\Scripts\System\Pathfinding\PathPositionAuthoring.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\Pathfinding.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\PathfindingGridSetup.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\PathfindingParams.cs" />

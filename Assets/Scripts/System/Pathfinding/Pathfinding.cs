@@ -12,12 +12,16 @@ public class Pathfinding : ComponentSystem
 
     protected override void OnUpdate()
     {
-        Entities.ForEach((Entity entity, ref PathfindingParams pathfindingParams) => {
+        Entities.ForEach((Entity entity, DynamicBuffer<PathPosition> pathPositionBuffer, ref PathfindingParams pathfindingParams) =>
+        {
             Debug.Log("FindPath!");
             FindPathJob findPathJob = new FindPathJob
             {
                 startPosition = pathfindingParams.startPosition,
-                endPosition = pathfindingParams.endPosition
+                endPosition = pathfindingParams.endPosition,
+                pathPositionBuffer = pathPositionBuffer,
+                entity = entity,
+                pathFollowComponentDataFromEntity = GetComponentDataFromEntity<PathFollow>(),
             };
             findPathJob.Run();
 
@@ -25,16 +29,21 @@ public class Pathfinding : ComponentSystem
         });
     }
 
-   // [BurstCompile]
+
+    // [BurstCompile]
     private struct FindPathJob : IJob
     {
 
         public int2 startPosition;
         public int2 endPosition;
 
+        public Entity entity;
+        public ComponentDataFromEntity<PathFollow> pathFollowComponentDataFromEntity;
+        public DynamicBuffer<PathPosition> pathPositionBuffer;
+
         public void Execute()
         {
-            int2 gridSize = new int2(100, 100);
+            int2 gridSize = new int2(20, 20);
 
             NativeArray<PathNode> pathNodeArray = new NativeArray<PathNode>(gridSize.x * gridSize.y, Allocator.Temp);
 
@@ -165,30 +174,47 @@ public class Pathfinding : ComponentSystem
                 }
             }
 
+            pathPositionBuffer.Clear();
+
             PathNode endNode = pathNodeArray[endNodeIndex];
             if (endNode.cameFromNodeIndex == -1)
             {
                 // Didn't find a path!
                 //Debug.Log("Didn't find a path!");
+                pathFollowComponentDataFromEntity[entity] = new PathFollow { pathIndex = -1 };
             }
             else
             {
                 // Found a path
-                NativeList<int2> path = CalculatePath(pathNodeArray, endNode);
-
-                for (int i = 0; i < path.Length; i++)
-                {
-                    Debug.Log(path[i]);
-                }
-
-                
-                path.Dispose();
+                CalculatePath(pathNodeArray, endNode, pathPositionBuffer);
+                pathFollowComponentDataFromEntity[entity] = new PathFollow { pathIndex = pathPositionBuffer.Length};
             }
 
             pathNodeArray.Dispose();
             neighbourOffsetArray.Dispose();
             openList.Dispose();
             closedList.Dispose();
+        }
+
+        private void CalculatePath(NativeArray<PathNode> pathNodeArray, PathNode endNode, DynamicBuffer<PathPosition> pathPositionBuffer)
+        {
+            if (endNode.cameFromNodeIndex == -1)
+            {
+                // Couldn't find a path!
+            }
+            else
+            {
+                // Found a path
+                pathPositionBuffer.Add(new PathPosition { position = new int2(endNode.x, endNode.y) });
+
+                PathNode currentNode = endNode;
+                while (currentNode.cameFromNodeIndex != -1)
+                {
+                    PathNode cameFromNode = pathNodeArray[currentNode.cameFromNodeIndex];
+                    pathPositionBuffer.Add(new PathPosition { position = new int2(cameFromNode.x, cameFromNode.y) });
+                    currentNode = cameFromNode;
+                }
+            }
         }
 
         private NativeList<int2> CalculatePath(NativeArray<PathNode> pathNodeArray, PathNode endNode)

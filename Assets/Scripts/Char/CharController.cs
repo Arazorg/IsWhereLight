@@ -28,10 +28,10 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        if (FloorSpawner.Floors.ContainsKey(currentFloor))
-        {
-            speedModification = FloorSpawner.Floors[currentFloor].SpeedModification;
-        }
+        //if (FloorSpawner.Floors.ContainsKey(currentFloor))
+        //{
+         //   speedModification = FloorSpawner.Floors[currentFloor].SpeedModification;
+       // }
           
         animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
         rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed , 0.8f),
