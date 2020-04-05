@@ -9,8 +9,8 @@ public class LightingManager : MonoBehaviour
     [Tooltip("Источник света")]
     [SerializeField] private Light2D globalLight;
 
-    [Tooltip("Источник света")]
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+    [Tooltip("Время")]
+    [Range(0, 24)] public float TimeOfDay;
 
     void Start()
     {

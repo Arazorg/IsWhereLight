@@ -7,22 +7,44 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Список настроек для врагов")]
     [SerializeField] private List<EnemyData> enemySettings;
 
-    [Range(1, 25)]
+    [Range(1, 125)]
     [Tooltip("Количество объектов в пуле")]
     [SerializeField] private int enemyCount;
 
     [Tooltip("Ссылка на базовый префаб врага")]
     [SerializeField] private GameObject enemyPrefab;
 
+    LightingManager lightingManager;
+
     /// <summary>
     /// Словарь для скриптов
     /// </summary>
     public static Dictionary<GameObject, Enemy> Enemies;
+    private bool isSpawn;
+    private float nextSpawn = 24f;
+    private float spawnRate = 24f;
 
     private void Start()
     {
-        int counter = 0;
+        lightingManager = GameObject.Find("GameHandler").GetComponent<LightingManager>();
         Enemies = new Dictionary<GameObject, Enemy>();
+        SpawnFlock();
+        Enemy.OnEnemyDeath += DestroyEnemy;
+    }
+
+    private void Update()
+    {
+        if (Time.time > nextSpawn)
+        {
+            SpawnFlock();
+            nextSpawn = Time.time + spawnRate;
+            isSpawn = false;
+        }
+    }
+
+    private void SpawnFlock()
+    {
+        int counter = 0;
         for (int i = 0; i < enemyCount; i++)
         {
             Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
@@ -33,8 +55,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.Key.SetActive(true);
         }
-
-        Enemy.OnEnemyDeath += DestroyEnemy;
+        enemyCount += 7;
     }
 
     public void Spawn(string enemyName, int counter)
