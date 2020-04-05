@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private LayerMask enemyLayer;
+
+    public enum State
+    {
+        ChaseTarget,
+        Attack
+    }
+
     EnemyMeleeAttack enemyMeleeAttack;
+    EnemyDistantAttack enemyDistantAttack;
+    EnemyPathfindingMovement enemyPathfindingMovement;
 
     private Rigidbody2D rb;
 
@@ -13,52 +23,82 @@ public class EnemyAI : MonoBehaviour
     public float speed;
     public string target;
     public float fireRate;
+    public EnemyData.AttackType typeOfAttack;
+    private float attackRange;
+    private float nextAttack;
+    private State state;
 
     private Transform targetTransform;
-    private Transform characterTransform;
+    private GameObject character;
 
-    private float nextAttack;
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
+        enemyDistantAttack = GetComponent<EnemyDistantAttack>();
+        enemyPathfindingMovement = GetComponent<EnemyPathfindingMovement>();
+        enemy = GetComponent<Enemy>();
+        character = GameObject.Find("Character(Clone)");
+    }
 
     void Start()
     {
-        enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
-        characterTransform = GameObject.Find("Character(Clone)").transform;
-        rb = GetComponent<Rigidbody2D>();
-
-        enemy = GetComponent<Enemy>();
         target = enemy.Target;
         speed = enemy.Speed;
         fireRate = enemy.FireRate;
+        typeOfAttack = enemy.TypeOfAttack;
+        attackRange = enemy.AttackRange;
 
         nextAttack = 0.0f;
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        state = State.ChaseTarget;
+
+        InvokeRepeating("UpdatePath", 0f, .25f);
+    }
+
+    public void SetState(State state)
+    {
+        this.state = state;
+    }
+
+    void UpdatePath()
+    {
+        GetTarget(target);
+        enemyPathfindingMovement.attackRange = attackRange;
+        enemyPathfindingMovement.SetTargetPosition(targetTransform.position);
+        enemyPathfindingMovement.target = targetTransform.gameObject;
+        if (typeOfAttack == EnemyData.AttackType.Distant)
+        {
+            enemyDistantAttack.target = targetTransform;
+        }
+        else if (typeOfAttack == EnemyData.AttackType.Melee)
+        {
+            enemyMeleeAttack.attackRange = attackRange;
+        }
     }
 
     void Update()
     {
-
-        if (rb.velocity.x >= 0.01f)
+        if (Time.time > nextAttack && state == State.Attack)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            switch (typeOfAttack)
+            {
+                case EnemyData.AttackType.Melee:
+                    enemyMeleeAttack.Attack();
+                    nextAttack = Time.time + fireRate;
+                    break;
+                case EnemyData.AttackType.Distant:
+                    enemyDistantAttack.Attack();
+                    nextAttack = Time.time + fireRate;
+                    break;
+            }
         }
-        else if (rb.velocity.x <= -0.01f)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-
-        }
-
-        if (Time.time > nextAttack)
-        {
-            nextAttack = Time.time + fireRate;
-        }
-
     }
 
     private void GetTarget(string target)
     {
         if (target == "Player")
         {
-            targetTransform = characterTransform;
+            targetTransform = character.transform;
         }
         else if (target == "Building")
         {
@@ -99,6 +139,11 @@ public class EnemyAI : MonoBehaviour
 
     private Vector2 GetRandomDir()
     {
-        return new Vector2(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(-3f, 3f)).normalized;
+        return new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)).normalized;
+    }
+
+    public Vector3 GetCurrentPosition()
+    {
+        return transform.position;
     }
 }

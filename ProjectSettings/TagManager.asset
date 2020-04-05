@@ -16,6 +16,7 @@ TagManager:
   - Floor
   - Building
   - EnemyMeleeAttack
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

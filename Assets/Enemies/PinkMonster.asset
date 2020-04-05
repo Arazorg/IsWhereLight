@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: PinkMonster
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: cc37b882b1082c64780c57e14b4621b8, type: 2}
-  speed: 200
+  speed: 1
   health: 10
+  typeOfAttack: 0
   attack: 8
+  attackRange: 1
+  dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: PinkMonster
+  fireRate: 1

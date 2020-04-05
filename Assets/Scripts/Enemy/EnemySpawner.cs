@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Список настроек для врагов")]
     [SerializeField] private List<EnemyData> enemySettings;
 
+    [Range(1, 25)]
     [Tooltip("Количество объектов в пуле")]
     [SerializeField] private int enemyCount;
 
@@ -20,10 +21,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        int counter = 0;
         Enemies = new Dictionary<GameObject, Enemy>();
         for (int i = 0; i < enemyCount; i++)
         {
-            Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
+            Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
+            counter++;
         }
 
         foreach (var enemy in Enemies)
@@ -34,19 +37,20 @@ public class EnemySpawner : MonoBehaviour
         Enemy.OnEnemyDeath += DestroyEnemy;
     }
 
-
-    public void Spawn(string enemyName)
+    public void Spawn(string enemyName, int counter)
     {
         foreach (var data in enemySettings)
         {
             if (data.name == enemyName)
             {
-                var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), 0), new Quaternion(0, 0, 0, 0));
+                var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(10, 25), Random.Range(10, 25), 0), new Quaternion(0, 0, 0, 0));
                 var script = prefab.GetComponent<Enemy>();
+                prefab.name = "Enemy " + counter;
                 prefab.SetActive(false);
                 script.Init(data);
                 prefab.transform.tag = "Enemy";
                 prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+                prefab.GetComponent<EnemyBulletSpawner>().SetBullet(script.dataOfBullet);
                 Enemies.Add(prefab, script);
             }
         }
@@ -60,6 +64,6 @@ public class EnemySpawner : MonoBehaviour
     {
         Destroy(enemy);
         Enemies.Remove(enemy);
-        Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
+        //Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
     }
 }

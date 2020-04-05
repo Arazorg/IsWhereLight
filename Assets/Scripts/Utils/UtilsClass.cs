@@ -1,4 +1,16 @@
-﻿using System;
+﻿/* 
+    ------------------- Code Monkey -------------------
+
+    Thank you for downloading the Code Monkey Utilities
+    I hope you find them useful in your projects
+    If you have any questions use the contact form
+    Cheers!
+
+               unitycodemonkey.com
+    --------------------------------------------------
+ */
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +18,9 @@ using UnityEngine.EventSystems;
 
 namespace CodeMonkey.Utils {
 
+    /*
+     * Various assorted utilities functions
+     * */
     public static class UtilsClass {
         
         private static readonly Vector3 Vector3zero = Vector3.zero;
@@ -14,6 +29,7 @@ namespace CodeMonkey.Utils {
 
         public const int sortingOrderDefault = 5000;
         
+        // Get Sorting order to set SpriteRenderer sortingOrder, higher position = lower sortingOrder
         public static int GetSortingOrder(Vector3 position, int offset, int baseSortingOrder = sortingOrderDefault) {
             return (int)(baseSortingOrder - position.y) + offset;
         }
@@ -31,6 +47,7 @@ namespace CodeMonkey.Utils {
             return cachedCanvasTransform;
         }
 
+        // Get Default Unity Font, used in text objects if no font given
         public static Font GetDefaultFont() {
             return Resources.GetBuiltinResource<Font>("Arial.ttf");
         }
@@ -41,6 +58,7 @@ namespace CodeMonkey.Utils {
             return CreateWorldSprite(null, name, sprite, position, localScale, sortingOrder, color);
         }
         
+        // Create a Sprite in the World
         public static GameObject CreateWorldSprite(Transform parent, string name, Sprite sprite, Vector3 localPosition, Vector3 localScale, int sortingOrder, Color color) {
             GameObject gameObject = new GameObject(name, typeof(SpriteRenderer));
             Transform transform = gameObject.transform;
@@ -54,6 +72,7 @@ namespace CodeMonkey.Utils {
             return gameObject;
         }
 
+        // Creates a Text Mesh in the World and constantly updates it
         public static FunctionUpdater CreateWorldTextUpdater(Func<string> GetTextFunc, Vector3 localPosition, Transform parent = null) {
             TextMesh textMesh = CreateWorldText(GetTextFunc(), parent, localPosition);
             return FunctionUpdater.Create(() => {
@@ -61,11 +80,14 @@ namespace CodeMonkey.Utils {
                 return false;
             }, "WorldTextUpdater");
         }
+
+        // Create Text in the World
         public static TextMesh CreateWorldText(string text, Transform parent = null, Vector3 localPosition = default(Vector3), int fontSize = 40, Color? color = null, TextAnchor textAnchor = TextAnchor.UpperLeft, TextAlignment textAlignment = TextAlignment.Left, int sortingOrder = sortingOrderDefault) {
             if (color == null) color = Color.white;
             return CreateWorldText(parent, text, localPosition, fontSize, (Color)color, textAnchor, textAlignment, sortingOrder);
         }
         
+        // Create Text in the World
         public static TextMesh CreateWorldText(Transform parent, string text, Vector3 localPosition, int fontSize, Color color, TextAnchor textAnchor, TextAlignment textAlignment, int sortingOrder) {
             GameObject gameObject = new GameObject("World_Text", typeof(TextMesh));
             Transform transform = gameObject.transform;
@@ -305,18 +327,6 @@ namespace CodeMonkey.Utils {
         
 
         public static Vector3 GetVectorFromAngle(int angle) {
-            // angle = 0 -> 360
-            float angleRad = angle * (Mathf.PI/180f);
-            return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
-        }
-        
-        public static Vector3 GetVectorFromAngle(float angle) {
-            // angle = 0 -> 360
-            float angleRad = angle * (Mathf.PI/180f);
-            return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
-        }
-        
-        public static Vector3 GetVectorFromAngleInt(int angle) {
             // angle = 0 -> 360
             float angleRad = angle * (Mathf.PI/180f);
             return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));

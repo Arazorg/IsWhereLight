@@ -13,6 +13,14 @@ public class BulletData : ScriptableObject
         protected set { }
     }
 
+    [Tooltip("Урон пули")]
+    [SerializeField] private int damage;
+    public int Damage
+    {
+        get { return damage; }
+        protected set { }
+    }
+
     [Tooltip("Скорость пули")]
     [SerializeField] private float speed;
     public float Speed

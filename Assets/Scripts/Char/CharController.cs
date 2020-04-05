@@ -17,6 +17,7 @@ public class CharController : MonoBehaviour
     private bool m_FacingRight = true;
     private float speedModification;
     private GameObject currentFloor;
+
     void Start()
     {
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
@@ -28,11 +29,6 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        //if (FloorSpawner.Floors.ContainsKey(currentFloor))
-        //{
-         //   speedModification = FloorSpawner.Floors[currentFloor].SpeedModification;
-       // }
-          
         animator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
         rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed , 0.8f),
                                      Mathf.Lerp(0, joystick.Vertical * speed , 0.8f));
@@ -100,11 +96,16 @@ public class CharController : MonoBehaviour
 
             if (hit.collider.tag == "Enemy")
             {
-                gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x, 
-                    closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
-                gun = transform.GetChild(0);
-                gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
-                return true;
+                if (closestEnemy != null)
+                {
+                    gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
+                                                closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+                    gun = transform.GetChild(0);
+                    gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                    return true;
+                }
+                else
+                    RotateGunToEnemy();   
             }
         }
         return false;

@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff5483979ad6f54cae9337622398907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnterFirst: 0
+  isPlayerHitted: 0
 --- !u!95 &2124288211051524171
 Animator:
   serializedVersion: 3

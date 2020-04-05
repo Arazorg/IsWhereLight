@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: TreeMonster
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: a832a319abb313b43900bf5d1ff07c71, type: 2}
-  speed: 200
+  speed: 4
   health: 15
+  typeOfAttack: 1
   attack: 6
+  attackRange: 2
+  dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: TreeMonster
+  fireRate: 1

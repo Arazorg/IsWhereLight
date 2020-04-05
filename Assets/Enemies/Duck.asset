@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Duck
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 824e37dcf2f184043be3068a9f987b18, type: 2}
-  speed: 200
+  speed: 3
   health: 16
+  typeOfAttack: 0
   attack: 3
+  attackRange: 1
+  dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Building
   enemyName: Duck
+  fireRate: 1

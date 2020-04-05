@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Octopus
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 7d634400f2174834ca47faa2a4a0ec7c, type: 2}
-  speed: 200
+  speed: 2
   health: 12
-  attack: 3
-  target: Building
+  typeOfAttack: 1
+  attack: 10
+  attackRange: 10
+  dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
+  target: Player
   enemyName: Octopus
+  fireRate: 1

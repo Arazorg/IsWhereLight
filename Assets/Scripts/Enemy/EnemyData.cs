@@ -5,6 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemies/Standart Enemy", fileName = "New Enemy")]
 public class EnemyData : ScriptableObject
 {
+    public enum AttackType
+    {
+        Melee,
+        Distant
+    }
+
     [Tooltip("Основной аниматор")]
     [SerializeField] private RuntimeAnimatorController mainAnimator;
     public RuntimeAnimatorController MainAnimator
@@ -28,11 +34,35 @@ public class EnemyData : ScriptableObject
         get { return health; }
     }
 
+    [Tooltip("Тип атаки врага")]
+    [SerializeField] private AttackType typeOfAttack;
+    public AttackType TypeOfAttack
+    {
+        get { return typeOfAttack; }
+        protected set { }
+    }
+
     [Tooltip("Атака врага")]
     [SerializeField] private int attack;
     public int Attack
     {
         get { return attack; }
+        protected set { }
+    }
+
+    [Tooltip("Радиус атаки врага")]
+    [SerializeField] private float attackRange;
+    public float AttackRange
+    {
+        get { return attackRange; }
+        protected set { }
+    }
+
+    [Tooltip("Пуля врага")]
+    [SerializeField] private BulletData dataOfBullet;
+    public BulletData DataOfBullet
+    {
+        get { return dataOfBullet; }
         protected set { }
     }
 

@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
 
     //Values
-    public float smoothSpeed = 2f;
+    public float smoothSpeed;
     public Vector3 offset;
 
     void Start()

@@ -18,19 +18,14 @@ public class Enemy : MonoBehaviour
     public void Init(EnemyData data)
     {
         this.data = data;
-        attack = Attack;
         health = Health;
-        target = Target;
-
         GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
-
         transform.tag = "Untagged";
     }
 
     /// <summary>
     /// Attack of current enemy
     /// </summary>
-    private int speed;
     public int Speed
     {
         get
@@ -40,15 +35,51 @@ public class Enemy : MonoBehaviour
         protected set { }
     }
 
+
+    /// <summary>
+    /// Type of attack of current enemy
+    /// </summary>
+    public EnemyData.AttackType TypeOfAttack
+    {
+        get
+        {
+            return data.TypeOfAttack;
+        }
+        protected set { }
+    }
+
     /// <summary>
     /// Attack of current enemy
     /// </summary>
-    private int attack;
     public int Attack
     {
         get
         {
             return data.Attack;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// Attack range of current enemy
+    /// </summary>
+    public float AttackRange
+    {
+        get
+        {
+            return data.AttackRange;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// BulletData of current enemy
+    /// </summary>
+    public BulletData dataOfBullet
+    {
+        get
+        {
+            return data.DataOfBullet;
         }
         protected set { }
     }
@@ -69,7 +100,6 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Target of current enemy
     /// </summary>
-    private string target;
     public string Target
     {
         get
@@ -82,7 +112,6 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Name of current enemy
     /// </summary>
-    private string enemyName;
     public string EnemyName
     {
         get
@@ -95,7 +124,6 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Name of current enemy
     /// </summary>
-    private float fireRate;
     public float FireRate
     {
         get
@@ -105,13 +133,8 @@ public class Enemy : MonoBehaviour
         protected set { }
     }
 
-    /// <summary>
-    /// Current target of current enemy
-    /// </summary>
     public Transform curTarget;
     public Vector3 positionCurTarget;
-    public bool moveTo;
-    
 
     private void Update()
     {
@@ -160,7 +183,6 @@ public class Enemy : MonoBehaviour
             PopupDamage.Create(transform.position, damage, isCriticalHit);
         }
 
-
         if (health <= 0)
             Death();
     }
@@ -173,29 +195,6 @@ public class Enemy : MonoBehaviour
     void OnBecameInvisible()
     {
         gameObject.tag = "Untagged";
-    }
-
-    public static Enemy GetClosestEnemy(Vector3 position, float maxRange)
-    {
-        Enemy closest = null;
-        foreach (Enemy enemy in EnemySpawner.Enemies.Values)
-        {
-            if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
-            {
-                if (closest == null)
-                {
-                    closest = enemy;
-                }
-                else
-                {
-                    if (Vector3.Distance(position, enemy.GetPosition()) < Vector3.Distance(position, closest.GetPosition()))
-                    {
-                        closest = enemy;
-                    }
-                }
-            }
-        }
-        return closest;
     }
 
     public Vector3 GetPosition()
