@@ -16,6 +16,7 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private int damage;
     private bool isAttackState;
+    private float timeToOff;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         animator = GetComponent<Animator>();
         GameObject player = GameObject.Find("Character(Clone)");
         charInfo = player.GetComponent<CharInfo>();
+        timeToOff = Time.time;
 
         if (EnemySpawner.Enemies.ContainsKey(gameObject))
         {
@@ -31,9 +33,20 @@ public class EnemyMeleeAttack : MonoBehaviour
         } 
     }
 
+    private void Update()
+    {
+        if (timeToOff < Time.time)
+        {
+            animator.SetBool("TargetClose", false);
+        }
+    }
+
     public void Attack()
     {
         Collider2D[] players = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
+        timeToOff = Time.time + 1f;
+        animator.SetBool("TargetClose", true);
+        Debug.Log("Attack");
 
         foreach (Collider2D player in players)
         {
@@ -46,5 +59,8 @@ public class EnemyMeleeAttack : MonoBehaviour
                 charInfo.Damage(damage);
             }
         }
+
     }
+
+    
 }
