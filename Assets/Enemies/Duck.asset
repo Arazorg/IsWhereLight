@@ -16,7 +16,7 @@ MonoBehaviour:
   speed: 3
   health: 16
   typeOfAttack: 0
-  attack: 3
+  damage: 2
   attackRange: 1
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Building

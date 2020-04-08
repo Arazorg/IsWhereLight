@@ -9,28 +9,27 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     [Tooltip("Точка атаки")]
     [SerializeField] Transform attackPoint;
-    [Tooltip("Радиус атаки")]
-    public float attackRange;
+
     [Tooltip("Player's layer")]
     [SerializeField] private LayerMask playerLayers;
 
     private int damage;
-    private bool isAttackState;
+    private float attackRange;
     private float timeToOff;
+
+    public Transform hitTarget;
+    public string targetTag;
 
     void Start()
     {
-        isAttackState = false;
         animator = GetComponent<Animator>();
         GameObject player = GameObject.Find("Character(Clone)");
         charInfo = player.GetComponent<CharInfo>();
         timeToOff = Time.time;
 
-        if (EnemySpawner.Enemies.ContainsKey(gameObject))
-        {
-            damage = EnemySpawner.Enemies[gameObject].Attack;
-            attackRange = EnemySpawner.Enemies[gameObject].AttackRange;
-        } 
+        var enemy = GetComponent<Enemy>();
+        damage = enemy.Damage;
+        attackRange = enemy.AttackRange;
     }
 
     private void Update()
@@ -43,24 +42,33 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     public void Attack()
     {
-        Collider2D[] players = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayers);
-        timeToOff = Time.time + 1f;
-        animator.SetBool("TargetClose", true);
-        Debug.Log("Attack");
-
-        foreach (Collider2D player in players)
+        Collider2D[] players;
+        if (GetTargetAccess())
         {
-            player.GetComponent<CharAction>().isPlayerHitted = true;
-            player.GetComponent<CharAction>().isEnterFirst = true;
-
-            if (EnemySpawner.Enemies.ContainsKey(gameObject))
+            Debug.Log("Attack");
+            //FIX ATTACK POINT
+            players = Physics2D.OverlapCircleAll(transform.position, 1f, playerLayers);
+            foreach (Collider2D player in players)
             {
-                int damage = EnemySpawner.Enemies[gameObject].Attack;
+                timeToOff = Time.time + 1f;
+                animator.SetBool("TargetClose", true);
+                player.GetComponent<CharAction>().isPlayerHitted = true;
+                player.GetComponent<CharAction>().isEnterFirst = true;
                 charInfo.Damage(damage);
             }
         }
-
     }
 
-    
+    private bool GetTargetAccess()
+    {
+        if (hitTarget != null)
+        {
+            Vector3 direction = hitTarget.position - transform.position;
+            float distanceToPlayer = direction.sqrMagnitude;
+            Vector3 closeDirection = (hitTarget.transform.position - transform.position).normalized;
+            attackPoint.transform.localPosition = closeDirection * 0.7f;
+            return true;
+        }
+        return false;
+    }
 }

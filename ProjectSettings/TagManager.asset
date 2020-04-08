@@ -7,10 +7,7 @@ TagManager:
   - Canvas
   - Enemy
   - Gun
-  - InfoBar
   - StandartBullet
-  - Portal
-  - Chest
   - Text
   - WeaponStore
   - Floor
@@ -26,9 +23,9 @@ TagManager:
   - UI
   - 
   - 
-  - Room
-  - Target
   - Player
+  - Enemy
+  - 
   - 
   - 
   - 

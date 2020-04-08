@@ -51,11 +51,11 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Attack of current enemy
     /// </summary>
-    public int Attack
+    public int Damage
     {
         get
         {
-            return data.Attack;
+            return data.Damage;
         }
         protected set { }
     }

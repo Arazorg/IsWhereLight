@@ -43,10 +43,10 @@ public class EnemyData : ScriptableObject
     }
 
     [Tooltip("Атака врага")]
-    [SerializeField] private int attack;
-    public int Attack
+    [SerializeField] private int damage;
+    public int Damage
     {
-        get { return attack; }
+        get { return damage; }
         protected set { }
     }
 

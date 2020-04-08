@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         charAction = character.GetComponent<CharAction>();
 
         this.data = data;
-        damage = Damage;
+        damage = data.Damage;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
     }
 

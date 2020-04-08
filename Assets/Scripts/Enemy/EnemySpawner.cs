@@ -23,9 +23,11 @@ public class EnemySpawner : MonoBehaviour
     private bool isSpawn;
     private float nextSpawn = 24f;
     private float spawnRate = 24f;
+    int counter;
 
     private void Start()
     {
+        counter = 0;
         lightingManager = GameObject.Find("GameHandler").GetComponent<LightingManager>();
         Enemies = new Dictionary<GameObject, Enemy>();
         SpawnFlock();
@@ -44,7 +46,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnFlock()
     {
-        int counter = 0;
         for (int i = 0; i < enemyCount; i++)
         {
             Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
@@ -55,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.Key.SetActive(true);
         }
-        enemyCount += 7;
     }
 
     public void Spawn(string enemyName, int counter)
@@ -69,7 +69,6 @@ public class EnemySpawner : MonoBehaviour
                 prefab.name = "Enemy " + counter;
                 prefab.SetActive(false);
                 script.Init(data);
-                prefab.transform.tag = "Enemy";
                 prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 prefab.GetComponent<EnemyBulletSpawner>().SetBullet(script.dataOfBullet);
                 Enemies.Add(prefab, script);

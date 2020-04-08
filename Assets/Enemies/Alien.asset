@@ -15,9 +15,9 @@ MonoBehaviour:
   mainAnimator: {fileID: 9100000, guid: 801ace24f4b2d9349bdc758508e84589, type: 2}
   speed: 4
   health: 20
-  typeOfAttack: 0
-  attack: 8
-  attackRange: 1
+  typeOfAttack: 1
+  damage: 1
+  attackRange: 5
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: Alien

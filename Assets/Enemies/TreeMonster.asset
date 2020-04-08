@@ -16,8 +16,8 @@ MonoBehaviour:
   speed: 4
   health: 15
   typeOfAttack: 1
-  attack: 6
-  attackRange: 2
+  damage: 6
+  attackRange: 5
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: TreeMonster
