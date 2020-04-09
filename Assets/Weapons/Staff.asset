@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
   m_Name: Staff
   m_EditorClassIdentifier: 
-  mainSprite: {fileID: 21300000, guid: f9b25dabea4fb214180226172dac287a, type: 3}
+  mainAnimator: {fileID: 9100000, guid: 7983624ba94ae5a4bae1e4d20eaa5280, type: 2}
   weaponName: Staff
   fireRate: 0.45
   damage: 6
+  typeOfAttack: 1
   critChance: 25
   manecost: 4
   bullet: {fileID: 11400000, guid: 9e2d0e469e95a4343b94e641f0953d88, type: 2}

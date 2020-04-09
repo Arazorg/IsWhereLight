@@ -42,7 +42,7 @@ public class WeaponSpawner : MonoBehaviour
             if (data.name == weaponName)
             {
                 prefab = Instantiate(weaponPrefab, spawnPositions[countOfWeapon]);
-                countOfWeapon = (countOfWeapon + 1) % 2;
+                countOfWeapon = (countOfWeapon + 1) % 3;
                 script = prefab.GetComponent<Weapon>();
                 script.Init(data);
                 prefab.transform.tag = "Gun";
@@ -88,7 +88,7 @@ public class WeaponSpawner : MonoBehaviour
                 script.Init(data);
                 prefab.transform.tag = "Gun";
                 prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 Weapons.Add(prefab, script);
             }
         }

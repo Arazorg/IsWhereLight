@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -250,10 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c56eef1c54f05b4680c290b5b0365ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goToMenuButton: {fileID: 1917633803}
   goToGameButton: {fileID: 770887337}
-  nextCharButton: {fileID: 481331235}
-  prevCharButton: {fileID: 1931363957}
   buyButton: {fileID: 737670573}
   animator: {fileID: 1717991457541418247}
   characterText: {fileID: 675099582}
@@ -262,6 +259,9 @@ MonoBehaviour:
   gunText: {fileID: 826044669}
   moneyText: {fileID: 1801190063}
   priceText: {fileID: 1751397180}
+  charactersAnimations:
+  - {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
+  - {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
   charCounter: 0
   charPrice: 0
 --- !u!1 &360571684

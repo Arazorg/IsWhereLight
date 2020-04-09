@@ -6,6 +6,7 @@ public class CharGun : MonoBehaviour
 {
     //Classes
     public CharInfo charInfo;
+    public CharMelee charMelee;
 
     private WeaponSpawner weaponSpawner;
     private SettingsInfo settingsInfo;
@@ -40,6 +41,9 @@ public class CharGun : MonoBehaviour
 
         offsetGun = new Vector3(0, -0.35f, 0);
         weaponSpawner.Spawn(charInfo.weapon, transform);
+        GameObject character = GameObject.Find("Character(Clone)");
+        gameButtons.currentWeapon = character.transform.GetChild(0);
+        charMelee.animator = character.transform.GetChild(0).GetComponent<Animator>();
         SetWeaponParam();
 
         gunInfoBar.SetActive(false);
@@ -78,6 +82,7 @@ public class CharGun : MonoBehaviour
         Destroy(WeaponSpawner.currentCharWeapon);
 
         weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName, transform);
+
         Destroy(floorGun.gameObject);
         SetWeaponParam();
     }

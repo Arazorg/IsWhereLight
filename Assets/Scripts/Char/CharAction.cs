@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,6 +29,7 @@ public class CharAction : MonoBehaviour
     {
         PlayerHitted();
     }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
 
@@ -64,6 +66,7 @@ public class CharAction : MonoBehaviour
             }
         }
     }
+
 
     public void Death()
     {

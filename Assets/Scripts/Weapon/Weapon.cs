@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     public void Init(WeaponData data)
     {
         this.data = data;
-        GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
     }
 
     public static Action<GameObject> OnAllyWeaponChange;
@@ -55,6 +55,15 @@ public class Weapon : MonoBehaviour
         get
         {
             return data.Damage;
+        }
+        protected set { }
+    }
+
+    public WeaponData.AttackType TypeOfAttack
+    {
+        get
+        {
+            return data.TypeOfAttack;
         }
         protected set { }
     }

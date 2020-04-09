@@ -31,6 +31,7 @@ public class GameButtons : MonoBehaviour
     //Скрипты персонажа
     private CharInfo charInfo;
     private CharShooting charShooting;
+    private CharMelee charMelee;
     private CharGun charGun;
     private CharAction charAction;
 
@@ -45,10 +46,13 @@ public class GameButtons : MonoBehaviour
     private PauseSettings pauseSettingsUI;
 
     //Переменные
-    public float fireRate;
+    public float attackRate;
     public int manecost;
-    private float nextFire;
-    private bool shooting;
+    private float nextAttack;
+    private bool isAttack;
+
+    private GameObject character;
+    public Transform currentWeapon;
 
     void Start()
     {
@@ -71,8 +75,8 @@ public class GameButtons : MonoBehaviour
         IsGamePausedPanelState = false;
         IsWeaponStoreState = false;
 
-        nextFire = 0.0f;
-        
+        nextAttack = 0.0f;
+
     }
 
 
@@ -81,14 +85,14 @@ public class GameButtons : MonoBehaviour
         pauseUI = GameObject.Find("Canvas").GetComponentInChildren<PauseUI>();
         weaponStore = GameObject.Find("Canvas").GetComponentInChildren<WeaponStoreUI>();
         pauseSettingsUI = GameObject.Find("Canvas").GetComponentInChildren<PauseSettings>();
-
     }
 
     private void SetCharScripts()
     {
-        GameObject character = GameObject.Find("Character(Clone)");
+        character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
+        charMelee = character.GetComponent<CharMelee>();
         charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
     }
@@ -139,7 +143,7 @@ public class GameButtons : MonoBehaviour
                 OpenPause();
             }
         }
-        Fire();
+        Attack();
     }
 
     public void OpenPause()
@@ -156,10 +160,12 @@ public class GameButtons : MonoBehaviour
         switch (FireActButtonState)
         {
             case 0:
-                shooting = true;
+                isAttack = true;
                 break;
             case 1:
                 charGun.ChangeGun();
+                currentWeapon = character.transform.GetChild(0);
+                charMelee.animator = character.transform.GetChild(0).GetComponent<Animator>();
                 break;
             case 2:
                 OpenWeaponStore();
@@ -173,22 +179,31 @@ public class GameButtons : MonoBehaviour
         weaponStoreUI.SetActive(IsWeaponStoreState);
     }
 
-    private void Fire()
+    private void Attack()
     {
-        if (charInfo.mane > 0 && shooting)
+        if (charInfo.mane - manecost >= 0 && isAttack)
         {
-            if (Time.time > nextFire)
+            if (Time.time > nextAttack)
             {
-                charInfo.SpendMana(manecost);          
-                charShooting.Shoot();
-                nextFire = Time.time + fireRate;
+                charInfo.SpendMana(manecost);
+                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Distant)
+                {
+
+                    charShooting.Shoot();
+                }                   
+                else if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Melee)
+                {
+                    charMelee.Hit();
+                }
+                    
+                nextAttack = Time.time + attackRate;
             }
         }
     }
 
-    public void StopFire()
+    public void StopAttack()
     {
-        shooting = false;
+        isAttack = false;
     }
 
 
@@ -205,7 +220,7 @@ public class GameButtons : MonoBehaviour
 
     public void SetWeaponInfo(Weapon weapon)
     {
-        fireRate = weapon.FireRate;
+        attackRate = weapon.FireRate;
         manecost = weapon.Manecost;
     }
 }

@@ -5,13 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapons/Standart Weapon", fileName = "New Weapon")]
 public class WeaponData : ScriptableObject
 {
-    [Tooltip("Основной спрайт")]
-    [SerializeField] private Sprite mainSprite;
-    public Sprite MainSprite
+    public enum AttackType
     {
-        get { return mainSprite; }
+        Melee,
+        Distant
+    }
+
+    [Tooltip("Основной аниматор")]
+    [SerializeField] private RuntimeAnimatorController mainAnimator;
+    public RuntimeAnimatorController MainAnimator
+    {
+        get { return mainAnimator; }
         protected set { }
     }
+
 
     [Tooltip("Название оружия")]
     [SerializeField] private string weaponName;
@@ -35,6 +42,14 @@ public class WeaponData : ScriptableObject
     public int Damage
     {
         get { return damage; }
+        protected set { }
+    }
+
+    [Tooltip("Тип атаки оружия")]
+    [SerializeField] private AttackType typeOfAttack;
+    public AttackType TypeOfAttack
+    {
+        get { return typeOfAttack; }
         protected set { }
     }
 

@@ -12,7 +12,7 @@ public class CurrentGameData
     public int startMoney;
     public int maxHealth;
     public int maxMane;
-    
+
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
         character = currentGameInfo.character;

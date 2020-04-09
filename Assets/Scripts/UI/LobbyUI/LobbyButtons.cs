@@ -8,16 +8,9 @@ using UnityEngine.UI;
 
 public class LobbyButtons : MonoBehaviour
 {
-    public Button goToMenuButton;
     public Button goToGameButton;
-    public Button nextCharButton;
-    public Button prevCharButton;
     public Button buyButton;
     public Animator animator;
-    private CurrentGameInfo currentGameInfo;
-    private ProgressInfo progressInfo;
-    private CharactersSpec charactersSpec;
-    private CharactersSpec.Character charSpec;
 
     public TextMeshProUGUI characterText;
     public TextMeshProUGUI healthText;
@@ -26,7 +19,13 @@ public class LobbyButtons : MonoBehaviour
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI priceText;
 
-    private string[] characters;
+    private CurrentGameInfo currentGameInfo;
+    private ProgressInfo progressInfo;
+    private CharactersSpec charactersSpec;
+    private CharactersSpec.Character charSpec;
+
+    public RuntimeAnimatorController[] charactersAnimations;
+
     public int charCounter;
     public int charPrice;
 
@@ -37,14 +36,14 @@ public class LobbyButtons : MonoBehaviour
         charactersSpec = GameObject.Find("LobbyHandler").GetComponent<CharactersSpec>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         charCounter = 0;
-        characters = new string[] { "Knight", "Mage" };
+
         ChooseCharacter();
         moneyText.text = progressInfo.playerMoney.ToString();
     }
 
     public void ChooseCharacter()
     {
-        currentGameInfo.character = characters[charCounter];
+        currentGameInfo.character = charactersAnimations[charCounter].name;
         SetSpecChar(currentGameInfo.character);
         SetInfoBar();
         ChoosenCharacterUI();
@@ -52,27 +51,26 @@ public class LobbyButtons : MonoBehaviour
 
     public void ChoosenCharacterUI()
     {
-        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>
-            ("Animations/" + characters[charCounter] + "/" + characters[charCounter]);
+        animator.runtimeAnimatorController = charactersAnimations[charCounter];
         animator.SetFloat("Speed", 1);
-        characterText.text = characters[charCounter];
+        characterText.text = charactersAnimations[charCounter].name;
         priceText.text = charPrice.ToString();
-        buyButton.gameObject.SetActive(!progressInfo.CharacterAccess(characters[charCounter]));
+        buyButton.gameObject.SetActive(!progressInfo.CharacterAccess(charactersAnimations[charCounter].name));
         GameBuyButtonAccess();
     }
 
     public void GameBuyButtonAccess()
     {
-        if (progressInfo.CharacterAccess(characters[charCounter]))
+        if (progressInfo.CharacterAccess(charactersAnimations[charCounter].name))
         {
             goToGameButton.gameObject.SetActive(true);
             buyButton.gameObject.SetActive(false);
-        }   
+        }
         else
         {
             goToGameButton.gameObject.SetActive(false);
             buyButton.gameObject.SetActive(true);
-        }       
+        }
     }
 
     public void GoToMenu()
@@ -110,7 +108,7 @@ public class LobbyButtons : MonoBehaviour
 
     public void NextChar()
     {
-        if (charCounter + 1 < characters.Length)
+        if (charCounter + 1 < charactersAnimations.Length)
         {
             charCounter++;
             ChooseCharacter();
@@ -119,22 +117,22 @@ public class LobbyButtons : MonoBehaviour
 
     public void PrevChar()
     {
-        if(charCounter - 1 >= 0)
-        {      
+        if (charCounter - 1 >= 0)
+        {
             charCounter--;
             ChooseCharacter();
-        }   
+        }
     }
 
     public void BuyCharacter()
     {
         if (progressInfo.playerMoney >= charPrice)
         {
-            progressInfo.characters[characters[charCounter]] = true;
+            progressInfo.characters[charactersAnimations[charCounter].name] = true;
             progressInfo.playerMoney -= charPrice;
             moneyText.text = progressInfo.playerMoney.ToString();
             GameBuyButtonAccess();
             progressInfo.SaveProgress();
-        }           
+        }
     }
 }
