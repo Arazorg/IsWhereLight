@@ -54,12 +54,12 @@ public class CharController : MonoBehaviour
             if (0 <= gunAngle && gunAngle <= 180)
             {
                 m_FacingRight = false;
-                transform.localScale = new Vector3(-1f, 1f, 1);
+                transform.localScale = new Vector3(-1.2f, 1.2f, 1);
             }
             else
             {
                 m_FacingRight = true;
-                transform.localScale = new Vector3(1f, 1f, 1);
+                transform.localScale = new Vector3(1.2f, 1.2f, 1);
             }
         }
     }

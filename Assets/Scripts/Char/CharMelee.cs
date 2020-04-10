@@ -35,7 +35,7 @@ public class CharMelee : MonoBehaviour
         {
             isAttack = false;
             animator.SetBool("Attack", true);
-            timeToOff = Time.time + 0.15f;
+            timeToOff = Time.time + 0.25f;
             var enemies = Physics2D.OverlapCircleAll(transform.position, 0.7f, enemyLayer);
             foreach (var enemy in enemies)
             {
