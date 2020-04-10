@@ -17,6 +17,8 @@ public class CharController : MonoBehaviour
     private bool m_FacingRight = true;
     private float speedModification;
     private GameObject currentFloor;
+    int prevX, prevY;
+    int x, y;
 
     void Start()
     {
@@ -25,6 +27,8 @@ public class CharController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         gun = transform.GetChild(0); //Current gun
+        prevX = 2;
+        prevY = 2;
     }
 
     void Update()

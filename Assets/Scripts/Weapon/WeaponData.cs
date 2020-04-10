@@ -28,7 +28,6 @@ public class WeaponData : ScriptableObject
         protected set { }
     }
 
-
     [Tooltip("Частота выстрелов оружия")]
     [SerializeField] private float fireRate;
     public float FireRate

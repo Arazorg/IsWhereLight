@@ -19,6 +19,21 @@
     {
       "key": "suicide_button",
       "value": "Suicide"
+    },
+	
+	{
+      "key": "Sword",
+      "value": "Sword"
+    },
+	
+	{
+      "key": "Staff",
+      "value": "Staff"
+    },
+	
+	{
+      "key": "Pistol",
+      "value": "Pistol"
     }
   ]
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using TMPro;
 
 public class CharGun : MonoBehaviour
 {
@@ -64,13 +65,17 @@ public class CharGun : MonoBehaviour
         }
     }
 
-    
+
     void OnTriggerExit2D(Collider2D coll)
     {
         GameButtons.FireActButtonState = 0;//Fire
         fireActButton.GetComponent<Image>().sprite = fire_image;
         fireActButton.GetComponent<Image>().color = Color.red;
-        gunInfoBar.SetActive(false);
+
+        if (coll.gameObject.tag == "Gun")
+        {
+            gunInfoBar.SetActive(false);
+        }
     }
 
     public void ChangeGun()
@@ -78,7 +83,7 @@ public class CharGun : MonoBehaviour
         WeaponSpawner.currentCharWeapon.transform.SetParent(null);
         weaponSpawner.Spawn(WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().WeaponName,
                                gameObject.transform.position,
-                                   WeaponSpawner.currentCharWeapon.transform.rotation);
+                                   Quaternion.identity);
         Destroy(WeaponSpawner.currentCharWeapon);
 
         weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName, transform);
@@ -89,20 +94,18 @@ public class CharGun : MonoBehaviour
 
     private void GetSpecGun(Collider2D coll)
     {
-        var obj = coll.gameObject;
-        if (WeaponSpawner.Weapons.ContainsKey(obj))
-        {
-            int damage = WeaponSpawner.Weapons[obj].Damage;
-            float critChance = WeaponSpawner.Weapons[obj].CritChance;
-            float fireRate = WeaponSpawner.Weapons[obj].FireRate;
-            int manecost = WeaponSpawner.Weapons[obj].Manecost;
-            BulletData bullet = WeaponSpawner.Weapons[obj].Bullet;
+        var weapon = coll.gameObject.GetComponent<Weapon>();
 
-            gunInfoBar.GetComponentInChildren<Text>().text =
-                $"{damage} DMG | " +
-                $"{critChance}% CRIT | " +
-                $"{manecost} MANA";
-        }        
+        int damage = weapon.Damage;
+        float critChance = weapon.CritChance;
+        float fireRate = weapon.FireRate;
+        int manecost = weapon.Manecost;
+        BulletData bullet = weapon.Bullet;
+
+        gunInfoBar.GetComponentInChildren<Text>().text =
+                    $"{damage} DMG | " +
+                    $"{critChance}% CRIT | " +
+                    $"{manecost} MANA";
     }
 
     private void SetWeaponParam()

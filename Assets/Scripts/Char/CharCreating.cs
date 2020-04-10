@@ -9,6 +9,6 @@ public class CharCreating : MonoBehaviour
 
     void Start()
     {
-        Instantiate(character, new Vector3(0,0,0), Quaternion.identity);
+        Instantiate(character, new Vector3(2,2,0), Quaternion.identity);
     }
 }

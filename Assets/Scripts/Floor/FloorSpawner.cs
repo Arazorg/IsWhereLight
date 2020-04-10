@@ -30,7 +30,7 @@ public class FloorSpawner : MonoBehaviour
                 var prefab = Instantiate(floorPrefab, floorsTransform);
                 prefab.transform.position = new Vector3(x, y, 0);
                 var script = prefab.GetComponent<Floor>();
-                script.Init(floorSettings[(int)Mathf.Abs(y) % 3]);
+                script.Init(floorSettings[0]);
                 Floors.Add(prefab, script);
             }
         }   

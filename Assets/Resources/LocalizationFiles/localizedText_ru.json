@@ -19,6 +19,21 @@
     {
       "key": "suicide_button",
       "value": "Суицид"
+    },
+	
+	{
+      "key": "Sword",
+      "value": "Меч"
+    },
+	
+	{
+      "key": "Staff",
+      "value": "Посох"
+    },
+	
+	{
+      "key": "Pistol",
+      "value": "Пистолет"
     }
   ]
 }

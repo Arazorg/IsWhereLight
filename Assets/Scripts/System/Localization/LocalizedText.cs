@@ -12,7 +12,8 @@ public class LocalizedText : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        text.text = LocalizationManager.instance.GetLocalizedValue(key);
+        if(GetComponentInParent<Weapon>() == null)
+            text.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
 
     public void SetLocalization()

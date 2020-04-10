@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     {
         this.data = data;
         GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        GetComponentInChildren<LocalizedText>().key = data.name;
     }
 
     public static Action<GameObject> OnAllyWeaponChange;
