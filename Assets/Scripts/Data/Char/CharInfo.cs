@@ -103,5 +103,4 @@ public class CharInfo : MonoBehaviour
         manaBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<HealthBar>();
     }
-
 }

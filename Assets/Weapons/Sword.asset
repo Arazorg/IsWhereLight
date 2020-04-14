@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: ac469b9f316b7e844a4e0aca230c51a2, type: 2}
+  mainSprite: {fileID: -3753825769889500098, guid: e3b05f55b72da894a9773e078dba7ed7,
+    type: 3}
   weaponName: Sword
   fireRate: 0.4
   damage: 5

@@ -19,6 +19,14 @@ public class WeaponData : ScriptableObject
         protected set { }
     }
 
+    [Tooltip("Изображение для оружия")]
+    [SerializeField] private Sprite mainSprite;
+    public Sprite MainSprite
+    {
+        get { return mainSprite; }
+        protected set { }
+    }
+
 
     [Tooltip("Название оружия")]
     [SerializeField] private string weaponName;

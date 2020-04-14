@@ -19,9 +19,10 @@ public class CharShooting : MonoBehaviour
         rb.AddForce(dir * bulletSpawner.currentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
     }
 
+
     public void SetBulletInfo(Bullet bullet)
     {
-        bulletSpawner = transform.GetChild(0).GetComponent<BulletSpawner>();
+        bulletSpawner = transform.Find(GetComponent<CharInfo>().weapon).GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
     }

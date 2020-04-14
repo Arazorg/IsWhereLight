@@ -24,6 +24,15 @@ public class Bullet : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
     }
 
+    public Sprite MainSprite
+    {
+        get
+        {
+            return data.MainSprite;
+        }
+        protected set { }
+    }
+
     /// <summary>
     /// Speed of current bullet
     /// </summary>

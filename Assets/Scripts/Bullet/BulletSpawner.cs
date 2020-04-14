@@ -14,6 +14,7 @@ public class BulletSpawner : MonoBehaviour
     [Tooltip("Место спауна пули")]
     [SerializeField] private Transform spawnPosition;
 
+
     public GameObject currentWeaponBullet;
     public Bullet currentBulletScript;
 

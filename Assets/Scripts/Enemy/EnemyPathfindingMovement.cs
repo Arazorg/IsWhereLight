@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyPathfindingMovement : MonoBehaviour
 {
+    private Boid boid;
+
     [SerializeField] private LayerMask enemyLayer;
 
     public float speed;
@@ -22,6 +24,7 @@ public class EnemyPathfindingMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        boid = GetComponent<Boid>();
         m_FacingRight = true;
     }
 
@@ -39,7 +42,8 @@ public class EnemyPathfindingMovement : MonoBehaviour
             Vector3 targetPosition = pathVectorList[currentPathIndex];
             if (Vector3.Distance(transform.position, targetPosition) > attackRange)
             {
-                moveDir = (targetPosition - transform.position + (Vector3)CalculateMove(transform, GetEnemies(0.5f))).normalized;
+                
+                moveDir = (targetPosition - transform.position).normalized;
                 rb.velocity = new Vector2(Mathf.Lerp(0, moveDir.x * speed, 1.1f),
                                      Mathf.Lerp(0, moveDir.y * speed, 1.1f));
             }
@@ -49,39 +53,12 @@ public class EnemyPathfindingMovement : MonoBehaviour
                 if (currentPathIndex >= pathVectorList.Count)
                 {
                     GetComponent<EnemyAI>().SetState(EnemyAI.State.Attack);
-                    moveDir = (transform.position + (Vector3)CalculateMove(transform, GetEnemies(0.5f))).normalized;
-                    rb.velocity = new Vector2(Mathf.Lerp(0, moveDir.x * speed, 1.1f),
-                                         Mathf.Lerp(0, moveDir.y * speed, 1.1f));
                     pathVectorList = null;
                 }
             }
         }
     }
 
-    private List<Transform> GetEnemies(float radius)
-    {
-        List<Transform> enemies = new List<Transform>();
-
-        foreach (var enemyColl in Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer))
-        {
-            enemies.Add(enemyColl.transform);
-        }
-        return enemies;
-    }
-
-    private Vector2 CalculateMove(Transform enemy, List<Transform> enemies)
-    {
-        if (enemies.Count == 0)
-            return Vector2.zero;
-        Vector2 avoidanceMove = Vector2.zero;
-
-        foreach (var curEnemy in enemies)
-        {
-            if (curEnemy != null)
-                avoidanceMove += (Vector2)(enemy.position - curEnemy.position);
-        }
-        return avoidanceMove;
-    }
 
     public void SetTargetPosition(Vector3 targetPosition)
     {

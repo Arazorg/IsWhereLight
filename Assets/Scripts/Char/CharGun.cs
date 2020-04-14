@@ -27,6 +27,7 @@ public class CharGun : MonoBehaviour
     //Values
     [Tooltip("Смещение оружия")]
     [SerializeField] private Vector3 offsetGun;
+    public int currentWeaponNumber;
 
     void Start()
     {
@@ -41,11 +42,15 @@ public class CharGun : MonoBehaviour
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
 
         offsetGun = new Vector3(0, -0.35f, 0);
-        weaponSpawner.Spawn(charInfo.weapon, transform);
+        currentWeaponNumber = 0;
+        weaponSpawner.Spawn(charInfo.weapon, transform, currentWeaponNumber);
+        gameButtons.currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[currentWeaponNumber].MainSprite;
+
         GameObject character = GameObject.Find("Character(Clone)");
-        gameButtons.currentWeapon = character.transform.GetChild(0);
-        charMelee.animator = character.transform.GetChild(0).GetComponent<Animator>();
+        gameButtons.currentWeapon = character.transform.Find(charInfo.weapon);
+        charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
         SetWeaponParam();
+        WeaponSpawner.currentCharWeapon[currentWeaponNumber].SetActive(true);
 
         gunInfoBar.SetActive(false);
         levelBar.GetComponentInChildren<Text>().text = charInfo.level.ToString();
@@ -80,16 +85,35 @@ public class CharGun : MonoBehaviour
 
     public void ChangeGun()
     {
-        WeaponSpawner.currentCharWeapon.transform.SetParent(null);
-        weaponSpawner.Spawn(WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().WeaponName,
-                               gameObject.transform.position,
-                                   Quaternion.identity);
-        Destroy(WeaponSpawner.currentCharWeapon);
+        if (WeaponSpawner.countOfWeapon == 2)
+        {
+            WeaponSpawner.currentCharWeapon[currentWeaponNumber].transform.SetParent(null);
+            weaponSpawner.Spawn(WeaponSpawner.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName,
+                                   gameObject.transform.position,
+                                       Quaternion.identity);
+            Destroy(WeaponSpawner.currentCharWeapon[currentWeaponNumber]);
 
-        weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName, transform);
+            weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName, 
+                                    transform, currentWeaponNumber);
+            gameButtons.ChangeWeaponButton();
+            SwapWeapon();
+            Destroy(floorGun.gameObject);
+            SetWeaponParam();
+        }
+        else
+        {
+            weaponSpawner.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName,
+                                    transform, 1);
+            Destroy(floorGun.gameObject);
+            gameButtons.SwapWeapon();
+            weaponSpawner.SwapWeapon(1);
+            SetWeaponParam();
+        }
+    }
 
-        Destroy(floorGun.gameObject);
-        SetWeaponParam();
+    public void SwapWeapon()
+    {
+        weaponSpawner.SwapWeapon(currentWeaponNumber);
     }
 
     private void GetSpecGun(Collider2D coll)
@@ -110,7 +134,6 @@ public class CharGun : MonoBehaviour
 
     private void SetWeaponParam()
     {
-        WeaponSpawner.currentCharWeapon.SetActive(true);
-        WeaponSpawner.currentCharWeapon.transform.position = transform.position + offsetGun;
+        WeaponSpawner.currentCharWeapon[currentWeaponNumber].transform.position = transform.position + offsetGun;
     }
 }

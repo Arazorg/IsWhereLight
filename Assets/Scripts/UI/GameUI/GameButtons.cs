@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +19,9 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Кнопка стрельбы и действий")]
     [SerializeField] private Button fireActButton;
+
+    [Tooltip("Изображение текущего оружия")]
+    public Image currentWeaponImage;
 
     [Tooltip("UI магазина оружия")]
     [SerializeField] private Text moneyText;
@@ -164,8 +168,8 @@ public class GameButtons : MonoBehaviour
                 break;
             case 1:
                 charGun.ChangeGun();
-                currentWeapon = character.transform.GetChild(0);
-                charMelee.animator = character.transform.GetChild(0).GetComponent<Animator>();
+                currentWeapon = character.transform.Find(charInfo.weapon);
+                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
                 break;
             case 2:
                 OpenWeaponStore();
@@ -188,14 +192,13 @@ public class GameButtons : MonoBehaviour
                 charInfo.SpendMana(manecost);
                 if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Distant)
                 {
-
                     charShooting.Shoot();
-                }                   
+                }
                 else if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Melee)
                 {
                     charMelee.Hit();
                 }
-                    
+
                 nextAttack = Time.time + attackRate;
             }
         }
@@ -222,5 +225,41 @@ public class GameButtons : MonoBehaviour
     {
         attackRate = weapon.FireRate;
         manecost = weapon.Manecost;
+    }
+
+    public void SwapWeapon()
+    {
+        if (WeaponSpawner.countOfWeapon == 2)
+        {
+            if (charGun.currentWeaponNumber == 0)
+            {
+                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                charGun.currentWeaponNumber++;
+                
+                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                charGun.SwapWeapon();
+                currentWeapon = character.transform.Find(charInfo.weapon);
+                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
+                currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+            }
+            else if (charGun.currentWeaponNumber == 1)
+            {
+                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                charGun.currentWeaponNumber--;
+                
+                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                charGun.SwapWeapon();
+                currentWeapon = character.transform.Find(charInfo.weapon);
+                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
+                currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+                
+            }
+        }
+    }
+
+    public void ChangeWeaponButton()
+    {
+        WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+        currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
     }
 }

@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     {
         this.data = data;
         GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        GetComponent<SpriteRenderer>().sprite = data.MainSprite;
         GetComponentInChildren<LocalizedText>().key = data.name;
     }
 
@@ -30,6 +31,15 @@ public class Weapon : MonoBehaviour
         get
         {
             return data.WeaponName;
+        }
+        protected set { }
+    }
+
+    public Sprite MainSprite
+    {
+        get
+        {
+            return data.MainSprite;
         }
         protected set { }
     }

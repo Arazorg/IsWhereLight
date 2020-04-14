@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private CharGun charGun;
     private EnemyData data;
 
     private bool isEnemyHitted = false;
@@ -20,6 +21,8 @@ public class Enemy : MonoBehaviour
         this.data = data;
         health = Health;
         GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        charGun = GameObject.Find("Character(Clone)").GetComponent<CharGun>();
+
         transform.tag = "Untagged";
     }
 
@@ -183,9 +186,11 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage()
     {
-        int damage = WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().Damage;
+        int damage = WeaponSpawner.currentCharWeapon[charGun.currentWeaponNumber].GetComponent<Weapon>().Damage;
         isEnemyHitted = true;
-        bool isCriticalHit = UnityEngine.Random.Range(0, 100) < WeaponSpawner.currentCharWeapon.GetComponent<Weapon>().CritChance;
+        bool isCriticalHit = UnityEngine.Random.Range(0, 100) < 
+                                WeaponSpawner.currentCharWeapon[charGun.currentWeaponNumber].
+                                    GetComponent<Weapon>().CritChance;
         if (isCriticalHit)
             damage *= 2;
         health -= damage;

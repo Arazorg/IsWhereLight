@@ -26,7 +26,7 @@ public class CharController : MonoBehaviour
         animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.character);
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
-        gun = transform.GetChild(0); //Current gun
+        gun = transform.Find(charInfo.weapon); //Current gun
         prevX = 2;
         prevY = 2;
     }
@@ -50,7 +50,7 @@ public class CharController : MonoBehaviour
             }
             else
             {
-                transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                transform.Find(charInfo.weapon).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
             }
         }
         else
@@ -71,7 +71,7 @@ public class CharController : MonoBehaviour
     private float RotateGun()
     {
         float gunAngle = -Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
-        transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+        transform.Find(charInfo.weapon).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
         return gunAngle;
     }
 
@@ -92,7 +92,7 @@ public class CharController : MonoBehaviour
                     distanceToEnemy = curDistance;
                 }
             }
-            gun = transform.GetChild(0);
+            gun = transform.Find(charInfo.weapon);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
 
             LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast"));

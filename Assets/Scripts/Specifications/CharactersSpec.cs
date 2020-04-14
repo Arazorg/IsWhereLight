@@ -19,7 +19,7 @@ public class CharactersSpec : MonoBehaviour
     {
         characters.Add("Knight", new Character()
         {
-            maxMane = 100,
+            maxMane = 2500,
             maxHealth = 150,
             startWeapon = "Pistol",
             skins = new string[] { "Knight" }
