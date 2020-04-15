@@ -46,7 +46,7 @@ public class CharGun : MonoBehaviour
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
 
         offsetGunDistant = new Vector3(0, -0.35f, 0);
-        offsetGunMelee = new Vector3(0, -0.35f, 0);
+        offsetGunMelee = new Vector3(-0.2f, -0.35f, 0);
 
         currentWeaponNumber = 0;
         var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
