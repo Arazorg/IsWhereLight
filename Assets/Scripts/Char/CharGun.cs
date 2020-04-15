@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Text;
 using TMPro;
+using System.Text.RegularExpressions;
 
 public class CharGun : MonoBehaviour
 {
@@ -25,8 +26,11 @@ public class CharGun : MonoBehaviour
     private GameObject floorGun;
 
     //Values
-    [Tooltip("Смещение оружия")]
-    [SerializeField] private Vector3 offsetGun;
+    [Tooltip("Смещение дальнего оружия")]
+    [SerializeField] private Vector3 offsetGunDistant;
+
+    [Tooltip("Смещение ближнего оружия")]
+    [SerializeField] private Vector3 offsetGunMelee;
     public int currentWeaponNumber;
 
     void Start()
@@ -41,15 +45,26 @@ public class CharGun : MonoBehaviour
         gameButtons = gameUI.GetComponent<GameButtons>();
         fireActButton = GameObject.Find("FireActButton").GetComponent<Button>();
 
-        offsetGun = new Vector3(0, -0.35f, 0);
+        offsetGunDistant = new Vector3(0, -0.35f, 0);
+        offsetGunMelee = new Vector3(0, -0.35f, 0);
+
         currentWeaponNumber = 0;
-        weaponSpawner.Spawn(charInfo.weapon, transform, currentWeaponNumber);
+        var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
+        weaponSpawner.Spawn(spawnWeapon, transform, currentWeaponNumber);
+        SetWeaponParam();
+        if (charInfo.weapons[1] != null)
+        {
+            currentWeaponNumber++;
+            spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
+            weaponSpawner.Spawn(spawnWeapon, transform, currentWeaponNumber);
+            SetWeaponParam();
+        }
         gameButtons.currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[currentWeaponNumber].MainSprite;
 
         GameObject character = GameObject.Find("Character(Clone)");
-        gameButtons.currentWeapon = character.transform.Find(charInfo.weapon);
-        charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
-        SetWeaponParam();
+        gameButtons.currentWeapon = character.transform.Find(charInfo.weapons[currentWeaponNumber]);
+        Debug.Log(character.transform.Find(charInfo.weapons[currentWeaponNumber]).name);
+        charMelee.animator = character.transform.Find(charInfo.weapons[currentWeaponNumber]).GetComponent<Animator>();
         WeaponSpawner.currentCharWeapon[currentWeaponNumber].SetActive(true);
 
         gunInfoBar.SetActive(false);
@@ -134,6 +149,17 @@ public class CharGun : MonoBehaviour
 
     private void SetWeaponParam()
     {
-        WeaponSpawner.currentCharWeapon[currentWeaponNumber].transform.position = transform.position + offsetGun;
+        if (WeaponSpawner.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
+            == WeaponData.AttackType.Distant)
+            WeaponSpawner.currentCharWeapon[currentWeaponNumber].transform.position
+                = transform.position + offsetGunDistant;
+
+        else if (WeaponSpawner.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
+            == WeaponData.AttackType.Melee)
+        {
+            WeaponSpawner.currentCharWeapon[currentWeaponNumber].transform.position
+                = transform.position + offsetGunMelee;
+        }
+            
     }
 }

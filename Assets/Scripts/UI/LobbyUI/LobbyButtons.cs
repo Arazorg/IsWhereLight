@@ -90,7 +90,7 @@ public class LobbyButtons : MonoBehaviour
         {
             currentGameInfo.maxHealth = charSpec.maxHealth;
             currentGameInfo.maxMane = charSpec.maxMane;
-            currentGameInfo.startWeapon = charSpec.startWeapon;
+            currentGameInfo.weapons[0]  = charSpec.startWeapon;
             charPrice = charSpec.price;
         }
         else
@@ -103,7 +103,7 @@ public class LobbyButtons : MonoBehaviour
     {
         healthText.text = "Health : " + currentGameInfo.maxHealth.ToString();
         maneText.text = "Mane : " + currentGameInfo.maxMane.ToString();
-        gunText.text = "Gun : " + currentGameInfo.startWeapon.ToString();
+        gunText.text = "Gun : " + currentGameInfo.weapons[0].ToString();
     }
 
     public void NextChar()

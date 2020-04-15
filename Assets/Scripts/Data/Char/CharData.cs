@@ -9,7 +9,7 @@ public class CharData
     public int money;
     public int health;
     public int mane;
-    public string weapon;
+    public string[] weapons;
     public string skin;
     public string character;
 
@@ -19,7 +19,7 @@ public class CharData
         money = charInfo.money;
         health = charInfo.health;
         mane = charInfo.mane;
-        weapon = charInfo.weapon;
+        weapons = charInfo.weapons;
         skin = charInfo.skin;
         character = charInfo.character;
     }

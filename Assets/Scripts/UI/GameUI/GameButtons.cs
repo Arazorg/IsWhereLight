@@ -168,8 +168,8 @@ public class GameButtons : MonoBehaviour
                 break;
             case 1:
                 charGun.ChangeGun();
-                currentWeapon = character.transform.Find(charInfo.weapon);
-                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
+                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
                 break;
             case 2:
                 OpenWeaponStore();
@@ -238,8 +238,8 @@ public class GameButtons : MonoBehaviour
                 
                 WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
                 charGun.SwapWeapon();
-                currentWeapon = character.transform.Find(charInfo.weapon);
-                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
+                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
                 currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
             }
             else if (charGun.currentWeaponNumber == 1)
@@ -249,8 +249,8 @@ public class GameButtons : MonoBehaviour
                 
                 WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
                 charGun.SwapWeapon();
-                currentWeapon = character.transform.Find(charInfo.weapon);
-                charMelee.animator = character.transform.Find(charInfo.weapon).GetComponent<Animator>();
+                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
                 currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
                 
             }

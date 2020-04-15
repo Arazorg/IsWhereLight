@@ -70,7 +70,7 @@ public class WeaponSpawner : MonoBehaviour
                 currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;
                 Weapons.Add(currentCharWeapon[currentWeaponNumber], currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
 
-                charInfo.weapon = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
+                charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
 
                 bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
                 gameButtons = GameObject.Find("Canvas").transform.Find("GameUI").GetComponent<GameButtons>();
@@ -88,7 +88,7 @@ public class WeaponSpawner : MonoBehaviour
 
     public void SwapWeapon(int currentWeaponNumber)
     {
-        charInfo.weapon = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
+        charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
         bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
         gameButtons = GameObject.Find("Canvas").transform.Find("GameUI").GetComponent<GameButtons>();
         bulletSpawner.SetBullet(currentWeaponScript[currentWeaponNumber].Bullet);

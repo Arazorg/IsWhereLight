@@ -22,7 +22,7 @@ public class CharShooting : MonoBehaviour
 
     public void SetBulletInfo(Bullet bullet)
     {
-        bulletSpawner = transform.Find(GetComponent<CharInfo>().weapon).GetComponent<BulletSpawner>();
+        bulletSpawner = transform.Find(GetComponent<CharInfo>().weapons[GetComponent<CharGun>().currentWeaponNumber]).GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
     }

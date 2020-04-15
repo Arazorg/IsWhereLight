@@ -15,19 +15,20 @@ public class CharInfo : MonoBehaviour
     public int money;
     public int health;
     public int mane;
-    public string weapon;
+    public string[] weapons;
     public string skin;
     public string character;
 
     public void SetStartParametrs()
     {
+        weapons = new string[2];
         charAction = GetComponent<CharAction>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         level = 1;
         money = currentGameInfo.startMoney;
         mane = currentGameInfo.maxMane;
         health = currentGameInfo.maxHealth;
-        weapon = currentGameInfo.startWeapon;
+        weapons = currentGameInfo.weapons;
         character = currentGameInfo.character;
         SetObjects();
     }
@@ -50,7 +51,7 @@ public class CharInfo : MonoBehaviour
         level = charData.level;
         health = charData.health;
         mane = charData.mane;
-        weapon = charData.weapon;
+        weapons = charData.weapons;
         money = charData.money;
         character = charData.character;
         SetObjects();
