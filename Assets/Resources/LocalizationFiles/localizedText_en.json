@@ -15,12 +15,22 @@
       "key": "continue_game_button",
       "value": "Continue Game"
     },
-
-    {
-      "key": "suicide_button",
-      "value": "Suicide"
+	
+	{
+      "key": "HealthInfo",
+      "value": "Health"
     },
 
+    {
+      "key": "ManeInfo",
+      "value": "Mane"
+    },
+
+    {
+      "key": "WeaponInfo",
+      "value": "Weapon"
+    },
+	
     {
       "key": "Sword",
       "value": "Sword"
@@ -39,6 +49,47 @@
     {
       "key": "Day",
       "value": "Day"
-    }
+    },
+	
+	{
+      "key": "Knight",
+      "value": "Knight"
+    },
+	
+	{
+      "key": "Mage",
+      "value": "Mage"
+    },
+	
+	{
+      "key": "KnightRed",
+      "value": "Red knight"
+    },
+	
+	{
+      "key": "KnightBlue",
+      "value": "Blue knight"
+    },
+	
+	{
+      "key": "MageRed",
+      "value": "Red Mage"
+    },
+	
+	{
+      "key": "MageGreen",
+      "value": "Blue mage"
+    },
+	
+	{
+      "key": "chooseCharacter",
+      "value": "Choose character"
+    },
+	
+	{
+      "key": "Hello",
+      "value": "Hello!"
+    }	
+	
   ]
 }

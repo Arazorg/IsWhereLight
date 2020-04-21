@@ -4,12 +4,15 @@ using UnityEngine;
 public class PopupDamage : MonoBehaviour
 {
     //Create a damage popup
-    public static PopupDamage Create(Vector3 position, int damageAmount, bool isCriticalHit)
+    public static PopupDamage Create(Vector3 position, bool isPhrase, bool isCriticalHit = false, int damageAmount = -1, string phrase = "")
     {
         Transform popupDamageTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
 
         PopupDamage popupDamage = popupDamageTransform.GetComponent<PopupDamage>();
-        popupDamage.Setup(damageAmount, isCriticalHit);
+        if(!isPhrase)
+            popupDamage.Setup(damageAmount, isCriticalHit);
+        else
+            popupDamage.SetupPhrase(phrase);
 
         return popupDamage;
     }
@@ -77,5 +80,20 @@ public class PopupDamage : MonoBehaviour
         textMesh.sortingOrder = sortingOrder;
         System.Random rnd = new System.Random();
         moveVector = new Vector3(1 , 1) * 3f * (float)rnd.NextDouble();
+    }
+
+    public void SetupPhrase(string key)
+    {
+        textMesh.SetText(LocalizedText.SetLocalization(key));
+        textMesh.fontSize = 4.5f;
+        textColor = Color.white;
+        
+        textMesh.color = textColor;
+        disappearTimer = DISAPPEAR_TIMER_MAX;
+
+        sortingOrder++;
+        textMesh.sortingOrder = sortingOrder;
+        System.Random rnd = new System.Random();
+        moveVector = new Vector3(1, 1) * 3f;
     }
 }

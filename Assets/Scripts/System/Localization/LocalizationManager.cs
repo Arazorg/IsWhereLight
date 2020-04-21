@@ -6,6 +6,7 @@ using UnityEngine;
 public class LocalizationManager : MonoBehaviour
 {
     public static LocalizationManager instance;
+
     private SettingsInfo settingsInfo;
     private Dictionary<string, string> localizedText;
     private bool isReady = false;
@@ -67,10 +68,5 @@ public class LocalizationManager : MonoBehaviour
             LocalizedText localizedText = text.GetComponent<LocalizedText>();
             localizedText.SetLocalization();
         }
-    }
-
-    public void CreateLocalizationFile()
-    {
-
     }
 }

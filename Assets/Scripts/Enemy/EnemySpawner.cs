@@ -20,7 +20,6 @@ public class EnemySpawner : MonoBehaviour
     /// Словарь для скриптов
     /// </summary>
     public static Dictionary<GameObject, Enemy> Enemies;
-    private bool isSpawn;
     private float nextSpawn = 24f;
     private float spawnRate = 24f;
     int counter;
@@ -40,7 +39,6 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnFlock();
             nextSpawn = Time.time + spawnRate;
-            isSpawn = false;
         }
     }
 

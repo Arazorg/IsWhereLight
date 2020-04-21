@@ -15,10 +15,20 @@
       "key": "continue_game_button",
       "value": "Продолжить Игру"
     },
+	
+	{
+      "key": "HealthInfo",
+      "value": "Здоровье"
+    },
 
     {
-      "key": "suicide_button",
-      "value": "Суицид"
+      "key": "ManeInfo",
+      "value": "Мана"
+    },
+
+    {
+      "key": "WeaponInfo",
+      "value": "Оружие"
     },
 
     {
@@ -39,6 +49,47 @@
     {
       "key": "Day",
       "value": "День"
-    }
+    },
+	
+	{
+      "key": "Knight",
+      "value": "Рыцарь"
+    },
+	
+	{
+      "key": "Mage",
+      "value": "Маг"
+    },
+	
+	{
+      "key": "KnightRed",
+      "value": "Красный рыцарь"
+    },
+	
+	{
+      "key": "KnightBlue",
+      "value": "Синий рыцарь"
+    },
+	
+	{
+      "key": "MageRed",
+      "value": "Красный маг"
+    },
+	
+	{
+      "key": "MageBlue",
+      "value": "Синий маг"
+    },
+	
+	{
+      "key": "chooseCharacter",
+      "value": "Выберите персонажа"
+    },
+	
+	{
+      "key": "Hello",
+      "value": "Привет!"
+    }		
+
   ]
 }

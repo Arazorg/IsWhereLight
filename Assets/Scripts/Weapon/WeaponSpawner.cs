@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WeaponSpawner : MonoBehaviour
 {
+    public static WeaponSpawner instance;
+
     BulletSpawner bulletSpawner;
     GameButtons gameButtons;
     CharInfo charInfo;
@@ -20,21 +22,29 @@ public class WeaponSpawner : MonoBehaviour
     private GameObject prefab;
     private Weapon script;
 
-    public static GameObject[] currentCharWeapon = new GameObject[2];
-    public static Weapon[] currentWeaponScript = new Weapon[2];
-    public static int countOfWeapon;
+    public  GameObject[] currentCharWeapon = new GameObject[2];
+    public Weapon[] currentWeaponScript = new Weapon[2];
+    public int countOfWeapon;
     private int countOfStand;
 
-    public static Dictionary<GameObject, Weapon> Weapons;
+    public  Dictionary<GameObject, Weapon> Weapons;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         Weapons = new Dictionary<GameObject, Weapon>();
         countOfWeapon = 0;
         countOfStand = 0;
     }
-
 
     public void Spawn(string weaponName)
     {
@@ -57,6 +67,7 @@ public class WeaponSpawner : MonoBehaviour
 
     public void Spawn(string weaponName, Transform transform, int currentWeaponNumber)
     {
+        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         foreach (var data in weaponSettings)
         {
             if (data.name == weaponName)
@@ -73,7 +84,7 @@ public class WeaponSpawner : MonoBehaviour
                 charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
 
                 bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
-                gameButtons = GameObject.Find("Canvas").transform.Find("GameUI").GetComponent<GameButtons>();
+                gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
 
                 bulletSpawner.SetBullet(currentWeaponScript[currentWeaponNumber].Bullet);
                 gameButtons.SetWeaponInfo(currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
@@ -90,7 +101,7 @@ public class WeaponSpawner : MonoBehaviour
     {
         charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
         bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
-        gameButtons = GameObject.Find("Canvas").transform.Find("GameUI").GetComponent<GameButtons>();
+        gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
         bulletSpawner.SetBullet(currentWeaponScript[currentWeaponNumber].Bullet);
         gameButtons.SetWeaponInfo(currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
     }

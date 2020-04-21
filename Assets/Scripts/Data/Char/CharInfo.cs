@@ -11,33 +11,40 @@ public class CharInfo : MonoBehaviour
     private CharAction charAction;
 
     //Values
-    public int level;
-    public int money;
+    public string character;
+    public string skin;
+    public string[] weapons;
+    public int maxHealth;
+    public int maxMane;
     public int health;
     public int mane;
-    public string[] weapons;
-    public string skin;
-    public string character;
+    public int money;
+    public int currentDay;
 
     public void SetStartParametrs()
     {
         weapons = new string[2];
         charAction = GetComponent<CharAction>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-        level = 1;
-        money = currentGameInfo.startMoney;
-        mane = currentGameInfo.maxMane;
-        health = currentGameInfo.maxHealth;
-        weapons = currentGameInfo.weapons;
+
         character = currentGameInfo.character;
+        skin = currentGameInfo.skin;
+        weapons[0] = currentGameInfo.startWeapon;
+        maxHealth = currentGameInfo.maxHealth;
+        maxMane = currentGameInfo.maxMane;
+        health = maxHealth;
+        mane = maxMane;
+        money = 0;
+        currentDay = 1;
+
         SetObjects();
     }
 
     private void SetObjects()
     {
         FindObjects();
-        manaBar.SetMaxMin(mane, currentGameInfo.maxMane, 0);
-        healthBar.SetMaxMin(health, currentGameInfo.maxHealth, 0);
+        manaBar.SetMaxMin(mane, maxMane, 0);
+        healthBar.SetMaxMin(health, maxHealth, 0);
     }
 
     public void SaveChar()
@@ -48,12 +55,17 @@ public class CharInfo : MonoBehaviour
     public void LoadChar()
     {
         CharData charData = SaveSystem.LoadChar();
-        level = charData.level;
+
+        character = charData.character;
+        skin = charData.skin;
+        weapons = charData.weapons;
+        maxHealth = charData.maxHealth;
+        maxMane = charData.maxMane;
         health = charData.health;
         mane = charData.mane;
-        weapons = charData.weapons;
         money = charData.money;
-        character = charData.character;
+        currentDay = charData.currentDay;
+
         SetObjects();
     }
 
@@ -68,8 +80,8 @@ public class CharInfo : MonoBehaviour
 
     public void FillMana(int fillAmount)
     {
-        if (mane + fillAmount > currentGameInfo.maxMane)
-            mane = currentGameInfo.maxMane;
+        if (mane + fillAmount > maxMane)
+            mane = maxMane;
         else
             mane += fillAmount;
     }
@@ -91,8 +103,8 @@ public class CharInfo : MonoBehaviour
 
     public void Healing(int healing)
     {
-        if (health + healing > currentGameInfo.maxHealth)
-            health = currentGameInfo.maxHealth;
+        if (health + healing > maxHealth)
+            health = maxHealth;
         else
             health += healing;
         healthBar.SetHealth(health);
@@ -101,7 +113,7 @@ public class CharInfo : MonoBehaviour
     private void FindObjects()
     {
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-        manaBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<ManaBar>();
-        healthBar = GameObject.Find("Canvas").transform.Find("GameUI").transform.GetComponentInChildren<HealthBar>();
+        manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
+        healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
 }

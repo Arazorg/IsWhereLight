@@ -7,20 +7,18 @@ public class CurrentGameData
 {
     public string character;
     public string skin;
-    public string[] weapons = new string[2];
-    public bool wildMode;
-    public int startMoney;
+    public string startWeapon;
     public int maxHealth;
     public int maxMane;
+    public bool wildMode;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
         character = currentGameInfo.character;
-        wildMode = currentGameInfo.wildMode;
-        startMoney = currentGameInfo.startMoney;
+        skin = currentGameInfo.skin;
+        startWeapon = currentGameInfo.startWeapon;
         maxHealth = currentGameInfo.maxHealth;
         maxMane = currentGameInfo.maxMane;
-        weapons = currentGameInfo.weapons;
-        skin = currentGameInfo.skin;
+        wildMode = currentGameInfo.wildMode;
     }
 }

@@ -17,18 +17,14 @@ public class CharController : MonoBehaviour
     private bool m_FacingRight = true;
     private float speedModification;
     private GameObject currentFloor;
-    int prevX, prevY;
-    int x, y;
 
     void Start()
     {
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
-        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.character);
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin);
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         gun = transform.Find(GetComponent<CharInfo>().weapons[GetComponent<CharGun>().currentWeaponNumber]); //Current gun
-        prevX = 2;
-        prevY = 2;
     }
 
     void Update()

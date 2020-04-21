@@ -19,9 +19,6 @@ public class Weapon : MonoBehaviour
         GetComponentInChildren<LocalizedText>().key = data.name;
     }
 
-    public static Action<GameObject> OnAllyWeaponChange;
-    public static Action<GameObject> OnWeaponBuy;
-
     /// <summary>
     /// Name of weapon
     /// </summary>

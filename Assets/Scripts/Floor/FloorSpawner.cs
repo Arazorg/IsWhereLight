@@ -15,17 +15,19 @@ public class FloorSpawner : MonoBehaviour
     [Tooltip("Трансформ поверхностей")]
     [SerializeField] private Transform floorsTransform;
 
+    public float size;
+
     void Start()
     {
         Floors = new Dictionary<GameObject, Floor>();
-        StartSpawn();
+        StartSpawn(size);
     }
 
-    void StartSpawn()
+    void StartSpawn(float size)
     {
-        for (float x = 0f; x <= 100.5f; x+=2)
+        for (float x = 0f; x <= size; x+=2)
         {
-            for (float y = 0f; y <= 100.5f; y+=2)
+            for (float y = 0f; y <= size; y+=2)
             {
                 var prefab = Instantiate(floorPrefab, floorsTransform);
                 prefab.transform.position = new Vector3(x, y, 0);

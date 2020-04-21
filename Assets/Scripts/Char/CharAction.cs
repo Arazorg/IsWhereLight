@@ -18,7 +18,7 @@ public class CharAction : MonoBehaviour
 
     void Start()
     {
-        GameObject gameUI = GameObject.Find("Canvas").transform.Find("GameUI").gameObject;
+        GameObject gameUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI").gameObject;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         gunInfoBar = gameUI.transform.Find("GunInfoBar").gameObject;
@@ -38,7 +38,7 @@ public class CharAction : MonoBehaviour
             GameButtons.FireActButtonState = 2;
             fireActButton.GetComponent<Image>().color = Color.magenta;
         }
-        else if (coll.gameObject.tag == "Chest")
+        else if (coll.gameObject.tag == "Door")
         {
             GameButtons.FireActButtonState = 3;
             fireActButton.GetComponent<Image>().color = Color.yellow;
@@ -72,13 +72,5 @@ public class CharAction : MonoBehaviour
     {
         SceneManager.LoadScene("FinishGame");
         FinishOfGameButton.finishGameMoney = charInfo.money;
-    }
-
-    public void ChangeLevel()
-    {
-        charInfo.level++;
-        settingsInfo.SaveSettings();
-        charInfo.SaveChar();
-        SceneManager.LoadScene("Game");
     }
 }

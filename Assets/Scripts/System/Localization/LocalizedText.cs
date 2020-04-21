@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class LocalizedText : MonoBehaviour
 {
+    public bool isNotRefresh;
     public string key;
     TextMeshProUGUI text;
 
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        if(GetComponentInParent<Weapon>() == null)
+        if(GetComponentInParent<Weapon>() == null && !isNotRefresh)
             text.text = LocalizationManager.instance.GetLocalizedValue(key);
     }
 
@@ -20,5 +21,10 @@ public class LocalizedText : MonoBehaviour
     {
         text = GetComponent<TextMeshProUGUI>();
         text.text = LocalizationManager.instance.GetLocalizedValue(key);
+    }
+
+    public static string SetLocalization(string key)
+    {
+        return LocalizationManager.instance.GetLocalizedValue(key);
     }
 }

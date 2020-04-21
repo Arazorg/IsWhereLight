@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     //Gameobjects
-    public Transform target;
+    private Transform target;
 
     //Values
     public float smoothSpeed;
@@ -13,13 +13,22 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("Character(Clone)").transform;
+        target = null;
     }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
     void FixedUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smootheedPosition = 
-            Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smootheedPosition;
+        if(target != null)
+        {
+            Vector3 desiredPosition = target.position + offset;
+            Vector3 smootheedPosition =
+                Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.position = smootheedPosition;
+        }    
     }
 }

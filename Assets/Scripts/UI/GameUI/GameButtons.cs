@@ -174,6 +174,8 @@ public class GameButtons : MonoBehaviour
             case 2:
                 OpenWeaponStore();
                 break;
+            case 3:
+                break;
         }
     }
 
@@ -229,29 +231,29 @@ public class GameButtons : MonoBehaviour
 
     public void SwapWeapon()
     {
-        if (WeaponSpawner.countOfWeapon == 2)
+        if (WeaponSpawner.instance.countOfWeapon == 2)
         {
             if (charGun.currentWeaponNumber == 0)
             {
-                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
                 charGun.currentWeaponNumber++;
                 
-                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
                 charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
-                currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+                currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
             }
             else if (charGun.currentWeaponNumber == 1)
             {
-                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
                 charGun.currentWeaponNumber--;
                 
-                WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
                 charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
-                currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+                currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
                 
             }
         }
@@ -259,7 +261,7 @@ public class GameButtons : MonoBehaviour
 
     public void ChangeWeaponButton()
     {
-        WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
-        currentWeaponImage.sprite = WeaponSpawner.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+        WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+        currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
     }
 }

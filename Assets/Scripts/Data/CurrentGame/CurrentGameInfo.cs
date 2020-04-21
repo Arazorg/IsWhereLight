@@ -8,12 +8,10 @@ public class CurrentGameInfo : MonoBehaviour
 
     public string character;
     public string skin;
-    public string[] weapons = new string[2];
-    public bool wildMode;
-
-    public int startMoney;
+    public string startWeapon;
     public int maxHealth;
     public int maxMane;
+    public bool wildMode;
 
     void Awake()
     {       
@@ -40,12 +38,10 @@ public class CurrentGameInfo : MonoBehaviour
         {
             character = currentGameData.character;
             skin = currentGameData.skin;
-            weapons = currentGameData.weapons;
-
-            wildMode = currentGameData.wildMode;
-            startMoney = currentGameData.startMoney;
+            startWeapon = currentGameData.startWeapon;
             maxHealth = currentGameData.maxHealth;
             maxMane = currentGameData.maxMane;
+            wildMode = currentGameData.wildMode;
             return true;
         }
         else

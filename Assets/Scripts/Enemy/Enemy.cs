@@ -186,15 +186,15 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage()
     {
-        int damage = WeaponSpawner.currentCharWeapon[charGun.currentWeaponNumber].GetComponent<Weapon>().Damage;
+        int damage = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].GetComponent<Weapon>().Damage;
         isEnemyHitted = true;
         bool isCriticalHit = UnityEngine.Random.Range(0, 100) < 
-                                WeaponSpawner.currentCharWeapon[charGun.currentWeaponNumber].
+                                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].
                                     GetComponent<Weapon>().CritChance;
         if (isCriticalHit)
             damage *= 2;
         health -= damage;
-        PopupDamage.Create(transform.position, damage, isCriticalHit);
+        PopupDamage.Create(transform.position, false, isCriticalHit, damage);
     }
 
     void OnBecameVisible()
