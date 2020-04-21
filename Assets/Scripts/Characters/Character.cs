@@ -146,7 +146,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     private void CameraZoom()
     {
-        Camera.main.orthographicSize = 0.75f;
+        Camera.main.orthographicSize = 1.3f;
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 

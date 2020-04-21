@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb3af7cfceeec4ea25bd16c4fde6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotRefresh: 0
   key: new_game_button
 --- !u!1 &219851141
 GameObject:
@@ -1769,6 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb3af7cfceeec4ea25bd16c4fde6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotRefresh: 0
   key: game_title
 --- !u!114 &707681783
 MonoBehaviour:
@@ -2690,6 +2692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb3af7cfceeec4ea25bd16c4fde6ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotRefresh: 0
   key: continue_game_button
 --- !u!1 &1049468912
 GameObject:

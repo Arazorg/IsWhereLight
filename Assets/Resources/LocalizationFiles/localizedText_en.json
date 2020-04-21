@@ -62,23 +62,23 @@
     },
 	
 	{
-      "key": "KnightRed",
-      "value": "Red knight"
+      "key": "SimpleKnight",
+      "value": "Simple knight"
     },
 	
 	{
-      "key": "KnightBlue",
-      "value": "Blue knight"
+      "key": "GoldKnight",
+      "value": "Gold knight"
     },
 	
 	{
-      "key": "MageRed",
-      "value": "Red Mage"
+      "key": "SimpleMage",
+      "value": "Simple Mage"
     },
 	
 	{
-      "key": "MageGreen",
-      "value": "Blue mage"
+      "key": "DarkMage",
+      "value": "Dark mage"
     },
 	
 	{

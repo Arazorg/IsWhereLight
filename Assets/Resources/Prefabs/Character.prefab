@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 6216328486193946668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -180,7 +180,9 @@ MonoBehaviour:
   charMelee: {fileID: 3589123208803253311}
   pick_up_image: {fileID: -3794294518773832241, guid: 77ee393f6e59402439f384c940bfa026,
     type: 3}
-  offsetGun: {x: 0, y: 0, z: 0}
+  offsetGunDistant: {x: 0, y: 0, z: 0}
+  offsetGunMelee: {x: 0, y: 0, z: 0}
+  currentWeaponNumber: 0
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,13 +195,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a2d27c669f89e4b8435185e4902633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  money: 0
+  character: 
+  skin: 
+  weapons: []
+  maxHealth: 0
+  maxMane: 0
   health: 100
   mane: 0
-  weapon: 
-  skin: 
-  character: 
+  money: 0
+  currentDay: 0
 --- !u!114 &-4743250278244837176
 MonoBehaviour:
   m_ObjectHideFlags: 0

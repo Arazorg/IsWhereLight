@@ -60,25 +60,25 @@
       "key": "Mage",
       "value": "Маг"
     },
-	
-	{
-      "key": "KnightRed",
-      "value": "Красный рыцарь"
+
+    {
+      "key": "SimpleKnight",
+      "value": "Рядовой рыцарь"
+    },
+
+    {
+      "key": "GoldKnight",
+      "value": "Золотой рыцарь"
     },
 	
 	{
-      "key": "KnightBlue",
-      "value": "Синий рыцарь"
+      "key": "SimpleMage",
+      "value": "Обычный маг"
     },
 	
 	{
-      "key": "MageRed",
-      "value": "Красный маг"
-    },
-	
-	{
-      "key": "MageBlue",
-      "value": "Синий маг"
+      "key": "DarkMage",
+      "value": "Темный маг"
     },
 	
 	{
