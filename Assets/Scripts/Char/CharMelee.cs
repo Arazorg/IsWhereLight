@@ -20,7 +20,7 @@ public class CharMelee : MonoBehaviour
     {
         if (timeToOff < Time.time)
         {
-            animator.SetBool("Attack", false);
+           animator.SetBool("Attack", false);
         }
 
         if(attackTime < Time.time)

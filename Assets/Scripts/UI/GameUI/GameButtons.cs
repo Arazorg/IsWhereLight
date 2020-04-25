@@ -36,6 +36,7 @@ public class GameButtons : MonoBehaviour
     private CharInfo charInfo;
     private CharShooting charShooting;
     private CharMelee charMelee;
+    private CharBow charBow;
     private CharGun charGun;
     private CharAction charAction;
 
@@ -97,6 +98,7 @@ public class GameButtons : MonoBehaviour
         charInfo = character.GetComponent<CharInfo>();
         charShooting = character.GetComponent<CharShooting>();
         charMelee = character.GetComponent<CharMelee>();
+        charBow = character.GetComponent<CharBow>();
         charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
     }
@@ -170,6 +172,7 @@ public class GameButtons : MonoBehaviour
                 charGun.ChangeGun();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
                 charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
+                charBow.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
                 break;
             case 2:
                 OpenWeaponStore();
@@ -202,12 +205,22 @@ public class GameButtons : MonoBehaviour
                 {
                     charShooting.Shoot();
                 }
-                else if (currentWeapon.GetComponent<Weapon>().TypeOfAttack 
+                else if (currentWeapon.GetComponent<Weapon>().TypeOfAttack
                     == WeaponData.AttackType.Melee)
                 {
                     charMelee.Hit();
-                }
+                }      
                 nextAttack = Time.time + attackRate;
+            }
+        }
+
+        else if (charInfo.mane - manecost >= 0 && isAttack
+        && currentWeapon.GetComponent<Weapon>().TypeOfAttack
+                == WeaponData.AttackType.Bow)
+        {
+            if (Time.time > nextAttack)
+            {
+                charBow.ArrowString();
             }
         }
     }
@@ -220,6 +233,9 @@ public class GameButtons : MonoBehaviour
             if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
             {
                 charShooting.Shoot();
+                charBow.Shoot();
+                isAttack = false;
+                Debug.Log("стоп");
             }
         }
     }
