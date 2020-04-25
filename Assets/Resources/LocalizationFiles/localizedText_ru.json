@@ -2,18 +2,13 @@
   "items": [
 
     {
-      "key": "game_title",
-      "value": "замок"
-    },
-
-    {
       "key": "new_game_button",
-      "value": "Новая Игра"
+      "value": "Новая игра"
     },
 
     {
       "key": "continue_game_button",
-      "value": "Продолжить Игру"
+      "value": "Продолжить иру"
     },
 	
 	{
@@ -30,6 +25,16 @@
       "key": "WeaponInfo",
       "value": "Оружие"
     },
+		
+	{
+      "key": "chooseCharacter",
+      "value": "Выбор персонажа"
+    },
+
+	{
+      "key": "Day",
+      "value": "День"
+    },
 
     {
       "key": "Sword",
@@ -45,11 +50,6 @@
       "key": "Pistol",
       "value": "Пистолет"
     },
-
-    {
-      "key": "Day",
-      "value": "День"
-    },
 	
 	{
       "key": "Knight",
@@ -60,13 +60,13 @@
       "key": "Mage",
       "value": "Маг"
     },
-
-    {
+	
+	{
       "key": "SimpleKnight",
-      "value": "Рядовой рыцарь"
+      "value": "Обычный рыцарь"
     },
-
-    {
+	
+	{
       "key": "GoldKnight",
       "value": "Золотой рыцарь"
     },
@@ -80,16 +80,10 @@
       "key": "DarkMage",
       "value": "Темный маг"
     },
-	
-	{
-      "key": "chooseCharacter",
-      "value": "Выберите персонажа"
-    },
-	
+
 	{
       "key": "Hello",
       "value": "Привет!"
-    }		
-
-  ]
+    }	
+]
 }

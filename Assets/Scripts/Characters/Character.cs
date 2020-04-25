@@ -20,8 +20,12 @@ public class Character : MonoBehaviour, IPointerDownHandler
     public GameObject playerCharacter;
     private bool m_FacingRight;
 
+    [Tooltip("Смещение текста над NPC")]
+    [SerializeField] private Vector3 offsetText;
+
     void Start()
     {
+        offsetText = new Vector3(0, 0.85f, 0);
         m_FacingRight = true;
         playerCharacter = null;
         characterChooseUI.gameObject.SetActive(false);
@@ -30,7 +34,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        if(playerCharacter != null)
+        if (playerCharacter != null)
         {
             UpdateFlip();
         }
@@ -81,18 +85,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
         get
         {
             return data.Animations;
-        }
-        protected set { }
-    }
-
-    /// <summary>
-    /// Character's animations
-    /// </summary>
-    public string[] SkinsNames
-    {
-        get
-        {
-            return data.SkinsNames;
         }
         protected set { }
     }
@@ -153,6 +145,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
-            PopupDamage.Create(transform.position, true, false, -1, "Hello");
+            PopupDamage.Create(transform.position + offsetText, true, false, -1, "Hello");
     }
 }

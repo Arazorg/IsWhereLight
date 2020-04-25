@@ -12,14 +12,6 @@ public class CharacterData : ScriptableObject
         protected set { }
     }
 
-    [Tooltip("Имена скинов")]
-    [SerializeField] private string[] skinsNames;
-    public string[] SkinsNames
-    {
-        get { return skinsNames; }
-        protected set { }
-    }
-
     [Tooltip("Класс персонажа")]
     [SerializeField] private string characterClass;
     public string CharacterClass

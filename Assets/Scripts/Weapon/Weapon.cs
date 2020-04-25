@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Tooltip("Смещение текста над оружием")]
+    [SerializeField] private Vector3 offsetText;
+
+    private bool isStay;
+
     private WeaponData data;
 
     /// <summary>
@@ -14,9 +19,9 @@ public class Weapon : MonoBehaviour
     public void Init(WeaponData data)
     {
         this.data = data;
+        critChance = data.CritChance;
         GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
-        GetComponentInChildren<LocalizedText>().key = data.name;
     }
 
     /// <summary>
@@ -84,9 +89,11 @@ public class Weapon : MonoBehaviour
     {
         get
         {
-            return data.CritChance;
+            return critChance;
         }
-        protected set { }
+        set {
+            critChance = value;
+        }
     }
 
     /// <summary>
@@ -113,5 +120,14 @@ public class Weapon : MonoBehaviour
             return data.Bullet;
         }
         protected set { }
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (transform.tag == "Gun" && coll.tag == "Player")
+        {
+            PopupDamage.Create(transform.position + offsetText, true, false, -1, WeaponName);
+            isStay = true;
+        }
     }
 }

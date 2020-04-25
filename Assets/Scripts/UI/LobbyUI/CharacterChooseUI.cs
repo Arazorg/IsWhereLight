@@ -58,6 +58,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void ChooseCharacter(Character character, Animator animator)
     {
+        WeaponSpawner.instance.Spawn("Bow");
         skinCounter = 0;
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
@@ -75,7 +76,7 @@ public class CharacterChooseUI : MonoBehaviour
     public void SetSpecChar()
     {
         currentGameInfo.character = currentCharacter.CharacterClass;
-        currentGameInfo.skin = currentCharacter.SkinsNames[skinCounter];
+        currentGameInfo.skin = currentCharacter.Animations[skinCounter].name;
 
         currentGameInfo.maxHealth = currentCharacter.MaxHealth;
         currentGameInfo.maxMane = currentCharacter.MaxMane;
@@ -102,7 +103,7 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.GetComponent<LocalizedText>().key = currentCharacter.CharacterClass;
         characterText.GetComponent<LocalizedText>().SetLocalization();
 
-        skinText.GetComponent<LocalizedText>().key = currentCharacter.SkinsNames[skinCounter];
+        skinText.GetComponent<LocalizedText>().key = currentCharacter.Animations[skinCounter].name;
         skinText.GetComponent<LocalizedText>().SetLocalization();
 
         priceText.text = characterPrice.ToString();
@@ -131,10 +132,10 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void ChangeCharacterSkin()
     {
-        skinText.GetComponent<LocalizedText>().key = currentCharacter.SkinsNames[skinCounter];
+        skinText.GetComponent<LocalizedText>().key = currentCharacter.Animations[skinCounter].name;
         skinText.GetComponent<LocalizedText>().SetLocalization();
         animator.runtimeAnimatorController = currentCharacter.Animations[skinCounter];
-        currentGameInfo.skin = currentCharacter.SkinsNames[skinCounter];
+        currentGameInfo.skin = currentCharacter.Animations[skinCounter].name;
     }
 
     private void GameBuyButtonAccess()
@@ -170,6 +171,8 @@ public class CharacterChooseUI : MonoBehaviour
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
         Instantiate(character, currentCharacter.transform.position, Quaternion.identity);
+        GameObject.Find("Character(Clone)").GetComponent<CharController>().CharacterRuntimeAnimatorController
+            = animator.runtimeAnimatorController;
 
         characters.Remove(currentCharacter);
         foreach (var character in characters)

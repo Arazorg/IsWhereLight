@@ -8,7 +8,8 @@ public class WeaponData : ScriptableObject
     public enum AttackType
     {
         Melee,
-        Distant
+        Bullet,
+        Bow
     }
 
     [Tooltip("Основной аниматор")]

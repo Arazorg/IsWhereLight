@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharAction : MonoBehaviour
-{   
+{
+    [Tooltip("CharInfo скрипт")]
+    [SerializeField] private CharInfo charInfo;
+
     private GameObject gunInfoBar;
     private Button fireActButton;
-    private CharInfo charInfo;
-    private CurrentGameInfo currentGameInfo;
+
     private SettingsInfo settingsInfo;
+
     private float timeToOff;
     public bool isEnterFirst;
     public bool isPlayerHitted;
@@ -19,10 +22,10 @@ public class CharAction : MonoBehaviour
     void Start()
     {
         GameObject gameUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI").gameObject;
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         gunInfoBar = gameUI.transform.Find("GunInfoBar").gameObject;
         fireActButton = gameUI.transform.Find("FireActButton").GetComponent<Button>();
+
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
     }
 
     void Update()
@@ -32,16 +35,20 @@ public class CharAction : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-
-        if (coll.gameObject.tag == "WeaponStore")
+        switch(coll.gameObject.name)
         {
-            GameButtons.FireActButtonState = 2;
-            fireActButton.GetComponent<Image>().color = Color.magenta;
-        }
-        else if (coll.gameObject.tag == "Door")
-        {
-            GameButtons.FireActButtonState = 3;
-            fireActButton.GetComponent<Image>().color = Color.yellow;
+            case "WeaponStore":
+                GameButtons.FireActButtonState = 2;
+                fireActButton.GetComponent<Image>().color = Color.magenta;
+                break;
+            case "Door":
+                GameButtons.FireActButtonState = 3;
+                fireActButton.GetComponent<Image>().color = Color.yellow;
+                break;
+            case "TV":
+                GameButtons.FireActButtonState = 4;
+                fireActButton.GetComponent<Image>().color = Color.yellow;
+                break;
         }
     }
 
@@ -52,7 +59,7 @@ public class CharAction : MonoBehaviour
             if (isEnterFirst)
             {
                 GetComponent<SpriteRenderer>().color = Color.red;
-                timeToOff = Time.time + 0.05f;
+                timeToOff = Time.time + 0.1f;
                 isEnterFirst = false;
             }
             else
@@ -66,7 +73,6 @@ public class CharAction : MonoBehaviour
             }
         }
     }
-
 
     public void Death()
     {

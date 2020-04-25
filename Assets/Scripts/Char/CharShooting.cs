@@ -13,7 +13,6 @@ public class CharShooting : MonoBehaviour
     public void Shoot()
     {
         bulletSpawner.Spawn();
-        //bulletSpawner.currentWeaponBullet.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, bulletScatterAngle));
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle+1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.currentWeaponBullet.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * bulletSpawner.currentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);

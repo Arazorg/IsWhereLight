@@ -2,11 +2,6 @@
   "items": [
 
     {
-      "key": "game_title",
-      "value": "castle"
-    },
-
-    {
       "key": "new_game_button",
       "value": "New Game"
     },
@@ -30,7 +25,17 @@
       "key": "WeaponInfo",
       "value": "Weapon"
     },
-	
+		
+	{
+      "key": "chooseCharacter",
+      "value": "Choose character"
+    },
+
+	{
+      "key": "Day",
+      "value": "Day"
+    },
+
     {
       "key": "Sword",
       "value": "Sword"
@@ -44,11 +49,6 @@
     {
       "key": "Pistol",
       "value": "Pistol"
-    },
-
-    {
-      "key": "Day",
-      "value": "Day"
     },
 	
 	{
@@ -80,16 +80,10 @@
       "key": "DarkMage",
       "value": "Dark mage"
     },
-	
-	{
-      "key": "chooseCharacter",
-      "value": "Choose character"
-    },
-	
+
 	{
       "key": "Hello",
       "value": "Hello!"
     }	
-	
-  ]
+]
 }

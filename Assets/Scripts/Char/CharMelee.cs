@@ -43,7 +43,5 @@ public class CharMelee : MonoBehaviour
             }
             attackTime = Time.time + 0.225f;
         }
-
-        
     }
 }

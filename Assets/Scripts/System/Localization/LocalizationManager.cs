@@ -34,7 +34,6 @@ public class LocalizationManager : MonoBehaviour
         TextAsset localizationFile = Resources.Load<TextAsset>(Path.Combine("LocalizationFiles/", fileName));
         string dataAsJson = localizationFile.text;
         LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
-
         for (int i = 0; i < loadedData.items.Length; i++)
         {
             localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);

@@ -53,7 +53,7 @@ public class WeaponSpawner : MonoBehaviour
             if (data.name == weaponName)
             {
                 prefab = Instantiate(weaponPrefab, spawnPositions[countOfStand]);
-                countOfStand = (countOfStand + 1) % 3;
+                countOfStand = (countOfStand + 1);
                 script = prefab.GetComponent<Weapon>();
                 script.Init(data);
                 prefab.name = weaponName;

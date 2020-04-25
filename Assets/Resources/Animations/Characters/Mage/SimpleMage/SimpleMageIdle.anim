@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MageRedIdle
+  m_Name: SimpleMageIdle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,30 +22,30 @@ AnimationClip:
     - time: 0
       value: {fileID: -724910028248236257, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.05882353
+    - time: 0.055555556
       value: {fileID: 5624773714372127542, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.11764706
+    - time: 0.11111111
       value: {fileID: 5639033823243526, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
-    - time: 0.1764706
+    - time: 0.16666667
       value: {fileID: -6312157847362682235, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.23529412
+    - time: 0.22222222
       value: {fileID: -6312157847362682235, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.29411766
+    - time: 0.2777778
       value: {fileID: 5639033823243526, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
-    - time: 0.3529412
+    - time: 0.33333334
       value: {fileID: 5624773714372127542, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.4117647
+    - time: 0.3888889
       value: {fileID: -724910028248236257, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 17
+  m_SampleRate: 18
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -73,7 +73,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.47058824
+    m_StopTime: 0.44444445
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

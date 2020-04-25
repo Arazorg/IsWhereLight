@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6216328486193946670}
   - component: {fileID: 6216328486193946671}
+  - component: {fileID: 2124288211051524171}
   - component: {fileID: 6216328486193946664}
   - component: {fileID: -4659355296405908417}
   - component: {fileID: 2330422614162298416}
@@ -17,7 +18,6 @@ GameObject:
   - component: {fileID: 376914118}
   - component: {fileID: 4952567868302082640}
   - component: {fileID: -4743250278244837176}
-  - component: {fileID: 2124288211051524171}
   - component: {fileID: 3589123208803253311}
   m_Layer: 8
   m_Name: Character
@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 6216328486193946668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,6 +90,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2124288211051524171
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216328486193946668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &6216328486193946664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,8 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f79db4f65c218b4893a23cd7c6642b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
-  animator: {fileID: 2124288211051524171}
+  characterAnimator: {fileID: 2124288211051524171}
+  charInfo: {fileID: 4952567868302082640}
+  charGun: {fileID: 376914118}
   speed: 5
 --- !u!114 &376914118
 MonoBehaviour:
@@ -178,10 +198,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charInfo: {fileID: 4952567868302082640}
   charMelee: {fileID: 3589123208803253311}
-  pick_up_image: {fileID: -3794294518773832241, guid: 77ee393f6e59402439f384c940bfa026,
+  pickUpImage: {fileID: -3794294518773832241, guid: 77ee393f6e59402439f384c940bfa026,
     type: 3}
-  offsetGunDistant: {x: 0, y: 0, z: 0}
-  offsetGunMelee: {x: 0, y: 0, z: 0}
+  fireImage: {fileID: 8403360033282497016, guid: 77ee393f6e59402439f384c940bfa026,
+    type: 3}
+  offsetGunDistant: {x: 0, y: -0.35, z: 0}
+  offsetGunMelee: {x: -0.2, y: -0.35, z: 0}
   currentWeaponNumber: 0
 --- !u!114 &4952567868302082640
 MonoBehaviour:
@@ -200,7 +222,7 @@ MonoBehaviour:
   weapons: []
   maxHealth: 0
   maxMane: 0
-  health: 100
+  health: 0
   mane: 0
   money: 0
   currentDay: 0
@@ -216,27 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff5483979ad6f54cae9337622398907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charInfo: {fileID: 4952567868302082640}
   isEnterFirst: 0
   isPlayerHitted: 0
---- !u!95 &2124288211051524171
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216328486193946668}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3589123208803253311
 MonoBehaviour:
   m_ObjectHideFlags: 0

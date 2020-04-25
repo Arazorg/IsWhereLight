@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MageRedRun
+  m_Name: SimpleMageRun
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,34 +20,34 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -772961373543879519, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+      value: {fileID: 2124271279187013102, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.05882353
-      value: {fileID: -3887938576141140340, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.055555556
+      value: {fileID: 3564551237140821740, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.11764706
-      value: {fileID: -6427944278370754788, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.11111111
+      value: {fileID: 6635375882770379808, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.1764706
-      value: {fileID: -4361096973691151964, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.16666667
+      value: {fileID: -3639432776257672180, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.23529412
-      value: {fileID: 3469403647564605332, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.22222222
+      value: {fileID: -8755589637361779886, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.29411766
-      value: {fileID: -8133558702615685378, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.2777778
+      value: {fileID: -8833372011252401060, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.3529412
-      value: {fileID: 2830232925332476221, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.33333334
+      value: {fileID: 1482588735455524226, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
-    - time: 0.4117647
-      value: {fileID: -486282266780214554, guid: 0a7d9804b6d9966448b7a87c36ec1892,
+    - time: 0.3888889
+      value: {fileID: 7628472327046026890, guid: 73e48221c41acc845bc06b935844d9c1,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 17
+  m_SampleRate: 18
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -62,20 +62,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -772961373543879519, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: -3887938576141140340, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: -6427944278370754788, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: -4361096973691151964, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: 3469403647564605332, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: -8133558702615685378, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: 2830232925332476221, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
-    - {fileID: -486282266780214554, guid: 0a7d9804b6d9966448b7a87c36ec1892, type: 3}
+    - {fileID: 2124271279187013102, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: 3564551237140821740, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: 6635375882770379808, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: -3639432776257672180, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: -8755589637361779886, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: -8833372011252401060, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: 1482588735455524226, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
+    - {fileID: 7628472327046026890, guid: 73e48221c41acc845bc06b935844d9c1, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.47058824
+    m_StopTime: 0.44444445
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

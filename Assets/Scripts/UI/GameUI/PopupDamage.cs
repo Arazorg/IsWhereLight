@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class PopupDamage : MonoBehaviour
@@ -9,8 +10,9 @@ public class PopupDamage : MonoBehaviour
         Transform popupDamageTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
 
         PopupDamage popupDamage = popupDamageTransform.GetComponent<PopupDamage>();
-        if(!isPhrase)
-            popupDamage.Setup(damageAmount, isCriticalHit);
+
+        if (!isPhrase)
+            popupDamage.SetupDamage(damageAmount, isCriticalHit);
         else
             popupDamage.SetupPhrase(phrase);
 
@@ -19,12 +21,14 @@ public class PopupDamage : MonoBehaviour
 
     private static int sortingOrder;
 
-    private const float DISAPPEAR_TIMER_MAX = 1f;
+    private const float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;
+    private const float DISAPPEAR_TIMER_MAX_PHRASE = 2f;
 
     private TextMeshPro textMesh;
     private float disappearTimer;
     private Color textColor;
     private Vector3 moveVector;
+    private bool isPhrase;
 
     private void Awake()
     {
@@ -33,18 +37,21 @@ public class PopupDamage : MonoBehaviour
 
     private void Update()
     {
-        transform.position += moveVector * Time.deltaTime;
-        moveVector -= moveVector * 3f * Time.deltaTime;
+        if (!isPhrase)
+        {
+            transform.position += moveVector * Time.deltaTime;
+            moveVector -= moveVector * 3f * Time.deltaTime;
 
-        if (disappearTimer > DISAPPEAR_TIMER_MAX * .5f)
-        {
-            float increaseScaleAmount = 1f;
-            transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
-        }
-        else
-        {
-            float decreaseScaleAmount = 1f;
-            transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
+            if (disappearTimer > DISAPPEAR_TIMER_MAX_DAMAGE * .5f)
+            {
+                float increaseScaleAmount = 1f;
+                transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
+            }
+            else
+            {
+                float decreaseScaleAmount = 1f;
+                transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
+            }
         }
 
         disappearTimer -= Time.deltaTime;
@@ -60,8 +67,9 @@ public class PopupDamage : MonoBehaviour
         }
     }
 
-    public void Setup(int damageAmount, bool isCriticalHit)
+    public void SetupDamage(int damageAmount, bool isCriticalHit)
     {
+        isPhrase = false;
         textMesh.SetText(damageAmount.ToString());
         if (isCriticalHit)
         {
@@ -74,26 +82,26 @@ public class PopupDamage : MonoBehaviour
             textColor = Color.yellow;
         }
         textMesh.color = textColor;
-        disappearTimer = DISAPPEAR_TIMER_MAX;
+        disappearTimer = DISAPPEAR_TIMER_MAX_DAMAGE;
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
         System.Random rnd = new System.Random();
-        moveVector = new Vector3(1 , 1) * 3f * (float)rnd.NextDouble();
+        moveVector = new Vector3(1, 1) * 3f * (float)rnd.NextDouble();
     }
 
     public void SetupPhrase(string key)
     {
+        isPhrase = true;
         textMesh.SetText(LocalizedText.SetLocalization(key));
         textMesh.fontSize = 4.5f;
         textColor = Color.white;
-        
+
         textMesh.color = textColor;
-        disappearTimer = DISAPPEAR_TIMER_MAX;
+        disappearTimer = DISAPPEAR_TIMER_MAX_PHRASE;
 
         sortingOrder++;
         textMesh.sortingOrder = sortingOrder;
-        System.Random rnd = new System.Random();
-        moveVector = new Vector3(1, 1) * 3f;
+        moveVector = Vector3.zero;
     }
 }
