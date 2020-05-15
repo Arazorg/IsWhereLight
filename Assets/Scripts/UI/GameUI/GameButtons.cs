@@ -34,9 +34,6 @@ public class GameButtons : MonoBehaviour
 
     //Скрипты персонажа
     private CharInfo charInfo;
-    private CharShooting charShooting;
-    private CharMelee charMelee;
-    private CharBow charBow;
     private CharGun charGun;
     private CharAction charAction;
 
@@ -96,9 +93,6 @@ public class GameButtons : MonoBehaviour
     {
         character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
-        charShooting = character.GetComponent<CharShooting>();
-        charMelee = character.GetComponent<CharMelee>();
-        charBow = character.GetComponent<CharBow>();
         charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
     }
@@ -171,13 +165,12 @@ public class GameButtons : MonoBehaviour
             case 1:
                 charGun.ChangeGun();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
-                charBow.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
                 break;
             case 2:
                 OpenWeaponStore();
                 break;
             case 3:
+                SceneManager.LoadScene("Game");
                 break;
             case 4:
                 AdsManager.AdShow();
@@ -193,59 +186,40 @@ public class GameButtons : MonoBehaviour
 
     private void Attack()
     {
-        if (charInfo.mane - manecost >= 0 && isAttack 
-            && currentWeapon.GetComponent<Weapon>().TypeOfAttack
-                    != WeaponData.AttackType.Bow)
+        if (charInfo.mane - manecost >= 0 && isAttack)
         {
             if (Time.time > nextAttack)
             {
                 charInfo.SpendMana(manecost);
-                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Bullet)
+                switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
-                    charShooting.Shoot();
+                    case WeaponData.AttackType.Gun:
+                        currentWeapon.GetComponent<Gun>().Shoot();
+                        break;
+                    case WeaponData.AttackType.Sword:
+                        currentWeapon.GetComponent<Sword>().Hit();
+                        break;
+                    case WeaponData.AttackType.Bow:
+                        currentWeapon.GetComponent<Bow>().Shoot();
+                        break;
                 }
-                else if (currentWeapon.GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Melee)
-                {
-                    charMelee.Hit();
-                }      
                 nextAttack = Time.time + attackRate;
-            }
-        }
-
-        else if (charInfo.mane - manecost >= 0 && isAttack
-        && currentWeapon.GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Bow)
-        {
-            if (Time.time > nextAttack)
-            {
-                charBow.ArrowString();
-            }
-        }
-    }
-
-    public void BowAttack()
-    {
-        if (charInfo.mane - manecost >= 0 && isAttack)
-        {
-            charInfo.SpendMana(manecost);
-            if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
-            {
-                charShooting.Shoot();
-                charBow.Shoot();
-                isAttack = false;
-                Debug.Log("стоп");
             }
         }
     }
 
     public void StopAttack()
     {
-        if(currentWeapon.GetComponent<Weapon>().TypeOfAttack != WeaponData.AttackType.Bow)
+        if (currentWeapon.GetComponent<Weapon>().TypeOfAttack != WeaponData.AttackType.Bow)
             isAttack = false;
-    }
 
+        switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+        {
+            case WeaponData.AttackType.Sword:
+                currentWeapon.GetComponent<Sword>().animator.SetBool("Attack", false);
+                break;
+        }
+    }
 
     public void PlusMoney()
     {
@@ -270,25 +244,27 @@ public class GameButtons : MonoBehaviour
         {
             if (charGun.currentWeaponNumber == 0)
             {
-                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
                 charGun.currentWeaponNumber++;
 
-                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
-                currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+                currentWeaponImage.sprite 
+                    = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                        .GetComponent<Weapon>().MainSprite;
             }
             else if (charGun.currentWeaponNumber == 1)
             {
-                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(false);
+                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
                 charGun.currentWeaponNumber--;
 
-                WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
+                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                charMelee.animator = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Animator>();
-                currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+                currentWeaponImage.sprite 
+                    = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                        .GetComponent<Weapon>().MainSprite;
 
             }
         }
@@ -296,7 +272,9 @@ public class GameButtons : MonoBehaviour
 
     public void ChangeWeaponButton()
     {
-        WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].gameObject.SetActive(true);
-        currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[charGun.currentWeaponNumber].MainSprite;
+        WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+        currentWeaponImage.sprite
+            = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                        .GetComponent<Weapon>().MainSprite;
     }
 }

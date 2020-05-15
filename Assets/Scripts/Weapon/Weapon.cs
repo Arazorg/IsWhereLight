@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [Tooltip("Смещение текста над оружием")]
-    [SerializeField] private Vector3 offsetText;
+    [SerializeField] public Vector3 offsetText;
 
     private bool isStay;
-
     private WeaponData data;
 
     /// <summary>
@@ -19,57 +16,27 @@ public class Weapon : MonoBehaviour
     public void Init(WeaponData data)
     {
         this.data = data;
-        critChance = data.CritChance;
-        GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
+        critChance = CritChance;
+        colliderSize = ColliderSize;
+        colliderOffset = ColliderOffset;
+
+        SetColliderSettings();
+        GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
     }
 
-    /// <summary>
-    /// Name of weapon
-    /// </summary>
-    private string weaponName;
+    private void SetColliderSettings()
+    {
+        GetComponent<BoxCollider2D>().size = new Vector2(colliderSize.x, colliderSize.y);
+        GetComponent<BoxCollider2D>().offset = new Vector2(colliderOffset.x, colliderOffset.y);
+    }
+
     public string WeaponName
     {
         get
         {
             return data.WeaponName;
         }
-        protected set { }
-    }
-
-    public Sprite MainSprite
-    {
-        get
-        {
-            return data.MainSprite;
-        }
-        protected set { }
-    }
-
-    /// <summary>
-    /// Fire rate of current weapon
-    /// </summary>
-    private float fireRate;
-    public float FireRate
-    {
-        get
-        {
-            return data.FireRate;
-        }
-        protected set { }
-    }
-
-    /// <summary>
-    /// Damage of current weapon
-    /// </summary>
-    private int damage;
-    public int Damage
-    {
-        get
-        {
-            return data.Damage;
-        }
-        protected set { }
     }
 
     public WeaponData.AttackType TypeOfAttack
@@ -78,48 +45,94 @@ public class Weapon : MonoBehaviour
         {
             return data.TypeOfAttack;
         }
-        protected set { }
     }
 
-    /// <summary>
-    /// Crit chance of current weapon
-    /// </summary>
+    public Sprite MainSprite
+    {
+        get
+        {
+            return data.MainSprite;
+        }
+    }
+
+    public RuntimeAnimatorController MainAnimator
+    {
+        get
+        {
+            return data.MainAnimator;
+        }
+    }
+
+    private Vector2 colliderSize;
+    public Vector2 ColliderSize
+    {
+        get
+        {
+            return data.ColliderSize;
+        }
+    }
+
+    private Vector2 colliderOffset;
+    public Vector2 ColliderOffset
+    {
+        get
+        {
+            return data.ColliderOffset;
+        }
+    }
+
+    private float radius;
+    public float Radius
+    {
+        get
+        {
+            return data.Radius;
+        }
+    }
+
+    public float FireRate
+    {
+        get
+        {
+            return data.FireRate;
+        }
+    }
+
+    public int Damage
+    {
+        get
+        {
+            return data.Damage;
+        }
+    }
+
     private float critChance;
     public float CritChance
     {
         get
         {
-            return critChance;
+            return data.CritChance;
         }
-        set {
+        set
+        {
             critChance = value;
         }
     }
 
-    /// <summary>
-    /// Manecost of current weapon
-    /// </summary>
-    private int manecost;
     public int Manecost
     {
         get
         {
             return data.Manecost;
         }
-        protected set { }
     }
 
-    /// <summary>
-    /// Bullet of current weapon
-    /// </summary>
-    private BulletData bullet;
-    public BulletData Bullet
+    public BulletData CurrentBullet
     {
         get
         {
-            return data.Bullet;
+            return data.CurrentBullet;
         }
-        protected set { }
     }
 
     void OnTriggerEnter2D(Collider2D coll)

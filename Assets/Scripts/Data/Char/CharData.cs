@@ -15,7 +15,6 @@ public class CharData
     public int mane;
 
     public int money;
-    public int currentDay;
 
     public CharData(CharInfo charInfo)
     {
@@ -27,6 +26,5 @@ public class CharData
         health = charInfo.health;
         mane = charInfo.mane;
         money = charInfo.money;
-        currentDay = charInfo.currentDay;
     }
 }

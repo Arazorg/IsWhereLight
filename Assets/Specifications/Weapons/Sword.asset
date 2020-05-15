@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
+  weaponName: Sword
   mainAnimator: {fileID: 9100000, guid: ac469b9f316b7e844a4e0aca230c51a2, type: 2}
   mainSprite: {fileID: -1525763588066094277, guid: f7decd2c68377344f91904b4ae362c74,
     type: 3}
-  weaponName: Sword
-  fireRate: 0.4
-  damage: 5
-  typeOfAttack: 0
-  critChance: 15
+  typeOfAttack: 1
+  colliderSize: {x: 0, y: 0.5}
+  colliderOffset: {x: 0.2, y: 0.6}
+  radius: 0.5
+  fireRate: 0.45
+  damage: 6
+  critChance: 10
+  currentBullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}
   manecost: 0
-  bullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}

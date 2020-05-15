@@ -50,6 +50,13 @@ public class CharAction : MonoBehaviour
                 fireActButton.GetComponent<Image>().color = Color.yellow;
                 break;
         }
+
+        if(coll.tag == "EnemyBullet")
+        {
+            charInfo.Damage(coll.GetComponent<Bullet>().Damage);
+            isPlayerHitted = true;
+            isEnterFirst = true;
+        }
     }
 
     public void PlayerHitted()

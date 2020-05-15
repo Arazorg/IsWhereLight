@@ -19,7 +19,6 @@ public class CharInfo : MonoBehaviour
     public int health;
     public int mane;
     public int money;
-    public int currentDay;
 
     public void SetStartParametrs()
     {
@@ -35,7 +34,6 @@ public class CharInfo : MonoBehaviour
         health = maxHealth;
         mane = maxMane;
         money = 0;
-        currentDay = 1;
 
         SetObjects();
     }
@@ -45,6 +43,14 @@ public class CharInfo : MonoBehaviour
         FindObjects();
         manaBar.SetMaxMin(mane, maxMane, 0);
         healthBar.SetMaxMin(health, maxHealth, 0);
+        Camera.main.GetComponent<CameraFollow>().SetTarget(transform);
+    }
+
+    private void FindObjects()
+    {
+        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+        manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
+        healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
 
     public void SaveChar()
@@ -64,7 +70,6 @@ public class CharInfo : MonoBehaviour
         health = charData.health;
         mane = charData.mane;
         money = charData.money;
-        currentDay = charData.currentDay;
 
         SetObjects();
     }
@@ -108,12 +113,5 @@ public class CharInfo : MonoBehaviour
         else
             health += healing;
         healthBar.SetHealth(health);
-    }
-
-    private void FindObjects()
-    {
-        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-        manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
-        healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
 }

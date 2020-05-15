@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosionPrefab;
     private BulletData data;
-    private CharInfo charInfo;
-    private CharAction charAction;
 
     /// <summary>
     /// Initialization of bullet
@@ -15,12 +13,7 @@ public class Bullet : MonoBehaviour
     /// <param name="data"></param>
     public void Init(BulletData data)
     {
-        GameObject character = GameObject.Find("Character(Clone)");
-        charInfo = character.GetComponent<CharInfo>();
-        charAction = character.GetComponent<CharAction>();
-
         this.data = data;
-        damage = data.Damage;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
     }
 
@@ -33,18 +26,16 @@ public class Bullet : MonoBehaviour
         protected set { }
     }
 
-    /// <summary>
-    /// Speed of current bullet
-    /// </summary>
-    private int damage;
-    public int Damage
+    public BulletData.BulletType TypeOfBullet
     {
         get
         {
-            return data.Damage;
+            return data.TypeOfBullet;
         }
-        protected set { }
     }
+
+    public int Damage { get; set; }
+    public float CritChance { get; set; }
 
 
     /// <summary>
@@ -73,33 +64,9 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(gameObject.tag == "StandartBullet")
-        {
-            if (collider.tag == "Untagged" || collider.tag == "Enemy")
-            {
-                GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
-                Destroy(gameObject);
-            }
-        }
 
-        if (gameObject.tag == "EnemyBullet")
-        {
-            if (collider.tag == "Player")
-            {
-                charInfo.Damage(damage);
-                charAction.isPlayerHitted = true;
-                charAction.isEnterFirst = true;
-                GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
-                Destroy(gameObject);
-            }
-            else if(collider.tag == "Untagged")
-            {
-                GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
-                Destroy(gameObject);
-            }
-        }
+        GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+        Destroy(gameObject);
     }
 }

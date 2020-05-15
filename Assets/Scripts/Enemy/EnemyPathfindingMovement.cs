@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class EnemyPathfindingMovement : MonoBehaviour
 {
-    private Boid boid;
 
     [SerializeField] private LayerMask enemyLayer;
 
@@ -24,7 +23,6 @@ public class EnemyPathfindingMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        boid = GetComponent<Boid>();
         m_FacingRight = true;
     }
 

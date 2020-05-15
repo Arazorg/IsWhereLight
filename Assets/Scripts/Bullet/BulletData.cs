@@ -5,6 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Bullets/Standart Bullets", fileName = "New Bullet")]
 public class BulletData : ScriptableObject
 {
+    public enum BulletType
+    {
+        Gun,
+        Sword,
+        Bow
+    }
+
     [Tooltip("Основной спрайт")]
     [SerializeField] private Sprite mainSprite;
     public Sprite MainSprite
@@ -13,11 +20,11 @@ public class BulletData : ScriptableObject
         protected set { }
     }
 
-    [Tooltip("Урон пули")]
-    [SerializeField] private int damage;
-    public int Damage
+    [Tooltip("Тип пули")]
+    [SerializeField] private BulletType typeOfBullet;
+    public BulletType TypeOfBullet
     {
-        get { return damage; }
+        get { return typeOfBullet; }
         protected set { }
     }
 

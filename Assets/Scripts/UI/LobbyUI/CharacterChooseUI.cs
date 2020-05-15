@@ -58,7 +58,6 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void ChooseCharacter(Character character, Animator animator)
     {
-        WeaponSpawner.instance.Spawn("Bow");
         skinCounter = 0;
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
@@ -167,6 +166,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void ConfirmCharacter()
     {
+        currentGameInfo.SaveCurrentGame();
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
@@ -181,7 +181,7 @@ public class CharacterChooseUI : MonoBehaviour
         }
 
         Destroy(currentCharacter.gameObject);
-        CameraReturn();
+        Camera.main.orthographicSize = 5f;
     }
 
     public void BackToLobby()
@@ -197,11 +197,5 @@ public class CharacterChooseUI : MonoBehaviour
 
         gameObject.SetActive(false);
         lobbyUI.SetActive(true);
-    }
-
-    private void CameraReturn()
-    {
-        Camera.main.orthographicSize = 5f;
-        Camera.main.GetComponent<CameraFollow>().SetTarget(GameObject.Find("Character(Clone)").transform);
     }
 }

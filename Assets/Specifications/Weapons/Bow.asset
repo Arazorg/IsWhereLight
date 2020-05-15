@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: e484a999e30389546bb8d05fe45e8874, type: 2}
-  mainSprite: {fileID: 6753552874968338328, guid: 74fc70aba164fe041a6a47fce9483fa5,
-    type: 3}
   weaponName: Bow
-  fireRate: 0.25
-  damage: 4
+  mainAnimator: {fileID: 9100000, guid: e484a999e30389546bb8d05fe45e8874, type: 2}
+  mainSprite: {fileID: -2699825266207983434, guid: 74fc70aba164fe041a6a47fce9483fa5,
+    type: 3}
   typeOfAttack: 2
-  critChance: 15
+  fireRate: 0.65
+  damage: 4
+  critChance: 25
+  currentBullet: {fileID: 11400000, guid: 9c92838f149db8f41a514487720deb19, type: 2}
   manecost: 2
-  bullet: {fileID: 11400000, guid: 9c92838f149db8f41a514487720deb19, type: 2}

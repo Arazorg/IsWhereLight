@@ -32,7 +32,7 @@ public class EnemyDistantAttack : MonoBehaviour
             damage = enemy.Damage;
             attackRange = enemy.AttackRange;
 
-            var bulletData = enemy.dataOfBullet;
+            var bulletData = enemy.DataOfBullet;
             bulletSpeed = bulletData.Speed;
             bulletScatterAngle = bulletData.Scatter;
             enemyBulletSpawner.SetBullet(bulletData);

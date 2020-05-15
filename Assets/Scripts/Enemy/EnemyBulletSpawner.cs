@@ -32,6 +32,7 @@ public class EnemyBulletSpawner : MonoBehaviour
         currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
+        currentBulletScript.Damage = GetComponent<Enemy>().Damage;
         Destroy(currentEnemyBullet);
     }
 }

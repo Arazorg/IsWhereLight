@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharCreating : MonoBehaviour
 {
     public GameObject character;
-    private CurrentGameInfo currentGameInfo;
 
     void Start()
     {

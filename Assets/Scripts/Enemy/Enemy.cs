@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private CharGun charGun;
     private EnemyData data;
 
     private bool isEnemyHitted = false;
@@ -20,10 +19,17 @@ public class Enemy : MonoBehaviour
     {
         this.data = data;
         health = Health;
-        GetComponent<Animator>().runtimeAnimatorController = data.MainAnimator;
-        charGun = GameObject.Find("Character(Clone)").GetComponent<CharGun>();
-
+        GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         transform.tag = "Untagged";
+    }
+
+    public RuntimeAnimatorController MainAnimator
+    {
+        get
+        {
+            return data.MainAnimator;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -78,7 +84,7 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// BulletData of current enemy
     /// </summary>
-    public BulletData dataOfBullet
+    public BulletData DataOfBullet
     {
         get
         {
@@ -177,20 +183,18 @@ public class Enemy : MonoBehaviour
     {
         if (coll.gameObject.tag == "StandartBullet")
         {
-            GetDamage();
+            var bullet = coll.gameObject.GetComponent<Bullet>();
+            GetDamage(bullet.Damage, bullet.Damage);
         }
 
         if (health <= 0)
             Death();
     }
 
-    public void GetDamage()
+    public void GetDamage(int damage, float critChance)
     {
-        int damage = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].GetComponent<Weapon>().Damage;
         isEnemyHitted = true;
-        bool isCriticalHit = UnityEngine.Random.Range(0, 100) < 
-                                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].
-                                    GetComponent<Weapon>().CritChance;
+        bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
         if (isCriticalHit)
             damage *= 2;
         health -= damage;
@@ -205,10 +209,5 @@ public class Enemy : MonoBehaviour
     void OnBecameInvisible()
     {
         gameObject.tag = "Untagged";
-    }
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
     }
 }

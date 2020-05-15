@@ -6,121 +6,130 @@ public class WeaponSpawner : MonoBehaviour
 {
     public static WeaponSpawner instance;
 
-    BulletSpawner bulletSpawner;
     GameButtons gameButtons;
     CharInfo charInfo;
 
     [Tooltip("Список настроек для оружия")]
-    [SerializeField] private List<WeaponData> weaponSettings;
+    [SerializeField] private WeaponData[] weaponsSettings;
 
     [Tooltip("Ссылка на базовый префаб оружия")]
-    [SerializeField] private GameObject weaponPrefab;
+    [SerializeField] private List<GameObject> weaponsPrefabs;
 
     [Tooltip("Место спауна оружия")]
     [SerializeField] private Transform[] spawnPositions;
 
+    private GameObject spawnPrefab;
+    private WeaponData data;
+
     private GameObject prefab;
     private Weapon script;
 
-    public  GameObject[] currentCharWeapon = new GameObject[2];
-    public Weapon[] currentWeaponScript = new Weapon[2];
+    public GameObject[] currentCharWeapon = new GameObject[2];
     public int countOfWeapon;
     private int countOfStand;
 
-    public  Dictionary<GameObject, Weapon> Weapons;
-
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
+        if (instance != null)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        Weapons = new Dictionary<GameObject, Weapon>();
         countOfWeapon = 0;
         countOfStand = 0;
     }
 
-    public void Spawn(string weaponName)
+    public void SetPrefab(string weaponName)
     {
-        foreach (var data in weaponSettings)
+        foreach (var data in weaponsSettings)
+            if (data.WeaponName == weaponName)
+                this.data = data;
+
+        switch (data.TypeOfAttack)
         {
-            if (data.name == weaponName)
-            {
-                prefab = Instantiate(weaponPrefab, spawnPositions[countOfStand]);
-                countOfStand = (countOfStand + 1);
-                script = prefab.GetComponent<Weapon>();
-                script.Init(data);
-                prefab.name = weaponName;
-                prefab.transform.tag = "Gun";
-                prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                Weapons.Add(prefab, script);
-            }
+            case WeaponData.AttackType.Bow:
+                spawnPrefab = weaponsPrefabs[0];
+                break;
+            case WeaponData.AttackType.Gun:
+                spawnPrefab = weaponsPrefabs[1];
+                break;
+            case WeaponData.AttackType.Sword:
+                spawnPrefab = weaponsPrefabs[2];
+                break; 
         }
     }
 
-    public void Spawn(string weaponName, Transform transform, int currentWeaponNumber)
+    public void Spawn(string weaponName)
+    {
+        prefab = Instantiate(spawnPrefab, spawnPositions[countOfStand]);
+        countOfStand = (countOfStand + 1);
+        script = prefab.GetComponent<Weapon>();
+        script.Init(data);
+        prefab.name = weaponName;
+        prefab.transform.tag = "Gun";
+        prefab.SetActive(true);
+        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+    }
+
+    public void Spawn(Transform transform, int currentWeaponNumber)
     {
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
-        foreach (var data in weaponSettings)
+
+        currentCharWeapon[currentWeaponNumber] = Instantiate(spawnPrefab, transform);
+        currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);
+        currentCharWeapon[currentWeaponNumber].name = data.WeaponName + currentWeaponNumber;
+        currentCharWeapon[currentWeaponNumber].transform.tag = "Untagged";
+        //currentCharWeapon[currentWeaponNumber].SetActive(false);
+        currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;
+
+        var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
+        charInfo.weapons[currentWeaponNumber] = weaponScript.WeaponName + currentWeaponNumber;
+
+        if(weaponScript.TypeOfAttack != WeaponData.AttackType.Sword)
         {
-            if (data.name == weaponName)
-            {
-                currentCharWeapon[currentWeaponNumber] = Instantiate(weaponPrefab, transform);
-                currentWeaponScript[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
-                currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);
-                currentCharWeapon[currentWeaponNumber].name = weaponName + currentWeaponNumber;
-                currentCharWeapon[currentWeaponNumber].transform.tag = "Untagged";
-                currentCharWeapon[currentWeaponNumber].SetActive(false);
-                currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;
-                Weapons.Add(currentCharWeapon[currentWeaponNumber], currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
+            var bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
+            bulletSpawner.SetBullet(weaponScript.CurrentBullet);
+        }
+            
+        gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
+        gameButtons.SetWeaponInfo(weaponScript);
 
-                charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
-
-                bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
-                gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
-
-                bulletSpawner.SetBullet(currentWeaponScript[currentWeaponNumber].Bullet);
-                gameButtons.SetWeaponInfo(currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
-                
-                countOfWeapon++;
-                if (countOfWeapon > 2)
-                    countOfWeapon = 2;
-                
-            }
-        }   
+        countOfWeapon++;
+        if (countOfWeapon > 2)
+            countOfWeapon = 2;
     }
 
     public void SwapWeapon(int currentWeaponNumber)
     {
-        charInfo.weapons[currentWeaponNumber] = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName + currentWeaponNumber;
-        bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
+        var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
+        charInfo.weapons[currentWeaponNumber] = weaponScript.WeaponName + currentWeaponNumber;
+
+        if (weaponScript.TypeOfAttack != WeaponData.AttackType.Sword)
+        {
+            var bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
+            bulletSpawner.SetBullet(weaponScript.CurrentBullet);
+        }
+
         gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
-        bulletSpawner.SetBullet(currentWeaponScript[currentWeaponNumber].Bullet);
-        gameButtons.SetWeaponInfo(currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>());
+        gameButtons.SetWeaponInfo(weaponScript);
     }
 
-    public void Spawn(string weaponName, Vector3 position, Quaternion quaternion)
+    public void Spawn(Vector3 position, Quaternion quaternion)
     {
-        foreach (var data in weaponSettings)
-        {
-            if (data.name == weaponName)
-            {
-                prefab = Instantiate(weaponPrefab, position, quaternion);
-                script = prefab.GetComponent<Weapon>();
-                script.Init(data);
-                prefab.name = weaponName;
-                prefab.transform.tag = "Gun";
-                prefab.SetActive(true);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                Weapons.Add(prefab, script);
-            }
-        }
+        prefab = Instantiate(spawnPrefab, position, quaternion);
+        script = prefab.GetComponent<Weapon>();
+        script.Init(data);
+        prefab.name = data.WeaponName;
+        prefab.transform.tag = "Gun";
+        prefab.SetActive(true);
+        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
     }
 }

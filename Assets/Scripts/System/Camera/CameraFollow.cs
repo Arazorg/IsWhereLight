@@ -11,11 +11,6 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed;
     public Vector3 offset;
 
-    void Start()
-    {
-        target = null;
-    }
-
     public void SetTarget(Transform target)
     {
         this.target = target;
@@ -23,12 +18,12 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(target != null)
+        if (target != null)
         {
             Vector3 desiredPosition = target.position + offset;
             Vector3 smootheedPosition =
                 Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smootheedPosition;
-        }    
+        }
     }
 }

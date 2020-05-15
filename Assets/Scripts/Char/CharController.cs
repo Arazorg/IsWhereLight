@@ -39,7 +39,9 @@ public class CharController : MonoBehaviour
     //Character's variables
     [Tooltip("Скорость персонажа")]
     [SerializeField] private float speed;
+
     private bool m_FacingRight;
+    private bool isStop;
 
     void Start()
     {
@@ -47,6 +49,7 @@ public class CharController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
         m_FacingRight = true;
+        isStop = false;
     }
 
 
@@ -66,11 +69,16 @@ public class CharController : MonoBehaviour
             if (joystick.Horizontal != 0 && joystick.Vertical != 0)
             {
                 gunAngle = RotateGun();
+                isStop = false;
             }
             else
             {
-                transform.Find(charInfo.weapons[charGun.currentWeaponNumber])
-                    .rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                if(!isStop)
+                {
+                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                    isStop = true;
+                }
+                    
             }
         }
         else
@@ -78,12 +86,12 @@ public class CharController : MonoBehaviour
             if (0 <= gunAngle && gunAngle <= 180)
             {
                 m_FacingRight = false;
-                transform.localScale = new Vector3(-1.2f, 1.2f, 1);
+                transform.localScale = new Vector3(-1f, 1f, 1);
             }
             else
             {
                 m_FacingRight = true;
-                transform.localScale = new Vector3(1.2f, 1.2f, 1);
+                transform.localScale = new Vector3(1f, 1f, 1);
             }
         }
     }

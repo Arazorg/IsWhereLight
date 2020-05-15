@@ -1,17 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Text;
-using TMPro;
 using System.Text.RegularExpressions;
-using System;
 
 public class CharGun : MonoBehaviour
 {
     //Character's scripts 
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
-    [Tooltip("CharMelee скрипт")]
-    [SerializeField] private CharMelee charMelee;
 
     //Scripts 
     private SettingsInfo settingsInfo;
@@ -26,7 +21,6 @@ public class CharGun : MonoBehaviour
     //UI
     private GameObject gunInfoBar;
     private Button fireActButton;
-    private GameObject currentDayBar;
 
     //Gameobjects
     private GameObject floorGun;
@@ -46,12 +40,10 @@ public class CharGun : MonoBehaviour
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         gameButtons = characterControlUI.GetComponent<GameButtons>();
         gunInfoBar = characterControlUI.Find("GunInfoBar").gameObject;
-        currentDayBar = characterControlUI.Find("LevelBar").gameObject;
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
 
         SpawnStartWeapon();
         gunInfoBar.SetActive(false);
-        currentDayBar.GetComponentInChildren<Text>().text = charInfo.currentDay.ToString();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -85,13 +77,15 @@ public class CharGun : MonoBehaviour
         if (WeaponSpawner.instance.countOfWeapon == 2)
         {
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.SetParent(null);
-            WeaponSpawner.instance.Spawn(WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName,
-                                   gameObject.transform.position,
-                                       Quaternion.identity);
+
+            WeaponSpawner.instance.SetPrefab(WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName);
+            WeaponSpawner.instance.Spawn(gameObject.transform.position, Quaternion.identity);
+
             Destroy(WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber]);
 
-            WeaponSpawner.instance.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName,
-                                    transform, currentWeaponNumber);
+            WeaponSpawner.instance.SetPrefab(floorGun.gameObject.GetComponent<Weapon>().WeaponName);
+            WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
+
             gameButtons.ChangeWeaponButton();
             SwapWeapon();
             Destroy(floorGun.gameObject);
@@ -99,8 +93,8 @@ public class CharGun : MonoBehaviour
         }
         else
         {
-            WeaponSpawner.instance.Spawn(floorGun.gameObject.GetComponent<Weapon>().WeaponName,
-                                    transform, 1);
+            WeaponSpawner.instance.SetPrefab(floorGun.gameObject.GetComponent<Weapon>().WeaponName);
+            WeaponSpawner.instance.Spawn(transform, 1);
             Destroy(floorGun.gameObject);
             gameButtons.SwapWeapon();
             WeaponSpawner.instance.SwapWeapon(1);
@@ -121,7 +115,7 @@ public class CharGun : MonoBehaviour
         float critChance = weapon.CritChance;
         float fireRate = weapon.FireRate;
         int manecost = weapon.Manecost;
-        BulletData bullet = weapon.Bullet;
+        BulletData bullet = weapon.CurrentBullet;
 
         gunInfoBar.GetComponentInChildren<Text>().text =
                     $"{damage} DMG | " +
@@ -132,12 +126,12 @@ public class CharGun : MonoBehaviour
     private void SetWeaponParam()
     {
         if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
-            == WeaponData.AttackType.Bullet)
+            == WeaponData.AttackType.Gun)
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
                 = transform.position + offsetGunDistant;
 
         else if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
-            == WeaponData.AttackType.Melee)
+            == WeaponData.AttackType.Sword)
         {
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
                 = transform.position + offsetGunMelee;
@@ -148,20 +142,23 @@ public class CharGun : MonoBehaviour
     {
         currentWeaponNumber = 0;
         var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
-        WeaponSpawner.instance.Spawn(spawnWeapon, transform, currentWeaponNumber);
+        WeaponSpawner.instance.SetPrefab(spawnWeapon);
+        WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
         SetWeaponParam();
         if (charInfo.weapons[1] != null)
         {
             Debug.Log("have 2" + charInfo.weapons[1]);
             currentWeaponNumber++;
             spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
-            WeaponSpawner.instance.Spawn(spawnWeapon, transform, currentWeaponNumber);
+            WeaponSpawner.instance.SetPrefab(spawnWeapon);
+            WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
             SetWeaponParam();
         }
-        gameButtons.currentWeaponImage.sprite = WeaponSpawner.instance.currentWeaponScript[currentWeaponNumber].MainSprite;
+
+        gameButtons.currentWeaponImage.sprite = 
+            WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().MainSprite;
 
         gameButtons.currentWeapon = transform.Find(charInfo.weapons[currentWeaponNumber]);
-        charMelee.animator = transform.Find(charInfo.weapons[currentWeaponNumber]).GetComponent<Animator>();
         WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].SetActive(true);
     }
 }
