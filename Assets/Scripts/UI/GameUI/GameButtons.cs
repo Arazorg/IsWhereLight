@@ -161,6 +161,7 @@ public class GameButtons : MonoBehaviour
         {
             case 0:
                 isAttack = true;
+                Debug.Log("start Attack");
                 break;
             case 1:
                 charGun.ChangeGun();
@@ -188,8 +189,10 @@ public class GameButtons : MonoBehaviour
     {
         if (charInfo.mane - manecost >= 0 && isAttack)
         {
+            Debug.Log("mane Attack");
             if (Time.time > nextAttack)
             {
+                Debug.Log("time Attack");
                 charInfo.SpendMana(manecost);
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
@@ -197,6 +200,7 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Gun>().Shoot();
                         break;
                     case WeaponData.AttackType.Sword:
+                        Debug.Log("sword Attack");
                         currentWeapon.GetComponent<Sword>().Hit();
                         break;
                     case WeaponData.AttackType.Bow:
