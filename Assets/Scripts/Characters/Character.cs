@@ -32,30 +32,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
         Init();
     }
 
-    void Update()
-    {
-        if (playerCharacter != null)
-        {
-            UpdateFlip();
-        }
-    }
-
-    private void Flip()
-    {
-        m_FacingRight = !m_FacingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
-    private void UpdateFlip()
-    {
-        if ((transform.position - playerCharacter.transform.position).x < 0 && !m_FacingRight)
-            Flip();
-        else if ((transform.position - playerCharacter.transform.position).x > 0 && m_FacingRight)
-            Flip();
-    }
-
     /// <summary>
     /// Initialization of character
     /// </summary>
@@ -133,6 +109,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
             CameraZoom();
             characterChooseUI.gameObject.SetActive(true);
             characterChooseUI.ChooseCharacter(this, GetComponent<Animator>());
+            playerCharacter = GameObject.Find("Character(Clone)");
         }
     }
 
@@ -145,6 +122,20 @@ public class Character : MonoBehaviour, IPointerDownHandler
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
+        {
             PopupDamage.Create(transform.position + offsetText, true, false, -1, "Hello");
+            if ((transform.position - playerCharacter.transform.position).x < 0 && !m_FacingRight)
+                Flip();
+            else if ((transform.position - playerCharacter.transform.position).x > 0 && m_FacingRight)
+                Flip();
+        }            
+    }
+
+    private void Flip()
+    {
+        m_FacingRight = !m_FacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

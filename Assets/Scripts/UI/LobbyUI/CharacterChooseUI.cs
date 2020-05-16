@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class CharacterChooseUI : MonoBehaviour
 {
-    [Tooltip("Префаб персонажа")]
-    [SerializeField] private GameObject character;
-
     [Tooltip("Лобби UI")]
     [SerializeField] private GameObject lobbyUI;
 
@@ -170,9 +167,10 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
-        Instantiate(character, currentCharacter.transform.position, Quaternion.identity);
-        GameObject.Find("Character(Clone)").GetComponent<CharController>().CharacterRuntimeAnimatorController
-            = animator.runtimeAnimatorController;
+
+        //Instantiate(character, new Vector3(2, 2, 0), Quaternion.identity);
+       // GameObject.Find("Character(Clone)").GetComponent<CharController>().CharacterRuntimeAnimatorController
+       //     = animator.runtimeAnimatorController;
 
         characters.Remove(currentCharacter);
         foreach (var character in characters)

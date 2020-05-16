@@ -53,7 +53,8 @@ public class GameButtons : MonoBehaviour
     private float nextAttack;
     private bool isAttack;
 
-    private GameObject character;
+    [Tooltip("Префаб персонажа")]
+    [SerializeField] private GameObject character;
     public Transform currentWeapon;
 
     void Start()
@@ -65,10 +66,15 @@ public class GameButtons : MonoBehaviour
         manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
 
         SetUIScripts();
-        SetCharScripts();
+        var animator = Resources.Load("");
+
         StartUIActive();
         SetStartUIPosition();
+
+        character = Instantiate(character, new Vector3(2, 2, 0), Quaternion.identity);
+        SetCharScripts();
         CheckFirstPlay();
+        
 
         moneyText.text = charInfo.money.ToString();
 
@@ -81,6 +87,24 @@ public class GameButtons : MonoBehaviour
 
     }
 
+    private void StartUIActive()
+    {
+        IsGamePausedPanelState = false;
+        IsWeaponStoreState = false;
+        pausePanel.SetActive(IsGamePausedPanelState);
+        pausePanel.SetActive(IsWeaponStoreState);
+        fireActButton.GetComponent<Image>().color = Color.red;
+    }
+
+
+    private void SetStartUIPosition()
+    {
+        joystick.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
+        fireActButton.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+
+    }
 
     private void SetUIScripts()
     {
@@ -91,33 +115,29 @@ public class GameButtons : MonoBehaviour
 
     private void SetCharScripts()
     {
-        character = GameObject.Find("Character(Clone)");
         charInfo = character.GetComponent<CharInfo>();
         charAction = character.GetComponent<CharAction>();
         charGun = character.GetComponent<CharGun>();
     }
 
-    private void StartUIActive()
-    {
-        IsGamePausedPanelState = false;
-        IsWeaponStoreState = false;
-        pausePanel.SetActive(IsGamePausedPanelState);
-        pausePanel.SetActive(IsWeaponStoreState);
-        fireActButton.GetComponent<Image>().color = Color.red;
-    }
 
     private void CheckFirstPlay()
     {
         if (MenuButtons.firstPlay)
         {
+            Debug.Log("SET CHAR");
             charInfo.SetStartParametrs();
+            SetCharAnim();
             charInfo.SaveChar();
-            MenuButtons.firstPlay = false;
         }
         else
         {
             if (currentGameInfo.LoadCurrentGame())
+            {
+                Debug.Log("LOAD CHAR");
                 charInfo.LoadChar();
+                SetCharAnim();
+            }  
             else
             {
                 SaveSystem.DeleteCurrentGame();
@@ -126,13 +146,12 @@ public class GameButtons : MonoBehaviour
         }
     }
 
-    private void SetStartUIPosition()
+    private void SetCharAnim()
     {
-        joystick.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
-        fireActButton.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+        character.GetComponent<CharController>().CharacterRuntimeAnimatorController
+            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin) as RuntimeAnimatorController;
     }
+
 
     void Update()
     {

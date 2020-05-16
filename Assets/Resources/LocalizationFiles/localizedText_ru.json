@@ -40,12 +40,22 @@
       "key": "Sword",
       "value": "Меч"
     },
+	
+	{
+      "key": "BigSword",
+      "value": "Большой Меч"
+    },
 
     {
       "key": "Staff",
       "value": "Посох"
     },
-
+	
+	{
+      "key": "Bow",
+      "value": "Лук"
+    },
+	
     {
       "key": "Pistol",
       "value": "Пистолет"
@@ -54,6 +64,21 @@
 	{
       "key": "Knight",
       "value": "Рыцарь"
+    },
+	
+	{
+      "key": "Archer",
+      "value": "Лучник"
+    },
+	
+	{
+      "key": "Soldier",
+      "value": "Солдат"
+    },
+	
+	{
+      "key": "Medic",
+      "value": "Медик"
     },
 	
 	{
@@ -80,7 +105,22 @@
       "key": "DarkMage",
       "value": "Темный маг"
     },
-
+	
+	{
+      "key": "SimpleArcher",
+      "value": "Обычный лучник"
+    },
+	
+	{
+      "key": "SimpleSoldier",
+      "value": "Обычный солдат"
+    },
+	
+	{
+      "key": "SimpleMedic",
+      "value": "Обычный медик"
+    },
+	
 	{
       "key": "Hello",
       "value": "Привет!"

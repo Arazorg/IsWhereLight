@@ -15,11 +15,8 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
   - {fileID: 9100000, guid: a60f28ef396fd1b48b192ca6b7002861, type: 2}
-  skinsNames:
-  - SimpleKnight
-  - GoldKnight
   characterClass: Knight
   maxHealth: 15
   maxMane: 150
   startWeapon: Sword
-  price: 100
+  price: 0

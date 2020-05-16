@@ -114,15 +114,16 @@ public class MenuButtons : MonoBehaviour
     }
     public void NewGame()
     {
-        audioManager.Play("ClickUI");
         firstPlay = true;
+        SaveSystem.DeleteCurrentGame();
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Lobby");
     }
 
     public void ContinueGame()
     {
-        audioManager.Play("ClickUI");
         firstPlay = false;
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Game");
     }
 

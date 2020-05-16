@@ -40,6 +40,11 @@
       "key": "Sword",
       "value": "Sword"
     },
+	
+	{
+      "key": "BigSword",
+      "value": "Big Sword"
+    },
 
     {
       "key": "Staff",
@@ -52,6 +57,11 @@
     },
 	
 	{
+      "key": "Bow",
+      "value": "Bow"
+    },
+	
+	{
       "key": "Knight",
       "value": "Knight"
     },
@@ -59,6 +69,21 @@
 	{
       "key": "Mage",
       "value": "Mage"
+    },
+	
+	{
+      "key": "Archer",
+      "value": "Archer"
+    },
+	
+	{
+      "key": "Soldier",
+      "value": "Soldier"
+    },
+	
+	{
+      "key": "Medic",
+      "value": "Medic"
     },
 	
 	{
@@ -79,6 +104,21 @@
 	{
       "key": "DarkMage",
       "value": "Dark mage"
+    },
+	
+	{
+      "key": "SimpleArcher",
+      "value": "Simple Archer"
+    },
+	
+	{
+      "key": "SimpleSoldier",
+      "value": "Simple Soldier"
+    },
+	
+	{
+      "key": "SimpleMedic",
+      "value": "Simple Medic"
     },
 
 	{

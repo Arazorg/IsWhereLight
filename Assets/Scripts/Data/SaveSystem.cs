@@ -136,23 +136,15 @@ public static class SaveSystem
 
     public static void DeleteCurrentGame()
     {
-
-        if (!File.Exists(CurrentCharFile) || !File.Exists(CurrentGameFile))
-        {
-            Debug.Log("Files not found in" + CurrentCharFile + " " + CurrentGameFile);
-        }
-        else
-        {
-            File.Delete(CurrentGameFile);
-            File.Delete(CurrentCharFile);
-            RefreshEditorProjectWindow();
-        }
+        File.Delete(CurrentGameFile);
+        File.Delete(CurrentCharFile);
+        RefreshEditorProjectWindow();
     }
 
     private static void RefreshEditorProjectWindow()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.AssetDatabase.Refresh();
-        #endif
+#endif
     }
 }

@@ -18,5 +18,5 @@ MonoBehaviour:
   characterClass: Mage
   maxHealth: 8
   maxMane: 280
-  startWeapon: Big Sword
+  startWeapon: BigSword
   price: 400
