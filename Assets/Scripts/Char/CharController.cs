@@ -8,11 +8,23 @@ public class CharController : MonoBehaviour
 {
     //UI
     private Joystick joystick;
-
     //Characters components
     private Rigidbody2D rb;
+
+#pragma warning disable 0649
     [Tooltip("Аниматор персонажа")]
     [SerializeField] private Animator characterAnimator;
+
+    //Character's scripts
+    [Tooltip("CharInfo скрипт")]
+    [SerializeField] private CharInfo charInfo;
+    [Tooltip("CharGun скрипт")]
+    [SerializeField] private CharGun charGun;
+
+    //Character's variables
+    [Tooltip("Скорость персонажа")]
+    [SerializeField] private float speed;
+#pragma warning restore 0649
 
     public RuntimeAnimatorController CharacterRuntimeAnimatorController
     {
@@ -26,19 +38,9 @@ public class CharController : MonoBehaviour
         }
     }
 
-    //Character's scripts
-    [Tooltip("CharInfo скрипт")]
-    [SerializeField] private CharInfo charInfo;
-    [Tooltip("CharGun скрипт")]
-    [SerializeField] private CharGun charGun;
-
     //Character's guns variables
     private Transform gun;
     private float gunAngle;
-
-    //Character's variables
-    [Tooltip("Скорость персонажа")]
-    [SerializeField] private float speed;
 
     private bool m_FacingRight;
     private bool isStop;
@@ -73,12 +75,12 @@ public class CharController : MonoBehaviour
             }
             else
             {
-                if(!isStop)
+                if (!isStop)
                 {
                     transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
                     isStop = true;
                 }
-                    
+
             }
         }
         else

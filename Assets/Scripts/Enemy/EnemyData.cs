@@ -10,7 +10,7 @@ public class EnemyData : ScriptableObject
         Melee,
         Distant
     }
-
+#pragma warning disable 0649
     [Tooltip("Основной аниматор")]
     [SerializeField] private RuntimeAnimatorController mainAnimator;
     public RuntimeAnimatorController MainAnimator
@@ -91,4 +91,5 @@ public class EnemyData : ScriptableObject
         get { return fireRate; }
         protected set { }
     }
+#pragma warning restore 0649
 }

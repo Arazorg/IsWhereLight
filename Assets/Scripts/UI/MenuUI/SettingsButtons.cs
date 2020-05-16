@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SettingsButtons : MonoBehaviour
 {
-
+#pragma warning disable 0649
     [Tooltip("UI панели локализации")]
     [SerializeField] private GameObject localizationPanel;
 
@@ -25,6 +25,7 @@ public class SettingsButtons : MonoBehaviour
 
     [Tooltip("Текст полученных денег")]
     [SerializeField] private TextMeshProUGUI moneyPlusText;
+#pragma warning restore 0649
 
     //Скрипты
     private AudioManager audioManager;

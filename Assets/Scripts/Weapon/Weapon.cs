@@ -6,7 +6,6 @@ public class Weapon : MonoBehaviour
     [Tooltip("Смещение текста над оружием")]
     [SerializeField] public Vector3 offsetText;
 
-    private bool isStay;
     private WeaponData data;
 
     /// <summary>
@@ -140,7 +139,6 @@ public class Weapon : MonoBehaviour
         if (transform.tag == "Gun" && coll.tag == "Player")
         {
             PopupDamage.Create(transform.position + offsetText, true, false, -1, WeaponName);
-            isStay = true;
         }
     }
 }

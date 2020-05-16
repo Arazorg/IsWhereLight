@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameButtons : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("UI магазина оружия")]
     [SerializeField] private GameObject weaponStoreUI;
 
@@ -25,6 +26,7 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("UI магазина оружия")]
     [SerializeField] private Text moneyText;
+#pragma warning restore 0649
 
     //Переменные состояния UI элементов
     public static int FireActButtonState;

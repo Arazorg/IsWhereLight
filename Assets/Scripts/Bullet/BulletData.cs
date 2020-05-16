@@ -12,6 +12,7 @@ public class BulletData : ScriptableObject
         Bow
     }
 
+#pragma warning disable 0649
     [Tooltip("Основной спрайт")]
     [SerializeField] private Sprite mainSprite;
     public Sprite MainSprite
@@ -43,4 +44,5 @@ public class BulletData : ScriptableObject
         get { return scatter; }
         protected set { }
     }
+#pragma warning restore 0649
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Ссылки на префабы пуль")]
     [SerializeField] private List<GameObject> bulletsPrefabs;
 
@@ -12,6 +13,7 @@ public class BulletSpawner : MonoBehaviour
 
     [Tooltip("Место спауна пули")]
     [SerializeField] private Transform spawnPosition;
+#pragma warning restore 0649
 
     public GameObject currentWeaponBullet;
     public Bullet currentBulletScript;

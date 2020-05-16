@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Floors/Standart Floor", fileName = "New Floor")]
 public class FloorData : ScriptableObject
 {
+#pragma warning disable 0649
     [Tooltip("Основной спрайт")]
     [SerializeField] private Sprite mainSprite;
     public Sprite MainSprite
@@ -44,4 +45,5 @@ public class FloorData : ScriptableObject
         get { return glidePower; }
         protected set { }
     }
+#pragma warning restore 0649
 }

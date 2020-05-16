@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "Characters/Standart Character", fileName = "New Character")]
 public class CharacterData : ScriptableObject
 {
-
+#pragma warning disable 0649
     [Tooltip("Аниматоры скинов")]
     [SerializeField] private RuntimeAnimatorController[] animations;
     public RuntimeAnimatorController[] Animations
@@ -51,4 +51,5 @@ public class CharacterData : ScriptableObject
         get { return price; }
         protected set { }
     }
+#pragma warning restore 0649
 }

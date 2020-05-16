@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LobbyUI : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Текст выбора персонажа")]
     [SerializeField] private LocalizedText characterText;
+#pragma warning restore 0649
 
     private string characterKey;
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("UI панели настроек")]
     [SerializeField] private GameObject settingsPanel;
 
@@ -28,6 +29,7 @@ public class MenuButtons : MonoBehaviour
 
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
+#pragma warning restore 0649
 
     //Переменные состояния игры
     public static bool firstPlay;

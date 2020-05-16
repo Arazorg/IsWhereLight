@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyBulletSpawner : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Ссылка на базовый префаб пули")]
     [SerializeField] private GameObject bulletPrefab;
 
     [Tooltip("Место спауна пули")]
     [SerializeField] private Transform spawnPosition;
+#pragma warning restore 0649
 
     public GameObject currentEnemyBullet;
     public Bullet currentBulletScript;

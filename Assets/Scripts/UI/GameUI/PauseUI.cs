@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class PauseUI : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Кнопка паузы")]
     [SerializeField] private Button pauseButton;
 
     [Tooltip("Панель настроек")]
     [SerializeField] private GameObject pauseSettingsPanel;
+#pragma warning restore 0649
 
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;

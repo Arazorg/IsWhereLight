@@ -6,9 +6,7 @@ public class WeaponSpawner : MonoBehaviour
 {
     public static WeaponSpawner instance;
 
-    GameButtons gameButtons;
-    CharInfo charInfo;
-
+#pragma warning disable 0649
     [Tooltip("Список настроек для оружия")]
     [SerializeField] private WeaponData[] weaponsSettings;
 
@@ -17,6 +15,10 @@ public class WeaponSpawner : MonoBehaviour
 
     [Tooltip("Место спауна оружия")]
     [SerializeField] private Transform[] spawnPositions;
+#pragma warning restore 0649
+
+    private GameButtons gameButtons;
+    private CharInfo charInfo;
 
     private GameObject spawnPrefab;
     private WeaponData data;

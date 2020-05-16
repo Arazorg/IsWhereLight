@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Character : MonoBehaviour, IPointerDownHandler
 {
+#pragma warning disable 0649
     [Tooltip("Параметры персонажа")]
     [SerializeField] private CharacterData data;
 
@@ -17,11 +18,12 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [Tooltip("UI лобби")]
     [SerializeField] private GameObject lobbyUI;
 
-    public GameObject playerCharacter;
-    private bool m_FacingRight;
-
     [Tooltip("Смещение текста над NPC")]
     [SerializeField] private Vector3 offsetText;
+#pragma warning restore 0649
+
+    public GameObject playerCharacter;
+    private bool m_FacingRight;
 
     void Start()
     {
@@ -109,7 +111,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
             CameraZoom();
             characterChooseUI.gameObject.SetActive(true);
             characterChooseUI.ChooseCharacter(this, GetComponent<Animator>());
-            playerCharacter = GameObject.Find("Character(Clone)");
         }
     }
 
@@ -124,9 +125,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         if (coll.gameObject.tag == "Player")
         {
             PopupDamage.Create(transform.position + offsetText, true, false, -1, "Hello");
-            if ((transform.position - playerCharacter.transform.position).x < 0 && !m_FacingRight)
+            if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
                 Flip();
-            else if ((transform.position - playerCharacter.transform.position).x > 0 && m_FacingRight)
+            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
                 Flip();
         }            
     }

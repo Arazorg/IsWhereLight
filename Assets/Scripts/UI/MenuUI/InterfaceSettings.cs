@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InterfaceSettings : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("UI панели меню")]
     [SerializeField] private GameObject menuPanel;
 
@@ -14,6 +15,7 @@ public class InterfaceSettings : MonoBehaviour
 
     [Tooltip("UI кнопки действия, атаки")]
     [SerializeField] private GameObject fireActButton;
+#pragma warning restore 0649
 
     //Скрипты
     private AudioManager audioManager;

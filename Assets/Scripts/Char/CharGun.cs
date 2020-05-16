@@ -4,19 +4,25 @@ using System.Text.RegularExpressions;
 
 public class CharGun : MonoBehaviour
 {
+#pragma warning disable 0649
     //Character's scripts 
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
-
-    //Scripts 
-    private SettingsInfo settingsInfo;
-    private GameButtons gameButtons;
 
     //Sprites
     [Tooltip("Спрайт кнопки(поднятия оружия)")]
     [SerializeField] private Sprite pickUpImage;
     [Tooltip("Спрайт кнопки(атака)")]
     [SerializeField] private Sprite fireImage;
+
+    //Values
+    [Tooltip("Смещение дальнего оружия")]
+    [SerializeField] private Vector3 offsetGunDistant;
+    [Tooltip("Смещение ближнего оружия")]
+    [SerializeField] private Vector3 offsetGunMelee;
+#pragma warning restore 0649
+
+    public int currentWeaponNumber;
 
     //UI
     private GameObject gunInfoBar;
@@ -25,12 +31,9 @@ public class CharGun : MonoBehaviour
     //Gameobjects
     private GameObject floorGun;
 
-    //Values
-    [Tooltip("Смещение дальнего оружия")]
-    [SerializeField] private Vector3 offsetGunDistant;
-    [Tooltip("Смещение ближнего оружия")]
-    [SerializeField] private Vector3 offsetGunMelee;
-    public int currentWeaponNumber;
+    //Scripts 
+    private SettingsInfo settingsInfo;
+    private GameButtons gameButtons;
 
 
     void Start()

@@ -7,8 +7,10 @@ using UnityEngine.UI;
 
 public class CharAction : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
+#pragma warning restore 0649
 
     private GameObject gunInfoBar;
     private Button fireActButton;

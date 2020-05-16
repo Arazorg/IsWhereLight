@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PauseSettings : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("UI локализации")]
     [SerializeField] private GameObject localizationPanel;
 
     [Tooltip("UI паузы")]
     [SerializeField] private GameObject pausePanel;
+#pragma warning restore 0649
 
     //Скрипты
     private SettingsInfo settingsInfo;

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
-    private CharInfo charInfo;
-    private Animator animator;
-
+#pragma warning disable 0649
     [Tooltip("Точка атаки")]
     [SerializeField] Transform attackPoint;
 
     [Tooltip("Player's layer")]
     [SerializeField] private LayerMask playerLayers;
+#pragma warning restore 0649
+
+    private CharInfo charInfo;
+    private Animator animator;
 
     private int damage;
     private float attackRange;

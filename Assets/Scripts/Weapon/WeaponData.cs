@@ -9,7 +9,7 @@ public class WeaponData : ScriptableObject
         Sword,
         Bow
     }
-
+#pragma warning disable 0649
     [Tooltip("Название оружия")]
     [SerializeField] private string weaponName;
     public string WeaponName
@@ -142,5 +142,5 @@ public class WeaponData : ScriptableObject
         }
         set { }
     }
-
+#pragma warning restore 0649
 }

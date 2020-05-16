@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class CharacterChooseUI : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Лобби UI")]
     [SerializeField] private GameObject lobbyUI;
 
@@ -43,12 +44,13 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Текст цены персонажа")]
     [SerializeField] private TextMeshProUGUI priceText;
 
+    [Tooltip("Лист персонажей лобби")]
+    [SerializeField] private List<Character> characters;
+#pragma warning restore 0649
+
     private CurrentGameInfo currentGameInfo;
     private ProgressInfo progressInfo;
     private Character currentCharacter;
-
-    [Tooltip("Лист персонажей лобби")]
-    [SerializeField] private List<Character> characters;
 
     private int characterPrice;
     private int skinCounter;

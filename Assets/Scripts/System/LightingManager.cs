@@ -6,11 +6,13 @@ using UnityEngine.Experimental.Rendering.Universal;
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Источник света")]
     [SerializeField] private Light2D globalLight;
 
     [Tooltip("Время")]
     [Range(0, 24)] public float TimeOfDay;
+#pragma warning restore 0649
 
     void Start()
     {

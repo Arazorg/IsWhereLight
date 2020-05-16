@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Список настроек для врагов")]
     [SerializeField] private List<EnemyData> enemySettings;
 
@@ -13,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Tooltip("Ссылка на префабы врагов")]
     [SerializeField] private GameObject[] enemiesPrefabs;
+#pragma warning restore 0649
 
     private GameObject enemyPrefab;
 

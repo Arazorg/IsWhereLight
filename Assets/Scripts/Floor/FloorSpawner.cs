@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class FloorSpawner : MonoBehaviour
 {
+#pragma warning disable 0649
     [Tooltip("Список настроек для поверхностей")]
     [SerializeField] private List<FloorData> floorSettings;
 
     [Tooltip("Ссылка на базовый префаб поверхности")]
     [SerializeField] private GameObject floorPrefab;
 
-    public static Dictionary<GameObject, Floor> Floors;
-
     [Tooltip("Трансформ поверхностей")]
     [SerializeField] private Transform floorsTransform;
+#pragma warning restore 0649
 
+    public static Dictionary<GameObject, Floor> Floors;
     public float size;
 
     void Start()
