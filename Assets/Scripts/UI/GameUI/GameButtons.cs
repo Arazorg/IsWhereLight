@@ -125,7 +125,6 @@ public class GameButtons : MonoBehaviour
     {
         if (MenuButtons.firstPlay)
         {
-            Debug.Log("SET CHAR");
             charInfo.SetStartParametrs();
             SetCharAnim();
             charInfo.SaveChar();
@@ -134,7 +133,6 @@ public class GameButtons : MonoBehaviour
         {
             if (currentGameInfo.LoadCurrentGame())
             {
-                Debug.Log("LOAD CHAR");
                 charInfo.LoadChar();
                 SetCharAnim();
             }  
@@ -208,10 +206,8 @@ public class GameButtons : MonoBehaviour
     {
         if (charInfo.mane - manecost >= 0 && isAttack)
         {
-            Debug.Log("mane Attack");
             if (Time.time > nextAttack)
             {
-                Debug.Log("time Attack");
                 charInfo.SpendMana(manecost);
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
@@ -219,7 +215,6 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Gun>().Shoot();
                         break;
                     case WeaponData.AttackType.Sword:
-                        Debug.Log("sword Attack");
                         currentWeapon.GetComponent<Sword>().Hit();
                         break;
                     case WeaponData.AttackType.Bow:
