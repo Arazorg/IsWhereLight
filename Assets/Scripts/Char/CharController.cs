@@ -126,7 +126,7 @@ public class CharController : MonoBehaviour
             gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
 
-            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast"));
+            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast") | 1 << LayerMask.NameToLayer("Room"));
 
             RaycastHit2D hit = Physics2D.Raycast(gun.GetChild(0).transform.position, closeDirection, distanceToEnemy, layerMask);
             if (hit.collider != null)

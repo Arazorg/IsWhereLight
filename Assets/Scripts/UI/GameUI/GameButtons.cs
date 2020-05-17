@@ -33,6 +33,7 @@ public class GameButtons : MonoBehaviour
     public static bool IsGamePausedState;
     public static bool IsGamePausedPanelState;
     public static bool IsWeaponStoreState;
+    public static Vector3 SpawnPosition;
 
     //Скрипты персонажа
     private CharInfo charInfo;
@@ -57,6 +58,8 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Префаб персонажа")]
     [SerializeField] private GameObject character;
+
+    GameObject loadScreen;
     public Transform currentWeapon;
 
     void Start()
@@ -73,11 +76,10 @@ public class GameButtons : MonoBehaviour
         StartUIActive();
         SetStartUIPosition();
 
-        character = Instantiate(character, new Vector3(2, 2, 0), Quaternion.identity);
+        character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
         CheckFirstPlay();
         
-
         moneyText.text = charInfo.money.ToString();
 
         FireActButtonState = 0;
@@ -86,7 +88,6 @@ public class GameButtons : MonoBehaviour
         IsWeaponStoreState = false;
 
         nextAttack = 0.0f;
-
     }
 
     private void StartUIActive()

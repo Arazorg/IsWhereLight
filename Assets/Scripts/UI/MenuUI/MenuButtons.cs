@@ -56,6 +56,7 @@ public class MenuButtons : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Theme");
         SetStartObjectsActive();
+        Camera.main.backgroundColor = Color.black;
     }
 
     void Update()

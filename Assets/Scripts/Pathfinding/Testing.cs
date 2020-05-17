@@ -11,6 +11,6 @@ public class Testing : MonoBehaviour
 
     private void Start()
     {
-        pathfinding = new Pathfinding(100, 100);
+        pathfinding = new Pathfinding(140, 140);
     }
 }

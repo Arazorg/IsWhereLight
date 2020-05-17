@@ -170,9 +170,7 @@ public class CharacterChooseUI : MonoBehaviour
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
 
-        //Instantiate(character, new Vector3(2, 2, 0), Quaternion.identity);
-       // GameObject.Find("Character(Clone)").GetComponent<CharController>().CharacterRuntimeAnimatorController
-       //     = animator.runtimeAnimatorController;
+        GameButtons.SpawnPosition = currentCharacter.transform.position;
 
         characters.Remove(currentCharacter);
         foreach (var character in characters)

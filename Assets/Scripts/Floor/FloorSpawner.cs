@@ -28,12 +28,12 @@ public class FloorSpawner : MonoBehaviour
     {
         for (float x = 0f; x <= size; x+=2)
         {
-            for (float y = 0f; y <= size; y+=2)
+            for (float y = 1f; y <= size; y+=2)
             {
                 var prefab = Instantiate(floorPrefab, floorsTransform);
                 prefab.transform.position = new Vector3(x, y, 0);
                 var script = prefab.GetComponent<Floor>();
-                script.Init(floorSettings[0]);
+                script.Init(floorSettings[1]);
                 Floors.Add(prefab, script);
             }
         }   

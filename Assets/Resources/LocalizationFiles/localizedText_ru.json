@@ -5,6 +5,11 @@
       "key": "new_game_button",
       "value": "Новая игра"
     },
+	
+	{
+      "key": "Load",
+      "value": "Загрузка..."
+    },
 
     {
       "key": "continue_game_button",

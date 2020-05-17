@@ -5,6 +5,11 @@
       "key": "new_game_button",
       "value": "New Game"
     },
+	
+	{
+      "key": "Load",
+      "value": "Load..."
+    },
 
     {
       "key": "continue_game_button",

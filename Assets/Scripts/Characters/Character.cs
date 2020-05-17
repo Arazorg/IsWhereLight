@@ -131,7 +131,22 @@ public class Character : MonoBehaviour, IPointerDownHandler
                 Flip();
         }            
     }
+    /*
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            Vector3 scale = transform.localScale;
+            if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
+                scale.x = -1;
+            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+                scale.x = 1;
 
+            transform.localScale = scale;
+        }
+    }
+    */
+    
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;
