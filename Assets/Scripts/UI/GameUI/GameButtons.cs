@@ -75,11 +75,13 @@ public class GameButtons : MonoBehaviour
 
         StartUIActive();
         SetStartUIPosition();
-
+        if (SceneManager.GetActiveScene().name == "Game")
+            SpawnPosition = LevelGeneration.instance.SpawnLevel();           
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
+
         SetCharScripts();
         CheckFirstPlay();
-        
+
         moneyText.text = charInfo.money.ToString();
 
         FireActButtonState = 0;
@@ -138,7 +140,7 @@ public class GameButtons : MonoBehaviour
             {
                 charInfo.LoadChar();
                 SetCharAnim();
-            }  
+            }
             else
             {
                 SaveSystem.DeleteCurrentGame();
@@ -271,7 +273,7 @@ public class GameButtons : MonoBehaviour
                 WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.sprite 
+                currentWeaponImage.sprite
                     = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
             }
@@ -283,7 +285,7 @@ public class GameButtons : MonoBehaviour
                 WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.sprite 
+                currentWeaponImage.sprite
                     = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
 

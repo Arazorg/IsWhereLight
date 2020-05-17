@@ -5,6 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelGeneration : MonoBehaviour
 {
+    public static LevelGeneration instance;
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            if (SceneManager.GetActiveScene().name == "Game")
+                DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public GameObject horizontal;
     public GameObject vertical;
     public GameObject[] horizontalCorridors;
@@ -27,7 +42,7 @@ public class LevelGeneration : MonoBehaviour
 
     public LayerMask whatIsRoom;
 
-    private void Start()
+    public Vector3 SpawnLevel()
     {
         foreach (var item in horizontalCorridors)
         {
@@ -38,12 +53,15 @@ public class LevelGeneration : MonoBehaviour
         {
             Instantiate(vertical, item.transform.position, Quaternion.identity);
         }
-
         int randStartingPos = Random.Range(0, startingPositions.Length);
-        transform.position = startingPositions[randStartingPos].position;
+        var startSpawn = startingPositions[randStartingPos].position;
+        transform.position = startSpawn;
+
         Instantiate(rooms[1], transform.position, Quaternion.identity);
 
         direction = Random.Range(1, 6);
+
+        return startSpawn;
     }
 
     private void Update()
@@ -62,7 +80,7 @@ public class LevelGeneration : MonoBehaviour
     private void Move()
     {
         if (direction == 1 || direction == 2)
-        { // Move right !
+        {
             if (transform.position.x < maxX)
             {
                 topCounter = 0;
