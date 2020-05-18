@@ -90,7 +90,7 @@ public class WeaponSpawner : MonoBehaviour
         currentCharWeapon[currentWeaponNumber].name = data.WeaponName + currentWeaponNumber;
         currentCharWeapon[currentWeaponNumber].transform.tag = "Untagged";
         //currentCharWeapon[currentWeaponNumber].SetActive(false);
-        currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;
+        currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 2;
 
         var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
         charInfo.weapons[currentWeaponNumber] = weaponScript.WeaponName + currentWeaponNumber;
