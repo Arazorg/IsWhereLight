@@ -22,7 +22,7 @@ public class GameButtons : MonoBehaviour
     [SerializeField] private Button fireActButton;
 
     [Tooltip("Изображение текущего оружия")]
-    public Image currentWeaponImage;
+    public GameObject currentWeaponImage;
 
     [Tooltip("UI магазина оружия")]
     [SerializeField] private Text moneyText;
@@ -74,7 +74,7 @@ public class GameButtons : MonoBehaviour
         var animator = Resources.Load("");
 
         StartUIActive();
-        SetStartUIPosition();
+        SetStartUI();
         if (SceneManager.GetActiveScene().name == "Game")
             SpawnPosition = LevelGeneration.instance.SpawnLevel();           
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
@@ -98,17 +98,23 @@ public class GameButtons : MonoBehaviour
         IsWeaponStoreState = false;
         pausePanel.SetActive(IsGamePausedPanelState);
         pausePanel.SetActive(IsWeaponStoreState);
-        fireActButton.GetComponent<Image>().color = Color.red;
     }
 
 
-    private void SetStartUIPosition()
+    private void SetStartUI()
     {
+        ColorUtility.TryParseHtmlString(settingsInfo.color, out Color newColor);
+
+        fireActButton.GetComponent<Image>().color = newColor;
+        pauseButton.GetComponent<Image>().color = newColor;
+        joystick.transform.GetChild(0).GetComponent<Image>().color = newColor;
+        joystick.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = newColor;
+        currentWeaponImage.GetComponent<Image>().color = newColor;
+
         joystick.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
-
     }
 
     private void SetUIScripts()
@@ -183,7 +189,6 @@ public class GameButtons : MonoBehaviour
         {
             case 0:
                 isAttack = true;
-                Debug.Log("start Attack");
                 break;
             case 1:
                 charGun.ChangeGun();
@@ -273,7 +278,7 @@ public class GameButtons : MonoBehaviour
                 WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.sprite
+                currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
                     = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
             }
@@ -285,7 +290,7 @@ public class GameButtons : MonoBehaviour
                 WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
                 charGun.SwapWeapon();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.sprite
+                currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
                     = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
 
@@ -296,7 +301,7 @@ public class GameButtons : MonoBehaviour
     public void ChangeWeaponButton()
     {
         WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
-        currentWeaponImage.sprite
+        currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
             = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
     }

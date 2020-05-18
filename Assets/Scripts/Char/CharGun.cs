@@ -56,7 +56,6 @@ public class CharGun : MonoBehaviour
             GameButtons.FireActButtonState = 1;//Change Gun
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().sprite = pickUpImage;
-            fireActButton.GetComponent<Image>().color = Color.blue;
             gunInfoBar.SetActive(true);
             GetSpecGun(coll);
         }
@@ -67,7 +66,6 @@ public class CharGun : MonoBehaviour
     {
         GameButtons.FireActButtonState = 0;//Fire
         fireActButton.GetComponent<Image>().sprite = fireImage;
-        fireActButton.GetComponent<Image>().color = Color.red;
 
         if (coll.gameObject.tag == "Gun")
         {
@@ -158,7 +156,7 @@ public class CharGun : MonoBehaviour
             SetWeaponParam();
         }
 
-        gameButtons.currentWeaponImage.sprite = 
+        gameButtons.currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite = 
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().MainSprite;
 
         gameButtons.currentWeapon = transform.Find(charInfo.weapons[currentWeaponNumber]);

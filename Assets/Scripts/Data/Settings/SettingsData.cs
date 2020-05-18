@@ -8,6 +8,7 @@ public class SettingsData
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
+    public string color;
 
     public SettingsData(SettingsInfo settingsInfo)
     {
@@ -16,5 +17,6 @@ public class SettingsData
         effectsOn = settingsInfo.effectsOn;
         joystickPosition = settingsInfo.joystickPosition;
         fireActButtonPosition = settingsInfo.fireActButtonPosition;
+        color = settingsInfo.color;
     }
 }

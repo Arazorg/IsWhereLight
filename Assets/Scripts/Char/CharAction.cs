@@ -41,15 +41,12 @@ public class CharAction : MonoBehaviour
         {
             case "WeaponStore":
                 GameButtons.FireActButtonState = 2;
-                fireActButton.GetComponent<Image>().color = Color.magenta;
                 break;
             case "Door":
                 GameButtons.FireActButtonState = 3;
-                fireActButton.GetComponent<Image>().color = Color.yellow;
                 break;
             case "TV":
                 GameButtons.FireActButtonState = 4;
-                fireActButton.GetComponent<Image>().color = Color.yellow;
                 break;
         }
 

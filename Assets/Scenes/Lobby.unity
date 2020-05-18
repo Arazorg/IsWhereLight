@@ -838,7 +838,7 @@ MonoBehaviour:
   joystick: {fileID: 82982738}
   pauseButton: {fileID: 2122594286}
   fireActButton: {fileID: 653630956}
-  currentWeaponImage: {fileID: 722999478}
+  currentWeaponImage: {fileID: 1082792874}
   moneyText: {fileID: 1555589668}
   attackRate: 0
   manecost: 0
@@ -2116,6 +2116,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  color: 
 --- !u!4 &607873942
 Transform:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class SettingsButtons : MonoBehaviour
     public static bool IsSecretPanelState = false;
     private bool musicOn;
     private bool effectsOn;
-    
+
 
     void Start()
     {
@@ -102,18 +102,20 @@ public class SettingsButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsSecretPanelState = !IsSecretPanelState;
-        IsLocalizationPanelState = false;
         secretCodePanel.SetActive(IsSecretPanelState);
-        localizationPanel.SetActive(IsLocalizationPanelState);
+
+        IsLocalizationPanelState = false;
+        localizationPanel.SetActive(IsLocalizationPanelState);       
     }
 
     public void LocalizationPanelOpenClose()
     {
         audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState;
-        IsSecretPanelState = false;
         localizationPanel.SetActive(IsLocalizationPanelState);
-        secretCodePanel.SetActive(IsSecretPanelState);
+
+        IsSecretPanelState = false;
+        secretCodePanel.SetActive(IsSecretPanelState);     
     }
 
     public void ChangeLanguage(string fileName)
@@ -132,7 +134,7 @@ public class SettingsButtons : MonoBehaviour
             moneyPlusText.fontSize = 64;
             moneyPlusText.text = "+" + money.ToString();
         }
-        else if(money == 0)
+        else if (money == 0)
         {
             moneyPlusText.fontSize = 36;
             moneyPlusText.text = "You already use this code";
@@ -142,6 +144,6 @@ public class SettingsButtons : MonoBehaviour
             moneyPlusText.fontSize = 36;
             moneyPlusText.text = "This code does not exist";
         }
-            
+
     }
 }

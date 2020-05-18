@@ -11,6 +11,7 @@ public class SettingsInfo : MonoBehaviour
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
+    public string color;
 
     void Awake()
     {
@@ -40,6 +41,7 @@ public class SettingsInfo : MonoBehaviour
             effectsOn = settingsData.effectsOn;
             joystickPosition = settingsData.joystickPosition;
             fireActButtonPosition = settingsData.fireActButtonPosition;
+            color = settingsData.color;
         }
         else
             SetStartSettings();
@@ -61,6 +63,7 @@ public class SettingsInfo : MonoBehaviour
         effectsOn = true;
         SetStartPositions();
         SaveSettings();
+        color = "white";
     }
 
     private void SetStartPositions()
