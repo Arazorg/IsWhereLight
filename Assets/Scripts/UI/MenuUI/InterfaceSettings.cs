@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InterfaceSettings : MonoBehaviour
@@ -81,12 +82,11 @@ public class InterfaceSettings : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         settingsInfo.color = color;
-        Debug.Log(settingsInfo.color);
         var curColor = StringToColor(color);
         SetCurrentColor(curColor);
     }
 
-    private void SetCurrentColor(Color curColor)
+    public void SetCurrentColor(Color curColor)
     {
         joystick.GetComponent<Image>().color = curColor;
         joystick.transform.GetChild(0).GetComponent<Image>().color = curColor;
