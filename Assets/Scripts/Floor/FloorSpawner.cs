@@ -26,9 +26,9 @@ public class FloorSpawner : MonoBehaviour
 
     void StartSpawn(float size)
     {
-        for (float x = 0f; x <= size; x+=2)
+        for (float x = 0f; x <= size; x++)
         {
-            for (float y = 1f; y <= size; y+=2)
+            for (float y = 1f; y <= size; y++)
             {
                 var prefab = Instantiate(floorPrefab, floorsTransform);
                 prefab.transform.position = new Vector3(x, y, 0);

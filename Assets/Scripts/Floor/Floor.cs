@@ -12,7 +12,8 @@ public class Floor : MonoBehaviour
     public void Init(FloorData data)
     {
         this.data = data;
-        GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        int rand = Random.Range(0, data.MainSprite.Length);
+        GetComponent<SpriteRenderer>().sprite = data.MainSprite[rand];
     }
 
     /// <summary>

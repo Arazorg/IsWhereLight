@@ -7,8 +7,8 @@ public class FloorData : ScriptableObject
 {
 #pragma warning disable 0649
     [Tooltip("Основной спрайт")]
-    [SerializeField] private Sprite mainSprite;
-    public Sprite MainSprite
+    [SerializeField] private Sprite[] mainSprite;
+    public Sprite[] MainSprite
     {
         get { return mainSprite; }
         protected set { }
