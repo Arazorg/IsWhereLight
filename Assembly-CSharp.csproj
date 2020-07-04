@@ -55,6 +55,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AppMetrica\AppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\BaseYandexAppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\AnotherSceneManager.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\MainSceneManager.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\PopUp.cs" />
+     <Compile Include="Assets\AppMetrica\IYandexAppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaBirthDateAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaBooleanAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaCounterAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaGenderAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaNameAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaNotificationsEnabledAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaNumberAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaStringAttribute.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfile.cs" />
+     <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfileUpdate.cs" />
+     <Compile Include="Assets\AppMetrica\YMMJSONUtils.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaConfig.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaDummy.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaError.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaRevenue.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
