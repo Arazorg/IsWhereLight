@@ -29,8 +29,8 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     [Tooltip("Лист фраз NPC")]
     [SerializeField] private List<string> NPC_Phrases;
-    private float timeToHello;
-    private float timeToPhrase;
+    private float timeToHello = 0;
+    private float timeToPhrase = 0;
     private int lastPhrase = -1;
 
 #pragma warning restore 0649
@@ -137,13 +137,12 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (coll.gameObject.tag == "Player")
         {
-            
             if (Time.time > timeToHello)
             {
                 PopupText.Create(transform.position + offsetText, true, false, -1, "Hello"); ;
                 timeToHello = Time.time + helloTimer;
             }
-            else if (Time.time > timeToPhrase)
+            else if (Time.time > timeToPhrase && (helloTimer + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
             {
                 int phrase = Random.Range(0, NPC_Phrases.Count);
                 while (phrase == lastPhrase)

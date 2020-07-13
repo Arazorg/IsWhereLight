@@ -20,8 +20,8 @@ public class PopupText : MonoBehaviour
 
     private static int sortingOrder;
 
-    private const float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;
-    private const float DISAPPEAR_TIMER_MAX_PHRASE = 2f;
+    public static float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;
+    public static float DISAPPEAR_TIMER_MAX_PHRASE = 2f;
 
     private TextMeshPro textMesh;
     private float disappearTimer;
@@ -93,7 +93,7 @@ public class PopupText : MonoBehaviour
     {
         isPhrase = true;
         textMesh.SetText(LocalizedText.SetLocalization(key));
-        textMesh.fontSize = 2.5f;
+        textMesh.fontSize = 3f;
         textColor = Color.white;
 
         textMesh.color = textColor;
