@@ -20,6 +20,19 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     [Tooltip("Смещение текста над NPC")]
     [SerializeField] private Vector3 offsetText;
+
+    [Tooltip("Время нового привествия НПС")]
+    [SerializeField] private float phraseTimer = 7f;
+
+    [Tooltip("Время нового привествия НПС")]
+    [SerializeField] private float helloTimer = 60f;
+
+    [Tooltip("Лист фраз NPC")]
+    [SerializeField] private List<string> NPC_Phrases;
+    private float timeToHello;
+    private float timeToPhrase;
+    private int lastPhrase = -1;
+
 #pragma warning restore 0649
 
     public GameObject playerCharacter;
@@ -124,29 +137,48 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (coll.gameObject.tag == "Player")
         {
-            PopupDamage.Create(transform.position + offsetText, true, false, -1, "Hello");
+            
+            if (Time.time > timeToHello)
+            {
+                PopupText.Create(transform.position + offsetText, true, false, -1, "Hello"); ;
+                timeToHello = Time.time + helloTimer;
+            }
+            else if (Time.time > timeToPhrase)
+            {
+                int phrase = Random.Range(0, NPC_Phrases.Count);
+                while (phrase == lastPhrase)
+                    phrase = Random.Range(0, NPC_Phrases.Count);
+                lastPhrase = phrase;
+                PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
+                timeToPhrase = Time.time + phraseTimer;
+            }
+
             if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
                 Flip();
             else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
                 Flip();
-        }            
+        }
     }
-    /*
+
     void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             Vector3 scale = transform.localScale;
             if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
-                scale.x = -1;
-            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+            {
+                m_FacingRight = true;
                 scale.x = 1;
-
+            }
+            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+            {
+                m_FacingRight = false;
+                scale.x = -1;
+            }
             transform.localScale = scale;
         }
     }
-    */
-    
+
     private void Flip()
     {
         m_FacingRight = !m_FacingRight;

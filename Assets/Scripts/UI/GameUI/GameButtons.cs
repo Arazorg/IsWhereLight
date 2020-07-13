@@ -103,10 +103,9 @@ public class GameButtons : MonoBehaviour
 
     private void SetStartUI()
     {
-        ColorUtility.TryParseHtmlString(settingsInfo.color, out Color newColor);
+        ColorUtility.TryParseHtmlString("#" + settingsInfo.color, out Color newColor);
 
         fireActButton.GetComponent<Image>().color = newColor;
-        pauseButton.GetComponent<Image>().color = newColor;
         joystick.transform.GetChild(0).GetComponent<Image>().color = newColor;
         joystick.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = newColor;
         currentWeaponImage.GetComponent<Image>().color = newColor;
@@ -142,7 +141,7 @@ public class GameButtons : MonoBehaviour
         }
         else
         {
-            if (currentGameInfo.LoadCurrentGame())
+            if (currentGameInfo.LoadCurrentGame() && currentGameInfo.isLobby == false)
             {
                 charInfo.LoadChar();
                 SetCharAnim();

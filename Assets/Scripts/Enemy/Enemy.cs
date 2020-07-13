@@ -198,7 +198,7 @@ public class Enemy : MonoBehaviour
         if (isCriticalHit)
             damage *= 2;
         health -= damage;
-        PopupDamage.Create(transform.position, false, isCriticalHit, damage);
+        PopupText.Create(transform.position, false, isCriticalHit, damage);
     }
 
     void OnBecameVisible()

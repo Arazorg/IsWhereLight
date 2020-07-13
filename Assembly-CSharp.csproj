@@ -79,6 +79,7 @@
      <Compile Include="Assets\AppMetrica\YandexAppMetricaError.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaRevenue.cs" />
+     <Compile Include="Assets\ButtonActive.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
      <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -135,6 +136,7 @@
      <Compile Include="Assets\Scripts\System\Pathfinding\FunctionPeriodic.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\FunctionTimer.cs" />
      <Compile Include="Assets\Scripts\System\Pathfinding\FunctionUpdater.cs" />
+     <Compile Include="Assets\Scripts\System\PopupText.cs" />
      <Compile Include="Assets\Scripts\System\Startup\MenuLoader.cs" />
      <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\Scripts\Things\DoorOpening.cs" />
@@ -146,7 +148,6 @@
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\PauseSettings.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\PauseUI.cs" />
-     <Compile Include="Assets\Scripts\UI\GameUI\PopupDamage.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\WeaponStoreUI.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\CharInfoBar.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\CharacterChooseUI.cs" />

@@ -1,134 +1,284 @@
 {
-  "items": [
+    "items": [
 
-    {
-      "key": "new_game_button",
-      "value": "Новая игра"
-    },
-	
-	{
-      "key": "Load",
-      "value": "Загрузка..."
-    },
+        {
+            "key": "new_game_button",
+            "value": "Новая игра"
+        },
 
-    {
-      "key": "continue_game_button",
-      "value": "Продолжить иру"
-    },
-	
-	{
-      "key": "HealthInfo",
-      "value": "Здоровье"
-    },
+        {
+            "key": "Load",
+            "value": "Загрузка..."
+        },
 
-    {
-      "key": "ManeInfo",
-      "value": "Мана"
-    },
+        {
+            "key": "continue_game_button",
+            "value": "Продолжить иру"
+        },
 
-    {
-      "key": "WeaponInfo",
-      "value": "Оружие"
-    },
-		
-	{
-      "key": "chooseCharacter",
-      "value": "Выбор персонажа"
-    },
+        {
+            "key": "HealthInfo",
+            "value": "Здоровье"
+        },
 
-	{
-      "key": "Day",
-      "value": "День"
-    },
+        {
+            "key": "ManeInfo",
+            "value": "Мана"
+        },
 
-    {
-      "key": "Sword",
-      "value": "Меч"
-    },
-	
-	{
-      "key": "BigSword",
-      "value": "Большой Меч"
-    },
+        {
+            "key": "WeaponInfo",
+            "value": "Оружие"
+        },
 
-    {
-      "key": "Staff",
-      "value": "Посох"
-    },
-	
-	{
-      "key": "Bow",
-      "value": "Лук"
-    },
-	
-    {
-      "key": "Pistol",
-      "value": "Пистолет"
-    },
-	
-	{
-      "key": "Knight",
-      "value": "Рыцарь"
-    },
-	
-	{
-      "key": "Archer",
-      "value": "Лучник"
-    },
-	
-	{
-      "key": "Soldier",
-      "value": "Солдат"
-    },
-	
-	{
-      "key": "Medic",
-      "value": "Медик"
-    },
-	
-	{
-      "key": "Mage",
-      "value": "Маг"
-    },
-	
-	{
-      "key": "SimpleKnight",
-      "value": "Обычный рыцарь"
-    },
-	
-	{
-      "key": "GoldKnight",
-      "value": "Золотой рыцарь"
-    },
-	
-	{
-      "key": "SimpleMage",
-      "value": "Обычный маг"
-    },
-	
-	{
-      "key": "DarkMage",
-      "value": "Темный маг"
-    },
-	
-	{
-      "key": "SimpleArcher",
-      "value": "Обычный лучник"
-    },
-	
-	{
-      "key": "SimpleSoldier",
-      "value": "Обычный солдат"
-    },
-	
-	{
-      "key": "SimpleMedic",
-      "value": "Обычный медик"
-    },
-	
-	{
-      "key": "Hello",
-      "value": "Привет!"
-    }	
-]
+        {
+            "key": "chooseCharacter",
+            "value": "Выбор персонажа"
+        },
+
+        {
+            "key": "Day",
+            "value": "День"
+        },
+
+        {
+            "key": "Sword",
+            "value": "Меч"
+        },
+
+        {
+            "key": "BigSword",
+            "value": "Большой Меч"
+        },
+
+        {
+            "key": "Staff",
+            "value": "Посох"
+        },
+
+        {
+            "key": "Bow",
+            "value": "Лук"
+        },
+
+        {
+            "key": "Pistol",
+            "value": "Пистолет"
+        },
+
+        {
+            "key": "Knight",
+            "value": "Рыцарь"
+        },
+
+        {
+            "key": "Archer",
+            "value": "Лучник"
+        },
+
+        {
+            "key": "Soldier",
+            "value": "Солдат"
+        },
+
+        {
+            "key": "Medic",
+            "value": "Медик"
+        },
+
+        {
+            "key": "Mage",
+            "value": "Маг"
+        },
+
+        {
+            "key": "SimpleKnight",
+            "value": "Обычный рыцарь"
+        },
+
+        {
+            "key": "GoldKnight",
+            "value": "Золотой рыцарь"
+        },
+
+        {
+            "key": "SimpleMage",
+            "value": "Обычный маг"
+        },
+
+        {
+            "key": "DarkMage",
+            "value": "Темный маг"
+        },
+
+        {
+            "key": "SimpleArcher",
+            "value": "Обычный лучник"
+        },
+
+        {
+            "key": "SimpleSoldier",
+            "value": "Обычный солдат"
+        },
+
+        {
+            "key": "SimpleMedic",
+            "value": "Обычный медик"
+        },
+
+        {
+            "key": "Hello",
+            "value": "Привет!"
+        },
+
+        {
+            "key": "KnightPhrase0",
+            "value": "Вижу цель - не вижу препятствий!"
+        },
+
+        {
+            "key": "KnightPhrase1",
+            "value": "Мое дело правое."
+        },
+
+        {
+            "key": "KnightPhrase2",
+            "value": "Честь. Отвага. Оторванные конечности."
+        },
+
+        {
+            "key": "KnightPhrase3",
+            "value": "Как оттереть пятна крови от доспехов?"
+        },
+
+        {
+            "key": "KnightPhrase4",
+            "value": "Правосудие восторжествует."
+        },
+
+        {
+            "key": "MagePhrase0",
+            "value": "Шутки со временем до добра не доведут."
+        },
+
+        {
+            "key": "MagePhrase1",
+            "value": "Все, что мне нужно для счастья - два шерстяных носка."
+        },
+
+        {
+            "key": "MagePhrase2",
+            "value": "Меня переполняет мощь..."
+        },
+
+        {
+            "key": "MagePhrase3",
+            "value": "Не подскажешь, который сейчас год?"
+        },
+
+        {
+            "key": "MagePhrase4",
+            "value": "Если еще раз дернешь меня за бороду,\n то ни одно твоё желание больше никогда не исполнится."
+        },
+
+        {
+            "key": "MagePhrase5",
+            "value": "Знаешь, почему я такой веселый?\n В моей трубке не табак..."
+        },
+
+        {
+            "key": "DoctorPhrase0",
+            "value": "У тебя нездоровый вид."
+        },
+
+        {
+            "key": "DoctorPhrase1",
+            "value": "Опиши характер недомогания."
+        },
+
+        {
+            "key": "DoctorPhrase2",
+            "value": "Кто-то снова вороует медикаменты."
+        },
+
+        {
+            "key": "DoctorPhrase3",
+            "value": "Я сказала раздеться ДО пояса."
+        },
+
+        {
+            "key": "DoctorPhrase4",
+            "value": "Позвони мне в нерабочее время."
+        },
+
+        {
+            "key": "DoctorPhrase5",
+            "value": "Мой руки с мылом и не ешь летучих мышей."
+        },
+
+        {
+            "key": "DoctorPhrase6",
+            "value": "Налет белого цвета на головк...\n А ладно проехали..."
+        },
+
+        {
+            "key": "ShooterPhrase0",
+            "value": "Всё горит, если с бензином."
+        },
+
+        {
+            "key": "ShooterPhrase1",
+            "value": "Люблю теорию большого взрыва."
+        },
+
+        {
+            "key": "ShooterPhrase2",
+            "value": "Не видел моего низкорослого друга?"
+        },
+
+        {
+            "key": "ShooterPhrase3",
+            "value": "Кто такие эти вдребезги?\n И как их разбить?"
+        },
+
+        {
+            "key": "ShooterPhrase4",
+            "value": "Знаешь откуда у меня эти шрамы?"
+        },
+
+        {
+            "key": "ShooterPhrase5",
+            "value": "Приглядишь за моей взрывчаткой?\n Мне нужно в барбершоп."
+        },
+
+        {
+            "key": "ArcherPhrase0",
+            "value": "Чистота намерений и ясность сознания?\n Это не про меня."
+        },
+
+        {
+            "key": "ArcherPhrase1",
+            "value": "Видимо, не нужно было есть тот бургер..."
+        },
+
+        {
+            "key": "ArcherPhrase2",
+            "value": "Смерть есть новое начало."
+        },
+
+        {
+            "key": "ArcherPhrase3",
+            "value": "Ты тоже слышишь эти голоса?"
+        },
+
+        {
+            "key": "ArcherPhrase4",
+            "value": "Я не воровал тот кошелек."
+        },
+
+        {
+            "key": "ArcherPhrase5",
+            "value": "Эволюция явно на тебе отыгралась."
+        }
+    ]
 }

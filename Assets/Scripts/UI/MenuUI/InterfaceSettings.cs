@@ -53,6 +53,7 @@ public class InterfaceSettings : MonoBehaviour
         SetPosition();
         settingsInfo.SaveSettings();
         menuPanel.SetActive(true);
+        colorPanel.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -75,6 +76,8 @@ public class InterfaceSettings : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsColorPanelState = !IsColorPanelState;
+        if (!IsColorPanelState)
+            colorPanel.GetComponent<ButtonActive>().ReturnToStart();
         colorPanel.SetActive(IsColorPanelState);
     }
 
@@ -90,13 +93,12 @@ public class InterfaceSettings : MonoBehaviour
     {
         joystick.GetComponent<Image>().color = curColor;
         joystick.transform.GetChild(0).GetComponent<Image>().color = curColor;
-
         fireActButton.GetComponent<Image>().color = curColor;
     }
 
     private Color StringToColor(string color)
     {
-        if (ColorUtility.TryParseHtmlString(color, out Color newColor))
+        if (ColorUtility.TryParseHtmlString("#" + color, out Color newColor))
             return newColor;
         else
             return Color.white;

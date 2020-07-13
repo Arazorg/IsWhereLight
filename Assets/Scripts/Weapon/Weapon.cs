@@ -138,7 +138,7 @@ public class Weapon : MonoBehaviour
     {
         if (transform.tag == "Gun" && coll.tag == "Player")
         {
-            PopupDamage.Create(transform.position + offsetText, true, false, -1, WeaponName);
+            PopupText.Create(transform.position + offsetText, true, false, -1, WeaponName);
         }
     }
 }

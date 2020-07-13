@@ -11,6 +11,7 @@ public class CurrentGameData
     public int maxHealth;
     public int maxMane;
     public bool wildMode;
+    public bool isLobby;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -20,5 +21,6 @@ public class CurrentGameData
         maxHealth = currentGameInfo.maxHealth;
         maxMane = currentGameInfo.maxMane;
         wildMode = currentGameInfo.wildMode;
+        isLobby = currentGameInfo.isLobby;
     }
 }

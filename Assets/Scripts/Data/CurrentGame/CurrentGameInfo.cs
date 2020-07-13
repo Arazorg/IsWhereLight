@@ -12,6 +12,7 @@ public class CurrentGameInfo : MonoBehaviour
     public int maxHealth;
     public int maxMane;
     public bool wildMode;
+    public bool isLobby;
 
     void Awake()
     {       
@@ -42,6 +43,7 @@ public class CurrentGameInfo : MonoBehaviour
             maxHealth = currentGameData.maxHealth;
             maxMane = currentGameData.maxMane;
             wildMode = currentGameData.wildMode;
+            isLobby = currentGameData.isLobby;
             return true;
         }
         else

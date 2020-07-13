@@ -56,6 +56,7 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         if (interfaceSettingsPanel.activeSelf == false)
         {
+            SettingsPanelClose();
             menuPanel.GetComponent<MenuButtons>().AllPanelClose();
             menuPanel.SetActive(false);
             interfaceSettingsPanel.SetActive(true);
@@ -69,9 +70,23 @@ public class SettingsButtons : MonoBehaviour
         if (settingsButton.gameObject.activeSelf == false)
         {
             MenuButtons.IsSettingPanelState = !MenuButtons.IsSettingPanelState;
+            if (!MenuButtons.IsSettingPanelState)
+                gameObject.GetComponent<ButtonActive>().ReturnToStart();
+
             gameObject.SetActive(MenuButtons.IsSettingPanelState);
+            secretCodePanel.SetActive(false);
+            localizationPanel.SetActive(false);
+            IsLocalizationPanelState = false;
+            IsSecretPanelState = false;
+            try
+            {
+                secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
+                localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
+            }
+            catch { }
             settingsButton.gameObject.SetActive(true);
         }
+
     }
 
     public void MusicOnOff()
@@ -102,20 +117,36 @@ public class SettingsButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsSecretPanelState = !IsSecretPanelState;
+        if (!IsSecretPanelState)
+            secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
         secretCodePanel.SetActive(IsSecretPanelState);
 
         IsLocalizationPanelState = false;
-        localizationPanel.SetActive(IsLocalizationPanelState);       
+        try
+        {
+            localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
+        }
+        catch { }
+
+        localizationPanel.SetActive(IsLocalizationPanelState);
+
     }
 
     public void LocalizationPanelOpenClose()
     {
         audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState;
+        if (!IsLocalizationPanelState)
+            localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
         localizationPanel.SetActive(IsLocalizationPanelState);
-
         IsSecretPanelState = false;
-        secretCodePanel.SetActive(IsSecretPanelState);     
+        try
+        {
+            secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
+        }
+        catch { }
+
+        secretCodePanel.SetActive(IsSecretPanelState);
     }
 
     public void ChangeLanguage(string fileName)

@@ -63,8 +63,12 @@ public class PauseUI : MonoBehaviour
         GameButtons.IsGamePausedState = false;
         GameButtons.IsGamePausedPanelState = false;
         settingsInfo.SaveSettings();
+
         if(SceneManager.GetActiveScene().name != "Game")
+        {
             SaveSystem.DeleteCurrentGame();
+        }
+            
 
         SceneManager.LoadScene("Menu");
     }

@@ -29,6 +29,9 @@ public class MenuButtons : MonoBehaviour
 
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
+
+    [Tooltip("Скорость кнопок")]
+    [SerializeField] private float buttonSpeed;
 #pragma warning restore 0649
 
     //Переменные состояния игры
@@ -61,6 +64,7 @@ public class MenuButtons : MonoBehaviour
 
     void Update()
     {
+
         if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -104,13 +108,13 @@ public class MenuButtons : MonoBehaviour
 
         if (File.Exists(SaveSystem.CurrentGameFile))
         {
-            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(-350, 250);
+            newGameButton.GetComponent<ButtonActive>().startPos = new Vector3(-350, -250);
             continueButton.gameObject.SetActive(true);
             firstPlay = false;
         }
         else
         {
-            newGameButton.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 250);
+            newGameButton.GetComponent<ButtonActive>().startPos = new Vector3(0, -250);
             continueButton.gameObject.SetActive(false);
             firstPlay = true;
         }
