@@ -1,134 +1,139 @@
 {
-  "items": [
+    "items": [
 
-    {
-      "key": "new_game_button",
-      "value": "New Game"
-    },
-	
-	{
-      "key": "Load",
-      "value": "Load..."
-    },
+        {
+            "key": "new_game_button",
+            "value": "New Game"
+        },
 
-    {
-      "key": "continue_game_button",
-      "value": "Continue Game"
-    },
-	
-	{
-      "key": "HealthInfo",
-      "value": "Health"
-    },
+        {
+            "key": "Load",
+            "value": "Load..."
+        },
 
-    {
-      "key": "ManeInfo",
-      "value": "Mane"
-    },
+        {
+            "key": "continue_game_button",
+            "value": "Continue Game"
+        },
 
-    {
-      "key": "WeaponInfo",
-      "value": "Weapon"
-    },
-		
-	{
-      "key": "chooseCharacter",
-      "value": "Choose character"
-    },
+        {
+            "key": "HealthInfo",
+            "value": "Health"
+        },
 
-	{
-      "key": "Day",
-      "value": "Day"
-    },
+        {
+            "key": "ManeInfo",
+            "value": "Mane"
+        },
 
-    {
-      "key": "Sword",
-      "value": "Sword"
-    },
-	
-	{
-      "key": "BigSword",
-      "value": "Big Sword"
-    },
+        {
+            "key": "WeaponInfo",
+            "value": "Weapon"
+        },
 
-    {
-      "key": "Staff",
-      "value": "Staff"
-    },
+        {
+            "key": "chooseCharacter",
+            "value": "Choose character"
+        },
 
-    {
-      "key": "Pistol",
-      "value": "Pistol"
-    },
-	
-	{
-      "key": "Bow",
-      "value": "Bow"
-    },
-	
-	{
-      "key": "Knight",
-      "value": "Knight"
-    },
-	
-	{
-      "key": "Mage",
-      "value": "Mage"
-    },
-	
-	{
-      "key": "Archer",
-      "value": "Archer"
-    },
-	
-	{
-      "key": "Soldier",
-      "value": "Soldier"
-    },
-	
-	{
-      "key": "Medic",
-      "value": "Medic"
-    },
-	
-	{
-      "key": "SimpleKnight",
-      "value": "Simple knight"
-    },
-	
-	{
-      "key": "GoldKnight",
-      "value": "Gold knight"
-    },
-	
-	{
-      "key": "SimpleMage",
-      "value": "Simple Mage"
-    },
-	
-	{
-      "key": "DarkMage",
-      "value": "Dark mage"
-    },
-	
-	{
-      "key": "SimpleArcher",
-      "value": "Simple Archer"
-    },
-	
-	{
-      "key": "SimpleSoldier",
-      "value": "Simple Soldier"
-    },
-	
-	{
-      "key": "SimpleMedic",
-      "value": "Simple Medic"
-    },
+        {
+            "key": "Day",
+            "value": "Day"
+        },
 
-	{
-      "key": "Hello",
-      "value": "Hello!"
-    }	
-]
+        {
+            "key": "Sword",
+            "value": "Sword"
+        },
+
+        {
+            "key": "BigSword",
+            "value": "Big Sword"
+        },
+
+        {
+            "key": "Staff",
+            "value": "Staff"
+        },
+
+        {
+            "key": "Pistol",
+            "value": "Pistol"
+        },
+
+        {
+            "key": "Bow",
+            "value": "Bow"
+        },
+
+        {
+            "key": "Knight",
+            "value": "Knight"
+        },
+
+        {
+            "key": "Mage",
+            "value": "Mage"
+        },
+
+        {
+            "key": "Archer",
+            "value": "Archer"
+        },
+
+        {
+            "key": "Soldier",
+            "value": "Soldier"
+        },
+
+        {
+            "key": "Medic",
+            "value": "Medic"
+        },
+
+        {
+            "key": "SimpleKnight",
+            "value": "Simple knight"
+        },
+
+        {
+            "key": "GoldKnight",
+            "value": "Gold knight"
+        },
+
+        {
+            "key": "SimpleMage",
+            "value": "Simple Mage"
+        },
+
+        {
+            "key": "DarkMage",
+            "value": "Dark mage"
+        },
+
+        {
+            "key": "SimpleArcher",
+            "value": "Simple Archer"
+        },
+
+        {
+            "key": "SimpleSoldier",
+            "value": "Simple Soldier"
+        },
+
+        {
+            "key": "SimpleMedic",
+            "value": "Simple Medic"
+        },
+
+        {
+            "key": "Hello",
+            "value": "Hello!"
+        },
+
+        {
+            "key": "check",
+            "value": "Check"
+        }
+    ]
 }

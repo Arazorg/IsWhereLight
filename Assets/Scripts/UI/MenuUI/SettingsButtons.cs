@@ -135,7 +135,7 @@ public class SettingsButtons : MonoBehaviour
     public void LocalizationPanelOpenClose()
     {
         audioManager.Play("ClickUI");
-        IsLocalizationPanelState = !IsLocalizationPanelState;
+        IsLocalizationPanelState = !IsLocalizationPanelState; //ошибка при выходе в меню из лобби
         if (!IsLocalizationPanelState)
             localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
         localizationPanel.SetActive(IsLocalizationPanelState);
