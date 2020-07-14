@@ -120,7 +120,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (!characterControlUI.gameObject.activeSelf)
         {
-            lobbyUI.SetActive(false);
+            lobbyUI.GetComponent<LobbyUI>().HideLobby();
             CameraZoom();
             characterChooseUI.gameObject.SetActive(true);
             characterChooseUI.ChooseCharacter(this, GetComponent<Animator>());

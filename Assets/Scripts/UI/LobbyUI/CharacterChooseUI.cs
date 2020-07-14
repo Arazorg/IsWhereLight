@@ -20,6 +20,21 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Кнопка покупки персонажа")]
     [SerializeField] private Button buyButton;
 
+    [Tooltip("Кнопка перехода в лобби")]
+    [SerializeField] private Button backToLobbyButton;
+
+    [Tooltip("Инфо бар")]
+    [SerializeField] private GameObject InfoBar;
+
+    [Tooltip("Кнопка предыдущего скина")]
+    [SerializeField] private Button PrevSkinButton;
+
+    [Tooltip("Кнопка следующего скина")]
+    [SerializeField] private Button NextSkinButton;
+
+    [Tooltip("Изображение денег")]
+    [SerializeField] private GameObject moneyImage;
+
     [Tooltip("Аниматор персонажа")]
     [SerializeField] public Animator animator;
 
@@ -85,6 +100,15 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void SetInfoBar()
     {
+        skinText.gameObject.GetComponent<MovementUI>().MoveToEnd();
+        goToGameButton.GetComponent<MovementUI>().MoveToEnd();
+        PrevSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        NextSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        InfoBar.GetComponent<MovementUI>().MoveToEnd();
+        backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
+        moneyImage.GetComponent<MovementUI>().MoveToEnd();
+        
+
         healthText.GetComponent<LocalizedText>().SetLocalization();
         maneText.GetComponent<LocalizedText>().SetLocalization();
         startWeaponText.GetComponent<LocalizedText>().SetLocalization();
@@ -96,6 +120,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void RefreshUI()
     {
+
         moneyText.text = progressInfo.playerMoney.ToString();
 
         characterText.GetComponent<LocalizedText>().key = currentCharacter.CharacterClass;
@@ -105,7 +130,8 @@ public class CharacterChooseUI : MonoBehaviour
         skinText.GetComponent<LocalizedText>().SetLocalization();
 
         priceText.text = characterPrice.ToString();
-        buyButton.gameObject.SetActive(!progressInfo.CharacterAccess(currentCharacter.CharacterClass));
+        if (progressInfo.CharacterAccess(currentCharacter.CharacterClass))
+            buyButton.GetComponent<MovementUI>().MoveToEnd();
         GameBuyButtonAccess();
     }
 
@@ -141,12 +167,12 @@ public class CharacterChooseUI : MonoBehaviour
         if (progressInfo.CharacterAccess(currentCharacter.CharacterClass))
         {
             goToGameButton.gameObject.SetActive(true);
-            buyButton.gameObject.SetActive(false);
+            buyButton.GetComponent<MovementUI>().MoveToStart();
         }
         else
         {
             goToGameButton.gameObject.SetActive(false);
-            buyButton.gameObject.SetActive(true);
+            buyButton.GetComponent<MovementUI>().MoveToEnd();
         }
     }
 
@@ -184,6 +210,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void BackToLobby()
     {
+        HideCharacterChooseUI();
         skinCounter = 0;
         ChangeCharacterSkin();
 
@@ -193,7 +220,18 @@ public class CharacterChooseUI : MonoBehaviour
         Camera.main.orthographicSize = 5;
         Camera.main.transform.position = new Vector3(10, 5, -10);
 
-        gameObject.SetActive(false);
-        lobbyUI.SetActive(true);
+        lobbyUI.GetComponent<LobbyUI>().ShowLobby();
+    }
+
+    private void HideCharacterChooseUI()
+    {
+        skinText.gameObject.GetComponent<MovementUI>().MoveToStart();
+        goToGameButton.GetComponent<MovementUI>().MoveToStart();
+        PrevSkinButton.GetComponent<MovementUI>().MoveToStart();
+        NextSkinButton.GetComponent<MovementUI>().MoveToStart();
+        InfoBar.GetComponent<MovementUI>().MoveToStart();
+        backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
+        moneyImage.GetComponent<MovementUI>().MoveToStart();
+        buyButton.GetComponent<MovementUI>().MoveToStart();
     }
 }

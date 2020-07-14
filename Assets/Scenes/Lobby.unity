@@ -916,6 +916,11 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   goToGameButton: {fileID: 770887337}
   buyButton: {fileID: 737670573}
+  backToLobbyButton: {fileID: 1380431977}
+  InfoBar: {fileID: 1979060479}
+  PrevSkinButton: {fileID: 1931363957}
+  NextSkinButton: {fileID: 481331235}
+  moneyImage: {fileID: 830508960}
   animator: {fileID: 0}
   characterText: {fileID: 905601630}
   skinText: {fileID: 1822846873}
@@ -1739,6 +1744,7 @@ GameObject:
   - component: {fileID: 481331237}
   - component: {fileID: 481331236}
   - component: {fileID: 481331235}
+  - component: {fileID: 481331238}
   m_Layer: 5
   m_Name: NextSkinButton
   m_TagString: Untagged
@@ -1857,6 +1863,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481331233}
   m_CullTransparentMesh: 0
+--- !u!114 &481331238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481331233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 350, y: 700, z: 0}
+  endPos: {x: 350, y: 0, z: 0}
+  speed: -350
+  isEnd: 0
+  isMove: 0
 --- !u!1 &528877578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,13 +2883,14 @@ GameObject:
   - component: {fileID: 737670575}
   - component: {fileID: 737670574}
   - component: {fileID: 737670573}
+  - component: {fileID: 737670576}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &737670572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2978,6 +3003,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737670571}
   m_CullTransparentMesh: 0
+--- !u!114 &737670576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737670571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: -100, z: 0}
+  endPos: {x: 0, y: 100, z: 0}
+  speed: 30
+  isEnd: 0
+  isMove: 0
 --- !u!1 &751910582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3235,7 @@ GameObject:
   - component: {fileID: 770887339}
   - component: {fileID: 770887338}
   - component: {fileID: 770887337}
+  - component: {fileID: 770887340}
   m_Layer: 5
   m_Name: GameButton
   m_TagString: Untagged
@@ -3310,6 +3354,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770887335}
   m_CullTransparentMesh: 0
+--- !u!114 &770887340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770887335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 1
+  startPos: {x: 200, y: 150, z: 0}
+  endPos: {x: -200, y: 150, z: 0}
+  speed: -30
+  isEnd: 0
+  isMove: 0
 --- !u!1 &775879261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,6 +3629,7 @@ GameObject:
   - component: {fileID: 830508961}
   - component: {fileID: 830508963}
   - component: {fileID: 830508962}
+  - component: {fileID: 830508964}
   m_Layer: 5
   m_Name: MoneyImage
   m_TagString: Untagged
@@ -3632,6 +3695,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830508960}
   m_CullTransparentMesh: 0
+--- !u!114 &830508964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830508960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 1
+  startPos: {x: -100, y: 150, z: 0}
+  endPos: {x: 125, y: 150, z: 0}
+  speed: 30
+  isEnd: 0
+  isMove: 0
 --- !u!1 &905601628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,10 +5115,10 @@ RectTransform:
   m_Father: {fileID: 732737152}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -2060, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337988667
 MonoBehaviour:
@@ -5207,6 +5288,7 @@ GameObject:
   - component: {fileID: 1380431979}
   - component: {fileID: 1380431978}
   - component: {fileID: 1380431977}
+  - component: {fileID: 1380431980}
   m_Layer: 5
   m_Name: BackToLobbyButton
   m_TagString: Untagged
@@ -5326,6 +5408,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380431975}
   m_CullTransparentMesh: 0
+--- !u!114 &1380431980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380431975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 1
+  startPos: {x: -100, y: -100, z: 0}
+  endPos: {x: 150, y: -100, z: 0}
+  speed: 30
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1412458574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6438,6 +6538,7 @@ GameObject:
   - component: {fileID: 1822846874}
   - component: {fileID: 1822846873}
   - component: {fileID: 1822846875}
+  - component: {fileID: 1822846876}
   m_Layer: 5
   m_Name: SkinText
   m_TagString: Untagged
@@ -6599,6 +6700,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNotRefresh: 0
   key: 
+--- !u!114 &1822846876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822846871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 100, z: 0}
+  endPos: {x: 0, y: -175, z: 0}
+  speed: -30
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1865906745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6961,6 +7080,7 @@ GameObject:
   - component: {fileID: 1931363959}
   - component: {fileID: 1931363958}
   - component: {fileID: 1931363957}
+  - component: {fileID: 1931363960}
   m_Layer: 5
   m_Name: PrevSkinButton
   m_TagString: Untagged
@@ -7079,6 +7199,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931363955}
   m_CullTransparentMesh: 0
+--- !u!114 &1931363960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931363955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: -350, y: -700, z: 0}
+  endPos: {x: -350, y: 0, z: 0}
+  speed: 350
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1979060479
 GameObject:
   m_ObjectHideFlags: 0
@@ -7089,6 +7227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979060480}
   - component: {fileID: 1979060481}
+  - component: {fileID: 1979060482}
   m_Layer: 5
   m_Name: InfoBar
   m_TagString: Untagged
@@ -7128,6 +7267,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05920bfaec38bb249befb4a1c4e0541a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1979060482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979060479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 1
+  startPos: {x: -300, y: 25, z: 0}
+  endPos: {x: 300, y: 25, z: 0}
+  speed: 100
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1990694248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7671,6 +7828,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -190, y: -140}
+  m_AnchoredPosition: {x: -200, y: -150}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}

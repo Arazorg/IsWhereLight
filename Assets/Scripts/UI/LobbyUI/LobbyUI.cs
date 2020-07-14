@@ -25,9 +25,21 @@ public class LobbyUI : MonoBehaviour
         characterKey = "chooseCharacter";
         characterText.key = characterKey;
         characterText.SetLocalization();
+        ShowLobby();
+    }
+
+    public void HideLobby()
+    {
+        //characterTextUI.GetComponent<MovementUI>().MoveToStart();
+        backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
+    }
+
+    public void ShowLobby()
+    {
         characterTextUI.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
     }
+
 
     public void BackToMenu()
     {
