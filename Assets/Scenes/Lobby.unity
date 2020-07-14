@@ -1369,6 +1369,7 @@ MonoBehaviour:
   maxHealth: 0
   maxMane: 0
   wildMode: 0
+  isLobby: 0
 --- !u!1 &366702402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1646,7 @@ GameObject:
   - component: {fileID: 454143978}
   - component: {fileID: 454143980}
   - component: {fileID: 454143979}
+  - component: {fileID: 454143981}
   m_Layer: 5
   m_Name: TMP SubMeshUI [LiberationSans SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
@@ -1707,6 +1709,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454143977}
   m_CullTransparentMesh: 0
+--- !u!114 &454143981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454143977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 0
+  isEnd: 0
+  isMove: 0
 --- !u!1 &481331233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,6 +3644,7 @@ GameObject:
   - component: {fileID: 905601631}
   - component: {fileID: 905601630}
   - component: {fileID: 905601632}
+  - component: {fileID: 905601633}
   m_Layer: 5
   m_Name: CharacterText
   m_TagString: Untagged
@@ -3785,6 +3806,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNotRefresh: 0
   key: 
+--- !u!114 &905601633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905601628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 200, z: 0}
+  endPos: {x: 0, y: -100, z: 0}
+  speed: -25
+  isEnd: 0
+  isMove: 0
 --- !u!1 &945285450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5052,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterText: {fileID: 905601632}
+  characterTextUI: {fileID: 905601628}
+  backToLobbyButton: {fileID: 1917633803}
 --- !u!1 &1358665508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,6 +6812,7 @@ GameObject:
   - component: {fileID: 1917633805}
   - component: {fileID: 1917633804}
   - component: {fileID: 1917633803}
+  - component: {fileID: 1917633806}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -6794,7 +6836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -880, y: 390}
+  m_AnchoredPosition: {x: -900, y: 400}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917633803
@@ -6889,6 +6931,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917633801}
   m_CullTransparentMesh: 0
+--- !u!114 &1917633806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917633801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 1
+  startPos: {x: -1200, y: 400, z: 0}
+  endPos: {x: -900, y: 400, z: 0}
+  speed: 25
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1931363955
 GameObject:
   m_ObjectHideFlags: 0

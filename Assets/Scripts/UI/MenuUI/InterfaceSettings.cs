@@ -17,11 +17,9 @@ public class InterfaceSettings : MonoBehaviour
 
     [Tooltip("UI кнопки действия, атаки")]
     [SerializeField] private GameObject fireActButton;
-
-    private bool IsColorPanelState;
-
 #pragma warning restore 0649
 
+    private bool IsColorPanelState;
     //Скрипты
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
@@ -32,9 +30,7 @@ public class InterfaceSettings : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
 
         if (MenuButtons.firstRun)
-        {
             SetStandart();
-        }
         else
         {
             SetCurrentColor(StringToColor(settingsInfo.color));
@@ -76,9 +72,10 @@ public class InterfaceSettings : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsColorPanelState = !IsColorPanelState;
-        if (!IsColorPanelState)
-            colorPanel.GetComponent<ButtonActive>().ReturnToStart();
-        colorPanel.SetActive(IsColorPanelState);
+        if (IsColorPanelState)
+            colorPanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+            colorPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void SetColor(string color)
@@ -96,14 +93,6 @@ public class InterfaceSettings : MonoBehaviour
         fireActButton.GetComponent<Image>().color = curColor;
     }
 
-    private Color StringToColor(string color)
-    {
-        if (ColorUtility.TryParseHtmlString("#" + color, out Color newColor))
-            return newColor;
-        else
-            return Color.white;
-    }
-
     private void SetPosition()
     {
         audioManager.Play("ClickUI");
@@ -114,4 +103,13 @@ public class InterfaceSettings : MonoBehaviour
             = new float[] { fireActButton.GetComponent<RectTransform>().anchoredPosition.x,
                                 fireActButton.GetComponent<RectTransform>().anchoredPosition.y};
     }
+
+    private Color StringToColor(string color)
+    {
+        if (ColorUtility.TryParseHtmlString("#" + color, out Color newColor))
+            return newColor;
+        else
+            return Color.white;
+    }
+
 }

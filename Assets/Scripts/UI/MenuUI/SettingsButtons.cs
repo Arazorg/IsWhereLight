@@ -34,8 +34,8 @@ public class SettingsButtons : MonoBehaviour
     private ProgressInfo progressInfo;
 
     //Переменные состояния игры
-    public static bool IsLocalizationPanelState = false;
-    public static bool IsSecretPanelState = false;
+    private bool IsLocalizationPanelState = false;
+    private bool IsSecretPanelState = false;
     private bool musicOn;
     private bool effectsOn;
 
@@ -57,7 +57,7 @@ public class SettingsButtons : MonoBehaviour
         if (interfaceSettingsPanel.activeSelf == false)
         {
             SettingsPanelClose();
-            menuPanel.GetComponent<MenuButtons>().AllPanelClose();
+            menuPanel.GetComponent<MenuButtons>().AllPanelHide();
             menuPanel.SetActive(false);
             interfaceSettingsPanel.SetActive(true);
         }
@@ -67,26 +67,10 @@ public class SettingsButtons : MonoBehaviour
     {
         settingsInfo.SaveSettings();
         audioManager.Play("ClickUI");
-        if (settingsButton.gameObject.activeSelf == false)
-        {
-            MenuButtons.IsSettingPanelState = !MenuButtons.IsSettingPanelState;
-            if (!MenuButtons.IsSettingPanelState)
-                gameObject.GetComponent<ButtonActive>().ReturnToStart();
-
-            gameObject.SetActive(MenuButtons.IsSettingPanelState);
-            secretCodePanel.SetActive(false);
-            localizationPanel.SetActive(false);
-            IsLocalizationPanelState = false;
-            IsSecretPanelState = false;
-            try
-            {
-                secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
-                localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
-            }
-            catch { }
-            settingsButton.gameObject.SetActive(true);
-        }
-
+        settingsButton.GetComponent<MovementUI>().MoveToEnd();
+        gameObject.GetComponent<MovementUI>().MoveToStart();
+        secretCodePanel.GetComponent<MovementUI>().MoveToStart();
+        localizationPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void MusicOnOff()
@@ -117,18 +101,12 @@ public class SettingsButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsSecretPanelState = !IsSecretPanelState;
-        if (!IsSecretPanelState)
-            secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
-        secretCodePanel.SetActive(IsSecretPanelState);
-
+        if (IsSecretPanelState)
+            secretCodePanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+            secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         IsLocalizationPanelState = false;
-        try
-        {
-            localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
-        }
-        catch { }
-
-        localizationPanel.SetActive(IsLocalizationPanelState);
+        localizationPanel.GetComponent<MovementUI>().MoveToStart();
 
     }
 
@@ -136,17 +114,13 @@ public class SettingsButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState; //ошибка при выходе в меню из лобби
-        if (!IsLocalizationPanelState)
-            localizationPanel.GetComponent<ButtonActive>().ReturnToStart();
-        localizationPanel.SetActive(IsLocalizationPanelState);
+        if (IsLocalizationPanelState)
+            localizationPanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+            localizationPanel.GetComponent<MovementUI>().MoveToStart();
         IsSecretPanelState = false;
-        try
-        {
-            secretCodePanel.GetComponent<ButtonActive>().ReturnToStart();
-        }
-        catch { }
+        secretCodePanel.GetComponent<MovementUI>().MoveToStart();
 
-        secretCodePanel.SetActive(IsSecretPanelState);
     }
 
     public void ChangeLanguage(string fileName)

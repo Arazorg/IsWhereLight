@@ -18,28 +18,28 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("UI панели настроек интерфейса")]
     [SerializeField] private GameObject interfaceSettings;
 
-    [Tooltip("Кнопка настроек")]
-    [SerializeField] private Button settingsButton;
-
-    [Tooltip("Кнопка выхода из игры")]
-    [SerializeField] private Button exitButton;
+    [Tooltip("Кнопка 'новая игра'")]
+    [SerializeField] private Button newGameButton;
 
     [Tooltip("Кнопка 'продолжить игру'")]
     [SerializeField] private Button continueButton;
 
-    [Tooltip("Кнопка 'новая игра'")]
-    [SerializeField] private Button newGameButton;
+    [Tooltip("Кнопка настроек")]
+    [SerializeField] private Button settingsButton;
 
-    [Tooltip("Скорость кнопок")]
-    [SerializeField] private float buttonSpeed;
+    [Tooltip("Кнопка 'VK'")]
+    [SerializeField] private Button VkButton;
+
+    [Tooltip("Кнопка 'Twitter'")]
+    [SerializeField] private Button TwitterButton;
+
+    [Tooltip("Кнопка выхода из игры")]
+    [SerializeField] private Button exitButton;
 #pragma warning restore 0649
 
     //Переменные состояния игры
     public static bool firstPlay;
     public static bool firstRun;
-
-    //Переменные состояния UI элементов
-    public static bool IsSettingPanelState;
 
     //Скрипты
     private SettingsInfo settingsInfo;
@@ -61,39 +61,12 @@ public class MenuButtons : MonoBehaviour
         SetStartObjectsActive();
         Camera.main.backgroundColor = Color.black;
     }
-
-    void Update()
-    {
-
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                exitButton.gameObject.SetActive(true);
-            }
-        }
-    }
-
-    private void SetStartObjectsActive()
-    {
-        exitButton.gameObject.SetActive(false);
-        localizationPanel.SetActive(false);
-        secretCode.SetActive(false);
-        settingsPanel.SetActive(false);
-        settingsButton.gameObject.SetActive(true);
-        interfaceSettings.SetActive(false);
-    }
-
     private void FilesCheck()
     {
         if (File.Exists(SaveSystem.CurrentSettingsFile))
-        {
             settingsInfo.LoadSettings();
-        }
         else
-        {
             settingsInfo.SetStartSettings();
-        }
 
         if (File.Exists(SaveSystem.ProgressFile))
         {
@@ -108,29 +81,51 @@ public class MenuButtons : MonoBehaviour
 
         if (File.Exists(SaveSystem.CurrentGameFile))
         {
-            newGameButton.GetComponent<ButtonActive>().startPos = new Vector3(-350, -250);
-            continueButton.gameObject.SetActive(true);
+            newGameButton.GetComponent<MovementUI>().startPos = new Vector3(-350, -250);
             firstPlay = false;
         }
         else
         {
-            newGameButton.GetComponent<ButtonActive>().startPos = new Vector3(0, -250);
-            continueButton.gameObject.SetActive(false);
+            newGameButton.GetComponent<MovementUI>().startPos = new Vector3(0, -250);
             firstPlay = true;
         }
     }
+
+    private void SetStartObjectsActive()
+    {
+        newGameButton.GetComponent<MovementUI>().MoveToEnd();
+        if (!firstPlay)
+            continueButton.GetComponent<MovementUI>().MoveToEnd();
+        settingsButton.GetComponent<MovementUI>().MoveToEnd();
+        VkButton.GetComponent<MovementUI>().MoveToEnd();
+        TwitterButton.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android
+            || Application.platform == RuntimePlatform.IPhonePlayer
+                || Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                exitButton.GetComponent<MovementUI>().MoveToEnd();
+            }
+        }
+    }
+
     public void NewGame()
     {
+        audioManager.Play("ClickUI");
         firstPlay = true;
         SaveSystem.DeleteCurrentGame();
-        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Lobby");
     }
 
     public void ContinueGame()
     {
-        firstPlay = false;
         audioManager.Play("ClickUI");
+        firstPlay = false;
         SceneManager.LoadScene("Game");
     }
 
@@ -149,22 +144,18 @@ public class MenuButtons : MonoBehaviour
     public void SettingsPanelOpen()
     {
         audioManager.Play("ClickUI");
-        if (settingsButton.gameObject.activeSelf == true)
-        {
-            IsSettingPanelState = true;
-            settingsPanel.SetActive(IsSettingPanelState);
-            settingsButton.gameObject.SetActive(!IsSettingPanelState);
-        }
+        settingsButton.GetComponent<MovementUI>().MoveToStart();
+        settingsPanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
-    public void AllPanelClose()
+    public void AllPanelHide()
     {
         audioManager.Play("ClickUI");
-        localizationPanel.SetActive(false);
-        secretCode.SetActive(false);
-        settingsPanel.SetActive(false);
-        exitButton.gameObject.SetActive(false);
-        settingsButton.gameObject.SetActive(true);
+        exitButton.GetComponent<MovementUI>().MoveToStart();
+        settingsPanel.GetComponent<MovementUI>().MoveToStart();
+        settingsButton.GetComponent<MovementUI>().MoveToEnd();
+        secretCode.GetComponent<MovementUI>().MoveToStart();
+        localizationPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void ExitGame()
