@@ -58,12 +58,19 @@ public class MovementUI : MonoBehaviour
                 transform.Translate(-speed, 0f, 0f);
         }
     }
-    
+    public void SetStart()
+    {
+        currentUI_Element.GetComponent<RectTransform>().anchoredPosition = startPos;
+        isMove = false;
+        isEnd = true;
+    }
+
     public void MoveToEnd()
     {
         isEnd = false;
         isMove = true;
     }
+
     public void MoveToStart()
     {
         isEnd = true;

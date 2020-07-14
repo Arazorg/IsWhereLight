@@ -29,13 +29,7 @@ public class PauseSettings : MonoBehaviour
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
-        StartUIActive();
-    }
-
-    private void StartUIActive()
-    {
         IsLocalizationPanelState = false;
-        localizationPanel.SetActive(false);
     }
 
     public void MusicOnOff()
@@ -63,10 +57,18 @@ public class PauseSettings : MonoBehaviour
     public void OpenCloseLocalizationPanel()
     {
         IsLocalizationPanelState = !IsLocalizationPanelState;
-        localizationPanel.SetActive(IsLocalizationPanelState);
-
-        GameButtons.IsGamePausedPanelState = !IsLocalizationPanelState;
-        pausePanel.SetActive(GameButtons.IsGamePausedPanelState);
+        if (IsLocalizationPanelState)
+        {
+            localizationPanel.GetComponent<MovementUI>().MoveToEnd();
+            pausePanel.GetComponent<MovementUI>().MoveToStart();
+        } 
+        else
+        {
+            localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            pausePanel.GetComponent<MovementUI>().MoveToEnd();
+        }
+       // GameButtons.IsGamePausedPanelState = !GameButtons.IsGamePausedPanelState;
+        //pausePanel.SetActive(GameButtons.IsGamePausedPanelState);
 
     }
 

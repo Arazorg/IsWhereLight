@@ -164,6 +164,7 @@ public class GameButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         Time.timeScale = 0f;
         IsGamePausedState = true;
+        IsGamePausedPanelState = true;
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
     }
