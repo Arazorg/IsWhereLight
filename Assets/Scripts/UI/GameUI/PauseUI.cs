@@ -10,6 +10,9 @@ public class PauseUI : MonoBehaviour
     [Tooltip("Кнопка паузы")]
     [SerializeField] private Button pauseButton;
 
+    [Tooltip("Панель паузы")]
+    [SerializeField] private GameObject pausePanel;
+
     [Tooltip("Панель настроек")]
     [SerializeField] private GameObject pauseSettingsPanel;
 #pragma warning restore 0649
@@ -22,54 +25,43 @@ public class PauseUI : MonoBehaviour
 
     void Start()
     {
+        IsSettingsState = false;
         charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        StartUIActive();
-       
     }
 
-    private void StartUIActive()
-    {
-        IsSettingsState = false;
-        pauseSettingsPanel.SetActive(false);
-    }
     public void ClosePause()
     {
+        audioManager.Play("ClickUI");
         Time.timeScale = 1f;
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;
-        GameButtons.IsGamePausedPanelState = false;
-        gameObject.SetActive(GameButtons.IsGamePausedPanelState);
-        IsSettingsState = false;
-        pauseSettingsPanel.SetActive(PauseUI.IsSettingsState);
-        pauseButton.gameObject.SetActive(true);
+
+        gameObject.SetActive(GameButtons.IsGamePausedState);
+        pausePanel.GetComponent<MovementUI>().MoveToStart();
+        pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void SettingsPanelOpenClose()
     {
         audioManager.Play("ClickUI");
         IsSettingsState = !IsSettingsState;
-        pauseSettingsPanel.SetActive(IsSettingsState);
         if (IsSettingsState)
         {
+            pauseSettingsPanel.GetComponent<MovementUI>().MoveToEnd();
             settingsInfo.SaveSettings();
         }
+        else
+            pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
+
     }
 
     public void GoToMenu()
     {
-        Time.timeScale = 1f;
-        GameButtons.IsGamePausedState = false;
-        GameButtons.IsGamePausedPanelState = false;
-        settingsInfo.SaveSettings();
-
+        ClosePause();
         if(SceneManager.GetActiveScene().name != "Game")
-        {
             SaveSystem.DeleteCurrentGame();
-        }
-            
-
         SceneManager.LoadScene("Menu");
     }
 }

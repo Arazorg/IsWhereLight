@@ -10,6 +10,9 @@ public class GameButtons : MonoBehaviour
     [SerializeField] private GameObject weaponStoreUI;
 
     [Tooltip("UI паузы")]
+    [SerializeField] private GameObject pause;
+
+    [Tooltip("UI панель паузы")]
     [SerializeField] private GameObject pausePanel;
 
     [Tooltip("Джойстик")]
@@ -26,6 +29,12 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("UI магазина оружия")]
     [SerializeField] private Text moneyText;
+
+    [Tooltip("Префаб персонажа")]
+    [SerializeField] private GameObject character;
+
+    [Tooltip("Загрузочный экран")]
+    [SerializeField] private GameObject loadScreen;
 #pragma warning restore 0649
 
     //Переменные состояния UI элементов
@@ -41,14 +50,8 @@ public class GameButtons : MonoBehaviour
     private CharAction charAction;
 
     //Скрипты
-    private ManaBar manaBar;
     private SettingsInfo settingsInfo;
     private CurrentGameInfo currentGameInfo;
-
-    //UI Скрипты
-    private PauseUI pauseUI;
-    private WeaponStoreUI weaponStore;
-    private PauseSettings pauseSettingsUI;
 
     //Переменные
     public float attackRate;
@@ -56,11 +59,8 @@ public class GameButtons : MonoBehaviour
     private float nextAttack;
     private bool isAttack;
 
-    [Tooltip("Префаб персонажа")]
-    [SerializeField] private GameObject character;
-
-    GameObject loadScreen;
     public Transform currentWeapon;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -68,9 +68,8 @@ public class GameButtons : MonoBehaviour
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        manaBar = GameObject.Find("Canvas").GetComponentInChildren<ManaBar>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        SetUIScripts();
         var animator = Resources.Load("");
 
         StartUIActive();
@@ -86,7 +85,6 @@ public class GameButtons : MonoBehaviour
 
         FireActButtonState = 0;
         IsGamePausedState = false;
-        IsGamePausedPanelState = false;
         IsWeaponStoreState = false;
 
         nextAttack = 0.0f;
@@ -94,10 +92,7 @@ public class GameButtons : MonoBehaviour
 
     private void StartUIActive()
     {
-        IsGamePausedPanelState = false;
-        IsWeaponStoreState = false;
-        pausePanel.SetActive(IsGamePausedPanelState);
-        pausePanel.SetActive(IsWeaponStoreState);
+        IsGamePausedState = false;
     }
 
 
@@ -114,13 +109,7 @@ public class GameButtons : MonoBehaviour
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
-    }
-
-    private void SetUIScripts()
-    {
-        pauseUI = GameObject.Find("Canvas").GetComponentInChildren<PauseUI>();
-        weaponStore = GameObject.Find("Canvas").GetComponentInChildren<WeaponStoreUI>();
-        pauseSettingsUI = GameObject.Find("Canvas").GetComponentInChildren<PauseSettings>();
+        pauseButton.GetComponent<MovementUI>().MoveToEnd();
     }
 
     private void SetCharScripts()
@@ -157,29 +146,26 @@ public class GameButtons : MonoBehaviour
     private void SetCharAnim()
     {
         character.GetComponent<CharController>().CharacterRuntimeAnimatorController
-            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin) as RuntimeAnimatorController;
+            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin) 
+                    as RuntimeAnimatorController;
     }
 
 
     void Update()
     {
         if (Application.platform == RuntimePlatform.Android)
-        {
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
-            {
                 OpenPause();
-            }
-        }
         Attack();
     }
 
     public void OpenPause()
     {
+        audioManager.Play("ClickUI");
         Time.timeScale = 0f;
         IsGamePausedState = true;
-        IsGamePausedPanelState = true;
-        pausePanel.SetActive(IsGamePausedPanelState);
-        pauseButton.gameObject.SetActive(false);
+        pause.SetActive(IsGamePausedState);
+        pausePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
     public void FireActState()
