@@ -6,7 +6,6 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     public Animator animator;
-    private Quaternion targetRotation;
     private Weapon currentWeapon;
 #pragma warning disable 0649
     [Tooltip("Маска врагов")]
@@ -21,8 +20,9 @@ public class Sword : MonoBehaviour
     }
 
     public void Hit()
+    
     {
-        animator.SetBool("Attack", true);
+        animator.Play("Attack");
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy  in enemies)
         {

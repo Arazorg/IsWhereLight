@@ -53,8 +53,8 @@ public class GameButtons : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
 
     //Переменные
-    public float attackRate;
-    public int manecost;
+    private float attackRate;
+    private int manecost;
     private float nextAttack;
     private bool isAttack;
 
