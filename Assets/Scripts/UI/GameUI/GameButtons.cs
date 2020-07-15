@@ -40,7 +40,6 @@ public class GameButtons : MonoBehaviour
     //Переменные состояния UI элементов
     public static int FireActButtonState;
     public static bool IsGamePausedState;
-    public static bool IsGamePausedPanelState;
     public static bool IsWeaponStoreState;
     public static Vector3 SpawnPosition;
 
@@ -64,6 +63,9 @@ public class GameButtons : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Game")
+            currentGameInfo.SetIsLobbyState(false);
+
         Time.timeScale = 1f;
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
@@ -164,7 +166,6 @@ public class GameButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         Time.timeScale = 0f;
         IsGamePausedState = true;
-        IsGamePausedPanelState = true;
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
     }

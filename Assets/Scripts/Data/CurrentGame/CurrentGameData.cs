@@ -12,7 +12,6 @@ public class CurrentGameData
     public int maxMane;
     public bool wildMode;
     public bool isLobby;
-
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
         character = currentGameInfo.character;

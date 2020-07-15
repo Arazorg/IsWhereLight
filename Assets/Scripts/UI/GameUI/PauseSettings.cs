@@ -67,9 +67,6 @@ public class PauseSettings : MonoBehaviour
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
             pausePanel.GetComponent<MovementUI>().MoveToEnd();
         }
-       // GameButtons.IsGamePausedPanelState = !GameButtons.IsGamePausedPanelState;
-        //pausePanel.SetActive(GameButtons.IsGamePausedPanelState);
-
     }
 
     public void ChangeLanguage(string fileName)

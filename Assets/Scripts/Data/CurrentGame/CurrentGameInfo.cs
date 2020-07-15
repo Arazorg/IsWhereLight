@@ -29,6 +29,13 @@ public class CurrentGameInfo : MonoBehaviour
 
     public void SaveCurrentGame()
     {
+        if(!isLobby)
+            SaveSystem.SaveCurrentGame(this);
+    }
+
+    public void SetIsLobbyState(bool isLobby)
+    {
+        this.isLobby = isLobby;
         SaveSystem.SaveCurrentGame(this);
     }
 

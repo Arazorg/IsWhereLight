@@ -95,6 +95,7 @@ public class CharacterChooseUI : MonoBehaviour
         currentGameInfo.maxMane = currentCharacter.MaxMane;
 
         currentGameInfo.startWeapon = currentCharacter.StartWeapon;
+        currentGameInfo.isLobby = true;
         characterPrice = currentCharacter.Price;
     }
 
