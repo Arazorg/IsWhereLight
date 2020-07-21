@@ -7,30 +7,16 @@ public class Bow : MonoBehaviour
     private float bulletSpeed;
     private float bulletScatterAngle;
 
-    private GameObject character = null;
-
     void Start()
     {
-        SetAnimAndChar();
+        animator = GetComponent<Animator>();
     }
 
     public void SetBulletInfo(Bullet bullet)
     {
-        if (character == null)
-            SetAnimAndChar();
-
-        var charInfo = character.GetComponent<CharInfo>();
-        int weaponNumber = character.GetComponent<CharGun>().currentWeaponNumber;
-
         bulletSpawner = GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
-    }
-
-    private void SetAnimAndChar()
-    {
-        animator = GetComponent<Animator>();
-        character = GameObject.Find("Character(Clone)");
     }
 
     public void Pulling()

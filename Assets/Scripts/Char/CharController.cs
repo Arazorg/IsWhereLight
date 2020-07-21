@@ -51,9 +51,9 @@ public class CharController : MonoBehaviour
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-
         if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
             isRotate = false;
+
         m_FacingRight = true;
         isStop = false;
     }
@@ -66,6 +66,7 @@ public class CharController : MonoBehaviour
                                      Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
         if (!RotateGunToEnemy())
         {
+           // Debug.Log("Not Enemy");
             if (joystick.Horizontal > 0 && !m_FacingRight)
                 Flip();
             else if (joystick.Horizontal < 0 && m_FacingRight)
@@ -77,6 +78,7 @@ public class CharController : MonoBehaviour
             else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
                 == WeaponData.AttackType.Bow)
                 transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
+
             else
             {
                 if (joystick.Horizontal != 0 && joystick.Vertical != 0)
@@ -97,6 +99,7 @@ public class CharController : MonoBehaviour
         }
         else
         {
+           // Debug.Log("Enemy");
             if (0 <= gunAngle && gunAngle <= 180)
             {
                 m_FacingRight = false;
@@ -141,6 +144,7 @@ public class CharController : MonoBehaviour
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast") | 1 << LayerMask.NameToLayer("Room"));
             RaycastHit2D hit = Physics2D.Raycast(gun.GetChild(0).transform.position, closeDirection, Mathf.Infinity, layerMask);
+            //Debug.Log(hit.collider.name);
 
             if (hit.collider != null)
             {

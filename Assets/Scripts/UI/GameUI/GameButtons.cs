@@ -362,6 +362,7 @@ public class GameButtons : MonoBehaviour
                         .GetComponent<Weapon>().MainSprite;
 
             }
+
             if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
                 CharController.isRotate = false;
             else

@@ -23,7 +23,7 @@ public class BulletSpawner : MonoBehaviour
     public void Spawn()
     {
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
-        currentWeaponBullet.transform.tag = "StandartBullet";
+        //currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
         currentWeaponBullet.SetActive(true);
@@ -36,7 +36,7 @@ public class BulletSpawner : MonoBehaviour
         spawnBulletData = bulletData;
 
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
-        currentWeaponBullet.transform.tag = "StandartBullet";
+       // currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
 
