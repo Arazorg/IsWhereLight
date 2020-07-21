@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class CharController : MonoBehaviour
 {
@@ -45,11 +42,18 @@ public class CharController : MonoBehaviour
     private bool m_FacingRight;
     private bool isStop;
 
+    public static bool isRotate;
+
     void Start()
     {
+        isRotate = true;
+
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+
+        if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+            isRotate = false;
         m_FacingRight = true;
         isStop = false;
     }
@@ -60,7 +64,6 @@ public class CharController : MonoBehaviour
         characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
         rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
                                      Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
-
         if (!RotateGunToEnemy())
         {
             if (joystick.Horizontal > 0 && !m_FacingRight)
@@ -68,19 +71,28 @@ public class CharController : MonoBehaviour
             else if (joystick.Horizontal < 0 && m_FacingRight)
                 Flip();
 
-            if (joystick.Horizontal != 0 && joystick.Vertical != 0)
-            {
-                gunAngle = RotateGun();
-                isStop = false;
-            }
+            if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                == WeaponData.AttackType.Bow)
+                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
+            else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                == WeaponData.AttackType.Bow)
+                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
             else
             {
-                if (!isStop)
+                if (joystick.Horizontal != 0 && joystick.Vertical != 0)
                 {
-                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
-                    isStop = true;
+                    gunAngle = RotateGun();
+                    isStop = false;
                 }
-
+                else
+                {
+                    if (!isStop)
+                    {
+                        transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation
+                            = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                        isStop = true;
+                    }
+                }
             }
         }
         else
@@ -101,8 +113,9 @@ public class CharController : MonoBehaviour
     private float RotateGun()
     {
         float gunAngle = -Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
-        transform.Find(charInfo.weapons[charGun.currentWeaponNumber])
-            .rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+        if (isRotate)
+            transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation
+                = Quaternion.Euler(new Vector3(0, 0, gunAngle));
         return gunAngle;
     }
 
@@ -123,12 +136,12 @@ public class CharController : MonoBehaviour
                     distanceToEnemy = curDistance;
                 }
             }
+
             gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
-
             LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast") | 1 << LayerMask.NameToLayer("Room"));
+            RaycastHit2D hit = Physics2D.Raycast(gun.GetChild(0).transform.position, closeDirection, Mathf.Infinity, layerMask);
 
-            RaycastHit2D hit = Physics2D.Raycast(gun.GetChild(0).transform.position, closeDirection, distanceToEnemy, layerMask);
             if (hit.collider != null)
             {
                 if (hit.collider.tag == "Enemy")
@@ -136,7 +149,9 @@ public class CharController : MonoBehaviour
                     gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
                                             closestEnemy.transform.position.y - transform.position.y)
                                                 * Mathf.Rad2Deg;
-                    gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                    if (isRotate)
+                        gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                        
                     return true;
                 }
             }

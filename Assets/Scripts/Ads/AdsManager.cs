@@ -12,6 +12,7 @@ public class AdsManager : MonoBehaviour
     {
         if (Advertisement.isSupported)
         {
+            Advertisement.debugMode = true;
             Advertisement.Initialize("3572524"); //ID here
         }
     }

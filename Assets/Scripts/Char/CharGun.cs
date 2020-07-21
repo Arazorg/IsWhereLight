@@ -32,14 +32,11 @@ public class CharGun : MonoBehaviour
     private GameObject floorGun;
 
     //Scripts 
-    private SettingsInfo settingsInfo;
     private GameButtons gameButtons;
 
 
     void Start()
     {
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         gameButtons = characterControlUI.GetComponent<GameButtons>();
         gunInfoBar = characterControlUI.Find("GunInfoBar").gameObject;
@@ -53,7 +50,7 @@ public class CharGun : MonoBehaviour
     {
         if (coll.gameObject.tag == "Gun")
         {
-            GameButtons.FireActButtonState = 1;//Change Gun
+            GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.changeGun;//Change Gun
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().sprite = pickUpImage;
             gunInfoBar.SetActive(true);

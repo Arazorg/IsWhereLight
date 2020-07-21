@@ -9,6 +9,7 @@ public class WeaponData : ScriptableObject
         Sword,
         Bow
     }
+
 #pragma warning disable 0649
     [Tooltip("Название оружия")]
     [SerializeField] private string weaponName;
@@ -32,6 +33,8 @@ public class WeaponData : ScriptableObject
         set { }
     }
 
+    
+
     [Tooltip("Изображение для оружия")]
     [SerializeField] private Sprite mainSprite;
     public Sprite MainSprite
@@ -54,24 +57,47 @@ public class WeaponData : ScriptableObject
         set { }
     }
 
-    [Tooltip("Размер колайдера")]
-    [SerializeField] private Vector2 colliderSize;
-    public Vector2 ColliderSize
+    [Tooltip("Смещение оружия")]
+    [SerializeField] private Vector2 offset;
+    public Vector2 Offset
     {
         get
         {
-            return colliderSize;
+            return offset;
         }
         set { }
     }
 
-    [Tooltip("Сдвиг колайдера")]
-    [SerializeField] private Vector2 colliderOffset;
-    public Vector2 ColliderOffset
+    [Tooltip("Смещение оружия во время атаки(вверх)")]
+    [SerializeField] private Vector2 attackOffset;
+
+    public Vector2 AttackOffset
     {
         get
         {
-            return colliderOffset;
+            return attackOffset;
+        }
+        set { }
+    }
+
+    [Tooltip("Стандартный угол")]
+    [SerializeField] private float standartAngle;
+    public float StandartAngle
+    {
+        get
+        {
+            return standartAngle;
+        }
+        set { }
+    }
+
+    [Tooltip("Угол атаки")]
+    [SerializeField] private float attackAngle;
+    public float AttackAngle
+    {
+        get
+        {
+            return attackAngle;
         }
         set { }
     }
@@ -120,7 +146,7 @@ public class WeaponData : ScriptableObject
         set { }
     }
 
-    [Tooltip("Шанс критического урона")]
+    [Tooltip("Снаряд оружия")]
     [SerializeField] private BulletData currentBullet;
     public BulletData CurrentBullet
     {

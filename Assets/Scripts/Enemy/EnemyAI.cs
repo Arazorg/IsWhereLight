@@ -21,8 +21,6 @@ public class EnemyAI : MonoBehaviour
     EnemyPathfindingMovement enemyPathfindingMovement;
     EnemyMeleeAttack enemyMeleeAttack;
     EnemyDistantAttack enemyDistantAttack;
-    
-    private Rigidbody2D rb;
 
     private float speed;
     private string targetTag;
@@ -34,8 +32,6 @@ public class EnemyAI : MonoBehaviour
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
         enemyDistantAttack = GetComponent<EnemyDistantAttack>();
         enemyPathfindingMovement = GetComponent<EnemyPathfindingMovement>();

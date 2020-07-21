@@ -24,21 +24,42 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Кнопка стрельбы и действий")]
     [SerializeField] private Button fireActButton;
 
-    [Tooltip("Изображение текущего оружия")]
-    public GameObject currentWeaponImage;
+    [Tooltip("Кнопка смены оружия")]
+    [SerializeField] private Button swapWeaponButton;
 
-    [Tooltip("UI магазина оружия")]
-    [SerializeField] private Text moneyText;
+    [Tooltip("Изображение текущего оружия")]
+    [SerializeField] public GameObject currentWeaponImage;
+
+    [Tooltip("UI картинки денег")]
+    [SerializeField] private GameObject moneyImage;
+
+    [Tooltip("Текст количества денег")]
+    [SerializeField] private TextMeshProUGUI moneyText;
 
     [Tooltip("Префаб персонажа")]
     [SerializeField] private GameObject character;
+
+    [Tooltip("Панель здоровья")]
+    [SerializeField] private GameObject healthBar;
+
+    [Tooltip("Панель маны")]
+    [SerializeField] private GameObject maneBar;
 
     [Tooltip("Загрузочный экран")]
     [SerializeField] private GameObject loadScreen;
 #pragma warning restore 0649
 
+    public enum FireActButtonStateEnum
+    {
+        none,
+        changeGun,
+        weaponStore,
+        portalToGame,
+        tvAds
+    };
+
     //Переменные состояния UI элементов
-    public static int FireActButtonState;
+    public static FireActButtonStateEnum FireActButtonState;
     public static bool IsGamePausedState;
     public static bool IsWeaponStoreState;
     public static Vector3 SpawnPosition;
@@ -46,7 +67,6 @@ public class GameButtons : MonoBehaviour
     //Скрипты персонажа
     private CharInfo charInfo;
     private CharGun charGun;
-    private CharAction charAction;
 
     //Скрипты
     private SettingsInfo settingsInfo;
@@ -56,36 +76,36 @@ public class GameButtons : MonoBehaviour
     private float attackRate;
     private int manecost;
     private float nextAttack;
-    private bool isAttack;
+    private bool isAttackDown;
+    private bool isAttackUp;
 
     public Transform currentWeapon;
     private AudioManager audioManager;
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Game")
-            currentGameInfo.SetIsLobbyState(false);
-
         Time.timeScale = 1f;
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        var animator = Resources.Load("");
-
         StartUIActive();
         SetStartUI();
-        if (SceneManager.GetActiveScene().name == "Game")
-            SpawnPosition = LevelGeneration.instance.SpawnLevel();           
-        character = Instantiate(character, SpawnPosition, Quaternion.identity);
 
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            currentGameInfo.SetIsLobbyState(false);
+            SpawnPosition = LevelGeneration.instance.SpawnLevel();
+        }
+            
+        character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
         CheckFirstPlay();
 
+        moneyText = moneyText.GetComponent<TextMeshProUGUI>();
         moneyText.text = charInfo.money.ToString();
-
-        FireActButtonState = 0;
+        FireActButtonState = FireActButtonStateEnum.none;
         IsGamePausedState = false;
         IsWeaponStoreState = false;
 
@@ -100,6 +120,14 @@ public class GameButtons : MonoBehaviour
 
     private void SetStartUI()
     {
+        pauseButton.GetComponent<MovementUI>().SetStart();
+        moneyImage.GetComponent<MovementUI>().SetStart();
+        healthBar.GetComponent<MovementUI>().SetStart();
+        maneBar.GetComponent<MovementUI>().SetStart();
+        joystick.GetComponent<MovementUI>().SetStart();
+        fireActButton.GetComponent<MovementUI>().SetStart();
+        swapWeaponButton.GetComponent<MovementUI>().SetStart();
+
         ColorUtility.TryParseHtmlString("#" + settingsInfo.color, out Color newColor);
 
         fireActButton.GetComponent<Image>().color = newColor;
@@ -111,16 +139,21 @@ public class GameButtons : MonoBehaviour
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+
         pauseButton.GetComponent<MovementUI>().MoveToEnd();
+        moneyImage.GetComponent<MovementUI>().MoveToEnd();
+        healthBar.GetComponent<MovementUI>().MoveToEnd();
+        maneBar.GetComponent<MovementUI>().MoveToEnd();
+        joystick.GetComponent<MovementUI>().MoveToEnd();
+        fireActButton.GetComponent<MovementUI>().MoveToEnd();
+        swapWeaponButton.GetComponent<MovementUI>().MoveToEnd();
     }
 
     private void SetCharScripts()
     {
-        charInfo = character.GetComponent<CharInfo>();
-        charAction = character.GetComponent<CharAction>();
+        charInfo = character.GetComponent<CharInfo>();           
         charGun = character.GetComponent<CharGun>();
     }
-
 
     private void CheckFirstPlay()
     {
@@ -148,7 +181,7 @@ public class GameButtons : MonoBehaviour
     private void SetCharAnim()
     {
         character.GetComponent<CharController>().CharacterRuntimeAnimatorController
-            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin) 
+            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin)
                     as RuntimeAnimatorController;
     }
 
@@ -158,7 +191,14 @@ public class GameButtons : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
                 OpenPause();
-        Attack();
+        if (isAttackDown)
+        {
+            AttackDown();
+            PrepareAttack();
+        }
+        if (isAttackUp)
+            AttackUp();
+
     }
 
     public void OpenPause()
@@ -170,63 +210,99 @@ public class GameButtons : MonoBehaviour
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
-    public void FireActState()
+    public void FireActStateDown()
     {
         switch (FireActButtonState)
         {
             case 0:
-                isAttack = true;
+                isAttackDown = true;
                 break;
-            case 1:
+            case FireActButtonStateEnum.changeGun:
                 charGun.ChangeGun();
                 currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+                    CharController.isRotate = false;
+                else
+                    CharController.isRotate = true;
                 break;
-            case 2:
+            case FireActButtonStateEnum.weaponStore:
                 OpenWeaponStore();
                 break;
-            case 3:
+            case FireActButtonStateEnum.portalToGame:
                 SceneManager.LoadScene("Game");
                 break;
-            case 4:
+            case FireActButtonStateEnum.tvAds:
                 AdsManager.AdShow();
                 break;
         }
     }
 
-    private void OpenWeaponStore()
+    public void FireActStateUp()
     {
-        IsWeaponStoreState = true;
-        weaponStoreUI.SetActive(IsWeaponStoreState);
+        switch (FireActButtonState)
+        {
+            case 0:
+                isAttackUp = true;
+                break;
+        }
     }
 
-    private void Attack()
+    private void PrepareAttack()
     {
-        if (charInfo.mane - manecost >= 0 && isAttack)
+        if (charInfo.mane - manecost >= 0)
         {
-            if (Time.time > nextAttack)
+            switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
             {
-                charInfo.SpendMana(manecost);
-                switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
-                {
-                    case WeaponData.AttackType.Gun:
-                        currentWeapon.GetComponent<Gun>().Shoot();
-                        break;
-                    case WeaponData.AttackType.Sword:
-                        currentWeapon.GetComponent<Sword>().Hit();
-                        break;
-                    case WeaponData.AttackType.Bow:
-                        currentWeapon.GetComponent<Bow>().Shoot();
-                        break;
-                }
-                nextAttack = Time.time + attackRate;
+                case WeaponData.AttackType.Bow:
+                    currentWeapon.GetComponent<Bow>().Pulling();
+                    CharController.isRotate = true;
+                    break;
             }
         }
     }
 
+    private void AttackDown()
+    {
+        if (charInfo.mane - manecost >= 0)
+        {
+            if (Time.time > nextAttack)
+            {
+                switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+                {
+                    case WeaponData.AttackType.Gun:
+                        charInfo.SpendMana(manecost);
+                        currentWeapon.GetComponent<Gun>().Shoot();
+                        nextAttack = Time.time + attackRate;
+                        break;
+                    case WeaponData.AttackType.Sword:
+                        charInfo.SpendMana(manecost);
+                        currentWeapon.GetComponent<Sword>().Hit();
+                        nextAttack = Time.time + attackRate;
+                        break;
+                }
+            }
+        }
+    }
+
+    public void AttackUp()
+    {
+        if (charInfo.mane - manecost >= 0 && isAttackUp)
+        {
+            charInfo.SpendMana(manecost);
+            switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+            {
+                case WeaponData.AttackType.Bow:
+                    currentWeapon.GetComponent<Bow>().Shoot();
+                    CharController.isRotate = false;
+                    break;
+            }
+        }
+        isAttackUp = false;
+    }
+
     public void StopAttack()
     {
-        if (currentWeapon.GetComponent<Weapon>().TypeOfAttack != WeaponData.AttackType.Bow)
-            isAttack = false;
+        isAttackDown = false;
 
         switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
         {
@@ -236,16 +312,20 @@ public class GameButtons : MonoBehaviour
         }
     }
 
+
+    private void OpenWeaponStore()
+    {
+        IsWeaponStoreState = true;
+        weaponStoreUI.SetActive(IsWeaponStoreState);
+
+    }
+
     public void PlusMoney()
     {
         charInfo.money += 100;
         moneyText.text = charInfo.money.ToString();
     }
 
-    public void Death()
-    {
-        charAction.Death();
-    }
 
     public void SetWeaponInfo(Weapon weapon)
     {
@@ -282,6 +362,10 @@ public class GameButtons : MonoBehaviour
                         .GetComponent<Weapon>().MainSprite;
 
             }
+            if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+                CharController.isRotate = false;
+            else
+                CharController.isRotate = true;
         }
     }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponSpawner : MonoBehaviour
@@ -78,7 +77,7 @@ public class WeaponSpawner : MonoBehaviour
         prefab.name = weaponName;
         prefab.transform.tag = "Gun";
         prefab.SetActive(true);
-        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     public void Spawn(Transform transform, int currentWeaponNumber)
@@ -88,8 +87,7 @@ public class WeaponSpawner : MonoBehaviour
         currentCharWeapon[currentWeaponNumber] = Instantiate(spawnPrefab, transform);
         currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);
         currentCharWeapon[currentWeaponNumber].name = data.WeaponName + currentWeaponNumber;
-        currentCharWeapon[currentWeaponNumber].transform.tag = "Untagged";
-        //currentCharWeapon[currentWeaponNumber].SetActive(false);
+        currentCharWeapon[currentWeaponNumber].transform.tag = "GunKeep";
         currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 2;
 
         var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
@@ -132,6 +130,6 @@ public class WeaponSpawner : MonoBehaviour
         prefab.name = data.WeaponName;
         prefab.transform.tag = "Gun";
         prefab.SetActive(true);
-        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 }

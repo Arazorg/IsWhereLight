@@ -16,6 +16,7 @@ TagManager:
   - EnemyBullet
   - InfoBar
   - Door
+  - GunKeep
   layers:
   - Default
   - TransparentFX

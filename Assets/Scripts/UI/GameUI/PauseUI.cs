@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class PauseUI : MonoBehaviour
 {
 #pragma warning disable 0649
-    [Tooltip("Кнопка паузы")]
-    [SerializeField] private Button pauseButton;
-
     [Tooltip("Панель паузы")]
     [SerializeField] private GameObject pausePanel;
 
@@ -19,14 +16,12 @@ public class PauseUI : MonoBehaviour
 
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
-    private CharInfo charInfo;
 
     public static bool IsSettingsState;
 
     void Start()
     {
         IsSettingsState = false;
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }

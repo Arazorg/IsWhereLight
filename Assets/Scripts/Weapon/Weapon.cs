@@ -16,18 +16,11 @@ public class Weapon : MonoBehaviour
     {
         this.data = data;
         critChance = CritChance;
-        colliderSize = ColliderSize;
-        colliderOffset = ColliderOffset;
 
-        SetColliderSettings();
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-        GetComponent<SpriteRenderer>().sprite = data.MainSprite;
-    }
-
-    private void SetColliderSettings()
-    {
-        GetComponent<BoxCollider2D>().size = new Vector2(colliderSize.x, colliderSize.y);
-        GetComponent<BoxCollider2D>().offset = new Vector2(colliderOffset.x, colliderOffset.y);
+        GetComponent<SpriteRenderer>().sprite = MainSprite;
+        transform.localPosition += (Vector3)Offset;
+        transform.rotation = Quaternion.Euler(0,0,StandartAngle);
     }
 
     public string WeaponName
@@ -61,26 +54,38 @@ public class Weapon : MonoBehaviour
             return data.MainAnimator;
         }
     }
-
-    private Vector2 colliderSize;
-    public Vector2 ColliderSize
+    public Vector2 Offset
     {
         get
         {
-            return data.ColliderSize;
+            return data.Offset;
         }
     }
 
-    private Vector2 colliderOffset;
-    public Vector2 ColliderOffset
+    public Vector2 AttackOffset
     {
         get
         {
-            return data.ColliderOffset;
+            return data.AttackOffset;
         }
     }
 
-    private float radius;
+    public float StandartAngle
+    {
+        get
+        {
+            return data.StandartAngle;
+        }
+    }
+
+    public float AttackAngle
+    {
+        get
+        {
+            return data.AttackAngle;
+        }
+    }
+
     public float Radius
     {
         get

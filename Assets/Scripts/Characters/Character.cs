@@ -22,7 +22,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Vector3 offsetText;
 
     [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float phraseTimer = 7f;
+    [SerializeField] private float phraseTimer = 2.5f;
 
     [Tooltip("Время нового привествия НПС")]
     [SerializeField] private float helloTimer = 60f;

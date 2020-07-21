@@ -12,11 +12,6 @@ public class CharAction : MonoBehaviour
     [SerializeField] private CharInfo charInfo;
 #pragma warning restore 0649
 
-    private GameObject gunInfoBar;
-    private Button fireActButton;
-
-    private SettingsInfo settingsInfo;
-
     private float timeToOff;
     public bool isEnterFirst;
     public bool isPlayerHitted;
@@ -24,10 +19,6 @@ public class CharAction : MonoBehaviour
     void Start()
     {
         GameObject gameUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI").gameObject;
-        gunInfoBar = gameUI.transform.Find("GunInfoBar").gameObject;
-        fireActButton = gameUI.transform.Find("FireActButton").GetComponent<Button>();
-
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
     }
 
     void Update()
@@ -40,13 +31,13 @@ public class CharAction : MonoBehaviour
         switch(coll.gameObject.name)
         {
             case "WeaponStore":
-                GameButtons.FireActButtonState = 2;
+                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
                 break;
-            case "Door":
-                GameButtons.FireActButtonState = 3;
+            case "PortalToGame":
+                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.portalToGame;
                 break;
-            case "TV":
-                GameButtons.FireActButtonState = 4;
+            case "TvAds":
+                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.tvAds;
                 break;
         }
 

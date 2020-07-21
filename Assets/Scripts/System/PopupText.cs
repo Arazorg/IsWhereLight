@@ -8,8 +8,8 @@ public class PopupText : MonoBehaviour
     //Create a damage popup
     public static PopupText Create(Vector3 position, bool isPhrase, bool isCriticalHit = false, int damageAmount = -1, string phrase = "")
     {
-        Transform popupDamageTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
-        PopupText popupText = popupDamageTransform.GetComponent<PopupText>();
+        Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
+        PopupText popupText = popupTextTransform.GetComponent<PopupText>();
 
         if (!isPhrase)
             popupText.SetupDamage(damageAmount, isCriticalHit);
@@ -32,6 +32,7 @@ public class PopupText : MonoBehaviour
     private void Awake()
     {
         textMesh = transform.GetComponent<TextMeshPro>();
+        gameObject.GetComponent<MeshRenderer>().sortingOrder = 5;
     }
 
     private void Update()

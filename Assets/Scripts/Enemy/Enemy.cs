@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private EnemyData data;
+    [Tooltip("Дата врага")]
+    [SerializeField] private EnemyData data;
 
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
 
+    void Start()
+    {
+        if (data != null)
+            Init(data);
+    }
     /// <summary>
     /// Initialization of enemy
     /// </summary>
@@ -20,7 +26,7 @@ public class Enemy : MonoBehaviour
         this.data = data;
         health = Health;
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-        transform.tag = "Untagged";
+        gameObject.tag = "Untagged";
     }
 
     public RuntimeAnimatorController MainAnimator

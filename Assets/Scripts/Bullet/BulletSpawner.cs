@@ -43,7 +43,11 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
 
-        GetComponent<Gun>().SetBulletInfo(currentBulletScript);
+        if(GetComponent<Gun>() != null)
+            GetComponent<Gun>().SetBulletInfo(currentBulletScript);
+        else if(GetComponent<Bow>() != null)
+            GetComponent<Bow>().SetBulletInfo(currentBulletScript);
+
         Destroy(currentWeaponBullet);
     }
 }

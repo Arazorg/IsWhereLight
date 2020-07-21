@@ -64,9 +64,12 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-
-        GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
-        Destroy(gameObject);
+        if(collider.tag != "Player" && collider.tag != "GunKeep" && collider.tag != "StandartBullet")
+        {
+            GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+            Destroy(gameObject);
+        }
+        
     }
 }

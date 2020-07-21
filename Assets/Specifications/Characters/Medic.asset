@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Medic
   maxHealth: 6
   maxMane: 250
-  startWeapon: Bow
+  startWeapon: BigSword
   price: 2500

@@ -17,9 +17,11 @@ MonoBehaviour:
   mainSprite: {fileID: 7398207742363704338, guid: e7280e6bc449f974a8cdb43cf4b0422d,
     type: 3}
   typeOfAttack: 1
-  colliderSize: {x: 0.3, y: 1}
-  colliderOffset: {x: 0, y: 0.8}
-  radius: 0
+  offset: {x: 0, y: 0}
+  attackOffset: {x: 0, y: 0}
+  standartAngle: 0
+  attackAngle: 50
+  radius: 3.2
   fireRate: 1.2
   damage: 14
   critChance: 25
