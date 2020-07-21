@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a66a82714f557e42a1a1f1166200fb3, type: 3}
+  m_Name: Engineer
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 9100000, guid: 7ee0b609ae373fb448a662a213891da0, type: 2}
+  characterClass: Engineer
+  maxHealth: 9
+  maxMane: 120
+  startWeapon: Sword
+  price: 0
