@@ -218,7 +218,7 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.GetComponent<LocalizedText>().key = "chooseCharacter";
         characterText.GetComponent<LocalizedText>().SetLocalization();
 
-        Camera.main.orthographicSize = 5;
+        Camera.main.orthographicSize = 6;
         Camera.main.transform.position = new Vector3(10, 5, -10);
 
         lobbyUI.GetComponent<LobbyUI>().ShowLobby();

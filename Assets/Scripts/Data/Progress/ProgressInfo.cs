@@ -53,6 +53,7 @@ public class ProgressInfo : MonoBehaviour
 
     public bool CharacterAccess(string character)
     {
+        Debug.Log(character);
         if (characters[character])
             return true;
         else
@@ -66,6 +67,7 @@ public class ProgressInfo : MonoBehaviour
         characters.Add("Archer", false);
         characters.Add("Soldier", false);
         characters.Add("Medic", false);
+        characters.Add("Engineer", false);
     }
 
     private void SecretCodesInit()
