@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 15f9d0a42fd0a79478a980d5ccc814b6
+guid: 7f757498f5705e24d9485f4ddc075bef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2089675475208628035
-    second: BARS_0
+      213: 4028295597132751666
+    second: BushesSprites_0
   - first:
-      213: -4189824814497730210
-    second: BARS_1
+      213: -5920446677472327894
+    second: BushesSprites_1
   - first:
-      213: 5764933944071840005
-    second: BARS_2
+      213: -4557847400860323960
+    second: BushesSprites_2
   - first:
-      213: 7206001677961313692
-    second: BARS_3
+      213: -4593750967284693694
+    second: BushesSprites_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 180
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,85 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BARS_0
+      name: BushesSprites_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 567
-        width: 1040
-        height: 524
+        x: 24
+        y: 229
+        width: 201
+        height: 201
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 347e7abe5c4000d10800000000000000
-      internalID: 2089675475208628035
+      spriteID: 2332e55b08167e730800000000000000
+      internalID: 4028295597132751666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BARS_1
+      name: BushesSprites_1
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 748
-        width: 635
-        height: 152
+        x: 252
+        y: 229
+        width: 201
+        height: 201
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e51feb4a780cad5c0800000000000000
-      internalID: -4189824814497730210
+      spriteID: a27ce9d5d1956dda0800000000000000
+      internalID: -5920446677472327894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BARS_2
+      name: BushesSprites_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 91
-        width: 1040
-        height: 524
+        x: 24
+        y: 9
+        width: 201
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5016ef1d0e8210050800000000000000
-      internalID: 5764933944071840005
+      spriteID: 88f684bffe54fb0c0800000000000000
+      internalID: -4557847400860323960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BARS_3
+      name: BushesSprites_3
       rect:
         serializedVersion: 2
-        x: 1140
-        y: 264
-        width: 678
-        height: 142
+        x: 256
+        y: 9
+        width: 201
+        height: 202
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9db0c9d85cd00460800000000000000
-      internalID: 7206001677961313692
+      spriteID: 245836085d7bf30c0800000000000000
+      internalID: -4593750967284693694
       vertices: []
       indices: 
       edges: []

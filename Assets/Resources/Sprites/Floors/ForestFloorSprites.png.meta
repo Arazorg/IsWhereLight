@@ -1,27 +1,27 @@
 fileFormatVersion: 2
-guid: 61d2eb83ead0781428501d6ae7a2edff
+guid: 60b131178d597024c9a6df76836dacd5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5178214137269830541
-    second: ForestGrassSprite_0
+      213: -3754708698973495797
+    second: ForestFloorSprites_0
   - first:
-      213: 2514506396266036963
-    second: ForestGrassSprite_1
+      213: 4861296545081543259
+    second: ForestFloorSprites_1
   - first:
-      213: 845759856731934906
-    second: ForestGrassSprite_2
+      213: -5515416329059949651
+    second: ForestFloorSprites_2
   - first:
-      213: 2985485704276948080
-    second: ForestGrassSprite_3
+      213: 2749139135743120094
+    second: ForestFloorSprites_3
   - first:
-      213: 1062025837285633551
-    second: ForestGrassSprite_4
+      213: 8922085172585555123
+    second: ForestFloorSprites_4
   - first:
-      213: -2228100940059871631
-    second: ForestGrassSprite_5
+      213: -3488979335822558331
+    second: ForestFloorSprites_5
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,6 +75,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -128,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ForestGrassSprite_0
+      name: ForestFloorSprites_0
       rect:
         serializedVersion: 2
         x: 10
@@ -136,20 +137,20 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d83cfde8256bcd740800000000000000
-      internalID: 5178214137269830541
+      spriteID: b0e9d92e45894ebc0800000000000000
+      internalID: -3754708698973495797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestGrassSprite_1
+      name: ForestFloorSprites_1
       rect:
         serializedVersion: 2
         x: 227
@@ -157,20 +158,20 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ee72e6be3255e220800000000000000
-      internalID: 2514506396266036963
+      spriteID: b5a4b65937bc67340800000000000000
+      internalID: 4861296545081543259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestGrassSprite_2
+      name: ForestFloorSprites_2
       rect:
         serializedVersion: 2
         x: 444
@@ -178,20 +179,20 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab0dac1db1ebcbb00800000000000000
-      internalID: 845759856731934906
+      spriteID: da32ef5121e4573b0800000000000000
+      internalID: -5515416329059949651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestGrassSprite_3
+      name: ForestFloorSprites_3
       rect:
         serializedVersion: 2
         x: 9
@@ -199,20 +200,20 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0743f652e639e6920800000000000000
-      internalID: 2985485704276948080
+      spriteID: ed2d7187a77e62620800000000000000
+      internalID: 2749139135743120094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestGrassSprite_4
+      name: ForestFloorSprites_4
       rect:
         serializedVersion: 2
         x: 228
@@ -220,35 +221,35 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0e62b54fd21dbe00800000000000000
-      internalID: 1062025837285633551
+      spriteID: 3b4edb7713d91db70800000000000000
+      internalID: 8922085172585555123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ForestGrassSprite_5
+      name: ForestFloorSprites_5
       rect:
         serializedVersion: 2
         x: 446
-        y: 12
+        y: 6
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 176740000023411e0800000000000000
-      internalID: -2228100940059871631
+      spriteID: 58b3e9b87c7a49fc0800000000000000
+      internalID: -3488979335822558331
       vertices: []
       indices: 
       edges: []

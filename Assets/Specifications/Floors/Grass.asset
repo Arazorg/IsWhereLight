@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Grass
   m_EditorClassIdentifier: 
   mainSprite:
-  - {fileID: 5178214137269830541, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
-  - {fileID: 2514506396266036963, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
-  - {fileID: 845759856731934906, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
-  - {fileID: 2985485704276948080, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
-  - {fileID: 1062025837285633551, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
-  - {fileID: -2228100940059871631, guid: 61d2eb83ead0781428501d6ae7a2edff, type: 3}
+  - {fileID: -3754708698973495797, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
+  - {fileID: 4861296545081543259, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
+  - {fileID: -5515416329059949651, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
+  - {fileID: 2749139135743120094, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
+  - {fileID: 8922085172585555123, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
+  - {fileID: -3488979335822558331, guid: 60b131178d597024c9a6df76836dacd5, type: 3}
   floorName: Grass
   material: {fileID: 6200000, guid: fee156982be9393489a8910c7e0559c2, type: 2}
   speedModification: 0.75
