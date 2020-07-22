@@ -121,7 +121,6 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void RefreshUI()
     {
-
         moneyText.text = progressInfo.playerMoney.ToString();
 
         characterText.GetComponent<LocalizedText>().key = currentCharacter.CharacterClass;

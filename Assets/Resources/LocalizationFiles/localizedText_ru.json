@@ -92,6 +92,11 @@
         },
 
         {
+            "key": "Engineer",
+            "value": "Инженер"
+        },
+
+        {
             "key": "SimpleKnight",
             "value": "Обычный рыцарь"
         },
@@ -124,6 +129,11 @@
         {
             "key": "SimpleMedic",
             "value": "Обычный медик"
+        },
+
+        {
+            "key": "SimpleEngineer",
+            "value": "Обычный инженер"
         },
 
         {
@@ -282,8 +292,43 @@
         },
 
         {
-            "key": "check",
+            "key": "EngineerPhrase0",
+            "value": "Запомните твари, мои механизмы не сломаются."
+        },
+
+        {
+            "key": "EngineerPhrase1",
+            "value": "В школе у меня было 3 по физике..."
+        },
+
+        {
+            "key": "EngineerPhrase2",
+            "value": "Куда делась моя отвертка?"
+        },
+
+        {
+            "key": "EngineerPhrase3",
+            "value": "Куда делись все респираторы?"
+        },
+
+        {
+            "key": "EngineerPhrase4",
+            "value": "Если работает - не трогай."
+        },
+
+        {
+            "key": "EngineerPhrase5",
+            "value": "Хочешь знать, как я облысел? Нет, не хочешь..."
+        },
+
+        {
+            "key": "Check",
             "value": "Проверить"
+        },
+
+        {
+            "key": "Shoot",
+            "value": "Еще один выстрел и я тебе руки вырву!"
         }
     ]
 }

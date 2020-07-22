@@ -22,7 +22,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Vector3 offsetText;
 
     [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float phraseTimer = 2.5f;
+    [SerializeField] private float phraseTimer = 3f;
 
     [Tooltip("Время нового привествия НПС")]
     [SerializeField] private float helloTimer = 60f;
@@ -139,23 +139,19 @@ public class Character : MonoBehaviour, IPointerDownHandler
         {
             if (Time.time > timeToHello)
             {
-                PopupText.Create(transform.position + offsetText, true, false, -1, "Hello"); ;
+                PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
                 timeToHello = Time.time + helloTimer;
-            }
-            else if (Time.time > timeToPhrase && (helloTimer + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
-            {
-                int phrase = Random.Range(0, NPC_Phrases.Count);
-                while (phrase == lastPhrase)
-                    phrase = Random.Range(0, NPC_Phrases.Count);
-                lastPhrase = phrase;
-                PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
-                timeToPhrase = Time.time + phraseTimer;
             }
 
             if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
                 Flip();
             else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
                 Flip();
+        }
+        else if (coll.gameObject.tag == "StandartBullet" ||
+                        coll.gameObject.tag == "StandartArrow")
+        {
+            PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot"); ;
         }
     }
 
@@ -184,5 +180,18 @@ public class Character : MonoBehaviour, IPointerDownHandler
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void ShowPhrase()
+    {
+        if (Time.time > timeToPhrase && (helloTimer + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
+        {
+            int phrase = Random.Range(0, NPC_Phrases.Count);
+            while (phrase == lastPhrase)
+                phrase = Random.Range(0, NPC_Phrases.Count);
+            lastPhrase = phrase;
+            PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
+            timeToPhrase = Time.time + phraseTimer;
+        }
     }
 }

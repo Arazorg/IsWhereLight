@@ -53,6 +53,7 @@ public class GameButtons : MonoBehaviour
     {
         none,
         changeGun,
+        NPC,
         weaponStore,
         portalToGame,
         tvAds
@@ -67,7 +68,7 @@ public class GameButtons : MonoBehaviour
     //Скрипты персонажа
     private CharInfo charInfo;
     private CharGun charGun;
-
+    private CharAction charAction;
     //Скрипты
     private SettingsInfo settingsInfo;
     private CurrentGameInfo currentGameInfo;
@@ -153,6 +154,7 @@ public class GameButtons : MonoBehaviour
     {
         charInfo = character.GetComponent<CharInfo>();           
         charGun = character.GetComponent<CharGun>();
+        charAction = character.GetComponent<CharAction>();
     }
 
     private void CheckFirstPlay()
@@ -214,7 +216,7 @@ public class GameButtons : MonoBehaviour
     {
         switch (FireActButtonState)
         {
-            case 0:
+            case FireActButtonStateEnum.none:
                 isAttackDown = true;
                 break;
             case FireActButtonStateEnum.changeGun:
@@ -224,6 +226,9 @@ public class GameButtons : MonoBehaviour
                     CharController.isRotate = false;
                 else
                     CharController.isRotate = true;
+                break;
+            case FireActButtonStateEnum.NPC:
+                charAction.currentNPC.GetComponent<Character>().ShowPhrase();
                 break;
             case FireActButtonStateEnum.weaponStore:
                 OpenWeaponStore();

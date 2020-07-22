@@ -92,6 +92,11 @@
         },
 
         {
+            "key": "Engineer",
+            "value": "Engineer"
+        },
+
+        {
             "key": "SimpleKnight",
             "value": "Simple knight"
         },
@@ -127,13 +132,203 @@
         },
 
         {
+            "key": "SimpleEngineer",
+            "value": "Simple engineer"
+        },
+
+        {
+            "key": "KnightPhrase0",
+            "value": "I don't look at the obstacles, I focus on the goal!"
+        },
+
+        {
+            "key": "KnightPhrase1",
+            "value": "Honour. Courage. Severed limbs."
+        },
+
+        {
+            "key": "KnightPhrase2",
+            "value": "How to wipe blood stains from my armor?"
+        },
+
+        {
+            "key": "KnightPhrase3",
+            "value": "The only thing you should feel when you shoot someone...is the recoil."
+        },
+
+        {
+            "key": "KnightPhrase4",
+            "value": "Justice will prevail."
+        },
+
+        {
+            "key": "MagePhrase0",
+            "value": "My brain surprises even me sometimes."
+        },
+
+        {
+            "key": "MagePhrase1",
+            "value": "All I need to be happy are two woolen socks."
+        },
+
+        {
+            "key": "MagePhrase2",
+            "value": "To the well organized mind,\n death is but the next great adventure."
+        },
+
+        {
+            "key": "MagePhrase3",
+            "value": "If you pull my beard again,\n then none of your wishes will ever come true."
+        },
+
+        {
+            "key": "MagePhrase4",
+            "value": "Of course it's happening inside your head,\n but why on earth should that mean that it's not real?"
+        },
+
+        {
+            "key": "MagePhrase5",
+            "value": "Power overwhelms me..."
+        },
+
+        {
+            "key": "DoctorPhrase0",
+            "value": "Describe the nature of the disease."
+        },
+
+        {
+            "key": "DoctorPhrase1",
+            "value": "You look unhealthy."
+        },
+
+        {
+            "key": "DoctorPhrase2",
+            "value": "Someone's stealing meds again."
+        },
+
+        {
+            "key": "DoctorPhrase3",
+            "value": "I said to strip TO THE WAIST"
+        },
+
+        {
+            "key": "DoctorPhrase4",
+            "value": "Call me after my work hours."
+        },
+
+        {
+            "key": "DoctorPhrase5",
+            "value": "Wash your hands, apply soap and don't eat bats."
+        },
+
+        {
+            "key": "DoctorPhrase6",
+            "value": "Operation complete!\n Now where did I leave my watch?"
+        },
+
+        {
+            "key": "ShooterPhrase0",
+            "value": "I love the big bang theory."
+        },
+
+        {
+            "key": "ShooterPhrase1",
+            "value": "I'm bringing the pain,\n and the pizza in 30 minutes or it's free"
+        },
+
+        {
+            "key": "ShooterPhrase2",
+            "value": "I completely respect your opinion,\n as long as you keep it to yourself."
+        },
+
+        {
+            "key": "ShooterPhrase3",
+            "value": "What the hell are smithereens, anyway?"
+        },
+
+        {
+            "key": "ShooterPhrase4",
+            "value": "Do you wanna know how I got these scars?"
+        },
+
+        {
+            "key": "ShooterPhrase5",
+            "value": "Can you keep an eye on my explosives?\n I need to go to a barbershop.."
+        },
+
+        {
+            "key": "ArcherPhrase0",
+            "value": "Trust ain't easy to come by."
+        },
+
+        {
+            "key": "ArcherPhrase1",
+            "value": "Видимо, не нужно было есть тот бургер..."
+        },
+
+        {
+            "key": "ArcherPhrase2",
+            "value": "I'm a compulsive liar. It's true, I swear it!"
+        },
+
+        {
+            "key": "ArcherPhrase3",
+            "value": "I warn you right away - I hit below the belt."
+        },
+
+        {
+            "key": "ArcherPhrase4",
+            "value": "Think I'm gonna like you better... dead."
+        },
+
+        {
+            "key": "ArcherPhrase5",
+            "value": "Apparently I shouldn't have had that hamburger..."
+        },
+
+        {
+            "key": "EngineerPhrase0",
+            "value": "You wanna know how I got bald? No, you don't..."
+        },
+
+        {
+            "key": "EngineerPhrase1",
+            "value": "I had bad grades in physics at school."
+        },
+
+        {
+            "key": "EngineerPhrase2",
+            "value": "Hey, wanna arm wrestle?"
+        },
+
+        {
+            "key": "EngineerPhrase3",
+            "value": "Where did all the respirators go?"
+        },
+
+        {
+            "key": "EngineerPhrase4",
+            "value": "Don't get yourself into something you can't get out of."
+        },
+
+        {
+            "key": "EngineerPhrase5",
+            "value": "If it works, don't touch it."
+        },
+
+        {
             "key": "Hello",
             "value": "Hello!"
         },
 
         {
-            "key": "check",
+            "key": "Check",
             "value": "Check"
+        },
+
+        {
+            "key": "Shoot",
+            "value": "WTF!"
         }
     ]
 }

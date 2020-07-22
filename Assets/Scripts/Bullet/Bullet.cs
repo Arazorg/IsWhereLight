@@ -69,7 +69,8 @@ public class Bullet : MonoBehaviour
                 && collider.tag != "StandartBullet" 
                     && collider.tag != "StandartArrow"
                         && collider.tag != "EnemyBullet"
-                            && collider.tag != "IgnoreAll")
+                            && collider.tag != "IgnoreAll"
+                                && collider.tag != "NPC")
         {
             if(gameObject.tag == "StandartBullet")
             {

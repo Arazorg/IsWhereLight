@@ -10,15 +10,25 @@ public class CharAction : MonoBehaviour
 #pragma warning disable 0649
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
+
+    [Tooltip("Спрайт кнопки(атака)")]
+    [SerializeField] private Sprite fireImage;
+
+    [Tooltip("Спрайт кнопки(действие)")]
+    [SerializeField] private Sprite actionImage;
 #pragma warning restore 0649
 
     private float timeToOff;
     public bool isEnterFirst;
     public bool isPlayerHitted;
+    private Button fireActButton;
+    public GameObject currentNPC;
 
     void Start()
     {
         GameObject gameUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI").gameObject;
+        var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
+        fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
     }
 
     void Update()
@@ -32,12 +42,24 @@ public class CharAction : MonoBehaviour
         {
             case "WeaponStore":
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
+                fireActButton.GetComponent<Image>().sprite = actionImage;
                 break;
             case "PortalToGame":
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.portalToGame;
+                fireActButton.GetComponent<Image>().sprite = actionImage;
                 break;
             case "TvAds":
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.tvAds;
+                fireActButton.GetComponent<Image>().sprite = actionImage;
+                break;
+        }
+
+        switch(coll.gameObject.tag)
+        {
+            case "NPC":
+                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.NPC;
+                currentNPC = coll.gameObject;
+                fireActButton.GetComponent<Image>().sprite = actionImage;
                 break;
         }
 
@@ -47,6 +69,11 @@ public class CharAction : MonoBehaviour
             isPlayerHitted = true;
             isEnterFirst = true;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        fireActButton.GetComponent<Image>().sprite = fireImage;
     }
 
     public void PlayerHitted()

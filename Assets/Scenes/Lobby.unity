@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 28040282}
   m_Layer: 0
   m_Name: Knight
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
   - KnightPhrase0
@@ -5689,7 +5689,7 @@ GameObject:
   - component: {fileID: 995119123}
   m_Layer: 0
   m_Name: Medic
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5737,7 +5737,7 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
   - DoctorPhrase0
@@ -7003,7 +7003,7 @@ GameObject:
   - component: {fileID: 1290505844}
   m_Layer: 0
   m_Name: Archer
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7065,7 +7065,7 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
   - ArcherPhrase0
@@ -7750,7 +7750,7 @@ GameObject:
   - component: {fileID: 1597142461}
   m_Layer: 0
   m_Name: Mage
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7805,7 +7805,7 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
   - MagePhrase0
@@ -8494,7 +8494,7 @@ GameObject:
   - component: {fileID: 1818965103}
   m_Layer: 0
   m_Name: Engineer
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8556,15 +8556,15 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
-  - ArcherPhrase0
-  - ArcherPhrase1
-  - ArcherPhrase2
-  - ArcherPhrase3
-  - ArcherPhrase4
-  - ArcherPhrase5
+  - EngineerPhrase0
+  - EngineerPhrase1
+  - EngineerPhrase2
+  - EngineerPhrase3
+  - EngineerPhrase4
+  - EngineerPhrase5
   playerCharacter: {fileID: 0}
 --- !u!95 &1818965105
 Animator:
@@ -9794,7 +9794,7 @@ GameObject:
   - component: {fileID: 1990694250}
   m_Layer: 0
   m_Name: Shooter
-  m_TagString: IgnoreAll
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9856,7 +9856,7 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  phraseTimer: 7
+  phraseTimer: 3
   helloTimer: 60
   NPC_Phrases:
   - ShooterPhrase0

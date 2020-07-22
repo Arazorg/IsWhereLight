@@ -53,7 +53,6 @@ public class ProgressInfo : MonoBehaviour
 
     public bool CharacterAccess(string character)
     {
-        Debug.Log(character);
         if (characters[character])
             return true;
         else
