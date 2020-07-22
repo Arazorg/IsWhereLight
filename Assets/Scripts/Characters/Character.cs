@@ -41,7 +41,11 @@ public class Character : MonoBehaviour, IPointerDownHandler
     void Start()
     {
         offsetText = new Vector3(0, 0.85f, 0);
-        m_FacingRight = true;
+        if (transform.localScale.x == 1)
+            m_FacingRight = true;
+        else
+            m_FacingRight = false;
+
         playerCharacter = null;
         characterChooseUI.gameObject.SetActive(false);
         Init();

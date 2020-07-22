@@ -66,6 +66,7 @@ public class CharController : MonoBehaviour
                                      Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
         if (!RotateGunToEnemy())
         {
+            Debug.Log("Don't Enemy");
            // Debug.Log("Not Enemy");
             if (joystick.Horizontal > 0 && !m_FacingRight)
                 Flip();
@@ -99,7 +100,6 @@ public class CharController : MonoBehaviour
         }
         else
         {
-           // Debug.Log("Enemy");
             if (0 <= gunAngle && gunAngle <= 180)
             {
                 m_FacingRight = false;
@@ -143,8 +143,8 @@ public class CharController : MonoBehaviour
             gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast") | 1 << LayerMask.NameToLayer("Room"));
-            RaycastHit2D hit = Physics2D.Raycast(gun.GetChild(0).transform.position, closeDirection, Mathf.Infinity, layerMask);
-            //Debug.Log(hit.collider.name);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
+            Debug.Log(hit.collider.name);
 
             if (hit.collider != null)
             {
@@ -160,7 +160,13 @@ public class CharController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Debug.Log(0);
+            
+        }
         return false;
+
     }
 
     private void Flip()
