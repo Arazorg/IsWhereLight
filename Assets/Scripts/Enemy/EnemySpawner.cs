@@ -92,6 +92,7 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="enemy"></param>
     private void DestroyEnemy(GameObject enemy)
     {
+        Debug.Log("Death");
         Destroy(enemy);
         Enemies.Remove(enemy);
         //Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);

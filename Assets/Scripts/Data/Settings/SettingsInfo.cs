@@ -11,6 +11,7 @@ public class SettingsInfo : MonoBehaviour
     public bool effectsOn;
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
+    public float[] swapWeaponButtonPosition = new float[2];
     public string color;
 
     void Awake()
@@ -41,6 +42,7 @@ public class SettingsInfo : MonoBehaviour
             effectsOn = settingsData.effectsOn;
             joystickPosition = settingsData.joystickPosition;
             fireActButtonPosition = settingsData.fireActButtonPosition;
+            swapWeaponButtonPosition = settingsData.swapWeaponButtonPosition;
             color = settingsData.color;
         }
         else
@@ -53,6 +55,7 @@ public class SettingsInfo : MonoBehaviour
         startPositions["fireActButtonPosition"] = new float[2] { -200, 250 };
         startPositions["hpBarPosition"] = new float[2] { 200, -100 };
         startPositions["maneBarPosition"] = new float[2] { 200, -175 };
+        startPositions["swapWeaponButtonPosition"] = new float[2] { -200, 0 };
     }
 
     public void SetStartSettings()
@@ -70,5 +73,6 @@ public class SettingsInfo : MonoBehaviour
     {
         joystickPosition = startPositions["joystickPosition"];
         fireActButtonPosition = startPositions["fireActButtonPosition"];
+        swapWeaponButtonPosition = startPositions["swapWeaponButtonPosition"];
     }
 }

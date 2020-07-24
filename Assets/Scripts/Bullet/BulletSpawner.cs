@@ -26,6 +26,8 @@ public class BulletSpawner : MonoBehaviour
         //currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
+        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
+        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
         currentWeaponBullet.SetActive(true);
         Destroy(currentWeaponBullet, 5);
     }
@@ -39,7 +41,6 @@ public class BulletSpawner : MonoBehaviour
        // currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
-
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
 

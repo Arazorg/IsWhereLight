@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameButtons : MonoBehaviour
 {
+    public static GameButtons instance;
 #pragma warning disable 0649
     [Tooltip("UI магазина оружия")]
     [SerializeField] private GameObject weaponStoreUI;
@@ -56,7 +57,8 @@ public class GameButtons : MonoBehaviour
         NPC,
         weaponStore,
         portalToGame,
-        tvAds
+        tvAds,
+        shootingRange
     };
 
     //Переменные состояния UI элементов
@@ -79,9 +81,21 @@ public class GameButtons : MonoBehaviour
     private float nextAttack;
     private bool isAttackDown;
     private bool isAttackUp;
+    public static bool isChange = true;
 
     public Transform currentWeapon;
     private AudioManager audioManager;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -99,7 +113,7 @@ public class GameButtons : MonoBehaviour
             currentGameInfo.SetIsLobbyState(false);
             SpawnPosition = LevelGeneration.instance.SpawnLevel();
         }
-            
+
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
         CheckFirstPlay();
@@ -125,34 +139,31 @@ public class GameButtons : MonoBehaviour
         moneyImage.GetComponent<MovementUI>().SetStart();
         healthBar.GetComponent<MovementUI>().SetStart();
         maneBar.GetComponent<MovementUI>().SetStart();
-        joystick.GetComponent<MovementUI>().SetStart();
-        fireActButton.GetComponent<MovementUI>().SetStart();
-        swapWeaponButton.GetComponent<MovementUI>().SetStart();
 
         ColorUtility.TryParseHtmlString("#" + settingsInfo.color, out Color newColor);
 
         fireActButton.GetComponent<Image>().color = newColor;
         joystick.transform.GetChild(0).GetComponent<Image>().color = newColor;
         joystick.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = newColor;
+        swapWeaponButton.GetComponent<Image>().color = newColor;
         currentWeaponImage.GetComponent<Image>().color = newColor;
 
         joystick.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
+        swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
+          = new Vector3(settingsInfo.swapWeaponButtonPosition[0], settingsInfo.swapWeaponButtonPosition[1]);
 
         pauseButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
         healthBar.GetComponent<MovementUI>().MoveToEnd();
         maneBar.GetComponent<MovementUI>().MoveToEnd();
-        joystick.GetComponent<MovementUI>().MoveToEnd();
-        fireActButton.GetComponent<MovementUI>().MoveToEnd();
-        swapWeaponButton.GetComponent<MovementUI>().MoveToEnd();
     }
 
     private void SetCharScripts()
     {
-        charInfo = character.GetComponent<CharInfo>();           
+        charInfo = character.GetComponent<CharInfo>();
         charGun = character.GetComponent<CharGun>();
         charAction = character.GetComponent<CharAction>();
     }
@@ -239,6 +250,9 @@ public class GameButtons : MonoBehaviour
             case FireActButtonStateEnum.tvAds:
                 AdsManager.AdShow();
                 break;
+            case FireActButtonStateEnum.shootingRange:
+                ShootingRange.instance.StartGame();
+                break;
         }
     }
 
@@ -293,10 +307,10 @@ public class GameButtons : MonoBehaviour
     {
         if (charInfo.mane - manecost >= 0 && isAttackUp)
         {
-            charInfo.SpendMana(manecost);
             switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
             {
                 case WeaponData.AttackType.Bow:
+                    charInfo.SpendMana(manecost);
                     currentWeapon.GetComponent<Bow>().Shoot();
                     CharController.isRotate = false;
                     break;
@@ -340,38 +354,41 @@ public class GameButtons : MonoBehaviour
 
     public void SwapWeapon()
     {
-        if (WeaponSpawner.instance.countOfWeapon == 2)
+        if (isChange)
         {
-            if (charGun.currentWeaponNumber == 0)
+            if (WeaponSpawner.instance.countOfWeapon == 2)
             {
-                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
-                charGun.currentWeaponNumber++;
+                if (charGun.currentWeaponNumber == 0)
+                {
+                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
+                    charGun.currentWeaponNumber++;
 
-                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
-                charGun.SwapWeapon();
-                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
-                    = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
-                        .GetComponent<Weapon>().MainSprite;
+                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+                    charGun.SwapWeapon();
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
+                        = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                            .GetComponent<Weapon>().MainSprite;
+                }
+                else if (charGun.currentWeaponNumber == 1)
+                {
+                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
+                    charGun.currentWeaponNumber--;
+
+                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+                    charGun.SwapWeapon();
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
+                        = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                            .GetComponent<Weapon>().MainSprite;
+
+                }
+
+                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+                    CharController.isRotate = false;
+                else
+                    CharController.isRotate = true;
             }
-            else if (charGun.currentWeaponNumber == 1)
-            {
-                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
-                charGun.currentWeaponNumber--;
-
-                WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
-                charGun.SwapWeapon();
-                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
-                    = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
-                        .GetComponent<Weapon>().MainSprite;
-
-            }
-
-            if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
-                CharController.isRotate = false;
-            else
-                CharController.isRotate = true;
         }
     }
 

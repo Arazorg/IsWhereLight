@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using TMPro;
 
 public class CharGun : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class CharGun : MonoBehaviour
 #pragma warning restore 0649
 
     public int currentWeaponNumber;
-
+    public static bool isChange;
     //UI
     private GameObject gunInfoBar;
     private Button fireActButton;
@@ -43,7 +44,7 @@ public class CharGun : MonoBehaviour
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
 
         SpawnStartWeapon();
-        gunInfoBar.SetActive(false);
+        gunInfoBar.GetComponent<MovementUI>().SetStart();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -53,7 +54,7 @@ public class CharGun : MonoBehaviour
             GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.changeGun;//Change Gun
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().sprite = pickUpImage;
-            gunInfoBar.SetActive(true);
+            gunInfoBar.GetComponent<MovementUI>().MoveToEnd();
             GetSpecGun(coll);
         }
     }
@@ -66,12 +67,13 @@ public class CharGun : MonoBehaviour
 
         if (coll.gameObject.tag == "Gun")
         {
-            gunInfoBar.SetActive(false);
+            gunInfoBar.GetComponent<MovementUI>().MoveToStart();
         }
     }
 
     public void ChangeGun()
     {
+
         if (WeaponSpawner.instance.countOfWeapon == 2)
         {
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.SetParent(null);
@@ -98,6 +100,7 @@ public class CharGun : MonoBehaviour
             WeaponSpawner.instance.SwapWeapon(1);
             SetWeaponParam();
         }
+
     }
 
     public void SwapWeapon()
@@ -114,8 +117,7 @@ public class CharGun : MonoBehaviour
         float fireRate = weapon.FireRate;
         int manecost = weapon.Manecost;
         BulletData bullet = weapon.CurrentBullet;
-
-        gunInfoBar.GetComponentInChildren<Text>().text =
+        gunInfoBar.GetComponentInChildren<TextMeshProUGUI>().text =
                     $"{damage} DMG | " +
                     $"{critChance}% CRIT | " +
                     $"{manecost} MANA";
@@ -153,7 +155,7 @@ public class CharGun : MonoBehaviour
             SetWeaponParam();
         }
 
-        gameButtons.currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite = 
+        gameButtons.currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite =
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().MainSprite;
 
         gameButtons.currentWeapon = transform.Find(charInfo.weapons[currentWeaponNumber]);

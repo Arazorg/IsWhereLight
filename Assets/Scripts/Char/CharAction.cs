@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -35,7 +36,7 @@ public class CharAction : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        switch(coll.gameObject.name)
+        switch (coll.gameObject.name)
         {
             case "WeaponStore":
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
@@ -49,9 +50,13 @@ public class CharAction : MonoBehaviour
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.tvAds;
                 fireActButton.GetComponent<Image>().sprite = actionImage;
                 break;
+            case "ShootingRangeStartPosition":
+                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.shootingRange;
+                fireActButton.GetComponent<Image>().sprite = actionImage;
+                break;
         }
 
-        switch(coll.gameObject.tag)
+        switch (coll.gameObject.tag)
         {
             case "NPC":
                 GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.NPC;
@@ -60,7 +65,7 @@ public class CharAction : MonoBehaviour
                 break;
         }
 
-        if(coll.tag == "EnemyBullet")
+        if (coll.tag == "EnemyBullet")
         {
             charInfo.Damage(coll.GetComponent<Bullet>().Damage);
             isPlayerHitted = true;

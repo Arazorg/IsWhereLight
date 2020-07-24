@@ -160,7 +160,9 @@ public class Enemy : MonoBehaviour
 
     void Death()
     {
-        OnEnemyDeath(gameObject);
+        Destroy(gameObject);
+        if (data.name == "Punchbag")
+            ShootingRange.instance.Spawn();
     }
 
     private void EnemyHitted()
@@ -190,7 +192,7 @@ public class Enemy : MonoBehaviour
         if (coll.gameObject.tag == "StandartBullet")
         {
             var bullet = coll.gameObject.GetComponent<Bullet>();
-            GetDamage(bullet.Damage, bullet.Damage);
+            GetDamage(bullet.Damage, bullet.CritChance);
         }
 
         if (health <= 0)
@@ -209,7 +211,8 @@ public class Enemy : MonoBehaviour
 
     void OnBecameVisible()
     {
-        gameObject.tag = "Enemy";
+        if (data.EnemyName != "Punchbag")
+            gameObject.tag = "Enemy";
     }
 
     void OnBecameInvisible()

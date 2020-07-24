@@ -17,6 +17,9 @@ public class InterfaceSettings : MonoBehaviour
 
     [Tooltip("UI кнопки действия, атаки")]
     [SerializeField] private GameObject fireActButton;
+
+    [Tooltip("UI кнопки смены оружия")]
+    [SerializeField] private GameObject swapWeaponButton;
 #pragma warning restore 0649
 
     private bool IsColorPanelState;
@@ -40,6 +43,9 @@ public class InterfaceSettings : MonoBehaviour
             fireActButton.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(settingsInfo.fireActButtonPosition[0],
                                 settingsInfo.fireActButtonPosition[1]);
+            swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
+                new Vector3(settingsInfo.swapWeaponButtonPosition[0],
+                                settingsInfo.swapWeaponButtonPosition[1]);
         }
     }
 
@@ -49,7 +55,6 @@ public class InterfaceSettings : MonoBehaviour
         SetPosition();
         settingsInfo.SaveSettings();
         menuPanel.SetActive(true);
-        colorPanel.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -66,6 +71,9 @@ public class InterfaceSettings : MonoBehaviour
         fireActButton.GetComponent<RectTransform>().anchoredPosition =
             new Vector3(SettingsInfo.startPositions["fireActButtonPosition"][0],
                             SettingsInfo.startPositions["fireActButtonPosition"][1]);
+        swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(SettingsInfo.startPositions["swapWeaponButtonPosition"][0],
+                            SettingsInfo.startPositions["swapWeaponButtonPosition"][1]);
     }
 
     public void ColorPanelOpenClose()
@@ -91,6 +99,7 @@ public class InterfaceSettings : MonoBehaviour
         joystick.GetComponent<Image>().color = curColor;
         joystick.transform.GetChild(0).GetComponent<Image>().color = curColor;
         fireActButton.GetComponent<Image>().color = curColor;
+        swapWeaponButton.GetComponent<Image>().color = curColor;
     }
 
     private void SetPosition()
@@ -102,6 +111,9 @@ public class InterfaceSettings : MonoBehaviour
         settingsInfo.fireActButtonPosition
             = new float[] { fireActButton.GetComponent<RectTransform>().anchoredPosition.x,
                                 fireActButton.GetComponent<RectTransform>().anchoredPosition.y};
+        settingsInfo.swapWeaponButtonPosition
+            = new float[] { swapWeaponButton.GetComponent<RectTransform>().anchoredPosition.x,
+                                swapWeaponButton.GetComponent<RectTransform>().anchoredPosition.y};
     }
 
     private Color StringToColor(string color)

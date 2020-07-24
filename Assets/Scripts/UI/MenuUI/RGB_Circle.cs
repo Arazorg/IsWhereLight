@@ -21,13 +21,15 @@ public class RGB_Circle : MonoBehaviour, IPointerDownHandler
         Vector2 pos = (mousePos - (Vector2)corners[0]);
 
         currentColor = RGB_Texture.GetPixel((int)pos.x, (int)pos.y); // Get color from texture
-        GetComponentInParent<InterfaceSettings>().SetColor(ColorUtility.ToHtmlStringRGB(currentColor));
+        Debug.Log(ColorUtility.ToHtmlStringRGB(currentColor));
+        GetComponentInParent<InterfaceSettings>().SetColor(ColorUtility.ToHtmlStringRGBA(currentColor));
     }
 
     public void SetTransparency()
     {
         currentColor.a = slider.value;
-        GetComponentInParent<InterfaceSettings>().SetColor(ColorUtility.ToHtmlStringRGB(currentColor));
+        Debug.Log(currentColor);
+        GetComponentInParent<InterfaceSettings>().SetColor(ColorUtility.ToHtmlStringRGBA(currentColor));
     }
 
 }

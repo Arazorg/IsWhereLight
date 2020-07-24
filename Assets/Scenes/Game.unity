@@ -2859,7 +2859,6 @@ GameObject:
   - component: {fileID: 878690984}
   - component: {fileID: 878690983}
   - component: {fileID: 878690982}
-  - component: {fileID: 878690985}
   m_Layer: 5
   m_Name: SwapWeaponButton
   m_TagString: Untagged
@@ -2979,24 +2978,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878690980}
   m_CullTransparentMesh: 0
---- !u!114 &878690985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878690980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHorizontal: 1
-  startPos: {x: 200, y: 0, z: 0}
-  endPos: {x: -200, y: 0, z: 0}
-  speed: -50
-  isEnd: 0
-  isMove: 0
 --- !u!1 &908627697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3833,6 @@ GameObject:
   - component: {fileID: 1213606762}
   - component: {fileID: 1213606761}
   - component: {fileID: 1213606760}
-  - component: {fileID: 1213606764}
   m_Layer: 5
   m_Name: FireActButton
   m_TagString: Untagged
@@ -4014,24 +3994,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213606758}
   m_CullTransparentMesh: 0
---- !u!114 &1213606764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213606758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHorizontal: 1
-  startPos: {x: 200, y: 250, z: 0}
-  endPos: {x: -200, y: 250, z: 0}
-  speed: -50
-  isEnd: 0
-  isMove: 0
 --- !u!1 &1220769777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5596,24 +5558,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1729994808}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1729994810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729994809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHorizontal: 1
-  startPos: {x: -600, y: 0, z: 0}
-  endPos: {x: 0, y: 0, z: 0}
-  speed: 100
-  isEnd: 0
-  isMove: 0
 --- !u!1 &1743687517
 GameObject:
   m_ObjectHideFlags: 0

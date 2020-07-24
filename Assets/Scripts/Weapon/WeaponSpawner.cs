@@ -11,9 +11,6 @@ public class WeaponSpawner : MonoBehaviour
 
     [Tooltip("Ссылка на базовый префаб оружия")]
     [SerializeField] private List<GameObject> weaponsPrefabs;
-
-    [Tooltip("Место спауна оружия")]
-    [SerializeField] private Transform[] spawnPositions;
 #pragma warning restore 0649
 
     private GameButtons gameButtons;
@@ -27,7 +24,6 @@ public class WeaponSpawner : MonoBehaviour
 
     public GameObject[] currentCharWeapon = new GameObject[2];
     public int countOfWeapon;
-    private int countOfStand;
 
     private void Awake()
     {
@@ -45,7 +41,6 @@ public class WeaponSpawner : MonoBehaviour
     private void Start()
     {
         countOfWeapon = 0;
-        countOfStand = 0;
     }
 
     public void SetPrefab(string weaponName)
@@ -68,10 +63,9 @@ public class WeaponSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn(string weaponName)
+    public void Spawn(string weaponName, Transform spawnPosition)
     {
-        prefab = Instantiate(spawnPrefab, spawnPositions[countOfStand]);
-        countOfStand = (countOfStand + 1);
+        prefab = Instantiate(spawnPrefab, spawnPosition);
         script = prefab.GetComponent<Weapon>();
         script.Init(data);
         prefab.name = weaponName;

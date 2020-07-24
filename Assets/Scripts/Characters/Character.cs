@@ -22,15 +22,19 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Vector3 offsetText;
 
     [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float phraseTimer = 3f;
+    [SerializeField] private float phraseTime = 3f;
 
     [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float helloTimer = 60f;
+    [SerializeField] private float helloTime = 60f;
+
+    [Tooltip("Время фразы НПС о выстреле")]
+    [SerializeField] private float shootPhraseTime = 2f;
 
     [Tooltip("Лист фраз NPC")]
     [SerializeField] private List<string> NPC_Phrases;
     private float timeToHello = 0;
     private float timeToPhrase = 0;
+    private float timeToShootPhrase = 0;
     private int lastPhrase = -1;
 
 #pragma warning restore 0649
@@ -141,10 +145,12 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (coll.gameObject.tag == "Player")
         {
-            if (Time.time > timeToHello)
+            if (Time.time > timeToHello &&
+                 timeToPhrase + (Time.time - timeToPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
+                    timeToShootPhrase + (Time.time - timeToShootPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
             {
                 PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
-                timeToHello = Time.time + helloTimer;
+                timeToHello = Time.time + helloTime;
             }
 
             if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
@@ -152,10 +158,27 @@ public class Character : MonoBehaviour, IPointerDownHandler
             else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
                 Flip();
         }
-        else if (coll.gameObject.tag == "StandartBullet" ||
-                        coll.gameObject.tag == "StandartArrow")
+        else if (Time.time > timeToShootPhrase && 
+                     (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow") && 
+                            (helloTime + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
+                                    timeToPhrase + (Time.time - timeToPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
         {
-            PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot"); ;
+            PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
+            timeToShootPhrase = Time.time + shootPhraseTime;
+        }
+    }
+    public void ShowPhrase()
+    {
+        if (Time.time > timeToPhrase &&
+                (helloTime + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
+                    timeToShootPhrase + (Time.time - timeToShootPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
+        {
+            int phrase = Random.Range(0, NPC_Phrases.Count);
+            while (phrase == lastPhrase)
+                phrase = Random.Range(0, NPC_Phrases.Count);
+            lastPhrase = phrase;
+            PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
+            timeToPhrase = Time.time + phraseTime;
         }
     }
 
@@ -184,18 +207,5 @@ public class Character : MonoBehaviour, IPointerDownHandler
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    public void ShowPhrase()
-    {
-        if (Time.time > timeToPhrase && (helloTimer + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
-        {
-            int phrase = Random.Range(0, NPC_Phrases.Count);
-            while (phrase == lastPhrase)
-                phrase = Random.Range(0, NPC_Phrases.Count);
-            lastPhrase = phrase;
-            PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
-            timeToPhrase = Time.time + phraseTimer;
-        }
     }
 }

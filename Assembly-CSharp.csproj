@@ -162,6 +162,8 @@
      <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponData.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponSpawner.cs" />
+     <Compile Include="Assets\ShootingRange.cs" />
+     <Compile Include="Assets\ShootingRangeStartPosition.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
