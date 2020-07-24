@@ -205,7 +205,7 @@ public class CharacterChooseUI : MonoBehaviour
         }
 
         Destroy(currentCharacter.gameObject);
-        Camera.main.orthographicSize = 6f;
+        Camera.main.orthographicSize = 5f;
     }
 
     public void BackToLobby()
@@ -217,7 +217,7 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.GetComponent<LocalizedText>().key = "chooseCharacter";
         characterText.GetComponent<LocalizedText>().SetLocalization();
 
-        Camera.main.orthographicSize = 6f;
+        Camera.main.orthographicSize = 7f;
         Camera.main.transform.position = new Vector3(10, 5, -10);
 
         lobbyUI.GetComponent<LobbyUI>().ShowLobby();
