@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShootingRange : MonoBehaviour
@@ -24,10 +26,20 @@ public class ShootingRange : MonoBehaviour
 
     [Tooltip("Стэнды спауна мишеней")]
     [SerializeField] private GameObject[] targetStands;
+
+    [Tooltip("UI Тира")]
+    [SerializeField] private GameObject shootingRangeInfoUI;
+
+    [Tooltip("Таймер тира")]
+    [SerializeField] private GameObject shootingRangeTimer;
+
+    [Tooltip("Текст таймера тира")]
+    [SerializeField] private TextMeshProUGUI shootingRangeTimerText;
 #pragma warning restore 0649
 
     private float gameTimer;
     private float spawnTimer;
+    private int textTimer = 0;
     private GameObject currentTarget;
     private bool isGame;
     private float startSpeed;
@@ -75,11 +87,14 @@ public class ShootingRange : MonoBehaviour
         if (charInfo.weapons[0] == "ShootingRangeWeapon0" ||
                     charInfo.weapons[1] == "ShootingRangeWeapon1")
         {
+            textTimer = (int)gameDuration;
+            InvokeRepeating("OutputTime", 1f, 1f);
             if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.currentWeaponNumber != 0)
                 GameButtons.instance.SwapWeapon();
             else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
                 GameButtons.instance.SwapWeapon();
-
+            shootingRangeTimer.GetComponent<MovementUI>().MoveToEnd();
+            shootingRangeInfoUI.GetComponent<MovementUI>().MoveToStart();
             result = 0;
             startStand.gameObject.SetActive(false);
             isGame = true;
@@ -97,8 +112,18 @@ public class ShootingRange : MonoBehaviour
             PopupText.Create(startStand.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
         }
     }
+
+    private void OutputTime()
+    {
+        textTimer--;
+        shootingRangeTimerText.text = textTimer.ToString(); 
+    }
+
     public void StopGame()
     {
+        CancelInvoke("OutputTime");
+        shootingRangeInfoUI.GetComponent<MovementUI>().MoveToStart();
+        shootingRangeTimer.GetComponent<MovementUI>().MoveToStart();
         startStand.gameObject.SetActive(true);
         GameButtons.isChange = true;
         isGame = false;
@@ -123,10 +148,10 @@ public class ShootingRange : MonoBehaviour
             Debug.Log(result);
             Destroy(currentTarget);
         }
-        else if(currentTarget != null)
+        else if (currentTarget != null)
             Destroy(currentTarget);
 
         spawnTimer = Time.time + spawnDuration;
-        currentTarget = Instantiate(targetPrefab, targetStands[Random.Range(0, targetStands.Length)].transform);
+        currentTarget = Instantiate(targetPrefab, targetStands[UnityEngine.Random.Range(0, targetStands.Length)].transform);
     }
 }

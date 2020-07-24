@@ -329,6 +329,21 @@
         {
             "key": "Shoot",
             "value": "WTF!"
+        },
+
+        {
+            "key": "GiveWeapon",
+            "value": "First, take the weapon of shooting range"
+        },
+
+        {
+            "key": "Play",
+            "value": "Play"
+        },
+
+        {
+            "key": "ShootingRangeInfo",
+            "value": "Shooting range! More hits, better rewards!"
         }
     ]
 }
