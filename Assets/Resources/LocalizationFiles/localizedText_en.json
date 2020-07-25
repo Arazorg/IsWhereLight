@@ -67,6 +67,11 @@
         },
 
         {
+            "key": "ShootingRangeWeapon",
+            "value": "Weapon of shooting range"
+        },
+
+        {
             "key": "Knight",
             "value": "Knight"
         },
@@ -339,6 +344,21 @@
         {
             "key": "Play",
             "value": "Play"
+        },
+
+        {
+            "key": "GreatScore",
+            "value": "Great Score!"
+        },
+
+        {
+            "key": "WeakScore",
+            "value": "Need more practice..."
+        },
+
+        {
+            "key": "GreatShoot",
+            "value": "Great shoot!"
         },
 
         {

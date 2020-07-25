@@ -6,15 +6,16 @@ using UnityEngine;
 public class PopupText : MonoBehaviour
 {
     //Create a damage popup
-    public static PopupText Create(Vector3 position, bool isPhrase, bool isCriticalHit = false, int damageAmount = -1, string phrase = "")
+    public static PopupText Create(Vector3 position, bool isPhrase, bool isCriticalHit = false, int damageAmount = -1, string phrase = "", float fontSize = 3)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
-
+        
         if (!isPhrase)
-            popupText.SetupDamage(damageAmount, isCriticalHit);
+            popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
         else
-            popupText.SetupPhrase(phrase);
+            popupText.SetupPhrase(phrase, fontSize);
+            
         return popupText;
     }
 
@@ -67,18 +68,18 @@ public class PopupText : MonoBehaviour
         }
     }
 
-    public void SetupDamage(int damageAmount, bool isCriticalHit)
+    public void SetupDamage(int damageAmount, bool isCriticalHit, float fontSize)
     {
         isPhrase = false;
         textMesh.SetText(damageAmount.ToString());
         if (isCriticalHit)
         {
-            textMesh.fontSize = 4;
+            textMesh.fontSize = fontSize + 2;
             textColor = Color.red;
         }
         else
         {
-            textMesh.fontSize = 2;
+            textMesh.fontSize = fontSize;
             textColor = Color.yellow;
         }
         textMesh.color = textColor;
@@ -90,11 +91,11 @@ public class PopupText : MonoBehaviour
         moveVector = new Vector3(1, 1) * 3f * (float)rnd.NextDouble();
     }
 
-    public void SetupPhrase(string key)
+    public void SetupPhrase(string key, float fontSize)
     {
         isPhrase = true;
         textMesh.SetText(LocalizedText.SetLocalization(key));
-        textMesh.fontSize = 3f;
+        textMesh.fontSize = fontSize;
         textColor = Color.white;
 
         textMesh.color = textColor;

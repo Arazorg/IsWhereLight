@@ -48,9 +48,6 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Загрузочный экран")]
     [SerializeField] private GameObject loadScreen;
-
-    [Tooltip("UI Тира")]
-    [SerializeField] private GameObject shootingRangeInfoUI;
 #pragma warning restore 0649
 
     public enum FireActButtonStateEnum
@@ -254,7 +251,7 @@ public class GameButtons : MonoBehaviour
                 AdsManager.AdShow();
                 break;
             case FireActButtonStateEnum.shootingRange:
-                shootingRangeInfoUI.GetComponent<MovementUI>().MoveToEnd();
+                ShootingRange.instance.StartGame();
                 break;
         }
     }

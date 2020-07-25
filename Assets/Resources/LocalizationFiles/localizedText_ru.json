@@ -347,9 +347,23 @@
         },
 
         {
+            "key": "GreatShoot",
+            "value": "Отличный выстрел!"
+        },
+
+        {
+            "key": "GreatScore",
+            "value": "Отличный счет!"
+        },
+
+        {
+            "key": "WeakScore",
+            "value": "Стоит потренироваться..."
+        },
+
+        {
             "key": "ShootingRangeInfo",
             "value": "Тир! Больше попаданий лучше награда!"
         }
-
     ]
 }

@@ -27,14 +27,18 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("Стэнды спауна мишеней")]
     [SerializeField] private GameObject[] targetStands;
 
-    [Tooltip("UI Тира")]
-    [SerializeField] private GameObject shootingRangeInfoUI;
+    [Tooltip("NPC тира")]
+    [SerializeField] private GameObject shootingRangeNPC;
 
     [Tooltip("Таймер тира")]
     [SerializeField] private GameObject shootingRangeTimer;
 
     [Tooltip("Текст таймера тира")]
     [SerializeField] private TextMeshProUGUI shootingRangeTimerText;
+
+    [Tooltip("Время нового привествия НПС")]
+    [SerializeField] private float helloTime = 60f;
+
 #pragma warning restore 0649
 
     private float gameTimer;
@@ -48,6 +52,8 @@ public class ShootingRange : MonoBehaviour
     private CharInfo charInfo;
     private CharGun charGun;
     private int result;
+    private int previousStand = -1;
+    private float timeToHello = 0;
 
     private void Awake()
     {
@@ -84,6 +90,7 @@ public class ShootingRange : MonoBehaviour
         charInfo = player.GetComponent<CharInfo>();
         charGun = player.GetComponent<CharGun>();
         startMane = player.GetComponent<CharInfo>().mane;
+
         if (charInfo.weapons[0] == "ShootingRangeWeapon0" ||
                     charInfo.weapons[1] == "ShootingRangeWeapon1")
         {
@@ -94,44 +101,53 @@ public class ShootingRange : MonoBehaviour
             else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
                 GameButtons.instance.SwapWeapon();
             shootingRangeTimer.GetComponent<MovementUI>().MoveToEnd();
-            shootingRangeInfoUI.GetComponent<MovementUI>().MoveToStart();
             result = 0;
             startStand.gameObject.SetActive(false);
             isGame = true;
             GameButtons.isChange = false;
             gameTimer = Time.time + gameDuration;
-            charInfo.SpendMana(charInfo.mane - 30);
+            charInfo.mane = 30;
+            charInfo.SpendMana(0);
             player.GetComponent<CharController>().SetSpeed(0);
             player.transform.position = startStand.transform.position;
             Camera.main.orthographicSize = 7f;
             Camera.main.GetComponent<CameraFollow>().StopMove();
             Camera.main.transform.position = new Vector3(10, 22, -1);
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         }
         else
         {
-            PopupText.Create(startStand.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
+            if(Time.time > timeToHello)
+            {
+                PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
+                timeToHello = Time.time + helloTime;
+            }
         }
+    }
+
+    public void StopGame()
+    {
+        CancelInvoke("OutputTime");
+        shootingRangeTimer.GetComponent<MovementUI>().MoveToStart();
+        startStand.gameObject.SetActive(true);
+        GameButtons.isChange = true;
+        isGame = false;
+        player.GetComponent<CharController>().SetSpeed(startSpeed);
+        charInfo.mane = startMane;
+        charInfo.SpendMana(0);
+        Camera.main.orthographicSize = 5f;
+        Camera.main.GetComponent<CameraFollow>().StartMove();
+        Destroy(currentTarget);
+        if(result > 5)
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatScore");
+        else
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "WeakScore");
     }
 
     private void OutputTime()
     {
         textTimer--;
         shootingRangeTimerText.text = textTimer.ToString(); 
-    }
-
-    public void StopGame()
-    {
-        CancelInvoke("OutputTime");
-        shootingRangeInfoUI.GetComponent<MovementUI>().MoveToStart();
-        shootingRangeTimer.GetComponent<MovementUI>().MoveToStart();
-        startStand.gameObject.SetActive(true);
-        GameButtons.isChange = true;
-        isGame = false;
-        player.GetComponent<CharController>().SetSpeed(startSpeed);
-        player.GetComponent<CharInfo>().mane = startMane;
-        Camera.main.orthographicSize = 5f;
-        Camera.main.GetComponent<CameraFollow>().StartMove();
-        Destroy(currentTarget);
     }
 
     private void SpawnShootingRangeWeapon()
@@ -145,13 +161,32 @@ public class ShootingRange : MonoBehaviour
         if (currentTarget != null && isDeath)
         {
             result++;
-            Debug.Log(result);
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
             Destroy(currentTarget);
         }
         else if (currentTarget != null)
             Destroy(currentTarget);
 
         spawnTimer = Time.time + spawnDuration;
-        currentTarget = Instantiate(targetPrefab, targetStands[UnityEngine.Random.Range(0, targetStands.Length)].transform);
+        int currentStand;
+        while (true)
+        {
+            currentStand = UnityEngine.Random.Range(0, targetStands.Length);
+            if (currentStand == previousStand)
+                continue;
+
+            currentTarget = Instantiate(targetPrefab, targetStands[currentStand].transform);
+            break;
+        }
+        previousStand = currentStand;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (Time.time > timeToHello)
+        {
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
+            timeToHello = Time.time + helloTime;
+        } 
     }
 }

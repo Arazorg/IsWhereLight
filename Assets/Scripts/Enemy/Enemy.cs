@@ -162,7 +162,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         if (data.name == "Punchbag")
-            ShootingRange.instance.Spawn();
+            ShootingRange.instance.Spawn(true);
     }
 
     private void EnemyHitted()
@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "StandartBullet")
+        if (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow")
         {
             var bullet = coll.gameObject.GetComponent<Bullet>();
             GetDamage(bullet.Damage, bullet.CritChance);

@@ -167,6 +167,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
             timeToShootPhrase = Time.time + shootPhraseTime;
         }
     }
+
     public void ShowPhrase()
     {
         if (Time.time > timeToPhrase &&
