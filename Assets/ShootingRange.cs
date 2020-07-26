@@ -112,7 +112,7 @@ public class ShootingRange : MonoBehaviour
             player.transform.position = startStand.transform.position;
             Camera.main.orthographicSize = 7f;
             Camera.main.GetComponent<CameraFollow>().StopMove();
-            Camera.main.transform.position = new Vector3(10, 22, -1);
+            Camera.main.transform.position = new Vector3(-9, 6, -1);
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         }
         else

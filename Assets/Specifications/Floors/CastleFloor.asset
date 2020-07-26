@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CastleFloor
   m_EditorClassIdentifier: 
   mainSprite:
-  - {fileID: 21300000, guid: e0835d69f89fe8a4d87ab0e666c96aa5, type: 3}
+  - {fileID: 3577604791193551821, guid: bca69700f10aef44a985330a37fe6e9b, type: 3}
+  - {fileID: -6367762429014113504, guid: bca69700f10aef44a985330a37fe6e9b, type: 3}
   floorName: CastleFloor
   material: {fileID: 6200000, guid: fee156982be9393489a8910c7e0559c2, type: 2}
   speedModification: 1
