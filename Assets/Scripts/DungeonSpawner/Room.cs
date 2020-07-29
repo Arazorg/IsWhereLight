@@ -11,6 +11,9 @@ public class Room : MonoBehaviour {
 
     [Tooltip("Правый нижний угол")]
     [SerializeField] public Transform floorsTransformRightBot;
+
+    [Tooltip("Место спауна игрока")]
+    [SerializeField] public Transform characterSpawnPosition;
 #pragma warning restore 0649
     public void RoomDestruction() {
 

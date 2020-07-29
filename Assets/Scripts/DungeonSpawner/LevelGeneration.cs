@@ -35,9 +35,9 @@ public class LevelGeneration : MonoBehaviour
         var room = Instantiate(rooms[roomsNumber], transform.position, Quaternion.identity);
 
         floorSpawner.SetCorners
-            (rooms[roomsNumber].GetComponent<Room>().floorsTransformLeftTop,
-                rooms[roomsNumber].GetComponent<Room>().floorsTransformRightBot);
+            (room.GetComponent<Room>().floorsTransformLeftTop,
+               room.GetComponent<Room>().floorsTransformRightBot);
         floorSpawner.StartSpawn();
-        return startSpawn;
+        return room.GetComponent<Room>().characterSpawnPosition.position;
     }
 }

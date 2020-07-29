@@ -1640,6 +1640,7 @@ MonoBehaviour:
   roomType: 2
   floorsTransformLeftTop: {fileID: 4434402242800492778}
   floorsTransformRightBot: {fileID: 2737157925423855776}
+  characterSpawnPosition: {fileID: 1360074643722935735}
 --- !u!61 &2795327371718303135
 BoxCollider2D:
   m_ObjectHideFlags: 0
