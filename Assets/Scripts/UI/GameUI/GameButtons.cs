@@ -124,6 +124,8 @@ public class GameButtons : MonoBehaviour
         }
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
+        if (SceneManager.GetActiveScene().name == "Lobby")
+            character.GetComponent<CharController>().speed = 5f;
         SetCharScripts();
         CheckFirstPlay();
 

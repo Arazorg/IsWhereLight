@@ -160,9 +160,10 @@ public class Enemy : MonoBehaviour
 
     void Death()
     {
-        Destroy(gameObject);
         if (data.name == "Punchbag")
             ShootingRange.instance.Spawn(true);
+        else
+            Destroy(gameObject);
     }
 
     private void EnemyHitted()

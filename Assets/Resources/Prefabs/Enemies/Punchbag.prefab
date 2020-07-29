@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd4d2ec5b01623449098f31a209baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: bd83d2561ca8b7b4080b8a7c7c549a09, type: 2}
+  data: {fileID: 0}
   curTarget: {fileID: 0}
   positionCurTarget: {x: 0, y: 0, z: 0}
 --- !u!95 &7660942901221914988

@@ -130,11 +130,9 @@ public class CharGun : MonoBehaviour
                 = transform.position + offsetGunDistant;
 
         else if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
-            == WeaponData.AttackType.Sword)
-        {
+                == WeaponData.AttackType.Sword)
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
-                = transform.position + offsetGunMelee;
-        }
+            = transform.position + offsetGunMelee;
     }
 
     private void SpawnStartWeapon()

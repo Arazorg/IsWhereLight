@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18157a2e42c9a76499a846bc8ee26b5b, type: 3}
-  m_Name: Punchbag
+  m_Name: Watermelon
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: cefc92890bbb81546b1b0553c821262b, type: 2}
+  mainAnimator: {fileID: 9100000, guid: dc2937844ad02e8438300935e4dfc968, type: 2}
   speed: 0
   health: 1
   typeOfAttack: 0
@@ -20,5 +20,5 @@ MonoBehaviour:
   attackRange: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: 
-  enemyName: Punchbag
+  enemyName: Watermelon
   fireRate: 0

@@ -20,7 +20,7 @@ public class CharController : MonoBehaviour
 
     //Character's variables
     [Tooltip("Скорость персонажа")]
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
 #pragma warning restore 0649
 
     public RuntimeAnimatorController CharacterRuntimeAnimatorController

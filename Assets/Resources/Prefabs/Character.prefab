@@ -169,7 +169,7 @@ MonoBehaviour:
   characterAnimator: {fileID: 2124288211051524171}
   charInfo: {fileID: 4952567868302082640}
   charGun: {fileID: 376914118}
-  speed: 9
+  speed: 8
 --- !u!114 &376914118
 MonoBehaviour:
   m_ObjectHideFlags: 0

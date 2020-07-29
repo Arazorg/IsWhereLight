@@ -9,6 +9,9 @@ public class ShootingRange : MonoBehaviour
     public static ShootingRange instance;
 
 #pragma warning disable 0649
+    [Tooltip("Список настроек для врагов")]
+    [SerializeField] private List<EnemyData> enemySettings;
+
     [Tooltip("Пребаф цели")]
     [SerializeField] private GameObject targetPrefab;
 
@@ -112,12 +115,12 @@ public class ShootingRange : MonoBehaviour
             player.transform.position = startStand.transform.position;
             Camera.main.orthographicSize = 7f;
             Camera.main.GetComponent<CameraFollow>().StopMove();
-            Camera.main.transform.position = new Vector3(-9, 6, -1);
+            Camera.main.transform.position = new Vector3(-9, 10.75f, -1);
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         }
         else
         {
-            if(Time.time > timeToHello)
+            if (Time.time > timeToHello)
             {
                 PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
                 timeToHello = Time.time + helloTime;
@@ -138,7 +141,7 @@ public class ShootingRange : MonoBehaviour
         Camera.main.orthographicSize = 5f;
         Camera.main.GetComponent<CameraFollow>().StartMove();
         Destroy(currentTarget);
-        if(result > 5)
+        if (result > 5)
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatScore");
         else
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "WeakScore");
@@ -147,7 +150,7 @@ public class ShootingRange : MonoBehaviour
     private void OutputTime()
     {
         textTimer--;
-        shootingRangeTimerText.text = textTimer.ToString(); 
+        shootingRangeTimerText.text = textTimer.ToString();
     }
 
     private void SpawnShootingRangeWeapon()
@@ -162,10 +165,12 @@ public class ShootingRange : MonoBehaviour
         {
             result++;
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
-            Destroy(currentTarget);
+            currentTarget.GetComponent<Animator>().SetBool("isDeath", true);
+            Destroy(currentTarget, 0.5f);
         }
         else if (currentTarget != null)
             Destroy(currentTarget);
+
 
         spawnTimer = Time.time + spawnDuration;
         int currentStand;
@@ -174,8 +179,12 @@ public class ShootingRange : MonoBehaviour
             currentStand = UnityEngine.Random.Range(0, targetStands.Length);
             if (currentStand == previousStand)
                 continue;
-
             currentTarget = Instantiate(targetPrefab, targetStands[currentStand].transform);
+            var script = currentTarget.GetComponent<Enemy>();
+            var data = enemySettings[UnityEngine.Random.Range(0, enemySettings.Count)];
+            script.Init(data);
+            currentTarget.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            currentTarget.transform.position += new Vector3(0, 0.5f, 0);
             break;
         }
         previousStand = currentStand;
@@ -187,6 +196,6 @@ public class ShootingRange : MonoBehaviour
         {
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
             timeToHello = Time.time + helloTime;
-        } 
+        }
     }
 }
