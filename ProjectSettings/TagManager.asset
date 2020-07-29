@@ -20,6 +20,7 @@ TagManager:
   - IgnoreAll
   - StandartArrow
   - NPC
+  - Destroyable
   layers:
   - Default
   - TransparentFX

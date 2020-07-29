@@ -42,7 +42,6 @@ public class CharGun : MonoBehaviour
         gameButtons = characterControlUI.GetComponent<GameButtons>();
         gunInfoBar = characterControlUI.Find("GunInfoBar").gameObject;
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
-
         SpawnStartWeapon();
         gunInfoBar.GetComponent<MovementUI>().SetStart();
     }

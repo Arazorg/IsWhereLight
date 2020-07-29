@@ -13,7 +13,7 @@ public class CurrentGameInfo : MonoBehaviour
     public int maxMane;
     public bool wildMode;
     public bool isLobby;
-
+    public int challengeNumber;
     void Awake()
     {       
         if (instance != null)
@@ -51,6 +51,7 @@ public class CurrentGameInfo : MonoBehaviour
             maxMane = currentGameData.maxMane;
             wildMode = currentGameData.wildMode;
             isLobby = currentGameData.isLobby;
+            challengeNumber = currentGameData.challengeNumber;
             return true;
         }
         else

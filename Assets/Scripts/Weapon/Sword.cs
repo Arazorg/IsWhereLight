@@ -20,19 +20,21 @@ public class Sword : MonoBehaviour
     }
 
     public void Hit()
-
     {
         animator.SetBool("Attack", true);
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy in enemies)
         {
-
+            if (enemy.transform.tag == "Destroyable")
+                Destroy(enemy.gameObject);
             var currentAngle = -Mathf.Atan2(enemy.transform.position.x - transform.position.x,
                                          enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
             if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle
                     && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
-                Debug.Log("HIT!");
+            {
                 //enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+            }
+
         }
     }
 

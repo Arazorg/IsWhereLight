@@ -37,6 +37,9 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Текст количества денег")]
     [SerializeField] private TextMeshProUGUI moneyText;
 
+    [Tooltip("Текст описания испытания")]
+    [SerializeField] private TextMeshProUGUI challengeText;
+
     [Tooltip("Префаб персонажа")]
     [SerializeField] private GameObject character;
 
@@ -46,8 +49,14 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Панель маны")]
     [SerializeField] private GameObject maneBar;
 
+    [Tooltip("Кнопка запуска игры")]
+    [SerializeField] private GameObject playButton;
+
     [Tooltip("Загрузочный экран")]
     [SerializeField] private GameObject loadScreen;
+
+    [Tooltip("Панель выбора испытаний")]
+    [SerializeField] private GameObject challengeUI;
 #pragma warning restore 0649
 
     public enum FireActButtonStateEnum
@@ -111,7 +120,7 @@ public class GameButtons : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Game")
         {
             currentGameInfo.SetIsLobbyState(false);
-            SpawnPosition = LevelGeneration.instance.SpawnLevel();
+            SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
         }
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
@@ -245,7 +254,7 @@ public class GameButtons : MonoBehaviour
                 OpenWeaponStore();
                 break;
             case FireActButtonStateEnum.portalToGame:
-                SceneManager.LoadScene("Game");
+                challengeUI.GetComponent<MovementUI>().MoveToEnd();
                 break;
             case FireActButtonStateEnum.tvAds:
                 AdsManager.AdShow();
@@ -254,6 +263,23 @@ public class GameButtons : MonoBehaviour
                 ShootingRange.instance.StartGame();
                 break;
         }
+    }
+    public void ChooseChallenge(int challengeNumber)
+    {
+        currentGameInfo.challengeNumber = challengeNumber;
+        playButton.GetComponent<MovementUI>().MoveToEnd();
+        challengeText.GetComponent<LocalizedText>().key = $@"Challenge{challengeNumber}";
+    }
+
+    public void HideChallengeUI()
+    {
+        challengeUI.GetComponent<MovementUI>().MoveToStart();
+        playButton.GetComponent<MovementUI>().MoveToStart();
+    }
+
+    public void GoToGame()
+    {
+        SceneManager.LoadScene("Game");
     }
 
     public void FireActStateUp()
@@ -338,13 +364,6 @@ public class GameButtons : MonoBehaviour
         weaponStoreUI.SetActive(IsWeaponStoreState);
 
     }
-
-    public void PlusMoney()
-    {
-        charInfo.money += 100;
-        moneyText.text = charInfo.money.ToString();
-    }
-
 
     public void SetWeaponInfo(Weapon weapon)
     {

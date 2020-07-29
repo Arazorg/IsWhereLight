@@ -362,8 +362,29 @@
         },
 
         {
+            "key": "ChallengeText",
+            "value": "Выбери исыптание."
+        },
+
+        {
+            "key": "Challenge0",
+            "value": "Defence"
+        },
+
+        {
+            "key": "Challenge1",
+            "value": "Damage+Defence"
+        },
+
+        {
+            "key": "Challenge2",
+            "value": "Damage"
+        },
+
+        {
             "key": "ShootingRangeInfo",
             "value": "Shooting range! More hits, better rewards!"
         }
+
     ]
 }

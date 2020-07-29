@@ -13,31 +13,33 @@ public class FloorSpawner : MonoBehaviour
 
     [Tooltip("Трансформ поверхностей")]
     [SerializeField] private Transform floorsTransform;
+
+    [Tooltip("Полы")]
+    [SerializeField] private Dictionary<GameObject, Floor> floors;
 #pragma warning restore 0649
+    private Transform floorsTransformLeftTop;
+    private Transform floorsTransformRightBot;
 
-    public static Dictionary<GameObject, Floor> Floors;
-    public float size;
-
-    void Start()
+    public void StartSpawn()
     {
-        Floors = new Dictionary<GameObject, Floor>();
-        StartSpawn(size);
-    }
-
-    void StartSpawn(float size)
-    {
-        for (float x = 0f; x <= size; x++)
+        floors = new Dictionary<GameObject, Floor>();
+        for (float x = floorsTransformLeftTop.position.x + 0.5f; x <= floorsTransformRightBot.position.x; x++)
         {
-            for (float y = 1f; y <= size; y++)
+            for (float y = floorsTransformRightBot.position.y + 0.5f; y <= floorsTransformLeftTop.position.y; y++)
             {
                 var prefab = Instantiate(floorPrefab, floorsTransform);
                 prefab.transform.position = new Vector3(x, y, 0);
                 var script = prefab.GetComponent<Floor>();
                 script.Init(floorSettings[1]);
-                Floors.Add(prefab, script);
+                floors.Add(prefab, script);
             }
         }   
     }
 
+    public void SetCorners(Transform floorsTransformLeftTop, Transform floorsTransformRightBot)
+    {
+        this.floorsTransformLeftTop = floorsTransformLeftTop;
+        this.floorsTransformRightBot = floorsTransformRightBot;
+    }
 
 }

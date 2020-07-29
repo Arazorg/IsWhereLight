@@ -362,6 +362,26 @@
         },
 
         {
+            "key": "ChallengeText",
+            "value": "Choose challenge."
+        },
+
+        {
+            "key": "Challenge0",
+            "value": "Защита"
+        },
+
+        {
+            "key": "Challenge1",
+            "value": "Урон+Защита"
+        },
+
+        {
+            "key": "Challenge2",
+            "value": "Урон"
+        },
+
+        {
             "key": "ShootingRangeInfo",
             "value": "Тир! Больше попаданий лучше награда!"
         }
