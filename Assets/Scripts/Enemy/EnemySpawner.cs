@@ -52,11 +52,11 @@ public class EnemySpawner : MonoBehaviour
             Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
             counter++;
         }
-
-        foreach (var enemy in Enemies)
-        {
-            enemy.Key.SetActive(true);
-        }
+        if(enemyCount != 0)
+            foreach (var enemy in Enemies)
+            {
+                enemy.Key.SetActive(true);
+            }
     }
 
     public void Spawn(string enemyName, int counter)

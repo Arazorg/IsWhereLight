@@ -231,6 +231,7 @@ public class GameButtons : MonoBehaviour
         Time.timeScale = 0f;
         IsGamePausedState = true;
         pause.SetActive(IsGamePausedState);
+        HideChallengeUI();
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
@@ -271,6 +272,7 @@ public class GameButtons : MonoBehaviour
         currentGameInfo.challengeNumber = challengeNumber;
         playButton.GetComponent<MovementUI>().MoveToEnd();
         challengeText.GetComponent<LocalizedText>().key = $@"Challenge{challengeNumber}";
+        challengeText.GetComponent<LocalizedText>().SetLocalization();
     }
 
     public void HideChallengeUI()

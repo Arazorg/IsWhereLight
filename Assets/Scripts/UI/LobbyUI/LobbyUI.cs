@@ -15,6 +15,9 @@ public class LobbyUI : MonoBehaviour
 
     [Tooltip("Кнопка назад в меню")]
     [SerializeField] private Button backToLobbyButton;
+
+    [Tooltip("UI управления персонажем")]
+    [SerializeField] private GameObject characterControlUI;
 #pragma warning restore 0649
 
     private string characterKey;
@@ -25,6 +28,7 @@ public class LobbyUI : MonoBehaviour
         characterKey = "chooseCharacter";
         characterText.key = characterKey;
         characterText.SetLocalization();
+        characterControlUI.SetActive(false);
         ShowLobby();
     }
 

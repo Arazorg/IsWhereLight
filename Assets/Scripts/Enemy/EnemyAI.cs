@@ -78,6 +78,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        UpdatePath();
         if (Time.time > nextAttack && state == State.Attack)
         {
             switch (typeOfAttack)

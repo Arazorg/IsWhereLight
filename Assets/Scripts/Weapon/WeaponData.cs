@@ -33,8 +33,6 @@ public class WeaponData : ScriptableObject
         set { }
     }
 
-    
-
     [Tooltip("Изображение для оружия")]
     [SerializeField] private Sprite mainSprite;
     public Sprite MainSprite

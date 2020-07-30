@@ -119,13 +119,7 @@ public class ShootingRange : MonoBehaviour
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         }
         else
-        {
-            if (Time.time > timeToHello)
-            {
-                PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
-                timeToHello = Time.time + helloTime;
-            }
-        }
+            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
     }
 
     public void StopGame()

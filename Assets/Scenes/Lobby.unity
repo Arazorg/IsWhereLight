@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108189640}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1189,7 +1189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &130887777
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2476,7 +2476,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.8679245, g: 0.12691349, b: 0.5955999, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2709,7 +2709,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2dbdb15d564e5e240947c00e6a60ed7e, type: 2}
   - {fileID: 11400000, guid: 1be9b266847d0104d9ef054d59223dd0, type: 2}
   - {fileID: 11400000, guid: a2e85fe3a3068624eb75def3a726393a, type: 2}
-  targetPrefab: {fileID: 9104978800442184823, guid: 5afb955f4a09f1e429628a4f73bdb6eb,
+  targetPrefab: {fileID: 6886382836396142646, guid: fd228d73e6466a941a3c05679d56cfc8,
     type: 3}
   gameDuration: 20
   spawnDuration: 2
@@ -9839,7 +9839,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.8679245, g: 0.12691349, b: 0.5955999, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10545,7 +10545,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754809642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -15030,6 +15030,7 @@ MonoBehaviour:
   characterText: {fileID: 905601632}
   characterTextUI: {fileID: 905601628}
   backToLobbyButton: {fileID: 1917633803}
+  characterControlUI: {fileID: 130887776}
 --- !u!1 &1340176187
 GameObject:
   m_ObjectHideFlags: 0
@@ -15389,7 +15390,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366609765}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -15661,7 +15662,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 42
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 1
@@ -15731,7 +15732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
-  key: 
+  key: ChallengeDiscover
 --- !u!222 &1396801136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15889,7 +15890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -150, y: 135}
+  m_AnchoredPosition: {x: -135, y: 135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427452220
@@ -15998,8 +15999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHorizontal: 1
   startPos: {x: 800, y: 135, z: 0}
-  endPos: {x: -150, y: 135, z: 0}
-  speed: -50
+  endPos: {x: -145, y: 135, z: 0}
+  speed: -135
   isEnd: 0
   isMove: 0
 --- !u!1 &1455069101
@@ -17440,7 +17441,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.8679245, g: 0.12691349, b: 0.5955999, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1

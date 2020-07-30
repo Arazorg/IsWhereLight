@@ -363,7 +363,12 @@
 
         {
             "key": "ChallengeText",
-            "value": "Выбери исыптание."
+            "value": "Choose challenge"
+        },
+
+        {
+            "key": "ChallengeDiscover",
+            "value": "Сhoose one and dicover!"
         },
 
         {
