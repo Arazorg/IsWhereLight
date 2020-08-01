@@ -14,10 +14,8 @@ GameObject:
   - component: {fileID: 377416804869918701}
   - component: {fileID: 1550759639730279637}
   - component: {fileID: 6240902810967265634}
-  - component: {fileID: 5183240684156849639}
-  - component: {fileID: 3188364778753426908}
-  - component: {fileID: 8734917332191631781}
-  - component: {fileID: -8950749731376209555}
+  - component: {fileID: 3822460670196037874}
+  - component: {fileID: -138611202367848297}
   m_Layer: 9
   m_Name: DistantEnemy
   m_TagString: Untagged
@@ -35,8 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7693650540607568349}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.1, y: 1.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -143,18 +140,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04142797, y: -0.019727588}
+  m_Offset: {x: 0.00054368377, y: -0.017456174}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.44}
-    newSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 1.1, y: 1.1}
+    newSize: {x: 1.1, y: 1.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8723813, y: 1.3759487}
+  m_Size: {x: 0.636161, y: 1.0897586}
   m_EdgeRadius: 0
 --- !u!114 &6240902810967265634
 MonoBehaviour:
@@ -168,10 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd4d2ec5b01623449098f31a209baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  curTarget: {fileID: 0}
-  positionCurTarget: {x: 0, y: 0, z: 0}
---- !u!114 &5183240684156849639
+--- !u!114 &3822460670196037874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,11 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2a9404622d3a643a7475ac1c4963d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
---- !u!114 &3188364778753426908
+--- !u!114 &-138611202367848297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,76 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 916175458000518923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb682e9bc7d442245bf97d2ca419975f, type: 3}
+  m_Script: {fileID: 11500000, guid: 754b2c348dc1ad849b6a176f627cf6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  speed: 5
-  target: {fileID: 0}
-  attackRange: 5
---- !u!114 &8734917332191631781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916175458000518923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0dddba0c5a64d948b916ac73ee40adf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  shootTarget: {fileID: 0}
-  targetTag: Player
---- !u!114 &-8950749731376209555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916175458000518923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce1e63132b342049a28456efd4f1d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6085188218344440058, guid: caf7837b533ff1b4e96c8b03f64b4451,
-    type: 3}
-  spawnPosition: {fileID: 7693650540607568349}
-  currentEnemyBullet: {fileID: 0}
-  currentBulletScript: {fileID: 0}
---- !u!1 &2204833995881853596
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7693650540607568349}
-  m_Layer: 9
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7693650540607568349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204833995881853596}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.609, y: 0.712, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2391472057564977625}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

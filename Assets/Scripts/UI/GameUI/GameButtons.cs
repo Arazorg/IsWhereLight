@@ -277,8 +277,11 @@ public class GameButtons : MonoBehaviour
 
     public void HideChallengeUI()
     {
-        challengeUI.GetComponent<MovementUI>().MoveToStart();
-        playButton.GetComponent<MovementUI>().MoveToStart();
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            challengeUI.GetComponent<MovementUI>().MoveToStart();
+            playButton.GetComponent<MovementUI>().MoveToStart();
+        }
     }
 
     public void GoToGame()

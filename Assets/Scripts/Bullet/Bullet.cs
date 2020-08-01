@@ -73,7 +73,10 @@ public class Bullet : MonoBehaviour
                                 && collider.tag != "NPC")
         {
             if (collider.tag == "Destroyable")
-                Destroy(collider.gameObject);
+            {
+                Destroy(collider.gameObject.transform.parent.gameObject);
+                Destroy(gameObject);
+            }
             else if (gameObject.tag == "StandartBullet")
             {
                 GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);

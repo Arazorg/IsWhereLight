@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Tooltip("Дата врага")]
-    [SerializeField] private EnemyData data;
+    private EnemyData data;
 
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
 
-    void Start()
-    {
-        if (data != null)
-            Init(data);
-    }
     /// <summary>
     /// Initialization of enemy
     /// </summary>
@@ -27,8 +21,13 @@ public class Enemy : MonoBehaviour
         health = Health;
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         gameObject.tag = "Untagged";
+        GetComponent<EnemyAI>().StartAI();
     }
 
+    /// <summary>
+    /// Animator of current enemy
+    /// </summary>
+    /// <param name="data"></param>
     public RuntimeAnimatorController MainAnimator
     {
         get
@@ -137,7 +136,7 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Name of current enemy
+    /// FireRate of current enemy
     /// </summary>
     public float FireRate
     {
@@ -148,22 +147,9 @@ public class Enemy : MonoBehaviour
         protected set { }
     }
 
-    public Transform curTarget;
-    public Vector3 positionCurTarget;
-
     private void Update()
     {
         EnemyHitted();
-    }
-
-    public static Action<GameObject> OnEnemyDeath;
-
-    void Death()
-    {
-        if (data.name == "Punchbag")
-            ShootingRange.instance.Spawn(true);
-        else
-            Destroy(gameObject);
     }
 
     private void EnemyHitted()
@@ -195,9 +181,6 @@ public class Enemy : MonoBehaviour
             var bullet = coll.gameObject.GetComponent<Bullet>();
             GetDamage(bullet.Damage, bullet.CritChance);
         }
-
-        if (health <= 0)
-            Death();
     }
 
     public void GetDamage(int damage, float critChance)
@@ -208,11 +191,18 @@ public class Enemy : MonoBehaviour
             damage *= 2;
         health -= damage;
         PopupText.Create(transform.position, false, isCriticalHit, damage);
+        if (health <= 0)
+        {
+            if (data.name == "Punchbag")
+                ShootingRange.instance.Spawn(true);
+            else
+                Destroy(gameObject);
+        }           
     }
 
     void OnBecameVisible()
     {
-        if (data.EnemyName != "Punchbag")
+        if (!data.EnemyName.Contains("Target"))
             gameObject.tag = "Enemy";
     }
 

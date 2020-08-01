@@ -146,8 +146,8 @@ public class Character : MonoBehaviour, IPointerDownHandler
         if (coll.gameObject.tag == "Player")
         {
             if (Time.time > timeToHello &&
-                 timeToPhrase + (Time.time - timeToPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
-                    timeToShootPhrase + (Time.time - timeToShootPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
+                 (Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
+                    Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
             {
                 PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
                 timeToHello = Time.time + helloTime;
@@ -158,10 +158,10 @@ public class Character : MonoBehaviour, IPointerDownHandler
             else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
                 Flip();
         }
-        else if (Time.time > timeToShootPhrase && 
-                     (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow") && 
-                            (helloTime + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
-                                    timeToPhrase + (Time.time - timeToPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
+        else if (Time.time > timeToShootPhrase &&
+                    (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow") &&
+                            (Time.time + helloTime - timeToHello > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
+                                    Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
         {
             PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
             timeToShootPhrase = Time.time + shootPhraseTime;
@@ -171,8 +171,8 @@ public class Character : MonoBehaviour, IPointerDownHandler
     public void ShowPhrase()
     {
         if (Time.time > timeToPhrase &&
-                (helloTime + (Time.time - timeToHello)) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE &&
-                    timeToShootPhrase + (Time.time - timeToShootPhrase) > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE)
+                (Time.time + helloTime - timeToHello > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
+                    Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
         {
             int phrase = Random.Range(0, NPC_Phrases.Count);
             while (phrase == lastPhrase)

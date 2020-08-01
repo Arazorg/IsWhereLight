@@ -25,17 +25,31 @@ public class Sword : MonoBehaviour
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy in enemies)
         {
-            if (enemy.transform.tag == "Destroyable")
-                Destroy(enemy.gameObject);
             var currentAngle = -Mathf.Atan2(enemy.transform.position.x - transform.position.x,
                                          enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
-            if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle
-                    && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
+            if (currentAngle > 0)
             {
-                //enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle
+                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
+                {
+                    if (enemy.transform.tag == "Destroyable")
+                        Destroy(enemy.gameObject.transform.parent.gameObject);
+                    else
+                        enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                }
             }
+            else
+            {
+                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle - 360
+                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle - 360)
+                {
+                    if (enemy.transform.tag == "Destroyable")
+                        Destroy(enemy.gameObject.transform.parent.gameObject);
+                    else if (enemy.transform.tag == "Enemy")
+                        enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                }
 
+            }
         }
     }
-
 }

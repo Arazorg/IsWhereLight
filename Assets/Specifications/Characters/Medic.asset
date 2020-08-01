@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Medic
   maxHealth: 6
   maxMane: 250
-  startWeapon: BigSword
+  startWeapon: Cleaver
   price: 2500

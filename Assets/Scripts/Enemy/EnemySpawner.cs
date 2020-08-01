@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -14,29 +15,42 @@ public class EnemySpawner : MonoBehaviour
 
     [Tooltip("Ссылка на префабы врагов")]
     [SerializeField] private GameObject[] enemiesPrefabs;
+
+    [Tooltip("Отсчет до спауна")]
+    [SerializeField] private GameObject spawnTimer;
+    [Tooltip("Текст отсчета до спауна")]
+    [SerializeField] private TextMeshProUGUI spawnTimerText;
 #pragma warning restore 0649
 
     private GameObject enemyPrefab;
-
-
-    /// <summary>
-    /// Словарь для скриптов
-    /// </summary>
-    public static Dictionary<GameObject, Enemy> Enemies;
-    private float nextSpawn = 24f;
+    private float nextSpawn;
     private readonly float spawnRate = 24f;
+    private int counter;
+    private int textTimer;
 
-    int counter;
-
-    private void Start()
+    private List<Vector3> spawnPoints = new List<Vector3>();
+    public List<Vector3> SpawnPoints
     {
-        counter = 0;
-        Enemies = new Dictionary<GameObject, Enemy>();
-        SpawnFlock();
-        Enemy.OnEnemyDeath += DestroyEnemy;
+        get { return spawnPoints; }
+        set 
+        {
+            if (value.Count != 0)
+                spawnPoints = value;
+            else
+                spawnPoints.Add(Vector3.zero);
+            textTimer = 5;
+            spawnTimer.GetComponent<MovementUI>().MoveToEnd();
+            InvokeRepeating("OutputTime", 1f, 1f);
+            
+        }
     }
 
-    private void Update()
+    void Start()
+    {
+        nextSpawn = Time.time + 5f;
+    }
+
+    void Update()
     {
         if (Time.time > nextSpawn)
         {
@@ -47,16 +61,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnFlock()
     {
+        CancelInvoke("OutputTime");
+        spawnTimer.GetComponent<MovementUI>().MoveToStart();
         for (int i = 0; i < enemyCount; i++)
         {
             Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
             counter++;
         }
-        if(enemyCount != 0)
-            foreach (var enemy in Enemies)
-            {
-                enemy.Key.SetActive(true);
-            }
     }
 
     public void Spawn(string enemyName, int counter)
@@ -74,27 +85,20 @@ public class EnemySpawner : MonoBehaviour
                         enemyPrefab = enemiesPrefabs[1];
                         break;
                 }
-                var prefab = Instantiate(enemyPrefab, new Vector3(Random.Range(10, 25), Random.Range(10, 25), 0), new Quaternion(0, 0, 0, 0));
+                var prefab = Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)], new Quaternion(0, 0, 0, 0));
                 var script = prefab.GetComponent<Enemy>();
                 prefab.name = "Enemy " + counter;
-                prefab.SetActive(false);
+                prefab.SetActive(true);
                 script.Init(data);
                 prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
                 //prefab.GetComponent<EnemyBulletSpawner>().SetBullet(script.dataOfBullet);
-                Enemies.Add(prefab, script);
             }
         }
     }
 
-    /// <summary>
-    /// Удаление врага и генерация нового
-    /// </summary>
-    /// <param name="enemy"></param>
-    private void DestroyEnemy(GameObject enemy)
+    private void OutputTime()
     {
-        Debug.Log("Death");
-        Destroy(enemy);
-        Enemies.Remove(enemy);
-        //Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName);
+        textTimer--;
+        spawnTimerText.text = textTimer.ToString();
     }
 }

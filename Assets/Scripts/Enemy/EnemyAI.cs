@@ -1,115 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum State
-    {
-        ChaseTarget,
-        Attack
-    }
-    public State state;
-
-    [SerializeField] private LayerMask enemyLayer;
-
     private Transform targetTransform;
     private GameObject character;
-
-    Enemy enemy;
-    EnemyPathfindingMovement enemyPathfindingMovement;
-    EnemyMeleeAttack enemyMeleeAttack;
-    EnemyDistantAttack enemyDistantAttack;
-
-    private float speed;
-    private string targetTag;
-    private float fireRate;
-    private EnemyData.AttackType typeOfAttack;
-    private float attackRange;
-
-    private float nextAttack;
-
-    void Awake()
+    private Enemy enemy;
+    public void StartAI()
     {
-        enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
-        enemyDistantAttack = GetComponent<EnemyDistantAttack>();
-        enemyPathfindingMovement = GetComponent<EnemyPathfindingMovement>();
         enemy = GetComponent<Enemy>();
-
         character = GameObject.Find("Character(Clone)");
+        GetTarget(enemy.Target);
     }
 
-    void Start()
+    private void GetTarget(string targetTag = "")
     {
-        targetTag = enemy.Target;
-        speed = enemy.Speed;
-        fireRate = enemy.FireRate;
-        typeOfAttack = enemy.TypeOfAttack;
-        attackRange = enemy.AttackRange;
-
-        enemyPathfindingMovement.attackRange = attackRange;
-        enemyPathfindingMovement.speed = speed;
-
-        nextAttack = 0.0f;
-        state = State.ChaseTarget;
-
-        InvokeRepeating("UpdatePath", 0f, .5f);
-    }
-
-    void UpdatePath()
-    {
-        GetTarget(targetTag);
-
-        enemyPathfindingMovement.SetTargetPosition(targetTransform.position);
-        enemyPathfindingMovement.target = targetTransform.gameObject;
-
-        if (typeOfAttack == EnemyData.AttackType.Distant)
-        {
-            enemyDistantAttack.targetTag = targetTag;
-            enemyDistantAttack.shootTarget = targetTransform;
-        }
-        else if (typeOfAttack == EnemyData.AttackType.Melee)
-        {
-            enemyMeleeAttack.targetTag = targetTag;
-            enemyMeleeAttack.hitTarget = targetTransform;
-        }
-    }
-
-    void Update()
-    {
-        UpdatePath();
-        if (Time.time > nextAttack && state == State.Attack)
-        {
-            switch (typeOfAttack)
-            {
-                case EnemyData.AttackType.Melee:
-                    enemyMeleeAttack.Attack();
-                    nextAttack = Time.time + fireRate;
-                    break;
-                case EnemyData.AttackType.Distant:
-                    enemyDistantAttack.Attack();
-                    nextAttack = Time.time + fireRate;
-                    break;
-            }
-        }
-    }
-
-    public void SetState(State state)
-    {
-        this.state = state;
-    }
-
-    private void GetTarget(string targetTag)
-    {
-        if (targetTag == "Player")
-        {
-            targetTransform = character.transform;
-        }
-        else if (targetTag == "Building")
-        {
+        targetTransform = character.transform;
+        if (targetTag == "Building")
             targetTransform = GetNearestBuilding();
-        }
+        GetComponent<EnemyMovement>().SetCurrentTarget(targetTransform);
     }
 
     private Transform GetNearestBuilding()

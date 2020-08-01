@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
-  m_Name: Sword
+  m_Name: Cleaver
   m_EditorClassIdentifier: 
-  weaponName: Sword
-  mainAnimator: {fileID: 9100000, guid: ac469b9f316b7e844a4e0aca230c51a2, type: 2}
-  mainSprite: {fileID: -1525763588066094277, guid: f7decd2c68377344f91904b4ae362c74,
+  weaponName: Cleaver
+  mainAnimator: {fileID: 9100000, guid: 1e5bee928b66dbf4c83bce7c308e1372, type: 2}
+  mainSprite: {fileID: 7398207742363704338, guid: e7280e6bc449f974a8cdb43cf4b0422d,
     type: 3}
   typeOfAttack: 1
-  offset: {x: -0.1, y: -0.25}
+  offset: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
-  attackAngle: 60
-  radius: 1.5
-  fireRate: 0.45
-  damage: 6
-  critChance: 10
+  attackAngle: 50
+  radius: 3.2
+  fireRate: 1.2
+  damage: 14
+  critChance: 25
   currentBullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}
   manecost: 0
