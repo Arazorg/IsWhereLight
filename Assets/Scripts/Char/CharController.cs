@@ -51,7 +51,7 @@ public class CharController : MonoBehaviour
         joystick = GameObject.Find("Dynamic Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-        if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+        if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow) //ОШИБКА
             isRotate = false;
 
         m_FacingRight = true;
