@@ -78,6 +78,14 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public float Knoking
+    {
+        get
+        {
+            return data.Knoking;
+        }
+    }
+
     public float AttackAngle
     {
         get

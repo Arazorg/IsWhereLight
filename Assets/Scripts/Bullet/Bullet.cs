@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
 
     public int Damage { get; set; }
     public float CritChance { get; set; }
-
+    public float Knoking { get; set; }
 
     /// <summary>
     /// Speed of current bullet

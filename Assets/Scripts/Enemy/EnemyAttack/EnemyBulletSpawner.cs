@@ -19,9 +19,12 @@ public class EnemyBulletSpawner : MonoBehaviour
     public void Spawn()
     {
         currentEnemyBullet = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
-        currentEnemyBullet.transform.tag = "EnemyBullet";
+        //currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
+        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
+        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         currentEnemyBullet.SetActive(true);
         Destroy(currentEnemyBullet, 5);
     }
@@ -31,10 +34,12 @@ public class EnemyBulletSpawner : MonoBehaviour
         spawnPosition = transform.GetChild(0);
         bulletData = _bulletData;
         currentEnemyBullet = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
-        currentEnemyBullet.transform.tag = "EnemyBullet";
+        //currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
-        currentBulletScript.Damage = GetComponent<Enemy>().Damage;
+        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
+        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         Destroy(currentEnemyBullet);
     }
 }

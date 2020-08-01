@@ -111,6 +111,17 @@ public class WeaponData : ScriptableObject
         set { }
     }
 
+    [Tooltip("Отбрасывание оружия")]
+    [SerializeField] private float knoking;
+    public float Knoking
+    {
+        get
+        {
+            return knoking;
+        }
+        set { }
+    }
+
     [Tooltip("Частота выстрелов оружия")]
     [SerializeField] private float fireRate;
     public float FireRate

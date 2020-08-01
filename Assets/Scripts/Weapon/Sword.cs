@@ -25,6 +25,7 @@ public class Sword : MonoBehaviour
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy in enemies)
         {
+            var enemyScript = enemy.GetComponent<Enemy>();
             var currentAngle = -Mathf.Atan2(enemy.transform.position.x - transform.position.x,
                                          enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
             if (currentAngle > 0)
@@ -34,8 +35,11 @@ public class Sword : MonoBehaviour
                 {
                     if (enemy.transform.tag == "Destroyable")
                         Destroy(enemy.gameObject.transform.parent.gameObject);
-                    else
-                        enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                    else if (enemy.transform.tag == "Enemy")
+                    {
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                        enemyScript.Knoking(transform.position, 0.25f);
+                    }
                 }
             }
             else
@@ -46,9 +50,12 @@ public class Sword : MonoBehaviour
                     if (enemy.transform.tag == "Destroyable")
                         Destroy(enemy.gameObject.transform.parent.gameObject);
                     else if (enemy.transform.tag == "Enemy")
-                        enemy.GetComponent<Enemy>().GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                    {
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
+                        enemyScript.Knoking(transform.position, 0.25f);
+                    }
+                        
                 }
-
             }
         }
     }

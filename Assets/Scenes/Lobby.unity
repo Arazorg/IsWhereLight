@@ -2770,7 +2770,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423331300}
-  - component: {fileID: 423331299}
   - component: {fileID: 423331301}
   m_Layer: 0
   m_Name: LobbyHandler
@@ -2779,19 +2778,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &423331299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423331298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e31d3a65634ef4ebf177a0bd133f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TV: {fileID: 1891032878}
 --- !u!4 &423331300
 Transform:
   m_ObjectHideFlags: 0

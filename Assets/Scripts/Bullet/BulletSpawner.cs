@@ -28,6 +28,7 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.Init(spawnBulletData);
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         currentWeaponBullet.SetActive(true);
         Destroy(currentWeaponBullet, 5);
     }
@@ -43,8 +44,9 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.Init(spawnBulletData);
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
 
-        if(GetComponent<Gun>() != null)
+        if (GetComponent<Gun>() != null)
             GetComponent<Gun>().SetBulletInfo(currentBulletScript);
         else if(GetComponent<Bow>() != null)
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);

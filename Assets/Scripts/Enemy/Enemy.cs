@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour
         health = Health;
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         gameObject.tag = "Untagged";
-        GetComponent<EnemyAI>().StartAI();
+        if (!data.EnemyName.Contains("Target"))
+            GetComponent<EnemyAI>().StartAI();
     }
 
     /// <summary>
@@ -179,13 +180,19 @@ public class Enemy : MonoBehaviour
         if (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow")
         {
             var bullet = coll.gameObject.GetComponent<Bullet>();
-            GetDamage(bullet.Damage, bullet.CritChance);
+            Knoking(coll.transform.position, bullet.Knoking);
+            GetDamage(bullet.Damage, bullet.CritChance);           
         }
     }
+    public void Knoking(Vector3 objectPosition, float weaponKnoking)
+    {
+        transform.position += (transform.position -objectPosition).normalized * weaponKnoking;
+    }
 
-    public void GetDamage(int damage, float critChance)
+    public void GetDamage(int damage, float critChance, float knoking = 0f)
     {
         isEnemyHitted = true;
+        
         bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
         if (isCriticalHit)
             damage *= 2;
