@@ -18,6 +18,8 @@ public class EnemyAI : MonoBehaviour
         if (targetTag == "Building")
             targetTransform = GetNearestBuilding();
         GetComponent<EnemyMovement>().SetCurrentTarget(targetTransform);
+        if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
+            GetComponent<EnemyDistantAttack>().SetTarget(targetTransform);
     }
 
     private Transform GetNearestBuilding()

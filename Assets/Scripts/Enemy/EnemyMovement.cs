@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private bool m_FacingRight;
-    private Transform currentTarget;
+    private Transform currentTarget ;
 
     void Start()
     {
@@ -17,7 +17,8 @@ public class EnemyMovement : MonoBehaviour
         if (currentTarget != null)
         {
             if (currentTarget.position.x - transform.position.x > 0 && !m_FacingRight)
-                Flip();
+                Flip(); 
+
             else if (currentTarget.position.x - transform.position.x < 0 && m_FacingRight)
                 Flip();
         }

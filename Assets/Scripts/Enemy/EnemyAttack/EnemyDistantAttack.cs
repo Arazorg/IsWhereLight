@@ -5,36 +5,36 @@ using UnityEngine;
 public class EnemyDistantAttack : MonoBehaviour
 {
     private EnemyBulletSpawner enemyBulletSpawner;
-
-    CharInfo charInfo;
-    private Animator animator;
-
-    private float attackRange;
-    [Tooltip("Player's layer")]
-    [SerializeField] private LayerMask playerLayers;
-
-    private int damage;
+    private Transform shootTarget;
+    private string targetTag;
+    private float fireRate;
     private float bulletSpeed;
     private float bulletScatterAngle;
-
-    public Transform shootTarget;
-    public string targetTag;
+    private float timeToFire;
 
     void Start()
     {
-        transform.GetChild(0).position = transform.position;
-        animator = GetComponent<Animator>();
         enemyBulletSpawner = GetComponent<EnemyBulletSpawner>();
 
         var enemy = GetComponent<Enemy>();
-        damage = enemy.Damage;
-        attackRange = enemy.AttackRange;
+        fireRate = enemy.FireRate;
+        targetTag = enemy.Target;
 
         var bulletData = enemy.DataOfBullet;
         bulletSpeed = bulletData.Speed;
         bulletScatterAngle = bulletData.Scatter;
         enemyBulletSpawner.SetBullet(bulletData);
+        timeToFire = 0f;
 
+    }
+
+    void Update()
+    {
+        if(Time.time > timeToFire)
+        {
+            Attack();
+            timeToFire += fireRate;
+        }
     }
 
     public void Attack()
@@ -70,6 +70,11 @@ public class EnemyDistantAttack : MonoBehaviour
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = enemyBulletSpawner.currentEnemyBullet.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized * bulletSpeed, ForceMode2D.Impulse);
+    }
+
+    public void SetTarget(Transform shootTarget)
+    {
+        this.shootTarget = shootTarget;
     }
 }
 

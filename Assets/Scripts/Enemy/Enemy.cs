@@ -184,6 +184,7 @@ public class Enemy : MonoBehaviour
             GetDamage(bullet.Damage, bullet.CritChance);           
         }
     }
+
     public void Knoking(Vector3 objectPosition, float weaponKnoking)
     {
         transform.position += (transform.position -objectPosition).normalized * weaponKnoking;

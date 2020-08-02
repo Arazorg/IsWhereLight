@@ -22,24 +22,23 @@ public class EnemyBulletSpawner : MonoBehaviour
         //currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
-        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
-        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
-        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
+        currentBulletScript.Damage = GetComponent<Enemy>().Damage;
+        //currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        //currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         currentEnemyBullet.SetActive(true);
         Destroy(currentEnemyBullet, 5);
     }
 
     public void SetBullet(BulletData _bulletData)
     {
-        spawnPosition = transform.GetChild(0);
         bulletData = _bulletData;
         currentEnemyBullet = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
         //currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
-        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
-        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
-        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
+        currentBulletScript.Damage = GetComponent<Enemy>().Damage;
+        //currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        //currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         Destroy(currentEnemyBullet);
     }
 }

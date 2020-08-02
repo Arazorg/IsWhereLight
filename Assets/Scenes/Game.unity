@@ -5469,6 +5469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySettings:
   - {fileID: 11400000, guid: 60e6ff4eddc99444a92393c4b4cab2ae, type: 2}
+  - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
+  - {fileID: 11400000, guid: d50c4d8d3b4c32a4caaf7972e907522d, type: 2}
   enemyCount: 5
   enemiesPrefabs:
   - {fileID: 916175458000518923, guid: df978e6e9fd8430478128d2695cce7d2, type: 3}

@@ -19,6 +19,6 @@ MonoBehaviour:
   damage: 2
   attackRange: 1
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
-  target: Building
+  target: Player
   enemyName: Duck
   fireRate: 1
