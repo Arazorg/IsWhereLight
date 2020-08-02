@@ -5468,9 +5468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySettings:
-  - {fileID: 11400000, guid: 60e6ff4eddc99444a92393c4b4cab2ae, type: 2}
-  - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
-  - {fileID: 11400000, guid: d50c4d8d3b4c32a4caaf7972e907522d, type: 2}
+  - {fileID: 11400000, guid: 152e4a425462cca4e948e8500ba984dd, type: 2}
+  - {fileID: 11400000, guid: b9f12ff922d910841b7af59225384532, type: 2}
+  - {fileID: 11400000, guid: 6c0e89ca546a43345a97dd70324a97e5, type: 2}
   enemyCount: 5
   enemiesPrefabs:
   - {fileID: 916175458000518923, guid: df978e6e9fd8430478128d2695cce7d2, type: 3}

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 3b4b4ff5c98dc0d44a24d0303e3b64b2
+guid: 834dd0ba6652531418a351234b86ba0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5958191599848359681
-    second: FloorLobbySprites_0
+      213: 382314115798480468
+    second: CastleWallsSprite_0
   - first:
-      213: 3109894158409550230
-    second: FloorLobbySprites_1
+      213: 6631558764524066474
+    second: CastleWallsSprite_1
+  - first:
+      213: -8300876607517189985
+    second: CastleWallsSprite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 180
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,43 +120,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FloorLobbySprites_0
+      name: CastleWallsSprite_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 341
-        width: 310
-        height: 310
+        x: 21
+        y: 7
+        width: 72
+        height: 455
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 7, z: 10, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff8725bce40405da0800000000000000
-      internalID: -5958191599848359681
+      spriteID: 45639c8a9a04e4500800000000000000
+      internalID: 382314115798480468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FloorLobbySprites_1
+      name: CastleWallsSprite_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 12
-        width: 310
-        height: 310
+        x: 112
+        y: 7
+        width: 72
+        height: 455
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 7, z: 8, w: 13}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69940199240982b20800000000000000
-      internalID: 3109894158409550230
+      spriteID: aa6d5929f87080c50800000000000000
+      internalID: 6631558764524066474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallsSprite_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 8
+        width: 72
+        height: 455
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 394, z: 8, w: 13}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98969494bc5dcc80800000000000000
+      internalID: -8300876607517189985
       vertices: []
       indices: 
       edges: []
