@@ -24,9 +24,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [Tooltip("Время нового привествия НПС")]
     [SerializeField] private float phraseTime = 3f;
 
-    [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float helloTime = 60f;
-
     [Tooltip("Время фразы НПС о выстреле")]
     [SerializeField] private float shootPhraseTime = 2f;
 
@@ -38,10 +35,11 @@ public class Character : MonoBehaviour, IPointerDownHandler
 #pragma warning restore 0649
 
     public GameObject playerCharacter;
-    private float timeToHello = 0;
+    private float helloTime;
     private float timeToPhrase = 0;
     private float timeToShootPhrase = 0;
     private int lastPhrase = -1;
+    private bool isHello = false;
     private bool m_FacingRight;
 
     void Start()
@@ -147,12 +145,13 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (coll.gameObject.tag == "Player")
         {
-            if (Time.time > timeToHello &&
+            if (!isHello &&
                  (Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
                     Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
             {
                 PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
-                timeToHello = Time.time + helloTime;
+                isHello = true;
+                helloTime = Time.time;
             }
 
             if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
@@ -162,7 +161,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
         }
         else if (Time.time > timeToShootPhrase &&
                     (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow") &&
-                            (Time.time + helloTime - timeToHello > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
+                            (Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
                                     Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
         {
             PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
@@ -173,7 +172,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     public void ShowPhrase()
     {
         if (Time.time > timeToPhrase &&
-                (Time.time + helloTime - timeToHello > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
+                (Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
                     Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
         {
             int phrase = Random.Range(0, NPC_Phrases.Count);

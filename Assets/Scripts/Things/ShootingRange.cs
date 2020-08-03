@@ -39,27 +39,28 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("Текст таймера тира")]
     [SerializeField] private TextMeshProUGUI shootingRangeTimerText;
 
-    [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float helloTime = 60f;
-
     [Tooltip("Время нового предупреждения НПС")]
     [SerializeField] private float giveWeaponTime = 2f;
 #pragma warning restore 0649
-
-    private float gameTimer;
-    private float spawnTimer;
-    private int textTimer = 0;
-    private GameObject currentTarget;
-    private bool isGame;
-    private float startSpeed;
-    private int startMane;
     private GameObject player;
     private CharInfo charInfo;
     private CharGun charGun;
+    private GameObject currentTarget;
+
+    private float gameTimer;
+    private float spawnTimer;
+    private float startSpeed;
+    private float helloTime;
+    private float timeToGiveWeapon = 0;
+
+    private int textTimer = 0;
+    private int startMane;
     private int result;
     private int previousStand = -1;
-    private float timeToHello = 0;
-    private float timeToGiveWeapon = 0;
+
+    private bool isGame;
+    private bool isHello = false;
+      
     private void Awake()
     {
         if (instance != null)
@@ -83,9 +84,7 @@ public class ShootingRange : MonoBehaviour
         if ((Time.time > gameTimer || charInfo.mane == 0) && isGame)
             StopGame();
         if (isGame && Time.time > spawnTimer)
-        {
             Spawn();
-        }
     }
 
     public void StartGame()
@@ -123,7 +122,7 @@ public class ShootingRange : MonoBehaviour
         }
         else
         {
-            if (Time.time > timeToGiveWeapon && Time.time + helloTime - timeToHello > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
+            if (Time.time > timeToGiveWeapon && Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
             {
                 PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
                 timeToGiveWeapon = Time.time + giveWeaponTime;
@@ -207,10 +206,11 @@ public class ShootingRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (Time.time > timeToHello && Time.time + giveWeaponTime - timeToGiveWeapon > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
+        if (!isHello && Time.time + giveWeaponTime - timeToGiveWeapon > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
         {
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
-            timeToHello = Time.time + helloTime;
+            helloTime = Time.time;
+            isHello = true;
         }
     }
 
@@ -228,7 +228,6 @@ public class ShootingRange : MonoBehaviour
                 stand.GetComponent<Collider2D>().isTrigger = false;
                 stand.transform.tag = "Untagged";
             }
-            
         }
     }
 }

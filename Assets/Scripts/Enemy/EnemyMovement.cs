@@ -14,13 +14,16 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (currentTarget != null)
+        if(!GetComponent<Enemy>().isDeath)
         {
-            if (currentTarget.position.x - transform.position.x > 0 && !m_FacingRight)
-                Flip(); 
+            if (currentTarget != null)
+            {
+                if (currentTarget.position.x - transform.position.x > 0 && !m_FacingRight)
+                    Flip();
 
-            else if (currentTarget.position.x - transform.position.x < 0 && m_FacingRight)
-                Flip();
+                else if (currentTarget.position.x - transform.position.x < 0 && m_FacingRight)
+                    Flip();
+            }
         }
     }
 

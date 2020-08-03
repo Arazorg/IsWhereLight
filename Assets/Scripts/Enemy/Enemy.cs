@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
+    public bool isDeath = false;
 
     /// <summary>
     /// Initialization of enemy
@@ -155,21 +156,24 @@ public class Enemy : MonoBehaviour
 
     private void EnemyHitted()
     {
-        if (isEnemyHitted)
+        if (!isDeath)
         {
-            if (isEnterFirst)
+            if (isEnemyHitted)
             {
-                GetComponent<SpriteRenderer>().color = Color.red;
-                timeToOff = Time.time + 0.05f;
-                isEnterFirst = false;
-            }
-            else
-            {
-                if (Time.time > timeToOff)
+                if (isEnterFirst)
                 {
-                    GetComponent<SpriteRenderer>().color = Color.white;
-                    isEnemyHitted = false;
-                    isEnterFirst = true;
+                    GetComponent<SpriteRenderer>().color = Color.red;
+                    timeToOff = Time.time + 0.05f;
+                    isEnterFirst = false;
+                }
+                else
+                {
+                    if (Time.time > timeToOff)
+                    {
+                        GetComponent<SpriteRenderer>().color = Color.white;
+                        isEnemyHitted = false;
+                        isEnterFirst = true;
+                    }
                 }
             }
         }
@@ -177,45 +181,68 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow")
+        if (!isDeath)
         {
-            var bullet = coll.gameObject.GetComponent<Bullet>();
-            Knoking(coll.transform.position, bullet.Knoking);
-            GetDamage(bullet.Damage, bullet.CritChance);           
+            if (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow")
+            {
+                var bullet = coll.gameObject.GetComponent<Bullet>();
+                Knoking(coll.transform.position, bullet.Knoking);
+                GetDamage(bullet.Damage, bullet.CritChance);
+            }
         }
     }
 
     public void Knoking(Vector3 objectPosition, float weaponKnoking)
     {
-        transform.position += (transform.position -objectPosition).normalized * weaponKnoking;
+        if (!isDeath)
+        {
+            transform.position += (transform.position - objectPosition).normalized * weaponKnoking;
+        }
     }
 
     public void GetDamage(int damage, float critChance, float knoking = 0f)
     {
-        isEnemyHitted = true;
-        
-        bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
-        if (isCriticalHit)
-            damage *= 2;
-        health -= damage;
-        PopupText.Create(transform.position, false, isCriticalHit, damage);
-        if (health <= 0)
+        if(!isDeath)
         {
-            if (data.EnemyName.Contains("Target"))
-                ShootingRange.instance.Spawn(true);
-            else
-                Destroy(gameObject);
-        }           
+            isEnemyHitted = true;
+
+            bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
+            if (isCriticalHit)
+                damage *= 2;
+            health -= damage;
+            PopupText.Create(transform.position, false, isCriticalHit, damage);
+            if (health <= 0)
+            {
+                if (data.EnemyName.Contains("Target"))
+                    ShootingRange.instance.Spawn(true);
+                else
+                {
+                    GetComponent<Animator>().Play("Death");
+                    isDeath = true;
+                    ColorUtility.TryParseHtmlString("#808080", out Color color);
+                    gameObject.tag = "Untagged";
+                    GetComponent<SpriteRenderer>().color = color;
+                    Destroy(gameObject, 10f);
+                }
+
+            }
+        }        
     }
 
     void OnBecameVisible()
     {
-        if (!data.EnemyName.Contains("Target"))
-            gameObject.tag = "Enemy";
+        if (!isDeath)
+        {
+            if (!data.EnemyName.Contains("Target"))
+                gameObject.tag = "Enemy";
+        }
     }
 
     void OnBecameInvisible()
     {
-        gameObject.tag = "Untagged";
+        if (!isDeath)
+        {
+            gameObject.tag = "Untagged";
+        }
     }
 }

@@ -28,7 +28,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > timeToFire)
+        if(Time.time > timeToFire && !GetComponent<Enemy>().isDeath)
         {
             Attack();
             timeToFire = Time.time + fireRate;
@@ -68,7 +68,7 @@ public class EnemyDistantAttack : MonoBehaviour
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = enemyBulletSpawner.currentEnemyBullet.GetComponent<Rigidbody2D>();
         Vector3 bulletRotate = dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized;
-        enemyBulletSpawner.currentEnemyBullet.transform.rotation = new Quaternion(bulletRotate.x, bulletRotate.y, bulletRotate.z, 0);
+        enemyBulletSpawner.currentEnemyBullet.transform.rotation = Quaternion.Euler(bulletRotate.x, bulletRotate.y, bulletRotate.z);
         rb.AddForce(dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized * bulletSpeed, ForceMode2D.Impulse);
     }
 
