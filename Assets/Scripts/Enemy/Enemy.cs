@@ -220,7 +220,7 @@ public class Enemy : MonoBehaviour
                     GetComponent<Animator>().Play("Death");
                     isDeath = true;
                     ColorUtility.TryParseHtmlString("#808080", out Color color);
-                    gameObject.tag = "Untagged";
+                    gameObject.tag = "IgnoreAll";
                     GetComponent<SpriteRenderer>().color = color;
                     Destroy(gameObject, 10f);
                 }

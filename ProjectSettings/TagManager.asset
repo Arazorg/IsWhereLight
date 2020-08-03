@@ -9,18 +9,16 @@ TagManager:
   - Gun
   - StandartBullet
   - Text
-  - WeaponStore
   - Floor
   - Building
-  - EnemyMeleeAttack
   - EnemyBullet
   - InfoBar
-  - Door
   - GunKeep
   - IgnoreAll
   - StandartArrow
   - NPC
   - Destroyable
+  - BlockAll
   layers:
   - Default
   - TransparentFX

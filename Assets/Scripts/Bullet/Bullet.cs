@@ -64,9 +64,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag != "Player" 
-            && collider.tag != "GunKeep" 
-                && collider.tag != "StandartBullet" 
+        if (collider.tag != "GunKeep"
+                && collider.tag != "StandartBullet"
                     && collider.tag != "StandartArrow"
                         && collider.tag != "EnemyBullet"
                             && collider.tag != "IgnoreAll"
@@ -77,13 +76,15 @@ public class Bullet : MonoBehaviour
                 Destroy(collider.gameObject.transform.parent.gameObject);
                 Destroy(gameObject);
             }
-            else if (gameObject.tag == "StandartBullet" || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
+            else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player") || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
             {
+                Debug.Log(collider.tag);
+
                 GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
                 Destroy(gameObject);
             }
-            else if(gameObject.tag == "StandartArrow")
+            else if (gameObject.tag == "StandartArrow" && collider.tag != "Player")
             {
                 var arrow = Instantiate(gameObject, transform.position, transform.rotation);
                 arrow.tag = "IgnoreAll";
