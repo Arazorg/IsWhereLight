@@ -201,7 +201,7 @@ public class Enemy : MonoBehaviour
         PopupText.Create(transform.position, false, isCriticalHit, damage);
         if (health <= 0)
         {
-            if (data.name == "Punchbag")
+            if (data.EnemyName.Contains("Target"))
                 ShootingRange.instance.Spawn(true);
             else
                 Destroy(gameObject);

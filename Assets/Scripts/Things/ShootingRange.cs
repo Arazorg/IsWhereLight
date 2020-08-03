@@ -172,7 +172,16 @@ public class ShootingRange : MonoBehaviour
             result++;
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
             currentTarget.GetComponent<Animator>().SetBool("isDeath", true);
-            Destroy(currentTarget, 0.5f);
+            AnimationClip[] clips = currentTarget.GetComponent<Animator>().runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                switch (clip.name)
+                {
+                    case "Death":
+                        Destroy(currentTarget, clip.length);
+                        break;
+                }
+            }       
         }
         else if (currentTarget != null)
             Destroy(currentTarget);

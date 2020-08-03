@@ -20,5 +20,5 @@ MonoBehaviour:
   attackRange: 0
   dataOfBullet: {fileID: 0}
   target: 
-  enemyName: Pumpkin
+  enemyName: PumpkinTarget
   fireRate: 0

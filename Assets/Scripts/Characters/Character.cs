@@ -32,14 +32,16 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     [Tooltip("Лист фраз NPC")]
     [SerializeField] private List<string> NPC_Phrases;
+
+    [Tooltip("Размер камеры при выбранном персонаже")]
+    [SerializeField] private float cameraSizeCharacter;
+#pragma warning restore 0649
+
+    public GameObject playerCharacter;
     private float timeToHello = 0;
     private float timeToPhrase = 0;
     private float timeToShootPhrase = 0;
     private int lastPhrase = -1;
-
-#pragma warning restore 0649
-
-    public GameObject playerCharacter;
     private bool m_FacingRight;
 
     void Start()
@@ -137,7 +139,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     private void CameraZoom()
     {
-        Camera.main.orthographicSize = 1.3f;
+        Camera.main.orthographicSize = cameraSizeCharacter;
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 

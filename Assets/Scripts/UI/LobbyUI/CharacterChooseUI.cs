@@ -61,6 +61,15 @@ public class CharacterChooseUI : MonoBehaviour
 
     [Tooltip("Лист персонажей лобби")]
     [SerializeField] private List<Character> characters;
+
+    [Tooltip("Размер камеры в игре")]
+    [SerializeField] private float cameraSizeGame;
+
+    [Tooltip("Размер камеры при выборе персонажа")]
+    [SerializeField] private float cameraSizeChooseCharacter;
+
+    [Tooltip("Позиция камеры при выборе персонажа")]
+    [SerializeField] private Vector3 cameraLobbyPosition;
 #pragma warning restore 0649
 
     private CurrentGameInfo currentGameInfo;
@@ -108,7 +117,7 @@ public class CharacterChooseUI : MonoBehaviour
         InfoBar.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
-        
+
 
         healthText.GetComponent<LocalizedText>().SetLocalization();
         maneText.GetComponent<LocalizedText>().SetLocalization();
@@ -205,7 +214,7 @@ public class CharacterChooseUI : MonoBehaviour
         }
 
         Destroy(currentCharacter.gameObject);
-        Camera.main.orthographicSize = 5f;
+        Camera.main.orthographicSize = cameraSizeGame;
     }
 
     public void BackToLobby()
@@ -217,8 +226,8 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.GetComponent<LocalizedText>().key = "chooseCharacter";
         characterText.GetComponent<LocalizedText>().SetLocalization();
 
-        Camera.main.orthographicSize = 7f;
-        Camera.main.transform.position = new Vector3(10, 7, -10);
+        Camera.main.orthographicSize = cameraSizeChooseCharacter;
+        Camera.main.transform.position = cameraLobbyPosition;
 
         lobbyUI.GetComponent<LobbyUI>().ShowLobby();
     }

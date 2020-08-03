@@ -249,6 +249,7 @@ MonoBehaviour:
   - KnightPhrase2
   - KnightPhrase3
   - KnightPhrase4
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!212 &28040281
 SpriteRenderer:
@@ -1444,6 +1445,9 @@ MonoBehaviour:
   characters:
   - {fileID: 28040280}
   - {fileID: 1597142459}
+  cameraSizeGame: 5
+  cameraSizeChooseCharacter: 5.9
+  cameraLobbyPosition: {x: 10.85, y: 5.5, z: -1}
 --- !u!1 &182175871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,9 +2780,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySettings:
-  - {fileID: 11400000, guid: 2dbdb15d564e5e240947c00e6a60ed7e, type: 2}
-  - {fileID: 11400000, guid: 1be9b266847d0104d9ef054d59223dd0, type: 2}
-  - {fileID: 11400000, guid: a2e85fe3a3068624eb75def3a726393a, type: 2}
+  - {fileID: 11400000, guid: 3a9b9982c5d1dd346966c545b5fa6178, type: 2}
+  - {fileID: 11400000, guid: a30f2508ea5c7744793cec8a5ab94a07, type: 2}
+  - {fileID: 11400000, guid: 0dec61fa7008e83469acbb8f54107078, type: 2}
+  - {fileID: 11400000, guid: a01c015dc7720f240a7c80497e6a9f06, type: 2}
   targetPrefab: {fileID: 6886382836396142646, guid: fd228d73e6466a941a3c05679d56cfc8,
     type: 3}
   gameDuration: 20
@@ -12694,6 +12699,7 @@ MonoBehaviour:
   - DoctorPhrase4
   - DoctorPhrase5
   - DoctorPhrase6
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &995119125
 Animator:
@@ -14803,7 +14809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241650292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.873, y: 5.5, z: -10}
+  m_LocalPosition: {x: 10.85, y: 5.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15130,6 +15136,7 @@ MonoBehaviour:
   - ArcherPhrase3
   - ArcherPhrase4
   - ArcherPhrase5
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1290505846
 Animator:
@@ -17304,6 +17311,7 @@ MonoBehaviour:
   - MagePhrase3
   - MagePhrase4
   - MagePhrase5
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!212 &1597142460
 SpriteRenderer:
@@ -18778,6 +18786,7 @@ MonoBehaviour:
   - EngineerPhrase3
   - EngineerPhrase4
   - EngineerPhrase5
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1818965105
 Animator:
@@ -20274,6 +20283,7 @@ MonoBehaviour:
   - ShooterPhrase3
   - ShooterPhrase4
   - ShooterPhrase5
+  cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1990694252
 Animator:

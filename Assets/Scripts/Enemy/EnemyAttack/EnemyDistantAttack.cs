@@ -19,12 +19,10 @@ public class EnemyDistantAttack : MonoBehaviour
         var enemy = GetComponent<Enemy>();
         fireRate = enemy.FireRate;
         targetTag = enemy.Target;
-
         var bulletData = enemy.DataOfBullet;
         bulletSpeed = bulletData.Speed;
         bulletScatterAngle = bulletData.Scatter;
         enemyBulletSpawner.SetBullet(bulletData);
-        timeToFire = 0f;
 
     }
 
@@ -33,7 +31,7 @@ public class EnemyDistantAttack : MonoBehaviour
         if(Time.time > timeToFire)
         {
             Attack();
-            timeToFire += fireRate;
+            timeToFire = Time.time + fireRate;
         }
     }
 
@@ -69,6 +67,8 @@ public class EnemyDistantAttack : MonoBehaviour
         enemyBulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = enemyBulletSpawner.currentEnemyBullet.GetComponent<Rigidbody2D>();
+        Vector3 bulletRotate = dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized;
+        enemyBulletSpawner.currentEnemyBullet.transform.rotation = new Quaternion(bulletRotate.x, bulletRotate.y, bulletRotate.z, 0);
         rb.AddForce(dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized * bulletSpeed, ForceMode2D.Impulse);
     }
 
