@@ -1338,8 +1338,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dcffa8ee461ccda40b25c8d61afa990d, type: 2}
-  m_sharedMaterial: {fileID: -5695418214563780268, guid: dcffa8ee461ccda40b25c8d61afa990d,
+  m_fontAsset: {fileID: 11400000, guid: 0f84dea201d261b47ad3ff3120b22c52, type: 2}
+  m_sharedMaterial: {fileID: -5708717883316627545, guid: 0f84dea201d261b47ad3ff3120b22c52,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1349,12 +1349,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 1
+  m_colorMode: 2
   m_fontColorGradient:
-    topLeft: {r: 0.754717, g: 0.25450084, b: 0.23851903, a: 1}
-    topRight: {r: 1, g: 0.11707889, b: 0, a: 1}
-    bottomLeft: {r: 0.754717, g: 0.25450084, b: 0.23851903, a: 1}
-    bottomRight: {r: 1, g: 0.11707889, b: 0, a: 1}
+    topLeft: {r: 1, g: 0.7058531, b: 0, a: 1}
+    topRight: {r: 1, g: 0.7058531, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.83297265, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.83297265, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 354513300}
   - component: {fileID: 354513299}
   m_Layer: 5
-  m_Name: TMP SubMeshUI [LiberationSans SDF Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [HDZB SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4032,6 +4032,8 @@ MonoBehaviour:
   wildMode: 0
   isLobby: 0
   challengeNumber: 0
+  countKilledEnemy: 0
+  countShoots: 0
 --- !u!4 &1588061059
 Transform:
   m_ObjectHideFlags: 0
@@ -5000,15 +5002,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 111
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0f84dea201d261b47ad3ff3120b22c52, type: 2}
+  m_sharedMaterial: {fileID: -5708717883316627545, guid: 0f84dea201d261b47ad3ff3120b22c52,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281278537
-  m_fontColor: {r: 0.28627452, g: 0.1254902, b: 0.18431373, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5026,7 +5029,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.75
+  m_fontSize: 50
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5074,7 +5077,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
