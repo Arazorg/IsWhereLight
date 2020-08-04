@@ -14,6 +14,9 @@ public class CurrentGameInfo : MonoBehaviour
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
+    public int countKilledEnemy = 0;
+    public int countShoots = 0;
+
     void Awake()
     {       
         if (instance != null)
@@ -52,6 +55,8 @@ public class CurrentGameInfo : MonoBehaviour
             wildMode = currentGameData.wildMode;
             isLobby = currentGameData.isLobby;
             challengeNumber = currentGameData.challengeNumber;
+            countKilledEnemy = currentGameData.countKilledEnemy;
+            countShoots = currentGameData.countShoots;
             return true;
         }
         else

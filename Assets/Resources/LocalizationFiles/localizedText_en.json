@@ -389,7 +389,31 @@
         {
             "key": "ShootingRangeInfo",
             "value": "Shooting range! More hits, better rewards!"
-        }
+        },
 
+        {
+            "key": "GoToMenu",
+            "value": "Go to menu"
+        },
+
+        {
+            "key": "FinishOfGame",
+            "value": "Finish of game"
+        },
+
+        {
+            "key": "Stats",
+            "value": "Stats:"
+        },
+
+        {
+            "key": "CountOfEnemies",
+            "value": "Count of killed enemies: "
+        },
+
+        {
+            "key": "CountOfShoots",
+            "value": "Count of shoots: "
+        }
     ]
 }

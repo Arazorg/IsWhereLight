@@ -389,6 +389,31 @@
         {
             "key": "ShootingRangeInfo",
             "value": "Тир! Больше попаданий лучше награда!"
+        },
+
+        {
+            "key": "GoToMenu",
+            "value": "В меню"
+        },
+
+        {
+            "key": "Stats",
+            "value": "Статистика:"
+        },
+
+        {
+            "key": "FinishOfGame",
+            "value": "Конец игры"
+        },
+
+        {
+            "key": "CountOfEnemies",
+            "value": "Количество убитых врагов: "
+        },
+
+        {
+            "key": "CountOfShoots",
+            "value": "Количество выстрелов: "
         }
     ]
 }

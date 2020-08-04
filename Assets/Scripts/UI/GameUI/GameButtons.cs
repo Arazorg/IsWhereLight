@@ -322,11 +322,13 @@ public class GameButtons : MonoBehaviour
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
                     case WeaponData.AttackType.Gun:
+                        currentGameInfo.countShoots++;
                         charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Gun>().Shoot();
                         nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.Sword:
+                        currentGameInfo.countShoots++;
                         charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Sword>().Hit();
                         nextAttack = Time.time + attackRate;
@@ -343,6 +345,7 @@ public class GameButtons : MonoBehaviour
             switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
             {
                 case WeaponData.AttackType.Bow:
+                    currentGameInfo.countShoots++;
                     charInfo.SpendMana(manecost);
                     currentWeapon.GetComponent<Bow>().Shoot();
                     CharController.isRotate = false;

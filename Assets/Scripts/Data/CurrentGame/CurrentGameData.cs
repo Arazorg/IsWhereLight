@@ -13,6 +13,9 @@ public class CurrentGameData
     public bool wildMode;
     public int challengeNumber;
     public bool isLobby;
+    public int countKilledEnemy = 0;
+    public int countShoots = 0;
+
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
         character = currentGameInfo.character;
@@ -23,5 +26,7 @@ public class CurrentGameData
         wildMode = currentGameInfo.wildMode;
         isLobby = currentGameInfo.isLobby;
         challengeNumber = currentGameInfo.challengeNumber;
+        countKilledEnemy = currentGameInfo.countKilledEnemy;
+        countShoots = currentGameInfo.countShoots;
     }
 }

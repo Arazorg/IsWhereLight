@@ -6,7 +6,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private EnemyData data;
-
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
@@ -222,6 +221,7 @@ public class Enemy : MonoBehaviour
                     ColorUtility.TryParseHtmlString("#808080", out Color color);
                     gameObject.tag = "IgnoreAll";
                     GetComponent<SpriteRenderer>().color = color;
+                    GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>().countKilledEnemy++;
                     Destroy(gameObject, 10f);
                 }
 

@@ -78,8 +78,6 @@ public class Bullet : MonoBehaviour
             }
             else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player") || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
             {
-                Debug.Log(collider.tag);
-
                 GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
                 Destroy(gameObject);
@@ -87,9 +85,9 @@ public class Bullet : MonoBehaviour
             else if (gameObject.tag == "StandartArrow" && collider.tag != "Player")
             {
                 var arrow = Instantiate(gameObject, transform.position, transform.rotation);
+                arrow.transform.parent = collider.transform;
                 arrow.tag = "IgnoreAll";
                 Destroy(gameObject);
-                Destroy(arrow, 10);
             }
         }
     }
