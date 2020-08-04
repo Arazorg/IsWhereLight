@@ -33,9 +33,6 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("NPC тира")]
     [SerializeField] private GameObject shootingRangeNPC;
 
-    [Tooltip("Таймер тира")]
-    [SerializeField] private GameObject shootingRangeTimer;
-
     [Tooltip("Текст таймера тира")]
     [SerializeField] private TextMeshProUGUI shootingRangeTimerText;
 
@@ -104,7 +101,7 @@ public class ShootingRange : MonoBehaviour
                 GameButtons.instance.SwapWeapon();
             else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
                 GameButtons.instance.SwapWeapon();
-            shootingRangeTimer.GetComponent<MovementUI>().MoveToEnd();
+            shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
             result = 0;
             startStand.gameObject.SetActive(false);
             isGame = true;
@@ -116,7 +113,7 @@ public class ShootingRange : MonoBehaviour
             player.transform.position = startStand.transform.position;
             Camera.main.orthographicSize = 7f;
             Camera.main.GetComponent<CameraFollow>().StopMove();
-            Camera.main.transform.position = new Vector3(-9, 10.75f, -1);
+            Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
             PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
             SetCollider(true);
         }
@@ -135,7 +132,7 @@ public class ShootingRange : MonoBehaviour
     public void StopGame()
     {
         CancelInvoke("OutputTime");
-        shootingRangeTimer.GetComponent<MovementUI>().MoveToStart();
+        shootingRangeTimerText.GetComponent<MovementUI>().MoveToStart();
         startStand.gameObject.SetActive(true);
         GameButtons.isChange = true;
         isGame = false;

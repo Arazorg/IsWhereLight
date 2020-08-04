@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ManaBar : MonoBehaviour
 {
     public Image imgManeBar;
-    public Text textMane;
+    public TextMeshProUGUI textMane;
 
     private int Min, Max;
     public float currentPercent;
