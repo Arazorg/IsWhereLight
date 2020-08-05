@@ -88,6 +88,18 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
+    /// Attack angle of current enemy
+    /// </summary>
+    public float AttackAngle
+    {
+        get
+        {
+            return data.AttackAngle;
+        }
+        protected set { }
+    }
+
+    /// <summary>
     /// BulletData of current enemy
     /// </summary>
     public BulletData DataOfBullet

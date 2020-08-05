@@ -5,9 +5,6 @@ using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
 #pragma warning disable 0649
-    [Tooltip("Точка атаки")]
-    [SerializeField] Transform attackPoint;
-
     [Tooltip("Player's layer")]
     [SerializeField] private LayerMask playerLayers;
 #pragma warning restore 0649
@@ -17,55 +14,78 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private int damage;
     private float attackRange;
-    private float timeToOff;
-
-    public Transform hitTarget;
-    public string targetTag;
+    private float attackRate;
+    private float attackAngle;
+    private float timeToAttack;
+   
+    /*
+    public string TargetTag
+    {
+        get { return targetTag; }
+        set { targetTag = value; }
+    }
+    private string targetTag;
+    */
 
     void Start()
     {
         animator = GetComponent<Animator>();
         GameObject player = GameObject.Find("Character(Clone)");
         charInfo = player.GetComponent<CharInfo>();
-        timeToOff = Time.time;
+        timeToAttack = Time.time;
 
         var enemy = GetComponent<Enemy>();
         damage = enemy.Damage;
         attackRange = enemy.AttackRange;
+        attackRate = enemy.FireRate;
+
     }
 
     private void Update()
     {
-        GetTargetAccess();
-
-        if (timeToOff < Time.time)
+        if (Time.time > timeToAttack && !GetComponent<Enemy>().isDeath)
         {
-            animator.SetBool("TargetClose", false);
+            Attack();
         }
     }
 
     public void Attack()
     {
-        Collider2D[] players = Physics2D.OverlapCircleAll(attackPoint.position, 0.5f, playerLayers);
+        Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayers);
 
         foreach (Collider2D player in players)
         {
-            timeToOff = Time.time + 1f;
-            animator.SetBool("TargetClose", true);
+            timeToAttack = Time.time + attackRate;
+            animator.Play("Attack");
             player.GetComponent<CharAction>().isPlayerHitted = true;
             player.GetComponent<CharAction>().isEnterFirst = true;
             charInfo.Damage(damage);
-        }
-    }
 
-    private void GetTargetAccess()
-    {
-        if (hitTarget != null)
-        {
-            Vector3 direction = hitTarget.position - transform.position;
-            float distanceToPlayer = direction.sqrMagnitude;
-            Vector3 closeDirection = (hitTarget.transform.position - transform.position).normalized;
-            attackPoint.localPosition = closeDirection;
+            var currentAngle = -Mathf.Atan2(player.transform.position.x - transform.position.x,
+                                   player.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+            Debug.Log(gameObject.name + " " + currentAngle);
+            if (currentAngle > 0)
+            {
+                if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle
+                                                   && currentAngle >= transform.rotation.eulerAngles.z - attackAngle)
+                {
+                    if (player.transform.tag == "Player")
+                    {
+                        charInfo.Damage(damage);
+                    }
+                }
+            }
+            else
+            {
+                if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle - 360
+                                                      && currentAngle >= transform.rotation.eulerAngles.z - attackAngle - 360)
+                {
+                    if (player.transform.tag == "Player")
+                    {
+                        charInfo.Damage(damage);
+                    }
+                }
+            }
         }
     }
 }

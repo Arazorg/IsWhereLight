@@ -16,9 +16,10 @@ MonoBehaviour:
   speed: 4
   health: 15
   typeOfAttack: 1
-  damage: 6
+  damage: 1
   attackRange: 5
+  attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: OldTree
-  fireRate: 1
+  fireRate: 2

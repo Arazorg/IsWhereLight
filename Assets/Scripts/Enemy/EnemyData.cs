@@ -58,6 +58,14 @@ public class EnemyData : ScriptableObject
         protected set { }
     }
 
+    [Tooltip("Угол атаки врага")]
+    [SerializeField] private float attackAngle;
+    public float AttackAngle
+    {
+        get { return attackAngle; }
+        protected set { }
+    }
+
     [Tooltip("Пуля врага")]
     [SerializeField] private BulletData dataOfBullet;
     public BulletData DataOfBullet

@@ -414,6 +414,36 @@
         {
             "key": "CountOfShoots",
             "value": "Количество выстрелов: "
+        },
+
+        {
+            "key": "Standart",
+            "value": "Стандартные"
+        },
+
+        {
+            "key": "Transparency",
+            "value": "Прозрачность"
+        },
+
+        {
+            "key": "ChooseColor",
+            "value": "Выбери цвет"
+        },
+
+        {
+            "key": "CodeDontExist",
+            "value": "Данный код не существует"
+        },
+
+        {
+            "key": "AlreadyUseCode",
+            "value": "Данный код уже использован"
+        },
+
+        {
+            "key": "Colors",
+            "value": "Цвета"
         }
     ]
 }

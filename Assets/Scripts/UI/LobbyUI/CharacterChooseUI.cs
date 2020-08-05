@@ -76,7 +76,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     private int characterPrice;
     private int skinCounter;
-
+    private bool isCharacter;
     public void ChooseCharacter(Character character, Animator animator)
     {
         skinCounter = 0;
@@ -92,7 +92,11 @@ public class CharacterChooseUI : MonoBehaviour
         SetInfoBar();
         RefreshUI();
     }
-
+    void Update()
+    {
+        if (isCharacter)
+            animator.runtimeAnimatorController = currentCharacter.Animations[skinCounter];
+    }
     public void SetSpecChar()
     {
         currentGameInfo.character = currentCharacter.CharacterClass;
@@ -140,6 +144,7 @@ public class CharacterChooseUI : MonoBehaviour
         if (progressInfo.CharacterAccess(currentCharacter.CharacterClass))
             buyButton.GetComponent<MovementUI>().MoveToEnd();
         GameBuyButtonAccess();
+        isCharacter = true;
     }
 
 
@@ -198,6 +203,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void ConfirmCharacter()
     {
+        isCharacter = false;
         currentGameInfo.SaveCurrentGame();
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -217,6 +223,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void BackToLobby()
     {
+        isCharacter = false;
         HideCharacterChooseUI();
         skinCounter = 0;
         ChangeCharacterSkin();

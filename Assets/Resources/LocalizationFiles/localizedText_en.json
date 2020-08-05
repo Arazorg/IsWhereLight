@@ -412,6 +412,36 @@
         },
 
         {
+            "key": "Standart",
+            "value": "Standart"
+        },
+
+        {
+            "key": "Transparency",
+            "value": "Transparency"
+        },
+
+        {
+            "key": "ChooseColor",
+            "value": "Choose a color"
+        },
+
+        {
+            "key": "CodeDontExist",
+            "value": "This code doesn't exist"
+        },
+
+        {
+            "key": "AlreadyUseCode",
+            "value": "This code has already been used"
+        },
+
+        {
+            "key": "Colors",
+            "value": "Colors"
+        },
+
+        {
             "key": "CountOfShoots",
             "value": "Count of shoots: "
         }

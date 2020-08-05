@@ -21,6 +21,7 @@ public class RGB_Circle : MonoBehaviour, IPointerDownHandler
         Vector2 pos = (mousePos - (Vector2)corners[0]);
 
         currentColor = RGB_Texture.GetPixel((int)pos.x, (int)pos.y); // Get color from texture
+        currentColor.a = slider.value;
         GetComponentInParent<InterfaceSettings>().SetColor(ColorUtility.ToHtmlStringRGBA(currentColor));
     }
 

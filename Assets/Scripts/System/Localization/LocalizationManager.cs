@@ -64,8 +64,17 @@ public class LocalizationManager : MonoBehaviour
         texts = GameObject.FindGameObjectsWithTag("Text");
         foreach (var text in texts)
         {
-            LocalizedText localizedText = text.GetComponent<LocalizedText>();
-            localizedText.SetLocalization();
+            LocalizedText localizedText = null;
+            try
+            {
+                localizedText = text.GetComponent<LocalizedText>();
+            }
+            catch
+            {
+                Debug.Log(text.name);
+            }
+            if (localizedText != null)
+                localizedText.SetLocalization();
         }
     }
 }

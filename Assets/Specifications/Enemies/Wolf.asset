@@ -16,8 +16,9 @@ MonoBehaviour:
   speed: 1
   health: 10
   typeOfAttack: 0
-  damage: 4
+  damage: 2
   attackRange: 1
+  attackAngle: 60
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: Wolf

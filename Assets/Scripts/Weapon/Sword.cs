@@ -23,15 +23,18 @@ public class Sword : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Time.time < timeToBlock)
             gameObject.tag = "BlockAll";
         else
             gameObject.tag = "GunKeep";
+        */
     }
 
     public void Hit()
     {
-        animator.SetBool("Attack", true);
+
+        /*
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
@@ -42,6 +45,8 @@ public class Sword : MonoBehaviour
                     break;
             }
         }
+        */
+        animator.SetBool("Attack", true);
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy in enemies)
         {

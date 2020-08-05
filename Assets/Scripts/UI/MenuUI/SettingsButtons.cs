@@ -107,6 +107,7 @@ public class SettingsButtons : MonoBehaviour
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         IsLocalizationPanelState = false;
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
+        moneyPlusText.text = "";
 
     }
 
@@ -120,7 +121,7 @@ public class SettingsButtons : MonoBehaviour
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
         IsSecretPanelState = false;
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
-
+        moneyPlusText.text = "";
     }
 
     public void ChangeLanguage(string fileName)
@@ -136,18 +137,17 @@ public class SettingsButtons : MonoBehaviour
         money = progressInfo.CheckSecretCode(secretCodeField.text);
         if (money != 0 && money != -1)
         {
-            moneyPlusText.fontSize = 64;
             moneyPlusText.text = "+" + money.ToString();
         }
         else if (money == 0)
         {
-            moneyPlusText.fontSize = 36;
-            moneyPlusText.text = "You already use this code";
+            moneyPlusText.GetComponent<LocalizedText>().key = "AlreadyUseCode";
+            moneyPlusText.GetComponent<LocalizedText>().SetLocalization();
         }
         else
         {
-            moneyPlusText.fontSize = 36;
-            moneyPlusText.text = "This code does not exist";
+            moneyPlusText.GetComponent<LocalizedText>().key = "CodeDontExist";
+            moneyPlusText.GetComponent<LocalizedText>().SetLocalization();
         }
 
     }

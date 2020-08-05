@@ -16,8 +16,9 @@ MonoBehaviour:
   speed: 3
   health: 18
   typeOfAttack: 0
-  damage: 5
+  damage: 1
   attackRange: 1
+  attackAngle: 60
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: Fox

@@ -125,7 +125,7 @@ public class GameButtons : MonoBehaviour
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         if (SceneManager.GetActiveScene().name == "Lobby")
-            character.GetComponent<CharController>().speed = 5f;
+            character.GetComponent<CharController>().speed = 6.5f;
         SetCharScripts();
         CheckFirstPlay();
 
@@ -279,6 +279,8 @@ public class GameButtons : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
+            challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
+            challengeText.GetComponent<LocalizedText>().SetLocalization();
             challengeUI.GetComponent<MovementUI>().MoveToStart();
             playButton.GetComponent<MovementUI>().MoveToStart();
         }

@@ -16,8 +16,9 @@ MonoBehaviour:
   speed: 2
   health: 12
   typeOfAttack: 1
-  damage: 3
+  damage: 1
   attackRange: 7
+  attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: Skeleton
