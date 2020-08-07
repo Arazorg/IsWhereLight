@@ -16,17 +16,8 @@ public class GameButtons : MonoBehaviour
     [Tooltip("UI панель паузы")]
     [SerializeField] private GameObject pausePanel;
 
-    [Tooltip("Джойстик")]
-    [SerializeField] private GameObject joystick;
-
     [Tooltip("Кнопка паузы")]
     [SerializeField] private Button pauseButton;
-
-    [Tooltip("Кнопка стрельбы и действий")]
-    [SerializeField] private Button fireActButton;
-
-    [Tooltip("Кнопка смены оружия")]
-    [SerializeField] private Button swapWeaponButton;
 
     [Tooltip("Изображение текущего оружия")]
     [SerializeField] public GameObject currentWeaponImage;
@@ -112,6 +103,7 @@ public class GameButtons : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
@@ -137,7 +129,6 @@ public class GameButtons : MonoBehaviour
         FireActButtonState = FireActButtonStateEnum.none;
         IsGamePausedState = false;
         IsWeaponStoreState = false;
-
         nextAttack = 0.0f;
     }
 
@@ -153,22 +144,6 @@ public class GameButtons : MonoBehaviour
         moneyImage.GetComponent<MovementUI>().SetStart();
         healthBar.GetComponent<MovementUI>().SetStart();
         maneBar.GetComponent<MovementUI>().SetStart();
-
-        ColorUtility.TryParseHtmlString("#" + settingsInfo.color, out Color newColor);
-
-        fireActButton.GetComponent<Image>().color = newColor;
-        joystick.transform.GetChild(0).GetComponent<Image>().color = newColor;
-        joystick.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = newColor;
-        swapWeaponButton.GetComponent<Image>().color = newColor;
-        currentWeaponImage.GetComponent<Image>().color = newColor;
-
-        joystick.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
-        fireActButton.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
-        swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
-          = new Vector3(settingsInfo.swapWeaponButtonPosition[0], settingsInfo.swapWeaponButtonPosition[1]);
-
         ShowHideControlUI(true);
     }
 

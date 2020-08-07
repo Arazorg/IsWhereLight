@@ -149,6 +149,7 @@
      <Compile Include="Assets\Scripts\UI\MenuUI\MovementUI.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\RGB_Circle.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\SettingsButtons.cs" />
+     <Compile Include="Assets\Scripts\UI\UISpawner.cs" />
      <Compile Include="Assets\Scripts\Utils\UtilsClass.cs" />
      <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
      <Compile Include="Assets\Scripts\Weapon\Gun.cs" />

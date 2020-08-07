@@ -126,13 +126,9 @@ public class InterfaceSettings : MonoBehaviour
     public void SetJoystick(string type)
     {
         if(type == "Dynamic")
-        {
-
-        }
+            settingsInfo.joystickType = "Dynamic";
         else if(type == "Static")
-        {
-
-        }
+            settingsInfo.joystickType = "Static";
     }
 
 }
