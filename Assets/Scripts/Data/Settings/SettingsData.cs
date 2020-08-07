@@ -10,6 +10,7 @@ public class SettingsData
     public float[] fireActButtonPosition = new float[2];
     public float[] swapWeaponButtonPosition = new float[2];
     public string color;
+    public string joystickType;
 
     public SettingsData(SettingsInfo settingsInfo)
     {
@@ -20,5 +21,6 @@ public class SettingsData
         fireActButtonPosition = settingsInfo.fireActButtonPosition;
         swapWeaponButtonPosition = settingsInfo.swapWeaponButtonPosition;
         color = settingsInfo.color;
+        joystickType = settingsInfo.joystickType;
     }
 }

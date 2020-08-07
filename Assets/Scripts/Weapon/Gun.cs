@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     {
         bulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
-        Rigidbody2D rb = bulletSpawner.currentWeaponBullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(dir * bulletSpawner.currentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
+        Rigidbody2D rb = bulletSpawner.GetBullet().GetComponent<Rigidbody2D>();
+        rb.AddForce(dir * bulletSpawner.GetBullet().transform.up * bulletSpeed, ForceMode2D.Impulse);
     }
 }

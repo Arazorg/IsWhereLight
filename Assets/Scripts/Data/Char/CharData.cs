@@ -8,12 +8,11 @@ public class CharData
     public string character;
     public string skin;
     public string[] weapons;
-
     public int maxHealth;
     public int maxMane;
     public int health;
     public int mane;
-
+    public int countResurrect;
     public int money;
 
     public CharData(CharInfo charInfo)
@@ -26,5 +25,6 @@ public class CharData
         health = charInfo.health;
         mane = charInfo.mane;
         money = charInfo.money;
+        countResurrect = charInfo.countResurrect;
     }
 }

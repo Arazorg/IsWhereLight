@@ -22,7 +22,7 @@ public class PopupText : MonoBehaviour
     private static int sortingOrder;
 
     public static float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;
-    public static float DISAPPEAR_TIMER_MAX_PHRASE = 2f;
+    public static float DISAPPEAR_TIMER_MAX_PHRASE = 3.5f;
 
     private TextMeshPro textMesh;
     private float disappearTimer;
@@ -66,6 +66,11 @@ public class PopupText : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void DeletePhrase()
+    {
+        Destroy(gameObject);
     }
 
     public void SetupDamage(int damageAmount, bool isCriticalHit, float fontSize)

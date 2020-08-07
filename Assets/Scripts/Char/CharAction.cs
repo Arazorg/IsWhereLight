@@ -15,17 +15,16 @@ public class CharAction : MonoBehaviour
     [Tooltip("Спрайт кнопки(действие)")]
     [SerializeField] private Sprite actionImage;
 #pragma warning restore 0649
-
-    private float timeToOff;
     public bool isEnterFirst;
     public bool isPlayerHitted;
-    private Button fireActButton;
     public GameObject currentNPC;
 
+    private float timeToOff;
+    private Button fireActButton;
+    private Transform characterControlUI;
     void Start()
     {
-        GameObject gameUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI").gameObject;
-        var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
+        characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
     }
 
@@ -102,7 +101,6 @@ public class CharAction : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene("FinishGame");
-        FinishOfGameButton.finishGameMoney = charInfo.money;
+        characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
     }
 }

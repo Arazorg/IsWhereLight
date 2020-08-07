@@ -63,7 +63,6 @@ public class EnemyMeleeAttack : MonoBehaviour
 
             var currentAngle = -Mathf.Atan2(player.transform.position.x - transform.position.x,
                                    player.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
-            Debug.Log(gameObject.name + " " + currentAngle);
             if (currentAngle > 0)
             {
                 if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle

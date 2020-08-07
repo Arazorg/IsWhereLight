@@ -17,13 +17,12 @@ public class CharInfo : MonoBehaviour
     public int health;
     public int mane;
     public int money;
+    public int countResurrect;
 
     public void SetStartParametrs()
     {
+        GetComponent();
         weapons = new string[2];
-        charAction = GetComponent<CharAction>();
-        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-
         character = currentGameInfo.character;
         skin = currentGameInfo.skin;
         weapons[0] = currentGameInfo.startWeapon;
@@ -32,7 +31,7 @@ public class CharInfo : MonoBehaviour
         health = maxHealth;
         mane = maxMane;
         money = 0;
-
+        countResurrect = 1;
         SetObjects();
     }
 
@@ -58,8 +57,8 @@ public class CharInfo : MonoBehaviour
 
     public void LoadChar()
     {
+        GetComponent();
         CharData charData = SaveSystem.LoadChar();
-
         character = charData.character;
         skin = charData.skin;
         weapons = charData.weapons;
@@ -68,7 +67,7 @@ public class CharInfo : MonoBehaviour
         health = charData.health;
         mane = charData.mane;
         money = charData.money;
-
+        countResurrect = charData.countResurrect;
         SetObjects();
     }
 
@@ -111,5 +110,11 @@ public class CharInfo : MonoBehaviour
         else
             health += healing;
         healthBar.SetHealth(health);
+    }
+
+    private void GetComponent()
+    {
+        charAction = GetComponent<CharAction>();
+        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
     }
 }

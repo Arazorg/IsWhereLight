@@ -88,7 +88,6 @@ public class InterfaceSettings : MonoBehaviour
 
     public void SetColor(string color)
     {
-        audioManager.Play("ClickUI");
         settingsInfo.color = color;
         var curColor = StringToColor(color);
         SetCurrentColor(curColor);
@@ -122,6 +121,18 @@ public class InterfaceSettings : MonoBehaviour
             return newColor;
         else
             return Color.white;
+    }
+
+    public void SetJoystick(string type)
+    {
+        if(type == "Dynamic")
+        {
+
+        }
+        else if(type == "Static")
+        {
+
+        }
     }
 
 }

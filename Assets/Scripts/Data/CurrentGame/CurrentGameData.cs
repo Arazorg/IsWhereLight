@@ -11,10 +11,11 @@ public class CurrentGameData
     public int maxHealth;
     public int maxMane;
     public bool wildMode;
-    public int challengeNumber;
     public bool isLobby;
-    public int countKilledEnemy = 0;
-    public int countShoots = 0;
+    public int challengeNumber;
+    public int countKilledEnemy;
+    public int countShoots;
+    public int currentWave;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -28,5 +29,6 @@ public class CurrentGameData
         challengeNumber = currentGameInfo.challengeNumber;
         countKilledEnemy = currentGameInfo.countKilledEnemy;
         countShoots = currentGameInfo.countShoots;
+        currentWave = currentGameInfo.currentWave;
     }
 }

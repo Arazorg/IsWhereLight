@@ -59,13 +59,13 @@ public class PauseSettings : MonoBehaviour
         IsLocalizationPanelState = !IsLocalizationPanelState;
         if (IsLocalizationPanelState)
         {
-            localizationPanel.GetComponent<MovementUI>().MoveToEnd();
-            pausePanel.GetComponent<MovementUI>().MoveToStart();
+            localizationPanel.SetActive(true);
+            pausePanel.SetActive(false);
         } 
         else
         {
-            localizationPanel.GetComponent<MovementUI>().MoveToStart();
-            pausePanel.GetComponent<MovementUI>().MoveToEnd();
+            localizationPanel.SetActive(false);
+            pausePanel.SetActive(true);
         }
     }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,12 +20,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [Tooltip("Смещение текста над NPC")]
     [SerializeField] private Vector3 offsetText;
 
-    [Tooltip("Время нового привествия НПС")]
-    [SerializeField] private float phraseTime = 3f;
-
-    [Tooltip("Время фразы НПС о выстреле")]
-    [SerializeField] private float shootPhraseTime = 2f;
-
     [Tooltip("Лист фраз NPC")]
     [SerializeField] private List<string> NPC_Phrases;
 
@@ -35,12 +28,16 @@ public class Character : MonoBehaviour, IPointerDownHandler
 #pragma warning restore 0649
 
     public GameObject playerCharacter;
-    private float helloTime;
-    private float timeToPhrase = 0;
-    private float timeToShootPhrase = 0;
     private int lastPhrase = -1;
     private bool isHello = false;
     private bool m_FacingRight;
+    private PopupText currentPhrase;
+
+    private float timePhrase = 0.6f;
+    private float timeIgnore = 20f;
+    private float phraseTimer;
+    private int phrasesCount;
+    private bool isIgnore;
 
     void Start()
     {
@@ -52,6 +49,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
         playerCharacter = null;
         characterChooseUI.gameObject.SetActive(false);
+        phrasesCount = 0;
         Init();
     }
 
@@ -124,6 +122,24 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    void Update()
+    {
+        if(phrasesCount > 5 && !isIgnore)
+        {
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "ShutUp");
+            phraseTimer = Time.time + timeIgnore;
+            isIgnore = true;
+        }
+        if (Time.time > phraseTimer)
+        {
+            isIgnore = false;
+            phrasesCount = 0;
+        }
+            
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!characterControlUI.gameObject.activeSelf)
@@ -145,42 +161,54 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (coll.gameObject.tag == "Player")
         {
-            if (!isHello &&
-                 (Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
-                    Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
+            if (!isHello)
             {
-                PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
+                if (currentPhrase != null)
+                    currentPhrase.DeletePhrase();
+                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
                 isHello = true;
-                helloTime = Time.time;
             }
 
-            if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
-                Flip();
-            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
-                Flip();
+            if(!isIgnore)
+            {
+                if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
+                    Flip();
+                else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+                    Flip();
+            }
+            else
+            {
+                if (currentPhrase != null)
+                    currentPhrase.DeletePhrase();
+                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "GoAway");
+                if ((transform.position - coll.transform.position).x < 0 && m_FacingRight)
+                    Flip();
+                else if ((transform.position - coll.transform.position).x > 0 && !m_FacingRight)
+                    Flip();
+            }
+            
         }
-        else if (Time.time > timeToShootPhrase &&
-                    (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow") &&
-                            (Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
-                                    Time.time + phraseTime - timeToPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
+        if(coll.gameObject.tag.Contains("Bullet"))
         {
-            PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
-            timeToShootPhrase = Time.time + shootPhraseTime;
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
         }
     }
 
     public void ShowPhrase()
     {
-        if (Time.time > timeToPhrase &&
-                (Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1 &&
-                    Time.time + shootPhraseTime - timeToShootPhrase > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1))
+        if(!isIgnore)
         {
             int phrase = Random.Range(0, NPC_Phrases.Count);
             while (phrase == lastPhrase)
                 phrase = Random.Range(0, NPC_Phrases.Count);
             lastPhrase = phrase;
-            PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
-            timeToPhrase = Time.time + phraseTime;
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
+            phraseTimer = Time.time + timePhrase;
+            phrasesCount++;
         }
     }
 
@@ -189,17 +217,34 @@ public class Character : MonoBehaviour, IPointerDownHandler
         if (coll.gameObject.tag == "Player")
         {
             Vector3 scale = transform.localScale;
-            if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
+            if (!isIgnore)
             {
-                m_FacingRight = true;
-                scale.x = 1;
+                if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
+                {
+                    m_FacingRight = true;
+                    scale.x = 1;
+                }
+                else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+                {
+                    m_FacingRight = false;
+                    scale.x = -1;
+                }
+                transform.localScale = scale;
             }
-            else if ((transform.position - coll.transform.position).x > 0 && m_FacingRight)
+            else
             {
-                m_FacingRight = false;
-                scale.x = -1;
+                if ((transform.position - coll.transform.position).x < 0 && m_FacingRight)
+                {
+                    m_FacingRight = false;
+                    scale.x = -1;
+                }
+                else if ((transform.position - coll.transform.position).x > 0 && !m_FacingRight)
+                {
+                    m_FacingRight = true;
+                    scale.x = 1;
+                }
+                transform.localScale = scale;
             }
-            transform.localScale = scale;
         }
     }
 

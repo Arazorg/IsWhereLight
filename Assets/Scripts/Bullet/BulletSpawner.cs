@@ -14,10 +14,8 @@ public class BulletSpawner : MonoBehaviour
     [Tooltip("Место спауна пули")]
     [SerializeField] private Transform spawnPosition;
 #pragma warning restore 0649
-
-    public GameObject currentWeaponBullet;
-    public Bullet currentBulletScript;
-
+    private GameObject currentWeaponBullet;
+    private Bullet currentBulletScript;
     private BulletData spawnBulletData;
 
     public void Spawn()
@@ -52,5 +50,15 @@ public class BulletSpawner : MonoBehaviour
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);
 
         Destroy(currentWeaponBullet);
+    }
+
+    public GameObject GetBullet()
+    {
+        return currentWeaponBullet;
+    }
+
+    public Bullet GetBulletScript()
+    {
+        return currentBulletScript;
     }
 }

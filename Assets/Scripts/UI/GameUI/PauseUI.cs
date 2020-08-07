@@ -16,6 +16,7 @@ public class PauseUI : MonoBehaviour
 
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
+    private GameButtons gameButtons;
 
     public static bool IsSettingsState;
 
@@ -24,6 +25,7 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = false;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();
     }
 
     public void ClosePause()
@@ -35,8 +37,9 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = false;
 
         gameObject.SetActive(GameButtons.IsGamePausedState);
-        pausePanel.GetComponent<MovementUI>().SetStart();
-        pauseSettingsPanel.GetComponent<MovementUI>().SetStart();
+        pausePanel.SetActive(false);
+        pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
+        gameButtons.ShowHideControlUI(true);
     }
 
     public void SettingsPanelOpenClose()
@@ -56,7 +59,14 @@ public class PauseUI : MonoBehaviour
     public void GoToMenu()
     {
         ClosePause();
-        if(SceneManager.GetActiveScene().name != "Game")
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            var charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
+            var currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+            SaveSystem.SaveChar(charInfo);
+            SaveSystem.SaveCurrentGame(currentGameInfo);
+        }
+        if (SceneManager.GetActiveScene().name != "Game")
             SaveSystem.DeleteCurrentGame();
         SceneManager.LoadScene("Menu");
     }

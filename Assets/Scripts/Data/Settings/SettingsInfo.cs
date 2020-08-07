@@ -13,7 +13,7 @@ public class SettingsInfo : MonoBehaviour
     public float[] fireActButtonPosition = new float[2];
     public float[] swapWeaponButtonPosition = new float[2];
     public string color;
-
+    public string joystickType;
     void Awake()
     {
         if (instance != null)
@@ -44,6 +44,7 @@ public class SettingsInfo : MonoBehaviour
             fireActButtonPosition = settingsData.fireActButtonPosition;
             swapWeaponButtonPosition = settingsData.swapWeaponButtonPosition;
             color = settingsData.color;
+            joystickType = settingsData.joystickType;
         }
         else
             SetStartSettings();
@@ -67,6 +68,7 @@ public class SettingsInfo : MonoBehaviour
         SetStartPositions();
         SaveSettings();
         color = "white";
+        joystickType = "Dynamic";
     }
 
     private void SetStartPositions()

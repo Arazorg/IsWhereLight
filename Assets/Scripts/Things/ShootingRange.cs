@@ -39,16 +39,16 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("Время нового предупреждения НПС")]
     [SerializeField] private float giveWeaponTime = 2f;
 #pragma warning restore 0649
+
     private GameObject player;
     private CharInfo charInfo;
     private CharGun charGun;
     private GameObject currentTarget;
+    private PopupText currentPhrase = null;
 
     private float gameTimer;
     private float spawnTimer;
     private float startSpeed;
-    private float helloTime;
-    private float timeToGiveWeapon = 0;
 
     private int textTimer = 0;
     private int startMane;
@@ -57,7 +57,7 @@ public class ShootingRange : MonoBehaviour
 
     private bool isGame;
     private bool isHello = false;
-      
+
     private void Awake()
     {
         if (instance != null)
@@ -101,6 +101,7 @@ public class ShootingRange : MonoBehaviour
                 GameButtons.instance.SwapWeapon();
             else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
                 GameButtons.instance.SwapWeapon();
+            shootingRangeTimerText.gameObject.SetActive(true);
             shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
             result = 0;
             startStand.gameObject.SetActive(false);
@@ -114,25 +115,25 @@ public class ShootingRange : MonoBehaviour
             Camera.main.orthographicSize = 7f;
             Camera.main.GetComponent<CameraFollow>().StopMove();
             Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
-            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
             SetCollider(true);
         }
         else
         {
-            if (Time.time > timeToGiveWeapon && Time.time - helloTime > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
-            {
-                PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
-                timeToGiveWeapon = Time.time + giveWeaponTime;
-            }
-            
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
         }
-           
+
     }
 
     public void StopGame()
     {
         CancelInvoke("OutputTime");
         shootingRangeTimerText.GetComponent<MovementUI>().MoveToStart();
+        shootingRangeTimerText.gameObject.SetActive(false);
         startStand.gameObject.SetActive(true);
         GameButtons.isChange = true;
         isGame = false;
@@ -142,10 +143,12 @@ public class ShootingRange : MonoBehaviour
         Camera.main.orthographicSize = 5f;
         Camera.main.GetComponent<CameraFollow>().StartMove();
         Destroy(currentTarget);
+        if (currentPhrase != null)
+            currentPhrase.DeletePhrase();
         if (result > 5)
-            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatScore");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatScore");
         else
-            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "WeakScore");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "WeakScore");
         SetCollider(false);
     }
 
@@ -166,7 +169,9 @@ public class ShootingRange : MonoBehaviour
         if (currentTarget != null && isDeath)
         {
             result++;
-            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
             currentTarget.GetComponent<Animator>().SetBool("isDeath", true);
             AnimationClip[] clips = currentTarget.GetComponent<Animator>().runtimeAnimatorController.animationClips;
             foreach (AnimationClip clip in clips)
@@ -177,7 +182,7 @@ public class ShootingRange : MonoBehaviour
                         Destroy(currentTarget, clip.length);
                         break;
                 }
-            }       
+            }
         }
         else if (currentTarget != null)
             Destroy(currentTarget);
@@ -203,10 +208,11 @@ public class ShootingRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (!isHello && Time.time + giveWeaponTime - timeToGiveWeapon > (int)PopupText.DISAPPEAR_TIMER_MAX_PHRASE + 1)
+        if (!isHello)
         {
-            PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
-            helloTime = Time.time;
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
             isHello = true;
         }
     }
@@ -215,7 +221,7 @@ public class ShootingRange : MonoBehaviour
     {
         foreach (var stand in targetStands)
         {
-            if(isGame)
+            if (isGame)
             {
                 stand.GetComponent<Collider2D>().isTrigger = true;
                 stand.transform.tag = "IgnoreAll";

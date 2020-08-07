@@ -57,6 +57,9 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Панель выбора испытаний")]
     [SerializeField] private GameObject challengeUI;
+
+    [Tooltip("Панель смерти")]
+    [SerializeField] private GameObject deathPanel;
 #pragma warning restore 0649
 
     public enum FireActButtonStateEnum
@@ -125,7 +128,7 @@ public class GameButtons : MonoBehaviour
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         if (SceneManager.GetActiveScene().name == "Lobby")
-            character.GetComponent<CharController>().speed = 6.5f;
+            character.GetComponent<CharController>().speed = 7.5f;
         SetCharScripts();
         CheckFirstPlay();
 
@@ -166,10 +169,7 @@ public class GameButtons : MonoBehaviour
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.swapWeaponButtonPosition[0], settingsInfo.swapWeaponButtonPosition[1]);
 
-        pauseButton.GetComponent<MovementUI>().MoveToEnd();
-        moneyImage.GetComponent<MovementUI>().MoveToEnd();
-        healthBar.GetComponent<MovementUI>().MoveToEnd();
-        maneBar.GetComponent<MovementUI>().MoveToEnd();
+        ShowHideControlUI(true);
     }
 
     private void SetCharScripts()
@@ -231,8 +231,9 @@ public class GameButtons : MonoBehaviour
         Time.timeScale = 0f;
         IsGamePausedState = true;
         pause.SetActive(IsGamePausedState);
+        pausePanel.SetActive(true);
         HideChallengeUI();
-        pausePanel.GetComponent<MovementUI>().MoveToEnd();
+        ShowHideControlUI(false);
     }
 
     public void FireActStateDown()
@@ -284,6 +285,63 @@ public class GameButtons : MonoBehaviour
             challengeUI.GetComponent<MovementUI>().MoveToStart();
             playButton.GetComponent<MovementUI>().MoveToStart();
         }
+    }
+
+    public void ShowHideControlUI(bool isShow)
+    {
+        if(isShow)
+        {
+            pauseButton.GetComponent<MovementUI>().MoveToEnd();
+            moneyImage.GetComponent<MovementUI>().MoveToEnd();
+            healthBar.GetComponent<MovementUI>().MoveToEnd();
+            maneBar.GetComponent<MovementUI>().MoveToEnd();
+        }
+        else
+        {
+            pauseButton.GetComponent<MovementUI>().MoveToStart();
+            moneyImage.GetComponent<MovementUI>().MoveToStart();
+            healthBar.GetComponent<MovementUI>().MoveToStart();
+            maneBar.GetComponent<MovementUI>().MoveToStart();
+        }
+        
+    }
+    public void OpenDeathPanel()
+    {
+        if(charInfo.countResurrect != 0)
+        {
+            deathPanel.GetComponent<MovementUI>().MoveToEnd();
+            Time.timeScale = 0f;
+            IsGamePausedState = true;
+            ShowHideControlUI(false);
+        }
+        else
+            SceneManager.LoadScene("FinishGame");
+    }
+
+    public void GoToFinishScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("FinishGame");
+    }
+
+    public void ResurrectPlayerAd()
+    {
+        charInfo.countResurrect--;
+        deathPanel.GetComponent<MovementUI>().MoveToStart();
+        Time.timeScale = 1f;
+        IsGamePausedState = false;
+        ShowHideControlUI(true);
+        charInfo.Healing(charInfo.maxHealth);
+    }
+
+    public void ResurrectPlayerMoney()
+    {
+        charInfo.countResurrect--;
+        deathPanel.GetComponent<MovementUI>().MoveToStart();
+        Time.timeScale = 1f;
+        IsGamePausedState = false;
+        ShowHideControlUI(true);
+        charInfo.Healing(charInfo.maxHealth);
     }
 
     public void GoToGame()
@@ -369,7 +427,6 @@ public class GameButtons : MonoBehaviour
         }
     }
 
-
     private void OpenWeaponStore()
     {
         IsWeaponStoreState = true;
@@ -412,7 +469,6 @@ public class GameButtons : MonoBehaviour
                     currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
                         = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                             .GetComponent<Weapon>().MainSprite;
-
                 }
 
                 if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
@@ -430,4 +486,5 @@ public class GameButtons : MonoBehaviour
             = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
     }
+
 }

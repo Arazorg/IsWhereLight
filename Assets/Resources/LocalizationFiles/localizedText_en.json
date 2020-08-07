@@ -27,6 +27,16 @@
         },
 
         {
+            "key": "ShutUp",
+            "value": "SHUT UP!"
+        },
+
+        {
+            "key": "GoAway",
+            "value": "Go away!"
+        },
+
+        {
             "key": "WeaponInfo",
             "value": "Weapon"
         },
@@ -397,6 +407,11 @@
         },
 
         {
+            "key": "GoToLobby",
+            "value": "Go to lobby"
+        },
+
+        {
             "key": "FinishOfGame",
             "value": "Finish of game"
         },
@@ -444,6 +459,42 @@
         {
             "key": "CountOfShoots",
             "value": "Count of shoots: "
+        },
+
+        {
+            "key": "Exit",
+            "value": "Exit"
+        },
+
+        {
+            "key": "Death",
+            "value": "You died"
+        },
+
+        {
+            "key": "SoulPrice",
+            "value": "The price of your soul"
+        },
+
+        {
+            "key": "Joystick",
+            "value": "Joystick"
+        },
+
+        {
+            "key": "Dynamic",
+            "value": "Dynamic"
+        },
+
+        {
+            "key": "Static",
+            "value": "Static"
+        },
+
+        {
+            "key": "WatchAd",
+            "value": "Watch ad"
         }
+
     ]
 }

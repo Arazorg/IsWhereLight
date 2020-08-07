@@ -25,16 +25,13 @@ public class CharacterChooseUI : MonoBehaviour
     [SerializeField] private GameObject InfoBar;
 
     [Tooltip("Кнопка предыдущего скина")]
-    [SerializeField] private Button PrevSkinButton;
+    [SerializeField] private Button prevSkinButton;
 
     [Tooltip("Кнопка следующего скина")]
-    [SerializeField] private Button NextSkinButton;
+    [SerializeField] private Button nextSkinButton;
 
     [Tooltip("Изображение денег")]
     [SerializeField] private GameObject moneyImage;
-
-    [Tooltip("Аниматор персонажа")]
-    [SerializeField] public Animator animator;
 
     [Tooltip("Текст имени персонажа")]
     [SerializeField] private TextMeshProUGUI characterText;
@@ -70,6 +67,7 @@ public class CharacterChooseUI : MonoBehaviour
     [SerializeField] private Vector3 cameraLobbyPosition;
 #pragma warning restore 0649
 
+    private Animator animator;
     private CurrentGameInfo currentGameInfo;
     private ProgressInfo progressInfo;
     private Character currentCharacter;
@@ -112,10 +110,14 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void SetInfoBar()
     {
+        //prevSkinButton.GetComponent<MovementUI>().SetStart();
+        //nextSkinButton.GetComponent<MovementUI>().SetStart();
         skinText.gameObject.GetComponent<MovementUI>().MoveToEnd();
         goToGameButton.GetComponent<MovementUI>().MoveToEnd();
-        PrevSkinButton.GetComponent<MovementUI>().MoveToEnd();
-        NextSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        prevSkinButton.gameObject.SetActive(true);
+        nextSkinButton.gameObject.SetActive(true);
+        //prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        //nextSkinButton.GetComponent<MovementUI>().MoveToEnd();
         InfoBar.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
@@ -241,8 +243,10 @@ public class CharacterChooseUI : MonoBehaviour
     {
         skinText.gameObject.GetComponent<MovementUI>().MoveToStart();
         goToGameButton.GetComponent<MovementUI>().MoveToStart();
-        PrevSkinButton.GetComponent<MovementUI>().MoveToStart();
-        NextSkinButton.GetComponent<MovementUI>().MoveToStart();
+        prevSkinButton.gameObject.SetActive(false);
+        nextSkinButton.gameObject.SetActive(false);
+        //prevSkinButton.GetComponent<MovementUI>().MoveToStart();
+        //nextSkinButton.GetComponent<MovementUI>().MoveToStart();
         InfoBar.GetComponent<MovementUI>().MoveToStart();
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
         moneyImage.GetComponent<MovementUI>().MoveToStart();

@@ -14,8 +14,9 @@ public class CurrentGameInfo : MonoBehaviour
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int countKilledEnemy = 0;
+    public int countKilledEnemy;
     public int countShoots = 0;
+    public int currentWave = 0;
 
     void Awake()
     {       
@@ -57,11 +58,10 @@ public class CurrentGameInfo : MonoBehaviour
             challengeNumber = currentGameData.challengeNumber;
             countKilledEnemy = currentGameData.countKilledEnemy;
             countShoots = currentGameData.countShoots;
+            currentWave = currentGameData.currentWave;
             return true;
         }
         else
-        {
-            return false;
-        }     
+            return false;  
     }
 }

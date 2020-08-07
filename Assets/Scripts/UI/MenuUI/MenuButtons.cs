@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,9 +15,6 @@ public class MenuButtons : MonoBehaviour
 
     [Tooltip("UI панели секретного кода")]
     [SerializeField] private GameObject secretCode;
-
-    [Tooltip("UI панели настроек интерфейса")]
-    [SerializeField] private GameObject interfaceSettings;
 
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
@@ -96,6 +94,7 @@ public class MenuButtons : MonoBehaviour
         newGameButton.GetComponent<MovementUI>().MoveToEnd();
         if (!firstPlay)
             continueButton.GetComponent<MovementUI>().MoveToEnd();
+           
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         VkButton.GetComponent<MovementUI>().MoveToEnd();
         TwitterButton.GetComponent<MovementUI>().MoveToEnd();

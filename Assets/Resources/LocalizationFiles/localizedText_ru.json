@@ -397,6 +397,11 @@
         },
 
         {
+            "key": "GoToLobby",
+            "value": "В лобби"
+        },
+
+        {
             "key": "Stats",
             "value": "Статистика:"
         },
@@ -444,6 +449,51 @@
         {
             "key": "Colors",
             "value": "Цвета"
+        },
+
+        {
+            "key": "ShutUp",
+            "value": "УМОЛЯЮ, ПРЕКРАТИ!"
+        },
+
+        {
+            "key": "GoAway",
+            "value": "Уйди!"
+        },
+
+        {
+            "key": "Exit",
+            "value": "Выйти"
+        },
+
+        {
+            "key": "Death",
+            "value": "Вы умерли"
+        },
+
+        {
+            "key": "SoulPrice",
+            "value": "Цена твоей души"
+        },
+
+        {
+            "key": "Joystick",
+            "value": "Джойстик"
+        },
+
+        {
+            "key": "Dynamic",
+            "value": "Динамический"
+        },
+
+        {
+            "key": "Static",
+            "value": "Статический"
+        },
+
+        {
+            "key": "WatchAd",
+            "value": "Посмотреть рекламу"
         }
     ]
 }
