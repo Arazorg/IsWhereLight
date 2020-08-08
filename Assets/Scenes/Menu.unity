@@ -1477,8 +1477,8 @@ RectTransform:
   m_Father: {fileID: 909639456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.000045776367, y: -0.000076293945}
   m_SizeDelta: {x: 41.71, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2352,7 +2352,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6238,8 +6238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 0
-  startPos: {x: 0, y: 1000, z: 0}
-  endPos: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 1080, z: 0}
+  endPos: {x: 0, y: -100, z: 0}
   speed: -1
   isEnd: 0
   isMove: 0
@@ -7276,6 +7276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815751196}
   - component: {fileID: 1815751197}
+  - component: {fileID: 1815751198}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -7307,10 +7308,10 @@ RectTransform:
   m_Father: {fileID: 1869139682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 2160, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815751197
 MonoBehaviour:
@@ -7333,6 +7334,24 @@ MonoBehaviour:
   VkButton: {fileID: 1158092905}
   TwitterButton: {fileID: 1462166088}
   exitButton: {fileID: 1647020679}
+--- !u!114 &1815751198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815751195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: -1080, z: 0}
+  speed: -1
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1829405583
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,13 +7969,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1999253285}
   - component: {fileID: 1999253286}
+  - component: {fileID: 1999253287}
   m_Layer: 5
   m_Name: InterfaceSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1999253285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7982,10 +8002,10 @@ RectTransform:
   m_Father: {fileID: 1869139682}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 1080}
+  m_SizeDelta: {x: 2160, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999253286
 MonoBehaviour:
@@ -8004,6 +8024,24 @@ MonoBehaviour:
   joystick: {fileID: 5406711228758139510}
   fireActButton: {fileID: 1478223103}
   swapWeaponButton: {fileID: 304105670}
+--- !u!114 &1999253287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999253284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 1080, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: -1
+  isEnd: 0
+  isMove: 0
 --- !u!1 &2002222990
 GameObject:
   m_ObjectHideFlags: 0
@@ -8374,7 +8412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.41178083, a: 0.77254903}
+  m_Color: {r: 1, g: 0, b: 0.41178083, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:

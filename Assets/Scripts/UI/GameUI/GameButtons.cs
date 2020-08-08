@@ -206,7 +206,7 @@ public class GameButtons : MonoBehaviour
         Time.timeScale = 0f;
         IsGamePausedState = true;
         pause.SetActive(IsGamePausedState);
-        pausePanel.SetActive(true);
+        pausePanel.GetComponent<MovementUI>().MoveToEnd();
         HideChallengeUI();
         ShowHideControlUI(false);
     }

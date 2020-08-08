@@ -54,13 +54,10 @@ public class SettingsButtons : MonoBehaviour
     public void InterfaceSettingsOpen()
     {
         audioManager.Play("ClickUI");
-        if (interfaceSettingsPanel.activeSelf == false)
-        {
-            SettingsPanelClose();
-            menuPanel.GetComponent<MenuButtons>().AllPanelHide();
-            menuPanel.SetActive(false);
-            interfaceSettingsPanel.SetActive(true);
-        }
+        SettingsPanelClose();
+        menuPanel.GetComponent<MenuButtons>().AllPanelHide();
+        menuPanel.GetComponent<MovementUI>().MoveToEnd();
+        interfaceSettingsPanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
     public void SettingsPanelClose()

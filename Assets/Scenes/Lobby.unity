@@ -872,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108189640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -917,7 +917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &130887777
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -200, y: -90, z: 0}
   endPos: {x: 250, y: -90, z: 0}
-  speed: 50
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!114 &159772225
@@ -1497,6 +1497,7 @@ GameObject:
   - component: {fileID: 210443197}
   - component: {fileID: 210443196}
   - component: {fileID: 210443195}
+  - component: {fileID: 210443194}
   m_Layer: 5
   m_Name: NextSkinButton
   m_TagString: Untagged
@@ -1523,6 +1524,24 @@ RectTransform:
   m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &210443194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210443192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 350, y: 700, z: 0}
+  endPos: {x: 350, y: 0, z: 0}
+  speed: -1
+  isEnd: 0
+  isMove: 0
 --- !u!114 &210443195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2973,6 +2992,7 @@ GameObject:
   - component: {fileID: 393668490}
   - component: {fileID: 393668489}
   - component: {fileID: 393668488}
+  - component: {fileID: 393668487}
   m_Layer: 5
   m_Name: PrevSkinButton
   m_TagString: Untagged
@@ -2999,6 +3019,24 @@ RectTransform:
   m_AnchoredPosition: {x: -350, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &393668487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393668485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: -350, y: -700, z: 0}
+  endPos: {x: -350, y: 0, z: 0}
+  speed: 1
+  isEnd: 0
+  isMove: 0
 --- !u!114 &393668488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3905,7 +3943,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: 1000, z: 0}
   endPos: {x: 0, y: 0, z: 0}
-  speed: -250
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &509596819
@@ -3964,7 +4002,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -200, y: -240, z: 0}
   endPos: {x: 250, y: -240, z: 0}
-  speed: 40
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!114 &509596822
@@ -9408,6 +9446,7 @@ GameObject:
   - component: {fileID: 624859014}
   - component: {fileID: 624859016}
   - component: {fileID: 624859015}
+  - component: {fileID: 624859017}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -9475,6 +9514,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624859013}
   m_CullTransparentMesh: 0
+--- !u!114 &624859017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624859013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 700, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: -1
+  isEnd: 0
+  isMove: 0
 --- !u!1 &630862721
 GameObject:
   m_ObjectHideFlags: 0
@@ -9529,7 +9586,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: -375, y: 120, z: 0}
   endPos: {x: -375, y: -90, z: 0}
-  speed: -30
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!114 &630862724
@@ -10527,7 +10584,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: -100, z: 0}
   endPos: {x: 0, y: 100, z: 0}
-  speed: 30
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &749778663
@@ -10745,7 +10802,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754809642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -11084,7 +11141,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: 200, y: 150, z: 0}
   endPos: {x: -200, y: 150, z: 0}
-  speed: -30
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &818523811
@@ -11542,7 +11599,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -100, y: 150, z: 0}
   endPos: {x: 125, y: 150, z: 0}
-  speed: 30
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &834603259
@@ -12027,7 +12084,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: 200, z: 0}
   endPos: {x: 0, y: -100, z: 0}
-  speed: -25
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &925056932
@@ -13721,7 +13778,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -1200, y: -125, z: 0}
   endPos: {x: 0, y: -125, z: 0}
-  speed: 200
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1082792874
@@ -15979,7 +16036,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366609765}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -16154,7 +16211,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -100, y: -100, z: 0}
   endPos: {x: 150, y: -100, z: 0}
-  speed: 30
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1396801130
@@ -17012,7 +17069,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515421328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -19361,7 +19418,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: 100, z: 0}
   endPos: {x: 0, y: -175, z: 0}
-  speed: -30
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1824450856
@@ -19471,7 +19528,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824792179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -19628,7 +19685,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: -200, z: 0}
   endPos: {x: 0, y: 200, z: 0}
-  speed: 40
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1881609960
@@ -19980,13 +20037,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1910870878}
+  - component: {fileID: 1910870879}
   m_Layer: 5
   m_Name: Localization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1910870878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20004,9 +20062,27 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1000}
   m_SizeDelta: {x: 500, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1910870879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910870877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c8057076a47be4aa2ef4f444dfb782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHorizontal: 0
+  startPos: {x: 0, y: 1000, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: -1
+  isEnd: 0
+  isMove: 0
 --- !u!1 &1917633801
 GameObject:
   m_ObjectHideFlags: 0
@@ -20153,7 +20229,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -1200, y: 400, z: 0}
   endPos: {x: -900, y: 400, z: 0}
-  speed: 25
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1940276444
@@ -20461,7 +20537,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -300, y: 25, z: 0}
   endPos: {x: 300, y: 25, z: 0}
-  speed: 100
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1990694248
@@ -21047,7 +21123,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -1500, y: 200, z: 0}
   endPos: {x: 0, y: 200, z: 0}
-  speed: 150
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &2122594285
@@ -21196,7 +21272,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: 200, y: -150, z: 0}
   endPos: {x: -200, y: -150, z: 0}
-  speed: -50
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &2124893376

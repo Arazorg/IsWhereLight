@@ -79,22 +79,22 @@ public class MenuButtons : MonoBehaviour
 
         if (File.Exists(SaveSystem.CurrentGameFile))
         {
-            newGameButton.GetComponent<MovementUI>().startPos = new Vector3(-350, -250);
+            newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
+            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(-350, 250));
             firstPlay = false;
         }
         else
         {
-            newGameButton.GetComponent<MovementUI>().startPos = new Vector3(0, -250);
+            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
             firstPlay = true;
         }
     }
 
     private void SetStartObjectsActive()
     {
-        newGameButton.GetComponent<MovementUI>().MoveToEnd();
         if (!firstPlay)
             continueButton.GetComponent<MovementUI>().MoveToEnd();
-           
+        newGameButton.GetComponent<MovementUI>().MoveToEnd();
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         VkButton.GetComponent<MovementUI>().MoveToEnd();
         TwitterButton.GetComponent<MovementUI>().MoveToEnd();

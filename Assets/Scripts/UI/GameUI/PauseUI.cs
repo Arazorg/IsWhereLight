@@ -37,7 +37,7 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = false;
 
         gameObject.SetActive(GameButtons.IsGamePausedState);
-        pausePanel.SetActive(false);
+        pausePanel.GetComponent<MovementUI>().MoveToStart();
         pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
         gameButtons.ShowHideControlUI(true);
     }

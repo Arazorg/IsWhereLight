@@ -54,8 +54,8 @@ public class InterfaceSettings : MonoBehaviour
         audioManager.Play("ClickUI");
         SetPosition();
         settingsInfo.SaveSettings();
-        menuPanel.SetActive(true);
-        gameObject.SetActive(false);
+        menuPanel.GetComponent<MovementUI>().MoveToStart();
+        gameObject.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void SetStandart()

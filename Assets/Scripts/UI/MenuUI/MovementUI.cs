@@ -38,7 +38,7 @@ public class MovementUI : MonoBehaviour
     {
         if (!isEnd && isMove)
         {
-            currentTime += Time.deltaTime;
+            currentTime += 0.02f;
             normalizedValue = currentTime / timeOfTravel;
 
             if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y && !isHorizontal)
@@ -52,7 +52,7 @@ public class MovementUI : MonoBehaviour
         }
         else if (isEnd && isMove)
         {
-            currentTime += Time.deltaTime;
+            currentTime += 0.02f;
             normalizedValue = currentTime / timeOfTravel;
 
             if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y && !isHorizontal)
@@ -71,6 +71,17 @@ public class MovementUI : MonoBehaviour
         currentUI_Element.GetComponent<RectTransform>().anchoredPosition = startPos;
         isMove = false;
         isEnd = true;
+    }
+
+    public void SetEndPos(Vector3 endPos)
+    {
+        this.endPos = endPos;
+
+    }
+
+    public void SetStartPos(Vector3 startPos)
+    {
+        this.startPos = startPos;
     }
 
     public void MoveToEnd()
