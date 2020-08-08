@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
         }
         else if (sound != "Effects")
         {
-            s.source.Stop();
+            s.source.Pause();
         }
 
         switch (sound)
