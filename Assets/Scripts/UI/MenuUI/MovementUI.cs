@@ -19,6 +19,11 @@ public class MovementUI : MonoBehaviour
     public bool isEnd = false;
     public bool isMove = false;
     private RectTransform currentUI_Element;
+
+    float timeOfTravel = 0.25f;
+    float currentTime = 0;
+    float normalizedValue;
+
     void Start()
     {
         currentUI_Element = gameObject.GetComponent<RectTransform>();
@@ -33,27 +38,32 @@ public class MovementUI : MonoBehaviour
     {
         if (!isEnd && isMove)
         {
+            currentTime += Time.deltaTime;
+            normalizedValue = currentTime / timeOfTravel;
+
             if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y && !isHorizontal)
-                transform.Translate(0f, speed, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
             else if (speed < 0 && currentUI_Element.anchoredPosition.y > endPos.y && !isHorizontal)
-                transform.Translate(0f, speed, 0f);
-      
+                currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
             if (speed > 0 && currentUI_Element.anchoredPosition.x < endPos.x && isHorizontal)
-                transform.Translate(speed, 0f, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
             else if (speed < 0 && endPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
-                transform.Translate(speed, 0f, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
         }
         else if (isEnd && isMove)
         {
+            currentTime += Time.deltaTime;
+            normalizedValue = currentTime / timeOfTravel;
+
             if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y && !isHorizontal)
-                transform.Translate(0f, -speed, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
             else if (-speed < 0 && currentUI_Element.anchoredPosition.y > startPos.y && !isHorizontal)
-                transform.Translate(0f, -speed, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
 
             if (-speed > 0 && currentUI_Element.anchoredPosition.x < startPos.x && isHorizontal)
-                transform.Translate(-speed, 0f, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
             else if (-speed < 0 && startPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
-                transform.Translate(-speed, 0f, 0f);
+                currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
         }
     }
     public void SetStart()
@@ -65,14 +75,16 @@ public class MovementUI : MonoBehaviour
 
     public void MoveToEnd()
     {
+        currentTime = 0;
         isEnd = false;
         isMove = true;
     }
 
     public void MoveToStart()
     {
+        currentTime = 0;
         isEnd = true;
         isMove = true;
     }
-    
+
 }

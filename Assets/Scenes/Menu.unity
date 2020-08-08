@@ -1873,7 +1873,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 350, y: -250, z: 0}
   endPos: {x: 350, y: 250, z: 0}
-  speed: 35
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &482012310
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -1700, y: 100, z: 0}
   endPos: {x: 0, y: 100, z: 0}
-  speed: 170
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &728440805
@@ -5125,7 +5125,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: 200, y: 250, z: 0}
   endPos: {x: -100, y: 250, z: 0}
-  speed: -50
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1196012381
@@ -5751,7 +5751,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -200, y: -50, z: 0}
   endPos: {x: 100, y: -50, z: 0}
-  speed: 35
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1311760342
@@ -6240,7 +6240,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: 1000, z: 0}
   endPos: {x: 0, y: 0, z: 0}
-  speed: -175
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1445317218
@@ -6518,7 +6518,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: 200, y: 100, z: 0}
   endPos: {x: -100, y: 100, z: 0}
-  speed: -50
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1471199597
@@ -6869,7 +6869,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: 1700, y: 100, z: 0}
   endPos: {x: 0, y: 100, z: 0}
-  speed: -170
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1647020677
@@ -7018,7 +7018,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: 150, z: 0}
   endPos: {x: 0, y: -100, z: 0}
-  speed: -50
+  speed: -1
   isEnd: 0
   isMove: 0
 --- !u!1 &1690483385
@@ -7937,7 +7937,7 @@ MonoBehaviour:
   isHorizontal: 1
   startPos: {x: -200, y: 100, z: 0}
   endPos: {x: 100, y: 100, z: 0}
-  speed: 50
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &1999253284
@@ -8240,7 +8240,7 @@ MonoBehaviour:
   isHorizontal: 0
   startPos: {x: 0, y: -250, z: 0}
   endPos: {x: 0, y: 250, z: 0}
-  speed: 35
+  speed: 1
   isEnd: 0
   isMove: 0
 --- !u!1 &2042174142
