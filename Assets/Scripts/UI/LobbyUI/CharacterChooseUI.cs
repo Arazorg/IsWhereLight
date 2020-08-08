@@ -116,8 +116,8 @@ public class CharacterChooseUI : MonoBehaviour
         goToGameButton.GetComponent<MovementUI>().MoveToEnd();
         prevSkinButton.gameObject.SetActive(true);
         nextSkinButton.gameObject.SetActive(true);
-        //prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
-        //nextSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
+        nextSkinButton.GetComponent<MovementUI>().MoveToEnd();
         InfoBar.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
