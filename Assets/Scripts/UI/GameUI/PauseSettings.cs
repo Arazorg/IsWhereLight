@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseSettings : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class PauseSettings : MonoBehaviour
 
     [Tooltip("UI паузы")]
     [SerializeField] private GameObject pausePanel;
+
+    [Tooltip("Кнопка музыки")]
+    [SerializeField] private Button musicButton;
+
+    [Tooltip("Кнопка эффектов")]
+    [SerializeField] private Button effectsButton;
 #pragma warning restore 0649
 
     //Скрипты
@@ -41,6 +48,7 @@ public class PauseSettings : MonoBehaviour
         else
             audioManager.Off("Theme");
         settingsInfo.musicOn = musicOn;
+        musicButton.GetComponentInChildren<ButtonImage>().SetSprite(musicOn);
     }
 
     public void EffectsOnOff()
@@ -52,6 +60,7 @@ public class PauseSettings : MonoBehaviour
         else
             audioManager.Off("Effects");
         settingsInfo.effectsOn = effectsOn;
+        effectsButton.GetComponentInChildren<ButtonImage>().SetSprite(effectsOn);
     }
 
     public void OpenCloseLocalizationPanel()

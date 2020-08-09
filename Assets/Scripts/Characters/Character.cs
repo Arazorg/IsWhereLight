@@ -128,7 +128,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "ShutUp");
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"ShutUp{Random.Range(0,6)}");
             phraseTimer = Time.time + timeIgnore;
             isIgnore = true;
         }
@@ -165,7 +165,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
             {
                 if (currentPhrase != null)
                     currentPhrase.DeletePhrase();
-                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "Hello");
+                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"Hello{Random.Range(0,6)}");
                 isHello = true;
             }
 

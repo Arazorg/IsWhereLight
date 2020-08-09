@@ -212,7 +212,7 @@ public class ShootingRange : MonoBehaviour
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "Hello");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0,6)}");
             isHello = true;
         }
     }

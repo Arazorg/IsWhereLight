@@ -25,6 +25,12 @@ public class SettingsButtons : MonoBehaviour
 
     [Tooltip("Текст полученных денег")]
     [SerializeField] private TextMeshProUGUI moneyPlusText;
+
+    [Tooltip("Кнопка музыки")]
+    [SerializeField] private Button musicButton;
+
+    [Tooltip("Кнопка эффектов")]
+    [SerializeField] private Button effectsButton;
 #pragma warning restore 0649
 
     //Скрипты
@@ -80,6 +86,7 @@ public class SettingsButtons : MonoBehaviour
             audioManager.Off("Theme");
         settingsInfo.musicOn = musicOn;
         settingsInfo.SaveSettings();
+        musicButton.GetComponentInChildren<ButtonImage>().SetSprite(musicOn);
     }
 
     public void EffectsOnOff()
@@ -92,6 +99,7 @@ public class SettingsButtons : MonoBehaviour
             audioManager.Off("Effects");
         settingsInfo.effectsOn = effectsOn;
         settingsInfo.SaveSettings();
+        effectsButton.GetComponentInChildren<ButtonImage>().SetSprite(effectsOn);
     }
 
     public void SecretCodePanelOpenClose()

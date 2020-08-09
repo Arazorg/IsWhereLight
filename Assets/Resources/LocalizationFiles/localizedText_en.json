@@ -2,18 +2,18 @@
     "items": [
 
         {
-            "key": "new_game_button",
+            "key": "NewGameButton",
             "value": "New Game"
+        },
+
+        {
+            "key": "ContinueGameButton",
+            "value": "Continue Game"
         },
 
         {
             "key": "Load",
             "value": "Load..."
-        },
-
-        {
-            "key": "continue_game_button",
-            "value": "Continue Game"
         },
 
         {
@@ -24,16 +24,6 @@
         {
             "key": "ManeInfo",
             "value": "Mane"
-        },
-
-        {
-            "key": "ShutUp",
-            "value": "SHUT UP!"
-        },
-
-        {
-            "key": "GoAway",
-            "value": "Go away!"
         },
 
         {
@@ -57,8 +47,8 @@
         },
 
         {
-            "key": "BigSword",
-            "value": "Big Sword"
+            "key": "Cleaver",
+            "value": "Cleaver"
         },
 
         {
@@ -83,12 +73,12 @@
 
         {
             "key": "Knight",
-            "value": "Knight"
+            "value": "Legionnaire"
         },
 
         {
             "key": "Mage",
-            "value": "Mage"
+            "value": "Keeper"
         },
 
         {
@@ -98,37 +88,37 @@
 
         {
             "key": "Soldier",
-            "value": "Soldier"
+            "value": "Raider"
         },
 
         {
             "key": "Medic",
-            "value": "Medic"
+            "value": "Isida"
         },
 
         {
             "key": "Engineer",
-            "value": "Engineer"
+            "value": "Mechanic"
         },
 
         {
             "key": "SimpleKnight",
-            "value": "Simple knight"
+            "value": "Simple Legionnaire"
         },
 
         {
             "key": "GoldKnight",
-            "value": "Gold knight"
+            "value": "Gold Legionnaire"
         },
 
         {
             "key": "SimpleMage",
-            "value": "Simple Mage"
+            "value": "Simple Keeper"
         },
 
         {
             "key": "DarkMage",
-            "value": "Dark mage"
+            "value": "Dark Keeper"
         },
 
         {
@@ -138,17 +128,17 @@
 
         {
             "key": "SimpleSoldier",
-            "value": "Simple Soldier"
+            "value": "Simple Raider"
         },
 
         {
             "key": "SimpleMedic",
-            "value": "Simple Medic"
+            "value": "Simple Isida"
         },
 
         {
             "key": "SimpleEngineer",
-            "value": "Simple engineer"
+            "value": "Simple Mechanic"
         },
 
         {
@@ -168,12 +158,37 @@
 
         {
             "key": "KnightPhrase3",
-            "value": "The only thing you should feel when you shoot someone...is the recoil."
+            "value": "The only thing you should feel when you shoot someone...\n is the recoil."
         },
 
         {
             "key": "KnightPhrase4",
             "value": "Justice will prevail."
+        },
+
+        {
+            "key": "KnightPhrase5",
+            "value": "Quench my rage."
+        },
+
+        {
+            "key": "KnightPhrase6",
+            "value": "I can taste your mind. Mmm, salty!"
+        },
+
+        {
+            "key": "KnightPhrase7",
+            "value": "My life will be short but fulfilling"
+        },
+
+        {
+            "key": "KnightShootReaction0",
+            "value": "Better save your bullets!"
+        },
+
+        {
+            "key": "KnightShootReaction1",
+            "value": "I can start shooting too."
         },
 
         {
@@ -198,12 +213,32 @@
 
         {
             "key": "MagePhrase4",
-            "value": "Of course it's happening inside your head,\n but why on earth should that mean that it's not real?"
+            "value": "Of course it's happening inside your head,\n but why on earth should that mean\n that it's not real?"
         },
 
         {
             "key": "MagePhrase5",
             "value": "Power overwhelms me..."
+        },
+
+        {
+            "key": "MagePhrase6",
+            "value": "We are only as strong as we are united,\n as weak as we are divided."
+        },
+
+        {
+            "key": "MagePhrase7",
+            "value": "Can you tell me which year it is?"
+        },
+
+        {
+            "key": "MageShootReaction0",
+            "value": "The shooting range is a little further."
+        },
+
+        {
+            "key": "MageShootReaction1",
+            "value": "Protego!"
         },
 
         {
@@ -242,6 +277,21 @@
         },
 
         {
+            "key": "DoctorPhrase7",
+            "value": "Can I see your insurance card?"
+        },
+
+        {
+            "key": "DoctorShootReaction0",
+            "value": "Your actions are reckless!"
+        },
+
+        {
+            "key": "DoctorShootReaction1",
+            "value": "Do you have mental problems?"
+        },
+
+        {
             "key": "ShooterPhrase0",
             "value": "I love the big bang theory."
         },
@@ -272,13 +322,33 @@
         },
 
         {
+            "key": "ShooterPhrase6",
+            "value": "Everything burns with gasoline."
+        },
+
+        {
+            "key": "ShooterPhrase7",
+            "value": "I'm so sexy. I sometimes romance myself."
+        },
+
+        {
+            "key": "ShooterShootReaction0",
+            "value": "One more shot and you'll regret you were born."
+        },
+
+        {
+            "key": "ShooterShootReaction1",
+            "value": "DO NOT MESS WITH ME!"
+        },
+
+        {
             "key": "ArcherPhrase0",
             "value": "Trust ain't easy to come by."
         },
 
         {
             "key": "ArcherPhrase1",
-            "value": "Видимо, не нужно было есть тот бургер..."
+            "value": "Do you hear these voices too?"
         },
 
         {
@@ -299,6 +369,26 @@
         {
             "key": "ArcherPhrase5",
             "value": "Apparently I shouldn't have had that hamburger..."
+        },
+
+        {
+            "key": "ArcherPhrase6",
+            "value": "You're dead, and you don't even know it."
+        },
+
+        {
+            "key": "ArcherPhrase7",
+            "value": "Death is a new beginning."
+        },
+
+        {
+            "key": "ArcherShootReaction0",
+            "value": "Try me."
+        },
+
+        {
+            "key": "ArcherShootReaction1",
+            "value": "I thought you were smarter..."
         },
 
         {
@@ -328,7 +418,27 @@
 
         {
             "key": "EngineerPhrase5",
-            "value": "If it works, don't touch it."
+            "value": "If it ain't broke, don't fix it."
+        },
+
+        {
+            "key": "EngineerPhrase6",
+            "value": "My dad raised me right... Tried to, anyway."
+        },
+
+        {
+            "key": "EngineerPhrase7",
+            "value": "We are running low on synergy..."
+        },
+
+        {
+            "key": "EngineerShootReaction0",
+            "value": "Your intentions are not clear to me."
+        },
+
+        {
+            "key": "EngineerShootReaction1",
+            "value": "Enemy spotted. The turrets are activated."
         },
 
         {
@@ -372,6 +482,41 @@
         },
 
         {
+            "key": "ShutUp0",
+            "value": "SHUT UP!"
+        },
+
+        {
+            "key": "ShutUp1",
+            "value": "You tired me."
+        },
+
+        {
+            "key": "ShutUp2",
+            "value": "Intrusiveness and persistence are not the same thing!"
+        },
+
+        {
+            "key": "ShutUp3",
+            "value": "Isn't your finger tired?!"
+        },
+
+        {
+            "key": "ShutUp4",
+            "value": "Leave me alone!"
+        },
+
+        {
+            "key": "ShutUp5",
+            "value": "GTFO!"
+        },
+
+        {
+            "key": "GoAway",
+            "value": "Go away!"
+        },
+
+        {
             "key": "ChallengeText",
             "value": "Choose challenge"
         },
@@ -388,7 +533,7 @@
 
         {
             "key": "Challenge1",
-            "value": "Damage+Defence"
+            "value": "Damage + Defence"
         },
 
         {

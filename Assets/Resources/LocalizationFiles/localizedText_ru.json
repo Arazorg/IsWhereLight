@@ -2,18 +2,18 @@
     "items": [
 
         {
-            "key": "new_game_button",
+            "key": "NewGameButton",
             "value": "Новая игра"
+        },
+
+        {
+            "key": "ContinueGameButton",
+            "value": "Продолжить иру"
         },
 
         {
             "key": "Load",
             "value": "Загрузка..."
-        },
-
-        {
-            "key": "continue_game_button",
-            "value": "Продолжить иру"
         },
 
         {
@@ -47,8 +47,8 @@
         },
 
         {
-            "key": "BigSword",
-            "value": "Большой Меч"
+            "key": "Cleaver",
+            "value": "Тесак"
         },
 
         {
@@ -73,7 +73,7 @@
 
         {
             "key": "Knight",
-            "value": "Рыцарь"
+            "value": "Легионер"
         },
 
         {
@@ -83,69 +83,93 @@
 
         {
             "key": "Soldier",
-            "value": "Солдат"
+            "value": "Рейдер"
         },
 
         {
             "key": "Medic",
-            "value": "Медик"
+            "value": "Изида"
         },
 
         {
             "key": "Mage",
-            "value": "Маг"
+            "value": "Хранитель"
         },
 
         {
             "key": "Engineer",
-            "value": "Инженер"
+            "value": "Механик"
         },
 
         {
             "key": "SimpleKnight",
-            "value": "Обычный рыцарь"
+            "value": "Обычный Легионер"
         },
 
         {
             "key": "GoldKnight",
-            "value": "Золотой рыцарь"
+            "value": "Золотой Легионер"
         },
 
         {
             "key": "SimpleMage",
-            "value": "Обычный маг"
+            "value": "Обычный Хранитель"
         },
 
         {
             "key": "DarkMage",
-            "value": "Темный маг"
+            "value": "Темный Хранитель"
         },
 
         {
             "key": "SimpleArcher",
-            "value": "Обычный лучник"
+            "value": "Обычный Лучник"
         },
 
         {
             "key": "SimpleSoldier",
-            "value": "Обычный солдат"
+            "value": "Обычный Рейдер"
         },
 
         {
             "key": "SimpleMedic",
-            "value": "Обычный медик"
+            "value": "Обычная Изида"
         },
 
         {
             "key": "SimpleEngineer",
-            "value": "Обычный инженер"
+            "value": "Обычный Механик"
         },
 
         {
-            "key": "Hello",
+            "key": "Hello0",
             "value": "Привет!"
         },
 
+        {
+            "key": "Hello1",
+            "value": "Здорова!"
+        },
+
+        {
+            "key": "Hello2",
+            "value": "Как поживаешь?"
+        },
+
+        {
+            "key": "Hello3",
+            "value": "Салют!"
+        },
+
+        {
+            "key": "Hello4",
+            "value": "Здравствуй."
+        },
+
+        {
+            "key": "Hello5",
+            "value": "Приветствую!"
+        },
         {
             "key": "KnightPhrase0",
             "value": "Вижу цель - не вижу препятствий!"
@@ -169,6 +193,31 @@
         {
             "key": "KnightPhrase4",
             "value": "Правосудие восторжествует."
+        },
+
+        {
+            "key": "KnightPhrase5",
+            "value": "Утоли мою ярость."
+        },
+
+        {
+            "key": "KnightPhrase6",
+            "value": "Я устал ждать своего часа."
+        },
+
+        {
+            "key": "KnightPhrase7",
+            "value": "Моя жизнь будет коротка, но насыщена."
+        },
+
+        {
+            "key": "KnightShootReaction0",
+            "value": "Прибереги патроны, они тебе пригодятся."
+        },
+
+        {
+            "key": "KnightShootReaction1",
+            "value": "Я тоже могу начать стрелять."
         },
 
         {
@@ -199,6 +248,26 @@
         {
             "key": "MagePhrase5",
             "value": "Знаешь, почему я такой веселый?\n В моей трубке не табак..."
+        },
+
+        {
+            "key": "MagePhrase6",
+            "value": "Иногда мой мозг удивляет меня самого."
+        },
+
+        {
+            "key": "MagePhrase7",
+            "value": "Война - кузница воли."
+        },
+
+        {
+            "key": "MageShootReaction0",
+            "value": "Рекомендую практиковать навыки стрельбы в тире."
+        },
+
+        {
+            "key": "MageShootReaction1",
+            "value": "Протего!"
         },
 
         {
@@ -233,7 +302,22 @@
 
         {
             "key": "DoctorPhrase6",
-            "value": "Налет белого цвета на головк...\n А ладно проехали..."
+            "value": "Налет белого цвета на головк...\n А ладно, проехали..."
+        },
+
+        {
+            "key": "DoctorPhrase7",
+            "value": "Давай пропустим историю болезни\n и сразу перейдем к завещанию."
+        },
+
+        {
+            "key": "DoctorShootReaction0",
+            "value": "Твои действия безрассудны!"
+        },
+
+        {
+            "key": "DoctorShootReaction1",
+            "value": "Лечение ментальных расстройств не входило в план.."
         },
 
         {
@@ -258,12 +342,32 @@
 
         {
             "key": "ShooterPhrase4",
-            "value": "Знаешь откуда у меня эти шрамы?"
+            "value": "Знаешь, откуда у меня эти шрамы?"
         },
 
         {
             "key": "ShooterPhrase5",
             "value": "Приглядишь за моей взрывчаткой?\n Мне нужно в барбершоп."
+        },
+
+        {
+            "key": "ShooterPhrase6",
+            "value": "Зададим им жару."
+        },
+
+        {
+            "key": "ShooterPhrase7",
+            "value": "Сейчас взорвусь от смеха."
+        },
+
+        {
+            "key": "ShooterShootReaction0",
+            "value": "Еще один выстрел и ты пожалеешь, что появился на свет."
+        },
+
+        {
+            "key": "ShooterShootReaction1",
+            "value": "Не связывайся с тем, кто тебе не по зубам."
         },
 
         {
@@ -278,12 +382,12 @@
 
         {
             "key": "ArcherPhrase2",
-            "value": "Смерть есть новое начало."
+            "value": "Смерть - это новое начало."
         },
 
         {
             "key": "ArcherPhrase3",
-            "value": "Ты тоже слышишь эти голоса?"
+            "value": "Ты ведь тоже слышишь эти голоса?"
         },
 
         {
@@ -294,6 +398,26 @@
         {
             "key": "ArcherPhrase5",
             "value": "Эволюция явно на тебе отыгралась."
+        },
+
+        {
+            "key": "ArcherPhrase6",
+            "value": "Предупреждаю сразу - я бью ниже пояса."
+        },
+
+        {
+            "key": "ArcherPhrase7",
+            "value": "Убийства - это мой хлеб."
+        },
+
+        {
+            "key": "ArcherShootReaction0",
+            "value": "Это friendly fire, огонь по своим..."
+        },
+
+        {
+            "key": "ArcherShootReaction1",
+            "value": "Где там мои отравленные стрелы..."
         },
 
         {
@@ -324,6 +448,26 @@
         {
             "key": "EngineerPhrase5",
             "value": "Хочешь знать, как я облысел? Нет, не хочешь..."
+        },
+
+        {
+            "key": "EngineerPhrase6",
+            "value": "Системы функционируют."
+        },
+
+        {
+            "key": "EngineerPhrase7",
+            "value": "Я уважаю твое мнение, пока ты его держишь при себе."
+        },
+
+        {
+            "key": "EngineerShootReaction0",
+            "value": "Гильзы убирать будешь сам."
+        },
+
+        {
+            "key": "EngineerShootReaction1",
+            "value": "Противник замечен. Турели активированы."
         },
 
         {
@@ -378,7 +522,7 @@
 
         {
             "key": "Challenge1",
-            "value": "Урон+Защита"
+            "value": "Урон + Защита"
         },
 
         {
@@ -388,17 +532,12 @@
 
         {
             "key": "ShootingRangeInfo",
-            "value": "Тир! Больше попаданий лучше награда!"
+            "value": "Тир! Больше попаданий - лучше награда!"
         },
 
         {
             "key": "GoToMenu",
             "value": "В меню"
-        },
-
-        {
-            "key": "GoToLobby",
-            "value": "В лобби"
         },
 
         {
@@ -452,8 +591,33 @@
         },
 
         {
-            "key": "ShutUp",
+            "key": "ShutUp0",
             "value": "УМОЛЯЮ, ПРЕКРАТИ!"
+        },
+
+        {
+            "key": "ShutUp1",
+            "value": "Ты меня утомил."
+        },
+
+        {
+            "key": "ShutUp2",
+            "value": "Навязчивость и настойчивость - не одно и то же."
+        },
+
+        {
+            "key": "ShutUp3",
+            "value": "Палец не отвалится?"
+        },
+
+        {
+            "key": "ShutUp4",
+            "value": "Оставь меня!"
+        },
+
+        {
+            "key": "ShutUp5",
+            "value": "Убирайся!"
         },
 
         {

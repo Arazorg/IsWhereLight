@@ -20,6 +20,12 @@ public class InterfaceSettings : MonoBehaviour
 
     [Tooltip("UI кнопки смены оружия")]
     [SerializeField] private GameObject swapWeaponButton;
+
+    [Tooltip("Кнопка динамического джойстика")]
+    [SerializeField] private Button dynamicJoystickButton;
+
+    [Tooltip("Кнопка статического джойстика")]
+    [SerializeField] private Button staticJoystickButton;
 #pragma warning restore 0649
 
     private bool IsColorPanelState;
@@ -125,10 +131,19 @@ public class InterfaceSettings : MonoBehaviour
 
     public void SetJoystick(string type)
     {
+        
         if(type == "Dynamic")
+        {
+            dynamicJoystickButton.GetComponent<Image>().color = Color.red;
+            staticJoystickButton.GetComponent<Image>().color = Color.white;
             settingsInfo.joystickType = "Dynamic";
+        }    
         else if(type == "Static")
+        {
+            dynamicJoystickButton.GetComponent<Image>().color = Color.white;
+            staticJoystickButton.GetComponent<Image>().color = Color.red;
             settingsInfo.joystickType = "Static";
+        }
     }
 
 }

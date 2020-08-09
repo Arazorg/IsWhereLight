@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
-  key: new_game_button
+  key: NewGameButton
 --- !u!1 &219851141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7890938885056980433, guid: e15e22bc5949d9c449c1e54cf35036f7,
+  m_Sprite: {fileID: 1236290381599275680, guid: 6093cb9b9c021b740b79e392354741ca,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -2978,6 +2978,7 @@ GameObject:
   - component: {fileID: 774147845}
   - component: {fileID: 774147844}
   - component: {fileID: 774147843}
+  - component: {fileID: 774147846}
   m_Layer: 5
   m_Name: MusicButton
   m_TagString: Untagged
@@ -3096,6 +3097,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774147841}
   m_CullTransparentMesh: 0
+--- !u!114 &774147846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774147841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a53f847f281ae54c9a1fa9bd30fbdb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOffSprite: {fileID: 3689995828564775681, guid: 6093cb9b9c021b740b79e392354741ca,
+    type: 3}
+  enableOnSprite: {fileID: 7489766001354239897, guid: e15e22bc5949d9c449c1e54cf35036f7,
+    type: 3}
+  type: 0
 --- !u!1 &812429093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,7 +4156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
-  key: continue_game_button
+  key: ContinueGameButton
 --- !u!1 &1049468912
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,6 +4776,7 @@ GameObject:
   - component: {fileID: 1132774812}
   - component: {fileID: 1132774811}
   - component: {fileID: 1132774810}
+  - component: {fileID: 1132774813}
   m_Layer: 5
   m_Name: EffectsButton
   m_TagString: Untagged
@@ -4876,6 +4895,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132774808}
   m_CullTransparentMesh: 0
+--- !u!114 &1132774813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132774808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a53f847f281ae54c9a1fa9bd30fbdb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOffSprite: {fileID: 1752071191219240878, guid: 6093cb9b9c021b740b79e392354741ca,
+    type: 3}
+  enableOnSprite: {fileID: -1569015509418208929, guid: e15e22bc5949d9c449c1e54cf35036f7,
+    type: 3}
+  type: 1
 --- !u!1 &1158092903
 GameObject:
   m_ObjectHideFlags: 0
@@ -5057,7 +5093,7 @@ RectTransform:
   m_Children:
   - {fileID: 1201464691}
   m_Father: {fileID: 1999253285}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5087,7 +5123,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 0.042452812, b: 0.7711231, a: 1}
-    m_SelectedColor: {r: 1, g: 0.043137256, b: 0.7725491, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5633,6 +5669,8 @@ MonoBehaviour:
   settingsButton: {fileID: 1982369272}
   secretCodeField: {fileID: 1087138600}
   moneyPlusText: {fileID: 1311760344}
+  musicButton: {fileID: 774147843}
+  effectsButton: {fileID: 1132774810}
 --- !u!114 &1267803956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7348,7 +7386,7 @@ RectTransform:
   m_Children:
   - {fileID: 652578125}
   m_Father: {fileID: 1999253285}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7378,7 +7416,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 0.042452812, b: 0.7711231, a: 1}
-    m_SelectedColor: {r: 1, g: 0.043137256, b: 0.7725491, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7961,8 +7999,8 @@ RectTransform:
   - {fileID: 156692315}
   - {fileID: 1378620713}
   - {fileID: 17194174}
-  - {fileID: 1829405584}
   - {fileID: 1196012382}
+  - {fileID: 1829405584}
   m_Father: {fileID: 1869139682}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7988,6 +8026,8 @@ MonoBehaviour:
   joystick: {fileID: 5406711228758139510}
   fireActButton: {fileID: 1478223103}
   swapWeaponButton: {fileID: 304105670}
+  dynamicJoystickButton: {fileID: 1196012383}
+  staticJoystickButton: {fileID: 1829405585}
 --- !u!114 &1999253287
 MonoBehaviour:
   m_ObjectHideFlags: 0
