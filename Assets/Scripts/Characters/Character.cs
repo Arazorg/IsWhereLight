@@ -180,7 +180,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
             {
                 if (currentPhrase != null)
                     currentPhrase.DeletePhrase();
-                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "GoAway");
+                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"GoAway{Random.Range(0, 4)}");
                 if ((transform.position - coll.transform.position).x < 0 && m_FacingRight)
                     Flip();
                 else if ((transform.position - coll.transform.position).x > 0 && !m_FacingRight)
@@ -192,7 +192,8 @@ public class Character : MonoBehaviour, IPointerDownHandler
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, "Shoot");
+            Debug.Log($"{CharacterClass}Shoot{Random.Range(0, 1)}");
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"{CharacterClass}ShootReaction{Random.Range(0, 1)}");
         }
     }
 

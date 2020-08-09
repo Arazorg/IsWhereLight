@@ -3525,7 +3525,7 @@ MonoBehaviour:
   mixerGroup: {fileID: 0}
   sounds:
   - nameOfSound: ClickUI
-    clip: {fileID: 8300000, guid: 6a620b8c59f432b45aa140517220892b, type: 3}
+    clip: {fileID: 8300000, guid: 9267e89122260c140982df4e539ba619, type: 3}
     volume: 0.5
     volumeVariance: 0.1
     pitch: 1

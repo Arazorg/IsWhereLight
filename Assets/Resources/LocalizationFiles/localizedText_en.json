@@ -87,12 +87,12 @@
         },
 
         {
-            "key": "Soldier",
+            "key": "Shooter",
             "value": "Raider"
         },
 
         {
-            "key": "Medic",
+            "key": "Doctor",
             "value": "Isida"
         },
 
@@ -127,12 +127,12 @@
         },
 
         {
-            "key": "SimpleSoldier",
+            "key": "SimpleShooter",
             "value": "Simple Raider"
         },
 
         {
-            "key": "SimpleMedic",
+            "key": "SimpleDoctor",
             "value": "Simple Isida"
         },
 
@@ -442,8 +442,33 @@
         },
 
         {
-            "key": "Hello",
+            "key": "Hello0",
             "value": "Hello!"
+        },
+
+        {
+            "key": "Hello1",
+            "value": "Hi!"
+        },
+
+        {
+            "key": "Hello2",
+            "value": "Wassup!?"
+        },
+
+        {
+            "key": "Hello3",
+            "value": "How's it going?"
+        },
+
+        {
+            "key": "Hello4",
+            "value": "Yo!"
+        },
+
+        {
+            "key": "Hello5",
+            "value": "G'day!"
         },
 
         {
@@ -512,10 +537,24 @@
         },
 
         {
-            "key": "GoAway",
+            "key": "GoAway0",
             "value": "Go away!"
         },
 
+        {
+            "key": "GoAway1",
+            "value": "Get out!"
+        },
+
+        {
+            "key": "GoAway2",
+            "value": "Hit the road!"
+        },
+
+        {
+            "key": "GoAway3",
+            "value": "Stay away from me, OK?"
+        },
         {
             "key": "ChallengeText",
             "value": "Choose challenge"

@@ -114,8 +114,6 @@ public class CharacterChooseUI : MonoBehaviour
         //nextSkinButton.GetComponent<MovementUI>().SetStart();
         skinText.gameObject.GetComponent<MovementUI>().MoveToEnd();
         goToGameButton.GetComponent<MovementUI>().MoveToEnd();
-        prevSkinButton.gameObject.SetActive(true);
-        nextSkinButton.gameObject.SetActive(true);
         prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
         nextSkinButton.GetComponent<MovementUI>().MoveToEnd();
         InfoBar.GetComponent<MovementUI>().MoveToEnd();
@@ -243,10 +241,8 @@ public class CharacterChooseUI : MonoBehaviour
     {
         skinText.gameObject.GetComponent<MovementUI>().MoveToStart();
         goToGameButton.GetComponent<MovementUI>().MoveToStart();
-        prevSkinButton.gameObject.SetActive(false);
-        nextSkinButton.gameObject.SetActive(false);
-        //prevSkinButton.GetComponent<MovementUI>().MoveToStart();
-        //nextSkinButton.GetComponent<MovementUI>().MoveToStart();
+        prevSkinButton.GetComponent<MovementUI>().MoveToStart();
+        nextSkinButton.GetComponent<MovementUI>().MoveToStart();
         InfoBar.GetComponent<MovementUI>().MoveToStart();
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
         moneyImage.GetComponent<MovementUI>().MoveToStart();

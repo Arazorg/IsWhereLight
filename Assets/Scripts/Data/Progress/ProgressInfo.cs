@@ -64,8 +64,8 @@ public class ProgressInfo : MonoBehaviour
         characters.Add("Knight", true);
         characters.Add("Mage", false);
         characters.Add("Archer", false);
-        characters.Add("Soldier", false);
-        characters.Add("Medic", false);
+        characters.Add("Shooter", false);
+        characters.Add("Doctor", false);
         characters.Add("Engineer", false);
     }
 
@@ -73,6 +73,7 @@ public class ProgressInfo : MonoBehaviour
     {
         secretCodes.Add("arazorg", 9999);
         secretCodes.Add("valerick", 10000);
+        secretCodes.Add("banyuk", 10001);
     }
 
     public int CheckSecretCode(string code)
