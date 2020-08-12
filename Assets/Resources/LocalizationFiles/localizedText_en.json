@@ -17,6 +17,11 @@
         },
 
         {
+            "key": "HaveCurrentGame",
+            "value": "Are you sure you want to quit the current game?"
+        },
+        
+        {
             "key": "HealthInfo",
             "value": "Health"
         },

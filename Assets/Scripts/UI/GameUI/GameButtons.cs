@@ -224,6 +224,7 @@ public class GameButtons : MonoBehaviour
     }
     public void ChooseChallenge(int challengeNumber)
     {
+        audioManager.Play("ClickUI");
         currentGameInfo.challengeNumber = challengeNumber;
         playButton.GetComponent<MovementUI>().MoveToEnd();
         challengeText.GetComponent<LocalizedText>().key = $@"Challenge{challengeNumber}";
@@ -274,6 +275,7 @@ public class GameButtons : MonoBehaviour
 
     public void GoToFinishScene()
     {
+        audioManager.Play("ClickUI");
         Time.timeScale = 1f;
         ProgressInfo.instance.currentCountShoots = charInfo.currentCountShoots;
         ProgressInfo.instance.currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
@@ -282,6 +284,7 @@ public class GameButtons : MonoBehaviour
 
     public void ResurrectPlayerAd()
     {
+        audioManager.Play("ClickUI");
         charInfo.countResurrect--;
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
@@ -292,6 +295,7 @@ public class GameButtons : MonoBehaviour
 
     public void ResurrectPlayerMoney()
     {
+        audioManager.Play("ClickUI");
         charInfo.countResurrect--;
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
@@ -302,6 +306,7 @@ public class GameButtons : MonoBehaviour
 
     public void GoToGame()
     {
+        audioManager.Play("ClickUI");
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
             charInfo.SaveChar();

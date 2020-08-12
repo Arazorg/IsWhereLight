@@ -16,6 +16,9 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("UI панели секретного кода")]
     [SerializeField] private GameObject secretCode;
 
+    [Tooltip("UI панели закрытия текущей игры")]
+    [SerializeField] private GameObject closeCurrentGamePanel;
+
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
 
@@ -66,7 +69,7 @@ public class MenuButtons : MonoBehaviour
         settingsInfo.LoadSettings();
         progressInfo.LoadProgress();
         progressInfo.SaveProgress();
-        if(PlayerPrefs.HasKey("currentGame") && PlayerPrefs.HasKey("character"))
+        if (PlayerPrefs.HasKey("currentGame") && PlayerPrefs.HasKey("character"))
         {
             firstPlay = false;
             newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
@@ -74,8 +77,7 @@ public class MenuButtons : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.DeleteKey("character");
-            PlayerPrefs.DeleteKey("currentGame");
+            DeleteCurrentGame();
             newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
             firstPlay = true;
         }
@@ -106,9 +108,14 @@ public class MenuButtons : MonoBehaviour
 
     public void NewGame()
     {
-        audioManager.Play("ClickUI");
-        firstPlay = true;
-        SceneManager.LoadScene("Lobby");
+        if (!firstPlay)
+            closeCurrentGamePanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+        {
+            audioManager.Play("ClickUI");
+            firstPlay = true;
+            SceneManager.LoadScene("Lobby");
+        }
     }
 
     public void ContinueGame()
@@ -137,6 +144,19 @@ public class MenuButtons : MonoBehaviour
         settingsPanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
+    public void DeleteCurrentGameStartNewGame()
+    {
+        DeleteCurrentGame();
+        audioManager.Play("ClickUI");
+        firstPlay = true;
+        SceneManager.LoadScene("Lobby");
+    }
+
+    public void CloseCurrentGamePanel()
+    {
+        closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
+    }
+
     public void AllPanelHide()
     {
         audioManager.Play("ClickUI");
@@ -145,11 +165,18 @@ public class MenuButtons : MonoBehaviour
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         secretCode.GetComponent<MovementUI>().MoveToStart();
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
+        closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void ExitGame()
     {
         audioManager.Play("ClickUI");
         Application.Quit();
+    }
+
+    private  void DeleteCurrentGame()
+    {
+        PlayerPrefs.DeleteKey("character");
+        PlayerPrefs.DeleteKey("currentGame");
     }
 }

@@ -32,9 +32,11 @@ public class FinishOfGameButton : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
     private bool isShow;
     private float timeToShow;
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         progressInfo.playerMoney += finishGameMoney;
@@ -66,11 +68,13 @@ public class FinishOfGameButton : MonoBehaviour
     }
     public void GoToMenu()
     {
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Menu");
     }
 
     public void GoToLobby()
     {
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Lobby");
     }
 }

@@ -21,9 +21,10 @@ public class LobbyUI : MonoBehaviour
 #pragma warning restore 0649
 
     private string characterKey;
-
+    private AudioManager audioManager; 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         PlayerPrefs.DeleteKey("character");
         PlayerPrefs.DeleteKey("currentGame");
         Camera.main.backgroundColor = Color.black;
@@ -36,7 +37,6 @@ public class LobbyUI : MonoBehaviour
 
     public void HideLobby()
     {
-        //characterTextUI.GetComponent<MovementUI>().MoveToStart();
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
     }
 
@@ -49,6 +49,7 @@ public class LobbyUI : MonoBehaviour
 
     public void BackToMenu()
     {
+        audioManager.Play("ClickUI");
         SceneManager.LoadScene("Menu");
     }
 }

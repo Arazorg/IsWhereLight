@@ -131,8 +131,8 @@ public class InterfaceSettings : MonoBehaviour
 
     public void SetJoystick(string type)
     {
-        
-        if(type == "Dynamic")
+        audioManager.Play("ClickUI");
+        if (type == "Dynamic")
         {
             dynamicJoystickButton.GetComponent<Image>().color = Color.red;
             staticJoystickButton.GetComponent<Image>().color = Color.white;

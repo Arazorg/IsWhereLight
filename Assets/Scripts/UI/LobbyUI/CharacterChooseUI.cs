@@ -71,10 +71,17 @@ public class CharacterChooseUI : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
     private ProgressInfo progressInfo;
     private Character currentCharacter;
+    private AudioManager audioManager;
 
     private int characterPrice;
     private int skinCounter;
     private bool isCharacter;
+
+    void Start()
+    {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
+
     public void ChooseCharacter(Character character, Animator animator)
     {
         skinCounter = 0;
@@ -90,11 +97,13 @@ public class CharacterChooseUI : MonoBehaviour
         SetInfoBar();
         RefreshUI();
     }
+
     void Update()
     {
         if (isCharacter)
             animator.runtimeAnimatorController = currentCharacter.Animations[skinCounter];
     }
+
     public void SetSpecChar()
     {
         currentGameInfo.character = currentCharacter.CharacterClass;
@@ -148,6 +157,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void NextSkin()
     {
+        audioManager.Play("ClickUI");
         if (skinCounter + 1 < currentCharacter.Animations.Length)
         {
             skinCounter++;
@@ -157,6 +167,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void PrevSkin()
     {
+        audioManager.Play("ClickUI");
         if (skinCounter - 1 >= 0)
         {
             skinCounter--;
@@ -188,6 +199,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void BuyCharacter()
     {
+        audioManager.Play("ClickUI");
         if (progressInfo.playerMoney >= characterPrice)
         {
             progressInfo.characters[currentCharacter.CharacterClass] = true;
@@ -201,6 +213,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void ConfirmCharacter()
     {
+        audioManager.Play("ClickUI");
         isCharacter = false;
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -218,6 +231,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     public void BackToLobby()
     {
+        audioManager.Play("ClickUI");
         isCharacter = false;
         HideCharacterChooseUI();
         skinCounter = 0;

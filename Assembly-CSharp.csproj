@@ -141,7 +141,6 @@
      <Compile Include="Assets\Scripts\UI\GameUI\PauseSettings.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\PauseUI.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\WeaponStoreUI.cs" />
-     <Compile Include="Assets\Scripts\UI\LobbyUI\CharInfoBar.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\CharacterChooseUI.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\LobbyUI.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceDrag.cs" />

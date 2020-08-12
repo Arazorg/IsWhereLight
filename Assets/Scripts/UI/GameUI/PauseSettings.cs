@@ -65,12 +65,13 @@ public class PauseSettings : MonoBehaviour
 
     public void OpenCloseLocalizationPanel()
     {
+        audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState;
         if (IsLocalizationPanelState)
         {
             localizationPanel.GetComponent<MovementUI>().MoveToEnd();
             pausePanel.GetComponent<MovementUI>().MoveToStart();
-        } 
+        }
         else
         {
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
@@ -80,6 +81,7 @@ public class PauseSettings : MonoBehaviour
 
     public void ChangeLanguage(string fileName)
     {
+        audioManager.Play("ClickUI");
         localizationManager.LoadLocalizedText(fileName);
     }
 }

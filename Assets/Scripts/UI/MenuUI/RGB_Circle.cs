@@ -12,9 +12,16 @@ public class RGB_Circle : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Slider slider;
 
 #pragma warning restore 0649
+    private AudioManager audioManager;
     private Color currentColor = Color.white;
+
+    void Start()
+    { 
+        audioManager = FindObjectOfType<AudioManager>(); 
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
+        audioManager.Play("ClickUI");
         Vector3[] corners = new Vector3[4];
         GetComponent<RectTransform>().GetWorldCorners(corners);
         Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);

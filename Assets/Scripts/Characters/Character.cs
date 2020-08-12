@@ -38,9 +38,10 @@ public class Character : MonoBehaviour, IPointerDownHandler
     private float phraseTimer;
     private int phrasesCount;
     private bool isIgnore;
-
+    private AudioManager audioManager; 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         offsetText = new Vector3(0, 0.85f, 0);
         if (transform.localScale.x == 1)
             m_FacingRight = true;
@@ -124,11 +125,11 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        if(phrasesCount > 5 && !isIgnore)
+        if (phrasesCount > 5 && !isIgnore)
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"ShutUp{Random.Range(0,6)}");
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"ShutUp{Random.Range(0, 6)}");
             phraseTimer = Time.time + timeIgnore;
             isIgnore = true;
         }
@@ -137,13 +138,15 @@ public class Character : MonoBehaviour, IPointerDownHandler
             isIgnore = false;
             phrasesCount = 0;
         }
-            
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (!characterControlUI.gameObject.activeSelf)
         {
+            audioManager.Play("ClickUI");
             lobbyUI.GetComponent<LobbyUI>().HideLobby();
             CameraZoom();
             characterChooseUI.gameObject.SetActive(true);
@@ -165,11 +168,11 @@ public class Character : MonoBehaviour, IPointerDownHandler
             {
                 if (currentPhrase != null)
                     currentPhrase.DeletePhrase();
-                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"Hello{Random.Range(0,6)}");
+                currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"Hello{Random.Range(0, 6)}");
                 isHello = true;
             }
 
-            if(!isIgnore)
+            if (!isIgnore)
             {
                 if ((transform.position - coll.transform.position).x < 0 && !m_FacingRight)
                     Flip();
@@ -186,9 +189,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
                 else if ((transform.position - coll.transform.position).x > 0 && !m_FacingRight)
                     Flip();
             }
-            
+
         }
-        if(coll.gameObject.tag.Contains("Bullet"))
+        if (coll.gameObject.tag.Contains("Bullet"))
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
@@ -199,7 +202,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     public void ShowPhrase()
     {
-        if(!isIgnore)
+        if (!isIgnore)
         {
             int phrase = Random.Range(0, NPC_Phrases.Count);
             while (phrase == lastPhrase)
