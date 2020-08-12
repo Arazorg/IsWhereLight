@@ -1637,6 +1637,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMoney: 0
+  countKilledEnemies: 0
+  countShoots: 0
+  currentCountKilledEnemies: 0
+  currentCountShoots: 0
 --- !u!1 &304105670
 GameObject:
   m_ObjectHideFlags: 0

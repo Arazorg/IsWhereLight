@@ -18,29 +18,59 @@ public class CharInfo : MonoBehaviour
     public int mane;
     public int money;
     public int countResurrect;
+    public int currentCountKilledEnemies;
+    public int currentCountShoots;
 
-    public void SetStartParametrs()
+    public void Init(CharData data)
     {
-        GetComponent();
+        character = data.character;
+        skin = data.skin;
+        weapons = data.weapons;
+        maxHealth = data.maxHealth;
+        maxMane = data.maxMane;
+        health = data.health;
+        mane = data.mane;
+        money = data.money;
+        countResurrect = data.countResurrect;
+        currentCountKilledEnemies = data.currentCountKilledEnemies;
+        currentCountShoots = data.currentCountShoots;
+    }
+    public void SetStartParams()
+    {
+        FindObjects();
         weapons = new string[2];
         character = currentGameInfo.character;
         skin = currentGameInfo.skin;
         weapons[0] = currentGameInfo.startWeapon;
+        weapons[1] = null;
         maxHealth = currentGameInfo.maxHealth;
         maxMane = currentGameInfo.maxMane;
         health = maxHealth;
         mane = maxMane;
         money = 0;
         countResurrect = 1;
+        currentCountKilledEnemies = 0;
+        currentCountShoots = 0;
         SetObjects();
     }
 
-    private void SetObjects()
+    public void SaveChar()
     {
-        FindObjects();
-        manaBar.SetMaxMin(mane, maxMane, 0);
-        healthBar.SetMaxMin(health, maxHealth, 0);
-        Camera.main.GetComponent<CameraFollow>().SetTarget(transform);
+        string json = JsonUtility.ToJson(this);
+        NewSaveSystem.Save("character", json);
+    }
+
+    public void LoadChar()
+    {
+        GetComponents();
+        SetStartParams();
+        var charString = NewSaveSystem.Load("character");
+        if (charString != null)
+        {
+            CharData saveObject = JsonUtility.FromJson<CharData>(charString);
+            Init(saveObject);
+        };
+        SetObjects();
     }
 
     private void FindObjects()
@@ -49,26 +79,17 @@ public class CharInfo : MonoBehaviour
         manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
-
-    public void SaveChar()
+    private void SetObjects()
     {
-        SaveSystem.SaveChar(this);
+        manaBar.SetMaxMin(mane, maxMane, 0);
+        healthBar.SetMaxMin(health, maxHealth, 0);
+        Camera.main.GetComponent<CameraFollow>().SetTarget(transform);
     }
 
-    public void LoadChar()
+    private void GetComponents()
     {
-        GetComponent();
-        CharData charData = SaveSystem.LoadChar();
-        character = charData.character;
-        skin = charData.skin;
-        weapons = charData.weapons;
-        maxHealth = charData.maxHealth;
-        maxMane = charData.maxMane;
-        health = charData.health;
-        mane = charData.mane;
-        money = charData.money;
-        countResurrect = charData.countResurrect;
-        SetObjects();
+        charAction = GetComponent<CharAction>();
+        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
     }
 
     public void SpendMana(int manecost)
@@ -110,11 +131,5 @@ public class CharInfo : MonoBehaviour
         else
             health += healing;
         healthBar.SetHealth(health);
-    }
-
-    private void GetComponent()
-    {
-        charAction = GetComponent<CharAction>();
-        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
     }
 }

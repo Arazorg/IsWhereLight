@@ -11,7 +11,7 @@ public class FinishOfGameButton : MonoBehaviour
     [Tooltip("Текст о смерти")]
     [SerializeField] private TextMeshProUGUI finishOfGameText;
 
-    [Tooltip("Задний фон стастики")]
+    [Tooltip("Задний фон статистики")]
     [SerializeField] private GameObject statsPanel;
 
     [Tooltip("Текст количества убитых врагов")]
@@ -32,6 +32,7 @@ public class FinishOfGameButton : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
     private bool isShow;
     private float timeToShow;
+
     void Start()
     {
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
@@ -47,15 +48,19 @@ public class FinishOfGameButton : MonoBehaviour
         countKilledEnemiesText.GetComponent<MovementUI>().MoveToEnd();
         timeToShow = Time.time + 0.1f;
         isShow = false;
-        SaveSystem.DeleteCurrentGame();
+        NewSaveSystem.Delete("character");
+        NewSaveSystem.Delete("currentGame");
     }
 
     void Update()
     {
         if(Time.time > timeToShow && !isShow)
         {
-            countKilledEnemiesText.text += currentGameInfo.countKilledEnemy.ToString();
-            countShootsText.text += currentGameInfo.countShoots.ToString();
+            countKilledEnemiesText.text += progressInfo.currentCountKilledEnemies;
+            countShootsText.text += progressInfo.currentCountShoots;
+            progressInfo.countShoots += progressInfo.currentCountShoots;
+            progressInfo.countKilledEnemies += progressInfo.currentCountKilledEnemies;
+            progressInfo.SaveProgress();
             isShow = true;
         }
     }

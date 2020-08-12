@@ -75,7 +75,6 @@ public class GameButtons : MonoBehaviour
     private CharGun charGun;
     private CharAction charAction;
     //Скрипты
-    private SettingsInfo settingsInfo;
     private CurrentGameInfo currentGameInfo;
 
     //Переменные
@@ -102,14 +101,14 @@ public class GameButtons : MonoBehaviour
 
     void Start()
     {
+        // PlayerPrefs.DeleteAll();
         Time.timeScale = 1f;
         GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
 
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        StartUIActive();
+        IsGamePausedState = false;
         SetStartUI();
 
         if (SceneManager.GetActiveScene().name == "Game")
@@ -119,10 +118,19 @@ public class GameButtons : MonoBehaviour
         }
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
-        if (SceneManager.GetActiveScene().name == "Lobby")
-            character.GetComponent<CharController>().speed = 7.5f;
         SetCharScripts();
-        CheckFirstPlay();
+
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            charInfo.LoadChar();
+            currentGameInfo.LoadCurrentGame();
+        }
+        else if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            charInfo.SetStartParams();
+            character.GetComponent<CharController>().speed = 7.5f;
+        }
+        SetCharAnim();
 
         moneyText = moneyText.GetComponent<TextMeshProUGUI>();
         moneyText.text = charInfo.money.ToString();
@@ -131,12 +139,6 @@ public class GameButtons : MonoBehaviour
         IsWeaponStoreState = false;
         nextAttack = 0.0f;
     }
-
-    private void StartUIActive()
-    {
-        IsGamePausedState = false;
-    }
-
 
     private void SetStartUI()
     {
@@ -154,33 +156,10 @@ public class GameButtons : MonoBehaviour
         charAction = character.GetComponent<CharAction>();
     }
 
-    private void CheckFirstPlay()
-    {
-        if (MenuButtons.firstPlay)
-        {
-            charInfo.SetStartParametrs();
-            SetCharAnim();
-            charInfo.SaveChar();
-        }
-        else
-        {
-            if (currentGameInfo.LoadCurrentGame() && currentGameInfo.isLobby == false)
-            {
-                charInfo.LoadChar();
-                SetCharAnim();
-            }
-            else
-            {
-                SaveSystem.DeleteCurrentGame();
-                SceneManager.LoadScene("Menu");
-            }
-        }
-    }
-
     private void SetCharAnim()
     {
         character.GetComponent<CharController>().CharacterRuntimeAnimatorController
-            = Resources.Load<RuntimeAnimatorController>("Animations/Characters/" + charInfo.character + "/" + charInfo.skin + "/" + charInfo.skin)
+            = Resources.Load<RuntimeAnimatorController>($"Animations/Characters/{charInfo.character}/{charInfo.skin}/{charInfo.skin}")
                     as RuntimeAnimatorController;
     }
 
@@ -264,7 +243,7 @@ public class GameButtons : MonoBehaviour
 
     public void ShowHideControlUI(bool isShow)
     {
-        if(isShow)
+        if (isShow)
         {
             pauseButton.GetComponent<MovementUI>().MoveToEnd();
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
@@ -278,11 +257,11 @@ public class GameButtons : MonoBehaviour
             healthBar.GetComponent<MovementUI>().MoveToStart();
             maneBar.GetComponent<MovementUI>().MoveToStart();
         }
-        
+
     }
     public void OpenDeathPanel()
     {
-        if(charInfo.countResurrect != 0)
+        if (charInfo.countResurrect != 0)
         {
             deathPanel.GetComponent<MovementUI>().MoveToEnd();
             Time.timeScale = 0f;
@@ -290,12 +269,14 @@ public class GameButtons : MonoBehaviour
             ShowHideControlUI(false);
         }
         else
-            SceneManager.LoadScene("FinishGame");
+            GoToFinishScene();
     }
 
     public void GoToFinishScene()
     {
         Time.timeScale = 1f;
+        ProgressInfo.instance.currentCountShoots = charInfo.currentCountShoots;
+        ProgressInfo.instance.currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
         SceneManager.LoadScene("FinishGame");
     }
 
@@ -321,6 +302,12 @@ public class GameButtons : MonoBehaviour
 
     public void GoToGame()
     {
+        if (SceneManager.GetActiveScene().name == "Lobby")
+        {
+            charInfo.SaveChar();
+            currentGameInfo.SaveCurrentGame();
+        }
+            
         SceneManager.LoadScene("Game");
     }
 
@@ -357,13 +344,13 @@ public class GameButtons : MonoBehaviour
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
                     case WeaponData.AttackType.Gun:
-                        currentGameInfo.countShoots++;
+                        charInfo.currentCountShoots++;
                         charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Gun>().Shoot();
                         nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.Sword:
-                        currentGameInfo.countShoots++;
+                        charInfo.currentCountShoots++;
                         charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Sword>().Hit();
                         nextAttack = Time.time + attackRate;
@@ -380,7 +367,7 @@ public class GameButtons : MonoBehaviour
             switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
             {
                 case WeaponData.AttackType.Bow:
-                    currentGameInfo.countShoots++;
+                    charInfo.currentCountShoots++;
                     charInfo.SpendMana(manecost);
                     currentWeapon.GetComponent<Bow>().Shoot();
                     CharController.isRotate = false;

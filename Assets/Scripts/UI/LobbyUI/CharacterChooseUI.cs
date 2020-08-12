@@ -110,8 +110,6 @@ public class CharacterChooseUI : MonoBehaviour
 
     private void SetInfoBar()
     {
-        //prevSkinButton.GetComponent<MovementUI>().SetStart();
-        //nextSkinButton.GetComponent<MovementUI>().SetStart();
         skinText.gameObject.GetComponent<MovementUI>().MoveToEnd();
         goToGameButton.GetComponent<MovementUI>().MoveToEnd();
         prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
@@ -204,13 +202,10 @@ public class CharacterChooseUI : MonoBehaviour
     public void ConfirmCharacter()
     {
         isCharacter = false;
-        currentGameInfo.SaveCurrentGame();
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
-
         GameButtons.SpawnPosition = currentCharacter.transform.position;
-
         characters.Remove(currentCharacter);
         foreach (var character in characters)
         {

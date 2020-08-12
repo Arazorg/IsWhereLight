@@ -82,12 +82,12 @@
         },
 
         {
-            "key": "Soldier",
+            "key": "Shooter",
             "value": "Рейдер"
         },
 
         {
-            "key": "Medic",
+            "key": "Doctor",
             "value": "Изида"
         },
 
@@ -127,12 +127,12 @@
         },
 
         {
-            "key": "SimpleSoldier",
+            "key": "SimpleShooter",
             "value": "Обычный Рейдер"
         },
 
         {
-            "key": "SimpleMedic",
+            "key": "SimpleDoctor",
             "value": "Обычная Изида"
         },
 

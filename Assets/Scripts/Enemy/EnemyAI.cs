@@ -3,6 +3,10 @@
 public class EnemyAI : MonoBehaviour
 {
     private Transform targetTransform;
+    public GameObject Character
+    {
+        get { return character; }
+    }
     private GameObject character;
     private Enemy enemy;
     public void StartAI()

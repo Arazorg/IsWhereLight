@@ -14,12 +14,10 @@ public class CurrentGameInfo : MonoBehaviour
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int countKilledEnemy;
-    public int countShoots = 0;
     public int currentWave = 0;
 
     void Awake()
-    {       
+    {
         if (instance != null)
         {
             Destroy(gameObject);
@@ -31,37 +29,41 @@ public class CurrentGameInfo : MonoBehaviour
         }
     }
 
-    public void SaveCurrentGame()
+    private void Init(CurrentGameData currentGameData)
     {
-        if(!isLobby)
-            SaveSystem.SaveCurrentGame(this);
+        character = currentGameData.character;
+        skin = currentGameData.skin;
+        startWeapon = currentGameData.startWeapon;
+        maxHealth = currentGameData.maxHealth;
+        maxMane = currentGameData.maxMane;
+        wildMode = currentGameData.wildMode;
+        isLobby = currentGameData.isLobby;
+        challengeNumber = currentGameData.challengeNumber;
+        currentWave = currentGameData.currentWave;
     }
 
-    public void SetIsLobbyState(bool isLobby)
+    public void SaveCurrentGame()
     {
-        this.isLobby = isLobby;
-        SaveSystem.SaveCurrentGame(this);
+        string json = JsonUtility.ToJson(this);
+        NewSaveSystem.Save("currentGame", json);
     }
 
     public bool LoadCurrentGame()
     {
-        CurrentGameData currentGameData = SaveSystem.LoadCurrentGame();
-        if(currentGameData != null)
+        var currentGameString = NewSaveSystem.Load("currentGame");
+        if (currentGameString != null)
         {
-            character = currentGameData.character;
-            skin = currentGameData.skin;
-            startWeapon = currentGameData.startWeapon;
-            maxHealth = currentGameData.maxHealth;
-            maxMane = currentGameData.maxMane;
-            wildMode = currentGameData.wildMode;
-            isLobby = currentGameData.isLobby;
-            challengeNumber = currentGameData.challengeNumber;
-            countKilledEnemy = currentGameData.countKilledEnemy;
-            countShoots = currentGameData.countShoots;
-            currentWave = currentGameData.currentWave;
+            CurrentGameData saveObject = JsonUtility.FromJson<CurrentGameData>(currentGameString);
+            Init(saveObject);
             return true;
-        }
-        else
-            return false;  
+        };
+        return false;
+    }
+
+
+    public void SetIsLobbyState(bool isLobby)
+    {
+        this.isLobby = isLobby;
+        SaveCurrentGame();
     }
 }

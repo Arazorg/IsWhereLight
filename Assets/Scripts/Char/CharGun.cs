@@ -137,14 +137,16 @@ public class CharGun : MonoBehaviour
 
     private void SpawnStartWeapon()
     {
+        WeaponSpawner.instance.countOfWeapon = 0;
         currentWeaponNumber = 0;
         var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
         WeaponSpawner.instance.SetPrefab(spawnWeapon);
         WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
         SetWeaponParam();
-        if (charInfo.weapons[1] != null)
+
+        if (charInfo.weapons[1] != null && charInfo.weapons[1] != "")
         {
-            Debug.Log("have 2" + charInfo.weapons[1]);
+            WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].SetActive(false);
             currentWeaponNumber++;
             spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
             WeaponSpawner.instance.SetPrefab(spawnWeapon);

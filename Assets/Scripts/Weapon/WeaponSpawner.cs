@@ -34,7 +34,6 @@ public class WeaponSpawner : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 

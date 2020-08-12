@@ -15,6 +15,8 @@ public class CharData
     public int countResurrect;
     public int money;
 
+    public int currentCountKilledEnemies;
+    public int currentCountShoots;
     public CharData(CharInfo charInfo)
     {
         character = charInfo.character;
@@ -26,5 +28,7 @@ public class CharData
         mane = charInfo.mane;
         money = charInfo.money;
         countResurrect = charInfo.countResurrect;
+        currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
+        currentCountShoots = charInfo.currentCountShoots;
     }
 }

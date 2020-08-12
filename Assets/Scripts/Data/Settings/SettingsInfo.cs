@@ -14,6 +14,7 @@ public class SettingsInfo : MonoBehaviour
     public float[] swapWeaponButtonPosition = new float[2];
     public string color;
     public string joystickType;
+
     void Awake()
     {
         if (instance != null)
@@ -27,27 +28,40 @@ public class SettingsInfo : MonoBehaviour
         }
     }
 
+    private void Init(SettingsData data)
+    {
+        currentLocalization = data.currentLocalization;
+        musicOn = data.musicOn;
+        effectsOn = data.effectsOn;
+        joystickPosition = data.joystickPosition;
+        fireActButtonPosition = data.fireActButtonPosition;
+        swapWeaponButtonPosition = data.fireActButtonPosition;
+        color = data.color;
+        joystickType = data.joystickType;
+    }
+
     public void SaveSettings()
     {
-        SaveSystem.SaveSettings(this);
+        string json = JsonUtility.ToJson(this);
+        NewSaveSystem.Save("settings", json);
     }
 
     public void LoadSettings()
     {
-        SettingsData settingsData = SaveSystem.LoadSettings();
-        if (settingsData != null)
+        SetStartSettings();
+        var settingsString = NewSaveSystem.Load("settings");
+        try
         {
-            currentLocalization = settingsData.currentLocalization;
-            musicOn = settingsData.musicOn;
-            effectsOn = settingsData.effectsOn;
-            joystickPosition = settingsData.joystickPosition;
-            fireActButtonPosition = settingsData.fireActButtonPosition;
-            swapWeaponButtonPosition = settingsData.swapWeaponButtonPosition;
-            color = settingsData.color;
-            joystickType = settingsData.joystickType;
+            if (settingsString != null)
+            {
+                SettingsData saveObject = JsonUtility.FromJson<SettingsData>(settingsString);
+                Init(saveObject);
+            };
         }
-        else
-            SetStartSettings();
+        catch
+        {
+
+        }
     }
 
     public void InitDictionary()
@@ -62,11 +76,9 @@ public class SettingsInfo : MonoBehaviour
     public void SetStartSettings()
     {
         currentLocalization = "localizedText_en";
-        Debug.Log(currentLocalization);
+        SetStartPositions();
         musicOn = true;
         effectsOn = true;
-        SetStartPositions();
-        SaveSettings();
         color = "white";
         joystickType = "Dynamic";
     }

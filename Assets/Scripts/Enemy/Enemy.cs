@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
+    private GameObject character;
     public bool isDeath = false;
 
     /// <summary>
@@ -233,8 +234,7 @@ public class Enemy : MonoBehaviour
                     ColorUtility.TryParseHtmlString("#808080", out Color color);
                     gameObject.tag = "IgnoreAll";
                     GetComponent<SpriteRenderer>().color = color;
-                    GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>().countKilledEnemy++;
-                    Destroy(gameObject, 10f);
+                    GetComponent<EnemyAI>().Character.GetComponent<CharInfo>().currentCountKilledEnemies++;
                 }
 
             }

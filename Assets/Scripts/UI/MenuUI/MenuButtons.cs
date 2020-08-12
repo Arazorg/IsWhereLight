@@ -47,6 +47,7 @@ public class MenuButtons : MonoBehaviour
 
     void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
@@ -59,32 +60,22 @@ public class MenuButtons : MonoBehaviour
         SetStartObjectsActive();
         Camera.main.backgroundColor = Color.black;
     }
+
     private void FilesCheck()
     {
-        if (File.Exists(SaveSystem.CurrentSettingsFile))
-            settingsInfo.LoadSettings();
-        else
-            settingsInfo.SetStartSettings();
-
-        if (File.Exists(SaveSystem.ProgressFile))
+        settingsInfo.LoadSettings();
+        progressInfo.LoadProgress();
+        progressInfo.SaveProgress();
+        if(PlayerPrefs.HasKey("currentGame") && PlayerPrefs.HasKey("character"))
         {
-            progressInfo.LoadProgress();
-            firstRun = false;
-        }
-        else
-        {
-            progressInfo.SetStartProgress();
-            firstRun = true;
-        }
-
-        if (File.Exists(SaveSystem.CurrentGameFile))
-        {
+            firstPlay = false;
             newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
             newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(-350, 250));
-            firstPlay = false;
         }
         else
         {
+            PlayerPrefs.DeleteKey("character");
+            PlayerPrefs.DeleteKey("currentGame");
             newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
             firstPlay = true;
         }
@@ -117,7 +108,6 @@ public class MenuButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         firstPlay = true;
-        SaveSystem.DeleteCurrentGame();
         SceneManager.LoadScene("Lobby");
     }
 

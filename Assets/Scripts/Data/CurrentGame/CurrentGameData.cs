@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
+﻿[System.Serializable]
 public class CurrentGameData
 {
     public string character;
@@ -13,8 +9,6 @@ public class CurrentGameData
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int countKilledEnemy;
-    public int countShoots;
     public int currentWave;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
@@ -27,8 +21,6 @@ public class CurrentGameData
         wildMode = currentGameInfo.wildMode;
         isLobby = currentGameInfo.isLobby;
         challengeNumber = currentGameInfo.challengeNumber;
-        countKilledEnemy = currentGameInfo.countKilledEnemy;
-        countShoots = currentGameInfo.countShoots;
         currentWave = currentGameInfo.currentWave;
     }
 }

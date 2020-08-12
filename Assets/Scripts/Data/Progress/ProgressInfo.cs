@@ -1,21 +1,26 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ProgressInfo : MonoBehaviour
 {
     public static ProgressInfo instance;
 
-    public Dictionary<string, bool> characters = new Dictionary<string, bool>();
-    public Dictionary<string, int> secretCodes = new Dictionary<string, int>();
-    public int playerMoney;
+    public Dictionary<string, bool> characters;
+    public Dictionary<string, int> secretCodes;
+    public int playerMoney; 
+    public int countKilledEnemies; 
+    public int countShoots;
+
+    public int currentCountKilledEnemies;
+    public int currentCountShoots;
 
     void Awake()
     {
         if (instance != null)
-        {
             Destroy(gameObject);
-        }
         else
         {
             instance = this;
@@ -23,32 +28,49 @@ public class ProgressInfo : MonoBehaviour
         }
     }
 
+    private void Init(ProgressData data)
+    {
+        playerMoney = data.playerMoney;
+        characters = data.characters;
+        secretCodes = data.secretCodes;
+        countKilledEnemies = data.countKilledEnemies;
+        countShoots = data.countShoots;
+    }
+
     public void SaveProgress()
     {
-        SaveSystem.SaveProgress(this);
+        string json = JsonUtility.ToJson(this);
+        json += $"\n{JsonConvert.SerializeObject(characters)}";
+        json += $"\n{JsonConvert.SerializeObject(secretCodes)}";
+        NewSaveSystem.Save("progressInfo", json);
     }
 
     public void LoadProgress()
     {
-        ProgressData progressData = SaveSystem.LoadProgress();
-        if (progressData != null)
+        SetStartProgress();
+        var progressString = NewSaveSystem.Load("progressInfo");
+        try
         {
-            playerMoney = progressData.playerMoney;
-            characters = progressData.characters;
-            secretCodes = progressData.secretCodes;
+            if (progressString != null)
+            {
+                var strings = progressString.Split(new char[] { '\n' });
+                ProgressData data = JsonUtility.FromJson<ProgressData>(strings[0]);
+                data.characters = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[1]);
+                data.secretCodes = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[2]);
+                Init(data);
+            }
         }
-        else
+        catch
         {
-            SetStartProgress();
+
         }
+        
     }
 
     public void SetStartProgress()
     {
-        playerMoney = 0;
         CharactersInit();
         SecretCodesInit();
-        SaveProgress();
     }
 
     public bool CharacterAccess(string character)
@@ -61,19 +83,25 @@ public class ProgressInfo : MonoBehaviour
 
     private void CharactersInit()
     {
-        characters.Add("Knight", true);
-        characters.Add("Mage", false);
-        characters.Add("Archer", false);
-        characters.Add("Shooter", false);
-        characters.Add("Doctor", false);
-        characters.Add("Engineer", false);
+        characters = new Dictionary<string, bool>
+        {
+            { "Knight", true },
+            { "Mage", false },
+            { "Archer", false },
+            { "Shooter", false },
+            { "Doctor", false },
+            { "Engineer", false }
+        };
     }
 
     private void SecretCodesInit()
     {
-        secretCodes.Add("arazorg", 9999);
-        secretCodes.Add("valerick", 10000);
-        secretCodes.Add("banyuk", 10001);
+        secretCodes = new Dictionary<string, int>
+        {
+            { "arazorg", 9999 },
+            { "valerick", 10000 },
+            { "banyuk", 10001 }
+        };
     }
 
     public int CheckSecretCode(string code)
