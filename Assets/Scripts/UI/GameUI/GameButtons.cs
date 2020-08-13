@@ -104,7 +104,7 @@ public class GameButtons : MonoBehaviour
         // PlayerPrefs.DeleteAll();
         Time.timeScale = 1f;
         GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
-
+        pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 

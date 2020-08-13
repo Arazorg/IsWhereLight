@@ -15,7 +15,7 @@ public static class NewSaveSystem
         if (PlayerPrefs.HasKey(key))
         {
             var saveString = PlayerPrefs.GetString(key);
-            Debug.Log(saveString);
+            //Debug.Log(saveString);
             return saveString;
         }
         else
