@@ -36,6 +36,12 @@ public class MenuButtons : MonoBehaviour
 
     [Tooltip("Кнопка выхода из игры")]
     [SerializeField] private Button exitButton;
+
+    [Tooltip("Изображение типа игры, при наличии текущей игры")]
+    [SerializeField] private Image currentGameTypeImage;
+
+    [Tooltip("Спрайты типов игры")]
+    [SerializeField] private Sprite[] gameTypeList;
 #pragma warning restore 0649
 
     //Переменные состояния игры
@@ -86,7 +92,14 @@ public class MenuButtons : MonoBehaviour
     private void SetStartObjectsActive()
     {
         if (!firstPlay)
+        {
+            CurrentGameInfo currentGameInfo = new CurrentGameInfo();
+            currentGameInfo.LoadCurrentGame();
             continueButton.GetComponent<MovementUI>().MoveToEnd();
+            currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
+            Destroy(currentGameInfo);
+        }
+
         newGameButton.GetComponent<MovementUI>().MoveToEnd();
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         VkButton.GetComponent<MovementUI>().MoveToEnd();
@@ -108,11 +121,11 @@ public class MenuButtons : MonoBehaviour
 
     public void NewGame()
     {
+        audioManager.Play("ClickUI");
         if (!firstPlay)
             closeCurrentGamePanel.GetComponent<MovementUI>().MoveToEnd();
         else
         {
-            audioManager.Play("ClickUI");
             firstPlay = true;
             SceneManager.LoadScene("Lobby");
         }
@@ -127,18 +140,19 @@ public class MenuButtons : MonoBehaviour
 
     public void LinkToVk()
     {
-        audioManager.Play("ClickUI");
+        //audioManager.Play("ClickUI");
         Application.OpenURL("https://vk.com/arazorg");
     }
 
     public void LinkToTwitter()
     {
-        audioManager.Play("ClickUI");
+        // audioManager.Play("ClickUI");
         Application.OpenURL("https://twitter.com/arazorg");
     }
 
     public void SettingsPanelOpen()
     {
+        audioManager.Play("ClickUI");
         audioManager.Play("ClickUI");
         settingsButton.GetComponent<MovementUI>().MoveToStart();
         settingsPanel.GetComponent<MovementUI>().MoveToEnd();
@@ -154,6 +168,7 @@ public class MenuButtons : MonoBehaviour
 
     public void CloseCurrentGamePanel()
     {
+        audioManager.Play("ClickUI");
         closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
     }
 
@@ -174,7 +189,7 @@ public class MenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-    private  void DeleteCurrentGame()
+    private void DeleteCurrentGame()
     {
         PlayerPrefs.DeleteKey("character");
         PlayerPrefs.DeleteKey("currentGame");

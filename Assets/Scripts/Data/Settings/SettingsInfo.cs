@@ -35,7 +35,7 @@ public class SettingsInfo : MonoBehaviour
         effectsOn = data.effectsOn;
         joystickPosition = data.joystickPosition;
         fireActButtonPosition = data.fireActButtonPosition;
-        swapWeaponButtonPosition = data.fireActButtonPosition;
+        swapWeaponButtonPosition = data.swapWeaponButtonPosition;
         color = data.color;
         joystickType = data.joystickType;
     }
@@ -50,18 +50,12 @@ public class SettingsInfo : MonoBehaviour
     {
         SetStartSettings();
         var settingsString = NewSaveSystem.Load("settings");
-        try
+        Debug.Log(settingsString);
+        if (settingsString != null)
         {
-            if (settingsString != null)
-            {
-                SettingsData saveObject = JsonUtility.FromJson<SettingsData>(settingsString);
-                Init(saveObject);
-            };
-        }
-        catch
-        {
-
-        }
+            SettingsData saveObject = JsonUtility.FromJson<SettingsData>(settingsString);
+            Init(saveObject);
+        };
     }
 
     public void InitDictionary()

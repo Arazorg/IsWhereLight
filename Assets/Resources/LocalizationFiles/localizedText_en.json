@@ -1,689 +1,705 @@
 {
-    "items": [
-
-        {
-            "key": "NewGameButton",
-            "value": "New Game"
-        },
-
-        {
-            "key": "ContinueGameButton",
-            "value": "Continue Game"
-        },
-
-        {
-            "key": "Load",
-            "value": "Load..."
-        },
-
-        {
-            "key": "HaveCurrentGame",
-            "value": "Are you sure you want to quit the current game?"
-        },
-        
-        {
-            "key": "HealthInfo",
-            "value": "Health"
-        },
-
-        {
-            "key": "ManeInfo",
-            "value": "Mane"
-        },
-
-        {
-            "key": "WeaponInfo",
-            "value": "Weapon"
-        },
-
-        {
-            "key": "chooseCharacter",
-            "value": "Choose character"
-        },
-
-        {
-            "key": "Day",
-            "value": "Day"
-        },
-
-        {
-            "key": "Sword",
-            "value": "Sword"
-        },
-
-        {
-            "key": "Cleaver",
-            "value": "Cleaver"
-        },
-
-        {
-            "key": "Staff",
-            "value": "Staff"
-        },
-
-        {
-            "key": "Pistol",
-            "value": "Pistol"
-        },
-
-        {
-            "key": "Bow",
-            "value": "Bow"
-        },
-
-        {
-            "key": "ShootingRangeWeapon",
-            "value": "Weapon of shooting range"
-        },
-
-        {
-            "key": "Knight",
-            "value": "Legionnaire"
-        },
-
-        {
-            "key": "Mage",
-            "value": "Keeper"
-        },
-
-        {
-            "key": "Archer",
-            "value": "Archer"
-        },
-
-        {
-            "key": "Shooter",
-            "value": "Raider"
-        },
-
-        {
-            "key": "Doctor",
-            "value": "Isida"
-        },
-
-        {
-            "key": "Engineer",
-            "value": "Mechanic"
-        },
-
-        {
-            "key": "SimpleKnight",
-            "value": "Simple Legionnaire"
-        },
-
-        {
-            "key": "GoldKnight",
-            "value": "Gold Legionnaire"
-        },
-
-        {
-            "key": "SimpleMage",
-            "value": "Simple Keeper"
-        },
-
-        {
-            "key": "DarkMage",
-            "value": "Dark Keeper"
-        },
-
-        {
-            "key": "SimpleArcher",
-            "value": "Simple Archer"
-        },
-
-        {
-            "key": "SimpleShooter",
-            "value": "Simple Raider"
-        },
-
-        {
-            "key": "SimpleDoctor",
-            "value": "Simple Isida"
-        },
-
-        {
-            "key": "SimpleEngineer",
-            "value": "Simple Mechanic"
-        },
-
-        {
-            "key": "KnightPhrase0",
-            "value": "I don't look at the obstacles, I focus on the goal!"
-        },
-
-        {
-            "key": "KnightPhrase1",
-            "value": "Honour. Courage. Severed limbs."
-        },
-
-        {
-            "key": "KnightPhrase2",
-            "value": "How to wipe blood stains from my armor?"
-        },
-
-        {
-            "key": "KnightPhrase3",
-            "value": "The only thing you should feel when you shoot someone...\n is the recoil."
-        },
-
-        {
-            "key": "KnightPhrase4",
-            "value": "Justice will prevail."
-        },
-
-        {
-            "key": "KnightPhrase5",
-            "value": "Quench my rage."
-        },
-
-        {
-            "key": "KnightPhrase6",
-            "value": "I can taste your mind. Mmm, salty!"
-        },
-
-        {
-            "key": "KnightPhrase7",
-            "value": "My life will be short but fulfilling"
-        },
-
-        {
-            "key": "KnightShootReaction0",
-            "value": "Better save your bullets!"
-        },
-
-        {
-            "key": "KnightShootReaction1",
-            "value": "I can start shooting too."
-        },
-
-        {
-            "key": "MagePhrase0",
-            "value": "My brain surprises even me sometimes."
-        },
-
-        {
-            "key": "MagePhrase1",
-            "value": "All I need to be happy are two woolen socks."
-        },
-
-        {
-            "key": "MagePhrase2",
-            "value": "To the well organized mind,\n death is but the next great adventure."
-        },
-
-        {
-            "key": "MagePhrase3",
-            "value": "If you pull my beard again,\n then none of your wishes will ever come true."
-        },
-
-        {
-            "key": "MagePhrase4",
-            "value": "Of course it's happening inside your head,\n but why on earth should that mean\n that it's not real?"
-        },
-
-        {
-            "key": "MagePhrase5",
-            "value": "Power overwhelms me..."
-        },
-
-        {
-            "key": "MagePhrase6",
-            "value": "We are only as strong as we are united,\n as weak as we are divided."
-        },
-
-        {
-            "key": "MagePhrase7",
-            "value": "Can you tell me which year it is?"
-        },
-
-        {
-            "key": "MageShootReaction0",
-            "value": "The shooting range is a little further."
-        },
-
-        {
-            "key": "MageShootReaction1",
-            "value": "Protego!"
-        },
-
-        {
-            "key": "DoctorPhrase0",
-            "value": "Describe the nature of the disease."
-        },
-
-        {
-            "key": "DoctorPhrase1",
-            "value": "You look unhealthy."
-        },
-
-        {
-            "key": "DoctorPhrase2",
-            "value": "Someone's stealing meds again."
-        },
-
-        {
-            "key": "DoctorPhrase3",
-            "value": "I said to strip TO THE WAIST"
-        },
-
-        {
-            "key": "DoctorPhrase4",
-            "value": "Call me after my work hours."
-        },
-
-        {
-            "key": "DoctorPhrase5",
-            "value": "Wash your hands, apply soap and don't eat bats."
-        },
-
-        {
-            "key": "DoctorPhrase6",
-            "value": "Operation complete!\n Now where did I leave my watch?"
-        },
-
-        {
-            "key": "DoctorPhrase7",
-            "value": "Can I see your insurance card?"
-        },
-
-        {
-            "key": "DoctorShootReaction0",
-            "value": "Your actions are reckless!"
-        },
-
-        {
-            "key": "DoctorShootReaction1",
-            "value": "Do you have mental problems?"
-        },
-
-        {
-            "key": "ShooterPhrase0",
-            "value": "I love the big bang theory."
-        },
-
-        {
-            "key": "ShooterPhrase1",
-            "value": "I'm bringing the pain,\n and the pizza in 30 minutes or it's free"
-        },
-
-        {
-            "key": "ShooterPhrase2",
-            "value": "I completely respect your opinion,\n as long as you keep it to yourself."
-        },
-
-        {
-            "key": "ShooterPhrase3",
-            "value": "What the hell are smithereens, anyway?"
-        },
-
-        {
-            "key": "ShooterPhrase4",
-            "value": "Do you wanna know how I got these scars?"
-        },
-
-        {
-            "key": "ShooterPhrase5",
-            "value": "Can you keep an eye on my explosives?\n I need to go to a barbershop.."
-        },
-
-        {
-            "key": "ShooterPhrase6",
-            "value": "Everything burns with gasoline."
-        },
-
-        {
-            "key": "ShooterPhrase7",
-            "value": "I'm so sexy. I sometimes romance myself."
-        },
-
-        {
-            "key": "ShooterShootReaction0",
-            "value": "One more shot and you'll regret you were born."
-        },
-
-        {
-            "key": "ShooterShootReaction1",
-            "value": "DO NOT MESS WITH ME!"
-        },
-
-        {
-            "key": "ArcherPhrase0",
-            "value": "Trust ain't easy to come by."
-        },
-
-        {
-            "key": "ArcherPhrase1",
-            "value": "Do you hear these voices too?"
-        },
-
-        {
-            "key": "ArcherPhrase2",
-            "value": "I'm a compulsive liar. It's true, I swear it!"
-        },
-
-        {
-            "key": "ArcherPhrase3",
-            "value": "I warn you right away - I hit below the belt."
-        },
-
-        {
-            "key": "ArcherPhrase4",
-            "value": "Think I'm gonna like you better... dead."
-        },
-
-        {
-            "key": "ArcherPhrase5",
-            "value": "Apparently I shouldn't have had that hamburger..."
-        },
-
-        {
-            "key": "ArcherPhrase6",
-            "value": "You're dead, and you don't even know it."
-        },
-
-        {
-            "key": "ArcherPhrase7",
-            "value": "Death is a new beginning."
-        },
-
-        {
-            "key": "ArcherShootReaction0",
-            "value": "Try me."
-        },
-
-        {
-            "key": "ArcherShootReaction1",
-            "value": "I thought you were smarter..."
-        },
-
-        {
-            "key": "EngineerPhrase0",
-            "value": "You wanna know how I got bald? No, you don't..."
-        },
-
-        {
-            "key": "EngineerPhrase1",
-            "value": "I had bad grades in physics at school."
-        },
-
-        {
-            "key": "EngineerPhrase2",
-            "value": "Hey, wanna arm wrestle?"
-        },
-
-        {
-            "key": "EngineerPhrase3",
-            "value": "Where did all the respirators go?"
-        },
-
-        {
-            "key": "EngineerPhrase4",
-            "value": "Don't get yourself into something you can't get out of."
-        },
-
-        {
-            "key": "EngineerPhrase5",
-            "value": "If it ain't broke, don't fix it."
-        },
-
-        {
-            "key": "EngineerPhrase6",
-            "value": "My dad raised me right... Tried to, anyway."
-        },
-
-        {
-            "key": "EngineerPhrase7",
-            "value": "We are running low on synergy..."
-        },
-
-        {
-            "key": "EngineerShootReaction0",
-            "value": "Your intentions are not clear to me."
-        },
-
-        {
-            "key": "EngineerShootReaction1",
-            "value": "Enemy spotted. The turrets are activated."
-        },
-
-        {
-            "key": "Hello0",
-            "value": "Hello!"
-        },
-
-        {
-            "key": "Hello1",
-            "value": "Hi!"
-        },
-
-        {
-            "key": "Hello2",
-            "value": "Wassup!?"
-        },
-
-        {
-            "key": "Hello3",
-            "value": "How's it going?"
-        },
-
-        {
-            "key": "Hello4",
-            "value": "Yo!"
-        },
-
-        {
-            "key": "Hello5",
-            "value": "G'day!"
-        },
-
-        {
-            "key": "Check",
-            "value": "Check"
-        },
-
-        {
-            "key": "Shoot",
-            "value": "WTF!"
-        },
-
-        {
-            "key": "GiveWeapon",
-            "value": "First, take the weapon of shooting range"
-        },
-
-        {
-            "key": "Play",
-            "value": "Play"
-        },
-
-        {
-            "key": "GreatScore",
-            "value": "Great Score!"
-        },
-
-        {
-            "key": "WeakScore",
-            "value": "Need more practice..."
-        },
-
-        {
-            "key": "GreatShoot",
-            "value": "Great shoot!"
-        },
-
-        {
-            "key": "ShutUp0",
-            "value": "SHUT UP!"
-        },
-
-        {
-            "key": "ShutUp1",
-            "value": "You tired me."
-        },
-
-        {
-            "key": "ShutUp2",
-            "value": "Intrusiveness and persistence are not the same thing!"
-        },
-
-        {
-            "key": "ShutUp3",
-            "value": "Isn't your finger tired?!"
-        },
-
-        {
-            "key": "ShutUp4",
-            "value": "Leave me alone!"
-        },
-
-        {
-            "key": "ShutUp5",
-            "value": "GTFO!"
-        },
-
-        {
-            "key": "GoAway0",
-            "value": "Go away!"
-        },
-
-        {
-            "key": "GoAway1",
-            "value": "Get out!"
-        },
-
-        {
-            "key": "GoAway2",
-            "value": "Hit the road!"
-        },
-
-        {
-            "key": "GoAway3",
-            "value": "Stay away from me, OK?"
-        },
-        {
-            "key": "ChallengeText",
-            "value": "Choose challenge"
-        },
-
-        {
-            "key": "ChallengeDiscover",
-            "value": "Choose and discover"
-        },
-
-        {
-            "key": "Challenge0",
-            "value": "Defence"
-        },
-
-        {
-            "key": "Challenge1",
-            "value": "Damage + Defence"
-        },
-
-        {
-            "key": "Challenge2",
-            "value": "Damage"
-        },
-
-        {
-            "key": "ShootingRangeInfo",
-            "value": "Shooting range! More hits, better rewards!"
-        },
-
-        {
-            "key": "GoToMenu",
-            "value": "Go to menu"
-        },
-
-        {
-            "key": "GoToLobby",
-            "value": "Go to lobby"
-        },
-
-        {
-            "key": "FinishOfGame",
-            "value": "Finish of game"
-        },
-
-        {
-            "key": "Stats",
-            "value": "Stats:"
-        },
-
-        {
-            "key": "CountOfEnemies",
-            "value": "Count of killed enemies: "
-        },
-
-        {
-            "key": "Standart",
-            "value": "Standart"
-        },
-
-        {
-            "key": "Transparency",
-            "value": "Transparency"
-        },
-
-        {
-            "key": "ChooseColor",
-            "value": "Choose a color"
-        },
-
-        {
-            "key": "CodeDontExist",
-            "value": "This code doesn't exist"
-        },
-
-        {
-            "key": "AlreadyUseCode",
-            "value": "This code has already been used"
-        },
-
-        {
-            "key": "Colors",
-            "value": "Colors"
-        },
-
-        {
-            "key": "CountOfShoots",
-            "value": "Count of shoots: "
-        },
-
-        {
-            "key": "Exit",
-            "value": "Exit"
-        },
-
-        {
-            "key": "Death",
-            "value": "You died"
-        },
-
-        {
-            "key": "SoulPrice",
-            "value": "The price of your soul"
-        },
-
-        {
-            "key": "Joystick",
-            "value": "Joystick"
-        },
-
-        {
-            "key": "Dynamic",
-            "value": "Dynamic"
-        },
-
-        {
-            "key": "Static",
-            "value": "Static"
-        },
-
-        {
-            "key": "WatchAd",
-            "value": "Watch ad"
-        }
-
-    ]
+  "items": [
+
+    {
+      "key": "NewGameButton",
+      "value": "New Game"
+    },
+
+    {
+      "key": "ContinueGameButton",
+      "value": "Continue Game"
+    },
+
+    {
+      "key": "Load",
+      "value": "Load..."
+    },
+
+    {
+      "key": "HaveCurrentGame",
+      "value": "Are you sure you want to quit the current game?"
+    },
+
+    {
+      "key": "HealthInfo",
+      "value": "Health"
+    },
+
+    {
+      "key": "ManeInfo",
+      "value": "Mane"
+    },
+
+    {
+      "key": "WeaponInfo",
+      "value": "Weapon"
+    },
+
+    {
+      "key": "chooseCharacter",
+      "value": "Select a character"
+    },
+
+    {
+      "key": "Day",
+      "value": "Day"
+    },
+
+    {
+      "key": "Sword",
+      "value": "Sword"
+    },
+
+    {
+      "key": "Cleaver",
+      "value": "Cleaver"
+    },
+
+    {
+      "key": "Staff",
+      "value": "Staff"
+    },
+
+    {
+      "key": "Pistol",
+      "value": "Pistol"
+    },
+
+    {
+      "key": "Bow",
+      "value": "Bow"
+    },
+
+    {
+      "key": "ShootingRangeWeapon",
+      "value": "Weapon of shooting range"
+    },
+
+    {
+      "key": "ShootingRangeDifficulty1",
+      "value": "Easy, new spawn once every two second"
+    },
+
+    {
+      "key": "ShootingRangeDifficulty2",
+      "value": "Hard, new spawn once every second"
+    },
+
+    {
+      "key": "Knight",
+      "value": "Legionnaire"
+    },
+
+    {
+      "key": "Mage",
+      "value": "Keeper"
+    },
+
+    {
+      "key": "Archer",
+      "value": "Archer"
+    },
+
+    {
+      "key": "Shooter",
+      "value": "Raider"
+    },
+
+    {
+      "key": "Doctor",
+      "value": "Isida"
+    },
+
+    {
+      "key": "Engineer",
+      "value": "Mechanic"
+    },
+
+    {
+      "key": "SimpleKnight",
+      "value": "Simple Legionnaire"
+    },
+
+    {
+      "key": "GoldKnight",
+      "value": "Gold Legionnaire"
+    },
+
+    {
+      "key": "SimpleMage",
+      "value": "Simple Keeper"
+    },
+
+    {
+      "key": "DarkMage",
+      "value": "Dark Keeper"
+    },
+
+    {
+      "key": "SimpleArcher",
+      "value": "Simple Archer"
+    },
+
+    {
+      "key": "SimpleShooter",
+      "value": "Simple Raider"
+    },
+
+    {
+      "key": "SimpleDoctor",
+      "value": "Simple Isida"
+    },
+
+    {
+      "key": "SimpleEngineer",
+      "value": "Simple Mechanic"
+    },
+
+    {
+      "key": "KnightPhrase0",
+      "value": "I don't look at the obstacles, I focus on the goal!"
+    },
+
+    {
+      "key": "KnightPhrase1",
+      "value": "Honour. Courage. Severed limbs."
+    },
+
+    {
+      "key": "KnightPhrase2",
+      "value": "How to wipe blood stains from my armor?"
+    },
+
+    {
+      "key": "KnightPhrase3",
+      "value": "The only thing you should feel when you shoot someone...\n is the recoil."
+    },
+
+    {
+      "key": "KnightPhrase4",
+      "value": "Justice will prevail."
+    },
+
+    {
+      "key": "KnightPhrase5",
+      "value": "Quench my rage."
+    },
+
+    {
+      "key": "KnightPhrase6",
+      "value": "I can taste your mind. Mmm, salty!"
+    },
+
+    {
+      "key": "KnightPhrase7",
+      "value": "My life will be short but fulfilling"
+    },
+
+    {
+      "key": "KnightShootReaction0",
+      "value": "Better save your bullets!"
+    },
+
+    {
+      "key": "KnightShootReaction1",
+      "value": "I can start shooting too."
+    },
+
+    {
+      "key": "MagePhrase0",
+      "value": "My brain surprises even me sometimes."
+    },
+
+    {
+      "key": "MagePhrase1",
+      "value": "All I need to be happy are two woolen socks."
+    },
+
+    {
+      "key": "MagePhrase2",
+      "value": "To the well organized mind,\n death is but the next great adventure."
+    },
+
+    {
+      "key": "MagePhrase3",
+      "value": "If you pull my beard again,\n then none of your wishes will ever come true."
+    },
+
+    {
+      "key": "MagePhrase4",
+      "value": "Of course it's happening inside your head,\n but why on earth should that mean\n that it's not real?"
+    },
+
+    {
+      "key": "MagePhrase5",
+      "value": "Power overwhelms me..."
+    },
+
+    {
+      "key": "MagePhrase6",
+      "value": "We are only as strong as we are united,\n as weak as we are divided."
+    },
+
+    {
+      "key": "MagePhrase7",
+      "value": "Can you tell me which year it is?"
+    },
+
+    {
+      "key": "MageShootReaction0",
+      "value": "The shooting range is a little further."
+    },
+
+    {
+      "key": "MageShootReaction1",
+      "value": "Protego!"
+    },
+
+    {
+      "key": "DoctorPhrase0",
+      "value": "Describe the nature of the disease."
+    },
+
+    {
+      "key": "DoctorPhrase1",
+      "value": "You look unhealthy."
+    },
+
+    {
+      "key": "DoctorPhrase2",
+      "value": "Someone's stealing meds again."
+    },
+
+    {
+      "key": "DoctorPhrase3",
+      "value": "I said to strip TO THE WAIST"
+    },
+
+    {
+      "key": "DoctorPhrase4",
+      "value": "Call me after my work hours."
+    },
+
+    {
+      "key": "DoctorPhrase5",
+      "value": "Wash your hands, apply soap and don't eat bats."
+    },
+
+    {
+      "key": "DoctorPhrase6",
+      "value": "Operation complete!\n Now where did I leave my watch?"
+    },
+
+    {
+      "key": "DoctorPhrase7",
+      "value": "Can I see your insurance card?"
+    },
+
+    {
+      "key": "DoctorShootReaction0",
+      "value": "Your actions are reckless!"
+    },
+
+    {
+      "key": "DoctorShootReaction1",
+      "value": "Do you have mental problems?"
+    },
+
+    {
+      "key": "ShooterPhrase0",
+      "value": "I love the big bang theory."
+    },
+
+    {
+      "key": "ShooterPhrase1",
+      "value": "I'm bringing the pain,\n and the pizza in 30 minutes or it's free"
+    },
+
+    {
+      "key": "ShooterPhrase2",
+      "value": "I completely respect your opinion,\n as long as you keep it to yourself."
+    },
+
+    {
+      "key": "ShooterPhrase3",
+      "value": "What the hell are smithereens, anyway?"
+    },
+
+    {
+      "key": "ShooterPhrase4",
+      "value": "Do you wanna know how I got these scars?"
+    },
+
+    {
+      "key": "ShooterPhrase5",
+      "value": "Can you keep an eye on my explosives?\n I need to go to a barbershop.."
+    },
+
+    {
+      "key": "ShooterPhrase6",
+      "value": "Everything burns with gasoline."
+    },
+
+    {
+      "key": "ShooterPhrase7",
+      "value": "I'm so sexy. I sometimes romance myself."
+    },
+
+    {
+      "key": "ShooterShootReaction0",
+      "value": "One more shot and you'll regret you were born."
+    },
+
+    {
+      "key": "ShooterShootReaction1",
+      "value": "DO NOT MESS WITH ME!"
+    },
+
+    {
+      "key": "ArcherPhrase0",
+      "value": "Trust ain't easy to come by."
+    },
+
+    {
+      "key": "ArcherPhrase1",
+      "value": "Do you hear these voices too?"
+    },
+
+    {
+      "key": "ArcherPhrase2",
+      "value": "I'm a compulsive liar. It's true, I swear it!"
+    },
+
+    {
+      "key": "ArcherPhrase3",
+      "value": "I warn you right away - I hit below the belt."
+    },
+
+    {
+      "key": "ArcherPhrase4",
+      "value": "Think I'm gonna like you better... dead."
+    },
+
+    {
+      "key": "ArcherPhrase5",
+      "value": "Apparently I shouldn't have had that hamburger..."
+    },
+
+    {
+      "key": "ArcherPhrase6",
+      "value": "You're dead, and you don't even know it."
+    },
+
+    {
+      "key": "ArcherPhrase7",
+      "value": "Death is a new beginning."
+    },
+
+    {
+      "key": "ArcherShootReaction0",
+      "value": "Try me."
+    },
+
+    {
+      "key": "ArcherShootReaction1",
+      "value": "I thought you were smarter..."
+    },
+
+    {
+      "key": "EngineerPhrase0",
+      "value": "You wanna know how I got bald? No, you don't..."
+    },
+
+    {
+      "key": "EngineerPhrase1",
+      "value": "I had bad grades in physics at school."
+    },
+
+    {
+      "key": "EngineerPhrase2",
+      "value": "Hey, wanna arm wrestle?"
+    },
+
+    {
+      "key": "EngineerPhrase3",
+      "value": "Where did all the respirators go?"
+    },
+
+    {
+      "key": "EngineerPhrase4",
+      "value": "Don't get yourself into something you can't get out of."
+    },
+
+    {
+      "key": "EngineerPhrase5",
+      "value": "If it ain't broke, don't fix it."
+    },
+
+    {
+      "key": "EngineerPhrase6",
+      "value": "My dad raised me right... Tried to, anyway."
+    },
+
+    {
+      "key": "EngineerPhrase7",
+      "value": "We are running low on synergy..."
+    },
+
+    {
+      "key": "EngineerShootReaction0",
+      "value": "Your intentions are not clear to me."
+    },
+
+    {
+      "key": "EngineerShootReaction1",
+      "value": "Enemy spotted. The turrets are activated."
+    },
+
+    {
+      "key": "Hello0",
+      "value": "Hello!"
+    },
+
+    {
+      "key": "Hello1",
+      "value": "Hi!"
+    },
+
+    {
+      "key": "Hello2",
+      "value": "Wassup!?"
+    },
+
+    {
+      "key": "Hello3",
+      "value": "How's it going?"
+    },
+
+    {
+      "key": "Hello4",
+      "value": "Yo!"
+    },
+
+    {
+      "key": "Hello5",
+      "value": "G'day!"
+    },
+
+    {
+      "key": "Check",
+      "value": "Check"
+    },
+
+    {
+      "key": "Shoot",
+      "value": "WTF!"
+    },
+
+    {
+      "key": "GiveWeapon",
+      "value": "First, take the weapon of shooting range"
+    },
+
+    {
+      "key": "Play",
+      "value": "Play"
+    },
+
+    {
+      "key": "GreatScore",
+      "value": "Great Score!"
+    },
+
+    {
+      "key": "WeakScore",
+      "value": "Need more practice..."
+    },
+
+    {
+      "key": "GreatShoot",
+      "value": "Great shoot!"
+    },
+
+    {
+      "key": "ShutUp0",
+      "value": "SHUT UP!"
+    },
+
+    {
+      "key": "ShutUp1",
+      "value": "You tired me."
+    },
+
+    {
+      "key": "ShutUp2",
+      "value": "Intrusiveness and persistence are not the same thing!"
+    },
+
+    {
+      "key": "ShutUp3",
+      "value": "Isn't your finger tired?!"
+    },
+
+    {
+      "key": "ShutUp4",
+      "value": "Leave me alone!"
+    },
+
+    {
+      "key": "ShutUp5",
+      "value": "GTFO!"
+    },
+
+    {
+      "key": "GoAway0",
+      "value": "Go away!"
+    },
+
+    {
+      "key": "GoAway1",
+      "value": "Get out!"
+    },
+
+    {
+      "key": "GoAway2",
+      "value": "Hit the road!"
+    },
+
+    {
+      "key": "GoAway3",
+      "value": "Stay away from me, OK?"
+    },
+
+    {
+      "key": "ChallengeText",
+      "value": "Select a challenge"
+    },
+
+    {
+      "key": "DifficultyText",
+      "value": "Select difficulty"
+    },
+
+    {
+      "key": "ChallengeDiscover",
+      "value": "Select and discover"
+    },
+
+    {
+      "key": "Challenge0",
+      "value": "Defence"
+    },
+
+    {
+      "key": "Challenge1",
+      "value": "Damage + Defence"
+    },
+
+    {
+      "key": "Challenge2",
+      "value": "Damage"
+    },
+
+    {
+      "key": "ShootingRangeInfo",
+      "value": "Shooting range! More hits, better rewards!"
+    },
+
+    {
+      "key": "GoToMenu",
+      "value": "Go to menu"
+    },
+
+    {
+      "key": "GoToLobby",
+      "value": "Go to lobby"
+    },
+
+    {
+      "key": "FinishOfGame",
+      "value": "Finish of game"
+    },
+
+    {
+      "key": "Stats",
+      "value": "Stats:"
+    },
+
+    {
+      "key": "CountOfEnemies",
+      "value": "Count of killed enemies: "
+    },
+
+    {
+      "key": "Standart",
+      "value": "Standart"
+    },
+
+    {
+      "key": "Transparency",
+      "value": "Transparency"
+    },
+
+    {
+      "key": "ChooseColor",
+      "value": "Select a color"
+    },
+
+    {
+      "key": "CodeDontExist",
+      "value": "This code doesn't exist"
+    },
+
+    {
+      "key": "AlreadyUseCode",
+      "value": "This code has already been used"
+    },
+
+    {
+      "key": "Colors",
+      "value": "Colors"
+    },
+
+    {
+      "key": "CountOfShoots",
+      "value": "Count of shoots: "
+    },
+
+    {
+      "key": "Exit",
+      "value": "Exit"
+    },
+
+    {
+      "key": "Death",
+      "value": "You died"
+    },
+
+    {
+      "key": "SoulPrice",
+      "value": "The price of your soul"
+    },
+
+    {
+      "key": "Joystick",
+      "value": "Joystick"
+    },
+
+    {
+      "key": "Dynamic",
+      "value": "Dynamic"
+    },
+
+    {
+      "key": "Static",
+      "value": "Static"
+    },
+
+    {
+      "key": "WatchAd",
+      "value": "Watch ad"
+    }
+
+  ]
 }

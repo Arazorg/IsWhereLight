@@ -422,6 +422,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17194173}
   m_CullTransparentMesh: 0
+--- !u!1 &80415618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80415621}
+  - component: {fileID: 80415620}
+  - component: {fileID: 80415619}
+  m_Layer: 5
+  m_Name: CurrentGameTypeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &80415619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80415618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7398207742363704338, guid: e7280e6bc449f974a8cdb43cf4b0422d,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &80415620
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80415618}
+  m_CullTransparentMesh: 1
+--- !u!224 &80415621
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80415618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 446505493}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &111277333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1837,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 976425260}
+  - {fileID: 80415621}
   m_Father: {fileID: 1815751196}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3539,20 +3615,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Theme
     clip: {fileID: 8300000, guid: 43bad0f540c0c224ba67f8e86f9ac95a, type: 3}
-    volume: 0.1
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: LaserGun
-    clip: {fileID: 8300000, guid: f11a0b55d6286d942b5864d40ace2e06, type: 3}
-    volume: 0.1
+  - nameOfSound: Staff
+    clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
+    volume: 0.15
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
-    loop: 1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Sword
@@ -3561,16 +3637,34 @@ MonoBehaviour:
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
-    loop: 1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Rifle
-    clip: {fileID: 8300000, guid: 5c55a8dd7f98bf04da5e2c71a1b20b9f, type: 3}
+  - nameOfSound: Cleaver
+    clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
+    volume: 0.15
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Pistol
+    clip: {fileID: 8300000, guid: 6ef3ebd2e1ebc4643b747e694dd79793, type: 3}
     volume: 0.1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
-    loop: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Bow
+    clip: {fileID: 8300000, guid: 19c7a49d4e651054082d2355b9120752, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &838771391
@@ -7582,6 +7676,11 @@ MonoBehaviour:
   VkButton: {fileID: 1158092905}
   TwitterButton: {fileID: 1462166088}
   exitButton: {fileID: 1647020679}
+  currentGameTypeImage: {fileID: 80415619}
+  gameTypeList:
+  - {fileID: -1525763588066094277, guid: f7decd2c68377344f91904b4ae362c74, type: 3}
+  - {fileID: 21300000, guid: c135a7522a3e72b4a971514d57243071, type: 3}
+  - {fileID: 7398207742363704338, guid: e7280e6bc449f974a8cdb43cf4b0422d, type: 3}
 --- !u!114 &1815751198
 MonoBehaviour:
   m_ObjectHideFlags: 0

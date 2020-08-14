@@ -513,8 +513,13 @@
 
         {
             "key": "ChallengeText",
-            "value": "Выберите испытание"
+            "value": "Выбери испытание"
         },
+		
+		{
+			"key": "DifficultyText",
+			"value": "Выбери сложность"
+		},
 
         {
             "key": "ChallengeDiscover",
@@ -540,6 +545,17 @@
             "key": "ShootingRangeInfo",
             "value": "Тир! Больше попаданий - лучше награда!"
         },
+		
+		
+		{
+			"key": "ShootingRangeDifficulty1",
+			"value": "Просто, новый спаун раз в две секунды"
+		},
+
+		{
+			"key": "ShootingRangeDifficulty2",
+			"value": "Сложно, новый спаун раз в секунду"
+		},
 
         {
             "key": "GoToMenu",

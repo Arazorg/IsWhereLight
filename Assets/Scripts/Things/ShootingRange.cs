@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootingRange : MonoBehaviour
 {
@@ -33,8 +34,17 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("NPC тира")]
     [SerializeField] private GameObject shootingRangeNPC;
 
+    [Tooltip("Панель выбора сложности в тире")]
+    [SerializeField] private GameObject shootingRangeUI;
+
     [Tooltip("Текст таймера тира")]
     [SerializeField] private TextMeshProUGUI shootingRangeTimerText;
+
+    [Tooltip("Текст описания сложности игры в тире")]
+    [SerializeField] private TextMeshProUGUI shootingRangeText;
+
+    [Tooltip("Кнопка начала игры")]
+    [SerializeField] private Button playButton;
 
     [Tooltip("Время нового предупреждения НПС")]
     [SerializeField] private float giveWeaponTime = 2f;
@@ -45,6 +55,7 @@ public class ShootingRange : MonoBehaviour
     private CharGun charGun;
     private GameObject currentTarget;
     private PopupText currentPhrase = null;
+    private AudioManager audioManager;
 
     private float gameTimer;
     private float spawnTimer;
@@ -54,6 +65,7 @@ public class ShootingRange : MonoBehaviour
     private int startMane;
     private int result;
     private int previousStand = -1;
+    private int difficultyLevel;
 
     private bool isGame;
     private bool isHello = false;
@@ -72,6 +84,7 @@ public class ShootingRange : MonoBehaviour
 
     void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         isGame = false;
         SpawnShootingRangeWeapon();
     }
@@ -84,49 +97,76 @@ public class ShootingRange : MonoBehaviour
             Spawn();
     }
 
-    public void StartGame()
+    public void ShowDifficultyPanel()
     {
         player = GameObject.Find("Character(Clone)");
-        startSpeed = player.GetComponent<CharController>().GetSpeed();
         charInfo = player.GetComponent<CharInfo>();
-        charGun = player.GetComponent<CharGun>();
-        startMane = player.GetComponent<CharInfo>().mane;
-
         if (charInfo.weapons[0] == "ShootingRangeWeapon0" ||
                     charInfo.weapons[1] == "ShootingRangeWeapon1")
-        {
-            textTimer = (int)gameDuration;
-            InvokeRepeating("OutputTime", 1f, 1f);
-            if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.currentWeaponNumber != 0)
-                GameButtons.instance.SwapWeapon();
-            else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
-                GameButtons.instance.SwapWeapon();
-            shootingRangeTimerText.gameObject.SetActive(true);
-            shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
-            result = 0;
-            startStand.gameObject.SetActive(false);
-            isGame = true;
-            GameButtons.isChange = false;
-            gameTimer = Time.time + gameDuration;
-            charInfo.mane = 30;
-            charInfo.SpendMana(0);
-            player.GetComponent<CharController>().SetSpeed(0);
-            player.transform.position = startStand.transform.position;
-            Camera.main.orthographicSize = 7f;
-            Camera.main.GetComponent<CameraFollow>().StopMove();
-            Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
-            if (currentPhrase != null)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
-            SetCollider(true);
-        }
+            shootingRangeUI.GetComponent<MovementUI>().MoveToEnd();
         else
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+                    + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
         }
 
+    }
+
+    public void CloseDifficultyPanel()
+    {
+        shootingRangeUI.GetComponent<MovementUI>().MoveToStart();
+        shootingRangeText.GetComponentInParent<MovementUI>().MoveToStart();
+        playButton.GetComponent<MovementUI>().SetStart();
+    }
+
+    public void ChooseDifficulty(int difficultyLevel)
+    {
+        audioManager.Play("ClickUI");
+        this.difficultyLevel = difficultyLevel;
+        if (difficultyLevel == 1)
+            spawnDuration = 1f;
+        else
+            spawnDuration = 2f;
+        shootingRangeText.GetComponentInParent<MovementUI>().MoveToEnd();
+        shootingRangeText.GetComponent<LocalizedText>().key = $@"ShootingRangeDifficulty{difficultyLevel}";
+        shootingRangeText.GetComponent<LocalizedText>().SetLocalization();
+        playButton.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    public void StartGame()
+    {
+        shootingRangeUI.GetComponent<MovementUI>().MoveToStart();
+        shootingRangeText.GetComponentInParent<MovementUI>().MoveToStart();
+        playButton.GetComponent<MovementUI>().MoveToStart();
+        startSpeed = player.GetComponent<CharController>().GetSpeed();
+        charGun = player.GetComponent<CharGun>();
+        startMane = player.GetComponent<CharInfo>().mane;
+        textTimer = (int)gameDuration;
+        InvokeRepeating("OutputTime", 1f, 1f);
+        if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.currentWeaponNumber != 0)
+            GameButtons.instance.SwapWeapon();
+        else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
+            GameButtons.instance.SwapWeapon();
+        shootingRangeTimerText.gameObject.SetActive(true);
+        shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
+        result = 0;
+        startStand.gameObject.SetActive(false);
+        isGame = true;
+        GameButtons.isChange = false;
+        gameTimer = Time.time + gameDuration;
+        charInfo.mane = 30;
+        charInfo.SpendMana(0);
+        player.GetComponent<CharController>().SetSpeed(0);
+        player.transform.position = startStand.transform.position;
+        Camera.main.orthographicSize = 7f;
+        Camera.main.GetComponent<CameraFollow>().StopMove();
+        Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
+        if (currentPhrase != null)
+            currentPhrase.DeletePhrase();
+        currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
+        SetCollider(true);
     }
 
     public void StopGame()
@@ -212,7 +252,7 @@ public class ShootingRange : MonoBehaviour
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0,6)}");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0, 6)}");
             isHello = true;
         }
     }

@@ -187,6 +187,7 @@ public class GameButtons : MonoBehaviour
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
         HideChallengeUI();
+        ShootingRange.instance.CloseDifficultyPanel();
         ShowHideControlUI(false);
     }
 
@@ -218,14 +219,16 @@ public class GameButtons : MonoBehaviour
                 AdsManager.AdShow();
                 break;
             case FireActButtonStateEnum.shootingRange:
-                ShootingRange.instance.StartGame();
+                ShootingRange.instance.ShowDifficultyPanel();
                 break;
         }
     }
+
     public void ChooseChallenge(int challengeNumber)
     {
         audioManager.Play("ClickUI");
         currentGameInfo.challengeNumber = challengeNumber;
+        challengeText.GetComponentInParent<MovementUI>().MoveToEnd();
         playButton.GetComponent<MovementUI>().MoveToEnd();
         challengeText.GetComponent<LocalizedText>().key = $@"Challenge{challengeNumber}";
         challengeText.GetComponent<LocalizedText>().SetLocalization();
@@ -235,10 +238,11 @@ public class GameButtons : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
+            challengeText.GetComponentInParent<MovementUI>().MoveToStart();
             challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
             challengeText.GetComponent<LocalizedText>().SetLocalization();
             challengeUI.GetComponent<MovementUI>().MoveToStart();
-            playButton.GetComponent<MovementUI>().MoveToStart();
+            playButton.GetComponent<MovementUI>().SetStart();
         }
     }
 
@@ -351,12 +355,14 @@ public class GameButtons : MonoBehaviour
                     case WeaponData.AttackType.Gun:
                         charInfo.currentCountShoots++;
                         charInfo.SpendMana(manecost);
+                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Gun>().Shoot();
                         nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.Sword:
                         charInfo.currentCountShoots++;
                         charInfo.SpendMana(manecost);
+                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Sword>().Hit();
                         nextAttack = Time.time + attackRate;
                         break;
@@ -374,6 +380,7 @@ public class GameButtons : MonoBehaviour
                 case WeaponData.AttackType.Bow:
                     charInfo.currentCountShoots++;
                     charInfo.SpendMana(manecost);
+                    audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                     currentWeapon.GetComponent<Bow>().Shoot();
                     CharController.isRotate = false;
                     break;
