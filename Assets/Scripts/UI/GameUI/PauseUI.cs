@@ -12,6 +12,9 @@ public class PauseUI : MonoBehaviour
 
     [Tooltip("Панель настроек")]
     [SerializeField] private GameObject pauseSettingsPanel;
+
+    [Tooltip("UI панели выхода")]
+    [SerializeField] private GameObject exitPanel;
 #pragma warning restore 0649
 
     private AudioManager audioManager;
@@ -35,7 +38,6 @@ public class PauseUI : MonoBehaviour
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;
         IsSettingsState = false;
-
         gameObject.SetActive(GameButtons.IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToStart();
         pauseSettingsPanel.GetComponent<MovementUI>().SetStart();
@@ -58,28 +60,46 @@ public class PauseUI : MonoBehaviour
 
     public void GoToMenu()
     {
-        ClosePause();
-        var charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
+        var currentGame = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         if (SceneManager.GetActiveScene().name != "Game")
         {
-            DeleteCurrentGame();
+            ClosePause();
+            DeleteGame();
+            SceneManager.LoadScene("Menu");
         }
         else
         {     
-            if(charInfo.canExit)
+            if(currentGame.canExit)
             {
-                charInfo.canExit = false;
-                charInfo.SaveChar();
+                ClosePause();
+                currentGame.canExit = false;
+                CurrentGameInfo.instance.SaveCurrentGame();
+                SceneManager.LoadScene("Menu");
             }
             else
             {
-                
+                pausePanel.GetComponent<MovementUI>().MoveToStart();
+                pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
+                exitPanel.GetComponent<MovementUI>().MoveToEnd();
+                IsSettingsState = false;
             }
-        }          
+        }                 
+    }
+
+    public void GoToMenuExitPanel()
+    {
+        ClosePause();
+        DeleteGame();
         SceneManager.LoadScene("Menu");
     }
 
-    private void DeleteCurrentGame()
+    public void CloseExitPanel()
+    {
+        pausePanel.GetComponent<MovementUI>().MoveToEnd();
+        exitPanel.GetComponent<MovementUI>().MoveToStart();
+    }
+
+    private void DeleteGame()
     {
         NewSaveSystem.Delete("character");
         NewSaveSystem.Delete("currentGame");

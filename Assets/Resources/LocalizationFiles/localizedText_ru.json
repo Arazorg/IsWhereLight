@@ -107,12 +107,12 @@
         },
 
         {
-            "key": "SimpleKnight",
+            "key": "SimpleLegionnaire",
             "value": "Обычный Легионер"
         },
 
         {
-            "key": "GoldKnight",
+            "key": "GoldLegionnaire",
             "value": "Золотой Легионер"
         },
 
@@ -177,52 +177,52 @@
         },
 
         {
-            "key": "KnightPhrase0",
+            "key": "LegionnairePhrase0",
             "value": "Вижу цель - не вижу препятствий!"
         },
 
         {
-            "key": "KnightPhrase1",
+            "key": "LegionnairePhrase1",
             "value": "Мое дело правое."
         },
 
         {
-            "key": "KnightPhrase2",
+            "key": "LegionnairePhrase2",
             "value": "Честь. Отвага. Оторванные конечности."
         },
 
         {
-            "key": "KnightPhrase3",
+            "key": "LegionnairePhrase3",
             "value": "Как оттереть пятна крови от доспехов?"
         },
 
         {
-            "key": "KnightPhrase4",
+            "key": "LegionnairePhrase4",
             "value": "Правосудие восторжествует."
         },
 
         {
-            "key": "KnightPhrase5",
+            "key": "LegionnairePhrase5",
             "value": "Утоли мою ярость."
         },
 
         {
-            "key": "KnightPhrase6",
+            "key": "LegionnairePhrase6",
             "value": "Я устал ждать своего часа."
         },
 
         {
-            "key": "KnightPhrase7",
+            "key": "LegionnairePhrase7",
             "value": "Моя жизнь будет коротка, но насыщена."
         },
 
         {
-            "key": "KnightShootReaction0",
+            "key": "LegionnaireShootReaction0",
             "value": "Прибереги патроны, они тебе пригодятся."
         },
 
         {
-            "key": "KnightShootReaction1",
+            "key": "LegionnaireShootReaction1",
             "value": "Я тоже могу начать стрелять."
         },
 
@@ -691,10 +691,15 @@
             "key": "Static",
             "value": "Статический"
         },
-
+		
+		{
+			"key": "LostProgress",
+			"value": "Вы действительно хотите выйти? Текущий прогресс будет потерян"
+		},
+		
         {
             "key": "WatchAd",
             "value": "Посмотреть рекламу"
-        }
+        }	
     ]
 }

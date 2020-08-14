@@ -697,9 +697,13 @@
     },
 
     {
+      "key": "LostProgress",
+      "value": "Do you really want to leave? Progress will be lost"
+    },
+
+    {
       "key": "WatchAd",
       "value": "Watch ad"
     }
-
   ]
 }

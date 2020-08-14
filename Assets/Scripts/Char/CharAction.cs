@@ -25,6 +25,7 @@ public class CharAction : MonoBehaviour
     private float timeToDeathPanel;
     private float standartSpeed;
     public static bool isDeath;
+
     void Start()
     {
         timeToDeathPanel = float.MaxValue;

@@ -50,7 +50,6 @@ public class SettingsInfo : MonoBehaviour
     {
         SetStartSettings();
         var settingsString = NewSaveSystem.Load("settings");
-        Debug.Log(settingsString);
         if (settingsString != null)
         {
             SettingsData saveObject = JsonUtility.FromJson<SettingsData>(settingsString);

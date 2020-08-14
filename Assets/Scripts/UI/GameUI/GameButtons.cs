@@ -273,6 +273,7 @@ public class GameButtons : MonoBehaviour
         }
 
     }
+
     public void OpenDeathPanel()
     {
         if (charInfo.countResurrect != 0)

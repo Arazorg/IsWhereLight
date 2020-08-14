@@ -14,7 +14,6 @@ public class CharData
     public int mane;
     public int countResurrect;
     public int money;
-    public bool canExit;
 
     public int currentCountKilledEnemies;
     public int currentCountShoots;
@@ -31,6 +30,5 @@ public class CharData
         countResurrect = charInfo.countResurrect;
         currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
         currentCountShoots = charInfo.currentCountShoots;
-        canExit = charInfo.canExit;
     }
 }

@@ -10,6 +10,7 @@ public class CurrentGameData
     public bool isLobby;
     public int challengeNumber;
     public int currentWave;
+    public bool canExit;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -22,5 +23,6 @@ public class CurrentGameData
         isLobby = currentGameInfo.isLobby;
         challengeNumber = currentGameInfo.challengeNumber;
         currentWave = currentGameInfo.currentWave;
+        canExit = currentGameInfo.canExit;
     }
 }
