@@ -75,7 +75,8 @@ public class MenuButtons : MonoBehaviour
         settingsInfo.LoadSettings();
         progressInfo.LoadProgress();
         progressInfo.SaveProgress();
-        if (PlayerPrefs.HasKey("currentGame") && PlayerPrefs.HasKey("character"))
+        if (PlayerPrefs.HasKey($"currentGame{Application.version}") 
+                && PlayerPrefs.HasKey($"character{Application.version}"))
         {
             firstPlay = false;
             newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));

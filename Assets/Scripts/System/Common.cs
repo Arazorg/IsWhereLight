@@ -72,12 +72,12 @@ public static class Common
 
         public static string Encode(string value)
         {
-            return Convert.ToBase64String(Encode(Encoding.UTF8.GetBytes(value), Key));
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(value));
         }
 
         public static string Decode(string value)
         {
-            return Encoding.UTF8.GetString(Encode(Convert.FromBase64String(value), Key));
+            return Encoding.UTF8.GetString(Convert.FromBase64String(value));
         }
 
         public static string Encrypt(string value, string key)

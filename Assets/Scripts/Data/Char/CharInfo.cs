@@ -20,6 +20,7 @@ public class CharInfo : MonoBehaviour
     public int countResurrect;
     public int currentCountKilledEnemies;
     public int currentCountShoots;
+    public bool canExit;
 
     public void Init(CharData data)
     {
@@ -34,6 +35,7 @@ public class CharInfo : MonoBehaviour
         countResurrect = data.countResurrect;
         currentCountKilledEnemies = data.currentCountKilledEnemies;
         currentCountShoots = data.currentCountShoots;
+        canExit = data.canExit;
     }
     public void SetStartParams()
     {
@@ -51,6 +53,7 @@ public class CharInfo : MonoBehaviour
         countResurrect = 1;
         currentCountKilledEnemies = 0;
         currentCountShoots = 0;
+        canExit = true;
         SetObjects();
     }
 
@@ -79,6 +82,7 @@ public class CharInfo : MonoBehaviour
         manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
+
     private void SetObjects()
     {
         manaBar.SetMaxMin(mane, maxMane, 0);

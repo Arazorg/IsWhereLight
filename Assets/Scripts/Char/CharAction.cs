@@ -22,53 +22,66 @@ public class CharAction : MonoBehaviour
     private float timeToOff;
     private Button fireActButton;
     private Transform characterControlUI;
+    private float timeToDeathPanel;
+    private float standartSpeed;
+    public static bool isDeath;
     void Start()
     {
+        timeToDeathPanel = float.MaxValue;
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
     }
 
     void Update()
     {
+        if (isDeath && Time.time > timeToDeathPanel)
+        {
+            characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
+            timeToDeathPanel = float.MaxValue;
+        }
+           
         PlayerHitted();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        switch (coll.gameObject.name)
+        if (!isDeath)
         {
-            case "WeaponStore":
-                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
-                fireActButton.GetComponent<Image>().sprite = actionImage;
-                break;
-            case "PortalToGame":
-                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.portalToGame;
-                fireActButton.GetComponent<Image>().sprite = actionImage;
-                break;
-            case "TvAds":
-                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.tvAds;
-                fireActButton.GetComponent<Image>().sprite = actionImage;
-                break;
-            case "ShootingRangeStartPosition":
-                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.shootingRange;
-                fireActButton.GetComponent<Image>().sprite = actionImage;
-                break;
-        }
+            switch (coll.gameObject.name)
+            {
+                case "WeaponStore":
+                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
+                    fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+                case "PortalToGame":
+                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.portalToGame;
+                    fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+                case "TvAds":
+                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.tvAds;
+                    fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+                case "ShootingRangeStartPosition":
+                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.shootingRange;
+                    fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+            }
 
-        switch (coll.gameObject.tag)
-        {
-            case "NPC":
-                GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.NPC;
-                currentNPC = coll.gameObject;
-                fireActButton.GetComponent<Image>().sprite = actionImage;
-                break;
-        }
+            switch (coll.gameObject.tag)
+            {
+                case "NPC":
+                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.NPC;
+                    currentNPC = coll.gameObject;
+                    fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+            }
 
-        if (coll.tag == "EnemyBullet")
-        {
-            charInfo.Damage(coll.GetComponent<Bullet>().Damage);
-            isPlayerHitted = true;
-            isEnterFirst = true;
+            if (coll.tag == "EnemyBullet")
+            {
+                charInfo.Damage(coll.GetComponent<Bullet>().Damage);
+                isPlayerHitted = true;
+                isEnterFirst = true;
+            }
         }
     }
 
@@ -79,7 +92,7 @@ public class CharAction : MonoBehaviour
 
     public void PlayerHitted()
     {
-        if (isPlayerHitted)
+        if (isPlayerHitted && !isDeath)
         {
             if (isEnterFirst)
             {
@@ -101,6 +114,25 @@ public class CharAction : MonoBehaviour
 
     public void Death()
     {
-        characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
+        isDeath = true;
+        GetComponent<Animator>().SetBool("Death", true);
+        ColorUtility.TryParseHtmlString("#808080", out Color color);
+        GetComponent<SpriteRenderer>().color = color;
+        transform.GetChild(0).gameObject.SetActive(false);
+        standartSpeed = GetComponent<CharController>().speed;
+        GetComponent<CharController>().SetRbVelocityZero();
+        gameObject.tag = "IgnoreAll";
+        timeToDeathPanel = Time.time + 1f;
+    }
+
+    public void Resurrect()
+    {
+        isDeath = false;
+        GetComponent<Animator>().SetBool("Death", false);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        transform.GetChild(0).gameObject.SetActive(true);
+        charInfo.countResurrect--;
+        charInfo.Healing(charInfo.maxHealth);
+        gameObject.tag = "Player";
     }
 }

@@ -59,11 +59,29 @@ public class PauseUI : MonoBehaviour
     public void GoToMenu()
     {
         ClosePause();
+        var charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
         if (SceneManager.GetActiveScene().name != "Game")
         {
-            NewSaveSystem.Delete("character");
-            NewSaveSystem.Delete("currentGame");
+            DeleteCurrentGame();
         }
+        else
+        {     
+            if(charInfo.canExit)
+            {
+                charInfo.canExit = false;
+                charInfo.SaveChar();
+            }
+            else
+            {
+                
+            }
+        }          
         SceneManager.LoadScene("Menu");
+    }
+
+    private void DeleteCurrentGame()
+    {
+        NewSaveSystem.Delete("character");
+        NewSaveSystem.Delete("currentGame");
     }
 }

@@ -111,11 +111,7 @@ public class GameButtons : MonoBehaviour
         IsGamePausedState = false;
         SetStartUI();
 
-        if (SceneManager.GetActiveScene().name == "Game")
-        {
-            currentGameInfo.SetIsLobbyState(false);
-            SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
-        }
+
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
@@ -124,7 +120,16 @@ public class GameButtons : MonoBehaviour
         {
             charInfo.LoadChar();
             currentGameInfo.LoadCurrentGame();
+            //Debug.Log(currentGameInfo.challengeNumber);
         }
+
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            currentGameInfo.SetIsLobbyState(false);
+            SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
+            character.transform.position = SpawnPosition;
+        }
+
         else if (SceneManager.GetActiveScene().name == "Lobby")
         {
             charInfo.SetStartParams();
@@ -187,40 +192,44 @@ public class GameButtons : MonoBehaviour
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
         HideChallengeUI();
-        ShootingRange.instance.CloseDifficultyPanel();
+        if (SceneManager.GetActiveScene().name == "Lobby")
+            ShootingRange.instance.CloseDifficultyPanel();
         ShowHideControlUI(false);
     }
 
     public void FireActStateDown()
     {
-        switch (FireActButtonState)
+        if (!CharAction.isDeath)
         {
-            case FireActButtonStateEnum.none:
-                isAttackDown = true;
-                break;
-            case FireActButtonStateEnum.changeGun:
-                charGun.ChangeGun();
-                currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
-                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
-                    CharController.isRotate = false;
-                else
-                    CharController.isRotate = true;
-                break;
-            case FireActButtonStateEnum.NPC:
-                charAction.currentNPC.GetComponent<Character>().ShowPhrase();
-                break;
-            case FireActButtonStateEnum.weaponStore:
-                OpenWeaponStore();
-                break;
-            case FireActButtonStateEnum.portalToGame:
-                challengeUI.GetComponent<MovementUI>().MoveToEnd();
-                break;
-            case FireActButtonStateEnum.tvAds:
-                AdsManager.AdShow();
-                break;
-            case FireActButtonStateEnum.shootingRange:
-                ShootingRange.instance.ShowDifficultyPanel();
-                break;
+            switch (FireActButtonState)
+            {
+                case FireActButtonStateEnum.none:
+                    isAttackDown = true;
+                    break;
+                case FireActButtonStateEnum.changeGun:
+                    charGun.ChangeGun();
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
+                        CharController.isRotate = false;
+                    else
+                        CharController.isRotate = true;
+                    break;
+                case FireActButtonStateEnum.NPC:
+                    charAction.currentNPC.GetComponent<Character>().ShowPhrase();
+                    break;
+                case FireActButtonStateEnum.weaponStore:
+                    OpenWeaponStore();
+                    break;
+                case FireActButtonStateEnum.portalToGame:
+                    challengeUI.GetComponent<MovementUI>().MoveToEnd();
+                    break;
+                case FireActButtonStateEnum.tvAds:
+                    AdsManager.AdShow();
+                    break;
+                case FireActButtonStateEnum.shootingRange:
+                    ShootingRange.instance.ShowDifficultyPanel();
+                    break;
+            }
         }
     }
 
@@ -289,23 +298,23 @@ public class GameButtons : MonoBehaviour
     public void ResurrectPlayerAd()
     {
         audioManager.Play("ClickUI");
-        charInfo.countResurrect--;
+        //Show ad
+        charAction.Resurrect();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
         IsGamePausedState = false;
         ShowHideControlUI(true);
-        charInfo.Healing(charInfo.maxHealth);
+        
     }
 
     public void ResurrectPlayerMoney()
     {
         audioManager.Play("ClickUI");
-        charInfo.countResurrect--;
+        charAction.Resurrect();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
         IsGamePausedState = false;
         ShowHideControlUI(true);
-        charInfo.Healing(charInfo.maxHealth);
     }
 
     public void GoToGame()
@@ -316,17 +325,20 @@ public class GameButtons : MonoBehaviour
             charInfo.SaveChar();
             currentGameInfo.SaveCurrentGame();
         }
-            
+
         SceneManager.LoadScene("Game");
     }
 
     public void FireActStateUp()
     {
-        switch (FireActButtonState)
+        if(!CharAction.isDeath)
         {
-            case 0:
-                isAttackUp = true;
-                break;
+            switch (FireActButtonState)
+            {
+                case 0:
+                    isAttackUp = true;
+                    break;
+            }
         }
     }
 

@@ -48,7 +48,7 @@ public class CharGun : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Gun")
+        if (coll.gameObject.tag == "Gun" && !CharAction.isDeath)
         {
             GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.changeGun;//Change Gun
             floorGun = coll.gameObject;

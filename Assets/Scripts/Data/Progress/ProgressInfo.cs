@@ -10,8 +10,8 @@ public class ProgressInfo : MonoBehaviour
 
     public Dictionary<string, bool> characters;
     public Dictionary<string, int> secretCodes;
-    public int playerMoney; 
-    public int countKilledEnemies; 
+    public int playerMoney;
+    public int countKilledEnemies;
     public int countShoots;
 
     public int currentCountKilledEnemies;
@@ -49,22 +49,15 @@ public class ProgressInfo : MonoBehaviour
     {
         SetStartProgress();
         var progressString = NewSaveSystem.Load("progressInfo");
-        try
-        {
-            if (progressString != null)
-            {
-                var strings = progressString.Split(new char[] { '\n' });
-                ProgressData data = JsonUtility.FromJson<ProgressData>(strings[0]);
-                data.characters = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[1]);
-                data.secretCodes = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[2]);
-                Init(data);
-            }
-        }
-        catch
-        {
 
+        if (progressString != null)
+        {
+            var strings = progressString.Split(new char[] { '\n' });
+            ProgressData data = JsonUtility.FromJson<ProgressData>(strings[0]);
+            data.characters = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[1]);
+            data.secretCodes = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[2]);
+            Init(data);
         }
-        
     }
 
     public void SetStartProgress()
@@ -85,7 +78,7 @@ public class ProgressInfo : MonoBehaviour
     {
         characters = new Dictionary<string, bool>
         {
-            { "Knight", true },
+            { "Legionnaire", true },
             { "Mage", false },
             { "Archer", false },
             { "Shooter", false },

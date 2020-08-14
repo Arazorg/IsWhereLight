@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations:
   - {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
-  - {fileID: 9100000, guid: 0ee7b2b99dbf07143885c0ba7634915e, type: 2}
   characterClass: Mage
   maxHealth: 8
   maxMane: 280

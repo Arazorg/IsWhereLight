@@ -193,14 +193,14 @@ MonoBehaviour:
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
   NPC_Phrases:
-  - KnightPhrase0
-  - KnightPhrase1
-  - KnightPhrase2
-  - KnightPhrase3
-  - KnightPhrase4
-  - KnightPhrase5
-  - KnightPhrase6
-  - KnightPhrase7
+  - LegionnairePhrase0
+  - LegionnairePhrase1
+  - LegionnairePhrase2
+  - LegionnairePhrase3
+  - LegionnairePhrase4
+  - LegionnairePhrase5
+  - LegionnairePhrase6
+  - LegionnairePhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!212 &28040281

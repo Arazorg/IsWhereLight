@@ -87,7 +87,7 @@
     },
 
     {
-      "key": "Knight",
+      "key": "Legionnaire",
       "value": "Legionnaire"
     },
 
@@ -117,12 +117,12 @@
     },
 
     {
-      "key": "SimpleKnight",
+      "key": "SimpleLegionnaire",
       "value": "Simple Legionnaire"
     },
 
     {
-      "key": "GoldKnight",
+      "key": "GoldLegionnaire",
       "value": "Gold Legionnaire"
     },
 
@@ -157,52 +157,52 @@
     },
 
     {
-      "key": "KnightPhrase0",
+      "key": "LegionnairePhrase0",
       "value": "I don't look at the obstacles, I focus on the goal!"
     },
 
     {
-      "key": "KnightPhrase1",
+      "key": "LegionnairePhrase1",
       "value": "Honour. Courage. Severed limbs."
     },
 
     {
-      "key": "KnightPhrase2",
+      "key": "LegionnairePhrase2",
       "value": "How to wipe blood stains from my armor?"
     },
 
     {
-      "key": "KnightPhrase3",
+      "key": "LegionnairePhrase3",
       "value": "The only thing you should feel when you shoot someone...\n is the recoil."
     },
 
     {
-      "key": "KnightPhrase4",
+      "key": "LegionnairePhrase4",
       "value": "Justice will prevail."
     },
 
     {
-      "key": "KnightPhrase5",
+      "key": "LegionnairePhrase5",
       "value": "Quench my rage."
     },
 
     {
-      "key": "KnightPhrase6",
+      "key": "LegionnairePhrase6",
       "value": "I can taste your mind. Mmm, salty!"
     },
 
     {
-      "key": "KnightPhrase7",
+      "key": "LegionnairePhrase7",
       "value": "My life will be short but fulfilling"
     },
 
     {
-      "key": "KnightShootReaction0",
+      "key": "LegionnaireShootReaction0",
       "value": "Better save your bullets!"
     },
 
     {
-      "key": "KnightShootReaction1",
+      "key": "LegionnaireShootReaction1",
       "value": "I can start shooting too."
     },
 

@@ -53,7 +53,6 @@ public class CharController : MonoBehaviour
         gun = transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
         if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow) //ОШИБКА
             isRotate = false;
-
         m_FacingRight = true;
         isStop = false;
     }
@@ -61,62 +60,65 @@ public class CharController : MonoBehaviour
 
     void Update()
     {
-        characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
-        rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
-                                     Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
-        if (!RotateGunToEnemy())
+        if(!CharAction.isDeath)
         {
-            // Debug.Log("Not Enemy");
-            if (joystick.Horizontal > 0 && !m_FacingRight)
-                Flip();
-            else if (joystick.Horizontal < 0 && m_FacingRight)
-                Flip();
-
-            if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Bow)
-                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
-            else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Bow)
-                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
-            else
+            characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
+            rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
+                                         Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
+            if (!RotateGunToEnemy())
             {
-                if (joystick.Horizontal != 0 && joystick.Vertical != 0)
-                {
-                    gunAngle = RotateGun();
-                    isStop = false;
-                }
+                // Debug.Log("Not Enemy");
+                if (joystick.Horizontal > 0 && !m_FacingRight)
+                    Flip();
+                else if (joystick.Horizontal < 0 && m_FacingRight)
+                    Flip();
+
+                if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                    == WeaponData.AttackType.Bow)
+                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
+                else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                    == WeaponData.AttackType.Bow)
+                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
                 else
                 {
-                    if (!isStop)
+                    if (joystick.Horizontal != 0 && joystick.Vertical != 0)
                     {
-                        transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation
-                            = Quaternion.Euler(new Vector3(0, 0, gunAngle));
-                        isStop = true;
+                        gunAngle = RotateGun();
+                        isStop = false;
+                    }
+                    else
+                    {
+                        if (!isStop)
+                        {
+                            transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).rotation
+                                = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                            isStop = true;
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            // Debug.Log("Enemy");
-            if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Bow)
-                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
-            else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Bow)
-                transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
-
-            if (0 <= gunAngle && gunAngle <= 180)
-            {
-                m_FacingRight = false;
-                transform.localScale = new Vector3(-1f, 1f, 1);
-            }
             else
             {
-                m_FacingRight = true;
-                transform.localScale = new Vector3(1f, 1f, 1);
+                // Debug.Log("Enemy");
+                if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                    == WeaponData.AttackType.Bow)
+                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
+                else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
+                    == WeaponData.AttackType.Bow)
+                    transform.Find(charInfo.weapons[charGun.currentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
+
+                if (0 <= gunAngle && gunAngle <= 180)
+                {
+                    m_FacingRight = false;
+                    transform.localScale = new Vector3(-1f, 1f, 1);
+                }
+                else
+                {
+                    m_FacingRight = true;
+                    transform.localScale = new Vector3(1f, 1f, 1);
+                }
             }
-        }
+        }       
     }
 
     private float RotateGun()
@@ -185,5 +187,10 @@ public class CharController : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public void SetRbVelocityZero()
+    {
+        rb.velocity = Vector2.zero;
     }
 }

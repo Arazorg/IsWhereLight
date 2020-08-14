@@ -60,7 +60,6 @@ public class CurrentGameInfo : MonoBehaviour
         return false;
     }
 
-
     public void SetIsLobbyState(bool isLobby)
     {
         this.isLobby = isLobby;
