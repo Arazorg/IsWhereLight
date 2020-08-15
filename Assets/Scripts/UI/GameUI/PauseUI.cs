@@ -38,9 +38,9 @@ public class PauseUI : MonoBehaviour
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;
         IsSettingsState = false;
-        gameObject.SetActive(GameButtons.IsGamePausedState);
-        pausePanel.GetComponent<MovementUI>().MoveToStart();
+        pausePanel.GetComponent<MovementUI>().SetStart();
         pauseSettingsPanel.GetComponent<MovementUI>().SetStart();
+        gameObject.SetActive(GameButtons.IsGamePausedState);
         gameButtons.ShowHideControlUI(true);
     }
 
@@ -72,6 +72,7 @@ public class PauseUI : MonoBehaviour
             if(currentGame.canExit)
             {
                 ClosePause();
+                CharAction.isDeath = false;
                 currentGame.canExit = false;
                 CurrentGameInfo.instance.SaveCurrentGame();
                 SceneManager.LoadScene("Menu");
@@ -88,6 +89,7 @@ public class PauseUI : MonoBehaviour
 
     public void GoToMenuExitPanel()
     {
+        CharAction.isDeath = false;
         ClosePause();
         DeleteGame();
         SceneManager.LoadScene("Menu");

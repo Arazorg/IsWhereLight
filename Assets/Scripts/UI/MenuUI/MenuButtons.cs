@@ -60,6 +60,12 @@ public class MenuButtons : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         settingsInfo.InitDictionary();
+        try
+        {
+            Destroy(GameObject.Find("CurrentGameHandler"));
+            Destroy(GameObject.Find("LevelGeneration"));
+        }
+        catch { }
         FilesCheck();
 
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();

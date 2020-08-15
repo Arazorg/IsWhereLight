@@ -9,8 +9,9 @@ public class CurrentGameData
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int currentWave;
-    public bool canExit;
+    public int currentWave = 0;
+    public int countResurrect = 1;
+    public bool canExit = true;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -23,6 +24,7 @@ public class CurrentGameData
         isLobby = currentGameInfo.isLobby;
         challengeNumber = currentGameInfo.challengeNumber;
         currentWave = currentGameInfo.currentWave;
+        countResurrect = currentGameInfo.countResurrect;
         canExit = currentGameInfo.canExit;
     }
 }

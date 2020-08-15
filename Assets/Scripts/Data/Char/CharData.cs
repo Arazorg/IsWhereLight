@@ -12,11 +12,10 @@ public class CharData
     public int maxMane;
     public int health;
     public int mane;
-    public int countResurrect;
     public int money;
-
     public int currentCountKilledEnemies;
     public int currentCountShoots;
+
     public CharData(CharInfo charInfo)
     {
         character = charInfo.character;
@@ -27,7 +26,6 @@ public class CharData
         health = charInfo.health;
         mane = charInfo.mane;
         money = charInfo.money;
-        countResurrect = charInfo.countResurrect;
         currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
         currentCountShoots = charInfo.currentCountShoots;
     }

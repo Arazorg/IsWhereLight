@@ -17,7 +17,6 @@ public class CharInfo : MonoBehaviour
     public int health;
     public int mane;
     public int money;
-    public int countResurrect;
     public int currentCountKilledEnemies;
     public int currentCountShoots;
 
@@ -30,8 +29,7 @@ public class CharInfo : MonoBehaviour
         maxMane = data.maxMane;
         health = data.health;
         mane = data.mane;
-        money = data.money;
-        countResurrect = data.countResurrect;
+        money = data.money;      
         currentCountKilledEnemies = data.currentCountKilledEnemies;
         currentCountShoots = data.currentCountShoots;
     }
@@ -48,7 +46,6 @@ public class CharInfo : MonoBehaviour
         health = maxHealth;
         mane = maxMane;
         money = 0;
-        countResurrect = 1;
         currentCountKilledEnemies = 0;
         currentCountShoots = 0;
         SetObjects();

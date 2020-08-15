@@ -15,6 +15,7 @@ public class CurrentGameInfo : MonoBehaviour
     public bool isLobby;
     public int challengeNumber;
     public int currentWave = 0;
+    public int countResurrect = 1;
     public bool canExit = true;
 
     void Awake()
@@ -41,6 +42,7 @@ public class CurrentGameInfo : MonoBehaviour
         isLobby = currentGameData.isLobby;
         challengeNumber = currentGameData.challengeNumber;
         currentWave = currentGameData.currentWave;
+        countResurrect = currentGameData.countResurrect;
         canExit = currentGameData.canExit;
     }
 

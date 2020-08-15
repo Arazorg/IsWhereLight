@@ -16,9 +16,10 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Ссылка на префабы врагов")]
     [SerializeField] private GameObject[] enemiesPrefabs;
 
-    [Tooltip("Отсчет до спауна")]
+    [Tooltip("Таймер до спауна")]
     [SerializeField] private GameObject spawnTimer;
-    [Tooltip("Текст отсчета до спауна")]
+
+    [Tooltip("Текст таймера до спауна")]
     [SerializeField] private TextMeshProUGUI spawnTimerText;
 #pragma warning restore 0649
 

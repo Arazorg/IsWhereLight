@@ -31,6 +31,9 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Текст описания испытания")]
     [SerializeField] private TextMeshProUGUI challengeText;
 
+    [Tooltip("Текст в панели")]
+    [SerializeField] private TextMeshProUGUI deathPanelText;
+
     [Tooltip("Префаб персонажа")]
     [SerializeField] private GameObject character;
 
@@ -51,6 +54,9 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Панель смерти")]
     [SerializeField] private GameObject deathPanel;
+
+    [Tooltip("Таймер до спауна")]
+    [SerializeField] private GameObject spawnTimer;
 #pragma warning restore 0649
 
     public enum FireActButtonStateEnum
@@ -83,6 +89,8 @@ public class GameButtons : MonoBehaviour
     private float nextAttack;
     private bool isAttackDown;
     private bool isAttackUp;
+    private int priceResurrect;
+    private float startTime;
     public static bool isChange = true;
 
     public Transform currentWeapon;
@@ -102,7 +110,9 @@ public class GameButtons : MonoBehaviour
     void Start()
     {
         // PlayerPrefs.DeleteAll();
+        startTime = Time.time;
         Time.timeScale = 1f;
+        
         GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
         pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
@@ -263,6 +273,7 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
+            spawnTimer.GetComponent<MovementUI>().MoveToEnd();
         }
         else
         {
@@ -270,14 +281,17 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToStart();
             healthBar.GetComponent<MovementUI>().MoveToStart();
             maneBar.GetComponent<MovementUI>().MoveToStart();
+            spawnTimer.GetComponent<MovementUI>().MoveToStart();
         }
 
     }
 
     public void OpenDeathPanel()
     {
-        if (charInfo.countResurrect != 0)
+        if (CurrentGameInfo.instance.countResurrect != 0)
         {
+            priceResurrect = (100 + ((int)((Time.time - startTime) * 2)) % 300);
+            deathPanelText.text = priceResurrect.ToString();
             deathPanel.GetComponent<MovementUI>().MoveToEnd();
             Time.timeScale = 0f;
             IsGamePausedState = true;
@@ -310,12 +324,16 @@ public class GameButtons : MonoBehaviour
 
     public void ResurrectPlayerMoney()
     {
-        audioManager.Play("ClickUI");
-        charAction.Resurrect();
-        deathPanel.GetComponent<MovementUI>().MoveToStart();
-        Time.timeScale = 1f;
-        IsGamePausedState = false;
-        ShowHideControlUI(true);
+        if(ProgressInfo.instance.playerMoney >= priceResurrect)
+        {
+            ProgressInfo.instance.playerMoney -= priceResurrect;
+            audioManager.Play("ClickUI");
+            charAction.Resurrect();
+            deathPanel.GetComponent<MovementUI>().MoveToStart();
+            Time.timeScale = 1f;
+            IsGamePausedState = false;
+            ShowHideControlUI(true);
+        }      
     }
 
     public void GoToGame()
@@ -326,7 +344,6 @@ public class GameButtons : MonoBehaviour
             charInfo.SaveChar();
             currentGameInfo.SaveCurrentGame();
         }
-
         SceneManager.LoadScene("Game");
     }
 

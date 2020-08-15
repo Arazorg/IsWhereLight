@@ -28,6 +28,7 @@ public class CharAction : MonoBehaviour
 
     void Start()
     {
+        isDeath = false;
         timeToDeathPanel = float.MaxValue;
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
@@ -132,7 +133,8 @@ public class CharAction : MonoBehaviour
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;
         transform.GetChild(0).gameObject.SetActive(true);
-        charInfo.countResurrect--;
+        CurrentGameInfo.instance.countResurrect--;
+        CurrentGameInfo.instance.SaveCurrentGame();
         charInfo.Healing(charInfo.maxHealth);
         gameObject.tag = "Player";
     }
