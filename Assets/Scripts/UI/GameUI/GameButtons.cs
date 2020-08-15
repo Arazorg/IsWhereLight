@@ -112,7 +112,7 @@ public class GameButtons : MonoBehaviour
         // PlayerPrefs.DeleteAll();
         startTime = Time.time;
         Time.timeScale = 1f;
-        
+
         GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
         pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
@@ -273,7 +273,8 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
-            spawnTimer.GetComponent<MovementUI>().MoveToEnd();
+            if (SceneManager.GetActiveScene().name == "Game")
+                spawnTimer.GetComponent<MovementUI>().MoveToEnd();
         }
         else
         {
@@ -281,7 +282,8 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToStart();
             healthBar.GetComponent<MovementUI>().MoveToStart();
             maneBar.GetComponent<MovementUI>().MoveToStart();
-            spawnTimer.GetComponent<MovementUI>().MoveToStart();
+            if (SceneManager.GetActiveScene().name == "Game")
+                spawnTimer.GetComponent<MovementUI>().MoveToStart();
         }
 
     }
@@ -319,12 +321,12 @@ public class GameButtons : MonoBehaviour
         Time.timeScale = 1f;
         IsGamePausedState = false;
         ShowHideControlUI(true);
-        
+
     }
 
     public void ResurrectPlayerMoney()
     {
-        if(ProgressInfo.instance.playerMoney >= priceResurrect)
+        if (ProgressInfo.instance.playerMoney >= priceResurrect)
         {
             ProgressInfo.instance.playerMoney -= priceResurrect;
             audioManager.Play("ClickUI");
@@ -333,7 +335,7 @@ public class GameButtons : MonoBehaviour
             Time.timeScale = 1f;
             IsGamePausedState = false;
             ShowHideControlUI(true);
-        }      
+        }
     }
 
     public void GoToGame()
@@ -349,7 +351,7 @@ public class GameButtons : MonoBehaviour
 
     public void FireActStateUp()
     {
-        if(!CharAction.isDeath)
+        if (!CharAction.isDeath)
         {
             switch (FireActButtonState)
             {

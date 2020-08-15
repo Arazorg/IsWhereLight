@@ -25,8 +25,8 @@ public class LobbyUI : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        PlayerPrefs.DeleteKey("character");
-        PlayerPrefs.DeleteKey("currentGame");
+        NewSaveSystem.Delete("character");
+        NewSaveSystem.Delete("currentGame");
         Camera.main.backgroundColor = Color.black;
         characterKey = "chooseCharacter";
         characterText.key = characterKey;

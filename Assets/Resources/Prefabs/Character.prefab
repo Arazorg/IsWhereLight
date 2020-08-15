@@ -183,9 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charInfo: {fileID: 4952567868302082640}
-  pickUpImage: {fileID: -4132857295087189863, guid: bfb934e6048e57340b5c929cbb1d64bb,
+  pickUpImage: {fileID: 2861288570726444558, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
-  fireImage: {fileID: 6872523990085965603, guid: bfb934e6048e57340b5c929cbb1d64bb,
+  fireImage: {fileID: 654179995542460430, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
   offsetGunDistant: {x: 0, y: -0.35, z: 0}
   offsetGunMelee: {x: -0.2, y: -0.35, z: 0}
@@ -210,6 +210,8 @@ MonoBehaviour:
   health: 0
   mane: 0
   money: 0
+  currentCountKilledEnemies: 0
+  currentCountShoots: 0
 --- !u!114 &-4743250278244837176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,9 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charInfo: {fileID: 4952567868302082640}
-  fireImage: {fileID: 6872523990085965603, guid: bfb934e6048e57340b5c929cbb1d64bb,
+  fireImage: {fileID: 654179995542460430, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
-  actionImage: {fileID: -4293984934106103515, guid: bfb934e6048e57340b5c929cbb1d64bb,
+  actionImage: {fileID: 266970095760636097, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
   isEnterFirst: 0
   isPlayerHitted: 0
