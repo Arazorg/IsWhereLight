@@ -79,6 +79,7 @@ public class PauseUI : MonoBehaviour
             }
             else
             {
+                audioManager.Play("ClickUI");
                 pausePanel.GetComponent<MovementUI>().MoveToStart();
                 pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
                 exitPanel.GetComponent<MovementUI>().MoveToEnd();
@@ -97,6 +98,7 @@ public class PauseUI : MonoBehaviour
 
     public void CloseExitPanel()
     {
+        audioManager.Play("ClickUI");
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
         exitPanel.GetComponent<MovementUI>().MoveToStart();
     }

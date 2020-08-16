@@ -14,7 +14,7 @@ public class CurrentGameInfo : MonoBehaviour
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int currentWave = 0;
+    public int currentWave = 1;
     public int countResurrect = 1;
     public bool canExit = true;
 

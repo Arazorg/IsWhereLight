@@ -40,6 +40,9 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("Изображение типа игры, при наличии текущей игры")]
     [SerializeField] private Image currentGameTypeImage;
 
+    [Tooltip("Текст волны текущей игры, при наличии текущей игры")]
+    [SerializeField] private TextMeshProUGUI currentGameTypeText;
+
     [Tooltip("Спрайты типов игры")]
     [SerializeField] private Sprite[] gameTypeList;
 #pragma warning restore 0649
@@ -81,7 +84,7 @@ public class MenuButtons : MonoBehaviour
         settingsInfo.LoadSettings();
         progressInfo.LoadProgress();
         progressInfo.SaveProgress();
-        if (PlayerPrefs.HasKey($"currentGame{Application.version}") 
+        if (PlayerPrefs.HasKey($"currentGame{Application.version}")
                 && PlayerPrefs.HasKey($"character{Application.version}"))
         {
             firstPlay = false;
@@ -104,6 +107,7 @@ public class MenuButtons : MonoBehaviour
             currentGameInfo.LoadCurrentGame();
             continueButton.GetComponent<MovementUI>().MoveToEnd();
             currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
+            currentGameTypeText.text = $"Wave-{currentGameInfo.currentWave}";
             Destroy(currentGameInfo);
         }
 

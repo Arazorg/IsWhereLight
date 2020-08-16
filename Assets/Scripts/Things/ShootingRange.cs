@@ -126,9 +126,9 @@ public class ShootingRange : MonoBehaviour
         audioManager.Play("ClickUI");
         this.difficultyLevel = difficultyLevel;
         if (difficultyLevel == 1)
-            spawnDuration = 1f;
-        else
             spawnDuration = 2f;
+        else
+            spawnDuration = 1f;
         shootingRangeText.GetComponentInParent<MovementUI>().MoveToEnd();
         shootingRangeText.GetComponent<LocalizedText>().key = $@"ShootingRangeDifficulty{difficultyLevel}";
         shootingRangeText.GetComponent<LocalizedText>().SetLocalization();

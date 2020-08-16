@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private float nextSpawn;
     private readonly float spawnRate = 24f;
     private int counter;
-    private int textTimer;
+    public static int textTimer;
 
     private List<Vector3> spawnPoints = new List<Vector3>();
     public List<Vector3> SpawnPoints

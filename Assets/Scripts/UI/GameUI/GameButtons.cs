@@ -249,7 +249,7 @@ public class GameButtons : MonoBehaviour
         currentGameInfo.challengeNumber = challengeNumber;
         challengeText.GetComponentInParent<MovementUI>().MoveToEnd();
         playButton.GetComponent<MovementUI>().MoveToEnd();
-        challengeText.GetComponent<LocalizedText>().key = $@"Challenge{challengeNumber}";
+        challengeText.GetComponent<LocalizedText>().key = $@"ChallengeDescription{challengeNumber}";
         challengeText.GetComponent<LocalizedText>().SetLocalization();
     }
 
@@ -273,7 +273,7 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
-            if (SceneManager.GetActiveScene().name == "Game")
+            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.textTimer != 0)
                 spawnTimer.GetComponent<MovementUI>().MoveToEnd();
         }
         else

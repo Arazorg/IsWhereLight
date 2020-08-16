@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,18 +27,22 @@ public class InterfaceSettings : MonoBehaviour
 
     [Tooltip("Кнопка статического джойстика")]
     [SerializeField] private Button staticJoystickButton;
+
+    [Tooltip("Текст подсказок")]
+    [SerializeField] private TextMeshProUGUI hintsText;
 #pragma warning restore 0649
 
     private bool IsColorPanelState;
     //Скрипты
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
+    private float hintTimer;
 
     void Start()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = FindObjectOfType<AudioManager>();
-
+        hintTimer = float.MaxValue;
         if (MenuButtons.firstRun)
             SetStandart();
         else
@@ -52,6 +57,20 @@ public class InterfaceSettings : MonoBehaviour
             swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(settingsInfo.swapWeaponButtonPosition[0],
                                 settingsInfo.swapWeaponButtonPosition[1]);
+
+            if (settingsInfo.joystickType == "Dynamic")
+                dynamicJoystickButton.GetComponent<Image>().color = Color.red;
+            else
+                staticJoystickButton.GetComponent<Image>().color = Color.red;
+        }
+    }
+
+    void Update()
+    {
+        if (Time.time > hintTimer)
+        {
+            hintsText.GetComponent<MovementUI>().MoveToStart();
+            hintTimer = float.MaxValue;
         }
     }
 
@@ -132,18 +151,24 @@ public class InterfaceSettings : MonoBehaviour
     public void SetJoystick(string type)
     {
         audioManager.Play("ClickUI");
+        hintsText.GetComponent<MovementUI>().MoveToEnd();
         if (type == "Dynamic")
         {
+            hintsText.GetComponent<LocalizedText>().key = "HintDynamicJoystick";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
             dynamicJoystickButton.GetComponent<Image>().color = Color.red;
             staticJoystickButton.GetComponent<Image>().color = Color.white;
             settingsInfo.joystickType = "Dynamic";
-        }    
-        else if(type == "Static")
+        }
+        else if (type == "Static")
         {
+            hintsText.GetComponent<LocalizedText>().key = "HintStaticJoystick";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
             dynamicJoystickButton.GetComponent<Image>().color = Color.white;
             staticJoystickButton.GetComponent<Image>().color = Color.red;
             settingsInfo.joystickType = "Static";
         }
+        hintTimer = Time.time + 3f;
     }
 
 }
