@@ -190,7 +190,7 @@ public class ShootingRange : MonoBehaviour
                 + new Vector3(0, 1f, 0), true, false, -1, $"GreatScore{UnityEngine.Random.Range(0, 5)}");
         else
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
-                + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UntyEngine.Random.Range(0, 3)}");
+                + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UnityEngine.Random.Range(0, 3)}");
         SetCollider(false);
     }
 
