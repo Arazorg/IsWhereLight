@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] public Vector3 offsetText;
 
     private WeaponData data;
+    private PopupText currentPhrase = null;
 
     /// <summary>
     /// Initialization of weapon
@@ -151,7 +152,13 @@ public class Weapon : MonoBehaviour
     {
         if (transform.tag == "Gun" && coll.tag == "Player")
         {
-            PopupText.Create(transform.position + offsetText, true, false, -1, WeaponName);
+            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, WeaponName, 3.75f, true);
         }
+    }
+
+    void OnTriggerExit2D()
+    {
+        if(currentPhrase != null)
+            currentPhrase.DeletePhrase();
     }
 }

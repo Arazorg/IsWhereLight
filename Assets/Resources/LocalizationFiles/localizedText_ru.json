@@ -1,775 +1,836 @@
 {
-    "items": [
-
-        {
-            "key": "NewGameButton",
-            "value": "Новая игра"
-        },
-
-        {
-            "key": "ContinueGameButton",
-            "value": "Продолжить иру"
-        },
-
-        {
-            "key": "Load",
-            "value": "Загрузка..."
-        },
-
-        {
-            "key": "HaveCurrentGame",
-            "value": "Вы действительно хотите закончить текущую игру?"
-        },
-
-        {
-            "key": "HealthInfo",
-            "value": "Здоровье"
-        },
-
-        {
-            "key": "ManeInfo",
-            "value": "Мана"
-        },
-
-        {
-            "key": "WeaponInfo",
-            "value": "Оружие"
-        },
-
-        {
-            "key": "chooseCharacter",
-            "value": "Выбор персонажа"
-        },
-
-        {
-            "key": "Day",
-            "value": "День"
-        },
-
-        {
-            "key": "Sword",
-            "value": "Меч"
-        },
-
-        {
-            "key": "Cleaver",
-            "value": "Тесак"
-        },
-
-        {
-            "key": "Staff",
-            "value": "Посох"
-        },
-
-        {
-            "key": "Bow",
-            "value": "Лук"
-        },
-
-        {
-            "key": "ShootingRangeWeapon",
-            "value": "Ружье для тира"
-        },
-
-        {
-            "key": "Pistol",
-            "value": "Пистолет"
-        },
-
-        {
-            "key": "Legionnaire",
-            "value": "Легионер"
-        },
-
-        {
-            "key": "Archer",
-            "value": "Лучник"
-        },
-
-        {
-            "key": "Shooter",
-            "value": "Рейдер"
-        },
-
-        {
-            "key": "Doctor",
-            "value": "Изида"
-        },
-
-        {
-            "key": "Mage",
-            "value": "Хранитель"
-        },
-
-        {
-            "key": "Engineer",
-            "value": "Механик"
-        },
-
-        {
-            "key": "SimpleLegionnaire",
-            "value": "Обычный Легионер"
-        },
-
-        {
-            "key": "GoldLegionnaire",
-            "value": "Золотой Легионер"
-        },
-
-        {
-            "key": "SimpleMage",
-            "value": "Обычный Хранитель"
-        },
-
-        {
-            "key": "DarkMage",
-            "value": "Темный Хранитель"
-        },
-
-        {
-            "key": "SimpleArcher",
-            "value": "Обычный Лучник"
-        },
-
-        {
-            "key": "SimpleShooter",
-            "value": "Обычный Рейдер"
-        },
-
-        {
-            "key": "SimpleDoctor",
-            "value": "Обычная Изида"
-        },
-
-        {
-            "key": "SimpleEngineer",
-            "value": "Обычный Механик"
-        },
-
-        {
-            "key": "Hello0",
-            "value": "Привет!"
-        },
-
-        {
-            "key": "Hello1",
-            "value": "Здорова!"
-        },
-
-        {
-            "key": "Hello2",
-            "value": "Как поживаешь?"
-        },
-
-        {
-            "key": "Hello3",
-            "value": "Салют!"
-        },
-
-        {
-            "key": "Hello4",
-            "value": "Здравствуй."
-        },
-
-        {
-            "key": "Hello5",
-            "value": "Приветствую!"
-        },
-
-        {
-            "key": "LegionnairePhrase0",
-            "value": "Вижу цель - не вижу препятствий!"
-        },
-
-        {
-            "key": "LegionnairePhrase1",
-            "value": "Мое дело правое."
-        },
-
-        {
-            "key": "LegionnairePhrase2",
-            "value": "Честь. Отвага. Оторванные конечности."
-        },
-
-        {
-            "key": "LegionnairePhrase3",
-            "value": "Как оттереть пятна крови от доспехов?"
-        },
-
-        {
-            "key": "LegionnairePhrase4",
-            "value": "Правосудие восторжествует."
-        },
-
-        {
-            "key": "LegionnairePhrase5",
-            "value": "Утоли мою ярость."
-        },
-
-        {
-            "key": "LegionnairePhrase6",
-            "value": "Я устал ждать своего часа."
-        },
-
-        {
-            "key": "LegionnairePhrase7",
-            "value": "Моя жизнь будет коротка, но насыщена."
-        },
-
-        {
-            "key": "LegionnaireShootReaction0",
-            "value": "Прибереги патроны, они тебе пригодятся."
-        },
-
-        {
-            "key": "LegionnaireShootReaction1",
-            "value": "Я тоже могу начать стрелять."
-        },
-
-        {
-            "key": "MagePhrase0",
-            "value": "Шутки со временем до добра не доведут."
-        },
-
-        {
-            "key": "MagePhrase1",
-            "value": "Все, что мне нужно для счастья - два шерстяных носка."
-        },
-
-        {
-            "key": "MagePhrase2",
-            "value": "Меня переполняет мощь..."
-        },
-
-        {
-            "key": "MagePhrase3",
-            "value": "Не подскажешь, который сейчас год?"
-        },
-
-        {
-            "key": "MagePhrase4",
-            "value": "Если еще раз дернешь меня за бороду,\n то ни одно твоё желание больше никогда не исполнится."
-        },
-
-        {
-            "key": "MagePhrase5",
-            "value": "Знаешь, почему я такой веселый?\n В моей трубке не табак..."
-        },
-
-        {
-            "key": "MagePhrase6",
-            "value": "Иногда мой мозг удивляет меня самого."
-        },
-
-        {
-            "key": "MagePhrase7",
-            "value": "Война - кузница воли."
-        },
-
-        {
-            "key": "MageShootReaction0",
-            "value": "Рекомендую практиковать навыки стрельбы в тире."
-        },
-
-        {
-            "key": "MageShootReaction1",
-            "value": "Протего!"
-        },
-
-        {
-            "key": "DoctorPhrase0",
-            "value": "У тебя нездоровый вид."
-        },
-
-        {
-            "key": "DoctorPhrase1",
-            "value": "Опиши характер недомогания."
-        },
-
-        {
-            "key": "DoctorPhrase2",
-            "value": "Кто-то снова вороует медикаменты."
-        },
-
-        {
-            "key": "DoctorPhrase3",
-            "value": "Я сказала раздеться ДО пояса."
-        },
-
-        {
-            "key": "DoctorPhrase4",
-            "value": "Позвони мне в нерабочее время."
-        },
-
-        {
-            "key": "DoctorPhrase5",
-            "value": "Мой руки с мылом и не ешь летучих мышей."
-        },
-
-        {
-            "key": "DoctorPhrase6",
-            "value": "Налет белого цвета на головк...\n А ладно, проехали..."
-        },
-
-        {
-            "key": "DoctorPhrase7",
-            "value": "Давай пропустим историю болезни\n и сразу перейдем к завещанию."
-        },
-
-        {
-            "key": "DoctorShootReaction0",
-            "value": "Твои действия безрассудны!"
-        },
-
-        {
-            "key": "DoctorShootReaction1",
-            "value": "Лечение ментальных расстройств не входило в план.."
-        },
-
-        {
-            "key": "ShooterPhrase0",
-            "value": "Всё горит, если с бензином."
-        },
-
-        {
-            "key": "ShooterPhrase1",
-            "value": "Люблю теорию большого взрыва."
-        },
-
-        {
-            "key": "ShooterPhrase2",
-            "value": "Не видел моего низкорослого друга?"
-        },
-
-        {
-            "key": "ShooterPhrase3",
-            "value": "Кто такие эти вдребезги?\n И как их разбить?"
-        },
-
-        {
-            "key": "ShooterPhrase4",
-            "value": "Знаешь, откуда у меня эти шрамы?"
-        },
-
-        {
-            "key": "ShooterPhrase5",
-            "value": "Приглядишь за моей взрывчаткой?\n Мне нужно в барбершоп."
-        },
-
-        {
-            "key": "ShooterPhrase6",
-            "value": "Зададим им жару."
-        },
-
-        {
-            "key": "ShooterPhrase7",
-            "value": "Сейчас взорвусь от смеха."
-        },
-
-        {
-            "key": "ShooterShootReaction0",
-            "value": "Еще один выстрел и ты пожалеешь, что появился на свет."
-        },
-
-        {
-            "key": "ShooterShootReaction1",
-            "value": "Не связывайся с тем, кто тебе не по зубам."
-        },
-
-        {
-            "key": "ArcherPhrase0",
-            "value": "Чистота намерений и ясность сознания?\n Это не про меня."
-        },
-
-        {
-            "key": "ArcherPhrase1",
-            "value": "Видимо, не нужно было есть тот бургер..."
-        },
-
-        {
-            "key": "ArcherPhrase2",
-            "value": "Смерть - это новое начало."
-        },
-
-        {
-            "key": "ArcherPhrase3",
-            "value": "Ты ведь тоже слышишь эти голоса?"
-        },
-
-        {
-            "key": "ArcherPhrase4",
-            "value": "Я не воровал тот кошелек."
-        },
-
-        {
-            "key": "ArcherPhrase5",
-            "value": "Эволюция явно на тебе отыгралась."
-        },
-
-        {
-            "key": "ArcherPhrase6",
-            "value": "Предупреждаю сразу - я бью ниже пояса."
-        },
-
-        {
-            "key": "ArcherPhrase7",
-            "value": "Убийства - это мой хлеб."
-        },
-
-        {
-            "key": "ArcherShootReaction0",
-            "value": "Это friendly fire, огонь по своим..."
-        },
-
-        {
-            "key": "ArcherShootReaction1",
-            "value": "Где там мои отравленные стрелы..."
-        },
-
-        {
-            "key": "EngineerPhrase0",
-            "value": "Запомните твари, мои механизмы не сломаются."
-        },
-
-        {
-            "key": "EngineerPhrase1",
-            "value": "В школе у меня было 3 по физике..."
-        },
-
-        {
-            "key": "EngineerPhrase2",
-            "value": "Куда делась моя отвертка?"
-        },
-
-        {
-            "key": "EngineerPhrase3",
-            "value": "Куда делись все респираторы?"
-        },
-
-        {
-            "key": "EngineerPhrase4",
-            "value": "Если работает - не трогай."
-        },
-
-        {
-            "key": "EngineerPhrase5",
-            "value": "Хочешь знать, как я облысел? Нет, не хочешь..."
-        },
-
-        {
-            "key": "EngineerPhrase6",
-            "value": "Системы функционируют."
-        },
-
-        {
-            "key": "EngineerPhrase7",
-            "value": "Я уважаю твое мнение, пока ты его держишь при себе."
-        },
-
-        {
-            "key": "EngineerShootReaction0",
-            "value": "Гильзы убирать будешь сам."
-        },
-
-        {
-            "key": "EngineerShootReaction1",
-            "value": "Противник замечен. Турели активированы."
-        },
-
-        {
-            "key": "Check",
-            "value": "Проверить"
-        },
-		
-		{
-            "key": "LostProgress",
-            "value": "Выйти из игры? Текущий прогресс будет потерян"
-        },
-
-        {
-            "key": "Shoot",
-            "value": "Еще один выстрел и я тебе руки вырву!"
-        },
-
-        {
-            "key": "GiveWeapon",
-            "value": "Сперва возьмите винтовку для игры в тир!"
-        },
-
-        {
-            "key": "Play",
-            "value": "Играть"
-        },
-
-        {
-            "key": "GreatShoot",
-            "value": "Отличный выстрел!"
-        },
-
-        {
-            "key": "GreatScore",
-            "value": "Отличный счет!"
-        },
-
-        {
-            "key": "WeakScore",
-            "value": "Стоит потренироваться..."
-        },
-
-        {
-            "key": "ChallengeText",
-            "value": "Выбери испытание"
-        },
-		
-		{
-			"key": "DifficultyText",
-			"value": "Выбери сложность"
-		},
-
-        {
-            "key": "ChallengeDiscover",
-            "value": "Выбери и узнай!"
-        },
-
-        {
-            "key": "Challenge0",
-            "value": "Защита"
-        },
-
-        {
-            "key": "Challenge1",
-            "value": "Урон + Защита"
-        },
-
-        {
-            "key": "Challenge2",
-            "value": "Урон"
-        },
-
-        {
-            "key": "ShootingRangeInfo",
-            "value": "Тир! Больше попаданий - лучше награда!"
-        },
-		
-		
-		{
-			"key": "ShootingRangeDifficulty1",
-			"value": "Просто, новый спаун раз в две секунды"
-		},
-
-		{
-			"key": "ShootingRangeDifficulty2",
-			"value": "Сложно, новый спаун раз в секунду"
-		},
-
-        {
-            "key": "GoToMenu",
-            "value": "В меню"
-        },
-
-        {
-            "key": "Stats",
-            "value": "Статистика:"
-        },
-
-        {
-            "key": "FinishOfGame",
-            "value": "Конец игры"
-        },
-
-        {
-            "key": "CountOfEnemies",
-            "value": "Количество убитых врагов: "
-        },
-
-        {
-            "key": "CountOfShoots",
-            "value": "Количество выстрелов: "
-        },
-
-        {
-            "key": "Standart",
-            "value": "Стандартные"
-        },
-
-        {
-            "key": "Transparency",
-            "value": "Прозрачность"
-        },
-
-        {
-            "key": "ChooseColor",
-            "value": "Выбери цвет"
-        },
-
-        {
-            "key": "CodeDontExist",
-            "value": "Данный код не существует"
-        },
-
-        {
-            "key": "AlreadyUseCode",
-            "value": "Данный код уже использован"
-        },
-
-        {
-            "key": "Colors",
-            "value": "Цвета"
-        },
-
-        {
-            "key": "ShutUp0",
-            "value": "УМОЛЯЮ, ПРЕКРАТИ!"
-        },
-
-        {
-            "key": "ShutUp1",
-            "value": "Ты меня утомил."
-        },
-
-        {
-            "key": "ShutUp2",
-            "value": "Навязчивость и настойчивость - не одно и то же."
-        },
-
-        {
-            "key": "ShutUp3",
-            "value": "Палец не отвалится?"
-        },
-
-        {
-            "key": "ShutUp4",
-            "value": "Оставь меня!"
-        },
-
-        {
-            "key": "ShutUp5",
-            "value": "Убирайся!"
-        },
-
-        {
-            "key": "GoAway0",
-            "value": "Уйди!"
-        },
-
-        {
-            "key": "GoAway1",
-            "value": "Проваливай!"
-        },
-
-        {
-            "key": "GoAway2",
-            "value": "Дай мне побыть в одиночестве..."
-        },
-
-        {
-            "key": "GoAway3",
-            "value": "Я просто хочу тишины!"
-        },
-
-        {
-            "key": "Exit",
-            "value": "Выйти"
-        },
-
-        {
-            "key": "Death",
-            "value": "Вы умерли"
-        },
-
-        {
-            "key": "SoulPrice",
-            "value": "Цена твоей души"
-        },
-
-        {
-            "key": "Joystick",
-            "value": "Джойстик"
-        },
-
-        {
-            "key": "Dynamic",
-            "value": "Динамический"
-        },
-
-        {
-            "key": "Static",
-            "value": "Статический"
-        },
-
-        {
-            "key": "WatchAd",
-            "value": "Посмотреть рекламу"
-        },
-		
-		{
-            "key": "ChallengeDescription0",
-            "value": "Уничтожь все порталы с монстрами,\n или монстры уничтожат тебя!"
-        },
-		
-		{
-            "key": "ChallengeDescription1",
-            "value": "Босс будет вытягивать из тебя жизненную силу,\n нужно уничтожить его как можно скорее!"
-        },
-		
-		{
-            "key": "ChallengeDescription2",
-            "value": "Прорвись сквозь огромные полчища врагов и захвати то,\n что принадлежит тебе по праву!"
-        },
-		
-		{
-            "key": "ChallengeDescription3",
-            "value": "Уничтожь все места силы, которыми питается босс,\n чтобы победить его!"
-        },
-		
-		{
-            "key": "ChallengeDescription4",
-            "value": "Замани босса в ловушку темной аномалии\n и не попадись в нее сам!"
-        },
-		
-		{
-            "key": "ChallengeDescription5",
-            "value": "Грамотно управляй турелями и уничтожь их всех!"
-        },
-		
-		{
-            "key": "ChallengeDescription6",
-            "value": "Кто-то тут знал теорию большого взрыва..."
-        },
-		
-		{
-            "key": "ChallengeDescription7",
-            "value": "Битва высоких технологий, все решат твои действия!"
-        },
-		
-		{
-            "key": "ChallengeDescription8",
-            "value": "Исцеляй наемников и выживи сам, пока вас атакуют!"
-        },
-		
-		{
-            "key": "ChallengeDescription9",
-            "value": "Захвати все точки быстрее врагов!"
-        },
-		
-		{
-            "key": "ChallengeDescription10",
-            "value": "Ребята притащили эту установку,\n продержись, пока она не сотрет босса с лица земли!"
-        },
-		
-		{
-            "key": "ChallengeDescription11",
-            "value": "Их слишком много, убегай!"
-        },			
-		
-		{
-			"key": "HintStaticJoystick",
-			"value": "Статический джойстик остается на своем месте, после появления"
-		},	  
-		
-		{
-			"key": "HintDynamicJoystick",
-			"value": "Динамический джойстик появляется по клику в определенной области"
-		}		
-    ]
+  "items": [
+
+    {
+      "key": "NewGameButton",
+      "value": "Новая игра"
+    },
+
+    {
+      "key": "ContinueGameButton",
+      "value": "Продолжить иру"
+    },
+
+    {
+      "key": "Load",
+      "value": "Загрузка..."
+    },
+
+    {
+      "key": "HaveCurrentGame",
+      "value": "Вы действительно хотите закончить текущую игру?"
+    },
+
+    {
+      "key": "HealthInfo",
+      "value": "Здоровье"
+    },
+
+    {
+      "key": "ManeInfo",
+      "value": "Мана"
+    },
+
+    {
+      "key": "WeaponInfo",
+      "value": "Оружие"
+    },
+
+    {
+      "key": "chooseCharacter",
+      "value": "Выбор персонажа"
+    },
+
+    {
+      "key": "Day",
+      "value": "День"
+    },
+
+    {
+      "key": "Sword",
+      "value": "Меч"
+    },
+
+    {
+      "key": "Cleaver",
+      "value": "Тесак"
+    },
+
+    {
+      "key": "Staff",
+      "value": "Посох"
+    },
+
+    {
+      "key": "Bow",
+      "value": "Лук"
+    },
+
+    {
+      "key": "ShootingRangeWeapon",
+      "value": "Ружье для тира"
+    },
+
+    {
+      "key": "Pistol",
+      "value": "Пистолет"
+    },
+
+    {
+      "key": "Legionnaire",
+      "value": "Легионер"
+    },
+
+    {
+      "key": "Archer",
+      "value": "Лучник"
+    },
+
+    {
+      "key": "Shooter",
+      "value": "Рейдер"
+    },
+
+    {
+      "key": "Doctor",
+      "value": "Изида"
+    },
+
+    {
+      "key": "Mage",
+      "value": "Хранитель"
+    },
+
+    {
+      "key": "Engineer",
+      "value": "Механик"
+    },
+
+    {
+      "key": "SimpleLegionnaire",
+      "value": "Обычный Легионер"
+    },
+
+    {
+      "key": "GoldLegionnaire",
+      "value": "Золотой Легионер"
+    },
+
+    {
+      "key": "SimpleMage",
+      "value": "Обычный Хранитель"
+    },
+
+    {
+      "key": "DarkMage",
+      "value": "Темный Хранитель"
+    },
+
+    {
+      "key": "SimpleArcher",
+      "value": "Обычный Лучник"
+    },
+
+    {
+      "key": "SimpleShooter",
+      "value": "Обычный Рейдер"
+    },
+
+    {
+      "key": "SimpleDoctor",
+      "value": "Обычная Изида"
+    },
+
+    {
+      "key": "SimpleEngineer",
+      "value": "Обычный Механик"
+    },
+
+    {
+      "key": "Hello0",
+      "value": "Привет!"
+    },
+
+    {
+      "key": "Hello1",
+      "value": "Здорова!"
+    },
+
+    {
+      "key": "Hello2",
+      "value": "Как поживаешь?"
+    },
+
+    {
+      "key": "Hello3",
+      "value": "Салют!"
+    },
+
+    {
+      "key": "Hello4",
+      "value": "Здравствуй."
+    },
+
+    {
+      "key": "Hello5",
+      "value": "Приветствую!"
+    },
+
+    {
+      "key": "LegionnairePhrase0",
+      "value": "Вижу цель - не вижу препятствий!"
+    },
+
+    {
+      "key": "LegionnairePhrase1",
+      "value": "Мое дело правое."
+    },
+
+    {
+      "key": "LegionnairePhrase2",
+      "value": "Честь. Отвага. Оторванные конечности."
+    },
+
+    {
+      "key": "LegionnairePhrase3",
+      "value": "Как оттереть пятна крови от доспехов?"
+    },
+
+    {
+      "key": "LegionnairePhrase4",
+      "value": "Правосудие восторжествует."
+    },
+
+    {
+      "key": "LegionnairePhrase5",
+      "value": "Утоли мою ярость."
+    },
+
+    {
+      "key": "LegionnairePhrase6",
+      "value": "Я устал ждать своего часа."
+    },
+
+    {
+      "key": "LegionnairePhrase7",
+      "value": "Моя жизнь будет коротка, но насыщена."
+    },
+
+    {
+      "key": "LegionnaireShootReaction0",
+      "value": "Прибереги патроны, они тебе пригодятся."
+    },
+
+    {
+      "key": "LegionnaireShootReaction1",
+      "value": "Я тоже могу начать стрелять."
+    },
+
+    {
+      "key": "MagePhrase0",
+      "value": "Шутки со временем до добра не доведут."
+    },
+
+    {
+      "key": "MagePhrase1",
+      "value": "Все, что мне нужно для счастья - два шерстяных носка."
+    },
+
+    {
+      "key": "MagePhrase2",
+      "value": "Меня переполняет мощь..."
+    },
+
+    {
+      "key": "MagePhrase3",
+      "value": "Не подскажешь, который сейчас год?"
+    },
+
+    {
+      "key": "MagePhrase4",
+      "value": "Если еще раз дернешь меня за бороду,\n то ни одно твоё желание больше никогда не исполнится."
+    },
+
+    {
+      "key": "MagePhrase5",
+      "value": "Знаешь, почему я такой веселый?\n В моей трубке не табак..."
+    },
+
+    {
+      "key": "MagePhrase6",
+      "value": "Иногда мой мозг удивляет меня самого."
+    },
+
+    {
+      "key": "MagePhrase7",
+      "value": "Война - кузница воли."
+    },
+
+    {
+      "key": "MageShootReaction0",
+      "value": "Рекомендую практиковать навыки стрельбы в тире."
+    },
+
+    {
+      "key": "MageShootReaction1",
+      "value": "Протего!"
+    },
+
+    {
+      "key": "DoctorPhrase0",
+      "value": "У тебя нездоровый вид."
+    },
+
+    {
+      "key": "DoctorPhrase1",
+      "value": "Опиши характер недомогания."
+    },
+
+    {
+      "key": "DoctorPhrase2",
+      "value": "Кто-то снова вороует медикаменты."
+    },
+
+    {
+      "key": "DoctorPhrase3",
+      "value": "Я сказала раздеться ДО пояса."
+    },
+
+    {
+      "key": "DoctorPhrase4",
+      "value": "Позвони мне в нерабочее время."
+    },
+
+    {
+      "key": "DoctorPhrase5",
+      "value": "Мой руки с мылом и не ешь летучих мышей."
+    },
+
+    {
+      "key": "DoctorPhrase6",
+      "value": "Налет белого цвета на головк...\n А ладно, проехали..."
+    },
+
+    {
+      "key": "DoctorPhrase7",
+      "value": "Давай пропустим историю болезни\n и сразу перейдем к завещанию."
+    },
+
+    {
+      "key": "DoctorShootReaction0",
+      "value": "Твои действия безрассудны!"
+    },
+
+    {
+      "key": "DoctorShootReaction1",
+      "value": "Лечение ментальных расстройств не входило в план.."
+    },
+
+    {
+      "key": "ShooterPhrase0",
+      "value": "Всё горит, если с бензином."
+    },
+
+    {
+      "key": "ShooterPhrase1",
+      "value": "Люблю теорию большого взрыва."
+    },
+
+    {
+      "key": "ShooterPhrase2",
+      "value": "Не видел моего низкорослого друга?"
+    },
+
+    {
+      "key": "ShooterPhrase3",
+      "value": "Кто такие эти вдребезги?\n И как их разбить?"
+    },
+
+    {
+      "key": "ShooterPhrase4",
+      "value": "Знаешь, откуда у меня эти шрамы?"
+    },
+
+    {
+      "key": "ShooterPhrase5",
+      "value": "Приглядишь за моей взрывчаткой?\n Мне нужно в барбершоп."
+    },
+
+    {
+      "key": "ShooterPhrase6",
+      "value": "Зададим им жару."
+    },
+
+    {
+      "key": "ShooterPhrase7",
+      "value": "Сейчас взорвусь от смеха."
+    },
+
+    {
+      "key": "ShooterShootReaction0",
+      "value": "Еще один выстрел и ты пожалеешь, что появился на свет."
+    },
+
+    {
+      "key": "ShooterShootReaction1",
+      "value": "Не связывайся с тем, кто тебе не по зубам."
+    },
+
+    {
+      "key": "ArcherPhrase0",
+      "value": "Чистота намерений и ясность сознания?\n Это не про меня."
+    },
+
+    {
+      "key": "ArcherPhrase1",
+      "value": "Видимо, не нужно было есть тот бургер..."
+    },
+
+    {
+      "key": "ArcherPhrase2",
+      "value": "Смерть - это новое начало."
+    },
+
+    {
+      "key": "ArcherPhrase3",
+      "value": "Ты ведь тоже слышишь эти голоса?"
+    },
+
+    {
+      "key": "ArcherPhrase4",
+      "value": "Я не воровал тот кошелек."
+    },
+
+    {
+      "key": "ArcherPhrase5",
+      "value": "Эволюция явно на тебе отыгралась."
+    },
+
+    {
+      "key": "ArcherPhrase6",
+      "value": "Предупреждаю сразу - я бью ниже пояса."
+    },
+
+    {
+      "key": "ArcherPhrase7",
+      "value": "Убийства - это мой хлеб."
+    },
+
+    {
+      "key": "ArcherShootReaction0",
+      "value": "Это friendly fire, огонь по своим..."
+    },
+
+    {
+      "key": "ArcherShootReaction1",
+      "value": "Где там мои отравленные стрелы..."
+    },
+
+    {
+      "key": "EngineerPhrase0",
+      "value": "Запомните твари, мои механизмы не сломаются."
+    },
+
+    {
+      "key": "EngineerPhrase1",
+      "value": "В школе у меня было 3 по физике..."
+    },
+
+    {
+      "key": "EngineerPhrase2",
+      "value": "Куда делась моя отвертка?"
+    },
+
+    {
+      "key": "EngineerPhrase3",
+      "value": "Куда делись все респираторы?"
+    },
+
+    {
+      "key": "EngineerPhrase4",
+      "value": "Если работает - не трогай."
+    },
+
+    {
+      "key": "EngineerPhrase5",
+      "value": "Хочешь знать, как я облысел? Нет, не хочешь..."
+    },
+
+    {
+      "key": "EngineerPhrase6",
+      "value": "Системы функционируют."
+    },
+
+    {
+      "key": "EngineerPhrase7",
+      "value": "Я уважаю твое мнение, пока ты его держишь при себе."
+    },
+
+    {
+      "key": "EngineerShootReaction0",
+      "value": "Гильзы убирать будешь сам."
+    },
+
+    {
+      "key": "EngineerShootReaction1",
+      "value": "Противник замечен. Турели активированы."
+    },
+
+    {
+      "key": "Check",
+      "value": "Проверить"
+    },
+
+    {
+      "key": "LostProgress",
+      "value": "Выйти из игры? Текущий прогресс будет потерян"
+    },
+
+    {
+      "key": "Shoot",
+      "value": "Еще один выстрел и я тебе руки вырву!"
+    },
+
+    {
+      "key": "GiveWeapon",
+      "value": "Сперва возьмите винтовку для игры в тир!"
+    },
+
+    {
+      "key": "Play",
+      "value": "Играть"
+    },
+
+    {
+      "key": "GreatScore0",
+      "value": "Отличный результат!"
+    },
+	
+	{
+      "key": "GreatScore1",
+      "value": "Вот это да!"
+    },
+	
+	{
+      "key": "GreatScore2",
+      "value": "А ты хорош!"
+    },
+	
+	{
+      "key": "GreatScore3",
+      "value": "Ты все лучше и лучше!"
+    },
+	
+	{
+      "key": "GreatScore4",
+      "value": "Супер счёт!"
+    },
+
+    {
+      "key": "GreatShoot0",
+      "value": "Отличный выстрел!"
+    },
+	
+	{
+      "key": "GreatShoot1",
+      "value": "Идеальное попадание!"
+    },
+	
+	{
+      "key": "GreatShoot2",
+      "value": "Точно в цель!"
+    },
+	
+	{
+      "key": "GreatShoot3",
+      "value": "Бэнг-Бэнг-Бэнг!!!"
+    },
+	
+	{
+      "key": "GreatShoot4",
+      "value": "Да это новый автомат! РА-ТА-ТА-ТА-ТА"
+    },
+
+    {
+      "key": "WeakScore0",
+      "value": "Стоит потренироваться..."
+    },
+	
+	{
+      "key": "WeakScore1",
+      "value": "Терпение и труд, мой друг"
+    },
+	
+	{
+      "key": "WeakScore2",
+      "value": "Наверное ты устал..."
+    },
+
+    {
+      "key": "ChallengeText",
+      "value": "Выбери испытание"
+    },
+
+    {
+      "key": "DifficultyText",
+      "value": "Выбери сложность"
+    },
+
+    {
+      "key": "ChallengeDiscover",
+      "value": "Выбери и узнай!"
+    },
+
+    {
+      "key": "Challenge0",
+      "value": "Защита"
+    },
+
+    {
+      "key": "Challenge1",
+      "value": "Урон + Защита"
+    },
+
+    {
+      "key": "Challenge2",
+      "value": "Урон"
+    },
+
+    {
+      "key": "ShootingRangeInfo",
+      "value": "Тир! Больше попаданий - лучше награда!"
+    },
+
+
+    {
+      "key": "ShootingRangeDifficulty1",
+      "value": "Просто, новый спаун раз в две секунды"
+    },
+
+    {
+      "key": "ShootingRangeDifficulty2",
+      "value": "Сложно, новый спаун раз в секунду"
+    },
+
+    {
+      "key": "GoToMenu",
+      "value": "В меню"
+    },
+
+    {
+      "key": "GoToLobby",
+      "value": "В лобби"
+    },
+
+
+    {
+      "key": "Stats",
+      "value": "Статистика:"
+    },
+
+    {
+      "key": "FinishOfGame",
+      "value": "Конец игры"
+    },
+
+    {
+      "key": "Wave",
+      "value": "Волна-"
+    },
+
+    {
+      "key": "CountOfEnemies",
+      "value": "Количество убитых врагов: "
+    },
+
+    {
+      "key": "CountOfShoots",
+      "value": "Количество выстрелов: "
+    },
+
+    {
+      "key": "Standart",
+      "value": "Стандартные"
+    },
+
+    {
+      "key": "Transparency",
+      "value": "Прозрачность"
+    },
+
+    {
+      "key": "ChooseColor",
+      "value": "Выбери цвет"
+    },
+
+    {
+      "key": "CodeDontExist",
+      "value": "Данный код не существует"
+    },
+
+    {
+      "key": "AlreadyUseCode",
+      "value": "Данный код уже использован"
+    },
+
+    {
+      "key": "Colors",
+      "value": "Цвета"
+    },
+
+    {
+      "key": "ShutUp0",
+      "value": "УМОЛЯЮ, ПРЕКРАТИ!"
+    },
+
+    {
+      "key": "ShutUp1",
+      "value": "Ты меня утомил."
+    },
+
+    {
+      "key": "ShutUp2",
+      "value": "Навязчивость и настойчивость - не одно и то же."
+    },
+
+    {
+      "key": "ShutUp3",
+      "value": "Палец не отвалится?"
+    },
+
+    {
+      "key": "ShutUp4",
+      "value": "Оставь меня!"
+    },
+
+    {
+      "key": "ShutUp5",
+      "value": "Убирайся!"
+    },
+
+    {
+      "key": "GoAway0",
+      "value": "Уйди!"
+    },
+
+    {
+      "key": "GoAway1",
+      "value": "Проваливай!"
+    },
+
+    {
+      "key": "GoAway2",
+      "value": "Дай мне побыть в одиночестве..."
+    },
+
+    {
+      "key": "GoAway3",
+      "value": "Я просто хочу тишины!"
+    },
+
+    {
+      "key": "Exit",
+      "value": "Выйти"
+    },
+
+    {
+      "key": "Death",
+      "value": "Вы умерли"
+    },
+
+    {
+      "key": "SoulPrice",
+      "value": "Цена твоей души"
+    },
+
+    {
+      "key": "Joystick",
+      "value": "Джойстик"
+    },
+
+    {
+      "key": "Dynamic",
+      "value": "Динамический"
+    },
+
+    {
+      "key": "Static",
+      "value": "Статический"
+    },
+
+    {
+      "key": "WatchAd",
+      "value": "Посмотреть рекламу"
+    },
+
+    {
+      "key": "ChallengeDescription0",
+      "value": "Уничтожь все порталы с монстрами,\n или монстры уничтожат тебя!"
+    },
+
+    {
+      "key": "ChallengeDescription1",
+      "value": "Босс будет вытягивать из тебя жизненную силу,\n нужно уничтожить его как можно скорее!"
+    },
+
+    {
+      "key": "ChallengeDescription2",
+      "value": "Прорвись сквозь огромные полчища врагов и захвати то,\n что принадлежит тебе по праву!"
+    },
+
+    {
+      "key": "ChallengeDescription3",
+      "value": "Уничтожь все места силы, которыми питается босс,\n чтобы победить его!"
+    },
+
+    {
+      "key": "ChallengeDescription4",
+      "value": "Замани босса в ловушку темной аномалии\n и не попадись в нее сам!"
+    },
+
+    {
+      "key": "ChallengeDescription5",
+      "value": "Грамотно управляй турелями и уничтожь их всех!"
+    },
+
+    {
+      "key": "ChallengeDescription6",
+      "value": "Кто-то тут знал теорию большого взрыва..."
+    },
+
+    {
+      "key": "ChallengeDescription7",
+      "value": "Битва высоких технологий, все решат твои действия!"
+    },
+
+    {
+      "key": "ChallengeDescription8",
+      "value": "Исцеляй наемников и выживи сам, пока вас атакуют!"
+    },
+
+    {
+      "key": "ChallengeDescription9",
+      "value": "Захвати все точки быстрее врагов!"
+    },
+
+    {
+      "key": "ChallengeDescription10",
+      "value": "Ребята притащили эту установку,\n продержись, пока она не сотрет босса с лица земли!"
+    },
+
+    {
+      "key": "ChallengeDescription11",
+      "value": "Их слишком много, убегай!"
+    },
+
+    {
+      "key": "HintStaticJoystick",
+      "value": "Статический джойстик остается на своем месте, после появления"
+    },
+
+    {
+      "key": "HintDynamicJoystick",
+      "value": "Динамический джойстик появляется по клику в определенной области"
+    }
+  ]
 }

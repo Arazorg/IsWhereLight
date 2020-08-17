@@ -490,10 +490,10 @@
       "key": "Check",
       "value": "Check"
     },
-	
-	{
-        "key": "LostProgress",
-        "value": "Quit the game? Current progress will be lost"
+
+    {
+      "key": "LostProgress",
+      "value": "Quit the game? Current progress will be lost"
     },
 
     {
@@ -512,18 +512,68 @@
     },
 
     {
-      "key": "GreatScore",
-      "value": "Great Score!"
+      "key": "GreatScore0",
+      "value": "Amazing!"
+    },
+	
+	{
+      "key": "GreatScore1",
+      "value": "Holy smoke!"
+    },
+	
+	{
+      "key": "GreatScore2",
+      "value": "You're good!"
+    },
+	
+	{
+      "key": "GreatScore3",
+      "value": "You're better and better!"
+    },
+	
+	{
+      "key": "GreatScore4",
+      "value": "Great score!!"
     },
 
     {
-      "key": "WeakScore",
-      "value": "Need more practice..."
+      "key": "GreatShoot0",
+      "value": "Nice shot!"
+    },
+	
+	{
+      "key": "GreatShoot1",
+      "value": "Bullseye!"
+    },
+	
+	{
+      "key": "GreatShoot2",
+      "value": "Spot on!"
+    },
+	
+	{
+      "key": "GreatShoot3",
+      "value": "Bang-Bang-Bang!!!"
+    },
+	
+	{
+      "key": "GreatShoot4",
+      "value": "Super!"
     },
 
     {
-      "key": "GreatShoot",
-      "value": "Great shoot!"
+      "key": "WeakScore0",
+      "value": "You need to practice"
+    },
+	
+	{
+      "key": "WeakScore1",
+      "value": "Effort and guts..."
+    },
+	
+	{
+      "key": "WeakScore2",
+      "value": "You look tired..."
     },
 
     {
@@ -632,6 +682,11 @@
     },
 
     {
+      "key": "Wave",
+      "value": "Wave-"
+    },
+
+    {
       "key": "CountOfEnemies",
       "value": "Count of killed enemies: "
     },
@@ -705,75 +760,75 @@
       "key": "WatchAd",
       "value": "Watch ad"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription0",
       "value": "Destroy all the portals,\n or the monsters will destroy you!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription1",
       "value": "The boss will drain your lifeforce,\n you need to kill him asap!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription2",
       "value": "Blast your way through huge hordes of enemies\n and take what is rightfully yours!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription3",
       "value": "Destroy all places of power\n that the boss feeds on to defeat him!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription4",
       "value": "Get the boss trapped in the dark anomaly\n and don't fall into it yourself!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription5",
       "value": "Manage the turrets wisely and destroy 'em all!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription6",
       "value": "Someone here knew the big bang theory ..."
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription7",
       "value": "The battle of high technologies,\n but your actions will make the difference!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription8",
       "value": "Heal the mercenaries and survive yourself\n while you're under attack!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription9",
       "value": "Capture all the points faster than enemies!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription10",
       "value": "Guys brought this big rig,\n hold on until it destroys the boss!"
     },
-	
-	{
+
+    {
       "key": "ChallengeDescription11",
       "value": "Too many of them, it's time to run away!"
     },
-	
-	{
+
+    {
       "key": "HintStaticJoystick",
       "value": "The static joystick remains in place after spawning"
     },
 
-	{
+    {
       "key": "HintDynamicJoystick",
       "value": "A dynamic joystick appears on click in a specific area"
-    }	
-    ]
+    }
+  ]
 }

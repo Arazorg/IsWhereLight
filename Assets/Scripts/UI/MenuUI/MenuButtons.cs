@@ -56,7 +56,6 @@ public class MenuButtons : MonoBehaviour
     private ProgressInfo progressInfo;
     private AudioManager audioManager;
     private LocalizationManager localizationManager;
-
     void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -107,7 +106,7 @@ public class MenuButtons : MonoBehaviour
             currentGameInfo.LoadCurrentGame();
             continueButton.GetComponent<MovementUI>().MoveToEnd();
             currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
-            currentGameTypeText.text = $"Wave-{currentGameInfo.currentWave}";
+            currentGameTypeText.GetComponent<LocalizedText>().addable = currentGameInfo.currentWave.ToString();
             Destroy(currentGameInfo);
         }
 

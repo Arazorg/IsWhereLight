@@ -6,7 +6,9 @@ using UnityEngine;
 public class PopupText : MonoBehaviour
 {
     //Create a damage popup
-    public static PopupText Create(Vector3 position, bool isPhrase, bool isCriticalHit = false, int damageAmount = -1, string phrase = "", float fontSize = 3)
+    public static PopupText Create(Vector3 position, bool isPhrase, 
+                                    bool isCriticalHit = false, int damageAmount = -1, 
+                                        string phrase = "", float fontSize = 4.5f, bool isStatic = false)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
@@ -14,8 +16,7 @@ public class PopupText : MonoBehaviour
         if (!isPhrase)
             popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
         else
-            popupText.SetupPhrase(phrase, fontSize);
-            
+            popupText.SetupPhrase(phrase, fontSize, isStatic);
         return popupText;
     }
 
@@ -29,6 +30,7 @@ public class PopupText : MonoBehaviour
     private Color textColor;
     private Vector3 moveVector;
     private bool isPhrase;
+    private bool isStatic;
 
     private void Awake()
     {
@@ -55,15 +57,18 @@ public class PopupText : MonoBehaviour
             }
         }
 
-        disappearTimer -= Time.deltaTime;
-        if (disappearTimer < 0)
+        if(!isStatic)
         {
-            float disapperSpeed = 3f;
-            textColor.a -= disapperSpeed * Time.deltaTime;
-            textMesh.color = textColor;
-            if (textColor.a < 0)
+            disappearTimer -= Time.deltaTime;
+            if (disappearTimer < 0)
             {
-                Destroy(gameObject);
+                float disapperSpeed = 3f;
+                textColor.a -= disapperSpeed * Time.deltaTime;
+                textMesh.color = textColor;
+                if (textColor.a < 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
@@ -96,9 +101,10 @@ public class PopupText : MonoBehaviour
         moveVector = new Vector3(1, 1) * 3f * (float)rnd.NextDouble();
     }
 
-    public void SetupPhrase(string key, float fontSize)
+    public void SetupPhrase(string key, float fontSize, bool isStatic)
     {
         isPhrase = true;
+        this.isStatic = isStatic;
         textMesh.SetText(LocalizedText.SetLocalization(key));
         textMesh.fontSize = fontSize;
         textColor = Color.white;

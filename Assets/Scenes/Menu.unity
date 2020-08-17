@@ -449,6 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Joystick
 --- !u!114 &17194176
 MonoBehaviour:
@@ -1308,6 +1310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: NewGameButton
 --- !u!1 &209903081
 GameObject:
@@ -1628,6 +1632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Check
 --- !u!1001 &225180351
 PrefabInstance:
@@ -2887,6 +2893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Colors
 --- !u!1 &576646158
 GameObject:
@@ -3444,6 +3452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Static
 --- !u!114 &652578127
 MonoBehaviour:
@@ -4107,6 +4117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: ChooseColor
 --- !u!1 &812483870
 GameObject:
@@ -4639,6 +4651,7 @@ GameObject:
   - component: {fileID: 893473673}
   - component: {fileID: 893473674}
   - component: {fileID: 893473672}
+  - component: {fileID: 893473675}
   m_Layer: 5
   m_Name: CurrentGameTypeText
   m_TagString: Text
@@ -4786,6 +4799,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893473671}
   m_CullTransparentMesh: 0
+--- !u!114 &893473675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893473671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3af7cfceeec4ea25bd16c4fde6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNotRefresh: 0
+  isAdd: 1
+  addable: 
+  key: Wave
 --- !u!1 &909639455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4995,6 +5024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Transparency
 --- !u!1 &921211000
 GameObject:
@@ -5448,6 +5479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: ContinueGameButton
 --- !u!1 &1044313090
 GameObject:
@@ -6904,6 +6937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Dynamic
 --- !u!114 &1201464693
 MonoBehaviour:
@@ -7747,6 +7782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: 
 --- !u!1 &1313359339
 GameObject:
@@ -8629,6 +8666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: HintStaticJoystick
 --- !u!114 &1515818737
 MonoBehaviour:
@@ -9317,6 +9356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Standart
 --- !u!1 &1791797552
 GameObject:
@@ -9447,6 +9488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: HaveCurrentGame
 --- !u!114 &1800483511
 MonoBehaviour:

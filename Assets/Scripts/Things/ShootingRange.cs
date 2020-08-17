@@ -186,9 +186,11 @@ public class ShootingRange : MonoBehaviour
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
         if (result > 5)
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatScore");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+                + new Vector3(0, 1f, 0), true, false, -1, $"GreatScore{UnityEngine.Random.Range(0, 5)}");
         else
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "WeakScore");
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
+                + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UntyEngine.Random.Range(0, 3)}");
         SetCollider(false);
     }
 
@@ -211,7 +213,8 @@ public class ShootingRange : MonoBehaviour
             result++;
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "GreatShoot", 5);
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+                    + new Vector3(0, 1f, 0), true, false, -1, $"GreatShoot{UnityEngine.Random.Range(0, 5)}", 5);
             currentTarget.GetComponent<Animator>().SetBool("isDeath", true);
             AnimationClip[] clips = currentTarget.GetComponent<Animator>().runtimeAnimatorController.animationClips;
             foreach (AnimationClip clip in clips)
@@ -252,7 +255,9 @@ public class ShootingRange : MonoBehaviour
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0, 6)}");
+            currentPhrase = PopupText.Create
+                (shootingRangeNPC.transform.position 
+                    + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0, 6)}");
             isHello = true;
         }
     }

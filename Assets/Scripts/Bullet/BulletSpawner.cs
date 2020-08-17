@@ -52,6 +52,14 @@ public class BulletSpawner : MonoBehaviour
         Destroy(currentWeaponBullet);
     }
 
+    public void SetDamageCrit(float coof)
+    {
+        currentBulletScript.Damage = (int)(currentBulletScript.Damage * coof);
+        if (currentBulletScript.Damage < 1)
+            currentBulletScript.Damage = 1;
+        currentBulletScript.CritChance *= coof;
+    }
+
     public GameObject GetBullet()
     {
         return currentWeaponBullet;

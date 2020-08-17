@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282dc34a6ae5d1441aa88ce5282c8988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetText: {x: 0, y: 0, z: 0}
+  offsetText: {x: 0, y: 1.25, z: 0}
 --- !u!114 &-4095865544413969383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +174,6 @@ MonoBehaviour:
   - {fileID: 4791857465561777761, guid: 65ea6e9fdefa3914d913bccbee6e2826, type: 3}
   bulletsSettings: []
   spawnPosition: {fileID: 7251435241953052478}
-  currentWeaponBullet: {fileID: 0}
-  currentBulletScript: {fileID: 0}
 --- !u!1 &7142734642362213757
 GameObject:
   m_ObjectHideFlags: 0

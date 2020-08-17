@@ -6,7 +6,7 @@ public class Bow : MonoBehaviour
     private BulletSpawner bulletSpawner;
     private float bulletSpeed;
     private float bulletScatterAngle;
-
+    private float stringingLength;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,15 +25,28 @@ public class Bow : MonoBehaviour
         SetPosition(true);
     }
 
-    public void Shoot()
+    public void Shoot(float stringingTime)
     {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "BowStringing":
+                    if(stringingTime > clip.length)
+                        stringingTime = clip.length;
+                    stringingTime /= clip.length;
+                    break;
+            }
+        }
         animator.SetBool("PrepareAttack", false);
         animator.Play("BowIdle");
         bulletSpawner.Spawn();
+        bulletSpawner.SetDamageCrit(stringingTime);
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.GetBullet().GetComponent<Rigidbody2D>();
         rb.AddForce(dir * bulletSpawner.GetBullet().transform.up * bulletSpeed, ForceMode2D.Impulse);
-        bulletSpawner.GetBullet().transform.rotation = Quaternion.Euler(0,0,dir.eulerAngles.z + transform.rotation.eulerAngles.z);
+        bulletSpawner.GetBullet().transform.rotation = Quaternion.Euler(0, 0, dir.eulerAngles.z + transform.rotation.eulerAngles.z);
         SetPosition(false);
     }
 

@@ -20,9 +20,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
     [Tooltip("Смещение текста над NPC")]
     [SerializeField] private Vector3 offsetText;
 
-    [Tooltip("Лист фраз NPC")]
-    [SerializeField] private List<string> NPC_Phrases;
-
     [Tooltip("Размер камеры при выбранном персонаже")]
     [SerializeField] private float cameraSizeCharacter;
 #pragma warning restore 0649
@@ -196,7 +193,8 @@ public class Character : MonoBehaviour, IPointerDownHandler
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
             Debug.Log($"{CharacterClass}Shoot{Random.Range(0, 1)}");
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, $"{CharacterClass}ShootReaction{Random.Range(0, 1)}");
+            currentPhrase = PopupText.Create(transform.position
+                + offsetText, true, false, -1, $"{CharacterClass}ShootReaction{Random.Range(0, 1)}");
         }
     }
 
@@ -204,13 +202,14 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (!isIgnore)
         {
-            int phrase = Random.Range(0, NPC_Phrases.Count);
+            int phrase = Random.Range(0, 8);
             while (phrase == lastPhrase)
-                phrase = Random.Range(0, NPC_Phrases.Count);
+                phrase = Random.Range(0, 8);
             lastPhrase = phrase;
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, NPC_Phrases[phrase]);
+            currentPhrase = PopupText.Create(transform.position 
+                + offsetText, true, false, -1, $"{CharacterClass}Phrase{phrase}");
             phraseTimer = Time.time + timePhrase;
             phrasesCount++;
         }

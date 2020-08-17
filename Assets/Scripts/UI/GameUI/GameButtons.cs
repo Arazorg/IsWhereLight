@@ -91,6 +91,7 @@ public class GameButtons : MonoBehaviour
     private bool isAttackUp;
     private int priceResurrect;
     private float startTime;
+    private float startStringingTime;
     public static bool isChange = true;
 
     public Transform currentWeapon;
@@ -214,6 +215,7 @@ public class GameButtons : MonoBehaviour
             switch (FireActButtonState)
             {
                 case FireActButtonStateEnum.none:
+                    startStringingTime = Time.time;
                     isAttackDown = true;
                     break;
                 case FireActButtonStateEnum.changeGun:
@@ -413,7 +415,8 @@ public class GameButtons : MonoBehaviour
                     charInfo.currentCountShoots++;
                     charInfo.SpendMana(manecost);
                     audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
-                    currentWeapon.GetComponent<Bow>().Shoot();
+                    currentWeapon.GetComponent<Bow>().Shoot(Time.time - startStringingTime);
+                    startStringingTime = 0;
                     CharController.isRotate = false;
                     break;
             }
