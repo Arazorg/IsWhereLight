@@ -16,6 +16,7 @@ public class Laser : MonoBehaviour
     private GameObject bullet;
     private GameObject startElement;
     private GameObject endElement;
+    private SpriteRenderer bulletSprite;
 
     private float bulletScatterAngle;
     private float timeToEnabled;
@@ -35,9 +36,12 @@ public class Laser : MonoBehaviour
             isShoot = false;
             Destroy(bullet);
         }
-        else if(isShoot)
+        else if (isShoot)
         {
-            bullet.GetComponent<SpriteRenderer>().size -= new Vector2(0.075f*Time.deltaTime, 0);
+            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
+                bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+            else
+                bulletSprite.size = new Vector2(0, bulletSprite.size.y);
         }
     }
 
@@ -56,13 +60,14 @@ public class Laser : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
         bulletSpawner.Spawn();
         bullet = bulletSpawner.GetBullet();
+        bulletSprite = bullet.GetComponent<SpriteRenderer>();
         var laserScale = new Vector3(0.5f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
         bullet.GetComponent<SpriteRenderer>().size = laserScale;
-        bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0,0.33f);
+        bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0, 0.33f);
         bullet.transform.position
             = new Vector3((hit.point.x + transform.GetChild(0).position.x) / 2,
-                            (hit.point.y + transform.GetChild(0).position.y) / 2);     
-        timeToEnabled = Time.time + 0.33f;
+                            (hit.point.y + transform.GetChild(0).position.y) / 2);
+        timeToEnabled = Time.time + (5 * Time.deltaTime);
         isShoot = true;
     }
 }

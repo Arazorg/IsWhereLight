@@ -79,6 +79,8 @@ public class InterfaceSettings : MonoBehaviour
         audioManager.Play("ClickUI");
         SetPosition();
         settingsInfo.SaveSettings();
+        InterfaceDrag.isDraging = false;
+        
         menuPanel.GetComponent<MovementUI>().MoveToStart();
         gameObject.GetComponent<MovementUI>().MoveToStart();
     }

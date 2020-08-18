@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class InterfaceDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private bool dragging;
+    public static bool isDraging;
+    private bool draging;
 
     public void Update()
     {
-        if (dragging)
+        if (draging && isDraging)
         {
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         }
@@ -19,11 +20,11 @@ public class InterfaceDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        dragging = true;
+        draging = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        dragging = false;
+        draging = false;
     }
 }

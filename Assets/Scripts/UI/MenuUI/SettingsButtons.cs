@@ -60,6 +60,7 @@ public class SettingsButtons : MonoBehaviour
     public void InterfaceSettingsOpen()
     {
         audioManager.Play("ClickUI");
+        InterfaceDrag.isDraging = true;
         SettingsPanelClose();
         menuPanel.GetComponent<MenuButtons>().AllPanelHide();
         menuPanel.GetComponent<MovementUI>().MoveToEnd();
