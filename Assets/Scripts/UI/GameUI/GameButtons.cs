@@ -185,12 +185,12 @@ public class GameButtons : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
                 OpenPause();
-        if (isAttackDown)
+        if (isAttackDown && !CharAction.isDeath)
         {
             AttackDown();
             PrepareAttack();
         }
-        if (isAttackUp)
+        if (isAttackUp && !CharAction.isDeath)
             AttackUp();
 
     }
@@ -398,6 +398,13 @@ public class GameButtons : MonoBehaviour
                         charInfo.SpendMana(manecost);
                         audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Sword>().Hit();
+                        nextAttack = Time.time + attackRate;
+                        break;
+                    case WeaponData.AttackType.Laser:
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
+                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
+                        currentWeapon.GetComponent<Laser>().Shoot();
                         nextAttack = Time.time + attackRate;
                         break;
                 }

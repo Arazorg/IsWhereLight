@@ -156,7 +156,10 @@ public class ShootingRange : MonoBehaviour
         isGame = true;
         GameButtons.isChange = false;
         gameTimer = Time.time + gameDuration;
-        charInfo.mane = 30;
+        if (difficultyLevel == 1)
+            charInfo.mane = 30;
+        else
+            charInfo.mane = 60;
         charInfo.SpendMana(0);
         player.GetComponent<CharController>().SetSpeed(0);
         player.transform.position = startStand.transform.position;
@@ -165,7 +168,8 @@ public class ShootingRange : MonoBehaviour
         Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
+        currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+            + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         SetCollider(true);
     }
 
@@ -185,15 +189,23 @@ public class ShootingRange : MonoBehaviour
         Destroy(currentTarget);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
-        if (result > 5)
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+        if (difficultyLevel == 1)
+            ResultPhrase(5);
+        else
+            ResultPhrase(10);
+
+        SetCollider(false);
+    }
+
+    private void ResultPhrase(int countShots)
+    {
+        if (result > countShots)
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"GreatScore{UnityEngine.Random.Range(0, 5)}");
         else
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UnityEngine.Random.Range(0, 3)}");
-        SetCollider(false);
     }
-
     private void OutputTime()
     {
         textTimer--;

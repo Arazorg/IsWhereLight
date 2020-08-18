@@ -285,6 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Exit
 --- !u!222 &44831310
 CanvasRenderer:
@@ -681,6 +683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Load
 --- !u!222 &161958429
 CanvasRenderer:
@@ -2369,6 +2373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: WatchAd
 --- !u!222 &473443706
 CanvasRenderer:
@@ -3909,10 +3915,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0bafd2228e316545b7ae92d7e2062e9, type: 2}
   - {fileID: 11400000, guid: 11d0e1fe4ad9c914a9208393b86172fc, type: 2}
   - {fileID: 11400000, guid: c7269adafc8598c4490a1a5fb1f92072, type: 2}
+  - {fileID: 11400000, guid: 5edb3de8e5e40c7468483ad5b458e537, type: 2}
   weaponsPrefabs:
   - {fileID: 1195910279473271634, guid: e8babcd27d5b8734a8d95539f5832ddc, type: 3}
   - {fileID: 9011886232207171539, guid: b28f0f33f7dd4554e9580f16f195a365, type: 3}
   - {fileID: 6007513576682042886, guid: e0a72b736fe34d44eb06349337c7639e, type: 3}
+  - {fileID: 6925469193782672124, guid: 74d653007207ced488e8a79b08800dee, type: 3}
   currentCharWeapon:
   - {fileID: 0}
   - {fileID: 0}
@@ -4280,6 +4288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: SoulPrice
 --- !u!222 &1022100631
 CanvasRenderer:
@@ -5688,6 +5698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: Death
 --- !u!1 &1588061057
 GameObject:
@@ -6508,6 +6520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: LostProgress
 --- !u!1 &1804955649
 GameObject:

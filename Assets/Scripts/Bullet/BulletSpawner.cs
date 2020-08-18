@@ -37,7 +37,6 @@ public class BulletSpawner : MonoBehaviour
         spawnBulletData = bulletData;
 
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
-       // currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
@@ -48,6 +47,8 @@ public class BulletSpawner : MonoBehaviour
             GetComponent<Gun>().SetBulletInfo(currentBulletScript);
         else if(GetComponent<Bow>() != null)
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);
+        else if(GetComponent<Laser>() != null)
+            GetComponent<Laser>().SetBulletInfo(currentBulletScript);
 
         Destroy(currentWeaponBullet);
     }

@@ -195,7 +195,9 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            if (coll.gameObject.tag == "StandartBullet" || coll.gameObject.tag == "StandartArrow")
+            if (coll.gameObject.tag == "StandartBullet" 
+                || coll.gameObject.tag == "StandartArrow"
+                    || coll.gameObject.tag == "StandartLaserBullet")
             {
                 var bullet = coll.gameObject.GetComponent<Bullet>();
                 Knoking(coll.transform.position, bullet.Knoking);
@@ -233,6 +235,7 @@ public class Enemy : MonoBehaviour
                     isDeath = true;
                     ColorUtility.TryParseHtmlString("#808080", out Color color);
                     gameObject.tag = "IgnoreAll";
+                    gameObject.layer = 2;
                     GetComponent<SpriteRenderer>().color = color;
                     GetComponent<EnemyAI>().Character.GetComponent<CharInfo>().currentCountKilledEnemies++;
                 }

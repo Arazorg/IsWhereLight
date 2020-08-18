@@ -65,6 +65,11 @@
       "key": "Pistol",
       "value": "Pistol"
     },
+	
+	{
+      "key": "Laser",
+      "value": "Laser"
+    },
 
     {
       "key": "Bow",
@@ -823,12 +828,27 @@
 
     {
       "key": "HintStaticJoystick",
-      "value": "The static joystick remains in place after spawning"
+      "value": "The position of the joystick is fixed in one place."
     },
 
     {
       "key": "HintDynamicJoystick",
-      "value": "A dynamic joystick appears on click in a specific area"
+      "value": "Tap the screen so that the joystick appears right under your finger."
+    },
+	
+	{
+      "key": "HintTranslationHelp",
+      "value": "We're trying our best to translate our game into as many languages as possible\n and we need your support! Find out more in the main menu > credits"
+    },
+	
+	{
+      "key": "HintBonusCodes",
+      "value": "Follow our social media and find bonus codes\n that you can activate in the main menu!"
+    },
+	
+	{
+      "key": "HintEmailSupport",
+      "value": "You can send a feedback or a wish directly to us by e-mail\n and receive a personal answer, you can find the address in the main menu."
     }
   ]
 }

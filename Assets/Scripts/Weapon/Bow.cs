@@ -46,7 +46,8 @@ public class Bow : MonoBehaviour
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.GetBullet().GetComponent<Rigidbody2D>();
         rb.AddForce(dir * bulletSpawner.GetBullet().transform.up * bulletSpeed, ForceMode2D.Impulse);
-        bulletSpawner.GetBullet().transform.rotation = Quaternion.Euler(0, 0, dir.eulerAngles.z + transform.rotation.eulerAngles.z);
+        bulletSpawner.GetBullet().transform.rotation 
+            = Quaternion.Euler(0, 0, dir.eulerAngles.z + transform.rotation.eulerAngles.z);
         SetPosition(false);
     }
 

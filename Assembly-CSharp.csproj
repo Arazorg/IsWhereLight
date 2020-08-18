@@ -92,6 +92,7 @@
      <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
      <Compile Include="Assets\Scripts\Bullet\BulletData.cs" />
      <Compile Include="Assets\Scripts\Bullet\BulletSpawner.cs" />
+     <Compile Include="Assets\Scripts\Bullet\LaserBullet.cs" />
      <Compile Include="Assets\Scripts\Char\CharAction.cs" />
      <Compile Include="Assets\Scripts\Char\CharController.cs" />
      <Compile Include="Assets\Scripts\Char\CharGun.cs" />
@@ -154,6 +155,7 @@
      <Compile Include="Assets\Scripts\Utils\UtilsClass.cs" />
      <Compile Include="Assets\Scripts\Weapon\Bow.cs" />
      <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Laser.cs" />
      <Compile Include="Assets\Scripts\Weapon\Sword.cs" />
      <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponData.cs" />

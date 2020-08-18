@@ -58,7 +58,10 @@ public class WeaponSpawner : MonoBehaviour
                 break;
             case WeaponData.AttackType.Sword:
                 spawnPrefab = weaponsPrefabs[2];
-                break; 
+                break;
+            case WeaponData.AttackType.Laser:
+                spawnPrefab = weaponsPrefabs[3];
+                break;
         }
     }
 

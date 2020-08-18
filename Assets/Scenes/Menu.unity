@@ -4567,6 +4567,15 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - nameOfSound: Laser
+    clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &838771391
 Transform:
   m_ObjectHideFlags: 0

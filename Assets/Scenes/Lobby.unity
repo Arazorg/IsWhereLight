@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 28040280}
   - component: {fileID: 28040282}
   - component: {fileID: 28040283}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Knight
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -192,15 +192,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - LegionnairePhrase0
-  - LegionnairePhrase1
-  - LegionnairePhrase2
-  - LegionnairePhrase3
-  - LegionnairePhrase4
-  - LegionnairePhrase5
-  - LegionnairePhrase6
-  - LegionnairePhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!212 &28040281
@@ -519,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 68149668}
   - component: {fileID: 68149667}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BearSkinKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85236697}
   - component: {fileID: 85236696}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UI_SpawnerHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +751,7 @@ GameObject:
   - component: {fileID: 101710758}
   - component: {fileID: 101710757}
   - component: {fileID: 101710759}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Carrots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155634025}
   - component: {fileID: 155634026}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ArchersCarpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1310,7 +1301,7 @@ GameObject:
   - component: {fileID: 182175873}
   - component: {fileID: 182175872}
   - component: {fileID: 182175874}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BirgCageArcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,6 +1672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: ChallengeDiscover
 --- !u!222 &203795815
 CanvasRenderer:
@@ -1850,7 +1843,7 @@ GameObject:
   - component: {fileID: 223610246}
   - component: {fileID: 223610249}
   - component: {fileID: 223610248}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingRangeStartPosition
   m_TagString: IgnoreAll
   m_Icon: {fileID: 0}
@@ -2409,7 +2402,7 @@ GameObject:
   - component: {fileID: 272893650}
   - component: {fileID: 272893649}
   - component: {fileID: 272893651}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BedMedic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2671,6 +2664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: DifficultyText
 --- !u!222 &305450116
 CanvasRenderer:
@@ -2764,7 +2759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 306036714}
   - component: {fileID: 306036715}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingRangeCarpet
   m_TagString: IgnoreAll
   m_Icon: {fileID: 0}
@@ -3058,7 +3053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 360571685}
   - component: {fileID: 360571686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CurrentGameHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3113,7 +3108,7 @@ GameObject:
   - component: {fileID: 366702407}
   - component: {fileID: 366702404}
   - component: {fileID: 366702403}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WeaponSpawner
   m_TagString: WeaponStore
   m_Icon: {fileID: 0}
@@ -3158,10 +3153,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0bafd2228e316545b7ae92d7e2062e9, type: 2}
   - {fileID: 11400000, guid: 11d0e1fe4ad9c914a9208393b86172fc, type: 2}
   - {fileID: 11400000, guid: c7269adafc8598c4490a1a5fb1f92072, type: 2}
+  - {fileID: 11400000, guid: 5edb3de8e5e40c7468483ad5b458e537, type: 2}
   weaponsPrefabs:
   - {fileID: 1195910279473271634, guid: e8babcd27d5b8734a8d95539f5832ddc, type: 3}
   - {fileID: 9011886232207171539, guid: b28f0f33f7dd4554e9580f16f195a365, type: 3}
   - {fileID: 6007513576682042886, guid: e0a72b736fe34d44eb06349337c7639e, type: 3}
+  - {fileID: 6925469193782672124, guid: 74d653007207ced488e8a79b08800dee, type: 3}
   currentCharWeapon:
   - {fileID: 0}
   - {fileID: 0}
@@ -3191,7 +3188,7 @@ GameObject:
   - component: {fileID: 376491488}
   - component: {fileID: 376491487}
   - component: {fileID: 376491489}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootingRange
   m_TagString: IgnoreAll
   m_Icon: {fileID: 0}
@@ -3289,7 +3286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390579602}
   - component: {fileID: 390579601}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FirstAidKitMedic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3601,7 +3598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423331300}
   - component: {fileID: 423331301}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LobbyHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4051,7 +4048,7 @@ GameObject:
   - component: {fileID: 478219608}
   - component: {fileID: 478219607}
   - component: {fileID: 478219609}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableMage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4269,7 +4266,7 @@ GameObject:
   - component: {fileID: 489328146}
   - component: {fileID: 489328145}
   - component: {fileID: 489328147}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableEngineer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,7 +4926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558967085}
   - component: {fileID: 558967086}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'EngineersCarpet '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9864,7 +9861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607873942}
   - component: {fileID: 607873941}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SettingsHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10995,6 +10992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 1
+  isAdd: 0
+  addable: 
   key: ManeInfo
 --- !u!1 &737670571
 GameObject:
@@ -11493,7 +11492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763588439}
   - component: {fileID: 763588438}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ChairShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11575,7 +11574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770654872}
   - component: {fileID: 770654873}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11807,7 +11806,7 @@ GameObject:
   - component: {fileID: 818523813}
   - component: {fileID: 818523812}
   - component: {fileID: 818523814}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableMage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12076,6 +12075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 1
+  isAdd: 0
+  addable: 
   key: WeaponInfo
 --- !u!1 &828707403
 GameObject:
@@ -12087,7 +12088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828707404}
   - component: {fileID: 828707405}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DragonSkinKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12263,7 +12264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834603261}
   - component: {fileID: 834603260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmmunitionShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12719,6 +12720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: 
 --- !u!114 &905601633
 MonoBehaviour:
@@ -12748,7 +12751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925056933}
   - component: {fileID: 925056935}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RightSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13432,7 +13435,7 @@ GameObject:
   - component: {fileID: 995119124}
   - component: {fileID: 995119123}
   - component: {fileID: 995119128}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Doctor
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -13482,15 +13485,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - DoctorPhrase0
-  - DoctorPhrase1
-  - DoctorPhrase2
-  - DoctorPhrase3
-  - DoctorPhrase4
-  - DoctorPhrase5
-  - DoctorPhrase6
-  - DoctorPhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &995119125
@@ -13800,7 +13794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015557760}
   - component: {fileID: 1015557761}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KnightHorn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14147,7 +14141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029110901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Characters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14657,7 +14651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088434355}
   - component: {fileID: 1088434354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14795,7 +14789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134431946}
   - component: {fileID: 1134431945}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MatMage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15223,7 +15217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196478097}
   - component: {fileID: 1196478096}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StandShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15786,7 +15780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1228672942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15850,7 +15844,7 @@ GameObject:
   - component: {fileID: 1241650296}
   - component: {fileID: 1241650297}
   - component: {fileID: 1241650298}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -16155,6 +16149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 1
+  isAdd: 0
+  addable: 
   key: HealthInfo
 --- !u!1 &1290505842
 GameObject:
@@ -16170,7 +16166,7 @@ GameObject:
   - component: {fileID: 1290505845}
   - component: {fileID: 1290505844}
   - component: {fileID: 1290505848}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Archer
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -16234,15 +16230,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - ArcherPhrase0
-  - ArcherPhrase1
-  - ArcherPhrase2
-  - ArcherPhrase3
-  - ArcherPhrase4
-  - ArcherPhrase5
-  - ArcherPhrase6
-  - ArcherPhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1290505846
@@ -16976,6 +16963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: ChallengeText
 --- !u!222 &1340176192
 CanvasRenderer:
@@ -17072,7 +17061,7 @@ GameObject:
   - component: {fileID: 1365531745}
   - component: {fileID: 1365531744}
   - component: {fileID: 1365531743}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17513,6 +17502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: ChallengeDiscover
 --- !u!222 &1396801136
 CanvasRenderer:
@@ -18670,7 +18661,7 @@ GameObject:
   - component: {fileID: 1597142459}
   - component: {fileID: 1597142461}
   - component: {fileID: 1597142462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mage
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -18727,15 +18718,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - MagePhrase0
-  - MagePhrase1
-  - MagePhrase2
-  - MagePhrase3
-  - MagePhrase4
-  - MagePhrase5
-  - MagePhrase6
-  - MagePhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!212 &1597142460
@@ -18961,7 +18943,7 @@ GameObject:
   - component: {fileID: 1634364642}
   - component: {fileID: 1634364644}
   - component: {fileID: 1634364643}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19178,7 +19160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1681135357}
   - component: {fileID: 1681135358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Quiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19260,7 +19242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684607740}
   - component: {fileID: 1684607741}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Monitor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19662,7 +19644,7 @@ GameObject:
   - component: {fileID: 1767711398}
   - component: {fileID: 1767711397}
   - component: {fileID: 1767711399}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20049,7 +20031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1785940565}
   - component: {fileID: 1785940567}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LeftSign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20292,7 +20274,7 @@ GameObject:
   - component: {fileID: 1818965104}
   - component: {fileID: 1818965103}
   - component: {fileID: 1818965107}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Engineer
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -20356,15 +20338,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - EngineerPhrase0
-  - EngineerPhrase1
-  - EngineerPhrase2
-  - EngineerPhrase3
-  - EngineerPhrase4
-  - EngineerPhrase5
-  - EngineerPhrase6
-  - EngineerPhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1818965105
@@ -20745,6 +20718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isNotRefresh: 0
+  isAdd: 0
+  addable: 
   key: 
 --- !u!114 &1822846876
 MonoBehaviour:
@@ -20774,7 +20749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1824450857}
   - component: {fileID: 1824450858}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootersCarpet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21042,7 +21017,7 @@ GameObject:
   - component: {fileID: 1881609962}
   - component: {fileID: 1881609961}
   - component: {fileID: 1881609963}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TableShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21153,7 +21128,7 @@ GameObject:
   - component: {fileID: 1891032882}
   - component: {fileID: 1891032880}
   - component: {fileID: 1891032883}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TvAds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21585,7 +21560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1940276446}
   - component: {fileID: 1940276445}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StandMedic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22046,7 +22021,7 @@ GameObject:
   - component: {fileID: 1990694251}
   - component: {fileID: 1990694250}
   - component: {fileID: 1990694254}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shooter
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -22110,15 +22085,6 @@ MonoBehaviour:
   characterControlUI: {fileID: 130887776}
   lobbyUI: {fileID: 1337988665}
   offsetText: {x: 0, y: 0, z: 0}
-  NPC_Phrases:
-  - ShooterPhrase0
-  - ShooterPhrase1
-  - ShooterPhrase2
-  - ShooterPhrase3
-  - ShooterPhrase4
-  - ShooterPhrase5
-  - ShooterPhrase6
-  - ShooterPhrase7
   cameraSizeCharacter: 1.3
   playerCharacter: {fileID: 0}
 --- !u!95 &1990694252
@@ -22506,7 +22472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2042911324}
   - component: {fileID: 2042911323}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MatMedic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23158,7 +23124,7 @@ GameObject:
   - component: {fileID: 2139471901}
   - component: {fileID: 2139471903}
   - component: {fileID: 2139471902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}

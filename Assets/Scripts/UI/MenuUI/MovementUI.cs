@@ -36,11 +36,13 @@ public class MovementUI : MonoBehaviour
     }
     private void MoveToPosition()
     {
+        if (Time.timeScale != 0)
+            currentTime += 0.75f * Time.deltaTime;
+        else
+            currentTime += 0.02f;
+        normalizedValue = currentTime / timeOfTravel;
         if (!isEnd && isMove)
         {
-            currentTime += 0.02f;
-            normalizedValue = currentTime / timeOfTravel;
-
             if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y && !isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
             else if (speed < 0 && currentUI_Element.anchoredPosition.y > endPos.y && !isHorizontal)
@@ -52,9 +54,6 @@ public class MovementUI : MonoBehaviour
         }
         else if (isEnd && isMove)
         {
-            currentTime += 0.02f;
-            normalizedValue = currentTime / timeOfTravel;
-
             if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y && !isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
             else if (-speed < 0 && currentUI_Element.anchoredPosition.y > startPos.y && !isHorizontal)

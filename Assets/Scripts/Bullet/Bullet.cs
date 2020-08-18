@@ -67,18 +67,20 @@ public class Bullet : MonoBehaviour
         if (collider.tag != "GunKeep"
                 && collider.tag != "StandartBullet"
                     && collider.tag != "StandartArrow"
-                        && collider.tag != "EnemyBullet"
-                            && collider.tag != "IgnoreAll"
-                                && collider.tag != "NPC")
+                        && collider.tag != "StandartLaserBullet"
+                            && collider.tag != "EnemyBullet"
+                                && collider.tag != "IgnoreAll"
+                                    && collider.tag != "NPC")
         {
             if (collider.tag == "Destroyable")
             {
                 Destroy(collider.gameObject.transform.parent.gameObject);
                 Destroy(gameObject);
             }
-            else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player") || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
+            else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player")
+                        || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
             {
-                GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
                 Destroy(gameObject);
             }
@@ -88,6 +90,10 @@ public class Bullet : MonoBehaviour
                 arrow.transform.parent = collider.transform;
                 arrow.tag = "IgnoreAll";
                 Destroy(gameObject);
+            }
+            else if (gameObject.tag == "StandartLaserBullet" && collider.tag != "Player")
+            {
+                Destroy(gameObject, 0.33f);
             }
         }
     }

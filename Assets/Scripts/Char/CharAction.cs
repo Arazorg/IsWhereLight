@@ -24,6 +24,7 @@ public class CharAction : MonoBehaviour
     private Transform characterControlUI;
     private float timeToDeathPanel;
     private float standartSpeed;
+    private CurrentGameInfo currentGameInfo;
     public static bool isDeath;
 
     void Start()
