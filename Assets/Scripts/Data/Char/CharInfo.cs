@@ -33,6 +33,7 @@ public class CharInfo : MonoBehaviour
         currentCountKilledEnemies = data.currentCountKilledEnemies;
         currentCountShoots = data.currentCountShoots;
     }
+
     public void SetStartParams()
     {
         FindObjects();
@@ -51,17 +52,17 @@ public class CharInfo : MonoBehaviour
         SetObjects();
     }
 
-    public void SaveChar()
+    public void SaveChar(string key = "character")
     {
         string json = JsonUtility.ToJson(this);
-        NewSaveSystem.Save("character", json);
+        NewSaveSystem.Save(key, json);
     }
 
-    public void LoadChar()
+    public void LoadChar(string key = "character")
     {
         GetComponents();
         SetStartParams();
-        var charString = NewSaveSystem.Load("character");
+        var charString = NewSaveSystem.Load(key);
         if (charString != null)
         {
             CharData saveObject = JsonUtility.FromJson<CharData>(charString);
@@ -81,7 +82,7 @@ public class CharInfo : MonoBehaviour
     {
         manaBar.SetMaxMin(mane, maxMane, 0);
         healthBar.SetMaxMin(health, maxHealth, 0);
-        Camera.main.GetComponent<CameraFollow>().SetTarget(transform);
+        Camera.main.GetComponent<CameraFollow>().Target = transform;
     }
 
     private void GetComponents()

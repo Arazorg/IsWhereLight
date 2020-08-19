@@ -10,7 +10,13 @@ public class Enemy : MonoBehaviour
     private bool isEnterFirst = true;
     private float timeToOff;
     private GameObject character;
-    public bool isDeath = false;
+
+    public bool IsDeath
+    {
+        get { return isDeath; }
+        set { isDeath = value; }
+    }
+    private bool isDeath = false;
 
     /// <summary>
     /// Initialization of enemy

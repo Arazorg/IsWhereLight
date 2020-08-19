@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    //Gameobjects
+#pragma warning disable 0649
+    [Tooltip("Скорость камеры")]
+    [SerializeField] private float smoothSpeed;
+
+    [Tooltip("Смещение")]
+    [SerializeField] private Vector3 offset;
+#pragma warning restore 0649
+
+    public Transform Target
+    {
+        set
+        {
+            target = value;
+            isMove = true;
+        }
+        get { return target; }
+    }
     private Transform target;
 
-    //Values
-    public float smoothSpeed;
-    public Vector3 offset;
-    public bool isMove;
-
-    public void SetTarget(Transform target)
+    public bool IsMove
     {
-        isMove = true;
-        this.target = target;
+        set { isMove = value; }
+        get { return isMove; }
     }
-    public void StartMove()
-    {
-        isMove = true;
-    }
-
-    public void StopMove()
-    {
-        isMove = false;
-    }
+    private bool isMove;
 
     void FixedUpdate()
     {

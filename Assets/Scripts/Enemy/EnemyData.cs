@@ -10,6 +10,7 @@ public class EnemyData : ScriptableObject
         Melee,
         Distant
     }
+
 #pragma warning disable 0649
     [Tooltip("Основной аниматор")]
     [SerializeField] private RuntimeAnimatorController mainAnimator;

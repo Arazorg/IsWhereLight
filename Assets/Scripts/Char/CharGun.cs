@@ -6,35 +6,37 @@ using TMPro;
 public class CharGun : MonoBehaviour
 {
 #pragma warning disable 0649
-    //Character's scripts 
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
 
-    //Sprites
     [Tooltip("Спрайт кнопки(поднятия оружия)")]
     [SerializeField] private Sprite pickUpImage;
+
     [Tooltip("Спрайт кнопки(атака)")]
     [SerializeField] private Sprite fireImage;
 
-    //Values
     [Tooltip("Смещение дальнего оружия")]
     [SerializeField] private Vector3 offsetGunDistant;
+
     [Tooltip("Смещение ближнего оружия")]
     [SerializeField] private Vector3 offsetGunMelee;
 #pragma warning restore 0649
 
-    public int currentWeaponNumber;
     public static bool isChange;
+    public int CurrentWeaponNumber
+    {
+        get { return currentWeaponNumber; }
+        set { currentWeaponNumber = value; }
+    }
+    private int currentWeaponNumber;
+
     //UI
     private GameObject gunInfoBar;
     private Button fireActButton;
-
     //Gameobjects
     private GameObject floorGun;
-
     //Scripts 
     private GameButtons gameButtons;
-
 
     void Start()
     {
@@ -65,9 +67,7 @@ public class CharGun : MonoBehaviour
         fireActButton.GetComponent<Image>().sprite = fireImage;
 
         if (coll.gameObject.tag == "Gun")
-        {
             gunInfoBar.GetComponent<MovementUI>().MoveToStart();
-        }
     }
 
     public void ChangeGun()
@@ -117,9 +117,7 @@ public class CharGun : MonoBehaviour
         int manecost = weapon.Manecost;
         BulletData bullet = weapon.CurrentBullet;
         gunInfoBar.GetComponentInChildren<TextMeshProUGUI>().text =
-                    $"{damage} DMG | " +
-                    $"{critChance}% CRIT | " +
-                    $"{manecost} MANA";
+            $"{damage} DMG | {critChance}% CRIT | {manecost} MANA";
     }
 
     private void SetWeaponParam()

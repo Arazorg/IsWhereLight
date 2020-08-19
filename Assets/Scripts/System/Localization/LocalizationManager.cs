@@ -11,7 +11,7 @@ public class LocalizationManager : MonoBehaviour
     private Dictionary<string, string> localizedText;
     private bool isReady = false;
     private readonly string missingStringText = "Localized text not found";
-    GameObject[] texts;
+    private GameObject[] texts;
 
     void Awake()
     {
@@ -40,7 +40,6 @@ public class LocalizationManager : MonoBehaviour
         }
         settingsInfo.currentLocalization = fileName;
         settingsInfo.SaveSettings();
-        //Debug.Log("Data loaded, dictionary contains: " + localizedText.Count + " entries");
         RefreshText();
         isReady = true;
     }

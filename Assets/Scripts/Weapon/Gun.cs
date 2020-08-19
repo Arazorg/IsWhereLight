@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
         character = GameObject.Find("Character(Clone)");
 
         var charInfo = character.GetComponent<CharInfo>();
-        int weaponNumber = character.GetComponent<CharGun>().currentWeaponNumber;
+        int weaponNumber = character.GetComponent<CharGun>().CurrentWeaponNumber;
 
         bulletSpawner = GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     {
         bulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
-        Rigidbody2D rb = bulletSpawner.GetBullet().GetComponent<Rigidbody2D>();
-        rb.AddForce(dir * bulletSpawner.GetBullet().transform.up * bulletSpeed, ForceMode2D.Impulse);
+        Rigidbody2D rb = bulletSpawner.CurrentWeaponBullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(dir * bulletSpawner.CurrentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
     }
 }

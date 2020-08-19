@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
@@ -14,21 +13,30 @@ public class BulletSpawner : MonoBehaviour
     [Tooltip("Место спауна пули")]
     [SerializeField] private Transform spawnPosition;
 #pragma warning restore 0649
+
+    public GameObject CurrentWeaponBullet
+    {
+        get { return currentWeaponBullet; }
+    }
     private GameObject currentWeaponBullet;
+
+    public Bullet CurrentButtonScript
+    {
+        get { return currentBulletScript; }
+    }
     private Bullet currentBulletScript;
+
     private BulletData spawnBulletData;
 
     public void Spawn()
     {
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
-        //currentWeaponBullet.transform.tag = "StandartBullet";
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
         currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
         currentWeaponBullet.SetActive(true);
-        Destroy(currentWeaponBullet, 5);
     }
 
     public void SetBullet(BulletData bulletData)
@@ -59,15 +67,5 @@ public class BulletSpawner : MonoBehaviour
         if (currentBulletScript.Damage < 1)
             currentBulletScript.Damage = 1;
         currentBulletScript.CritChance *= coof;
-    }
-
-    public GameObject GetBullet()
-    {
-        return currentWeaponBullet;
-    }
-
-    public Bullet GetBulletScript()
-    {
-        return currentBulletScript;
     }
 }

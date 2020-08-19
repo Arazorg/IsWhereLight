@@ -1,9 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+#pragma warning disable 0649
+    [Tooltip("Время удаления для пули")]
+    [SerializeField] private float timeToDelete;
+#pragma warning restore 0649
+
     public GameObject explosionPrefab;
     private BulletData data;
 
@@ -15,6 +18,7 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        Destroy(gameObject, timeToDelete);
     }
 
     public Sprite MainSprite
@@ -93,7 +97,7 @@ public class Bullet : MonoBehaviour
             }
             else if (gameObject.tag == "StandartLaserBullet" && collider.tag != "Player")
             {
-                Destroy(gameObject, 0.33f);
+                Destroy(gameObject, timeToDelete);
             }
         }
     }

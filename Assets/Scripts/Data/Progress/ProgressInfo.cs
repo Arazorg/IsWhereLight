@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ProgressInfo : MonoBehaviour
@@ -10,6 +8,7 @@ public class ProgressInfo : MonoBehaviour
 
     public Dictionary<string, bool> characters;
     public Dictionary<string, int> secretCodes;
+    public Dictionary<string, bool> achivments;
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;
@@ -30,9 +29,10 @@ public class ProgressInfo : MonoBehaviour
 
     private void Init(ProgressData data)
     {
-        playerMoney = data.playerMoney;
         characters = data.characters;
         secretCodes = data.secretCodes;
+        achivments = data.achivments;
+        playerMoney = data.playerMoney;
         countKilledEnemies = data.countKilledEnemies;
         countShoots = data.countShoots;
     }
@@ -42,6 +42,7 @@ public class ProgressInfo : MonoBehaviour
         string json = JsonUtility.ToJson(this);
         json += $"\n{JsonConvert.SerializeObject(characters)}";
         json += $"\n{JsonConvert.SerializeObject(secretCodes)}";
+        json += $"\n{JsonConvert.SerializeObject(achivments)}";
         NewSaveSystem.Save("progressInfo", json);
     }
 
@@ -64,14 +65,7 @@ public class ProgressInfo : MonoBehaviour
     {
         CharactersInit();
         SecretCodesInit();
-    }
-
-    public bool CharacterAccess(string character)
-    {
-        if (characters[character])
-            return true;
-        else
-            return false;
+        AchivmentsInit();
     }
 
     private void CharactersInit()
@@ -95,6 +89,23 @@ public class ProgressInfo : MonoBehaviour
             { "valerick", 10000 },
             { "banyuk", 10001 }
         };
+    }
+
+    private void AchivmentsInit()
+    {
+        achivments = new Dictionary<string, bool>
+        {
+            {"firstPlay", false },
+            {"firstNewCharacter", false }
+        };
+    }
+
+    public bool CharacterAccess(string character)
+    {
+        if (characters[character])
+            return true;
+        else
+            return false;
     }
 
     public int CheckSecretCode(string code)

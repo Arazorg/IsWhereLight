@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if(!GetComponent<Enemy>().isDeath)
+        if(!GetComponent<Enemy>().IsDeath)
         {
             if (currentTarget != null)
             {

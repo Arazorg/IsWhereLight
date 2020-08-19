@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyDistantAttack : MonoBehaviour
 {
-    private EnemyBulletSpawner enemyBulletSpawner;
+    public Transform ShootTarget
+    {
+        get { return shootTarget; }
+        set { shootTarget = value; }
+    }
     private Transform shootTarget;
+    private EnemyBulletSpawner enemyBulletSpawner;
     private string targetTag;
     private float fireRate;
     private float bulletSpeed;
@@ -15,7 +18,6 @@ public class EnemyDistantAttack : MonoBehaviour
     void Start()
     {
         enemyBulletSpawner = GetComponent<EnemyBulletSpawner>();
-
         var enemy = GetComponent<Enemy>();
         fireRate = enemy.FireRate;
         targetTag = enemy.Target;
@@ -23,12 +25,11 @@ public class EnemyDistantAttack : MonoBehaviour
         bulletSpeed = bulletData.Speed;
         bulletScatterAngle = bulletData.Scatter;
         enemyBulletSpawner.SetBullet(bulletData);
-
     }
 
     void Update()
     {
-        if(Time.time > timeToFire && !GetComponent<Enemy>().isDeath)
+        if(Time.time > timeToFire && !GetComponent<Enemy>().IsDeath)
         {
             Attack();
             timeToFire = Time.time + fireRate;
@@ -70,11 +71,6 @@ public class EnemyDistantAttack : MonoBehaviour
         Vector3 bulletRotate = dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized;
         enemyBulletSpawner.currentEnemyBullet.transform.rotation = Quaternion.Euler(bulletRotate.x, bulletRotate.y, bulletRotate.z);
         rb.AddForce(dir * (shootTarget.position - enemyBulletSpawner.currentEnemyBullet.transform.position).normalized * bulletSpeed, ForceMode2D.Impulse);
-    }
-
-    public void SetTarget(Transform shootTarget)
-    {
-        this.shootTarget = shootTarget;
     }
 }
 

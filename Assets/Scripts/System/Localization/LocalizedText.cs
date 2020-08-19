@@ -10,6 +10,7 @@ public class LocalizedText : MonoBehaviour
     public bool isAdd;
     public string addable;
     public string key;
+
     TextMeshProUGUI text;
 
     void Start()
@@ -30,7 +31,7 @@ public class LocalizedText : MonoBehaviour
         if(text != null)
         {
             text = GetComponent<TextMeshProUGUI>();
-            if (GetComponentInParent<Weapon>() == null && !isNotRefresh) ;
+            if (GetComponentInParent<Weapon>() == null && !isNotRefresh)
             {
                 if (isAdd)
                     text.text = LocalizationManager.instance.GetLocalizedValue(key) + addable;

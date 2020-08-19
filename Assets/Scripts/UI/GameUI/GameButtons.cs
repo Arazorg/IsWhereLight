@@ -220,7 +220,7 @@ public class GameButtons : MonoBehaviour
                     break;
                 case FireActButtonStateEnum.changeGun:
                     charGun.ChangeGun();
-                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
                     if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
                         CharController.isRotate = false;
                     else
@@ -462,28 +462,28 @@ public class GameButtons : MonoBehaviour
         {
             if (WeaponSpawner.instance.countOfWeapon == 2)
             {
-                if (charGun.currentWeaponNumber == 0)
+                if (charGun.CurrentWeaponNumber == 0)
                 {
-                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
-                    charGun.currentWeaponNumber++;
+                    WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(false);
+                    charGun.CurrentWeaponNumber++;
 
-                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+                    WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(true);
                     charGun.SwapWeapon();
-                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
                     currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
-                        = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                        = WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber]
                             .GetComponent<Weapon>().MainSprite;
                 }
-                else if (charGun.currentWeaponNumber == 1)
+                else if (charGun.CurrentWeaponNumber == 1)
                 {
-                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(false);
-                    charGun.currentWeaponNumber--;
+                    WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(false);
+                    charGun.CurrentWeaponNumber--;
 
-                    WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+                    WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(true);
                     charGun.SwapWeapon();
-                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.currentWeaponNumber]);
+                    currentWeapon = character.transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
                     currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
-                        = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+                        = WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber]
                             .GetComponent<Weapon>().MainSprite;
                 }
 
@@ -497,9 +497,9 @@ public class GameButtons : MonoBehaviour
 
     public void ChangeWeaponButton()
     {
-        WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber].SetActive(true);
+        WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(true);
         currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite
-            = WeaponSpawner.instance.currentCharWeapon[charGun.currentWeaponNumber]
+            = WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber]
                         .GetComponent<Weapon>().MainSprite;
     }
 

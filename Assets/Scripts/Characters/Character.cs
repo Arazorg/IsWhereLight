@@ -36,6 +36,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     private int phrasesCount;
     private bool isIgnore;
     private AudioManager audioManager; 
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -140,7 +141,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-
         if (!characterControlUI.gameObject.activeSelf)
         {
             audioManager.Play("ClickUI");

@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     }
     private GameObject character;
     private Enemy enemy;
+
     public void StartAI()
     {
         enemy = GetComponent<Enemy>();
@@ -24,13 +25,12 @@ public class EnemyAI : MonoBehaviour
         GetComponent<EnemyMovement>().SetCurrentTarget(targetTransform);
         
         if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
-            GetComponent<EnemyDistantAttack>().SetTarget(targetTransform);
+            GetComponent<EnemyDistantAttack>().ShootTarget = targetTransform;
     }
 
     private Transform GetNearestBuilding()
     {
         var buildings = GameObject.FindGameObjectsWithTag("Building");
-
         if (buildings.Length != 0)
         {
             GameObject closestBuilding = null;
@@ -48,8 +48,6 @@ public class EnemyAI : MonoBehaviour
             return closestBuilding.transform;
         }
         else
-        {
             return null;
-        }
     }
 }

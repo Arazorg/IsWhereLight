@@ -837,17 +837,17 @@
     },
 	
 	{
-      "key": "HintTranslationHelp",
+      "key": "HintMenu0",
       "value": "We're trying our best to translate our game into as many languages as possible\n and we need your support! Find out more in the main menu > credits"
     },
 	
 	{
-      "key": "HintBonusCodes",
+      "key": "HintMenu1",
       "value": "Follow our social media and find bonus codes\n that you can activate in the main menu!"
     },
 	
 	{
-      "key": "HintEmailSupport",
+      "key": "HintMenu2",
       "value": "You can send a feedback or a wish directly to us by e-mail\n and receive a personal answer, you can find the address in the main menu."
     }
   ]

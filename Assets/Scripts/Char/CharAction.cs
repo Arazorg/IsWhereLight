@@ -6,31 +6,43 @@ using UnityEngine.UI;
 public class CharAction : MonoBehaviour
 {
 #pragma warning disable 0649
-    [Tooltip("CharInfo скрипт")]
-    [SerializeField] private CharInfo charInfo;
-
     [Tooltip("Спрайт кнопки(атака)")]
     [SerializeField] private Sprite fireImage;
 
     [Tooltip("Спрайт кнопки(действие)")]
     [SerializeField] private Sprite actionImage;
 #pragma warning restore 0649
-    public bool isEnterFirst;
-    public bool isPlayerHitted;
-    public GameObject currentNPC;
+    public static bool isDeath;
 
-    private float timeToOff;
+    public bool IsEnterFirst
+    {
+        get { return isEnterFirst; }
+        set { isEnterFirst = value; }
+    }
+    private bool isEnterFirst;
+
+    public bool IsPlayerHitted
+    {
+        get { return isPlayerHitted; }
+        set { isPlayerHitted = value; }
+    }
+    private bool isPlayerHitted;
+
+    public GameObject currentNPC;
     private Button fireActButton;
     private Transform characterControlUI;
+    private CurrentGameInfo currentGameInfo;
+    private CharInfo charInfo;
+
+    private float timeToOff;
     private float timeToDeathPanel;
     private float standartSpeed;
-    private CurrentGameInfo currentGameInfo;
-    public static bool isDeath;
 
     void Start()
     {
         isDeath = false;
         timeToDeathPanel = float.MaxValue;
+        charInfo = GetComponent<CharInfo>();
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
     }
@@ -41,8 +53,7 @@ public class CharAction : MonoBehaviour
         {
             characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
             timeToDeathPanel = float.MaxValue;
-        }
-           
+        }         
         PlayerHitted();
     }
 
@@ -118,6 +129,11 @@ public class CharAction : MonoBehaviour
     public void Death()
     {
         isDeath = true;
+        AudioManager.instance.Play("Death");
+        CurrentGameInfo.instance.SaveCurrentGame("currentGameTemp");
+        charInfo.SaveChar("characterTemp");
+        NewSaveSystem.Delete("currentGame");
+        NewSaveSystem.Delete("character");
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         GetComponent<SpriteRenderer>().color = color;
@@ -131,12 +147,19 @@ public class CharAction : MonoBehaviour
     public void Resurrect()
     {
         isDeath = false;
-        GetComponent<Animator>().SetBool("Death", false);
-        GetComponent<SpriteRenderer>().color = Color.white;
-        transform.GetChild(0).gameObject.SetActive(true);
+        AudioManager.instance.Play("Resurrect");
+        CurrentGameInfo.instance.LoadCurrentGame("currentGameTemp");
         CurrentGameInfo.instance.countResurrect--;
         CurrentGameInfo.instance.SaveCurrentGame();
+        charInfo.LoadChar("characterTemp");
         charInfo.Healing(charInfo.maxHealth);
+        charInfo.FillMana(charInfo.maxMane);
+        charInfo.SaveChar();
+        NewSaveSystem.Delete("currentGameTemp");
+        NewSaveSystem.Delete("characterTemp");
+        GetComponent<Animator>().SetBool("Death", false);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        transform.GetChild(0).gameObject.SetActive(true);      
         gameObject.tag = "Player";
     }
 }

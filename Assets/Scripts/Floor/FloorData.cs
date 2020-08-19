@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Floors/Standart Floor", fileName = "New Floor")]
 public class FloorData : ScriptableObject

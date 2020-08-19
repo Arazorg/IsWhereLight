@@ -3229,7 +3229,6 @@ MonoBehaviour:
   shootingRangeTimerText: {fileID: 1064550296}
   shootingRangeText: {fileID: 203795813}
   playButton: {fileID: 1960292529}
-  giveWeaponTime: 2
 --- !u!4 &376491488
 Transform:
   m_ObjectHideFlags: 0
@@ -15977,7 +15976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 2.25
   offset: {x: 0, y: 0, z: -1}
-  isMove: 0
 --- !u!1 &1268065792
 GameObject:
   m_ObjectHideFlags: 0
@@ -21948,7 +21946,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1979060480}
-  - component: {fileID: 1979060481}
   - component: {fileID: 1979060482}
   m_Layer: 5
   m_Name: InfoBar
@@ -21977,18 +21974,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 25}
   m_SizeDelta: {x: 450, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1979060481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979060479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05920bfaec38bb249befb4a1c4e0541a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1979060482
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,12 +22,12 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Текст таймера до спауна")]
     [SerializeField] private TextMeshProUGUI spawnTimerText;
 #pragma warning restore 0649
+    public static int textTimer;
 
     private GameObject enemyPrefab;
     private float nextSpawn;
     private readonly float spawnRate = 24f;
     private int counter;
-    public static int textTimer;
 
     private List<Vector3> spawnPoints = new List<Vector3>();
     public List<Vector3> SpawnPoints

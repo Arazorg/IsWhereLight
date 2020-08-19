@@ -43,6 +43,9 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("Текст волны текущей игры, при наличии текущей игры")]
     [SerializeField] private TextMeshProUGUI currentGameTypeText;
 
+    [Tooltip("Текст подсказок")]
+    [SerializeField] private TextMeshProUGUI hintsText;
+
     [Tooltip("Спрайты типов игры")]
     [SerializeField] private Sprite[] gameTypeList;
 #pragma warning restore 0649
@@ -50,12 +53,18 @@ public class MenuButtons : MonoBehaviour
     //Переменные состояния игры
     public static bool firstPlay;
     public static bool firstRun;
+    private bool showHint;
 
     //Скрипты
     private SettingsInfo settingsInfo;
     private ProgressInfo progressInfo;
     private AudioManager audioManager;
     private LocalizationManager localizationManager;
+
+    private float timeToHint;
+    private readonly float hintTime = 7.5f;
+    private int currentHint = 0;
+
     void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -76,6 +85,8 @@ public class MenuButtons : MonoBehaviour
         audioManager.Play("Theme");
         SetStartObjectsActive();
         Camera.main.backgroundColor = Color.black;
+        NewHint();
+        currentHint++;
     }
 
     private void FilesCheck()
@@ -83,8 +94,8 @@ public class MenuButtons : MonoBehaviour
         settingsInfo.LoadSettings();
         progressInfo.LoadProgress();
         progressInfo.SaveProgress();
-        if (PlayerPrefs.HasKey($"currentGame{Application.version}")
-                && PlayerPrefs.HasKey($"character{Application.version}"))
+        if (PlayerPrefs.HasKey($"currentGame")
+                && PlayerPrefs.HasKey($"character"))
         {
             firstPlay = false;
             newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
@@ -114,6 +125,7 @@ public class MenuButtons : MonoBehaviour
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         VkButton.GetComponent<MovementUI>().MoveToEnd();
         TwitterButton.GetComponent<MovementUI>().MoveToEnd();
+        hintsText.GetComponent<MovementUI>().MoveToEnd();
     }
 
     void Update()
@@ -127,6 +139,37 @@ public class MenuButtons : MonoBehaviour
                 exitButton.GetComponent<MovementUI>().MoveToEnd();
             }
         }
+
+        if (showHint)
+        {
+            Color color = hintsText.color;
+            color.a += 2.5f * Time.deltaTime;
+            hintsText.color = color;
+            if (color.a >= 1)
+                showHint = false;
+        }
+        else if (Time.time > timeToHint && !showHint)
+        {
+            Color color = hintsText.color;
+            color.a -= 2.5f * Time.deltaTime;
+            hintsText.color = color;
+            if (color.a <= 0)
+            {
+                NewHint();
+                currentHint++;
+            }
+        }
+    }
+
+    private void NewHint()
+    {
+        Color color = hintsText.color;
+        color.a = 0;
+        hintsText.color = color;
+        hintsText.GetComponent<LocalizedText>().key = $"HintMenu{currentHint % 3}";
+        hintsText.GetComponent<LocalizedText>().SetLocalization();
+        showHint = true;
+        timeToHint = Time.time + hintTime;
     }
 
     public void NewGame()

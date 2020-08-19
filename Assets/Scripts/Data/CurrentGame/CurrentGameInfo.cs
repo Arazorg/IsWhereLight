@@ -14,9 +14,9 @@ public class CurrentGameInfo : MonoBehaviour
     public bool wildMode;
     public bool isLobby;
     public int challengeNumber;
-    public int currentWave = 1;
-    public int countResurrect = 1;
-    public bool canExit = true;
+    public int currentWave;
+    public int countResurrect;
+    public bool canExit;
 
     void Awake()
     {
@@ -33,6 +33,7 @@ public class CurrentGameInfo : MonoBehaviour
 
     private void Init(CurrentGameData currentGameData)
     {
+        SetStartParametrs();
         character = currentGameData.character;
         skin = currentGameData.skin;
         startWeapon = currentGameData.startWeapon;
@@ -46,15 +47,22 @@ public class CurrentGameInfo : MonoBehaviour
         canExit = currentGameData.canExit;
     }
 
-    public void SaveCurrentGame()
+    private void SetStartParametrs()
     {
-        string json = JsonUtility.ToJson(this);
-        NewSaveSystem.Save("currentGame", json);
+        currentWave = 1;
+        countResurrect = 1;
+        canExit = true;
     }
 
-    public bool LoadCurrentGame()
+    public void SaveCurrentGame(string key = "currentGame")
     {
-        var currentGameString = NewSaveSystem.Load("currentGame");
+        string json = JsonUtility.ToJson(this);
+        NewSaveSystem.Save(key, json);
+    }
+
+    public bool LoadCurrentGame(string key = "currentGame")
+    {
+        var currentGameString = NewSaveSystem.Load(key);
         if (currentGameString != null)
         {
             CurrentGameData saveObject = JsonUtility.FromJson<CurrentGameData>(currentGameString);

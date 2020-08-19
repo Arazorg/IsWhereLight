@@ -7,21 +7,18 @@ public static class NewSaveSystem
 
     public static void Save(string key, string saveString)
     {
-        if (key == $"progress{Application.version}")
-            PlayerPrefs.SetString(key + Application.version, Common.AES.Encrypt(saveString, "11qz3x15el"));
+        if (key == $"progress")
+            PlayerPrefs.SetString(key, Common.AES.Encrypt(saveString, "11qz3x15el"));
         else
-        {
-            PlayerPrefs.SetString(key + Application.version, Common.B64X.Encode(saveString));
-        }
-            
+            PlayerPrefs.SetString(key, Common.B64X.Encode(saveString));          
     }
 
     public static string Load(string key)
     {
-        if (PlayerPrefs.HasKey(key + Application.version))
+        if (PlayerPrefs.HasKey(key))
         {
-            var saveString = Common.B64X.Decode(PlayerPrefs.GetString(key + Application.version));
-            if (key == $"progress{Application.version}")
+            var saveString = Common.B64X.Decode(PlayerPrefs.GetString(key));
+            if (key == $"progress")
                 saveString = Common.AES.Decrypt(saveString, "11qz3x15el");
             return saveString;
         }
@@ -31,8 +28,8 @@ public static class NewSaveSystem
 
     public static void Delete(string key)
     {
-        if (PlayerPrefs.HasKey(key + Application.version))
-            PlayerPrefs.DeleteKey(key + Application.version);
+        if (PlayerPrefs.HasKey(key))
+            PlayerPrefs.DeleteKey(key);
     }
 
     private static string ToUtf8(string myString)

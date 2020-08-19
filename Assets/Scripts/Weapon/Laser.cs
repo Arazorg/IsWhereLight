@@ -38,9 +38,9 @@ public class Laser : MonoBehaviour
         }
         else if (isShoot)
         {
-            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
+            if (bulletSprite.size.x - 4f * Time.deltaTime > 0 && bullet != null)
                 bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
-            else
+            else if(bullet != null)
                 bulletSprite.size = new Vector2(0, bulletSprite.size.y);
         }
     }
@@ -59,7 +59,7 @@ public class Laser : MonoBehaviour
                         1 << LayerMask.NameToLayer("Room"));
         RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
         bulletSpawner.Spawn();
-        bullet = bulletSpawner.GetBullet();
+        bullet = bulletSpawner.CurrentWeaponBullet;
         bulletSprite = bullet.GetComponent<SpriteRenderer>();
         var laserScale = new Vector3(0.5f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
         bullet.GetComponent<SpriteRenderer>().size = laserScale;

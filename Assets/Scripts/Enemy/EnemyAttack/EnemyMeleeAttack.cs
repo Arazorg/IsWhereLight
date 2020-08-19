@@ -17,15 +17,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackRate;
     private float attackAngle;
     private float timeToAttack;
-   
-    /*
-    public string TargetTag
-    {
-        get { return targetTag; }
-        set { targetTag = value; }
-    }
-    private string targetTag;
-    */
 
     void Start()
     {
@@ -38,15 +29,12 @@ public class EnemyMeleeAttack : MonoBehaviour
         damage = enemy.Damage;
         attackRange = enemy.AttackRange;
         attackRate = enemy.FireRate;
-
     }
 
     private void Update()
     {
-        if (Time.time > timeToAttack && !GetComponent<Enemy>().isDeath)
-        {
+        if (Time.time > timeToAttack && !GetComponent<Enemy>().IsDeath)
             Attack();
-        }
     }
 
     public void Attack()
@@ -57,8 +45,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             timeToAttack = Time.time + attackRate;
             animator.Play("Attack");
-            player.GetComponent<CharAction>().isPlayerHitted = true;
-            player.GetComponent<CharAction>().isEnterFirst = true;
+            player.GetComponent<CharAction>().IsPlayerHitted = true;
+            player.GetComponent<CharAction>().IsEnterFirst = true;
             charInfo.Damage(damage);
 
             var currentAngle = -Mathf.Atan2(player.transform.position.x - transform.position.x,
@@ -67,23 +55,15 @@ public class EnemyMeleeAttack : MonoBehaviour
             {
                 if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle
                                                    && currentAngle >= transform.rotation.eulerAngles.z - attackAngle)
-                {
                     if (player.transform.tag == "Player")
-                    {
                         charInfo.Damage(damage);
-                    }
-                }
             }
             else
             {
                 if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle - 360
                                                       && currentAngle >= transform.rotation.eulerAngles.z - attackAngle - 360)
-                {
                     if (player.transform.tag == "Player")
-                    {
                         charInfo.Damage(damage);
-                    }
-                }
             }
         }
     }

@@ -45,9 +45,6 @@ public class ShootingRange : MonoBehaviour
 
     [Tooltip("Кнопка начала игры")]
     [SerializeField] private Button playButton;
-
-    [Tooltip("Время нового предупреждения НПС")]
-    [SerializeField] private float giveWeaponTime = 2f;
 #pragma warning restore 0649
 
     private GameObject player;
@@ -140,14 +137,14 @@ public class ShootingRange : MonoBehaviour
         shootingRangeUI.GetComponent<MovementUI>().MoveToStart();
         shootingRangeText.GetComponentInParent<MovementUI>().MoveToStart();
         playButton.GetComponent<MovementUI>().MoveToStart();
-        startSpeed = player.GetComponent<CharController>().GetSpeed();
+        startSpeed = player.GetComponent<CharController>().Speed;
         charGun = player.GetComponent<CharGun>();
         startMane = player.GetComponent<CharInfo>().mane;
         textTimer = (int)gameDuration;
         InvokeRepeating("OutputTime", 1f, 1f);
-        if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.currentWeaponNumber != 0)
+        if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.CurrentWeaponNumber != 0)
             GameButtons.instance.SwapWeapon();
-        else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.currentWeaponNumber != 1)
+        else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.CurrentWeaponNumber != 1)
             GameButtons.instance.SwapWeapon();
         shootingRangeTimerText.gameObject.SetActive(true);
         shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
@@ -161,10 +158,10 @@ public class ShootingRange : MonoBehaviour
         else
             charInfo.mane = 60;
         charInfo.SpendMana(0);
-        player.GetComponent<CharController>().SetSpeed(0);
+        player.GetComponent<CharController>().Speed = 0;
         player.transform.position = startStand.transform.position;
         Camera.main.orthographicSize = 7f;
-        Camera.main.GetComponent<CameraFollow>().StopMove();
+        Camera.main.GetComponent<CameraFollow>().IsMove = false;
         Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
@@ -181,11 +178,11 @@ public class ShootingRange : MonoBehaviour
         startStand.gameObject.SetActive(true);
         GameButtons.isChange = true;
         isGame = false;
-        player.GetComponent<CharController>().SetSpeed(startSpeed);
+        player.GetComponent<CharController>().Speed = startSpeed;
         charInfo.mane = startMane;
         charInfo.SpendMana(0);
         Camera.main.orthographicSize = 5f;
-        Camera.main.GetComponent<CameraFollow>().StartMove();
+        Camera.main.GetComponent<CameraFollow>().IsMove = true;
         Destroy(currentTarget);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
