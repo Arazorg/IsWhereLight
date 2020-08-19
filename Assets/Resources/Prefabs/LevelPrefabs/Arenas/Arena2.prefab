@@ -14756,7 +14756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2366889706377262189}
   - component: {fileID: 5906015236615804317}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: CharacterSpawnPoint
   m_TagString: IgnoreAll
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

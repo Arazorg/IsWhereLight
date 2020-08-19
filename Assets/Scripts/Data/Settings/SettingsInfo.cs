@@ -57,7 +57,19 @@ public class SettingsInfo : MonoBehaviour
         };
     }
 
-    public void InitDictionary()
+    public void SetStartSettings()
+    {
+        InitDictionary();
+        currentLocalization = "localizedText_en";
+        SetStartPositions();
+        musicOn = true;
+        effectsOn = true;
+        color = "white";
+        joystickType = "Dynamic";
+    }
+
+
+    private void InitDictionary()
     {
         startPositions["joystickPosition"] = new float[2] { 0, 0 };
         startPositions["fireActButtonPosition"] = new float[2] { -200, 250 };
@@ -66,15 +78,6 @@ public class SettingsInfo : MonoBehaviour
         startPositions["swapWeaponButtonPosition"] = new float[2] { -200, 0 };
     }
 
-    public void SetStartSettings()
-    {
-        currentLocalization = "localizedText_en";
-        SetStartPositions();
-        musicOn = true;
-        effectsOn = true;
-        color = "white";
-        joystickType = "Dynamic";
-    }
 
     private void SetStartPositions()
     {

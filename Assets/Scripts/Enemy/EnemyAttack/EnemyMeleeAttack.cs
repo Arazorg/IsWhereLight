@@ -29,6 +29,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         damage = enemy.Damage;
         attackRange = enemy.AttackRange;
         attackRate = enemy.FireRate;
+        attackAngle = enemy.AttackAngle;
     }
 
     private void Update()

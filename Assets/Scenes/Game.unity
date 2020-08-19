@@ -2576,7 +2576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 2.5
   offset: {x: 0, y: 0, z: -1}
-  isMove: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3302,7 +3301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 1
-  startPos: {x: -230, y: -260, z: 0}
+  startPos: {x: -500, y: -260, z: 0}
   endPos: {x: 230, y: -260, z: 0}
   speed: 1
   isEnd: 0
@@ -4740,7 +4739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 1
-  startPos: {x: -250, y: -120, z: 0}
+  startPos: {x: -500, y: -120, z: 0}
   endPos: {x: 250, y: -120, z: 0}
   speed: 1
   isEnd: 0

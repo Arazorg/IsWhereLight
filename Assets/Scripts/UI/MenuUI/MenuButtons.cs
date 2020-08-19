@@ -70,7 +70,6 @@ public class MenuButtons : MonoBehaviour
         //PlayerPrefs.DeleteAll();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
-        settingsInfo.InitDictionary();
         try
         {
             Destroy(GameObject.Find("CurrentGameHandler"));
@@ -92,10 +91,10 @@ public class MenuButtons : MonoBehaviour
     private void FilesCheck()
     {
         settingsInfo.LoadSettings();
+        settingsInfo.SaveSettings();
         progressInfo.LoadProgress();
         progressInfo.SaveProgress();
-        if (PlayerPrefs.HasKey($"currentGame")
-                && PlayerPrefs.HasKey($"character"))
+        if (PlayerPrefs.HasKey($"currentGame") && PlayerPrefs.HasKey($"character"))
         {
             firstPlay = false;
             newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));

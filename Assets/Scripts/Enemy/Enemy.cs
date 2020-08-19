@@ -201,9 +201,9 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            if (coll.gameObject.tag == "StandartBullet" 
-                || coll.gameObject.tag == "StandartArrow"
-                    || coll.gameObject.tag == "StandartLaserBullet")
+            if (coll.gameObject.tag.Contains("Bullet")
+                || coll.gameObject.tag.Contains("Arrow")
+                    || coll.gameObject.tag.Contains("Laser"))
             {
                 var bullet = coll.gameObject.GetComponent<Bullet>();
                 Knoking(coll.transform.position, bullet.Knoking);
@@ -216,7 +216,8 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            transform.position += (transform.position - objectPosition).normalized * weaponKnoking;
+            //изменить
+            GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
         }
     }
 

@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
 
     public GameObject explosionPrefab;
     private BulletData data;
+    private SpriteRenderer bulletSprite;
 
     /// <summary>
     /// Initialization of bullet
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        bulletSprite = GetComponent<SpriteRenderer>();
         Destroy(gameObject, timeToDelete);
     }
 
@@ -66,12 +68,23 @@ public class Bullet : MonoBehaviour
         protected set { }
     }
 
+    void Update()
+    {
+        if (gameObject.tag.Contains("Laser"))
+        {
+            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
+                    bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+                else
+                    bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag != "GunKeep"
                 && collider.tag != "StandartBullet"
                     && collider.tag != "StandartArrow"
-                        && collider.tag != "StandartLaserBullet"
+                        && collider.tag != "StandartLaser"
                             && collider.tag != "EnemyBullet"
                                 && collider.tag != "IgnoreAll"
                                     && collider.tag != "NPC")
@@ -79,7 +92,8 @@ public class Bullet : MonoBehaviour
             if (collider.tag == "Destroyable")
             {
                 Destroy(collider.gameObject.transform.parent.gameObject);
-                Destroy(gameObject);
+                if(!collider.tag.Contains("Laser"))
+                    Destroy(gameObject);
             }
             else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player")
                         || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
@@ -96,9 +110,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
             else if (gameObject.tag == "StandartLaserBullet" && collider.tag != "Player")
-            {
                 Destroy(gameObject, timeToDelete);
-            }
         }
     }
 }

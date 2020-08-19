@@ -49,7 +49,7 @@ public class CurrentGameInfo : MonoBehaviour
 
     private void SetStartParametrs()
     {
-        currentWave = 1;
+        currentWave = 0;
         countResurrect = 1;
         canExit = true;
     }

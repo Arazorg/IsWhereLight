@@ -63,6 +63,9 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnFlock()
     {
         CancelInvoke("OutputTime");
+        CurrentGameInfo.instance.currentWave++;
+        CurrentGameInfo.instance.SaveCurrentGame();
+        GameObject.Find("Character(Clone)").GetComponent<CharInfo>().SaveChar();
         spawnTimer.GetComponent<MovementUI>().MoveToStart();
         for (int i = 0; i < enemyCount; i++)
         {
@@ -92,7 +95,6 @@ public class EnemySpawner : MonoBehaviour
                 prefab.SetActive(true);
                 script.Init(data);
                 prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
-                //prefab.GetComponent<EnemyBulletSpawner>().SetBullet(script.dataOfBullet);
             }
         }
     }

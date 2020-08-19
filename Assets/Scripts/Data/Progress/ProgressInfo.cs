@@ -9,6 +9,8 @@ public class ProgressInfo : MonoBehaviour
     public Dictionary<string, bool> characters;
     public Dictionary<string, int> secretCodes;
     public Dictionary<string, bool> achivments;
+    public Dictionary<string, bool> weapons;
+
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;
@@ -29,9 +31,15 @@ public class ProgressInfo : MonoBehaviour
 
     private void Init(ProgressData data)
     {
-        characters = data.characters;
-        secretCodes = data.secretCodes;
-        achivments = data.achivments;
+        if (data.characters != null)
+            characters = data.characters;
+        if (data.secretCodes != null)
+            secretCodes = data.secretCodes;
+        if (data.achivments != null)
+            achivments = data.achivments;
+        if (data.weapons != null)
+            weapons = data.weapons;
+
         playerMoney = data.playerMoney;
         countKilledEnemies = data.countKilledEnemies;
         countShoots = data.countShoots;
@@ -43,6 +51,7 @@ public class ProgressInfo : MonoBehaviour
         json += $"\n{JsonConvert.SerializeObject(characters)}";
         json += $"\n{JsonConvert.SerializeObject(secretCodes)}";
         json += $"\n{JsonConvert.SerializeObject(achivments)}";
+        json += $"\n{JsonConvert.SerializeObject(weapons)}";
         NewSaveSystem.Save("progressInfo", json);
     }
 
@@ -55,9 +64,28 @@ public class ProgressInfo : MonoBehaviour
         {
             var strings = progressString.Split(new char[] { '\n' });
             ProgressData data = JsonUtility.FromJson<ProgressData>(strings[0]);
-            data.characters = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[1]);
-            data.secretCodes = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[2]);
-            Init(data);
+
+            for (int i = 0; i < strings.Length; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        data.characters = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[1]);
+                        break;
+                    case 2:
+                        data.secretCodes = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[2]);
+                        break;
+                    case 3:
+                        data.achivments = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[3]);
+                        break;
+                    case 4:
+                        data.weapons = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[4]);
+                        break;
+                    default:
+                        break;
+                }
+                Init(data);
+            }
         }
     }
 
@@ -66,6 +94,7 @@ public class ProgressInfo : MonoBehaviour
         CharactersInit();
         SecretCodesInit();
         AchivmentsInit();
+        WeaponsInit();
     }
 
     private void CharactersInit()
@@ -97,6 +126,15 @@ public class ProgressInfo : MonoBehaviour
         {
             {"firstPlay", false },
             {"firstNewCharacter", false }
+        };
+    }
+
+    private void WeaponsInit()
+    {
+        weapons = new Dictionary<string, bool>
+        {
+            {"pistol", true },
+            {"staff", true }
         };
     }
 

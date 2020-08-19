@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6044225354058052266}
   - component: {fileID: 8888171359001632167}
   - component: {fileID: 8727164817876064616}
+  - component: {fileID: 816984038396370982}
   m_Layer: 2
   m_Name: LaserBullet
-  m_TagString: StandartLaserBullet
+  m_TagString: StandartLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,7 +102,7 @@ BoxCollider2D:
     border: {x: 0.14, y: 0.16, z: 0.14, w: 0.14999999}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.4, y: 0.44}
-    newSize: {x: 0.4, y: 0.4}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -123,3 +124,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDelete: 0.33
   explosionPrefab: {fileID: 0}
+--- !u!50 &816984038396370982
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727164817876064535}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
