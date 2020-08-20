@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Engineer
   maxHealth: 9
   maxMane: 120
-  startWeapon: Laser
+  startWeapon: Gravity Laser
   price: 0

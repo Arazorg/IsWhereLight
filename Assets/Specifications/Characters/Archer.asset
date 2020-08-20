@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Archer
   maxHealth: 100
   maxMane: 100
-  startWeapon: Bow
+  startWeapon: Fortified Bow
   price: 1250

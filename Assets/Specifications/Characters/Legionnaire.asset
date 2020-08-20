@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Legionnaire
   maxHealth: 15
   maxMane: 150
-  startWeapon: Sword
+  startWeapon: Blade of Power
   price: 0

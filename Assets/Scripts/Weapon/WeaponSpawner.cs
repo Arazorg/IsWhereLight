@@ -73,7 +73,7 @@ public class WeaponSpawner : MonoBehaviour
         prefab.name = weaponName;
         prefab.transform.tag = "Gun";
         prefab.SetActive(true);
-        prefab.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
     }
 
     public void Spawn(Transform transform, int currentWeaponNumber)

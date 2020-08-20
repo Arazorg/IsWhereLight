@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Mage
   maxHealth: 8
   maxMane: 280
-  startWeapon: Staff
+  startWeapon: Haze Staff
   price: 400

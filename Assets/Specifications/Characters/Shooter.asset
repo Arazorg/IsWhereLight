@@ -17,5 +17,5 @@ MonoBehaviour:
   characterClass: Shooter
   maxHealth: 13
   maxMane: 150
-  startWeapon: Pistol
+  startWeapon: Battle-scarred Rifle
   price: 1000
