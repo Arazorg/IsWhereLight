@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: 29313cec0a75a29419ac2bbb74eaf9fe
+guid: 583d5c4a2ce4df14d93d9dcc06a1a77e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5940781818166149764
-    second: Staff_0
+      213: 6523057921188269382
+    second: Gravity Lase_0
   - first:
-      213: 3527205280244131103
-    second: Staff_1
+      213: -4669559279973829845
+    second: Gravity Lase_1
   - first:
-      213: 5991183894910654214
-    second: Staff_2
+      213: -6772261966551802008
+    second: Gravity Lase_2
   - first:
-      213: 3150073182911318099
-    second: Staff_3
+      213: -939873566769302436
+    second: Gravity Lase_3
   - first:
-      213: -392789525872930389
-    second: Staff_4
+      213: -6748340535720628865
+    second: Gravity Lase_4
   - first:
-      213: -6015175495968284412
-    second: Staff_5
+      213: -2370645372570110996
+    second: Gravity Lase_5
   - first:
-      213: -537738138275213305
-    second: Staff_6
+      213: -5106291424863293985
+    second: Gravity Lase_6
   - first:
-      213: -6946313528647475380
-    second: Staff_7
-  - first:
-      213: 3369767003591719216
-    second: Staff_8
-  - first:
-      213: 4065516972705660208
-    second: Staff_9
-  - first:
-      213: -2895494858777318516
-    second: Staff_10
-  - first:
-      213: 9190474858011220987
-    second: Staff_11
+      213: 8961078361701294225
+    second: Gravity Lase_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,202 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Staff_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 360
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7d7b18796a1e8da0800000000000000
-      internalID: -5940781818166149764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_1
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 360
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1565d2b38623f030800000000000000
-      internalID: 3527205280244131103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_2
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 360
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 607d0308206f42350800000000000000
-      internalID: 5991183894910654214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 240
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 358c9ebbede47bb20800000000000000
-      internalID: 3150073182911318099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_4
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 240
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba199ded1088c8af0800000000000000
-      internalID: -392789525872930389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_5
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 240
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4012d2591cdc58ca0800000000000000
-      internalID: -6015175495968284412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 120
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7001de523029988f0800000000000000
-      internalID: -537738138275213305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_7
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 120
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4f1a7a16acb99f90800000000000000
-      internalID: -6946313528647475380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_8
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 120
-        width: 240
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 039bae86c31d3ce20800000000000000
-      internalID: 3369767003591719216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Staff_9
+      name: Gravity Lase_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 120
+        width: 90
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03d317a852e9b6830800000000000000
-      internalID: 4065516972705660208
+      spriteID: 64d89b16e9e868a50800000000000000
+      internalID: 6523057921188269382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Staff_10
+      name: Gravity Lase_1
       rect:
         serializedVersion: 2
-        x: 240
+        x: 90
         y: 0
-        width: 240
-        height: 120
+        width: 90
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8bab9554c221d7d0800000000000000
-      internalID: -2895494858777318516
+      spriteID: b23f7834394623fb0800000000000000
+      internalID: -4669559279973829845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Staff_11
+      name: Gravity Lase_2
       rect:
         serializedVersion: 2
-        x: 480
+        x: 180
         y: 0
-        width: 240
-        height: 120
+        width: 90
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,8 +205,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfbdaeca0302b8f70800000000000000
-      internalID: 9190474858011220987
+      spriteID: 86f9ac55f971402a0800000000000000
+      internalID: -6772261966551802008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gravity Lase_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 90
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54bfee78f5e4f2f0800000000000000
+      internalID: -939873566769302436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gravity Lase_4
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 90
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7da00979041952a0800000000000000
+      internalID: -6748340535720628865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gravity Lase_5
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 90
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3f8870896c91fd0800000000000000
+      internalID: -2370645372570110996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gravity Lase_6
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 90
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd666dd00fc229b0800000000000000
+      internalID: -5106291424863293985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gravity Lase_7
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 90
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19025a9ca452c5c70800000000000000
+      internalID: 8961078361701294225
       vertices: []
       indices: 
       edges: []

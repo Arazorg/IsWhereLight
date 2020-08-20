@@ -1,49 +1,43 @@
 fileFormatVersion: 2
-guid: 483bd4e43c77e3f49b59a94a482591f7
+guid: f6587b3a669903c4390840a0deffda7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -483076939049697419
-    second: Sekira_0
+      213: 2157179613550031661
+    second: Blade of Power_0
   - first:
-      213: -5590003228641696101
-    second: Sekira_1
+      213: -8369603782019382256
+    second: Blade of Power_1
   - first:
-      213: 593582907017212127
-    second: Sekira_2
+      213: 8735649743851325596
+    second: Blade of Power_2
   - first:
-      213: 3014014837126234280
-    second: Sekira_3
+      213: -3594712070325341816
+    second: Blade of Power_3
   - first:
-      213: 7042353011332745804
-    second: Sekira_4
+      213: -4694569780273180649
+    second: Blade of Power_4
   - first:
-      213: 8878868576779551294
-    second: Sekira_5
+      213: -2590845882297337481
+    second: Blade of Power_5
   - first:
-      213: 6009155751585233029
-    second: Sekira_6
+      213: 8029340441703297773
+    second: Blade of Power_6
   - first:
-      213: -8741794248437465663
-    second: Sekira_7
+      213: 2385879613180415095
+    second: Blade of Power_7
   - first:
-      213: -4491657544761066972
-    second: Sekira_8
+      213: -8502442160618695996
+    second: Blade of Power_8
   - first:
-      213: 4416508585407860370
-    second: Sekira_9
+      213: -6008685104225624348
+    second: Blade of Power_9
   - first:
-      213: 5366961311353949242
-    second: Sekira_10
+      213: -5967278534731032504
+    second: Blade of Power_10
   - first:
-      213: -5472709920309246276
-    second: Sekira_11
-  - first:
-      213: -770945647220876628
-    second: Sekira_12
-  - first:
-      213: -3222456263680847267
-    second: Sekira_13
+      213: 8986798781891647435
+    second: Blade of Power_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,7 +99,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -117,7 +111,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -129,7 +123,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -141,7 +135,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -153,7 +147,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -167,13 +161,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sekira_0
+      name: Blade of Power_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 350
-        width: 350
-        height: 350
+        y: 1000
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57f72c85514cb49f0800000000000000
-      internalID: -483076939049697419
+      spriteID: d233d56ed67dfed10800000000000000
+      internalID: 2157179613550031661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_1
+      name: Blade of Power_1
       rect:
         serializedVersion: 2
-        x: 350
-        y: 350
-        width: 350
-        height: 350
+        x: 320
+        y: 1000
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b96668f3ea15c62b0800000000000000
-      internalID: -5590003228641696101
+      spriteID: 01408fd44b139db80800000000000000
+      internalID: -8369603782019382256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_2
+      name: Blade of Power_2
       rect:
         serializedVersion: 2
-        x: 700
-        y: 350
-        width: 350
-        height: 350
+        x: 0
+        y: 800
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd0318d4284dc3800800000000000000
-      internalID: 593582907017212127
+      spriteID: c988d7898234b3970800000000000000
+      internalID: 8735649743851325596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_3
+      name: Blade of Power_3
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 350
-        width: 350
-        height: 350
+        x: 320
+        y: 800
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a08aa2868ee3d920800000000000000
-      internalID: 3014014837126234280
+      spriteID: 881f27aea640d1ec0800000000000000
+      internalID: -3594712070325341816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_4
+      name: Blade of Power_4
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 350
-        width: 350
-        height: 350
+        x: 0
+        y: 600
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4a046770c67bb160800000000000000
-      internalID: 7042353011332745804
+      spriteID: 710988168a989deb0800000000000000
+      internalID: -4694569780273180649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_5
+      name: Blade of Power_5
       rect:
         serializedVersion: 2
-        x: 1750
-        y: 350
-        width: 350
-        height: 350
+        x: 320
+        y: 600
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e32c256ade3183b70800000000000000
-      internalID: 8878868576779551294
+      spriteID: 77932ed95677b0cd0800000000000000
+      internalID: -2590845882297337481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_6
+      name: Blade of Power_6
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 350
-        width: 350
-        height: 350
+        x: 0
+        y: 400
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,20 +301,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 588bb35715fc46350800000000000000
-      internalID: 6009155751585233029
+      spriteID: de237682792fd6f60800000000000000
+      internalID: 8029340441703297773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_7
+      name: Blade of Power_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 400
+        width: 320
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c07740ed85c1120800000000000000
+      internalID: 2385879613180415095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blade of Power_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 320
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2940d17e1410a80800000000000000
+      internalID: -8502442160618695996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blade of Power_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 200
+        width: 320
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee537babbcdc9ca0800000000000000
+      internalID: -6008685104225624348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blade of Power_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 350
-        height: 350
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,20 +385,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cdf4527278eea680800000000000000
-      internalID: -8741794248437465663
+      spriteID: 8481b85e9c7ff2da0800000000000000
+      internalID: -5967278534731032504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sekira_8
+      name: Blade of Power_11
       rect:
         serializedVersion: 2
-        x: 350
+        x: 320
         y: 0
-        width: 350
-        height: 350
+        width: 320
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,113 +406,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42a30d7c24d6aa1c0800000000000000
-      internalID: -4491657544761066972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sekira_9
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 0
-        width: 350
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29ec2b4a8279a4d30800000000000000
-      internalID: 4416508585407860370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sekira_10
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 0
-        width: 350
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3c448690e64b7a40800000000000000
-      internalID: 5366961311353949242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sekira_11
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 350
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb60639b2570d04b0800000000000000
-      internalID: -5472709920309246276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sekira_12
-      rect:
-        serializedVersion: 2
-        x: 1750
-        y: 0
-        width: 350
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caa144cb40d0d45f0800000000000000
-      internalID: -770945647220876628
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sekira_13
-      rect:
-        serializedVersion: 2
-        x: 2100
-        y: 0
-        width: 350
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d52121bf9198743d0800000000000000
-      internalID: -3222456263680847267
+      spriteID: bc79096c0e587bc70800000000000000
+      internalID: 8986798781891647435
       vertices: []
       indices: 
       edges: []

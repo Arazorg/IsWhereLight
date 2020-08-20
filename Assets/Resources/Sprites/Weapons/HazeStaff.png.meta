@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: bdce089f007fb6345a388352f81c7c04
+guid: d55532fcb6676974e928a65381751907
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -728725899834310639
-    second: DefaultSword_0
+      213: -7618032911672847319
+    second: HazeStaff_0
   - first:
-      213: 1810380164455700968
-    second: DefaultSword_1
+      213: -1376550958065723512
+    second: HazeStaff_1
   - first:
-      213: -8801756162417228983
-    second: DefaultSword_2
+      213: 3204959483539803621
+    second: HazeStaff_2
   - first:
-      213: -8993084261298816726
-    second: DefaultSword_3
+      213: -7739824691807286382
+    second: HazeStaff_3
   - first:
-      213: -2984860338932867596
-    second: DefaultSword_4
+      213: 5175840536048753546
+    second: HazeStaff_4
   - first:
-      213: 6871087512872003352
-    second: DefaultSword_5
+      213: 4006735906735748780
+    second: HazeStaff_5
   - first:
-      213: -5231922696447383792
-    second: DefaultSword_6
+      213: 1667257469941070837
+    second: HazeStaff_6
   - first:
-      213: -179863704772795240
-    second: DefaultSword_7
+      213: -117024575087443024
+    second: HazeStaff_7
   - first:
-      213: -2555414710968272671
-    second: DefaultSword_8
+      213: -844480349454348883
+    second: HazeStaff_8
   - first:
-      213: -6549496392419676591
-    second: DefaultSword_9
+      213: 5055247074338006398
+    second: HazeStaff_9
   - first:
-      213: -585515179722734123
-    second: DefaultSword_10
+      213: -2389964821969404403
+    second: HazeStaff_10
   - first:
-      213: -2220323282575317490
-    second: DefaultSword_11
+      213: -3989678797371601939
+    second: HazeStaff_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,13 +161,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DefaultSword_0
+      name: HazeStaff_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 200
-        height: 320
+        y: 480
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 110cfb1b7ab03e5f0800000000000000
-      internalID: -728725899834310639
+      spriteID: 924518ccd6f474690800000000000000
+      internalID: -7618032911672847319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_1
+      name: HazeStaff_1
       rect:
         serializedVersion: 2
-        x: 200
-        y: 320
-        width: 200
-        height: 320
+        x: 120
+        y: 480
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e99bc2fa23cf1910800000000000000
-      internalID: 1810380164455700968
+      spriteID: 887d449623285ece0800000000000000
+      internalID: -1376550958065723512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_2
+      name: HazeStaff_2
       rect:
         serializedVersion: 2
-        x: 400
-        y: 320
-        width: 200
-        height: 320
+        x: 240
+        y: 480
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 943048b6761e9d580800000000000000
-      internalID: -8801756162417228983
+      spriteID: 5edc8ef6bad4a7c20800000000000000
+      internalID: 3204959483539803621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_3
+      name: HazeStaff_3
       rect:
         serializedVersion: 2
-        x: 600
-        y: 320
-        width: 200
-        height: 320
+        x: 360
+        y: 480
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a29b0220385223380800000000000000
-      internalID: -8993084261298816726
+      spriteID: 29b870d337e969490800000000000000
+      internalID: -7739824691807286382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_4
+      name: HazeStaff_4
       rect:
         serializedVersion: 2
-        x: 800
-        y: 320
-        width: 200
-        height: 320
+        x: 0
+        y: 240
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fd11c11655a396d0800000000000000
-      internalID: -2984860338932867596
+      spriteID: a8bd0457b8744d740800000000000000
+      internalID: 5175840536048753546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_5
+      name: HazeStaff_5
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 320
-        width: 200
-        height: 320
+        x: 120
+        y: 240
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +280,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 817ab5930b10b5f50800000000000000
-      internalID: 6871087512872003352
+      spriteID: ca679cd1419ca9730800000000000000
+      internalID: 4006735906735748780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_6
+      name: HazeStaff_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 120
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb34fcd5d9432710800000000000000
+      internalID: 1667257469941070837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HazeStaff_7
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 240
+        width: 120
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b30cebd4ce306ef0800000000000000
+      internalID: -117024575087443024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HazeStaff_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 320
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +343,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01723f9070a7467b0800000000000000
-      internalID: -5231922696447383792
+      spriteID: dadc9fea89dc744f0800000000000000
+      internalID: -844480349454348883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_7
+      name: HazeStaff_9
       rect:
         serializedVersion: 2
-        x: 200
+        x: 120
         y: 0
-        width: 200
-        height: 320
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +364,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8942809d9eef08df0800000000000000
-      internalID: -179863704772795240
+      spriteID: e75efb52e68d72640800000000000000
+      internalID: 5055247074338006398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_8
+      name: HazeStaff_10
       rect:
         serializedVersion: 2
-        x: 400
+        x: 240
         y: 0
-        width: 200
-        height: 320
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,20 +385,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e8bdea0cd7598cd0800000000000000
-      internalID: -2555414710968272671
+      spriteID: d0e75d038a325ded0800000000000000
+      internalID: -2389964821969404403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DefaultSword_9
+      name: HazeStaff_11
       rect:
         serializedVersion: 2
-        x: 600
+        x: 360
         y: 0
-        width: 200
-        height: 320
+        width: 120
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,50 +406,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15e6f185bb38b15a0800000000000000
-      internalID: -6549496392419676591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DefaultSword_10
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d50706db05dfd7f0800000000000000
-      internalID: -585515179722734123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DefaultSword_11
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e06a19ffcb3df21e0800000000000000
-      internalID: -2220323282575317490
+      spriteID: deb02c2a540d1a8c0800000000000000
+      internalID: -3989678797371601939
       vertices: []
       indices: 
       edges: []
