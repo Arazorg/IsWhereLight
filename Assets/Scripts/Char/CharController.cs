@@ -56,7 +56,7 @@ public class CharController : MonoBehaviour
         isStop = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!CharAction.isDeath)
         {

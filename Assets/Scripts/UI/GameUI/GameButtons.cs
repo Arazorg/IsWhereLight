@@ -180,7 +180,7 @@ public class GameButtons : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
@@ -439,6 +439,12 @@ public class GameButtons : MonoBehaviour
         {
             case WeaponData.AttackType.Sword:
                 currentWeapon.GetComponent<Sword>().animator.SetBool("Attack", false);
+                break;
+            case WeaponData.AttackType.Laser:
+                currentWeapon.GetComponent<Laser>().animator.SetBool("Attack", false);
+                break;
+            case WeaponData.AttackType.Gun:
+                currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
                 break;
         }
     }

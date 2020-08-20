@@ -43,5 +43,13 @@ public class BulletData : ScriptableObject
         get { return scatter; }
         protected set { }
     }
+
+    [Tooltip("Время удаления пули")]
+    [SerializeField] private float deleteTime;
+    public float DeleteTime
+    {
+        get { return deleteTime; }
+        protected set { }
+    }
 #pragma warning restore 0649
 }

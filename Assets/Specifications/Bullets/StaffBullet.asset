@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: StaffBullet
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 21300000, guid: 08adc3142857d7e48a6e77a116d7f9ae, type: 3}
+  typeOfBullet: 0
   speed: 20
   scatter: 5
+  deleteTime: 5

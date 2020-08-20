@@ -2,11 +2,6 @@
 
 public class Bullet : MonoBehaviour
 {
-#pragma warning disable 0649
-    [Tooltip("Время удаления для пули")]
-    [SerializeField] private float timeToDelete;
-#pragma warning restore 0649
-
     public GameObject explosionPrefab;
     private BulletData data;
     private SpriteRenderer bulletSprite;
@@ -20,7 +15,7 @@ public class Bullet : MonoBehaviour
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
         bulletSprite = GetComponent<SpriteRenderer>();
-        Destroy(gameObject, timeToDelete);
+        Destroy(gameObject, DeleteTime);
     }
 
     public Sprite MainSprite
@@ -44,6 +39,17 @@ public class Bullet : MonoBehaviour
     public float CritChance { get; set; }
     public float Knoking { get; set; }
 
+    public float Scatter
+    {
+        get
+        {
+            return data.Scatter;
+        }
+        set
+        {
+        }
+    }
+
     /// <summary>
     /// Speed of current bullet
     /// </summary>
@@ -57,13 +63,13 @@ public class Bullet : MonoBehaviour
     }
 
     /// <summary>
-    /// Scatter of current bullet
+    /// Time of delete of current bullet
     /// </summary>
-    public float Scatter
+    public float DeleteTime
     {
         get
         {
-            return data.Scatter;
+            return data.DeleteTime;
         }
         protected set { }
     }
@@ -73,9 +79,9 @@ public class Bullet : MonoBehaviour
         if (gameObject.tag.Contains("Laser"))
         {
             if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
-                    bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
-                else
-                    bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+                bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+            else
+                bulletSprite.size = new Vector2(0, bulletSprite.size.y);
         }
     }
 
@@ -92,7 +98,7 @@ public class Bullet : MonoBehaviour
             if (collider.tag == "Destroyable")
             {
                 Destroy(collider.gameObject.transform.parent.gameObject);
-                if(!collider.tag.Contains("Laser"))
+                if (!collider.tag.Contains("Laser"))
                     Destroy(gameObject);
             }
             else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player")
@@ -109,8 +115,6 @@ public class Bullet : MonoBehaviour
                 arrow.tag = "IgnoreAll";
                 Destroy(gameObject);
             }
-            else if (gameObject.tag == "StandartLaserBullet" && collider.tag != "Player")
-                Destroy(gameObject, timeToDelete);
         }
     }
 }

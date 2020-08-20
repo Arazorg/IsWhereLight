@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Gravity Laser
   mainAnimator: {fileID: 9100000, guid: 7b273ce5bc35b874b97617df47851fa4, type: 2}
-  mainSprite: {fileID: 21300000, guid: c65388638ab800249b65e300a52db531, type: 3}
+  mainSprite: {fileID: 6523057921188269382, guid: 583d5c4a2ce4df14d93d9dcc06a1a77e,
+    type: 3}
   typeOfAttack: 3
   offset: {x: 0, y: -0.2}
   attackOffset: {x: 0, y: 0}
@@ -27,3 +28,4 @@ MonoBehaviour:
   critChance: 10
   currentBullet: {fileID: 11400000, guid: f45e52a237617f5469ed32e82830fc1e, type: 2}
   manecost: 1
+  firePointPosition: {x: -0.05, y: 1}

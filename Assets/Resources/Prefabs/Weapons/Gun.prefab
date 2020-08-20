@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1056106790811298300
+--- !u!1 &3434319034009347923
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 660438397408725951}
+  - component: {fileID: 1210469457514016721}
   m_Layer: 2
-  m_Name: FirePoint
-  m_TagString: Gun
+  m_Name: FIrePoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &660438397408725951
+--- !u!4 &1210469457514016721
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056106790811298300}
+  m_GameObject: {fileID: 3434319034009347923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.702, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9011886232207171533}
@@ -63,7 +63,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 660438397408725951}
+  - {fileID: 1210469457514016721}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -107,15 +107,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -7618032911672847319, guid: d55532fcb6676974e928a65381751907,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.36, y: 1.3733333}
+  m_Size: {x: 0.7, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6016767600265092135
@@ -154,8 +155,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.36, y: 1.3733333}
-    newSize: {x: 0.36, y: 1.3733333}
+    oldSize: {x: 1.2, y: 2.4}
+    newSize: {x: 0.7, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22866978b77d63e438b23d639d7d3f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &-7254257838957045669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,4 +205,4 @@ MonoBehaviour:
   bulletsPrefabs:
   - {fileID: 556777415679803174, guid: c14ef685a39e1e94c874e135927206c1, type: 3}
   bulletsSettings: []
-  spawnPosition: {fileID: 660438397408725951}
+  spawnPosition: {fileID: 0}

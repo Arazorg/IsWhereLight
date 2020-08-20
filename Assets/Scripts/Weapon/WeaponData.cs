@@ -178,5 +178,16 @@ public class WeaponData : ScriptableObject
         }
         set { }
     }
+
+    [Tooltip("Позиция спауна пули")]
+    [SerializeField] private Vector2 firePointPosition;
+    public Vector2 FirePointPosition
+    {
+        get
+        {
+            return firePointPosition;
+        }
+        set { }
+    }
 #pragma warning restore 0649
 }

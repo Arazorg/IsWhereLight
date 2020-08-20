@@ -10,6 +10,7 @@ public class Bow : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
@@ -17,6 +18,7 @@ public class Bow : MonoBehaviour
         bulletSpawner = GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
+        Debug.Log(bullet.Scatter);
     }
 
     public void Pulling()
@@ -32,7 +34,7 @@ public class Bow : MonoBehaviour
         {
             switch (clip.name)
             {
-                case "BowStringing":
+                case "Stringing":
                     if(stringingTime > clip.length)
                         stringingTime = clip.length;
                     stringingTime /= clip.length;
@@ -40,10 +42,13 @@ public class Bow : MonoBehaviour
             }
         }
         animator.SetBool("PrepareAttack", false);
-        animator.Play("BowIdle");
         bulletSpawner.Spawn();
         bulletSpawner.SetDamageCrit(stringingTime);
-        Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
+        Quaternion dir;
+        if (stringingTime >= 1)
+             dir = Quaternion.AngleAxis(Random.Range(0,1), Vector3.forward);
+        else
+            dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.CurrentWeaponBullet.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * bulletSpawner.CurrentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
         bulletSpawner.CurrentWeaponBullet.transform.rotation 

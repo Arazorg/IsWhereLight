@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
@@ -12,7 +9,6 @@ public class Sword : MonoBehaviour
 
     public Animator animator;
     private Weapon currentWeapon;
-    private float timeToBlock;
 
     void Start()
     {
@@ -33,19 +29,6 @@ public class Sword : MonoBehaviour
 
     public void Hit()
     {
-
-        /*
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        foreach (AnimationClip clip in clips)
-        {
-            switch (clip.name)
-            {
-                case "Attack":
-                    timeToBlock = Time.time + clip.length;
-                    break;
-            }
-        }
-        */
         animator.SetBool("Attack", true);
         var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
         foreach (var enemy in enemies)

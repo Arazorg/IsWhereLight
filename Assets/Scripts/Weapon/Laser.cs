@@ -5,24 +5,21 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
 #pragma warning disable 0649
-    [Tooltip("Аниматор")]
-    [SerializeField] private Animator animator;
-
     [Tooltip("Элемент в конце и начале лазера")]
     [SerializeField] private GameObject startEndElement;
 #pragma warning restore 0649
+    public Animator animator;
 
     private BulletSpawner bulletSpawner;
     private GameObject bullet;
     private GameObject startElement;
     private GameObject endElement;
-    
-
     private float bulletScatterAngle;
-
+    
     void Start()
     {
         animator = GetComponent<Animator>();
+        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
@@ -33,6 +30,7 @@ public class Laser : MonoBehaviour
 
     public void Shoot()
     {
+        animator.SetBool("Attack", true);
         LayerMask layerMask
             = ~(1 << LayerMask.NameToLayer("Player") |
                     1 << LayerMask.NameToLayer("Ignore Raycast") |
@@ -40,7 +38,7 @@ public class Laser : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
         bulletSpawner.Spawn();
         bullet = bulletSpawner.CurrentWeaponBullet; 
-        var laserScale = new Vector3(0.5f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
+        var laserScale = new Vector3(0.8f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
         bullet.GetComponent<SpriteRenderer>().size = laserScale;
         bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0, 0.33f);
         bullet.transform.position

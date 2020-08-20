@@ -16,3 +16,4 @@ MonoBehaviour:
   typeOfBullet: 0
   speed: 30
   scatter: 15
+  deleteTime: 5

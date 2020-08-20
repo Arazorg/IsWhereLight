@@ -73,6 +73,7 @@ public class WeaponSpawner : MonoBehaviour
         prefab.name = weaponName;
         prefab.transform.tag = "Gun";
         prefab.SetActive(true);
+        prefab.transform.rotation = new Quaternion(0, 0, -90, 0);
         prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
     }
 
@@ -84,7 +85,7 @@ public class WeaponSpawner : MonoBehaviour
         currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);
         currentCharWeapon[currentWeaponNumber].name = data.WeaponName + currentWeaponNumber;
         currentCharWeapon[currentWeaponNumber].transform.tag = "GunKeep";
-        currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 2;
+        currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;
 
         var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
         charInfo.weapons[currentWeaponNumber] = weaponScript.WeaponName + currentWeaponNumber;

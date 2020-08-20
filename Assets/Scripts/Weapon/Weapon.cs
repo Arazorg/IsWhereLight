@@ -148,6 +148,14 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public Vector2 firePointPosition
+    {
+        get
+        {
+            return data.FirePointPosition;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (transform.tag == "Gun" && coll.tag == "Player")

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415424175640530131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: -0.05, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6925469193782672098}
@@ -108,7 +108,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: c65388638ab800249b65e300a52db531, type: 3}
+  m_Sprite: {fileID: 6523057921188269382, guid: 583d5c4a2ce4df14d93d9dcc06a1a77e,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +156,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5826087, y: 1.547826}
+    oldSize: {x: 0.9, y: 2.4}
     newSize: {x: 0.67, y: 1.78}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -193,7 +194,6 @@ MonoBehaviour:
   - {fileID: 8727164817876064535, guid: 73e2d35715a43af46a075fdba272226f, type: 3}
   bulletsSettings:
   - {fileID: 11400000, guid: f45e52a237617f5469ed32e82830fc1e, type: 2}
-  spawnPosition: {fileID: 1452070543081729680}
 --- !u!114 &6925469193782672127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c145bec9a00b0941863fa59d15f39e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   startEndElement: {fileID: 971931986422248302, guid: 81aa7361f1b2f7843961f491a6d53c78,
     type: 3}
+  animator: {fileID: 0}
 --- !u!120 &-5696697384803317069
 LineRenderer:
   m_ObjectHideFlags: 0

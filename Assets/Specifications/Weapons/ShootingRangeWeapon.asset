@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: ShootingRangeWeapon
   mainAnimator: {fileID: 9100000, guid: 6d382b8255523fc4eafb078884552bed, type: 2}
-  mainSprite: {fileID: 21300000, guid: c135a7522a3e72b4a971514d57243071, type: 3}
+  mainSprite: {fileID: -5334763350848274098, guid: 81c5266115149e54cb3e059d840415b8,
+    type: 3}
   typeOfAttack: 0
   offset: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
@@ -27,3 +28,4 @@ MonoBehaviour:
   critChance: 0
   currentBullet: {fileID: 11400000, guid: 30290bf1cfbcaa846a552c923a142db7, type: 2}
   manecost: 1
+  firePointPosition: {x: -0.085, y: 0.85}

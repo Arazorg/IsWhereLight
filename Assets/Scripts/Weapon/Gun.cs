@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public Animator animator;
+
     private BulletSpawner bulletSpawner;
     private float bulletSpeed;
     private float bulletScatterAngle;
 
-    private GameObject character;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
+    }
 
     public void SetBulletInfo(Bullet bullet)
     {
-        character = GameObject.Find("Character(Clone)");
-
-        var charInfo = character.GetComponent<CharInfo>();
-        int weaponNumber = character.GetComponent<CharGun>().CurrentWeaponNumber;
-
         bulletSpawner = GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
@@ -24,6 +25,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        animator.SetBool("Attack", true);
         bulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.CurrentWeaponBullet.GetComponent<Rigidbody2D>();

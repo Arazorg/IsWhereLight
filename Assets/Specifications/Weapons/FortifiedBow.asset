@@ -28,3 +28,4 @@ MonoBehaviour:
   critChance: 25
   currentBullet: {fileID: 11400000, guid: 9c92838f149db8f41a514487720deb19, type: 2}
   manecost: 2
+  firePointPosition: {x: 0, y: 0.6}

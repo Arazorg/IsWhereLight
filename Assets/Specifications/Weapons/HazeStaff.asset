@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Haze Staff
   mainAnimator: {fileID: 9100000, guid: 7983624ba94ae5a4bae1e4d20eaa5280, type: 2}
-  mainSprite: {fileID: 21300000, guid: f9b25dabea4fb214180226172dac287a, type: 3}
+  mainSprite: {fileID: 5175840536048753546, guid: d55532fcb6676974e928a65381751907,
+    type: 3}
   typeOfAttack: 0
   offset: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
@@ -27,3 +28,4 @@ MonoBehaviour:
   critChance: 15
   currentBullet: {fileID: 11400000, guid: 9e2d0e469e95a4343b94e641f0953d88, type: 2}
   manecost: 2
+  firePointPosition: {x: 0.1, y: 0.375}

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Blade of Power
   mainAnimator: {fileID: 9100000, guid: ac469b9f316b7e844a4e0aca230c51a2, type: 2}
-  mainSprite: {fileID: -1525763588066094277, guid: f7decd2c68377344f91904b4ae362c74,
+  mainSprite: {fileID: 2157179613550031661, guid: f6587b3a669903c4390840a0deffda7b,
     type: 3}
   typeOfAttack: 1
   offset: {x: -0.1, y: -0.25}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
   attackAngle: 80
-  radius: 1.5
+  radius: 1.75
   knoking: 0.4
   fireRate: 0.45
   damage: 6
