@@ -38,6 +38,60 @@ TextureImporter:
   - first:
       213: -3989678797371601939
     second: HazeStaff_11
+  - first:
+      213: -1346003687234552043
+    second: HazeStaff_0
+  - first:
+      213: -8688485690166707929
+    second: HazeStaff_1
+  - first:
+      213: 2650848935838283526
+    second: HazeStaff_2
+  - first:
+      213: 2981524665193762364
+    second: HazeStaff_3
+  - first:
+      213: -3627270815580486427
+    second: HazeStaff_4
+  - first:
+      213: 4334972656891932214
+    second: HazeStaff_5
+  - first:
+      213: 4132818550040777717
+    second: HazeStaff_6
+  - first:
+      213: -4629770117425801891
+    second: HazeStaff_7
+  - first:
+      213: 5207906658531933422
+    second: HazeStaff_8
+  - first:
+      213: 2583433685553897503
+    second: HazeStaff_9
+  - first:
+      213: 8589703619286858221
+    second: HazeStaff_10
+  - first:
+      213: -8330791067530784992
+    second: HazeStaff_11
+  - first:
+      213: 8190747523784655522
+    second: HazeStaff_12
+  - first:
+      213: 3995329831422863922
+    second: HazeStaff_13
+  - first:
+      213: 1217338960084671156
+    second: HazeStaff_14
+  - first:
+      213: -6180527331093783893
+    second: HazeStaff_15
+  - first:
+      213: 486097927737205
+    second: HazeStaff_16
+  - first:
+      213: 5116315729846791051
+    second: HazeStaff_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -164,12 +218,12 @@ TextureImporter:
       name: HazeStaff_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
+        x: 1
+        y: 478
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,8 +243,8 @@ TextureImporter:
         y: 480
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +260,12 @@ TextureImporter:
       name: HazeStaff_2
       rect:
         serializedVersion: 2
-        x: 240
+        x: 244
         y: 480
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,8 +285,8 @@ TextureImporter:
         y: 480
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,8 +306,8 @@ TextureImporter:
         y: 240
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,8 +327,8 @@ TextureImporter:
         y: 240
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,11 +345,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 240
+        y: 239
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,8 +369,8 @@ TextureImporter:
         y: 240
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,12 +386,12 @@ TextureImporter:
       name: HazeStaff_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 11
         y: 0
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,8 +411,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,8 +432,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,8 +453,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -426,6 +426,7 @@ public class GameButtons : MonoBehaviour
                     startStringingTime = 0;
                     CharController.isRotate = false;
                     break;
+                
             }
         }
         isAttackUp = false;
@@ -445,6 +446,10 @@ public class GameButtons : MonoBehaviour
                 break;
             case WeaponData.AttackType.Gun:
                 currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
+                break;
+            case WeaponData.AttackType.ConstantLaser:
+                currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
+                audioManager.Off(currentWeapon.name);
                 break;
         }
     }

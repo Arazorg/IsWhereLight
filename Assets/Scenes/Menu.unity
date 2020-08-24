@@ -4361,7 +4361,7 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Staff
+  - nameOfSound: Haze Staff
     clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
     volume: 0.15
     volumeVariance: 0.1
@@ -4370,7 +4370,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Sword
+  - nameOfSound: Blade of Power
     clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
     volume: 0.1
     volumeVariance: 0.1
@@ -4379,16 +4379,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Cleaver
-    clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
-    volume: 0.15
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - nameOfSound: Pistol
+  - nameOfSound: Battle-scarred Rifle
     clip: {fileID: 8300000, guid: 6ef3ebd2e1ebc4643b747e694dd79793, type: 3}
     volume: 0.1
     volumeVariance: 0.1
@@ -4397,7 +4388,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Bow
+  - nameOfSound: Fortified Bow
     clip: {fileID: 8300000, guid: 19c7a49d4e651054082d2355b9120752, type: 3}
     volume: 0.35
     volumeVariance: 0.1
@@ -4406,7 +4397,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: Laser
+  - nameOfSound: Gravity Laser
     clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
     volume: 0.35
     volumeVariance: 0.1
@@ -4424,6 +4415,24 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - nameOfSound: Cleaver
+    clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Shooting Range Weapon
+    clip: {fileID: 8300000, guid: 6ef3ebd2e1ebc4643b747e694dd79793, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
   - nameOfSound: Death
     clip: {fileID: 8300000, guid: fd5a25e88ecdcdc48a39a6b247599ea6, type: 3}
     volume: 0.35
@@ -4431,6 +4440,15 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0.1
     loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Healing Beam Blaster
+    clip: {fileID: 8300000, guid: bf13e9fe9cfd6ce428d92a8223565e60, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &838771391

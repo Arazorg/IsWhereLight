@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public GameObject explosionPrefab;
     private BulletData data;
     private SpriteRenderer bulletSprite;
+    private bool isRemoveConstant;
 
     /// <summary>
     /// Initialization of bullet
@@ -71,17 +72,29 @@ public class Bullet : MonoBehaviour
         {
             return data.DeleteTime;
         }
-        protected set { }
+        set {
+            DeleteTime = value;
+        }
     }
 
     void Update()
     {
-        if (gameObject.tag.Contains("Laser"))
+        if (gameObject.tag.Contains("StandartLaser"))
         {
             if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
                 bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
             else
                 bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+        }
+        else if(gameObject.tag.Contains("Constant") && isRemoveConstant)
+        {
+            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
+                bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+            else
+            {
+                bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+                isRemoveConstant = false;
+            }            
         }
     }
 
@@ -91,9 +104,10 @@ public class Bullet : MonoBehaviour
                 && collider.tag != "StandartBullet"
                     && collider.tag != "StandartArrow"
                         && collider.tag != "StandartLaser"
-                            && collider.tag != "EnemyBullet"
-                                && collider.tag != "IgnoreAll"
-                                    && collider.tag != "NPC")
+                            && collider.tag != "ConstantLaser"
+                                && collider.tag != "EnemyBullet"
+                                    && collider.tag != "IgnoreAll"
+                                        && collider.tag != "NPC")
         {
             if (collider.tag == "Destroyable")
             {
@@ -116,5 +130,10 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void RemoveConstant()
+    {
+        isRemoveConstant = true;
     }
 }

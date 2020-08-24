@@ -46,39 +46,44 @@
       "value": "Day"
     },
 
-    {
-      "key": "Sword",
-      "value": "Sword"
+   {
+      "key": "Blade of Power",
+      "value": "Blade of Power"
     },
 
     {
       "key": "Cleaver",
       "value": "Cleaver"
     },
-
+	
     {
-      "key": "Staff",
-      "value": "Staff"
+      "key": "Healing Beam Blaster",
+      "value": "Healing Beam Blaster"
     },
 
     {
-      "key": "Pistol",
-      "value": "Pistol"
+      "key": "Haze Staff",
+      "value": "Haze Staff"
+    },
+
+    {
+      "key": "Fortified Bow",
+      "value": "Fortified Bow"
+    },
+
+    {
+      "key": "Shooting Range Weapon",
+      "value": "Shooting Range Weapon"
+    },
+
+    {
+      "key": "Battle-scarred Rifle",
+      "value": "Battle-scarred Rifle"
     },
 	
 	{
-      "key": "Laser",
-      "value": "Laser"
-    },
-
-    {
-      "key": "Bow",
-      "value": "Bow"
-    },
-
-    {
-      "key": "ShootingRangeWeapon",
-      "value": "Weapon of shooting range"
+      "key": "Gravity Laser",
+      "value": "Gravity Laser"
     },
 
     {
@@ -117,7 +122,7 @@
     },
 
     {
-      "key": "Engineer",
+      "key": "Mechanic",
       "value": "Mechanic"
     },
 
@@ -157,7 +162,7 @@
     },
 
     {
-      "key": "SimpleEngineer",
+      "key": "SimpleMechanic",
       "value": "Simple Mechanic"
     },
 
@@ -412,52 +417,52 @@
     },
 
     {
-      "key": "EngineerPhrase0",
+      "key": "MechanicPhrase0",
       "value": "You wanna know how I got bald? No, you don't..."
     },
 
     {
-      "key": "EngineerPhrase1",
+      "key": "MechanicPhrase1",
       "value": "I had bad grades in physics at school."
     },
 
     {
-      "key": "EngineerPhrase2",
+      "key": "MechanicPhrase2",
       "value": "Hey, wanna arm wrestle?"
     },
 
     {
-      "key": "EngineerPhrase3",
+      "key": "MechanicPhrase3",
       "value": "Where did all the respirators go?"
     },
 
     {
-      "key": "EngineerPhrase4",
+      "key": "MechanicPhrase4",
       "value": "Don't get yourself into something you can't get out of."
     },
 
     {
-      "key": "EngineerPhrase5",
+      "key": "MechanicPhrase5",
       "value": "If it ain't broke, don't fix it."
     },
 
     {
-      "key": "EngineerPhrase6",
+      "key": "MechanicPhrase6",
       "value": "My dad raised me right... Tried to, anyway."
     },
 
     {
-      "key": "EngineerPhrase7",
+      "key": "MechanicPhrase7",
       "value": "We are running low on synergy..."
     },
 
     {
-      "key": "EngineerShootReaction0",
+      "key": "MechanicShootReaction0",
       "value": "Your intentions are not clear to me."
     },
 
     {
-      "key": "EngineerShootReaction1",
+      "key": "MechanicShootReaction1",
       "value": "Enemy spotted. The turrets are activated."
     },
 

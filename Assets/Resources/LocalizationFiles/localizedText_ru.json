@@ -47,38 +47,43 @@
     },
 
     {
-      "key": "Sword",
-      "value": "Меч"
+      "key": "Blade of Power",
+      "value": "Клинок Силы"
     },
 
     {
       "key": "Cleaver",
       "value": "Тесак"
     },
-
+	
     {
-      "key": "Staff",
-      "value": "Посох"
+      "key": "Healing Beam Blaster",
+      "value": "Исцеляющий Лучевой Бластер"
     },
 
     {
-      "key": "Bow",
-      "value": "Лук"
+      "key": "Haze Staff",
+      "value": "Посох Туманов"
     },
 
     {
-      "key": "ShootingRangeWeapon",
+      "key": "Fortified Bow",
+      "value": "Укрепленный Лук"
+    },
+
+    {
+      "key": "Shooting Range Weapon",
       "value": "Ружье для тира"
     },
 
     {
-      "key": "Pistol",
-      "value": "Пистолет"
+      "key": "Battle-scarred Rifle",
+      "value": "Закалённая винтовка"
     },
 	
 	{
-      "key": "Laser",
-      "value": "Лазер"
+      "key": "Gravity Blaster",
+      "value": "Гравитационный Бластер"
     },
 
     {

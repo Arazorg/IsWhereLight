@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class Laser : MonoBehaviour
     private GameObject startElement;
     private GameObject endElement;
     private float bulletScatterAngle;
-    
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -37,12 +35,20 @@ public class Laser : MonoBehaviour
                         1 << LayerMask.NameToLayer("Room"));
         RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
         bulletSpawner.Spawn();
-        bullet = bulletSpawner.CurrentWeaponBullet; 
+        bullet = bulletSpawner.CurrentWeaponBullet;
+        if (gameObject.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.ConstantLaser)
+            bullet.tag = "ConstantLaser";
+            
         var laserScale = new Vector3(0.8f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
         bullet.GetComponent<SpriteRenderer>().size = laserScale;
         bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0, 0.33f);
         bullet.transform.position
             = new Vector3((hit.point.x + transform.GetChild(0).position.x) / 2,
                             (hit.point.y + transform.GetChild(0).position.y) / 2);
+    }
+
+    public void StopShoot()
+    {
+        bullet.GetComponent<Bullet>().RemoveConstant();
     }
 }

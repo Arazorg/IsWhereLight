@@ -32,13 +32,37 @@ public class ProgressInfo : MonoBehaviour
     private void Init(ProgressData data)
     {
         if (data.characters != null)
-            characters = data.characters;
+        {
+            foreach (var character in data.characters)
+            {
+                if (characters.ContainsKey(character.Key))
+                    characters[character.Key] = character.Value;
+            }
+        }
         if (data.secretCodes != null)
-            secretCodes = data.secretCodes;
+        {
+            foreach (var secretCode in data.secretCodes)
+            {
+                if (secretCodes.ContainsKey(secretCode.Key))
+                    secretCodes[secretCode.Key] = secretCode.Value;
+            }
+        }
         if (data.achivments != null)
-            achivments = data.achivments;
+        {
+            foreach (var achivment in data.achivments)
+            {
+                if (achivments.ContainsKey(achivment.Key))
+                    achivments[achivment.Key] = achivment.Value;
+            }
+        }
         if (data.weapons != null)
-            weapons = data.weapons;
+        {
+            foreach (var weapon in data.weapons)
+            {
+                if (weapons.ContainsKey(weapon.Key))
+                    weapons[weapon.Key] = weapon.Value;
+            }
+        }
 
         playerMoney = data.playerMoney;
         countKilledEnemies = data.countKilledEnemies;
@@ -106,7 +130,7 @@ public class ProgressInfo : MonoBehaviour
             { "Archer", false },
             { "Shooter", false },
             { "Doctor", false },
-            { "Engineer", false }
+            { "Mechanic", false }
         };
     }
 

@@ -25,6 +25,9 @@ public class ShootingRange : MonoBehaviour
     [Tooltip("Стэнд спауна оружия")]
     [SerializeField] private Transform weaponStand;
 
+    [Tooltip("Стэнд награды")]
+    [SerializeField] private Transform rewardStand;
+
     [Tooltip("Место старта игры")]
     [SerializeField] private Transform startStand;
 
@@ -98,8 +101,8 @@ public class ShootingRange : MonoBehaviour
     {
         player = GameObject.Find("Character(Clone)");
         charInfo = player.GetComponent<CharInfo>();
-        if (charInfo.weapons[0] == "ShootingRangeWeapon0" ||
-                    charInfo.weapons[1] == "ShootingRangeWeapon1")
+        if (charInfo.weapons[0] == "Shooting Range Weapon0" ||
+                    charInfo.weapons[1] == "Shooting Range Weapon1")
             shootingRangeUI.GetComponent<MovementUI>().MoveToEnd();
         else
         {
@@ -142,9 +145,10 @@ public class ShootingRange : MonoBehaviour
         startMane = player.GetComponent<CharInfo>().mane;
         textTimer = (int)gameDuration;
         InvokeRepeating("OutputTime", 1f, 1f);
-        if (charInfo.weapons[0] == "ShootingRangeWeapon0" && charGun.CurrentWeaponNumber != 0)
+        Debug.Log(charInfo.weapons[1]);
+        if (charInfo.weapons[0] == "Shooting Range Weapon0" && charGun.CurrentWeaponNumber != 0)
             GameButtons.instance.SwapWeapon();
-        else if (charInfo.weapons[1] == "ShootingRangeWeapon1" && charGun.CurrentWeaponNumber != 1)
+        else if (charInfo.weapons[1] == "Shooting Range Weapon1" && charGun.CurrentWeaponNumber != 1)
             GameButtons.instance.SwapWeapon();
         shootingRangeTimerText.gameObject.SetActive(true);
         shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
@@ -187,18 +191,22 @@ public class ShootingRange : MonoBehaviour
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
         if (difficultyLevel == 1)
-            ResultPhrase(5);
+            Result(5);
         else
-            ResultPhrase(10);
+            Result(10);
 
         SetCollider(false);
     }
 
-    private void ResultPhrase(int countShots)
+    private void Result(int countShots)
     {
+        WeaponSpawner.instance.SetPrefab("Healing Beam Blaster");
+        WeaponSpawner.instance.Spawn("Healing Beam Blaster", rewardStand);
         if (result > countShots)
+        {
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"GreatScore{UnityEngine.Random.Range(0, 5)}");
+        }   
         else
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UnityEngine.Random.Range(0, 3)}");
@@ -211,8 +219,8 @@ public class ShootingRange : MonoBehaviour
 
     private void SpawnShootingRangeWeapon()
     {
-        WeaponSpawner.instance.SetPrefab("ShootingRangeWeapon");
-        WeaponSpawner.instance.Spawn("ShootingRangeWeapon", weaponStand);
+        WeaponSpawner.instance.SetPrefab("Shooting Range Weapon");
+        WeaponSpawner.instance.Spawn("Shooting Range Weapon", weaponStand);
     }
 
     public void Spawn(bool isDeath = false)

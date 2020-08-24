@@ -8,7 +8,8 @@ public class WeaponData : ScriptableObject
         Gun,
         Sword,
         Bow,
-        Laser
+        Laser,
+        ConstantLaser
     }
 
 #pragma warning disable 0649
