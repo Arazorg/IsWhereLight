@@ -4443,12 +4443,12 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Healing Beam Blaster
-    clip: {fileID: 8300000, guid: bf13e9fe9cfd6ce428d92a8223565e60, type: 3}
+    clip: {fileID: 8300000, guid: 7f44dd24d0274224aa4fc33695041f15, type: 3}
     volume: 0.35
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
-    loop: 1
+    loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &838771391
@@ -6967,7 +6967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1523239541314573168, guid: 74fc70aba164fe041a6a47fce9483fa5,
+  m_Sprite: {fileID: 6967363611277568164, guid: 94618221587826543842bb1066760939,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1

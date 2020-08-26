@@ -73,47 +73,77 @@
 
     {
       "key": "Shooting Range Weapon",
-      "value": "Ружье для тира"
+      "value": "Ружье Для Тира"
     },
 
     {
       "key": "Battle-scarred Rifle",
-      "value": "Закалённая винтовка"
+      "value": "Закалённая Винтовка"
     },
 	
 	{
-      "key": "Gravity Blaster",
-      "value": "Гравитационный Бластер"
+      "key": "Gravity Laser",
+      "value": "Гравитационный Лазер"
     },
 
     {
       "key": "Legionnaire",
       "value": "Легионер"
     },
+			
+	{
+      "key": "LegionnaireDescription",
+      "value": "Изгнанный легионер римского батальона ищущий себя на полях сражений"
+    },
 
     {
       "key": "Archer",
       "value": "Лучник"
+    },
+	
+	{
+      "key": "ArcherDescription",
+      "value": "Самый точный стрелок на восточном побережье, не хотите стрелу в колено?"
     },
 
     {
       "key": "Shooter",
       "value": "Рейдер"
     },
+	
+	{
+      "key": "ShooterDescription",
+      "value": "Он отточил свои навыки на полях Ганс Оф Булшит, говорят он знаком с говорящим бананом."
+    },
 
     {
       "key": "Doctor",
       "value": "Изида"
+    },
+	
+	{
+      "key": "DoctorDescription",
+      "value": "Создатель вакцины от короновируса и просто хорошая докторКА!"
     },
 
     {
       "key": "Mage",
       "value": "Хранитель"
     },
+	
+	{
+      "key": "MageDescription",
+      "value": "А ваша любимая книга Некрономикон? Тогда вам знаком этот блеск в глазах."
+    },
 
     {
-      "key": "Engineer",
+      "key": "Mechanic",
       "value": "Механик"
+    },
+	
+	{
+      "key": "MechanicDescription",
+      "value": "Голодный? Любопытный? Неважно! Съеденные детали нашли в его теле пристанище, полу-робот, полу-человек."
     },
 
     {
@@ -152,7 +182,7 @@
     },
 
     {
-      "key": "SimpleEngineer",
+      "key": "SimpleMechanic",
       "value": "Обычный Механик"
     },
 
@@ -437,52 +467,52 @@
     },
 
     {
-      "key": "EngineerPhrase0",
+      "key": "MechanicPhrase0",
       "value": "Запомните твари, мои механизмы не сломаются."
     },
 
     {
-      "key": "EngineerPhrase1",
+      "key": "MechanicPhrase1",
       "value": "В школе у меня было 3 по физике..."
     },
 
     {
-      "key": "EngineerPhrase2",
+      "key": "MechanicPhrase2",
       "value": "Куда делась моя отвертка?"
     },
 
     {
-      "key": "EngineerPhrase3",
+      "key": "MechanicPhrase3",
       "value": "Куда делись все респираторы?"
     },
 
     {
-      "key": "EngineerPhrase4",
+      "key": "MechanicPhrase4",
       "value": "Если работает - не трогай."
     },
 
     {
-      "key": "EngineerPhrase5",
+      "key": "MechanicPhrase5",
       "value": "Хочешь знать, как я облысел? Нет, не хочешь..."
     },
 
     {
-      "key": "EngineerPhrase6",
+      "key": "MechanicPhrase6",
       "value": "Системы функционируют."
     },
 
     {
-      "key": "EngineerPhrase7",
+      "key": "MechanicPhrase7",
       "value": "Я уважаю твое мнение, пока ты его держишь при себе."
     },
 
     {
-      "key": "EngineerShootReaction0",
+      "key": "MechanicShootReaction0",
       "value": "Гильзы убирать будешь сам."
     },
 
     {
-      "key": "EngineerShootReaction1",
+      "key": "MechanicShootReaction1",
       "value": "Противник замечен. Турели активированы."
     },
 
@@ -856,6 +886,22 @@
 	{
       "key": "HintMenu2",
       "value": "Ты можешь отправить фидбек или пожелание напрямую нам на электронную почту\n и получить персональный ответ, адрес ты найдешь в главном меню."
+    },
+	
+	{
+      "key": "Defence",
+      "value": "Защита"
+    },
+	
+	{
+      "key": "Attack",
+      "value": "Атака"
+    },
+	
+	{
+      "key": "Healing",
+      "value": "Лечение"
     }
+
   ]
 }

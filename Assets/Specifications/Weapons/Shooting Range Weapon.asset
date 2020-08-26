@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
-  m_Name: GravityLaser
+  m_Name: Shooting Range Weapon
   m_EditorClassIdentifier: 
-  weaponName: Gravity Laser
-  mainAnimator: {fileID: 9100000, guid: 7b273ce5bc35b874b97617df47851fa4, type: 2}
-  mainSprite: {fileID: 6523057921188269382, guid: 583d5c4a2ce4df14d93d9dcc06a1a77e,
+  weaponName: Shooting Range Weapon
+  mainAnimator: {fileID: 9100000, guid: 6d382b8255523fc4eafb078884552bed, type: 2}
+  mainSprite: {fileID: -5334763350848274098, guid: 81c5266115149e54cb3e059d840415b8,
     type: 3}
-  typeOfAttack: 3
-  offset: {x: 0, y: -0.2}
+  typeOfAttack: 0
+  offset: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
   attackAngle: 0
   radius: 0
-  knoking: 250
+  knoking: 0.1
   fireRate: 0.5
-  damage: 3
-  critChance: 10
-  currentBullet: {fileID: 11400000, guid: f45e52a237617f5469ed32e82830fc1e, type: 2}
+  damage: 1
+  critChance: 0
+  currentBullet: {fileID: 11400000, guid: 30290bf1cfbcaa846a552c923a142db7, type: 2}
   manecost: 1
-  firePointPosition: {x: -0.05, y: 1}
+  firePointPosition: {x: -0.085, y: 0.85}

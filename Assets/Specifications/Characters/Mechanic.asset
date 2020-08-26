@@ -19,3 +19,4 @@ MonoBehaviour:
   maxMane: 120
   startWeapon: Gravity Laser
   price: 0
+  characterType: Defence

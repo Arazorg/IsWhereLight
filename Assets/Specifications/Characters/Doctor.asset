@@ -17,5 +17,6 @@ MonoBehaviour:
   characterClass: Doctor
   maxHealth: 6
   maxMane: 250
-  startWeapon: Cleaver
+  startWeapon: Healing Beam Blaster
   price: 2500
+  characterType: Healing

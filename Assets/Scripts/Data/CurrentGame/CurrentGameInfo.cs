@@ -17,6 +17,7 @@ public class CurrentGameInfo : MonoBehaviour
     public int currentWave;
     public int countResurrect;
     public bool canExit;
+    public string characterType;
 
     void Awake()
     {
@@ -45,6 +46,7 @@ public class CurrentGameInfo : MonoBehaviour
         currentWave = currentGameData.currentWave;
         countResurrect = currentGameData.countResurrect;
         canExit = currentGameData.canExit;
+        characterType = currentGameData.characterType;
     }
 
     private void SetStartParametrs()

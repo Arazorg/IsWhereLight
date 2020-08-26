@@ -93,6 +93,7 @@ public class GameButtons : MonoBehaviour
     private float startTime;
     private float startStringingTime;
     public static bool isChange = true;
+    private bool isStaticAttack;
 
     public Transform currentWeapon;
     private AudioManager audioManager;
@@ -110,7 +111,6 @@ public class GameButtons : MonoBehaviour
 
     void Start()
     {
-        // PlayerPrefs.DeleteAll();
         startTime = Time.time;
         Time.timeScale = 1f;
 
@@ -407,6 +407,21 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Laser>().Shoot();
                         nextAttack = Time.time + attackRate;
                         break;
+                    case WeaponData.AttackType.ConstantLaser:
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
+                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
+                        if (!isStaticAttack)
+                        {
+                            Debug.Log("start constant attack");
+                            currentWeapon.GetComponent<ConstantLaser>().IsAttack = true;
+                        }   
+                        if(currentWeapon.GetComponent<ConstantLaser>().IsAttack)
+                            isStaticAttack = true;
+                        nextAttack = Time.time + attackRate;
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -448,8 +463,13 @@ public class GameButtons : MonoBehaviour
                 currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
                 break;
             case WeaponData.AttackType.ConstantLaser:
-                currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
-                audioManager.Off(currentWeapon.name);
+                if(isStaticAttack)
+                {
+                    Debug.Log("stop attack");
+                    currentWeapon.GetComponent<ConstantLaser>().animator.SetBool("Attack", false);
+                    currentWeapon.GetComponent<ConstantLaser>().StopShoot();
+                    isStaticAttack = false;                    
+                }
                 break;
         }
     }

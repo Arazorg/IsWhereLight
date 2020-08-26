@@ -3750,6 +3750,7 @@ MonoBehaviour:
   - {fileID: 9011886232207171539, guid: b28f0f33f7dd4554e9580f16f195a365, type: 3}
   - {fileID: 6007513576682042886, guid: e0a72b736fe34d44eb06349337c7639e, type: 3}
   - {fileID: 6925469193782672124, guid: 74d653007207ced488e8a79b08800dee, type: 3}
+  - {fileID: 7400288963240085495, guid: 9a4479e98d0ef69499a291ec9b0f238f, type: 3}
   currentCharWeapon:
   - {fileID: 0}
   - {fileID: 0}

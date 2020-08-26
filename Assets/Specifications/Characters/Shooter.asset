@@ -19,3 +19,4 @@ MonoBehaviour:
   maxMane: 150
   startWeapon: Battle-scarred Rifle
   price: 1000
+  characterType: Attack

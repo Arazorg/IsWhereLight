@@ -100,9 +100,19 @@
       "key": "Legionnaire",
       "value": "Legionnaire"
     },
+	
+	{
+      "key": "LegionnaireDescription",
+      "value": "Legionnaire"
+    },
 
     {
       "key": "Mage",
+      "value": "Keeper"
+    },
+	
+	{
+      "key": "MageDescription",
       "value": "Keeper"
     },
 
@@ -110,9 +120,19 @@
       "key": "Archer",
       "value": "Archer"
     },
+	
+	{
+      "key": "ArcherDescription",
+      "value": "Archer"
+    },
 
     {
       "key": "Shooter",
+      "value": "Raider"
+    },
+	
+	{
+      "key": "ShooterDescription",
       "value": "Raider"
     },
 
@@ -120,9 +140,19 @@
       "key": "Doctor",
       "value": "Isida"
     },
-
+	
+	{
+      "key": "DoctorDescription",
+      "value": "Isida"
+    },
+	
     {
       "key": "Mechanic",
+      "value": "Mechanic"
+    },
+	
+	{
+      "key": "MechanicDescription",
       "value": "Mechanic"
     },
 
@@ -652,21 +682,6 @@
     },
 
     {
-      "key": "Challenge0",
-      "value": "Defence"
-    },
-
-    {
-      "key": "Challenge1",
-      "value": "Damage + Defence"
-    },
-
-    {
-      "key": "Challenge2",
-      "value": "Damage"
-    },
-
-    {
       "key": "ShootingRangeInfo",
       "value": "Shooting range! More hits, better rewards!"
     },
@@ -854,6 +869,21 @@
 	{
       "key": "HintMenu2",
       "value": "You can send a feedback or a wish directly to us by e-mail\n and receive a personal answer, you can find the address in the main menu."
+    },
+	
+	{
+      "key": "Defence",
+      "value": "Defence"
+    },
+	
+	{
+      "key": "Attack",
+      "value": "Attack"
+    },
+	
+	{
+      "key": "Healing",
+      "value": "Healing"
     }
   ]
 }

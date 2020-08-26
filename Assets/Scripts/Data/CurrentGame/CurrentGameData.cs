@@ -1,6 +1,7 @@
 ﻿[System.Serializable]
 public class CurrentGameData
 {
+
     public string character;
     public string skin;
     public string startWeapon;
@@ -12,6 +13,7 @@ public class CurrentGameData
     public int currentWave = 0;
     public int countResurrect = 1;
     public bool canExit = true;
+    public string characterType;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -26,5 +28,6 @@ public class CurrentGameData
         currentWave = currentGameInfo.currentWave;
         countResurrect = currentGameInfo.countResurrect;
         canExit = currentGameInfo.canExit;
+        characterType = currentGameInfo.characterType;
     }
 }

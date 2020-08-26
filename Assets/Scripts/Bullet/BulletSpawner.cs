@@ -40,6 +40,18 @@ public class BulletSpawner : MonoBehaviour
         currentWeaponBullet.SetActive(true);
     }
 
+    public void Spawn(Transform parentWeapon)
+    {
+        currentWeaponBullet = Instantiate(bulletsPrefabs[0], parentWeapon);
+        currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
+        currentBulletScript.Init(spawnBulletData);
+        currentBulletScript.Damage = GetComponent<Weapon>().Damage;
+        currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
+        currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
+
+        currentWeaponBullet.SetActive(true);
+    }
+
     public void SetBullet(BulletData bulletData)
     {
         spawnPosition = transform.GetChild(0);
@@ -58,6 +70,8 @@ public class BulletSpawner : MonoBehaviour
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);
         else if (GetComponent<Laser>() != null)
             GetComponent<Laser>().SetBulletInfo(currentBulletScript);
+        else if (GetComponent<ConstantLaser>() != null)
+            GetComponent<ConstantLaser>().SetBulletInfo(currentBulletScript);
 
         Destroy(currentWeaponBullet);
     }

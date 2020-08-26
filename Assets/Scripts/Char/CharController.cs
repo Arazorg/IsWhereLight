@@ -32,6 +32,8 @@ public class CharController : MonoBehaviour
         set { speed = value; }
     }
 
+    public GameObject closestEnemy = null;
+
     //UI
     private Joystick joystick;
     //Characters components
@@ -65,7 +67,7 @@ public class CharController : MonoBehaviour
                                          Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
             if (!RotateGunToEnemy())
             {
-                // Debug.Log("Not Enemy");
+                closestEnemy = null;
                 if (joystick.Horizontal > 0 && !m_FacingRight)
                     Flip();
                 else if (joystick.Horizontal < 0 && m_FacingRight)
@@ -133,7 +135,7 @@ public class CharController : MonoBehaviour
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length != 0)
         {
-            GameObject closestEnemy = null;
+            closestEnemy = null;
             float distanceToEnemy = Mathf.Infinity;
             foreach (var enemy in enemies)
             {

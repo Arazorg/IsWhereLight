@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     private BulletData data;
     private SpriteRenderer bulletSprite;
     private bool isRemoveConstant;
+    private bool isStartConstant;
+    private float endSize;
 
     /// <summary>
     /// Initialization of bullet
@@ -16,7 +18,6 @@ public class Bullet : MonoBehaviour
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
         bulletSprite = GetComponent<SpriteRenderer>();
-        Destroy(gameObject, DeleteTime);
     }
 
     public Sprite MainSprite
@@ -46,9 +47,7 @@ public class Bullet : MonoBehaviour
         {
             return data.Scatter;
         }
-        set
-        {
-        }
+        set { }
     }
 
     /// <summary>
@@ -72,7 +71,8 @@ public class Bullet : MonoBehaviour
         {
             return data.DeleteTime;
         }
-        set {
+        set
+        {
             DeleteTime = value;
         }
     }
@@ -84,17 +84,34 @@ public class Bullet : MonoBehaviour
             if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
                 bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
             else
-                bulletSprite.size = new Vector2(0, bulletSprite.size.y);
-        }
-        else if(gameObject.tag.Contains("Constant") && isRemoveConstant)
-        {
-            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
-                bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
-            else
             {
                 bulletSprite.size = new Vector2(0, bulletSprite.size.y);
-                isRemoveConstant = false;
-            }            
+                Destroy(gameObject);
+            }
+        }
+        else if (gameObject.tag.Contains("Constant"))
+        {
+            if (isRemoveConstant)
+            {
+                if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
+                    bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+                else
+                {
+                    bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+                    isRemoveConstant = false;
+                    Destroy(gameObject);
+                }
+            }
+            if (isStartConstant)
+            {
+                if (bulletSprite.size.x + 4f * Time.deltaTime < endSize)
+                    bulletSprite.size += new Vector2(4f * Time.deltaTime, 0);
+                else
+                {
+                    bulletSprite.size = new Vector2(endSize, bulletSprite.size.y);
+                    isStartConstant = false;
+                }
+            }
         }
     }
 
@@ -135,5 +152,12 @@ public class Bullet : MonoBehaviour
     public void RemoveConstant()
     {
         isRemoveConstant = true;
+    }
+
+    public void StartConstant()
+    {
+        endSize = bulletSprite.size.x;
+        bulletSprite.size = new Vector2(0, bulletSprite.size.y);
+        isStartConstant = true;
     }
 }

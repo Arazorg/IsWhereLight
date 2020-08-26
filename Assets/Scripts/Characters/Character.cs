@@ -121,6 +121,15 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    public string CharacterType
+    {
+        get
+        {
+            return data.CharacterType;
+        }
+        protected set { }
+    }
+
     void Update()
     {
         if (phrasesCount > 5 && !isIgnore)

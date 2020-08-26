@@ -51,5 +51,13 @@ public class CharacterData : ScriptableObject
         get { return price; }
         protected set { }
     }
+
+    [Tooltip("Тип персонажа")]
+    [SerializeField] private string characterType;
+    public string CharacterType
+    {
+        get { return characterType; }
+        protected set { }
+    }
 #pragma warning restore 0649
 }

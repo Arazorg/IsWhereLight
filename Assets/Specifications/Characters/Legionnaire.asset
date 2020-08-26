@@ -19,3 +19,4 @@ MonoBehaviour:
   maxMane: 150
   startWeapon: Blade of Power
   price: 0
+  characterType: Defence

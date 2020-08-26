@@ -19,3 +19,4 @@ MonoBehaviour:
   maxMane: 280
   startWeapon: Haze Staff
   price: 400
+  characterType: Attack

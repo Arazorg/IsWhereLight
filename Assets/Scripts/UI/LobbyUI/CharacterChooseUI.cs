@@ -30,6 +30,15 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Кнопка следующего скина")]
     [SerializeField] private Button nextSkinButton;
 
+    [Tooltip("Изображение типа персонажа")]
+    [SerializeField] private Image typeImage;
+
+    [Tooltip("Текст типа персонажа")]
+    [SerializeField] private TextMeshProUGUI typeText;
+
+    [Tooltip("Текст описания персонажа")]
+    [SerializeField] private TextMeshProUGUI typeDescriptionText;
+
     [Tooltip("Изображение денег")]
     [SerializeField] private GameObject moneyImage;
 
@@ -56,6 +65,9 @@ public class CharacterChooseUI : MonoBehaviour
 
     [Tooltip("Лист персонажей лобби")]
     [SerializeField] private List<Character> characters;
+
+    [Tooltip("Лист персонажей лобби")]
+    [SerializeField] private List<Sprite> charactersTypes;
 
     [Tooltip("Размер камеры в игре")]
     [SerializeField] private float cameraSizeGame;
@@ -108,13 +120,12 @@ public class CharacterChooseUI : MonoBehaviour
     {
         currentGameInfo.character = currentCharacter.CharacterClass;
         currentGameInfo.skin = currentCharacter.Animations[skinCounter].name;
-
         currentGameInfo.maxHealth = currentCharacter.MaxHealth;
         currentGameInfo.maxMane = currentCharacter.MaxMane;
-
         currentGameInfo.startWeapon = currentCharacter.StartWeapon;
-        currentGameInfo.isLobby = true;
+        currentGameInfo.characterType = currentCharacter.CharacterType;
         characterPrice = currentCharacter.Price;
+        currentGameInfo.isLobby = true;
     }
 
     private void SetInfoBar()
@@ -127,7 +138,23 @@ public class CharacterChooseUI : MonoBehaviour
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
 
+        switch (currentGameInfo.characterType)
+        {
+            case "Defence":
+                typeImage.sprite = charactersTypes[0];
+                break;
+            case "Attack":
+                typeImage.sprite = charactersTypes[1];
+                break;
+            case "Healing":
+                typeImage.sprite = charactersTypes[2];
+                break;
+        }
 
+        typeText.GetComponent<LocalizedText>().key = currentGameInfo.characterType;
+        typeText.GetComponent<LocalizedText>().SetLocalization();
+        typeDescriptionText.GetComponent<LocalizedText>().key = $"{currentGameInfo.character}Description";
+        typeDescriptionText.GetComponent<LocalizedText>().SetLocalization();
         healthText.GetComponent<LocalizedText>().SetLocalization();
         maneText.GetComponent<LocalizedText>().SetLocalization();
         startWeaponText.GetComponent<LocalizedText>().SetLocalization();

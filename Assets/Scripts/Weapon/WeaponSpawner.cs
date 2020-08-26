@@ -62,6 +62,9 @@ public class WeaponSpawner : MonoBehaviour
             case WeaponData.AttackType.Laser:
                 spawnPrefab = weaponsPrefabs[3];
                 break;
+            case WeaponData.AttackType.ConstantLaser:
+                spawnPrefab = weaponsPrefabs[4];
+                break;
         }
     }
 
@@ -90,12 +93,12 @@ public class WeaponSpawner : MonoBehaviour
         var weaponScript = currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>();
         charInfo.weapons[currentWeaponNumber] = weaponScript.WeaponName + currentWeaponNumber;
 
-        if(weaponScript.TypeOfAttack != WeaponData.AttackType.Sword)
+        if (weaponScript.TypeOfAttack != WeaponData.AttackType.Sword)
         {
             var bulletSpawner = currentCharWeapon[currentWeaponNumber].GetComponent<BulletSpawner>();
             bulletSpawner.SetBullet(weaponScript.CurrentBullet);
         }
-            
+
         gameButtons = GameObject.Find("Canvas").transform.Find("CharacterControlUI").GetComponent<GameButtons>();
         gameButtons.SetWeaponInfo(weaponScript);
 

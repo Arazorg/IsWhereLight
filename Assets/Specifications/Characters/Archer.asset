@@ -19,3 +19,4 @@ MonoBehaviour:
   maxMane: 100
   startWeapon: Fortified Bow
   price: 1250
+  characterType: Attack
