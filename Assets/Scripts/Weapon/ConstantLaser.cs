@@ -51,27 +51,44 @@ public class ConstantLaser : MonoBehaviour
 
     void Update()
     {
-        if(isAttack)
+        if(isAttack && !CharAction.isDeath)
             Shoot();
     }
 
     public void Shoot()
     {
+        Vector3 enemyTransform = Vector3.zero;
         animator.SetBool("Attack", true);
-
-        if (gameObject.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.ConstantLaser &&
-                GetComponentInParent<CharController>().closestEnemy != null)
+        try
         {
+            enemyTransform = GetComponentInParent<CharController>().closestEnemy.transform.position;
+        }
+        catch
+        {
+            if (bullet != null)
+            {
+                bullet.GetComponent<Bullet>().RemoveConstant();
+                bullet = null;
+            }
+        }
+
+        if (GetComponentInParent<CharController>().closestEnemy != null)
+        {
+            if(bullet == null)
+            {
+                bulletSpawner.Spawn(transform);
+                bullet = bulletSpawner.CurrentWeaponBullet;
+                bullet.tag = "ConstantLaser";
+                isStart = true;
+            }
+
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Player") |
                         1 << LayerMask.NameToLayer("Ignore Raycast") |
                              1 << LayerMask.NameToLayer("Room"));
 
-           // RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
-            Vector3 enemyTransform = GetComponentInParent<CharController>().closestEnemy.transform.position;
             var laserScale = new Vector3(0.8f, (enemyTransform - transform.GetChild(0).position).magnitude);
-
-            if(isStart)
+            if (isStart)
             {
                 bullet.GetComponent<Bullet>().StartConstant();
                 isStart = false;
@@ -84,8 +101,16 @@ public class ConstantLaser : MonoBehaviour
 
             bullet.transform.rotation = transform.rotation;
         }
-    }
+        else
+        {
+            if (bullet != null)
+            {
+                bullet.GetComponent<Bullet>().RemoveConstant();
+                bullet = null;
+            }
+        }
 
+    }
     public void StopShoot()
     {
         isAttack = false;

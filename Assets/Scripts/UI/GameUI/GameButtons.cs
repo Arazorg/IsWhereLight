@@ -412,10 +412,7 @@ public class GameButtons : MonoBehaviour
                         charInfo.SpendMana(manecost);
                         audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         if (!isStaticAttack)
-                        {
-                            Debug.Log("start constant attack");
-                            currentWeapon.GetComponent<ConstantLaser>().IsAttack = true;
-                        }   
+                            currentWeapon.GetComponent<ConstantLaser>().IsAttack = true; 
                         if(currentWeapon.GetComponent<ConstantLaser>().IsAttack)
                             isStaticAttack = true;
                         nextAttack = Time.time + attackRate;
@@ -465,7 +462,6 @@ public class GameButtons : MonoBehaviour
             case WeaponData.AttackType.ConstantLaser:
                 if(isStaticAttack)
                 {
-                    Debug.Log("stop attack");
                     currentWeapon.GetComponent<ConstantLaser>().animator.SetBool("Attack", false);
                     currentWeapon.GetComponent<ConstantLaser>().StopShoot();
                     isStaticAttack = false;                    

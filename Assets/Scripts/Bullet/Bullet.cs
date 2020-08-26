@@ -89,18 +89,14 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (gameObject.tag.Contains("Constant"))
+        else if (gameObject.tag.Contains("Laser"))
         {
             if (isRemoveConstant)
             {
-                if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
-                    bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
-                else
-                {
-                    bulletSprite.size = new Vector2(0, bulletSprite.size.y);
-                    isRemoveConstant = false;
-                    Destroy(gameObject);
-                }
+                Debug.Log("Delete constant laser");
+                isRemoveConstant = false;
+                Destroy(gameObject);
+
             }
             if (isStartConstant)
             {
@@ -129,7 +125,7 @@ public class Bullet : MonoBehaviour
             if (collider.tag == "Destroyable")
             {
                 Destroy(collider.gameObject.transform.parent.gameObject);
-                if (!collider.tag.Contains("Laser"))
+                if (!gameObject.tag.Contains("Laser"))
                     Destroy(gameObject);
             }
             else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player")
