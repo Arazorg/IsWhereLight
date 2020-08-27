@@ -1,0 +1,1090 @@
+fileFormatVersion: 2
+guid: dda6db34c74ac1f4bbd522d88a1f2c30
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9103720623985615036
+    second: Ant 1_0
+  - first:
+      213: 877747579530972374
+    second: Ant 1_1
+  - first:
+      213: -3256560171551737633
+    second: Ant 1_2
+  - first:
+      213: -3764924500276444154
+    second: Ant 1_3
+  - first:
+      213: 7466634220260909711
+    second: Ant 1_4
+  - first:
+      213: -3963218119435425421
+    second: Ant 1_5
+  - first:
+      213: -3513960118810781740
+    second: Ant 1_6
+  - first:
+      213: 766336071908620505
+    second: Ant 1_7
+  - first:
+      213: -87885830324554526
+    second: Ant 1_8
+  - first:
+      213: -8920019243934015337
+    second: Ant 1_9
+  - first:
+      213: 2655143442109566653
+    second: Ant 1_10
+  - first:
+      213: 398020641934030190
+    second: Ant 1_11
+  - first:
+      213: -5774739259557487104
+    second: Ant 1_12
+  - first:
+      213: -2417029084123986189
+    second: Ant 1_13
+  - first:
+      213: 4912081520061787548
+    second: Ant 1_14
+  - first:
+      213: -5341749243578610343
+    second: Ant 1_15
+  - first:
+      213: 6400053670340848505
+    second: Ant 1_16
+  - first:
+      213: -3315771043952980274
+    second: Ant 1_17
+  - first:
+      213: -6980095010382392689
+    second: Ant 1_18
+  - first:
+      213: -5913638630388411235
+    second: Ant 1_19
+  - first:
+      213: 1300502554712917597
+    second: Ant 1_20
+  - first:
+      213: 8713004505336862471
+    second: Ant 1_21
+  - first:
+      213: -7764463966576155082
+    second: Ant 1_22
+  - first:
+      213: -7023215296408898112
+    second: Ant 1_23
+  - first:
+      213: 1058299022528206787
+    second: Ant 1_24
+  - first:
+      213: -8705223904166234702
+    second: Ant 1_25
+  - first:
+      213: -3726352465189934623
+    second: Ant 1_26
+  - first:
+      213: 804200421612698997
+    second: Ant 1_27
+  - first:
+      213: -4423553413688354246
+    second: Ant 1_28
+  - first:
+      213: 2394830809650416152
+    second: Ant 1_29
+  - first:
+      213: 219766984727330863
+    second: Ant 1_30
+  - first:
+      213: 2022363802949980873
+    second: Ant 1_31
+  - first:
+      213: -2682832581346533101
+    second: Ant 1_0
+  - first:
+      213: -6889849654711773447
+    second: Ant 1_1
+  - first:
+      213: 7982555485841605154
+    second: Ant 1_2
+  - first:
+      213: -5189623443144319953
+    second: Ant 1_3
+  - first:
+      213: 640962479167169037
+    second: Ant 1_4
+  - first:
+      213: 1039703373400476492
+    second: Ant 1_5
+  - first:
+      213: 4446099915836131374
+    second: Ant 1_6
+  - first:
+      213: -3926204688720934185
+    second: Ant 1_7
+  - first:
+      213: -3330170064073396941
+    second: Ant 1_8
+  - first:
+      213: 6208652770746755407
+    second: Ant 1_9
+  - first:
+      213: -364324979010336489
+    second: Ant 1_10
+  - first:
+      213: -192413885635304216
+    second: Ant 1_11
+  - first:
+      213: 1825741867559609936
+    second: Ant 1_12
+  - first:
+      213: 8707393742833307818
+    second: Ant 1_13
+  - first:
+      213: 2611463562435770292
+    second: Ant 1_14
+  - first:
+      213: 6262920015452957592
+    second: Ant 1_15
+  - first:
+      213: 3223324195003082300
+    second: Ant 1_16
+  - first:
+      213: -826114962123590204
+    second: Ant 1_17
+  - first:
+      213: 5325176973232662573
+    second: Ant 1_18
+  - first:
+      213: 4335513859580498691
+    second: Ant 1_19
+  - first:
+      213: 3009752510158579939
+    second: Ant 1_20
+  - first:
+      213: -5778553922382500053
+    second: Ant 1_21
+  - first:
+      213: -6509735097183785999
+    second: Ant 1_22
+  - first:
+      213: -1394072325123613568
+    second: Ant 1_23
+  - first:
+      213: 2026368660704033622
+    second: Ant 1_24
+  - first:
+      213: -5570500766282005006
+    second: Ant 1_25
+  - first:
+      213: 2873509438356481908
+    second: Ant 1_26
+  - first:
+      213: -8600142767980926817
+    second: Ant 1_27
+  - first:
+      213: 5021651976212241600
+    second: Ant 1_28
+  - first:
+      213: -8818935738476669380
+    second: Ant 1_29
+  - first:
+      213: -3865253103072215830
+    second: Ant 1_30
+  - first:
+      213: -347755692442853886
+    second: Ant 1_31
+  - first:
+      213: 8540151210148726317
+    second: AntSprite_0
+  - first:
+      213: 5121365494188209118
+    second: AntSprite_1
+  - first:
+      213: 1692330429822359097
+    second: AntSprite_2
+  - first:
+      213: -1519588384381345561
+    second: AntSprite_3
+  - first:
+      213: -6082634988380687986
+    second: AntSprite_4
+  - first:
+      213: -3625372210882699218
+    second: AntSprite_5
+  - first:
+      213: 592336785214624037
+    second: AntSprite_6
+  - first:
+      213: 7158821109222827669
+    second: AntSprite_7
+  - first:
+      213: 1430991893862310697
+    second: AntSprite_8
+  - first:
+      213: 3059751876842238717
+    second: AntSprite_9
+  - first:
+      213: -7424410299213241617
+    second: AntSprite_10
+  - first:
+      213: 2795297951418409446
+    second: AntSprite_11
+  - first:
+      213: -5624975481395182061
+    second: AntSprite_12
+  - first:
+      213: -2476635315783566962
+    second: AntSprite_13
+  - first:
+      213: -5923754321299644033
+    second: AntSprite_14
+  - first:
+      213: 7261585290953259094
+    second: AntSprite_15
+  - first:
+      213: -8248903186255069055
+    second: AntSprite_16
+  - first:
+      213: 6525312372227081795
+    second: AntSprite_17
+  - first:
+      213: 5230816115349563779
+    second: AntSprite_18
+  - first:
+      213: -7325110111217557506
+    second: AntSprite_19
+  - first:
+      213: 4846770556341557470
+    second: AntSprite_20
+  - first:
+      213: 3639200046699912357
+    second: AntSprite_21
+  - first:
+      213: 831776733682513097
+    second: AntSprite_22
+  - first:
+      213: 8382949800905699621
+    second: AntSprite_23
+  - first:
+      213: 3109270783024122956
+    second: AntSprite_24
+  - first:
+      213: -5633678768408215299
+    second: AntSprite_25
+  - first:
+      213: -1605750180057050111
+    second: AntSprite_26
+  - first:
+      213: -3143207380483088381
+    second: AntSprite_27
+  - first:
+      213: 3384882618331519821
+    second: AntSprite_28
+  - first:
+      213: 2029712245491234961
+    second: AntSprite_29
+  - first:
+      213: 28825546987680771
+    second: AntSprite_30
+  - first:
+      213: -5617640029407217863
+    second: AntSprite_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AntSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2689092746b48670800000000000000
+      internalID: 8540151210148726317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 490
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3f70668ceb21740800000000000000
+      internalID: 5121365494188209118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 490
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93655204f8d5c7710800000000000000
+      internalID: 1692330429822359097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 490
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0e3206a6659eae0800000000000000
+      internalID: -1519588384381345561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81f43b84b3269ba0800000000000000
+      internalID: -6082634988380687986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 420
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20a3c7ae2710bdc0800000000000000
+      internalID: -3625372210882699218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 420
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5215d16fa27683800800000000000000
+      internalID: 592336785214624037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 420
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5966bc9aedd395360800000000000000
+      internalID: 7158821109222827669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 350
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9236026bb87ebd310800000000000000
+      internalID: 1430991893862310697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_9
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 350
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df23408ee1c667a20800000000000000
+      internalID: 3059751876842238717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 350
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2a4a84b2237f890800000000000000
+      internalID: -7424410299213241617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 350
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1ebab3da4eac620800000000000000
+      internalID: 2795297951418409446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31688212a9210f1b0800000000000000
+      internalID: -5624975481395182061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_13
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 280
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8978845d4931add0800000000000000
+      internalID: -2476635315783566962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_14
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 280
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71ef3684d89acda0800000000000000
+      internalID: -5923754321299644033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_15
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 280
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658787d395556c460800000000000000
+      internalID: 7261585290953259094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180cda4b142068d80800000000000000
+      internalID: -8248903186255069055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_17
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 210
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3468e0ba7019e8a50800000000000000
+      internalID: 6525312372227081795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_18
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 210
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389acc8fa87979840800000000000000
+      internalID: 5230816115349563779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_19
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 210
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff5148f92bf75a90800000000000000
+      internalID: -7325110111217557506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed89f864420334340800000000000000
+      internalID: 4846770556341557470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_21
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac12224929018230800000000000000
+      internalID: 3639200046699912357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_22
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 140
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4b49748801b8b00800000000000000
+      internalID: 831776733682513097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_23
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 140
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5217aecdd68365470800000000000000
+      internalID: 8382949800905699621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c47a4bd49562b20800000000000000
+      internalID: 3109270783024122956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_25
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 70
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df04e56320721d1b0800000000000000
+      internalID: -5633678768408215299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_26
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 70
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1041ea708ba37b9e0800000000000000
+      internalID: -1605750180057050111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_27
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 70
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3006be67a851164d0800000000000000
+      internalID: -3143207380483088381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b5b08bec489fe20800000000000000
+      internalID: 3384882618331519821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_29
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198f3cc888cfa2c10800000000000000
+      internalID: 2029712245491234961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_30
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30438a8aea8666000800000000000000
+      internalID: 28825546987680771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AntSprite_31
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937fa2328222a02b0800000000000000
+      internalID: -5617640029407217863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

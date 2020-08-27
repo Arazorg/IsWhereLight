@@ -1,0 +1,1024 @@
+fileFormatVersion: 2
+guid: 47e82490f785e9d49a740c522e13e40b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8531561989521262188
+    second: BushSprite_0
+  - first:
+      213: -3912975178592542187
+    second: BushSprite_1
+  - first:
+      213: -5608304530099809317
+    second: BushSprite_2
+  - first:
+      213: -4225391678013919260
+    second: BushSprite_3
+  - first:
+      213: -2412909531403753631
+    second: BushSprite_4
+  - first:
+      213: -4614931376381678773
+    second: BushSprite_5
+  - first:
+      213: 584237507348383159
+    second: BushSprite_6
+  - first:
+      213: 7073891284585702686
+    second: BushSprite_7
+  - first:
+      213: -6727997393446452968
+    second: BushSprite_8
+  - first:
+      213: 7367170745061413687
+    second: BushSprite_9
+  - first:
+      213: -1868546630041483370
+    second: BushSprite_10
+  - first:
+      213: 7420225373847904543
+    second: BushSprite_11
+  - first:
+      213: -9042760914832992303
+    second: BushSprite_12
+  - first:
+      213: 7058248540969983591
+    second: BushSprite_13
+  - first:
+      213: -761279775372856106
+    second: BushSprite_14
+  - first:
+      213: -2378868634010205202
+    second: BushSprite_15
+  - first:
+      213: 5899589437684301705
+    second: BushSprite_16
+  - first:
+      213: 4072202047662821048
+    second: BushSprite_17
+  - first:
+      213: 5389131068901949875
+    second: BushSprite_18
+  - first:
+      213: 4959336851951108074
+    second: BushSprite_19
+  - first:
+      213: 23969978285255336
+    second: BushSprite_20
+  - first:
+      213: -1712173872461103665
+    second: BushSprite_21
+  - first:
+      213: -1288595932969917785
+    second: BushSprite_22
+  - first:
+      213: -3354342168777613311
+    second: BushSprite_23
+  - first:
+      213: 2351804717938323139
+    second: BushSprite_24
+  - first:
+      213: 9136729457188843880
+    second: BushSprite_25
+  - first:
+      213: 2981872054944464335
+    second: BushSprite_26
+  - first:
+      213: -5069569769466179414
+    second: BushSprite_27
+  - first:
+      213: -6907649253984490989
+    second: BushSprite_28
+  - first:
+      213: -8559468819437490435
+    second: BushSprite_29
+  - first:
+      213: -1328583572197543417
+    second: BushSprite_30
+  - first:
+      213: -2480517585330521624
+    second: BushSprite_31
+  - first:
+      213: -607869796069703935
+    second: BushSprite_32
+  - first:
+      213: -5249991792610190685
+    second: BushSprite_33
+  - first:
+      213: 4211489444019128313
+    second: BushSprite_34
+  - first:
+      213: 1263933897879634237
+    second: BushSprite_35
+  - first:
+      213: -4478241460488363957
+    second: BushSprite_36
+  - first:
+      213: -7610309226054530544
+    second: BushSprite_37
+  - first:
+      213: 5406243937424148570
+    second: BushSprite_38
+  - first:
+      213: 4626795976010691741
+    second: BushSprite_39
+  - first:
+      213: 8828588907285375020
+    second: BushSprite_40
+  - first:
+      213: -2760960197847561300
+    second: BushSprite_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BushSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4993c5b929dc99980800000000000000
+      internalID: -8531561989521262188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51222119ec152b9c0800000000000000
+      internalID: -3912975178592542187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3df237ebc4b22b0800000000000000
+      internalID: -5608304530099809317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_3
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efa61be7a46c55c0800000000000000
+      internalID: -4225391678013919260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1676689b09f938ed0800000000000000
+      internalID: -2412909531403753631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 840
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b27f73d5874ffb0800000000000000
+      internalID: -4614931376381678773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5c5f1eae0ab1800800000000000000
+      internalID: 584237507348383159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15667de4a28b2260800000000000000
+      internalID: 7073891284585702686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_8
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811ced1640a51a2a0800000000000000
+      internalID: -6727997393446452968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_9
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733190b72c27d3660800000000000000
+      internalID: 7367170745061413687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_10
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697cf1e6db69116e0800000000000000
+      internalID: -1868546630041483370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_11
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 700
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f116b89d9afe9f660800000000000000
+      internalID: 7420225373847904543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7d79acbd8a18280800000000000000
+      internalID: -9042760914832992303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_14
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 560
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d43636e3146f65f0800000000000000
+      internalID: -761279775372856106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_15
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 560
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3c086c49f8cfed0800000000000000
+      internalID: -2378868634010205202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_17
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 560
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be8f88df2e538830800000000000000
+      internalID: 4072202047662821048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b10ce1872a0aca40800000000000000
+      internalID: 5389131068901949875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 420
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa67f87198255000800000000000000
+      internalID: 23969978285255336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 420
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd304a3fe22d38e0800000000000000
+      internalID: -1712173872461103665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_23
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 420
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100a5eec19bf271d0800000000000000
+      internalID: -3354342168777613311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce2dc93ee943a020800000000000000
+      internalID: 2351804717938323139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_26
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 280
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcdf0a8d5dcb16920800000000000000
+      internalID: 2981872054944464335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_27
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 280
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0d8e6872545a9b0800000000000000
+      internalID: -5069569769466179414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_29
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 280
+        width: 210
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe656f6578a63980800000000000000
+      internalID: -8559468819437490435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702febcb74cef8de0800000000000000
+      internalID: -1328583572197543417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_31
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9b343066e639dd0800000000000000
+      internalID: -2480517585330521624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_32
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f739f14a96097f0800000000000000
+      internalID: -607869796069703935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_33
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aad0cfb7484427b0800000000000000
+      internalID: -5249991792610190685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_34
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7411ef557327a30800000000000000
+      internalID: 4211489444019128313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_35
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 140
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31c0bafe256a8110800000000000000
+      internalID: 1263933897879634237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b402a215e171ad1c0800000000000000
+      internalID: -4478241460488363957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_37
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a442e7410c26690800000000000000
+      internalID: -7610309226054530544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_38
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a588643b736d60b40800000000000000
+      internalID: 5406243937424148570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_39
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94f2562d6ea53040800000000000000
+      internalID: 4626795976010691741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_40
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28e2b6d5d2758a70800000000000000
+      internalID: 8828588907285375020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushSprite_41
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabcd4804591fa9d0800000000000000
+      internalID: -2760960197847561300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

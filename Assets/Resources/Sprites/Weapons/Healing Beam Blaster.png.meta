@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 388bcf432a9348a41a90dff5246bfe83
+guid: 83b309503e967294bb26443f775aee04
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -158,9 +158,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,9 +179,9 @@ TextureImporter:
         x: 80
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,9 +200,9 @@ TextureImporter:
         x: 160
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,9 +221,9 @@ TextureImporter:
         x: 240
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -242,9 +242,9 @@ TextureImporter:
         x: 320
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,9 +263,9 @@ TextureImporter:
         x: 400
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Healing Beam Blaster_6
       rect:
         serializedVersion: 2
-        x: 480
+        x: 479
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -305,9 +305,9 @@ TextureImporter:
         x: 560
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -326,9 +326,9 @@ TextureImporter:
         x: 640
         y: 0
         width: 80
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 220
+      alignment: 9
+      pivot: {x: 0.56, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1418554883050610334}
   - component: {fileID: 367137040053835748}
   m_Layer: 0
-  m_Name: BushTile2
+  m_Name: ForestWallTile2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -4557847400860323960, guid: 7f757498f5705e24d9485f4ddc075bef,
+  m_Sprite: {fileID: -1978118650525188057, guid: 68cbe8a77ea7331488b7b9357ee13068,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1166667, y: 1.1222222}
+    oldSize: {x: 1.1555556, y: 1.1444445}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
