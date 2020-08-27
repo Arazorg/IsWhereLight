@@ -93,7 +93,6 @@ public class Bullet : MonoBehaviour
         {
             if (isRemoveConstant)
             {
-                Debug.Log("Delete constant laser");
                 isRemoveConstant = false;
                 Destroy(gameObject);
 

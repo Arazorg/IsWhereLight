@@ -114,6 +114,10 @@ public class ConstantLaser : MonoBehaviour
     public void StopShoot()
     {
         isAttack = false;
-        bullet.GetComponent<Bullet>().RemoveConstant();
+        if (bullet != null)
+        {
+            bullet.GetComponent<Bullet>().RemoveConstant();
+            bullet = null;
+        }
     }
 }

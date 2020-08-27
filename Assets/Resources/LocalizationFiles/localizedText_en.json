@@ -882,8 +882,35 @@
     },
 	
 	{
+      "key": "CounterFPS",
+      "value": "FPS Counter"
+    },
+	
+	{
+      "key": "OffFps",
+      "value": "The frames per second will not be visible in the game and in the lobby."
+    },
+	
+	{
+      "key": "OnFps",
+      "value": "The frames per second will be visible in the game and in the lobby."
+    },
+	
+	{
+      "key": "StandartInterface",
+      "value": "It seems to us that this is the most convenient way, but everything is in your hands."
+    },
+	
+	{
+      "key": "ChangeColorTrancparency",
+      "value": "Change the colors and transparency of the interface!"
+    },
+	
+	{
       "key": "Healing",
       "value": "Healing"
     }
+	
+	
   ]
 }

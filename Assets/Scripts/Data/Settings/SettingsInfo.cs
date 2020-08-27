@@ -9,6 +9,7 @@ public class SettingsInfo : MonoBehaviour
     public string currentLocalization;
     public bool musicOn;
     public bool effectsOn;
+    public bool fpsOn;
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
     public float[] swapWeaponButtonPosition = new float[2];
@@ -33,6 +34,7 @@ public class SettingsInfo : MonoBehaviour
         currentLocalization = data.currentLocalization;
         musicOn = data.musicOn;
         effectsOn = data.effectsOn;
+        fpsOn = data.fpsOn;
         joystickPosition = data.joystickPosition;
         fireActButtonPosition = data.fireActButtonPosition;
         swapWeaponButtonPosition = data.swapWeaponButtonPosition;
@@ -64,6 +66,7 @@ public class SettingsInfo : MonoBehaviour
         SetStartPositions();
         musicOn = true;
         effectsOn = true;
+        fpsOn = true;
         color = "white";
         joystickType = "Dynamic";
     }

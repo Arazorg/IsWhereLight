@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InterfaceSettings : MonoBehaviour
@@ -22,14 +20,20 @@ public class InterfaceSettings : MonoBehaviour
     [Tooltip("UI кнопки смены оружия")]
     [SerializeField] private GameObject swapWeaponButton;
 
+    [Tooltip("UI кнопки счетчика ФПС")]
+    [SerializeField] private GameObject fpsCounterButton;
+
     [Tooltip("Кнопка динамического джойстика")]
     [SerializeField] private Button dynamicJoystickButton;
 
     [Tooltip("Кнопка статического джойстика")]
     [SerializeField] private Button staticJoystickButton;
 
-    [Tooltip("Текст подсказок")]
+    [Tooltip("Текст подсказок джойстика")]
     [SerializeField] private TextMeshProUGUI hintsText;
+
+    [Tooltip("Текст подсказок стандратных настроек, счетчика фпс")]
+    [SerializeField] private TextMeshProUGUI hintsText2;
 #pragma warning restore 0649
 
     private bool IsColorPanelState;
@@ -37,12 +41,14 @@ public class InterfaceSettings : MonoBehaviour
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
     private float hintTimer;
+    private float hintTimer2;
 
     void Start()
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = FindObjectOfType<AudioManager>();
         hintTimer = float.MaxValue;
+        hintTimer2 = float.MaxValue;
         if (MenuButtons.firstRun)
             SetStandart();
         else
@@ -62,6 +68,11 @@ public class InterfaceSettings : MonoBehaviour
                 dynamicJoystickButton.GetComponent<Image>().color = Color.red;
             else
                 staticJoystickButton.GetComponent<Image>().color = Color.red;
+
+            if (settingsInfo.fpsOn)
+                fpsCounterButton.GetComponent<Image>().color = Color.red;
+            else
+                fpsCounterButton.GetComponent<Image>().color = Color.white;
         }
     }
 
@@ -72,6 +83,12 @@ public class InterfaceSettings : MonoBehaviour
             hintsText.GetComponent<MovementUI>().MoveToStart();
             hintTimer = float.MaxValue;
         }
+
+        if (Time.time > hintTimer2)
+        {
+            hintsText2.GetComponent<MovementUI>().MoveToStart();
+            hintTimer2 = float.MaxValue;
+        }
     }
 
     public void InterfaceSettingsPanelClose()
@@ -80,9 +97,34 @@ public class InterfaceSettings : MonoBehaviour
         SetPosition();
         settingsInfo.SaveSettings();
         InterfaceDrag.isDraging = false;
-        
+
+        colorPanel.GetComponent<MovementUI>().MoveToStart();
+        IsColorPanelState = false;
         menuPanel.GetComponent<MovementUI>().MoveToStart();
         gameObject.GetComponent<MovementUI>().MoveToStart();
+    }
+
+    public void CounterFPSOnOff()
+    {
+        settingsInfo.fpsOn = !settingsInfo.fpsOn;
+        if (settingsInfo.fpsOn)
+            fpsCounterButton.GetComponent<Image>().color = Color.red;
+        else
+            fpsCounterButton.GetComponent<Image>().color = Color.white;
+        settingsInfo.SaveSettings();
+
+        hintsText2.GetComponent<MovementUI>().MoveToEnd();
+        if (settingsInfo.fpsOn)
+        {
+            hintsText2.GetComponent<LocalizedText>().key = "OnFps";
+            hintsText2.GetComponent<LocalizedText>().SetLocalization();
+        }
+        else
+        {
+            hintsText2.GetComponent<LocalizedText>().key = "OffFps";
+            hintsText2.GetComponent<LocalizedText>().SetLocalization();
+        }
+        hintTimer2 = Time.time + 3f;
     }
 
     public void SetStandart()
@@ -101,6 +143,11 @@ public class InterfaceSettings : MonoBehaviour
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
             new Vector3(SettingsInfo.startPositions["swapWeaponButtonPosition"][0],
                             SettingsInfo.startPositions["swapWeaponButtonPosition"][1]);
+
+        hintsText2.GetComponent<MovementUI>().MoveToEnd();
+        hintsText2.GetComponent<LocalizedText>().key = "StandartInterface";
+        hintsText2.GetComponent<LocalizedText>().SetLocalization();
+        hintTimer2 = Time.time + 3f;
     }
 
     public void ColorPanelOpenClose()
@@ -108,9 +155,19 @@ public class InterfaceSettings : MonoBehaviour
         audioManager.Play("ClickUI");
         IsColorPanelState = !IsColorPanelState;
         if (IsColorPanelState)
+        {
+            hintsText2.GetComponent<MovementUI>().MoveToEnd();
+            hintsText2.GetComponent<LocalizedText>().key = "ChangeColorTrancparency";
+            hintsText2.GetComponent<LocalizedText>().SetLocalization();
             colorPanel.GetComponent<MovementUI>().MoveToEnd();
+        }
         else
+        {
+            if (hintsText2.GetComponent<LocalizedText>().key == "ChangeColorTrancparency")
+                hintsText2.GetComponent<MovementUI>().MoveToStart();
             colorPanel.GetComponent<MovementUI>().MoveToStart();
+        }
+        hintTimer2 = Time.time + 3f;
     }
 
     public void SetColor(string color)

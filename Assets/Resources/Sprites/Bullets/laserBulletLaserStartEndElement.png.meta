@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 4d24494b79132f94582a19ec71d18b34
+guid: af67d2ae285f87e43b9077355162a1c3
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7902128981018555483
+    second: laserBulletLaserStartEndElement_0
+  - first:
+      213: 5522986893701030578
+    second: laserBulletLaserStartEndElement_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,13 +47,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 17, y: 36, z: 17, w: 34}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -99,7 +105,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: laserBulletLaserStartEndElement_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 34
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 16, z: 14, w: 15}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abc11d1f8ff55290800000000000000
+      internalID: -7902128981018555483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: laserBulletLaserStartEndElement_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2203a515795ac40800000000000000
+      internalID: 5522986893701030578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UISpawner : MonoBehaviour
 {
     public static UISpawner instance;
+
+    private bool isStartFpsCounter;
+    public bool IsStartFpsCounter
+    {
+        get { return isStartFpsCounter; }
+        set {
+            StartCoroutine(FpsCoroutine());
+        }
+    }
 
 #pragma warning disable 0649
     [Tooltip("Динамический джойстик")]
@@ -19,6 +29,9 @@ public class UISpawner : MonoBehaviour
 
     [Tooltip("Кнопка смены оружия")]
     [SerializeField] private Button swapWeaponButton;
+
+    [Tooltip("Текст FPS")]
+    [SerializeField] private TextMeshProUGUI fpsText;
 #pragma warning restore 0649
 
     private SettingsInfo settingsInfo;
@@ -33,6 +46,15 @@ public class UISpawner : MonoBehaviour
         else
         {
             instance = this;
+        }
+    }
+
+    IEnumerator FpsCoroutine()
+    {
+        while (true)
+        {
+            fpsText.text = ((int)(1f / Time.unscaledDeltaTime)).ToString();
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -56,6 +78,7 @@ public class UISpawner : MonoBehaviour
 
     private void SetPosition()
     {
+        HideShowFPS(true);
         var joystickPosition = new Vector2(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         var joystickRectTransform = joystick.GetComponent<RectTransform>();
         joystickRectTransform.anchorMin = Vector2.zero;
@@ -68,6 +91,13 @@ public class UISpawner : MonoBehaviour
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.swapWeaponButtonPosition[0], settingsInfo.swapWeaponButtonPosition[1]);
+    }
+    public void HideShowFPS(bool show)
+    {
+        if (show && settingsInfo.fpsOn)
+            fpsText.GetComponent<MovementUI>().MoveToEnd();
+        else
+            fpsText.GetComponent<MovementUI>().MoveToStart();
     }
 
     private void SetColor()

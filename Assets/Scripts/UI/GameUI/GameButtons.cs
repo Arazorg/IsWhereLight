@@ -114,7 +114,9 @@ public class GameButtons : MonoBehaviour
         startTime = Time.time;
         Time.timeScale = 1f;
 
-        GameObject.Find("UI_SpawnerHandler").GetComponent<UISpawner>().SetUI();
+
+        UISpawner.instance.SetUI();
+        UISpawner.instance.IsStartFpsCounter = true;
         pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -277,6 +279,7 @@ public class GameButtons : MonoBehaviour
             maneBar.GetComponent<MovementUI>().MoveToEnd();
             if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.textTimer != 0)
                 spawnTimer.GetComponent<MovementUI>().MoveToEnd();
+            UISpawner.instance.HideShowFPS(true);
         }
         else
         {
@@ -286,6 +289,7 @@ public class GameButtons : MonoBehaviour
             maneBar.GetComponent<MovementUI>().MoveToStart();
             if (SceneManager.GetActiveScene().name == "Game")
                 spawnTimer.GetComponent<MovementUI>().MoveToStart();
+            UISpawner.instance.HideShowFPS(false);
         }
 
     }
@@ -412,8 +416,8 @@ public class GameButtons : MonoBehaviour
                         charInfo.SpendMana(manecost);
                         audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         if (!isStaticAttack)
-                            currentWeapon.GetComponent<ConstantLaser>().IsAttack = true; 
-                        if(currentWeapon.GetComponent<ConstantLaser>().IsAttack)
+                            currentWeapon.GetComponent<ConstantLaser>().IsAttack = true;
+                        if (currentWeapon.GetComponent<ConstantLaser>().IsAttack)
                             isStaticAttack = true;
                         nextAttack = Time.time + attackRate;
                         break;
@@ -438,7 +442,7 @@ public class GameButtons : MonoBehaviour
                     startStringingTime = 0;
                     CharController.isRotate = false;
                     break;
-                
+
             }
         }
         isAttackUp = false;
@@ -460,11 +464,11 @@ public class GameButtons : MonoBehaviour
                 currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
                 break;
             case WeaponData.AttackType.ConstantLaser:
-                if(isStaticAttack)
+                if (isStaticAttack)
                 {
                     currentWeapon.GetComponent<ConstantLaser>().animator.SetBool("Attack", false);
                     currentWeapon.GetComponent<ConstantLaser>().StopShoot();
-                    isStaticAttack = false;                    
+                    isStaticAttack = false;
                 }
                 break;
         }
