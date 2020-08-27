@@ -14,7 +14,10 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private GameObject localizationPanel;
 
     [Tooltip("UI панели секретного кода")]
-    [SerializeField] private GameObject secretCode;
+    [SerializeField] private GameObject secretCodePanel;
+
+    [Tooltip("UI панели секретного кода")]
+    [SerializeField] private GameObject achivmentPanel;
 
     [Tooltip("UI панели закрытия текущей игры")]
     [SerializeField] private GameObject closeCurrentGamePanel;
@@ -65,20 +68,24 @@ public class MenuButtons : MonoBehaviour
     private readonly float hintTime = 7.5f;
     private int currentHint = 0;
 
+    private readonly float achivmentTime = 2f;
+    private float timeToAchivment;
     void Awake()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
+        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
+        localizationManager.LoadLocalizedText("localizedText_en");
+
         try
         {
             Destroy(GameObject.Find("CurrentGameHandler"));
             Destroy(GameObject.Find("LevelGeneration"));
         }
         catch { }
-        FilesCheck();
 
-        localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
+        FilesCheck();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Theme");
@@ -86,45 +93,6 @@ public class MenuButtons : MonoBehaviour
         Camera.main.backgroundColor = Color.black;
         NewHint();
         currentHint++;
-    }
-
-    private void FilesCheck()
-    {
-        settingsInfo.LoadSettings();
-        settingsInfo.SaveSettings();
-        progressInfo.LoadProgress();
-        progressInfo.SaveProgress();
-        if (PlayerPrefs.HasKey($"currentGame") && PlayerPrefs.HasKey($"character"))
-        {
-            firstPlay = false;
-            newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
-            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(-350, 250));
-        }
-        else
-        {
-            DeleteCurrentGame();
-            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
-            firstPlay = true;
-        }
-    }
-
-    private void SetStartObjectsActive()
-    {
-        if (!firstPlay)
-        {
-            CurrentGameInfo currentGameInfo = new CurrentGameInfo();
-            currentGameInfo.LoadCurrentGame();
-            continueButton.GetComponent<MovementUI>().MoveToEnd();
-            currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
-            currentGameTypeText.GetComponent<LocalizedText>().addable = currentGameInfo.currentWave.ToString();
-            Destroy(currentGameInfo);
-        }
-
-        newGameButton.GetComponent<MovementUI>().MoveToEnd();
-        settingsButton.GetComponent<MovementUI>().MoveToEnd();
-        VkButton.GetComponent<MovementUI>().MoveToEnd();
-        TwitterButton.GetComponent<MovementUI>().MoveToEnd();
-        hintsText.GetComponent<MovementUI>().MoveToEnd();
     }
 
     void Update()
@@ -158,6 +126,64 @@ public class MenuButtons : MonoBehaviour
                 currentHint++;
             }
         }
+
+        if (Time.time > timeToAchivment)
+        {
+            achivmentPanel.GetComponent<MovementUI>().MoveToStart();
+            timeToAchivment = float.MaxValue;
+        }
+    }
+
+    private void FilesCheck()
+    {
+        settingsInfo.LoadSettings();
+        progressInfo.LoadProgress();
+
+        if (!PlayerPrefs.HasKey($"settings"))
+        {
+            if (progressInfo.NewAchivment("FirstStartAchivment"))
+            {
+                achivmentPanel.GetComponent<MovementUI>().MoveToEnd();
+                achivmentPanel.GetComponentInChildren<LocalizedText>().key = "FirstStartAchivment";
+                achivmentPanel.GetComponentInChildren<LocalizedText>().SetLocalization();
+                timeToAchivment = Time.time + achivmentTime;
+            }
+        }
+
+        settingsInfo.SaveSettings();
+        progressInfo.SaveProgress();
+
+        if (PlayerPrefs.HasKey($"currentGame") && PlayerPrefs.HasKey($"character"))
+        {
+            firstPlay = false;
+            newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
+            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(-350, 250));
+        }
+        else
+        {
+            DeleteCurrentGame();
+            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
+            firstPlay = true;
+        }
+    }
+
+    private void SetStartObjectsActive()
+    {
+        if (!firstPlay)
+        {
+            CurrentGameInfo currentGameInfo = new CurrentGameInfo();
+            currentGameInfo.LoadCurrentGame();
+            continueButton.GetComponent<MovementUI>().MoveToEnd();
+            currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
+            currentGameTypeText.GetComponent<LocalizedText>().addable = currentGameInfo.currentWave.ToString();
+            Destroy(currentGameInfo);
+        }
+
+        newGameButton.GetComponent<MovementUI>().MoveToEnd();
+        settingsButton.GetComponent<MovementUI>().MoveToEnd();
+        VkButton.GetComponent<MovementUI>().MoveToEnd();
+        TwitterButton.GetComponent<MovementUI>().MoveToEnd();
+        hintsText.GetComponent<MovementUI>().MoveToEnd();
     }
 
     private void NewHint()
@@ -230,7 +256,7 @@ public class MenuButtons : MonoBehaviour
         exitButton.GetComponent<MovementUI>().MoveToStart();
         settingsPanel.GetComponent<MovementUI>().MoveToStart();
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
-        secretCode.GetComponent<MovementUI>().MoveToStart();
+        secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
         closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
     }

@@ -922,6 +922,11 @@
       "key": "ChangeColorTrancparency",
       "value": "Меняй цвета и прозрачность интерфейса!"
     },
+		
+	{
+      "key": "FirstStartAchivment",
+      "value": "Первый Запуск!"
+    },
 	
 	{
       "key": "Healing",

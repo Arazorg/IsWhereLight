@@ -83,7 +83,6 @@ public class ProgressInfo : MonoBehaviour
     {
         SetStartProgress();
         var progressString = NewSaveSystem.Load("progressInfo");
-
         if (progressString != null)
         {
             var strings = progressString.Split(new char[] { '\n' });
@@ -148,8 +147,8 @@ public class ProgressInfo : MonoBehaviour
     {
         achivments = new Dictionary<string, bool>
         {
-            {"firstPlay", false },
-            {"firstNewCharacter", false }
+            {"FirstStartAchivment", false },
+            {"FirstNewCharacter", false }
         };
     }
 
@@ -168,6 +167,20 @@ public class ProgressInfo : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public bool NewAchivment(string achivment)
+    {
+        if(achivments.ContainsKey(achivment))
+        {
+            if(!achivments[achivment])
+            {
+                achivments[achivment] = true;
+                SaveProgress();
+                return true;
+            }                
+        }
+        return false;
     }
 
     public int CheckSecretCode(string code)

@@ -52,18 +52,21 @@ public class SettingsInfo : MonoBehaviour
     {
         SetStartSettings();
         var settingsString = NewSaveSystem.Load("settings");
+        Debug.Log(settingsString);
         if (settingsString != null)
         {
             SettingsData saveObject = JsonUtility.FromJson<SettingsData>(settingsString);
             Init(saveObject);
-        };
+        }
+        else
+            Debug.Log("none settings");
     }
 
     public void SetStartSettings()
     {
         InitDictionary();
-        currentLocalization = "localizedText_en";
         SetStartPositions();
+        currentLocalization = "localizedText_en";       
         musicOn = true;
         effectsOn = true;
         fpsOn = true;
@@ -76,9 +79,9 @@ public class SettingsInfo : MonoBehaviour
     {
         startPositions["joystickPosition"] = new float[2] { 0, 0 };
         startPositions["fireActButtonPosition"] = new float[2] { -200, 250 };
+        startPositions["swapWeaponButtonPosition"] = new float[2] { -200, 0 };
         startPositions["hpBarPosition"] = new float[2] { 200, -100 };
         startPositions["maneBarPosition"] = new float[2] { 200, -175 };
-        startPositions["swapWeaponButtonPosition"] = new float[2] { -200, 0 };
     }
 
 
