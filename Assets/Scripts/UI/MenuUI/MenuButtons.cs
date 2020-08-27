@@ -72,11 +72,11 @@ public class MenuButtons : MonoBehaviour
     private float timeToAchivment;
     void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
+
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-        localizationManager.LoadLocalizedText("localizedText_en");
 
         try
         {
@@ -139,10 +139,11 @@ public class MenuButtons : MonoBehaviour
         settingsInfo.LoadSettings();
         progressInfo.LoadProgress();
 
-        if (!PlayerPrefs.HasKey($"settings"))
+        if (!PlayerPrefs.HasKey("settings"))
         {
             if (progressInfo.NewAchivment("FirstStartAchivment"))
             {
+                localizationManager.LoadLocalizedText(settingsInfo.currentLocalization, false);
                 achivmentPanel.GetComponent<MovementUI>().MoveToEnd();
                 achivmentPanel.GetComponentInChildren<LocalizedText>().key = "FirstStartAchivment";
                 achivmentPanel.GetComponentInChildren<LocalizedText>().SetLocalization();
@@ -271,5 +272,11 @@ public class MenuButtons : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("character");
         PlayerPrefs.DeleteKey("currentGame");
+    }
+
+    public void DeleteAllKeys()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.Quit();
     }
 }

@@ -27,7 +27,7 @@ public class LocalizationManager : MonoBehaviour
 
     }
 
-    public void LoadLocalizedText(string fileName)
+    public void LoadLocalizedText(string fileName, bool isSave = true)
     {
         localizedText = new Dictionary<string, string>();
 
@@ -38,8 +38,10 @@ public class LocalizationManager : MonoBehaviour
         {
             localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
         }
+        
         settingsInfo.currentLocalization = fileName;
-        settingsInfo.SaveSettings();
+        if(isSave)
+            settingsInfo.SaveSettings();
         RefreshText();
         isReady = true;
     }

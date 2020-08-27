@@ -125,6 +125,7 @@
      <Compile Include="Assets\Scripts\UI\LobbyUI\CharacterChooseUI.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaNotificationsEnabledAttribute.cs" />
+     <Compile Include="Assets\Scripts\Weapon\ConstantLaser.cs" />
      <Compile Include="Assets\AppMetrica\ExampleUI\PopUp.cs" />
      <Compile Include="Assets\Scripts\LevelSpawner\LevelGeneration.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationManager.cs" />
@@ -160,7 +161,6 @@
      <Compile Include="Assets\Scripts\System\Pathfinding\FunctionPeriodic.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
-     <Compile Include="Assets\Scripts\Weapon\ConstantLaser.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
