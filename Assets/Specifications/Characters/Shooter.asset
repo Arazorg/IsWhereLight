@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations:
   - {fileID: 9100000, guid: aba5a4b4c10e73c44a2a3a3f02ef2238, type: 2}
-  characterClass: Shooter
+  characterClass: Raider
   maxHealth: 13
   maxMane: 150
   startWeapon: Battle-scarred Rifle

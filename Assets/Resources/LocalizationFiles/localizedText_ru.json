@@ -90,60 +90,30 @@
       "key": "Legionnaire",
       "value": "Легионер"
     },
-			
-	{
-      "key": "LegionnaireDescription",
-      "value": "Изгнанный легионер римского батальона ищущий себя на полях сражений"
-    },
 
     {
       "key": "Archer",
       "value": "Лучник"
     },
 	
-	{
-      "key": "ArcherDescription",
-      "value": "Самый точный стрелок на восточном побережье, не хотите стрелу в колено?"
-    },
-
     {
-      "key": "Shooter",
+      "key": "Raider",
       "value": "Рейдер"
     },
-	
-	{
-      "key": "ShooterDescription",
-      "value": "Он отточил свои навыки на полях Ганс Оф Булшит, говорят он знаком с говорящим бананом."
-    },
 
     {
-      "key": "Doctor",
+      "key": "Isida",
       "value": "Изида"
     },
-	
-	{
-      "key": "DoctorDescription",
-      "value": "Создатель вакцины от короновируса и просто хорошая докторКА!"
-    },
 
     {
-      "key": "Mage",
+      "key": "Keeper",
       "value": "Хранитель"
-    },
-	
-	{
-      "key": "MageDescription",
-      "value": "А ваша любимая книга Некрономикон? Тогда вам знаком этот блеск в глазах."
     },
 
     {
       "key": "Mechanic",
       "value": "Механик"
-    },
-	
-	{
-      "key": "MechanicDescription",
-      "value": "Голодный? Любопытный? Неважно! Съеденные детали нашли в его теле пристанище, полу-робот, полу-человек."
     },
 
     {
@@ -157,12 +127,12 @@
     },
 
     {
-      "key": "SimpleMage",
+      "key": "SimpleKeeper",
       "value": "Обычный Хранитель"
     },
 
     {
-      "key": "DarkMage",
+      "key": "DarkKeeper",
       "value": "Темный Хранитель"
     },
 
@@ -172,12 +142,12 @@
     },
 
     {
-      "key": "SimpleShooter",
+      "key": "SimpleRaider",
       "value": "Обычный Рейдер"
     },
 
     {
-      "key": "SimpleDoctor",
+      "key": "SimpleIsida",
       "value": "Обычная Изида"
     },
 
@@ -267,152 +237,152 @@
     },
 
     {
-      "key": "MagePhrase0",
+      "key": "KeeperPhrase0",
       "value": "Шутки со временем до добра не доведут."
     },
 
     {
-      "key": "MagePhrase1",
+      "key": "KeeperPhrase1",
       "value": "Все, что мне нужно для счастья - два шерстяных носка."
     },
 
     {
-      "key": "MagePhrase2",
+      "key": "KeeperPhrase2",
       "value": "Меня переполняет мощь..."
     },
 
     {
-      "key": "MagePhrase3",
+      "key": "KeeperPhrase3",
       "value": "Не подскажешь, который сейчас год?"
     },
 
     {
-      "key": "MagePhrase4",
+      "key": "KeeperPhrase4",
       "value": "Если еще раз дернешь меня за бороду,\n то ни одно твоё желание больше никогда не исполнится."
     },
 
     {
-      "key": "MagePhrase5",
+      "key": "KeeperPhrase5",
       "value": "Знаешь, почему я такой веселый?\n В моей трубке не табак..."
     },
 
     {
-      "key": "MagePhrase6",
+      "key": "KeeperPhrase6",
       "value": "Иногда мой мозг удивляет меня самого."
     },
 
     {
-      "key": "MagePhrase7",
+      "key": "KeeperPhrase7",
       "value": "Война - кузница воли."
     },
 
     {
-      "key": "MageShootReaction0",
+      "key": "KeeperShootReaction0",
       "value": "Рекомендую практиковать навыки стрельбы в тире."
     },
 
     {
-      "key": "MageShootReaction1",
+      "key": "KeeperShootReaction1",
       "value": "Протего!"
     },
 
     {
-      "key": "DoctorPhrase0",
+      "key": "IsidaPhrase0",
       "value": "У тебя нездоровый вид."
     },
 
     {
-      "key": "DoctorPhrase1",
+      "key": "IsidaPhrase1",
       "value": "Опиши характер недомогания."
     },
 
     {
-      "key": "DoctorPhrase2",
+      "key": "IsidaPhrase2",
       "value": "Кто-то снова вороует медикаменты."
     },
 
     {
-      "key": "DoctorPhrase3",
+      "key": "IsidaPhrase3",
       "value": "Я сказала раздеться ДО пояса."
     },
 
     {
-      "key": "DoctorPhrase4",
+      "key": "IsidaPhrase4",
       "value": "Позвони мне в нерабочее время."
     },
 
     {
-      "key": "DoctorPhrase5",
+      "key": "IsidaPhrase5",
       "value": "Мой руки с мылом и не ешь летучих мышей."
     },
 
     {
-      "key": "DoctorPhrase6",
+      "key": "IsidaPhrase6",
       "value": "Налет белого цвета на головк...\n А ладно, проехали..."
     },
 
     {
-      "key": "DoctorPhrase7",
+      "key": "IsidaPhrase7",
       "value": "Давай пропустим историю болезни\n и сразу перейдем к завещанию."
     },
 
     {
-      "key": "DoctorShootReaction0",
+      "key": "IsidaShootReaction0",
       "value": "Твои действия безрассудны!"
     },
 
     {
-      "key": "DoctorShootReaction1",
+      "key": "IsidaShootReaction1",
       "value": "Лечение ментальных расстройств не входило в план.."
     },
 
     {
-      "key": "ShooterPhrase0",
+      "key": "RaiderPhrase0",
       "value": "Всё горит, если с бензином."
     },
 
     {
-      "key": "ShooterPhrase1",
+      "key": "RaiderPhrase1",
       "value": "Люблю теорию большого взрыва."
     },
 
     {
-      "key": "ShooterPhrase2",
+      "key": "RaiderPhrase2",
       "value": "Не видел моего низкорослого друга?"
     },
 
     {
-      "key": "ShooterPhrase3",
+      "key": "RaiderPhrase3",
       "value": "Кто такие эти вдребезги?\n И как их разбить?"
     },
 
     {
-      "key": "ShooterPhrase4",
+      "key": "RaiderPhrase4",
       "value": "Знаешь, откуда у меня эти шрамы?"
     },
 
     {
-      "key": "ShooterPhrase5",
+      "key": "RaiderPhrase5",
       "value": "Приглядишь за моей взрывчаткой?\n Мне нужно в барбершоп."
     },
 
     {
-      "key": "ShooterPhrase6",
+      "key": "RaiderPhrase6",
       "value": "Зададим им жару."
     },
 
     {
-      "key": "ShooterPhrase7",
+      "key": "RaiderPhrase7",
       "value": "Сейчас взорвусь от смеха."
     },
 
     {
-      "key": "ShooterShootReaction0",
+      "key": "RaiderShootReaction0",
       "value": "Еще один выстрел и ты пожалеешь, что появился на свет."
     },
 
     {
-      "key": "ShooterShootReaction1",
+      "key": "RaiderShootReaction1",
       "value": "Не связывайся с тем, кто тебе не по зубам."
     },
 
@@ -887,7 +857,7 @@
       "key": "HintMenu2",
       "value": "Ты можешь отправить фидбек или пожелание напрямую нам на электронную почту\n и получить персональный ответ, адрес ты найдешь в главном меню."
     },
-	
+
 	{
       "key": "Defence",
       "value": "Защита"
@@ -901,6 +871,11 @@
 	{
       "key": "CounterFPS",
       "value": "Счетчик ФПС"
+    },
+	
+	{
+      "key": "Save",
+      "value": "Сохранить"
     },
 	
 	{
@@ -922,15 +897,45 @@
       "key": "ChangeColorTrancparency",
       "value": "Меняй цвета и прозрачность интерфейса!"
     },
-		
-	{
-      "key": "FirstStartAchivment",
-      "value": "Первый Запуск!"
-    },
 	
 	{
       "key": "Healing",
       "value": "Лечение"
+    },
+		
+	{
+      "key": "FirstStartAchivment",
+      "value": "Первый запуск!"
+    },
+	
+	{
+      "key": "LegionnaireDescription",
+      "value": "Легионеры обычно долго не живут, однако этот стал исключением.\nМогучий воин защиты с большим запасом здоровья."
+    },
+	
+	{
+      "key": "ArcherDescription",
+      "value": "Демонический взгляд и звук натягивающейся тетивы.\nСоперник уже мертв, но еще этого не знает.\nНепревзойденный боец атаки."
+    },
+	
+	{
+      "key": "IsidaDescription",
+      "value": "Винтовка и меч не смогут залечить ран союзников, в отличии от её оружия.\nИскусная лекарька и просто хороший человек."
+    },
+	
+	{
+      "key": "MechanicDescription",
+      "value": "Этот парень знает все о механизмах и технике.\nЕсли что-то сломается - обращайся к нему.\nБлагодаря своим навыкам выстраивает прекрасную оборону."
+    },
+	
+	{
+      "key": "RaiderDescription",
+      "value": "Он ни раз был на волосок от смерти, но, судя по всему, его самого это не очень волнует.\nАгрессивный персонаж атаки."
+    },
+	
+	{
+      "key": "KeeperDescription",
+      "value": "Никто не знает, сколько ему лет и каков его истинный потенциал.\nЕго навыков будет достаточно, чтобы прорваться даже через огромные полчища врагов."
     }
   ]
 }

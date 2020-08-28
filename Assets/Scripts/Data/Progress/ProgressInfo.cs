@@ -125,10 +125,10 @@ public class ProgressInfo : MonoBehaviour
         characters = new Dictionary<string, bool>
         {
             { "Legionnaire", true },
-            { "Mage", false },
+            { "Keeper", false },
             { "Archer", false },
-            { "Shooter", false },
-            { "Doctor", false },
+            { "Raider", false },
+            { "Isida", false },
             { "Mechanic", false }
         };
     }

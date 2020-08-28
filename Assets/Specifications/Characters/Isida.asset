@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a66a82714f557e42a1a1f1166200fb3, type: 3}
-  m_Name: Doctor
+  m_Name: Isida
   m_EditorClassIdentifier: 
   animations:
   - {fileID: 9100000, guid: d8368446e80895042b2bc7a7729e991d, type: 2}
-  characterClass: Doctor
+  characterClass: Isida
   maxHealth: 6
   maxMane: 250
   startWeapon: Healing Beam Blaster

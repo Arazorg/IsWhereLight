@@ -26,6 +26,9 @@ public class SettingsButtons : MonoBehaviour
     [Tooltip("Текст полученных денег")]
     [SerializeField] private TextMeshProUGUI moneyPlusText;
 
+    [Tooltip("Изображение монетки")]
+    [SerializeField] private Image moneyImage;
+
     [Tooltip("Кнопка музыки")]
     [SerializeField] private Button musicButton;
 
@@ -55,6 +58,8 @@ public class SettingsButtons : MonoBehaviour
 
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
+
+        moneyImage.gameObject.SetActive(false);
     }
 
     public void InterfaceSettingsOpen()
@@ -114,6 +119,8 @@ public class SettingsButtons : MonoBehaviour
         IsLocalizationPanelState = false;
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
         moneyPlusText.text = "";
+        secretCodeField.text = "";
+        moneyImage.gameObject.SetActive(false);
 
     }
 
@@ -128,6 +135,8 @@ public class SettingsButtons : MonoBehaviour
         IsSecretPanelState = false;
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         moneyPlusText.text = "";
+        secretCodeField.text = "";
+        moneyImage.gameObject.SetActive(false);
     }
 
     public void ChangeLanguage(string fileName)
@@ -144,16 +153,19 @@ public class SettingsButtons : MonoBehaviour
         if (money != 0 && money != -1)
         {
             moneyPlusText.text = "+" + money.ToString();
+            moneyImage.gameObject.SetActive(true);
         }
         else if (money == 0)
         {
             moneyPlusText.GetComponent<LocalizedText>().key = "AlreadyUseCode";
             moneyPlusText.GetComponent<LocalizedText>().SetLocalization();
+            moneyImage.gameObject.SetActive(false);
         }
         else
         {
             moneyPlusText.GetComponent<LocalizedText>().key = "CodeDontExist";
             moneyPlusText.GetComponent<LocalizedText>().SetLocalization();
+            moneyImage.gameObject.SetActive(false);
         }
 
     }

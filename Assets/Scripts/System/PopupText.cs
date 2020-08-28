@@ -8,7 +8,7 @@ public class PopupText : MonoBehaviour
     //Create a damage popup
     public static PopupText Create(Vector3 position, bool isPhrase, 
                                     bool isCriticalHit = false, int damageAmount = -1, 
-                                        string phrase = "", float fontSize = 4.5f, bool isStatic = false)
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();

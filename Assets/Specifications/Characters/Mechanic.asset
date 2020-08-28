@@ -18,5 +18,5 @@ MonoBehaviour:
   maxHealth: 9
   maxMane: 120
   startWeapon: Gravity Laser
-  price: 0
+  price: 1250
   characterType: Defence

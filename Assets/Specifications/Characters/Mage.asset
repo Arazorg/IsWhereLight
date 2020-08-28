@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations:
   - {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
-  characterClass: Mage
+  characterClass: Keeper
   maxHealth: 8
   maxMane: 280
   startWeapon: Haze Staff

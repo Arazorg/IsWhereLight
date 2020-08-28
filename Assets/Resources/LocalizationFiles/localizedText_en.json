@@ -101,58 +101,28 @@
       "value": "Legionnaire"
     },
 	
-	{
-      "key": "LegionnaireDescription",
-      "value": "Legionnaire"
-    },
-
     {
-      "key": "Mage",
+      "key": "Keeper",
       "value": "Keeper"
     },
 	
-	{
-      "key": "MageDescription",
-      "value": "Keeper"
-    },
-
     {
       "key": "Archer",
       "value": "Archer"
     },
-	
-	{
-      "key": "ArcherDescription",
-      "value": "Archer"
-    },
 
     {
-      "key": "Shooter",
+      "key": "Raider",
       "value": "Raider"
     },
 	
-	{
-      "key": "ShooterDescription",
-      "value": "Raider"
-    },
-
     {
-      "key": "Doctor",
-      "value": "Isida"
-    },
-	
-	{
-      "key": "DoctorDescription",
+      "key": "Isida",
       "value": "Isida"
     },
 	
     {
       "key": "Mechanic",
-      "value": "Mechanic"
-    },
-	
-	{
-      "key": "MechanicDescription",
       "value": "Mechanic"
     },
 
@@ -167,12 +137,12 @@
     },
 
     {
-      "key": "SimpleMage",
+      "key": "SimpleKeeper",
       "value": "Simple Keeper"
     },
 
     {
-      "key": "DarkMage",
+      "key": "DarkKeeper",
       "value": "Dark Keeper"
     },
 
@@ -182,12 +152,12 @@
     },
 
     {
-      "key": "SimpleShooter",
+      "key": "SimpleRaider",
       "value": "Simple Raider"
     },
 
     {
-      "key": "SimpleDoctor",
+      "key": "SimpleIsida",
       "value": "Simple Isida"
     },
 
@@ -247,152 +217,152 @@
     },
 
     {
-      "key": "MagePhrase0",
+      "key": "KeeperPhrase0",
       "value": "My brain surprises even me sometimes."
     },
 
     {
-      "key": "MagePhrase1",
+      "key": "KeeperPhrase1",
       "value": "All I need to be happy are two woolen socks."
     },
 
     {
-      "key": "MagePhrase2",
+      "key": "KeeperPhrase2",
       "value": "To the well organized mind,\n death is but the next great adventure."
     },
 
     {
-      "key": "MagePhrase3",
+      "key": "KeeperPhrase3",
       "value": "If you pull my beard again,\n then none of your wishes will ever come true."
     },
 
     {
-      "key": "MagePhrase4",
+      "key": "KeeperPhrase4",
       "value": "Of course it's happening inside your head,\n but why on earth should that mean\n that it's not real?"
     },
 
     {
-      "key": "MagePhrase5",
+      "key": "KeeperPhrase5",
       "value": "Power overwhelms me..."
     },
 
     {
-      "key": "MagePhrase6",
+      "key": "KeeperPhrase6",
       "value": "We are only as strong as we are united,\n as weak as we are divided."
     },
 
     {
-      "key": "MagePhrase7",
+      "key": "KeeperPhrase7",
       "value": "Can you tell me which year it is?"
     },
 
     {
-      "key": "MageShootReaction0",
+      "key": "KeeperShootReaction0",
       "value": "The shooting range is a little further."
     },
 
     {
-      "key": "MageShootReaction1",
+      "key": "KeeperShootReaction1",
       "value": "Protego!"
     },
 
     {
-      "key": "DoctorPhrase0",
+      "key": "IsidaPhrase0",
       "value": "Describe the nature of the disease."
     },
 
     {
-      "key": "DoctorPhrase1",
+      "key": "IsidaPhrase1",
       "value": "You look unhealthy."
     },
 
     {
-      "key": "DoctorPhrase2",
+      "key": "IsidaPhrase2",
       "value": "Someone's stealing meds again."
     },
 
     {
-      "key": "DoctorPhrase3",
+      "key": "IsidaPhrase3",
       "value": "I said to strip TO THE WAIST"
     },
 
     {
-      "key": "DoctorPhrase4",
+      "key": "IsidaPhrase4",
       "value": "Call me after my work hours."
     },
 
     {
-      "key": "DoctorPhrase5",
+      "key": "IsidaPhrase5",
       "value": "Wash your hands, apply soap and don't eat bats."
     },
 
     {
-      "key": "DoctorPhrase6",
+      "key": "IsidaPhrase6",
       "value": "Operation complete!\n Now where did I leave my watch?"
     },
 
     {
-      "key": "DoctorPhrase7",
+      "key": "IsidaPhrase7",
       "value": "Can I see your insurance card?"
     },
 
     {
-      "key": "DoctorShootReaction0",
+      "key": "IsidaShootReaction0",
       "value": "Your actions are reckless!"
     },
 
     {
-      "key": "DoctorShootReaction1",
+      "key": "IsidaShootReaction1",
       "value": "Do you have mental problems?"
     },
 
     {
-      "key": "ShooterPhrase0",
+      "key": "RaiderPhrase0",
       "value": "I love the big bang theory."
     },
 
     {
-      "key": "ShooterPhrase1",
+      "key": "RaiderPhrase1",
       "value": "I'm bringing the pain,\n and the pizza in 30 minutes or it's free"
     },
 
     {
-      "key": "ShooterPhrase2",
+      "key": "RaiderPhrase2",
       "value": "I completely respect your opinion,\n as long as you keep it to yourself."
     },
 
     {
-      "key": "ShooterPhrase3",
+      "key": "RaiderPhrase3",
       "value": "What the hell are smithereens, anyway?"
     },
 
     {
-      "key": "ShooterPhrase4",
+      "key": "RaiderPhrase4",
       "value": "Do you wanna know how I got these scars?"
     },
 
     {
-      "key": "ShooterPhrase5",
+      "key": "RaiderPhrase5",
       "value": "Can you keep an eye on my explosives?\n I need to go to a barbershop.."
     },
 
     {
-      "key": "ShooterPhrase6",
+      "key": "RaiderPhrase6",
       "value": "Everything burns with gasoline."
     },
 
     {
-      "key": "ShooterPhrase7",
+      "key": "RaiderPhrase7",
       "value": "I'm so sexy. I sometimes romance myself."
     },
 
     {
-      "key": "ShooterShootReaction0",
+      "key": "RaiderShootReaction0",
       "value": "One more shot and you'll regret you were born."
     },
 
     {
-      "key": "ShooterShootReaction1",
+      "key": "RaiderShootReaction1",
       "value": "DO NOT MESS WITH ME!"
     },
 
@@ -892,13 +862,18 @@
     },
 	
 	{
+      "key": "Save",
+      "value": "Save"
+    },
+	
+	{
       "key": "OnFps",
       "value": "The frames per second will be visible in the game and in the lobby."
     },
 	
 	{
       "key": "StandartInterface",
-      "value": "It seems to us that this is the most convenient way, but everything is in your hands."
+      "value": "It seems to us that this's the most convenient way, but everything's in your hands."
     },
 	
 	{
@@ -910,12 +885,40 @@
       "key": "FirstStartAchivment",
       "value": "First Start!"
     },
-	
+		
 	{
       "key": "Healing",
       "value": "Healing"
+    },
+	
+	{
+      "key": "LegionnaireDescription",
+      "value": "Legionnaires don't usually live long, however, this one is an exception.\nA powerful warrior of defense with a large supply of health."
+    },
+	
+	{
+      "key": "ArcherDescription",
+      "value": "Demonic gaze and bowstring sound.\nThe enemy is already dead, but doesn't know it yet.\nUnrivaled attack fighter."
+    },
+	
+	{
+      "key": "IsidaDescription",
+      "value": "The rifle and sword will not be able to heal the wounds of allies, unlike her weapon.\nSkillful Isida and just a good person."
+    },
+	
+	{
+      "key": "MechanicDescription",
+      "value": "This guy knows everything about mechanics.\n If something breaks, contact him.\nThanks to his skills, he creates excellent defense."
+    },
+	
+	{
+      "key": "RaiderDescription",
+      "value": "He was on the verge of death more than once, but, apparently, he himself doesn't care.\nAn aggressive attacking character."
+    },
+	
+	{
+      "key": "KeeperDescription",
+      "value": "No one knows how old he is and his true potential.\nHis skills will be enough to break through even huge hordes of enemies."
     }
-	
-	
   ]
 }
