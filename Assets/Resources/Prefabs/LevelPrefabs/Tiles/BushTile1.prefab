@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2529501106327269322}
   - component: {fileID: 8064713759175372496}
   - component: {fileID: 8744991536958597034}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: BushTile1
   m_TagString: Destroyable
   m_Icon: {fileID: 0}

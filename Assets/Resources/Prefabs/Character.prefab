@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2124288211051524171}
   - component: {fileID: 6216328486193946664}
   - component: {fileID: -4659355296405908417}
-  - component: {fileID: 6216328486193946665}
   - component: {fileID: 376914118}
+  - component: {fileID: 6216328486193946665}
   - component: {fileID: 4952567868302082640}
   - component: {fileID: -4743250278244837176}
   m_Layer: 8
@@ -155,22 +155,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6216328486193946665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6216328486193946668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f79db4f65c218b4893a23cd7c6642b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterAnimator: {fileID: 2124288211051524171}
-  charInfo: {fileID: 4952567868302082640}
-  charGun: {fileID: 376914118}
-  speed: 8.5
 --- !u!114 &376914118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +174,23 @@ MonoBehaviour:
     type: 3}
   offsetGunDistant: {x: 0, y: -0.35, z: 0}
   offsetGunMelee: {x: -0.2, y: -0.35, z: 0}
+--- !u!114 &6216328486193946665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216328486193946668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f79db4f65c218b4893a23cd7c6642b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 2124288211051524171}
+  charInfo: {fileID: 4952567868302082640}
+  charGun: {fileID: 376914118}
+  speed: 8.5
+  closestEnemy: {fileID: 0}
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0

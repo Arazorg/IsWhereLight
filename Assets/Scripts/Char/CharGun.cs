@@ -44,7 +44,6 @@ public class CharGun : MonoBehaviour
         gameButtons = characterControlUI.GetComponent<GameButtons>();
         gunInfoBar = characterControlUI.Find("GunInfoBar").gameObject;
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
-        SpawnStartWeapon();
         gunInfoBar.GetComponent<MovementUI>().SetStart();
     }
 
@@ -133,8 +132,10 @@ public class CharGun : MonoBehaviour
             = transform.position + offsetGunMelee;
     }
 
-    private void SpawnStartWeapon()
+    public void SpawnStartWeapon()
     {
+        var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
+        gameButtons = characterControlUI.GetComponent<GameButtons>();
         WeaponSpawner.instance.countOfWeapon = 0;
         currentWeaponNumber = 0;
         var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);

@@ -216,7 +216,6 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            //изменить
             GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
         }
     }
@@ -239,7 +238,12 @@ public class Enemy : MonoBehaviour
                 else
                 {
                     GetComponent<Animator>().Play("Death");
+                    foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
+                        Destroy(collider2D);
+
                     isDeath = true;
+                    GetComponent<Rigidbody2D>().simulated = false;
+
                     ColorUtility.TryParseHtmlString("#808080", out Color color);
                     gameObject.tag = "IgnoreAll";
                     gameObject.layer = 2;

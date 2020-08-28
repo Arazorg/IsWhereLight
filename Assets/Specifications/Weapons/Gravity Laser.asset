@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Gravity Laser
   mainAnimator: {fileID: 9100000, guid: 7b273ce5bc35b874b97617df47851fa4, type: 2}
-  mainSprite: {fileID: 6523057921188269382, guid: 583d5c4a2ce4df14d93d9dcc06a1a77e,
+  mainSprite: {fileID: -111334824095217988, guid: 2f6454ec10fa2bd43997291f1b1cd84f,
     type: 3}
   typeOfAttack: 3
-  offset: {x: 0, y: -0.2}
+  offset: {x: 0, y: -0.25}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
   attackAngle: 0
   radius: 0
-  knoking: 250
+  knoking: 200
   fireRate: 0.5
   damage: 3
   critChance: 10

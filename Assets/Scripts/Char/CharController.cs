@@ -51,6 +51,7 @@ public class CharController : MonoBehaviour
         isRotate = true;
         joystick = GameObject.Find($"Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
+        charGun.SpawnStartWeapon();
         gun = transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
         if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow) //ОШИБКА
             isRotate = false;

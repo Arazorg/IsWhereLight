@@ -8,9 +8,9 @@ public class ConstantLaser : MonoBehaviour
 #pragma warning restore 0649
 
     public Animator animator;
-    private bool isAttack;
-    private bool isStart;
 
+    private bool isStart;
+    private bool isAttack;
     public bool IsAttack
     {
         get
@@ -19,6 +19,7 @@ public class ConstantLaser : MonoBehaviour
         }
         set {
             isAttack = value;
+            timeToDamage = Time.time + GetComponent<Weapon>().FireRate;
             if (GetComponentInParent<CharController>().closestEnemy != null)
             {
                 bulletSpawner.Spawn(transform);
@@ -30,15 +31,17 @@ public class ConstantLaser : MonoBehaviour
                 isAttack = false;
         }
     }
-
     private BulletSpawner bulletSpawner;
     private GameObject bullet;
     private GameObject startElement;
     private GameObject endElement;
     private float bulletScatterAngle;
+    private float timeToDamage;
 
     void Start()
     {
+        if(!isAttack)
+            timeToDamage = float.MaxValue;
         animator = GetComponent<Animator>();
         transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
     }
@@ -52,7 +55,20 @@ public class ConstantLaser : MonoBehaviour
     void Update()
     {
         if(isAttack && !CharAction.isDeath)
+        {
             Shoot();
+            if(Time.time > timeToDamage)
+            {
+                //вынести наружу перменную врага и перменные оружия получать раз, компомент, изменить цвета для союзаных построек, добавить лечение и восстанволение мпанв текст
+                timeToDamage = Time.time + GetComponent<Weapon>().FireRate;
+                GetComponentInParent<CharController>().closestEnemy.
+                    GetComponent<Enemy>().GetDamage(GetComponent<Weapon>().Damage, 
+                                                        GetComponent<Weapon>().CritChance, 
+                                                            GetComponent<Weapon>().Knoking);
+            }
+            
+        }
+            
     }
 
     public void Shoot()
@@ -82,11 +98,6 @@ public class ConstantLaser : MonoBehaviour
                 isStart = true;
             }
 
-            LayerMask layerMask
-                = ~(1 << LayerMask.NameToLayer("Player") |
-                        1 << LayerMask.NameToLayer("Ignore Raycast") |
-                             1 << LayerMask.NameToLayer("Room"));
-
             var laserScale = new Vector3(0.8f, (enemyTransform - transform.GetChild(0).position).magnitude);
             if (isStart)
             {
@@ -94,7 +105,6 @@ public class ConstantLaser : MonoBehaviour
                 isStart = false;
             }
             bullet.GetComponent<SpriteRenderer>().size = laserScale;
-            bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0, 0.33f);
             bullet.transform.position
             = new Vector3((enemyTransform.x + transform.GetChild(0).position.x) / 2,
                             (enemyTransform.y + transform.GetChild(0).position.y) / 2);
@@ -113,6 +123,7 @@ public class ConstantLaser : MonoBehaviour
     }
     public void StopShoot()
     {
+        timeToDamage = float.MaxValue;
         isAttack = false;
         if (bullet != null)
         {

@@ -20,6 +20,14 @@ public class BulletData : ScriptableObject
         protected set { }
     }
 
+    [Tooltip("Аниматор")]
+    [SerializeField] private RuntimeAnimatorController mainAnimator;
+    public RuntimeAnimatorController MainAnimator
+    {
+        get { return mainAnimator; }
+        protected set { }
+    }
+
     [Tooltip("Тип пули")]
     [SerializeField] private BulletType typeOfBullet;
     public BulletType TypeOfBullet

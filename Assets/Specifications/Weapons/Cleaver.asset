@@ -22,9 +22,10 @@ MonoBehaviour:
   standartAngle: 0
   attackAngle: 50
   radius: 3.2
-  knoking: 20
+  knoking: 50
   fireRate: 1.2
   damage: 14
   critChance: 25
   currentBullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}
   manecost: 0
+  firePointPosition: {x: 0, y: 0}

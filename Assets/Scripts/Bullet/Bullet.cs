@@ -17,6 +17,8 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        if (MainAnimator != null)
+            GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         bulletSprite = GetComponent<SpriteRenderer>();
     }
 
@@ -25,6 +27,15 @@ public class Bullet : MonoBehaviour
         get
         {
             return data.MainSprite;
+        }
+        protected set { }
+    }
+
+    public RuntimeAnimatorController MainAnimator
+    {
+        get
+        {
+            return data.MainAnimator;
         }
         protected set { }
     }

@@ -30,7 +30,8 @@ public class Sword : MonoBehaviour
     public void Hit()
     {
         animator.SetBool("Attack", true);
-        var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, enemyLayer);
+        var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, 
+                (1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("EnemyStatic")));
         foreach (var enemy in enemies)
         {
             var enemyScript = enemy.GetComponent<Enemy>();

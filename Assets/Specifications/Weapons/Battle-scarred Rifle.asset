@@ -22,7 +22,7 @@ MonoBehaviour:
   standartAngle: 0
   attackAngle: 0
   radius: 0
-  knoking: 0.25
+  knoking: 25
   fireRate: 0.35
   damage: 2
   critChance: 15
