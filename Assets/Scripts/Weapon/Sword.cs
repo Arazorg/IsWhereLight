@@ -46,8 +46,7 @@ public class Sword : MonoBehaviour
                         Destroy(enemy.gameObject.transform.parent.gameObject);
                     else if (enemy.transform.tag == "Enemy")
                     {
-                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
-                        enemyScript.Knoking(transform.position, 0.25f);
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, 0.25f);
                     }
                 }
             }
@@ -60,8 +59,7 @@ public class Sword : MonoBehaviour
                         Destroy(enemy.gameObject.transform.parent.gameObject);
                     else if (enemy.transform.tag == "Enemy")
                     {
-                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance);
-                        enemyScript.Knoking(transform.position, 0.25f);
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, 0.25f);
                     }
 
                 }

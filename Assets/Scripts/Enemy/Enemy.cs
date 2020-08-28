@@ -206,21 +206,12 @@ public class Enemy : MonoBehaviour
                     || coll.gameObject.tag.Contains("Laser"))
             {
                 var bullet = coll.gameObject.GetComponent<Bullet>();
-                Knoking(coll.transform.position, bullet.Knoking);
-                GetDamage(bullet.Damage, bullet.CritChance);
+                GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
             }
         }
     }
 
-    public void Knoking(Vector3 objectPosition, float weaponKnoking)
-    {
-        if (!isDeath)
-        {
-            GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
-        }
-    }
-
-    public void GetDamage(int damage, float critChance, float knoking = 0f)
+    public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
     {
         if(!isDeath)
         {
@@ -230,6 +221,7 @@ public class Enemy : MonoBehaviour
             if (isCriticalHit)
                 damage *= 2;
             health -= damage;
+            Knoking(objectTransform.position, knoking);
             PopupText.Create(transform.position, false, isCriticalHit, damage);
             if (health <= 0)
             {
@@ -252,7 +244,15 @@ public class Enemy : MonoBehaviour
                 }
 
             }
-        }        
+        }
+    }
+
+    private void Knoking(Vector3 objectPosition, float weaponKnoking)
+    {
+        if (!isDeath)
+        {
+            GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
+        }
     }
 
     void OnBecameVisible()

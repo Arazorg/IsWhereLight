@@ -2,15 +2,11 @@
 
 public class ConstantLaser : MonoBehaviour
 {
-#pragma warning disable 0649
-    [Tooltip("Элемент в конце и начале лазера")]
-    [SerializeField] private GameObject startEndElement;
-#pragma warning restore 0649
-
     public Animator animator;
-
+    private Weapon weapon;
     private bool isStart;
     private bool isAttack;
+
     public bool IsAttack
     {
         get
@@ -31,11 +27,9 @@ public class ConstantLaser : MonoBehaviour
                 isAttack = false;
         }
     }
+
     private BulletSpawner bulletSpawner;
     private GameObject bullet;
-    private GameObject startElement;
-    private GameObject endElement;
-    private float bulletScatterAngle;
     private float timeToDamage;
 
     void Start()
@@ -43,13 +37,13 @@ public class ConstantLaser : MonoBehaviour
         if(!isAttack)
             timeToDamage = float.MaxValue;
         animator = GetComponent<Animator>();
-        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
+        weapon = GetComponent<Weapon>();
+        transform.GetChild(0).localPosition = weapon.firePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
     {
         bulletSpawner = GetComponent<BulletSpawner>();
-        bulletScatterAngle = bullet.Scatter;
     }
 
     void Update()
@@ -59,12 +53,12 @@ public class ConstantLaser : MonoBehaviour
             Shoot();
             if(Time.time > timeToDamage)
             {
-                //вынести наружу перменную врага и перменные оружия получать раз, компомент, изменить цвета для союзаных построек, добавить лечение и восстанволение мпанв текст
-                timeToDamage = Time.time + GetComponent<Weapon>().FireRate;
-                GetComponentInParent<CharController>().closestEnemy.
-                    GetComponent<Enemy>().GetDamage(GetComponent<Weapon>().Damage, 
-                                                        GetComponent<Weapon>().CritChance, 
-                                                            GetComponent<Weapon>().Knoking);
+                Debug.Log(Time.time + " " + timeToDamage);
+                var closestEnemy = GetComponentInParent<CharController>().closestEnemy;
+                timeToDamage = Time.time + weapon.FireRate;
+                if(closestEnemy != null)
+                    closestEnemy.GetComponent<Enemy>()
+                        .GetDamage(weapon.Damage, weapon.CritChance, closestEnemy.transform, weapon.Knoking);
             }
             
         }
@@ -73,11 +67,11 @@ public class ConstantLaser : MonoBehaviour
 
     public void Shoot()
     {
-        Vector3 enemyTransform = Vector3.zero;
+        Vector3 enemyPosition = Vector3.zero;
         animator.SetBool("Attack", true);
         try
         {
-            enemyTransform = GetComponentInParent<CharController>().closestEnemy.transform.position;
+            enemyPosition = GetComponentInParent<CharController>().closestEnemy.transform.position;
         }
         catch
         {
@@ -98,7 +92,7 @@ public class ConstantLaser : MonoBehaviour
                 isStart = true;
             }
 
-            var laserScale = new Vector3(0.8f, (enemyTransform - transform.GetChild(0).position).magnitude);
+            var laserScale = new Vector3(0.8f, (enemyPosition - transform.GetChild(0).position).magnitude);
             if (isStart)
             {
                 bullet.GetComponent<Bullet>().StartConstant();
@@ -106,8 +100,8 @@ public class ConstantLaser : MonoBehaviour
             }
             bullet.GetComponent<SpriteRenderer>().size = laserScale;
             bullet.transform.position
-            = new Vector3((enemyTransform.x + transform.GetChild(0).position.x) / 2,
-                            (enemyTransform.y + transform.GetChild(0).position.y) / 2);
+            = new Vector3((enemyPosition.x + transform.GetChild(0).position.x) / 2,
+                            (enemyPosition.y + transform.GetChild(0).position.y) / 2);
 
             bullet.transform.rotation = transform.rotation;
         }
