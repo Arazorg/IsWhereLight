@@ -59,5 +59,13 @@ public class CharacterData : ScriptableObject
         get { return characterType; }
         protected set { }
     }
+
+    [Tooltip("Скилл персонажа")]
+    [SerializeField] private float skillTime;
+    public float SkillTime
+    {
+        get { return skillTime; }
+        protected set { }
+    }
 #pragma warning restore 0649
 }

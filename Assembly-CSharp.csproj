@@ -89,7 +89,6 @@
      <Compile Include="Assets\Scripts\Bullet\BulletData.cs" />
      <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaAttribute.cs" />
-     <Compile Include="Assets\Scripts\Bullet\LaserBullet.cs" />
      <Compile Include="Assets\Scripts\Audio\Sound.cs" />
      <Compile Include="Assets\Scripts\Char\CharGun.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfile.cs" />
@@ -161,6 +160,7 @@
      <Compile Include="Assets\Scripts\System\Pathfinding\FunctionPeriodic.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
+     <Compile Include="Assets\Scripts\Char\CharSkills.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

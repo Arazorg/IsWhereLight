@@ -19,7 +19,7 @@ public class CharController : MonoBehaviour
 #pragma warning restore 0649
 
     public static bool isRotate;
-
+    public string currentTag;
     public RuntimeAnimatorController CharacterRuntimeAnimatorController
     {
         get { return characterAnimator.runtimeAnimatorController; }
@@ -57,6 +57,7 @@ public class CharController : MonoBehaviour
             isRotate = false;
         m_FacingRight = true;
         isStop = false;
+        currentTag = "Enemy";
     }
 
     void FixedUpdate()
@@ -66,7 +67,7 @@ public class CharController : MonoBehaviour
             characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
                                          Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
-            if (!RotateGunToEnemy())
+            if (!RotateGunToEnemy(currentTag))
             {
                 closestEnemy = null;
                 if (joystick.Horizontal > 0 && !m_FacingRight)
@@ -131,9 +132,9 @@ public class CharController : MonoBehaviour
         return gunAngle;
     }
 
-    private bool RotateGunToEnemy()
+    private bool RotateGunToEnemy(string tag = "Enemy")
     {
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        var enemies = GameObject.FindGameObjectsWithTag(tag);
         if (enemies.Length != 0)
         {
             closestEnemy = null;
@@ -159,7 +160,7 @@ public class CharController : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.tag == tag)
                 {
                     gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
                                             closestEnemy.transform.position.y - transform.position.y)

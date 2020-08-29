@@ -20,3 +20,4 @@ MonoBehaviour:
   startWeapon: Healing Beam Blaster
   price: 2500
   characterType: Healing
+  skillTime: 5

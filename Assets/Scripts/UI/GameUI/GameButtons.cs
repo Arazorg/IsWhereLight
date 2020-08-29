@@ -114,7 +114,6 @@ public class GameButtons : MonoBehaviour
         startTime = Time.time;
         Time.timeScale = 1f;
 
-
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
         pause.SetActive(false);
@@ -123,8 +122,6 @@ public class GameButtons : MonoBehaviour
 
         IsGamePausedState = false;
         SetStartUI();
-
-
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();

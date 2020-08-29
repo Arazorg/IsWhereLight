@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LaserBullet : MonoBehaviour
+﻿using UnityEngine;
+public class CharSkills : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

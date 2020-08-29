@@ -22,6 +22,7 @@ TagManager:
   - WeaponStore
   - StandartLaser
   - ConstantLaser
+  - Allies
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
-        if (MainAnimator != null)
-            GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
+        if (Animators.Count != 0)
+            GetComponent<Animator>().runtimeAnimatorController = Animators[0];
         bulletSprite = GetComponent<SpriteRenderer>();
     }
 
@@ -31,11 +32,11 @@ public class Bullet : MonoBehaviour
         protected set { }
     }
 
-    public RuntimeAnimatorController MainAnimator
+    public List<RuntimeAnimatorController> Animators
     {
         get
         {
-            return data.MainAnimator;
+            return data.Animators;
         }
         protected set { }
     }

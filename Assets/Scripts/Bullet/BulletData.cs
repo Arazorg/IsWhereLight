@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Bullets/Standart Bullets", fileName = "New Bullet")]
 public class BulletData : ScriptableObject
@@ -21,10 +22,10 @@ public class BulletData : ScriptableObject
     }
 
     [Tooltip("Аниматор")]
-    [SerializeField] private RuntimeAnimatorController mainAnimator;
-    public RuntimeAnimatorController MainAnimator
+    [SerializeField] private List<RuntimeAnimatorController> animators;
+    public List<RuntimeAnimatorController> Animators
     {
-        get { return mainAnimator; }
+        get { return animators; }
         protected set { }
     }
 

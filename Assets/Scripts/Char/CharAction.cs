@@ -137,7 +137,7 @@ public class CharAction : MonoBehaviour
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         GetComponent<SpriteRenderer>().color = color;
-        transform.GetChild(0).gameObject.SetActive(false);
+        transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(false);
         standartSpeed = GetComponent<CharController>().speed;
         GetComponent<CharController>().SetRbVelocityZero();
         gameObject.tag = "IgnoreAll";
@@ -159,7 +159,7 @@ public class CharAction : MonoBehaviour
         NewSaveSystem.Delete("characterTemp");
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;
-        transform.GetChild(0).gameObject.SetActive(true);      
+        transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(true);
         gameObject.tag = "Player";
     }
 }

@@ -14,6 +14,7 @@ public class CurrentGameData
     public int countResurrect = 1;
     public bool canExit = true;
     public string characterType;
+    public float skillTime;
 
     public CurrentGameData(CurrentGameInfo currentGameInfo)
     {
@@ -29,5 +30,6 @@ public class CurrentGameData
         countResurrect = currentGameInfo.countResurrect;
         canExit = currentGameInfo.canExit;
         characterType = currentGameInfo.characterType;
+        skillTime = currentGameInfo.skillTime;
     }
 }

@@ -18,7 +18,6 @@ public class Bow : MonoBehaviour
         bulletSpawner = GetComponent<BulletSpawner>();
         bulletSpeed = bullet.Speed;
         bulletScatterAngle = bullet.Scatter;
-        Debug.Log(bullet.Scatter);
     }
 
     public void Pulling()

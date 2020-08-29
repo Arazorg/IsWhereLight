@@ -20,3 +20,4 @@ MonoBehaviour:
   startWeapon: Battle-scarred Rifle
   price: 1000
   characterType: Attack
+  skillTime: 3

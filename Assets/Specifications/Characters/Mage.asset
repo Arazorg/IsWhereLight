@@ -20,3 +20,4 @@ MonoBehaviour:
   startWeapon: Haze Staff
   price: 400
   characterType: Attack
+  skillTime: 15

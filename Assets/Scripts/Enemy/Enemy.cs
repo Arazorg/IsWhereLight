@@ -201,9 +201,10 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            if (coll.gameObject.tag.Contains("Bullet")
-                || coll.gameObject.tag.Contains("Arrow")
-                    || coll.gameObject.tag.Contains("Laser"))
+            if (coll.gameObject.tag == "StandartBullet"
+                || coll.gameObject.tag == "StandartArrow"
+                    || coll.gameObject.tag == "StandartLaser"
+                        || coll.gameObject.tag == "ConstantLaser")
             {
                 var bullet = coll.gameObject.GetComponent<Bullet>();
                 GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
@@ -216,7 +217,6 @@ public class Enemy : MonoBehaviour
         if(!isDeath)
         {
             isEnemyHitted = true;
-
             bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
             if (isCriticalHit)
                 damage *= 2;

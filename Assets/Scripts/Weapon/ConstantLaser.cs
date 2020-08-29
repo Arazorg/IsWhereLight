@@ -53,7 +53,6 @@ public class ConstantLaser : MonoBehaviour
             Shoot();
             if(Time.time > timeToDamage)
             {
-                Debug.Log(Time.time + " " + timeToDamage);
                 var closestEnemy = GetComponentInParent<CharController>().closestEnemy;
                 timeToDamage = Time.time + weapon.FireRate;
                 if(closestEnemy != null)

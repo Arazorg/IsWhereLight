@@ -7,14 +7,16 @@ public class SettingsInfo : MonoBehaviour
     public static Dictionary<string, float[]> startPositions = new Dictionary<string, float[]>();
 
     public string currentLocalization;
+    public string color;
+    public string joystickType;
     public bool musicOn;
     public bool effectsOn;
     public bool fpsOn;
+
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
     public float[] swapWeaponButtonPosition = new float[2];
-    public string color;
-    public string joystickType;
+    public float[] skillButtonPosition = new float[2];
 
     void Awake()
     {
@@ -35,11 +37,14 @@ public class SettingsInfo : MonoBehaviour
         musicOn = data.musicOn;
         effectsOn = data.effectsOn;
         fpsOn = data.fpsOn;
+        color = data.color;
+        joystickType = data.joystickType;
+
         joystickPosition = data.joystickPosition;
         fireActButtonPosition = data.fireActButtonPosition;
         swapWeaponButtonPosition = data.swapWeaponButtonPosition;
-        color = data.color;
-        joystickType = data.joystickType;
+        if (data.skillButtonPosition != null)
+            skillButtonPosition = data.skillButtonPosition;
     }
 
     public void SaveSettings()
@@ -63,7 +68,7 @@ public class SettingsInfo : MonoBehaviour
     {
         InitDictionary();
         SetStartPositions();
-        currentLocalization = "localizedText_en";       
+        currentLocalization = "localizedText_en";
         musicOn = true;
         effectsOn = true;
         fpsOn = true;
@@ -75,8 +80,9 @@ public class SettingsInfo : MonoBehaviour
     private void InitDictionary()
     {
         startPositions["joystickPosition"] = new float[2] { 0, 0 };
-        startPositions["fireActButtonPosition"] = new float[2] { -200, 250 };
-        startPositions["swapWeaponButtonPosition"] = new float[2] { -200, 0 };
+        startPositions["fireActButtonPosition"] = new float[2] { -425, 275 };
+        startPositions["swapWeaponButtonPosition"] = new float[2] { -185, -100 };
+        startPositions["skillButtonPosition"] = new float[2] { -185, 150 };
         startPositions["hpBarPosition"] = new float[2] { 200, -100 };
         startPositions["maneBarPosition"] = new float[2] { 200, -175 };
     }
@@ -87,5 +93,6 @@ public class SettingsInfo : MonoBehaviour
         joystickPosition = startPositions["joystickPosition"];
         fireActButtonPosition = startPositions["fireActButtonPosition"];
         swapWeaponButtonPosition = startPositions["swapWeaponButtonPosition"];
+        skillButtonPosition = startPositions["skillButtonPosition"];
     }
 }

@@ -5,11 +5,13 @@ public class SettingsData
     public bool musicOn;
     public bool effectsOn;
     public bool fpsOn;
+    public string color;
+    public string joystickType;
+
     public float[] joystickPosition = new float[2];
     public float[] fireActButtonPosition = new float[2];
     public float[] swapWeaponButtonPosition = new float[2];
-    public string color;
-    public string joystickType;
+    public float[] skillButtonPosition = new float[2];
     
     public SettingsData(SettingsInfo settingsInfo)
     {
@@ -17,10 +19,12 @@ public class SettingsData
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
         fpsOn = settingsInfo.fpsOn;
+        color = settingsInfo.color;
+        joystickType = settingsInfo.joystickType;
+
         joystickPosition = settingsInfo.joystickPosition;
         fireActButtonPosition = settingsInfo.fireActButtonPosition;
         swapWeaponButtonPosition = settingsInfo.swapWeaponButtonPosition;
-        color = settingsInfo.color;
-        joystickType = settingsInfo.joystickType;
+        skillButtonPosition = settingsInfo.skillButtonPosition;
     }
 }

@@ -130,6 +130,16 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    public float SkillTime
+    {
+        get
+        {
+            return data.SkillTime;
+        }
+        protected set { }
+    }
+
+    
     void Update()
     {
         if (phrasesCount > 5 && !isIgnore)

@@ -20,3 +20,4 @@ MonoBehaviour:
   startWeapon: Gravity Laser
   price: 1250
   characterType: Defence
+  skillTime: 12

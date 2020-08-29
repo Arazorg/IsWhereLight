@@ -18,6 +18,7 @@ public class CurrentGameInfo : MonoBehaviour
     public int countResurrect;
     public bool canExit;
     public string characterType;
+    public float skillTime;
 
     void Awake()
     {
@@ -47,6 +48,7 @@ public class CurrentGameInfo : MonoBehaviour
         countResurrect = currentGameData.countResurrect;
         canExit = currentGameData.canExit;
         characterType = currentGameData.characterType;
+        skillTime = currentGameData.skillTime;
     }
 
     private void SetStartParametrs()

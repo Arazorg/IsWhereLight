@@ -12,7 +12,8 @@ public class UISpawner : MonoBehaviour
     public bool IsStartFpsCounter
     {
         get { return isStartFpsCounter; }
-        set {
+        set
+        {
             StartCoroutine(FpsCoroutine());
         }
     }
@@ -29,6 +30,9 @@ public class UISpawner : MonoBehaviour
 
     [Tooltip("Кнопка смены оружия")]
     [SerializeField] private Button swapWeaponButton;
+
+    [Tooltip("Кнопка скила")]
+    [SerializeField] private Button skillButton;
 
     [Tooltip("Текст FPS")]
     [SerializeField] private TextMeshProUGUI fpsText;
@@ -86,11 +90,13 @@ public class UISpawner : MonoBehaviour
         if (settingsInfo.joystickType == "Dynamic")
             joystickRectTransform.anchoredPosition = joystickPosition;
         else
-            joystickRectTransform.anchoredPosition = joystickPosition + new Vector2(256,256);
+            joystickRectTransform.anchoredPosition = joystickPosition + new Vector2(256, 256);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.swapWeaponButtonPosition[0], settingsInfo.swapWeaponButtonPosition[1]);
+        skillButton.GetComponent<RectTransform>().anchoredPosition
+            = new Vector3(settingsInfo.skillButtonPosition[0], settingsInfo.skillButtonPosition[1]);
     }
     public void HideShowFPS(bool show)
     {
@@ -111,5 +117,6 @@ public class UISpawner : MonoBehaviour
 
         fireActButton.GetComponent<Image>().color = newColor;
         swapWeaponButton.GetComponent<Image>().color = newColor;
+        skillButton.GetComponent<Image>().color = newColor;
     }
 }
