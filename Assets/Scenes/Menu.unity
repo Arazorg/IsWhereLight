@@ -4727,7 +4727,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Haze Staff
-    clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
+    clip: {fileID: 8300000, guid: a16792a3a2cf3274e9b1ab9d104496c9, type: 3}
     volume: 0.15
     volumeVariance: 0.1
     pitch: 1
@@ -4745,7 +4745,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Battle-scarred Rifle
-    clip: {fileID: 8300000, guid: 6ef3ebd2e1ebc4643b747e694dd79793, type: 3}
+    clip: {fileID: 8300000, guid: 271a31f0f02c64a40ac07b76eb2dd4ef, type: 3}
     volume: 0.1
     volumeVariance: 0.1
     pitch: 1
@@ -4763,7 +4763,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Gravity Laser
-    clip: {fileID: 8300000, guid: 264bfb9ec31f81f4f8dc438fa02191af, type: 3}
+    clip: {fileID: 8300000, guid: 7ae6ca2cb3fc4ec44a3d6738c149e709, type: 3}
     volume: 0.35
     volumeVariance: 0.1
     pitch: 1
@@ -4808,7 +4808,25 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Healing Beam Blaster
-    clip: {fileID: 8300000, guid: 7f44dd24d0274224aa4fc33695041f15, type: 3}
+    clip: {fileID: 8300000, guid: fbb0f20f90804524e9d0807d4007dca7, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Steps
+    clip: {fileID: 8300000, guid: c9a5c14cc1d81714f9b55f141478352d, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: Arrow
+    clip: {fileID: 8300000, guid: e9db4d9c9dd4cea4b8f4a9c11d56691b, type: 3}
     volume: 0.35
     volumeVariance: 0.1
     pitch: 1

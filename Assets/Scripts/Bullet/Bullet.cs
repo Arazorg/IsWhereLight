@@ -18,9 +18,9 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
-        if (Animators.Count != 0)
-            GetComponent<Animator>().runtimeAnimatorController = Animators[0];
         bulletSprite = GetComponent<SpriteRenderer>();
+        if (Animators.Count != 0)
+            GetComponent<Animator>().runtimeAnimatorController = Animators[0];                  
     }
 
     public Sprite MainSprite

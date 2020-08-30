@@ -461,12 +461,9 @@ public class GameButtons : MonoBehaviour
                 currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
                 break;
             case WeaponData.AttackType.ConstantLaser:
-                if (isStaticAttack)
-                {
-                    currentWeapon.GetComponent<ConstantLaser>().animator.SetBool("Attack", false);
-                    currentWeapon.GetComponent<ConstantLaser>().StopShoot();
-                    isStaticAttack = false;
-                }
+                currentWeapon.GetComponent<ConstantLaser>().StopShoot();
+                isStaticAttack = false;
+
                 break;
         }
     }

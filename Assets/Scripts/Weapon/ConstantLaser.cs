@@ -14,6 +14,8 @@ public class ConstantLaser : MonoBehaviour
             return isAttack; 
         }
         set {
+            if(value)
+                animator.SetBool("Attack", true);
             isAttack = value;
             timeToDamage = Time.time + GetComponent<Weapon>().FireRate;
             if (GetComponentInParent<CharController>().closestEnemy != null)
@@ -67,7 +69,6 @@ public class ConstantLaser : MonoBehaviour
     public void Shoot()
     {
         Vector3 enemyPosition = Vector3.zero;
-        animator.SetBool("Attack", true);
         try
         {
             enemyPosition = GetComponentInParent<CharController>().closestEnemy.transform.position;
@@ -114,8 +115,10 @@ public class ConstantLaser : MonoBehaviour
         }
 
     }
+
     public void StopShoot()
     {
+        animator.SetBool("Attack", false);
         timeToDamage = float.MaxValue;
         isAttack = false;
         if (bullet != null)

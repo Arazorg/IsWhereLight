@@ -203,8 +203,7 @@ public class Enemy : MonoBehaviour
         {
             if (coll.gameObject.tag == "StandartBullet"
                 || coll.gameObject.tag == "StandartArrow"
-                    || coll.gameObject.tag == "StandartLaser"
-                        || coll.gameObject.tag == "ConstantLaser")
+                    || coll.gameObject.tag == "StandartLaser")
             {
                 var bullet = coll.gameObject.GetComponent<Bullet>();
                 GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
