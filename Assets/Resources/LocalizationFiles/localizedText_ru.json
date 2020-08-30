@@ -934,6 +934,11 @@
     },
 	
 	{
+      "key": "ThanksText",
+      "value": "В игре использовался контент, распространяемый по лицензии CC BY-ND 3.0.\n\nНаши благодарности данным ресурсам и авторам:\n\nwww.noiseforfun.com\n\nHaelDB opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch http://opengameart.org/users/qubodup\n\nremaxim https://opengameart.org/users/remaxim"
+    },
+	
+	{
       "key": "KeeperDescription",
       "value": "Никто не знает, сколько ему лет и каков его истинный потенциал.\nЕго навыков будет достаточно, чтобы прорваться даже через огромные полчища врагов."
     }

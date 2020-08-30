@@ -80,6 +80,7 @@ public class GameButtons : MonoBehaviour
     private CharInfo charInfo;
     private CharGun charGun;
     private CharAction charAction;
+    private CharSkills charSkills;
     //Скрипты
     private CurrentGameInfo currentGameInfo;
 
@@ -130,7 +131,6 @@ public class GameButtons : MonoBehaviour
         {
             charInfo.LoadChar();
             currentGameInfo.LoadCurrentGame();
-            //Debug.Log(currentGameInfo.challengeNumber);
         }
 
         if (SceneManager.GetActiveScene().name == "Game")
@@ -169,6 +169,7 @@ public class GameButtons : MonoBehaviour
         charInfo = character.GetComponent<CharInfo>();
         charGun = character.GetComponent<CharGun>();
         charAction = character.GetComponent<CharAction>();
+        charSkills = character.GetComponent<CharSkills>();
     }
 
     private void SetCharAnim()
@@ -242,6 +243,11 @@ public class GameButtons : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void StartSkill()
+    {
+        charSkills.ChooseSkill(charInfo.character);
     }
 
     public void ChooseChallenge(int challengeNumber)

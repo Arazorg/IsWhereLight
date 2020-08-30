@@ -14,6 +14,9 @@ public class SettingsButtons : MonoBehaviour
     [Tooltip("UI панели настроек интерфейса")]
     [SerializeField] private GameObject interfaceSettingsPanel;
 
+    [Tooltip("UI панели благодарностей")]
+    [SerializeField] private GameObject thanksPanel;
+
     [Tooltip("UI панели меню")]
     [SerializeField] private GameObject menuPanel;
 
@@ -45,6 +48,7 @@ public class SettingsButtons : MonoBehaviour
     //Переменные состояния игры
     private bool IsLocalizationPanelState = false;
     private bool IsSecretPanelState = false;
+    private bool IsThanksPanelState = false;
     private bool musicOn;
     private bool effectsOn;
 
@@ -70,6 +74,23 @@ public class SettingsButtons : MonoBehaviour
         menuPanel.GetComponent<MenuButtons>().AllPanelHide();
         menuPanel.GetComponent<MovementUI>().MoveToEnd();
         interfaceSettingsPanel.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    public void ThanksPanelOpenClose()
+    {
+        IsThanksPanelState = !IsThanksPanelState;
+        audioManager.Play("ClickUI");
+        if(IsThanksPanelState)
+        {
+            SettingsPanelClose();
+            menuPanel.GetComponent<MenuButtons>().AllPanelHide();
+            thanksPanel.GetComponent<MovementUI>().MoveToEnd();
+        }
+        else
+        {
+            menuPanel.GetComponent<MenuButtons>().SettingsPanelOpen();
+            thanksPanel.GetComponent<MovementUI>().MoveToStart();
+        }
     }
 
     public void SettingsPanelClose()
