@@ -79,15 +79,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -7132172409892320828, guid: 8ea25873663467a4dbdda2f767274f33,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.88, y: 5.04}
+  m_Size: {x: 1.375, y: 1.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &2124288211051524171
@@ -126,14 +127,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 8.88, y: 5.04}
+    oldSize: {x: 1.375, y: 1.375}
+    newSize: {x: 1.375, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48306274, y: 0.9879761}
+  m_Size: {x: 0.75, y: 1.2}
   m_EdgeRadius: 0
 --- !u!50 &-4659355296405908417
 Rigidbody2D:
@@ -245,4 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isidaHealingLaser: {fileID: 2061864243556104380, guid: 7872ba6ee2183f747a5de135fa043948,
+    type: 3}
+  skillActivatePrefab: {fileID: 4977691266691279578, guid: 9331a8a264f96da4c9841ea2b6691b5d,
     type: 3}

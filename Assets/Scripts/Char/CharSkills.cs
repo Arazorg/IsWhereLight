@@ -1,22 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
 public class CharSkills : MonoBehaviour
 {
 #pragma warning disable 0649
     [Tooltip("Лазер исцеления Изиды")]
     [SerializeField] private GameObject isidaHealingLaser;
+
+    [Tooltip("Префаб активированного скилла")]
+    [SerializeField] private GameObject skillActivatePrefab;
 #pragma warning restore 0649
 
     private string currentCharacter;
-    private float timeToSkill = float.MaxValue;
-    private bool isSkill;
+    private float timeToSkill = float.MinValue;
+    private GameObject skillEffect;
+    public static bool isSkill;
 
     public void ChooseSkill(string character)
     {
         currentCharacter = character;
         switch (character)
-        {
+        {           
             case "Legionnaire":
+                LegionnaireSkillStart();
                 break;
             case "Isida":
                 IsidaSkillStart();
@@ -37,6 +45,7 @@ public class CharSkills : MonoBehaviour
         switch (currentCharacter)
         {
             case "Legionnaire":
+                LegionnaireSkillUsing();
                 break;
             case "Isida":
                 IsidaSkillUsing();
@@ -62,6 +71,7 @@ public class CharSkills : MonoBehaviour
             var laser = Instantiate(isidaHealingLaser, transform.position, Quaternion.identity);
             alliesLasers.Add(ally, laser);
         }
+        skillEffect = Instantiate(skillActivatePrefab, transform);
         timeToSkill = Time.time + 2f;
         isSkill = true;
         IsidaSkill(alliesLasers);
@@ -69,7 +79,7 @@ public class CharSkills : MonoBehaviour
 
     private void IsidaSkillUsing()
     {
-        if (Time.time < timeToSkill && isSkill)
+        if (Time.time < timeToSkill && isSkill && !CharAction.isDeath)
             IsidaSkill(alliesLasers);
         else
         {
@@ -77,6 +87,7 @@ public class CharSkills : MonoBehaviour
                 Destroy(item.Value);
             alliesLasers.Clear();
             isSkill = false;
+            Destroy(skillEffect);
         }
     }
 
@@ -101,7 +112,76 @@ public class CharSkills : MonoBehaviour
     #endregion IsidaSkill
 
     #region LegionnaireSkill
+    public static bool isLegionnaireSkill;
+    private int enemyCounter;
+    private float startSpeed;
+    private List<GameObject> enemies = new List<GameObject>();
 
+    private void LegionnaireSkillStart()
+    {
+        LayerMask layerMask
+          = ~(1 << LayerMask.NameToLayer("Player") |
+                  1 << LayerMask.NameToLayer("Ignore Raycast") |
+                      1 << LayerMask.NameToLayer("Room"));
+        var enemiesArray = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var enemy in enemiesArray)
+        {
+            if (((Physics2D.Raycast(transform.position, (enemy.transform.position- transform.position).normalized, Mathf.Infinity, layerMask)).collider.tag == "Enemy"))
+            {
+                enemies.Add(enemy);
+            }    
+        }
+        if (enemies.Count != 0)
+        {
+            skillEffect = Instantiate(skillActivatePrefab, transform);
+            enemyCounter = 0;
+            isLegionnaireSkill = true;
+            startSpeed = GetComponent<CharController>().Speed;
+            GetComponent<CharController>().Speed = 0;
+        }
+    }
+
+    private void LegionnaireSkillUsing()
+    {   
+        if(isLegionnaireSkill && !CharAction.isDeath)
+        {
+            if (enemyCounter < enemies.Count)
+            {
+                if (LegionnaireSkill())
+                {
+                    var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
+                    enemyScript.GetDamage(3, 0, transform, 600);
+                    enemyCounter++;
+                }
+            }
+            else
+            {
+                isLegionnaireSkill = false;
+                Destroy(skillEffect);
+                GetComponent<CharController>().Speed = startSpeed;
+                enemies.Clear();
+            }
+        }      
+    }
+
+    private bool LegionnaireSkill()
+    {
+        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > 0.5f)
+        {
+            Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * 30;
+            GetComponent<Rigidbody2D>().velocity = dir;
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if(isLegionnaireSkill)
+            if (collider.tag == "Destroyable")
+                Destroy(collider.gameObject.transform.parent.gameObject);
+    }
     #endregion  LegionnaireSkill
 
     #region ArcherSkill

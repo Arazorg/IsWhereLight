@@ -9,11 +9,13 @@ public class UISpawner : MonoBehaviour
     public static UISpawner instance;
 
     private bool isStartFpsCounter;
+
     public bool IsStartFpsCounter
     {
         get { return isStartFpsCounter; }
         set
         {
+            isStartFpsCounter = value;
             StartCoroutine(FpsCoroutine());
         }
     }

@@ -15,7 +15,7 @@ public class CharController : MonoBehaviour
 
     //Character's variables
     [Tooltip("Скорость персонажа")]
-    [SerializeField] public float speed;
+    [SerializeField] private float speed;
 #pragma warning restore 0649
 
     public static bool isRotate;
@@ -62,7 +62,7 @@ public class CharController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!CharAction.isDeath)
+        if (!CharAction.isDeath && !CharSkills.isLegionnaireSkill)
         {
             characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),

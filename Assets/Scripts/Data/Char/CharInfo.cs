@@ -110,16 +110,19 @@ public class CharInfo : MonoBehaviour
 
     public void Damage(int damage)
     {
-        if (health - damage < 0)
-            health = 0;
-        else
-            health -= damage;
-
-        healthBar.SetHealth(health);
-
-        if (health <= 0)
+        if(!CharSkills.isLegionnaireSkill)
         {
-            charAction.Death();
+            if (health - damage < 0)
+                health = 0;
+            else
+                health -= damage;
+
+            healthBar.SetHealth(health);
+
+            if (health <= 0)
+            {
+                charAction.Death();
+            }
         }
     }
 

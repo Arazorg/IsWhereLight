@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -57,6 +58,12 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Таймер до спауна")]
     [SerializeField] private GameObject spawnTimer;
+
+    [Tooltip("Спрайт отката скилла")]
+    [SerializeField] private Image skillButtonBar;
+
+    [Tooltip("Изображение кнопки скилла")]
+    [SerializeField] private Image skillButton;
 #pragma warning restore 0649
 
     public enum FireActButtonStateEnum
@@ -86,16 +93,20 @@ public class GameButtons : MonoBehaviour
 
     //Переменные
     private float attackRate;
-    private int manecost;
     private float nextAttack;
+    private float startTime;
+    private float timeToSkill;
+    private float startStringingTime;
+    
+    public static bool isChange = true;
     private bool isAttackDown;
     private bool isAttackUp;
-    private int priceResurrect;
-    private float startTime;
-    private float startStringingTime;
-    public static bool isChange = true;
     private bool isStaticAttack;
 
+    private int priceResurrect;
+    private int manecost;
+
+    private Color startSkillButtonColor;
     public Transform currentWeapon;
     private AudioManager audioManager;
     private void Awake()
@@ -114,9 +125,10 @@ public class GameButtons : MonoBehaviour
     {
         startTime = Time.time;
         Time.timeScale = 1f;
-
+        timeToSkill = float.MinValue;
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
+        startSkillButtonColor = skillButton.color;
         pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -143,7 +155,7 @@ public class GameButtons : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Lobby")
         {
             charInfo.SetStartParams();
-            character.GetComponent<CharController>().speed = 7.5f;
+            character.GetComponent<CharController>().Speed = 7.5f;
         }
         SetCharAnim();
 
@@ -193,6 +205,23 @@ public class GameButtons : MonoBehaviour
         if (isAttackUp && !CharAction.isDeath)
             AttackUp();
 
+        if(Time.time < timeToSkill)
+        {
+            var currentPercent = Math.Abs(timeToSkill-Time.time) / currentGameInfo.skillTime;
+            skillButtonBar.fillAmount = currentPercent;
+            var color = skillButton.color;
+            color.a = 255 - (205 * currentPercent);
+            skillButton.color = color;   
+        }
+        else
+        {
+            skillButtonBar.fillAmount = 0;
+            skillButton.color = startSkillButtonColor;
+            var color = skillButton.color;
+            color.a = 255;
+            skillButton.color = color;
+        }
+           
     }
 
     public void OpenPause()
@@ -247,7 +276,15 @@ public class GameButtons : MonoBehaviour
 
     public void StartSkill()
     {
-        charSkills.ChooseSkill(charInfo.character);
+        if(Time.time > timeToSkill && !CharAction.isDeath)
+        {
+            charSkills.ChooseSkill(charInfo.character);
+            timeToSkill = Time.time + currentGameInfo.skillTime;
+            var color = skillButton.color;
+            skillButtonBar.color = color;
+            color.a = 50;
+            skillButton.color = color;  
+        }        
     }
 
     public void ChooseChallenge(int challengeNumber)
