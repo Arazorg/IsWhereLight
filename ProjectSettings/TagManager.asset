@@ -23,6 +23,7 @@ TagManager:
   - StandartLaser
   - ConstantLaser
   - Ally
+  - Wall
   layers:
   - Default
   - TransparentFX

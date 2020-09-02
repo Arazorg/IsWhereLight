@@ -18,6 +18,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackAngle;
     private float timeToAttack;
 
+    public bool isAttack;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,13 +36,26 @@ public class EnemyMeleeAttack : MonoBehaviour
     private void Update()
     {
         if (Time.time > timeToAttack && !GetComponent<Enemy>().IsDeath)
+        {
+            isAttack = true;
             Attack();
+        }
+        
+    }
+    
+    public void DestroyObstacle()
+    {
+        var obstacles = Physics2D.OverlapCircleAll(transform.position, attackRange, 1 << LayerMask.NameToLayer("EnemyStatic"));
+        animator.Play("Attack");
+        foreach (var obstacle in obstacles)
+        {
+            Destroy(obstacle.transform.parent.gameObject, 0.33f);
+        } 
     }
 
     public void Attack()
     {
         Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, attackRange, playerLayers);
-
         foreach (Collider2D player in players)
         {
             timeToAttack = Time.time + attackRate;
@@ -49,15 +63,18 @@ public class EnemyMeleeAttack : MonoBehaviour
             player.GetComponent<CharAction>().IsPlayerHitted = true;
             player.GetComponent<CharAction>().IsEnterFirst = true;
             charInfo.Damage(damage);
-
+            
             var currentAngle = -Mathf.Atan2(player.transform.position.x - transform.position.x,
                                    player.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
             if (currentAngle > 0)
             {
                 if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle
                                                    && currentAngle >= transform.rotation.eulerAngles.z - attackAngle)
+                {
                     if (player.transform.tag == "Player")
                         charInfo.Damage(damage);
+                }
+                    
             }
             else
             {
@@ -66,6 +83,7 @@ public class EnemyMeleeAttack : MonoBehaviour
                     if (player.transform.tag == "Player")
                         charInfo.Damage(damage);
             }
+            isAttack = false;
         }
     }
 }

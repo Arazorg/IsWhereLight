@@ -133,6 +133,7 @@ public class CharSkills : MonoBehaviour
         }
         if (enemies.Count != 0)
         {
+            transform.GetChild(0).gameObject.SetActive(false);
             skillEffect = Instantiate(skillActivatePrefab, transform);
             enemyCounter = 0;
             isLegionnaireSkill = true;
@@ -157,6 +158,7 @@ public class CharSkills : MonoBehaviour
             else
             {
                 isLegionnaireSkill = false;
+                transform.GetChild(0).gameObject.SetActive(true);
                 Destroy(skillEffect);
                 GetComponent<CharController>().Speed = startSpeed;
                 enemies.Clear();

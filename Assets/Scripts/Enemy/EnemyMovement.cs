@@ -1,29 +1,102 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using CodeMonkey.Utils;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     private bool m_FacingRight;
-    private Transform currentTarget ;
-
+    private Transform currentTarget;
+    private Vector3 roamPosition;
+    private float timeToNewRoam;
     void Start()
     {
+        timeToNewRoam = float.MaxValue;
         SetFacing();
     }
 
     void Update()
     {
-        if(!GetComponent<Enemy>().IsDeath)
+        if (!GetComponent<Enemy>().IsDeath)
         {
             if (currentTarget != null)
             {
                 if (currentTarget.position.x - transform.position.x > 0 && !m_FacingRight)
                     Flip();
-
                 else if (currentTarget.position.x - transform.position.x < 0 && m_FacingRight)
                     Flip();
+
+                float distanceNewRoam = 1f;
+                float newRoamTime = 1.5f;
+                if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Melee)
+                {
+                    if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
+                                        || Time.time > timeToNewRoam)
+                    {
+                        if (gameObject.tag != "Enemy")
+                        {
+                            roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
+                        }
+                        else if (GetComponent<EnemyMeleeAttack>().isAttack)
+                        {
+                            roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
+                        }
+                        else
+                        {
+                            roamPosition = UtilsClass.GetRandomDir();
+                            var cameraPosition = CalculateScreenSizeInWorldCoords();
+                            timeToNewRoam = Time.time + newRoamTime;
+                        }
+                    }
+                }
+                else if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Distant)
+                {
+                    if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
+                                        || Time.time > timeToNewRoam)
+                    {
+                        if (gameObject.tag != "Enemy")
+                        {
+                            roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
+                        }
+                        else
+                        {
+                            roamPosition = UtilsClass.GetRandomDir();
+                            var cameraPosition = CalculateScreenSizeInWorldCoords();
+                            timeToNewRoam = Time.time + newRoamTime;
+                        }
+                    }
+                }
+
+                roamPosition = roamPosition.normalized;
+                GetComponent<Rigidbody2D>().velocity = roamPosition * 5f;
+
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == "Wall")
+        {
+            timeToNewRoam = Time.time;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.tag == "Wall")
+        {
+            timeToNewRoam = Time.time;
+        }
+        if (collider.tag == "Destroyable")
+        {
+            if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Melee)
+                GetComponent<EnemyMeleeAttack>().DestroyObstacle();
+            else if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Distant)
+            {
+                GetComponent<EnemyDistantAttack>().ShootTarget = collider.transform;
+                GetComponent<EnemyDistantAttack>().Attack();
+                GetComponent<EnemyDistantAttack>().ShootTarget = currentTarget;
+            }
+
         }
     }
 
@@ -46,5 +119,17 @@ public class EnemyMovement : MonoBehaviour
     public void SetCurrentTarget(Transform target)
     {
         currentTarget = target;
+    }
+
+    private Vector2 CalculateScreenSizeInWorldCoords()
+    {
+        var cam = Camera.main;
+        var p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
+        var p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
+        var p3 = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+        float width = (p2 - p1).magnitude;
+        float height = (p3 - p2).magnitude;
+        Vector2 dimensions = new Vector2(width, height);
+        return dimensions;
     }
 }

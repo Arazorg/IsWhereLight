@@ -29,7 +29,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > timeToFire && !GetComponent<Enemy>().IsDeath)
+        if(Time.time > timeToFire && !GetComponent<Enemy>().IsDeath && gameObject.tag == "Enemy")
         {
             Attack();
             timeToFire = Time.time + fireRate;
