@@ -38,9 +38,9 @@ public class LocalizationManager : MonoBehaviour
         {
             localizedText.Add(loadedData.items[i].key, loadedData.items[i].value);
         }
-        
+
         settingsInfo.currentLocalization = fileName;
-        if(isSave)
+        if (isSave)
             settingsInfo.SaveSettings();
         RefreshText();
         isReady = true;

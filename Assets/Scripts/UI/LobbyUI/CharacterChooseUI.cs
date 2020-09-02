@@ -21,8 +21,11 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Кнопка перехода в лобби")]
     [SerializeField] private Button backToLobbyButton;
 
-    [Tooltip("Инфо бар")]
-    [SerializeField] private GameObject InfoBar;
+    [Tooltip("Панеель описания персонажа")]
+    [SerializeField] private GameObject infoBar;
+
+    [Tooltip("Панель описания способности персонажа")]
+    [SerializeField] private GameObject skillBar;
 
     [Tooltip("Кнопка предыдущего скина")]
     [SerializeField] private Button prevSkinButton;
@@ -38,6 +41,9 @@ public class CharacterChooseUI : MonoBehaviour
 
     [Tooltip("Текст описания персонажа")]
     [SerializeField] private TextMeshProUGUI typeDescriptionText;
+
+    [Tooltip("Текст описания способности персонажа")]
+    [SerializeField] private TextMeshProUGUI skillDescriptionText;
 
     [Tooltip("Изображение денег")]
     [SerializeField] private GameObject moneyImage;
@@ -135,7 +141,8 @@ public class CharacterChooseUI : MonoBehaviour
         goToGameButton.GetComponent<MovementUI>().MoveToEnd();
         prevSkinButton.GetComponent<MovementUI>().MoveToEnd();
         nextSkinButton.GetComponent<MovementUI>().MoveToEnd();
-        InfoBar.GetComponent<MovementUI>().MoveToEnd();
+        infoBar.GetComponent<MovementUI>().MoveToEnd();
+        skillBar.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
 
@@ -156,6 +163,8 @@ public class CharacterChooseUI : MonoBehaviour
         typeText.GetComponent<LocalizedText>().SetLocalization();
         typeDescriptionText.GetComponent<LocalizedText>().key = $"{currentGameInfo.character}Description";
         typeDescriptionText.GetComponent<LocalizedText>().SetLocalization();
+        skillDescriptionText.GetComponent<LocalizedText>().key = $"{currentGameInfo.character}SkillDescription";
+        skillDescriptionText.GetComponent<LocalizedText>().SetLocalization();
         healthText.GetComponent<LocalizedText>().SetLocalization();
         maneText.GetComponent<LocalizedText>().SetLocalization();
         startWeaponText.GetComponent<LocalizedText>().SetLocalization();
@@ -280,7 +289,8 @@ public class CharacterChooseUI : MonoBehaviour
         goToGameButton.GetComponent<MovementUI>().MoveToStart();
         prevSkinButton.GetComponent<MovementUI>().MoveToStart();
         nextSkinButton.GetComponent<MovementUI>().MoveToStart();
-        InfoBar.GetComponent<MovementUI>().MoveToStart();
+        infoBar.GetComponent<MovementUI>().MoveToStart();
+        skillBar.GetComponent<MovementUI>().MoveToStart();
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
         moneyImage.GetComponent<MovementUI>().MoveToStart();
         buyButton.GetComponent<MovementUI>().MoveToStart();

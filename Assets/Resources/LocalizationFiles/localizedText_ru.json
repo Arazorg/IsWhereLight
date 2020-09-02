@@ -941,6 +941,102 @@
 	{
       "key": "KeeperDescription",
       "value": "Никто не знает, сколько ему лет и каков его истинный потенциал.\nЕго навыков будет достаточно, чтобы прорваться даже через огромные полчища врагов."
-    }
+    },
+	
+	{
+      "key": "LegionnaireSkillDescription",
+      "value": "Легионер устремляется вперед, нанося урон, оглушая и отбрасывая всех врагов на своем пути."
+    },
+	
+	{
+      "key": "ArcherSkillDescription",
+      "value": "Лучник производит мощную атаку градом стрел с небес."
+    },
+	
+	{
+      "key": "IsidaSkillDescription",
+      "value": "Изида создает вокруг себя молнии, восстанавливающие здоровье всем находящимся по близости союзникам."
+    },
+	
+	{
+      "key": "MechanicSkillDescription",
+      "value": "Механик вызывает на поле боя мощную турель боевой поддержки с ограниченным сроком действия."
+    },
+	
+	{
+      "key": "RaiderSkillDescription",
+      "value": "Рейдер атакует указанную область, кидая россыпь гранат, наносящую урон по радиусу."
+    },
+	
+	{
+      "key": "KeeperSkillDescription",
+      "value": "Хранитель призывает отравляющие, огненные и оглушающие снаряды с небес."
+    },
+	
+	{
+      "key": "LegionnaireSkillUsed",
+      "value": "Враги будут уничтожены!"
+    },
+	
+	{
+      "key": "ArcherSkillUsed",
+      "value": "Будет быстро и совсем не больно."
+    },
+	
+	{
+      "key": "IsidaSkillUsed",
+      "value": "Вы будете жить!"
+    },
+	
+	{
+      "key": "MechanicSkillUsed",
+      "value": "Поджарим их!"
+    },
+	
+	{
+      "key": "RaiderSkillUsed",
+      "value": "Бум, детка!"
+    },
+	
+	{
+      "key": "KeeperSkillUsed",
+      "value": "Да падут небеса!"
+    },
+	
+	{
+      "key": "LegionnaireSkillFail",
+      "value": "Лучше приберегу силы..."
+    },
+	
+	{
+      "key": "ArcherSkillFail",
+      "value": "Мне нужно сконцентрироваться..."
+    },
+	
+	{
+      "key": "IsidaSkillFail",
+      "value": "Где же все союзники?"
+    },
+	
+	{
+      "key": "MechanicSkillFail",
+      "value": "В турели нет необходимости."
+    },
+	
+	{
+      "key": "RaiderSkillFail",
+      "value": "Мои гранаты не бесконечны!"
+    },
+	
+	{
+      "key": "KeeperSkillFail",
+      "value": "Я не колдую просто так."
+    },
+	
+	{
+	  "key": "Skill",
+	  "value": "Способность:"
+	}
+
   ]
 }

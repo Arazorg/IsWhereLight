@@ -917,13 +917,108 @@
     },
 	
 	{
-      "key": "ThanksText",
-      "value": "The game used content licensed under the CC BY-ND 3.0 license.\n\nOur thanks to these resources and authors:\n\nwww.noiseforfun.com\n\nHaelDB opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch http://opengameart.org/users/qubodup\n\nremaxim https://opengameart.org/users/remaxim"
+      "key": "KeeperDescription",
+      "value": "No one knows how old he is and his true potential.\nHis skills will be enough to break through even huge hordes of enemies."
     },
 	
 	{
-      "key": "KeeperDescription",
-      "value": "No one knows how old he is and his true potential.\nHis skills will be enough to break through even huge hordes of enemies."
-    }
+      "key": "ThanksText",
+      "value": "The game used content licensed under the CC BY-ND 3.0 license.\n\nOur thanks to these resources and authors:\n\nwww.noiseforfun.com\n\nHaelDB opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch http://opengameart.org/users/qubodup\n\nremaxim https://opengameart.org/users/remaxim"
+    },
+
+	{
+      "key": "LegionnaireSkillDescription",
+      "value": "Legionnaire charges forward, damaging, stunning and knocking back any enemies in his path."
+    },
+	
+	{
+      "key": "ArcherSkillDescription",
+      "value": "Archer makes a powerful onslaught with a hail of arrows from the sky"
+    },
+	
+	{
+      "key": "IsidaSkillDescription",
+      "value": "Isida creates lightning around her, restoring health to nearby allies."
+    },
+	
+	{
+      "key": "MechanicSkillDescription",
+      "value": "Mechanic places a powerful, limited-time turret onto the battlefield."
+    },
+	
+	{
+      "key": "RaiderSkillDescription",
+      "value": "Raider attacks the target area, throwing grenades that deal damage in its radius."
+    },
+	
+	{
+      "key": "KeeperSkillDescription",
+      "value": "Keeper invokes poisonous, fire, and stun shells from the skies."
+    },
+	
+	{
+      "key": "LegionnaireSkillUsed",
+      "value": "Smash 'em all!"
+    },
+	
+	{
+      "key": "ArcherSkillUsed",
+      "value": "It'll be quick and not painful at all."
+    },
+	
+	{
+      "key": "IsidaSkillUsed",
+      "value": "Let us heal and grow!"
+    },
+	
+	{
+      "key": "MechanicSkillUsed",
+      "value": "Let's fry 'em up!"
+    },
+	
+	{
+      "key": "RaiderSkillUsed",
+      "value": "Kaboom Baby!"
+    },
+	
+	{
+      "key": "KeeperSkillUsed",
+      "value": "Let the heavens fall!"
+    },
+	
+	{
+      "key": "LegionnaireSkillFail",
+      "value": "I better save my strength..."
+    },
+	
+	{
+      "key": "ArcherSkillFail",
+      "value": "I need to focus..."
+    },
+	
+	{
+      "key": "IsidaSkillFail",
+      "value": "Where are all the allies?"
+    },
+	
+	{
+      "key": "MechanicSkillFail",
+      "value": "There's no need for a turret."
+    },
+	
+	{
+      "key": "RaiderSkillFail",
+      "value": "My nades aren't endless!"
+    },
+	
+	{
+      "key": "KeeperSkillFail",
+      "value": "I don't do magic just for fun."
+    },
+	
+	{
+	  "key": "Skill",
+	  "value": "Ability:"
+	}
   ]
 }

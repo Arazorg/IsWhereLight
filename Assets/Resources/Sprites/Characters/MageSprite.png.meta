@@ -1,115 +1,115 @@
 fileFormatVersion: 2
-guid: 1f7bc707f251353498770b515e0bf4cd
+guid: dae992613d39ced4eb9cbe4736e7d078
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -989085045499774128
-    second: Medic_0
+      213: -7285376162372006033
+    second: Mage_0
   - first:
-      213: -7600532880668818381
-    second: Medic_1
+      213: 1377322663251520538
+    second: Mage_1
   - first:
-      213: -736170810418894871
-    second: Medic_2
+      213: 2429379624658069490
+    second: Mage_2
   - first:
-      213: -5434389561254478432
-    second: Medic_3
+      213: -3092618186771702557
+    second: Mage_3
   - first:
-      213: 6150788257232039784
-    second: Medic_4
+      213: -4641263954899877479
+    second: Mage_4
   - first:
-      213: 2025656586907250227
-    second: Medic_5
+      213: -8166337472594541346
+    second: Mage_5
   - first:
-      213: 4971320235876615928
-    second: Medic_6
+      213: 1096285362524239212
+    second: Mage_6
   - first:
-      213: 1074945825285285942
-    second: Medic_7
+      213: 4253546779495731248
+    second: Mage_7
   - first:
-      213: 6528401372357834209
-    second: Medic_8
+      213: 1274746488674406708
+    second: Mage_8
   - first:
-      213: -377593294910829702
-    second: Medic_9
+      213: 9212246532928583636
+    second: Mage_9
   - first:
-      213: -3313715971738755374
-    second: Medic_10
+      213: -5942188552865138373
+    second: Mage_10
   - first:
-      213: -8095699519662879096
-    second: Medic_11
+      213: -6145811785143785226
+    second: Mage_11
   - first:
-      213: -338732496018055790
-    second: Medic_12
+      213: 2500756243025465008
+    second: Mage_12
   - first:
-      213: -1474376404097217290
-    second: Medic_13
+      213: 165249942049237903
+    second: Mage_13
   - first:
-      213: 422153507410128689
-    second: Medic_14
+      213: -2299194201641771868
+    second: Mage_14
   - first:
-      213: -7529938206353921692
-    second: Medic_15
+      213: 5778758470489192460
+    second: Mage_15
   - first:
-      213: -8169019609823076853
-    second: Medic_16
+      213: 8304308162624823460
+    second: Mage_16
   - first:
-      213: -7455254938075854764
-    second: Medic_17
+      213: 724036592561312853
+    second: Mage_17
   - first:
-      213: -4459186002028408445
-    second: Medic_18
+      213: -4238177709470043494
+    second: Mage_18
   - first:
-      213: -8677216165329701666
-    second: Medic_19
+      213: -7137835376753442
+    second: Mage_19
   - first:
-      213: -1840305361283302984
-    second: Medic_20
+      213: -4155876389953645837
+    second: Mage_20
   - first:
-      213: -3649265827813244863
-    second: Medic_21
+      213: -7701205261946630212
+    second: Mage_21
   - first:
-      213: 2001509816455279793
-    second: Medic_22
+      213: 3833122427344389646
+    second: Mage_22
   - first:
-      213: 7805257579548773758
-    second: Medic_23
+      213: -8818395805821502685
+    second: Mage_23
   - first:
-      213: -3262308161297981265
-    second: Medic_24
+      213: -715291917276890088
+    second: Mage_24
   - first:
-      213: 2159209196961991023
-    second: Medic_25
+      213: -6774040804925556745
+    second: Mage_25
   - first:
-      213: -8480020971681975847
-    second: Medic_26
+      213: -2235294348357820249
+    second: Mage_26
   - first:
-      213: 8198850978847856955
-    second: Medic_27
+      213: -4436453726814458780
+    second: Mage_27
   - first:
-      213: -5444073136223364764
-    second: Medic_28
+      213: 7204741587825200610
+    second: Mage_28
   - first:
-      213: 8338994264443533406
-    second: Medic_29
+      213: -1184466108291028268
+    second: Mage_29
   - first:
-      213: 7011056027586593509
-    second: Medic_30
+      213: 8500114434529349520
+    second: Mage_30
   - first:
-      213: 2998237371774992767
-    second: Medic_31
+      213: 3373308337185956342
+    second: Mage_31
   - first:
-      213: 2240496243914818064
-    second: Medic_32
+      213: -7155467020076445409
+    second: Mage_32
   - first:
-      213: 6133475167601655330
-    second: Medic_33
+      213: 2691408081326803586
+    second: Mage_33
   - first:
-      213: 7293455440341933491
-    second: Medic_34
+      213: -2635387592081919345
+    second: Mage_34
   - first:
-      213: -9203212200808324961
-    second: Medic_35
+      213: 8169229147089231738
+    second: Mage_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,6 +131,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -165,6 +166,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -219,7 +221,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Medic_0
+      name: Mage_0
       rect:
         serializedVersion: 2
         x: 0
@@ -233,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05bb55a34601642f0800000000000000
-      internalID: -989085045499774128
+      spriteID: f6fc7badaf425ea90800000000000000
+      internalID: -7285376162372006033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_1
+      name: Mage_1
       rect:
         serializedVersion: 2
         x: 220
@@ -254,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3340f084d9b758690800000000000000
-      internalID: -7600532880668818381
+      spriteID: a1ca3343aab3d1310800000000000000
+      internalID: 1377322663251520538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_2
+      name: Mage_2
       rect:
         serializedVersion: 2
         x: 440
@@ -275,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e768fe5c8898c5f0800000000000000
-      internalID: -736170810418894871
+      spriteID: 2f7e050b5e3e6b120800000000000000
+      internalID: 2429379624658069490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_3
+      name: Mage_3
       rect:
         serializedVersion: 2
         x: 660
@@ -296,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0adf5569c7b2594b0800000000000000
-      internalID: -5434389561254478432
+      spriteID: 3ec5f8ff420d415d0800000000000000
+      internalID: -3092618186771702557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_4
+      name: Mage_4
       rect:
         serializedVersion: 2
         x: 880
@@ -317,14 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86fa5f8e45dfb5550800000000000000
-      internalID: 6150788257232039784
+      spriteID: 9914e53060be69fb0800000000000000
+      internalID: -4641263954899877479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_5
+      name: Mage_5
       rect:
         serializedVersion: 2
         x: 1100
@@ -338,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33e6983fee39c1c10800000000000000
-      internalID: 2025656586907250227
+      spriteID: ed48a06f5575bae80800000000000000
+      internalID: -8166337472594541346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_6
+      name: Mage_6
       rect:
         serializedVersion: 2
         x: 0
@@ -359,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f603245a6dadf440800000000000000
-      internalID: 4971320235876615928
+      spriteID: c65b7b59ab9c63f00800000000000000
+      internalID: 1096285362524239212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_7
+      name: Mage_7
       rect:
         serializedVersion: 2
         x: 220
@@ -380,14 +382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6382be46889faee00800000000000000
-      internalID: 1074945825285285942
+      spriteID: 030995b7242a70b30800000000000000
+      internalID: 4253546779495731248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_8
+      name: Mage_8
       rect:
         serializedVersion: 2
         x: 440
@@ -401,14 +403,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5bf8e857a899a50800000000000000
-      internalID: 6528401372357834209
+      spriteID: 4315d147d2fc0b110800000000000000
+      internalID: 1274746488674406708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_9
+      name: Mage_9
       rect:
         serializedVersion: 2
         x: 660
@@ -422,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b454b16e482caf0800000000000000
-      internalID: -377593294910829702
+      spriteID: 4d73882c96978df70800000000000000
+      internalID: 9212246532928583636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_10
+      name: Mage_10
       rect:
         serializedVersion: 2
         x: 880
@@ -443,14 +445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2de19f961e05302d0800000000000000
-      internalID: -3313715971738755374
+      spriteID: b39b4168efa198da0800000000000000
+      internalID: -5942188552865138373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_11
+      name: Mage_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -464,14 +466,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e81320e2c46af80800000000000000
-      internalID: -8095699519662879096
+      spriteID: 6f8681a4eb0b5baa0800000000000000
+      internalID: -6145811785143785226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_12
+      name: Mage_12
       rect:
         serializedVersion: 2
         x: 0
@@ -485,14 +487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d56fce6949c4bf0800000000000000
-      internalID: -338732496018055790
+      spriteID: 0be8f5fad8874b220800000000000000
+      internalID: 2500756243025465008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_13
+      name: Mage_13
       rect:
         serializedVersion: 2
         x: 220
@@ -506,14 +508,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc4198d876f98be0800000000000000
-      internalID: -1474376404097217290
+      spriteID: f8baffe52f51b4200800000000000000
+      internalID: 165249942049237903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_14
+      name: Mage_14
       rect:
         serializedVersion: 2
         x: 440
@@ -527,14 +529,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13fadd9d06acbd500800000000000000
-      internalID: 422153507410128689
+      spriteID: 4ac11852e0f9710e0800000000000000
+      internalID: -2299194201641771868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_15
+      name: Mage_15
       rect:
         serializedVersion: 2
         x: 660
@@ -548,14 +550,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 469e1adb819408790800000000000000
-      internalID: -7529938206353921692
+      spriteID: c08b9443636423050800000000000000
+      internalID: 5778758470489192460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_16
+      name: Mage_16
       rect:
         serializedVersion: 2
         x: 880
@@ -569,14 +571,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0e9b4932ffc1ae80800000000000000
-      internalID: -8169019609823076853
+      spriteID: 4a021aa9644de3370800000000000000
+      internalID: 8304308162624823460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_17
+      name: Mage_17
       rect:
         serializedVersion: 2
         x: 1100
@@ -590,14 +592,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 458030a222d998890800000000000000
-      internalID: -7455254938075854764
+      spriteID: 5545000e17b4c0a00800000000000000
+      internalID: 724036592561312853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_18
+      name: Mage_18
       rect:
         serializedVersion: 2
         x: 0
@@ -611,14 +613,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381d3b9f4f9cd12c0800000000000000
-      internalID: -4459186002028408445
+      spriteID: a923f0cf3d7fe25c0800000000000000
+      internalID: -4238177709470043494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_20
+      name: Mage_20
       rect:
         serializedVersion: 2
         x: 330
@@ -632,14 +634,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b93676360ce576e0800000000000000
-      internalID: -1840305361283302984
+      spriteID: 3f2516e217c5356c0800000000000000
+      internalID: -4155876389953645837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_21
+      name: Mage_21
       rect:
         serializedVersion: 2
         x: 660
@@ -653,14 +655,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 140483270143b5dc0800000000000000
-      internalID: -3649265827813244863
+      spriteID: cbf4d43fd92df1590800000000000000
+      internalID: -7701205261946630212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_23
+      name: Mage_23
       rect:
         serializedVersion: 2
         x: 990
@@ -674,14 +676,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7d0e612a68d15c60800000000000000
-      internalID: 7805257579548773758
+      spriteID: 32bf6398cb3ce9580800000000000000
+      internalID: -8818395805821502685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_24
+      name: Mage_24
       rect:
         serializedVersion: 2
         x: 0
@@ -695,14 +697,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa0e9f10304f9b2d0800000000000000
-      internalID: -3262308161297981265
+      spriteID: 81cb0008ac5c216f0800000000000000
+      internalID: -715291917276890088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_26
+      name: Mage_26
       rect:
         serializedVersion: 2
         x: 330
@@ -716,14 +718,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d17807fad9e05a80800000000000000
-      internalID: -8480020971681975847
+      spriteID: 7a0a1bd12a3aaf0e0800000000000000
+      internalID: -2235294348357820249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_27
+      name: Mage_27
       rect:
         serializedVersion: 2
         x: 660
@@ -737,14 +739,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b391790a68b28c170800000000000000
-      internalID: 8198850978847856955
+      spriteID: 46c24ce37dc8e62c0800000000000000
+      internalID: -4436453726814458780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_29
+      name: Mage_29
       rect:
         serializedVersion: 2
         x: 990
@@ -758,14 +760,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e583d240a1f0ab370800000000000000
-      internalID: 8338994264443533406
+      spriteID: 4dae2de995eef8fe0800000000000000
+      internalID: -1184466108291028268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_30
+      name: Mage_30
       rect:
         serializedVersion: 2
         x: 0
@@ -779,14 +781,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e209a89f464c4160800000000000000
-      internalID: 7011056027586593509
+      spriteID: 09fca4cea0976f570800000000000000
+      internalID: 8500114434529349520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_32
+      name: Mage_32
       rect:
         serializedVersion: 2
         x: 330
@@ -800,14 +802,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 012c3239677d71f10800000000000000
-      internalID: 2240496243914818064
+      spriteID: f11125218aca2bc90800000000000000
+      internalID: -7155467020076445409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_33
+      name: Mage_33
       rect:
         serializedVersion: 2
         x: 660
@@ -821,14 +823,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22e739b1b2b7e1550800000000000000
-      internalID: 6133475167601655330
+      spriteID: 28a8919e36dc95520800000000000000
+      internalID: 2691408081326803586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_35
+      name: Mage_35
       rect:
         serializedVersion: 2
         x: 990
@@ -842,8 +844,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90674a934f974080800000000000000
-      internalID: -9203212200808324961
+      spriteID: a7f550970aeee5170800000000000000
+      internalID: 8169229147089231738
       vertices: []
       indices: 
       edges: []
