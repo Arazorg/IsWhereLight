@@ -83,7 +83,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + sound + " not found!");
             return;
         }
-        else if (sound != "Effects")
+        else //if (sound != "Effects")
         {
             s.source.Pause();
         }

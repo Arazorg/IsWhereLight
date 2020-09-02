@@ -168,7 +168,7 @@ public class CharSkills : MonoBehaviour
 
     private bool LegionnaireSkill()
     {
-        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > 0.5f)
+        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > 2.75f)
         {
             Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * 30;
             GetComponent<Rigidbody2D>().velocity = dir;

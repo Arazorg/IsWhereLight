@@ -4841,7 +4841,7 @@ MonoBehaviour:
   sounds:
   - nameOfSound: ClickUI
     clip: {fileID: 8300000, guid: 354c7ef82c3653c45ac952fa9f99d9da, type: 3}
-    volume: 0.5
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4859,7 +4859,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Haze Staff
     clip: {fileID: 8300000, guid: a16792a3a2cf3274e9b1ab9d104496c9, type: 3}
-    volume: 0.15
+    volume: 0.35
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4868,7 +4868,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Blade of Power
     clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
-    volume: 0.1
+    volume: 0.35
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4877,7 +4877,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Battle-scarred Rifle
     clip: {fileID: 8300000, guid: 271a31f0f02c64a40ac07b76eb2dd4ef, type: 3}
-    volume: 0.1
+    volume: 0.35
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
