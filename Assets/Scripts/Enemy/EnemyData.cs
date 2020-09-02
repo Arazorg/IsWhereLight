@@ -20,7 +20,32 @@ public class EnemyData : ScriptableObject
         protected set { }
     }
 
-    [Tooltip("Скорость врага")]
+    [Tooltip("Размер коллайдера действия")]
+    [SerializeField] private Vector2 actionColliderSize;
+    public Vector2 ActionColliderSize
+    {
+        get { return actionColliderSize; }
+        protected set { }
+    }
+
+    [Tooltip("Размер коллайдера")]
+    [SerializeField] private Vector2 colliderSize;
+    public Vector2 СolliderSize
+    {
+        get { return colliderSize; }
+        protected set { }
+    }
+
+    [Tooltip("Смещение коллайдера")]
+    [SerializeField] private Vector2 colliderOffset;
+    public Vector2 ColliderOffset
+    {
+        get { return colliderOffset; }
+        protected set { }
+    }
+    
+
+   [Tooltip("Скорость врага")]
     [SerializeField] private int speed;
     public int Speed
     {

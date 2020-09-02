@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Fox
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 76c64eb161736bc4691c2a90ab5ee999, type: 2}
+  actionColliderSize: {x: 1.1, y: 1.4}
+  colliderSize: {x: 1, y: 1.25}
+  colliderOffset: {x: 0.05, y: -0.05}
   speed: 3
   health: 18
   typeOfAttack: 0

@@ -5,11 +5,27 @@ public class EnemyDistantAttack : MonoBehaviour
     public Transform ShootTarget
     {
         get { return shootTarget; }
-        set { shootTarget = value; }
+        set 
+        { 
+            if(value != null)
+                shootTarget = value; 
+        }
     }
-    private Transform shootTarget;
-    private EnemyBulletSpawner enemyBulletSpawner;
+    public string TargetTag
+    {
+        get { return targetTag; }
+        set
+        {
+            if (value != null)
+                targetTag = value;
+        }
+    }
     private string targetTag;
+
+    private Transform shootTarget;
+    private Enemy enemy;
+    private EnemyBulletSpawner enemyBulletSpawner;
+
     private float fireRate;
     private float bulletSpeed;
     private float bulletScatterAngle;
@@ -18,7 +34,7 @@ public class EnemyDistantAttack : MonoBehaviour
     void Start()
     {
         enemyBulletSpawner = GetComponent<EnemyBulletSpawner>();
-        var enemy = GetComponent<Enemy>();
+        enemy = GetComponent<Enemy>();
         fireRate = enemy.FireRate;
         targetTag = enemy.Target;
         var bulletData = enemy.DataOfBullet;
@@ -29,7 +45,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > timeToFire && !GetComponent<Enemy>().IsDeath && gameObject.tag == "Enemy")
+        if(Time.time > timeToFire && !enemy.IsDeath && gameObject.tag == "Enemy")
         {
             Attack();
             timeToFire = Time.time + fireRate;

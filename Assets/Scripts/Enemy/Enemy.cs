@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     private bool isEnemyHitted = false;
     private bool isEnterFirst = true;
     private float timeToOff;
-    private GameObject character;
 
     public bool IsDeath
     {
@@ -27,6 +26,15 @@ public class Enemy : MonoBehaviour
         this.data = data;
         health = Health;
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
+        foreach (var collider in GetComponents<BoxCollider2D>())
+        {
+            collider.offset = ColliderOffset;
+            if (collider.isTrigger)
+                collider.size = ActionColliderSize;
+            else
+                collider.size = ColliderSize;
+        }
+        
         gameObject.tag = "Untagged";
         if (!data.EnemyName.Contains("Target"))
             GetComponent<EnemyAI>().StartAI();
@@ -163,6 +171,33 @@ public class Enemy : MonoBehaviour
         get
         {
             return data.FireRate;
+        }
+        protected set { }
+    }
+
+    public Vector2 ActionColliderSize
+    {
+        get
+        {
+            return data.ActionColliderSize;
+        }
+        protected set { }
+    }
+
+    public Vector2 ColliderSize
+    {
+        get
+        {
+            return data.СolliderSize;
+        }
+        protected set { }
+    }
+
+    public Vector2 ColliderOffset
+    {
+        get
+        {
+            return data.ColliderOffset;
         }
         protected set { }
     }

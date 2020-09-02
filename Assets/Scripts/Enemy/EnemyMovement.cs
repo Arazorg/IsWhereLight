@@ -7,15 +7,24 @@ public class EnemyMovement : MonoBehaviour
     private Transform currentTarget;
     private Vector3 roamPosition;
     private float timeToNewRoam;
+
+    private Enemy enemy;
+    private EnemyMeleeAttack enemyMeleeAttack;
+    private EnemyDistantAttack enemyDistantAttack;
+    private Rigidbody2D rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        enemy = GetComponent<Enemy>();
+        enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
+        enemyDistantAttack = GetComponent<EnemyDistantAttack>();
         timeToNewRoam = float.MaxValue;
         SetFacing();
     }
 
     void Update()
     {
-        if (!GetComponent<Enemy>().IsDeath)
+        if (!enemy.IsDeath)
         {
             if (currentTarget != null)
             {
@@ -26,16 +35,12 @@ public class EnemyMovement : MonoBehaviour
 
                 float distanceNewRoam = 1f;
                 float newRoamTime = 1.5f;
-                if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Melee)
+                if (enemy.TypeOfAttack == EnemyData.AttackType.Melee)
                 {
                     if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
                                         || Time.time > timeToNewRoam)
                     {
-                        if (gameObject.tag != "Enemy")
-                        {
-                            roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
-                        }
-                        else if (GetComponent<EnemyMeleeAttack>().isAttack)
+                        if (enemyMeleeAttack.isAttack)
                         {
                             roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
                         }
@@ -47,26 +52,23 @@ public class EnemyMovement : MonoBehaviour
                         }
                     }
                 }
-                else if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Distant)
+                else if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
                 {
-                    if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
+                    if (gameObject.tag != "Enemy")
+                    {
+                        roamPosition = currentTarget.position - transform.position;
+                    }
+                    else if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
                                         || Time.time > timeToNewRoam)
                     {
-                        if (gameObject.tag != "Enemy")
-                        {
-                            roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
-                        }
-                        else
-                        {
-                            roamPosition = UtilsClass.GetRandomDir();
-                            var cameraPosition = CalculateScreenSizeInWorldCoords();
-                            timeToNewRoam = Time.time + newRoamTime;
-                        }
+                        roamPosition = UtilsClass.GetRandomDir();
+                        var cameraPosition = CalculateScreenSizeInWorldCoords();
+                        timeToNewRoam = Time.time + newRoamTime;
                     }
                 }
 
                 roamPosition = roamPosition.normalized;
-                GetComponent<Rigidbody2D>().velocity = roamPosition * 5f;
+                rb.velocity = roamPosition * 5f;
 
             }
         }
@@ -88,15 +90,16 @@ public class EnemyMovement : MonoBehaviour
         }
         if (collider.tag == "Destroyable")
         {
-            if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Melee)
-                GetComponent<EnemyMeleeAttack>().DestroyObstacle();
-            else if (GetComponent<Enemy>().TypeOfAttack == EnemyData.AttackType.Distant)
+            if (enemy.TypeOfAttack == EnemyData.AttackType.Melee)
+                enemyMeleeAttack.DestroyObstacle();
+            else if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
             {
-                GetComponent<EnemyDistantAttack>().ShootTarget = collider.transform;
-                GetComponent<EnemyDistantAttack>().Attack();
-                GetComponent<EnemyDistantAttack>().ShootTarget = currentTarget;
+                enemyDistantAttack.ShootTarget = collider.transform;
+                enemyDistantAttack.TargetTag = "Destroyable";
+                enemyDistantAttack.Attack();
+                enemyDistantAttack.ShootTarget = currentTarget;
+                enemyDistantAttack.TargetTag = enemy.Target;
             }
-
         }
     }
 

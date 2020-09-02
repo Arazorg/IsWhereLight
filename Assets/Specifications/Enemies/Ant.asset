@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Ant
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 801ace24f4b2d9349bdc758508e84589, type: 2}
+  actionColliderSize: {x: 1.5, y: 0.55}
+  colliderSize: {x: 1.35, y: 0.35}
+  colliderOffset: {x: 0.05, y: -0.05}
   speed: 4
   health: 20
   typeOfAttack: 1
   damage: 1
   attackRange: 5
+  attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
   enemyName: Ant
