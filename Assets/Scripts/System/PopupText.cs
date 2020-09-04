@@ -20,6 +20,21 @@ public class PopupText : MonoBehaviour
         return popupText;
     }
 
+    public static PopupText Create(Transform transform, Vector3 offset, bool isPhrase,
+                                    bool isCriticalHit = false, int damageAmount = -1,
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false)
+    {
+        Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, transform);
+        popupTextTransform.position += offset;
+        PopupText popupText = popupTextTransform.GetComponent<PopupText>();
+
+        if (!isPhrase)
+            popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
+        else
+            popupText.SetupPhrase(phrase, fontSize, isStatic);
+        return popupText;
+    }
+
     private static int sortingOrder;
 
     public static float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;

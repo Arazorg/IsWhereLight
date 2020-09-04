@@ -249,3 +249,4 @@ MonoBehaviour:
     type: 3}
   skillActivatePrefab: {fileID: 4977691266691279578, guid: 9331a8a264f96da4c9841ea2b6691b5d,
     type: 3}
+  offsetText: {x: 0, y: 0, z: 0}

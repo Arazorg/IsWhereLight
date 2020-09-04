@@ -11,15 +11,20 @@ public class CharSkills : MonoBehaviour
 
     [Tooltip("Префаб активированного скилла")]
     [SerializeField] private GameObject skillActivatePrefab;
+
+    [Tooltip("Смещение текста над игроком")]
+    [SerializeField] private Vector3 offsetText;
 #pragma warning restore 0649
+    public static bool isSkill;
 
     private string currentCharacter;
     private float timeToSkill = float.MinValue;
     private GameObject skillEffect;
-    public static bool isSkill;
+    private PopupText currentPhrase;
 
     public void ChooseSkill(string character)
     {
+        offsetText = new Vector3(0, 0.85f, 0);
         currentCharacter = character;
         switch (character)
         {           
@@ -74,6 +79,12 @@ public class CharSkills : MonoBehaviour
         skillEffect = Instantiate(skillActivatePrefab, transform);
         timeToSkill = Time.time + 2f;
         isSkill = true;
+        if(alliesLasers.Count == 0)
+        {
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        }
         IsidaSkill(alliesLasers);
     }
 
@@ -86,8 +97,12 @@ public class CharSkills : MonoBehaviour
             foreach (var item in alliesLasers)
                 Destroy(item.Value);
             alliesLasers.Clear();
+            if (currentPhrase != null && isSkill)
+                currentPhrase.DeletePhrase();
+            if(isSkill)
+                currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
             isSkill = false;
-            Destroy(skillEffect);
+            Destroy(skillEffect);     
         }
     }
 
@@ -140,6 +155,12 @@ public class CharSkills : MonoBehaviour
             startSpeed = GetComponent<CharController>().Speed;
             GetComponent<CharController>().Speed = 0;
         }
+        else
+        {
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        }
     }
 
     private void LegionnaireSkillUsing()
@@ -157,6 +178,10 @@ public class CharSkills : MonoBehaviour
             }
             else
             {
+                if (currentPhrase != null && isLegionnaireSkill)
+                    currentPhrase.DeletePhrase();
+                if (isLegionnaireSkill)
+                    currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
                 isLegionnaireSkill = false;
                 transform.GetChild(0).gameObject.SetActive(true);
                 Destroy(skillEffect);
