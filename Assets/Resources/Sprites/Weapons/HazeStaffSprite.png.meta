@@ -218,8 +218,8 @@ TextureImporter:
       name: HazeStaff_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 478
+        x: 0
+        y: 480
         width: 120
         height: 240
       alignment: 9
@@ -260,7 +260,7 @@ TextureImporter:
       name: HazeStaff_2
       rect:
         serializedVersion: 2
-        x: 244
+        x: 240
         y: 480
         width: 120
         height: 240
@@ -345,7 +345,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 239
+        y: 240
         width: 120
         height: 240
       alignment: 9
@@ -386,7 +386,7 @@ TextureImporter:
       name: HazeStaff_8
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
         width: 120
         height: 240
