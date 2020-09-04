@@ -6,13 +6,12 @@ using UnityEngine;
 public class PopupText : MonoBehaviour
 {
     //Create a damage popup
-    public static PopupText Create(Vector3 position, bool isPhrase, 
-                                    bool isCriticalHit = false, int damageAmount = -1, 
+    public static PopupText Create(Vector3 position, bool isPhrase,
+                                    bool isCriticalHit = false, int damageAmount = -1,
                                         string phrase = "", float fontSize = 4f, bool isStatic = false)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
-        
         if (!isPhrase)
             popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
         else
@@ -35,10 +34,9 @@ public class PopupText : MonoBehaviour
         return popupText;
     }
 
-    private static int sortingOrder;
-
     public static float DISAPPEAR_TIMER_MAX_DAMAGE = 1f;
     public static float DISAPPEAR_TIMER_MAX_PHRASE = 3.5f;
+    private static int sortingOrder = 5;
 
     private TextMeshPro textMesh;
     private float disappearTimer;
@@ -49,12 +47,16 @@ public class PopupText : MonoBehaviour
 
     private void Awake()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
-        gameObject.GetComponent<MeshRenderer>().sortingOrder = 5;
+        textMesh = GetComponent<TextMeshPro>();
     }
 
     private void Update()
     {
+        if (transform.parent.localScale.x == -1)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = Vector3.one;
+
         if (!isPhrase)
         {
             transform.position += moveVector * Time.deltaTime;

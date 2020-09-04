@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour, IPointerDownHandler
 {
@@ -139,7 +140,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
-    
     void Update()
     {
         if (phrasesCount > 5 && !isIgnore)

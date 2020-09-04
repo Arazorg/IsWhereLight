@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,19 +7,6 @@ using UnityEngine.UI;
 public class UISpawner : MonoBehaviour
 {
     public static UISpawner instance;
-
-    private bool isStartFpsCounter;
-
-    public bool IsStartFpsCounter
-    {
-        get { return isStartFpsCounter; }
-        set
-        {
-            isStartFpsCounter = value;
-            StartCoroutine(FpsCoroutine());
-        }
-    }
-
 #pragma warning disable 0649
     [Tooltip("Динамический джойстик")]
     [SerializeField] private GameObject dynamicJoystick;
@@ -39,6 +26,25 @@ public class UISpawner : MonoBehaviour
     [Tooltip("Текст FPS")]
     [SerializeField] private TextMeshProUGUI fpsText;
 #pragma warning restore 0649
+
+    [Serializable]
+    public struct CharacterSkillSprite
+    {
+        public string character;
+        public Sprite skillSprite;
+    }
+    public CharacterSkillSprite[] charactersSkillsSprites;
+
+    private bool isStartFpsCounter;
+    public bool IsStartFpsCounter
+    {
+        get { return isStartFpsCounter; }
+        set
+        {
+            isStartFpsCounter = value;
+            StartCoroutine(FpsCoroutine());
+        }
+    }
 
     private SettingsInfo settingsInfo;
     private GameObject joystick;
@@ -120,5 +126,16 @@ public class UISpawner : MonoBehaviour
         fireActButton.GetComponent<Image>().color = newColor;
         swapWeaponButton.GetComponent<Image>().color = newColor;
         skillButton.GetComponent<Image>().color = newColor;
+    }
+
+    public void SetSkillButtonSprite(string character)
+    {
+        Sprite characterSkill = charactersSkillsSprites[0].skillSprite;
+        foreach (var currentCharacter in charactersSkillsSprites)
+        {
+            if (currentCharacter.character == character)
+                characterSkill = currentCharacter.skillSprite;
+        }
+        skillButton.GetComponent<Image>().sprite = characterSkill;
     }
 }

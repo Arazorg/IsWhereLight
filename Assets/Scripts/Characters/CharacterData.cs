@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Characters/Standart Character", fileName = "New Character")]
 public class CharacterData : ScriptableObject

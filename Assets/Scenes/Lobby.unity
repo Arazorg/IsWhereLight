@@ -699,6 +699,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd09fc3177f276438b8e3c39862fd53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charactersSkillsSprites:
+  - character: Legionnaire
+    skillSprite: {fileID: -892886041173194936, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
+  - character: Isida
+    skillSprite: {fileID: -3296940377617887046, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
+  - character: Raider
+    skillSprite: {fileID: 3592975981768945575, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
+  - character: Archer
+    skillSprite: {fileID: 3738483854646593540, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
+  - character: Keeper
+    skillSprite: {fileID: -4131516812521348108, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
+  - character: Mechanic
+    skillSprite: {fileID: 1456265131444660123, guid: c2b286af284f7394dbbabdc8d82e0f32,
+      type: 3}
   dynamicJoystick: {fileID: 8135886326569738825, guid: 56fae09712773584fb63896d473a98ee,
     type: 3}
   staticJoystick: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
@@ -1096,7 +1115,7 @@ MonoBehaviour:
   moneyText: {fileID: 2124893378}
   challengeText: {fileID: 1396801132}
   deathPanelText: {fileID: 0}
-  character: {fileID: 6216328486193946668, guid: 171c3d2b16a39ad44800bc30cfa83c26,
+  character: {fileID: 6216328486193946668, guid: 8f2ffbf6585d40742b78a1126714c8d8,
     type: 3}
   healthBar: {fileID: 159772221}
   maneBar: {fileID: 509596819}

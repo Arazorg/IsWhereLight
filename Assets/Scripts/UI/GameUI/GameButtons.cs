@@ -138,6 +138,7 @@ public class GameButtons : MonoBehaviour
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
+        UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
 
         if (SceneManager.GetActiveScene().name == "Game")
         {
@@ -158,7 +159,6 @@ public class GameButtons : MonoBehaviour
             character.GetComponent<CharController>().Speed = 7.5f;
         }
         SetCharAnim();
-
         moneyText = moneyText.GetComponent<TextMeshProUGUI>();
         moneyText.text = charInfo.money.ToString();
         FireActButtonState = FireActButtonStateEnum.none;
