@@ -27,15 +27,27 @@ public class CameraFollow : MonoBehaviour
         get { return isMove; }
     }
     private bool isMove;
+    public bool IsSmooth
+    {
+        set { isSmooth= value; }
+        get { return isSmooth; }
+    }
+    private bool isSmooth = true;
 
     void FixedUpdate()
     {
         if (target != null && isMove)
         {
             Vector3 desiredPosition = target.position + offset;
-            Vector3 smootheedPosition =
-                Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-            transform.position = smootheedPosition;
+
+            if(IsSmooth)
+            {
+                Vector3 smootheedPosition =
+                    Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+                transform.position = smootheedPosition;
+            }
+            else
+                transform.position = desiredPosition ;
         }
     }
 }

@@ -281,7 +281,6 @@ public class GameButtons : MonoBehaviour
             charSkills.ChooseSkill(charInfo.character);
             timeToSkill = Time.time + currentGameInfo.skillTime;
             var color = skillButton.color;
-            skillButtonBar.color = color;
             color.a = 50;
             skillButton.color = color;  
         }        

@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (!enemy.IsDeath)
+        if (!enemy.IsDeath && !enemy.isKnoking)
         {
             if (currentTarget != null)
             {

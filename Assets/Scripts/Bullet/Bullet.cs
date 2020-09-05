@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
         bulletSprite = GetComponent<SpriteRenderer>();
         if (Animators.Count != 0)
-            GetComponent<Animator>().runtimeAnimatorController = Animators[0];                  
+            GetComponent<Animator>().runtimeAnimatorController = Animators[0];
     }
 
     public Sprite MainSprite
@@ -135,7 +135,7 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Destroyable")
             {
-                Destroy(collider.gameObject.transform.parent.gameObject);
+                collider.GetComponent<Enemy>().DestroyStaticEnemy();
                 if (!gameObject.tag.Contains("Laser"))
                     Destroy(gameObject);
             }

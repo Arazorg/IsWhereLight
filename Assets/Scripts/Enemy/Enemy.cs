@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private EnemyData data;
-    private bool isEnemyHitted = false;
-    private bool isEnterFirst = true;
-    private float timeToOff;
-
     public bool IsDeath
     {
         get { return isDeath; }
         set { isDeath = value; }
     }
     private bool isDeath = false;
+    public GameObject explosionPrefab;
+
+    private EnemyData data;
+    private bool isEnemyHitted = false;
+    private bool isEnterFirst = true;
+    private float timeToOff;
+    public bool isKnoking;
+    private float timeOfKnoking;
 
     /// <summary>
     /// Initialization of enemy
@@ -25,18 +28,24 @@ public class Enemy : MonoBehaviour
     {
         this.data = data;
         health = Health;
-        GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-        foreach (var collider in GetComponents<BoxCollider2D>())
+        if (!data.EnemyName.Contains("Static"))
         {
-            collider.offset = ColliderOffset;
-            if (collider.isTrigger)
-                collider.size = ActionColliderSize;
-            else
-                collider.size = ColliderSize;
+            GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
+            foreach (var collider in GetComponents<BoxCollider2D>())
+            {
+                collider.offset = ColliderOffset;
+                if (collider.isTrigger)
+                    collider.size = ActionColliderSize;
+                else
+                    collider.size = ColliderSize;
+            }
+            gameObject.tag = "Untagged";
         }
-        
-        gameObject.tag = "Untagged";
-        if (!data.EnemyName.Contains("Target"))
+        else
+            gameObject.tag = "Destroyable";
+
+        timeOfKnoking = float.MaxValue;
+        if (!data.EnemyName.Contains("Target") && !data.EnemyName.Contains("Static"))
             GetComponent<EnemyAI>().StartAI();
     }
 
@@ -204,6 +213,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (Time.time > timeOfKnoking)
+            isKnoking = false;
         EnemyHitted();
     }
 
@@ -286,12 +297,21 @@ public class Enemy : MonoBehaviour
         if (!isDeath)
         {
             GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
+            isKnoking = true;
+            timeOfKnoking = Time.time + 1f;
         }
+    }
+
+    public void DestroyStaticEnemy()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+        Destroy(gameObject);
     }
 
     void OnBecameVisible()
     {
-        if (!isDeath)
+        if (!isDeath && gameObject.tag != "Destroyable")
         {
             if (!data.EnemyName.Contains("Target"))
                 gameObject.tag = "Enemy";
@@ -300,7 +320,7 @@ public class Enemy : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        if (!isDeath)
+        if (!isDeath && gameObject.tag != "Destroyable")
         {
             gameObject.tag = "Untagged";
         }

@@ -12,6 +12,9 @@ public class LevelGeneration : MonoBehaviour
 
     [Tooltip("Комнаты")]
     [SerializeField] public GameObject[] rooms;
+
+    [Tooltip("Спецификация куста")]
+    [SerializeField] public EnemyData bushStaticTile;
 #pragma warning restore 0649
 
     private Transform leftTop;

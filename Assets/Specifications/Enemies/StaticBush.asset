@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18157a2e42c9a76499a846bc8ee26b5b, type: 3}
-  m_Name: Watermelon
+  m_Name: StaticBush
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: 7d920c051c9aa1c45a4c1fb1af8fa4ee, type: 2}
-  actionColliderSize: {x: 1, y: 1}
-  colliderSize: {x: 1, y: 1}
+  mainAnimator: {fileID: 0}
+  actionColliderSize: {x: 0, y: 0}
+  colliderSize: {x: 0, y: 0}
   colliderOffset: {x: 0, y: 0}
   speed: 0
   health: 1
@@ -24,5 +24,5 @@ MonoBehaviour:
   attackAngle: 0
   dataOfBullet: {fileID: 0}
   target: 
-  enemyName: WatermelonTarget
+  enemyName: StaticBush
   fireRate: 0

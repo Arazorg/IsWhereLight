@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2529501106327269322}
   - component: {fileID: 8064713759175372496}
   - component: {fileID: 8744991536958597034}
+  - component: {fileID: 1525393105660997396}
   m_Layer: 12
   m_Name: BushTile1
   m_TagString: Destroyable
@@ -108,5 +109,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.125, y: 1.125}
   m_EdgeRadius: 0
+--- !u!114 &1525393105660997396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8383952840459986664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd4d2ec5b01623449098f31a209baa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 7327246331232928379, guid: b44f06fc37dec0c46ac35ad8f79b55eb,
+    type: 3}
+  isKnoking: 0

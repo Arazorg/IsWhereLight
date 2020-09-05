@@ -9,9 +9,6 @@ public class CharSkills : MonoBehaviour
     [Tooltip("Лазер исцеления Изиды")]
     [SerializeField] private GameObject isidaHealingLaser;
 
-    [Tooltip("Префаб активированного скилла")]
-    [SerializeField] private GameObject skillActivatePrefab;
-
     [Tooltip("Смещение текста над игроком")]
     [SerializeField] private Vector3 offsetText;
 #pragma warning restore 0649
@@ -21,13 +18,15 @@ public class CharSkills : MonoBehaviour
     private float timeToSkill = float.MinValue;
     private GameObject skillEffect;
     private PopupText currentPhrase;
+    private Animator animator;
+    private Rigidbody2D rb;
 
     public void ChooseSkill(string character)
     {
         offsetText = new Vector3(0, 0.85f, 0);
         currentCharacter = character;
         switch (character)
-        {           
+        {
             case "Legionnaire":
                 LegionnaireSkillStart();
                 break;
@@ -76,14 +75,13 @@ public class CharSkills : MonoBehaviour
             var laser = Instantiate(isidaHealingLaser, transform.position, Quaternion.identity);
             alliesLasers.Add(ally, laser);
         }
-        skillEffect = Instantiate(skillActivatePrefab, transform);
         timeToSkill = Time.time + 2f;
         isSkill = true;
-        if(alliesLasers.Count == 0)
+        if (alliesLasers.Count == 0)
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillFail");
         }
         IsidaSkill(alliesLasers);
     }
@@ -99,10 +97,10 @@ public class CharSkills : MonoBehaviour
             alliesLasers.Clear();
             if (currentPhrase != null && isSkill)
                 currentPhrase.DeletePhrase();
-            if(isSkill)
+            if (isSkill)
                 currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
             isSkill = false;
-            Destroy(skillEffect);     
+            Destroy(skillEffect);
         }
     }
 
@@ -131,84 +129,97 @@ public class CharSkills : MonoBehaviour
     private int enemyCounter;
     private float startSpeed;
     private List<GameObject> enemies = new List<GameObject>();
-
+    private Quaternion startSkillRotation;
     private void LegionnaireSkillStart()
     {
+        animator = GetComponent<Animator>();
+
         LayerMask layerMask
           = ~(1 << LayerMask.NameToLayer("Player") |
                   1 << LayerMask.NameToLayer("Ignore Raycast") |
                       1 << LayerMask.NameToLayer("Room"));
         var enemiesArray = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(var enemy in enemiesArray)
+        foreach (var enemy in enemiesArray)
         {
-            if (((Physics2D.Raycast(transform.position, (enemy.transform.position- transform.position).normalized, Mathf.Infinity, layerMask)).collider.tag == "Enemy"))
-            {
-                enemies.Add(enemy);
-            }    
+            //if (((Physics2D.Raycast(transform.position, (enemy.transform.position- transform.position).normalized, Mathf.Infinity, layerMask)).collider.tag == "Enemy"))
+            //{
+            enemies.Add(enemy);
+            // }    
         }
         if (enemies.Count != 0)
         {
+            rb = GetComponent<Rigidbody2D>();
+            //rb.constraints &= ~RigidbodyConstraints2D.FreezeRotation;
+            startSkillRotation = transform.rotation;
+            animator.SetBool("Skill", true);
             transform.GetChild(0).gameObject.SetActive(false);
-            skillEffect = Instantiate(skillActivatePrefab, transform);
             enemyCounter = 0;
             isLegionnaireSkill = true;
             startSpeed = GetComponent<CharController>().Speed;
             GetComponent<CharController>().Speed = 0;
+            Camera.main.GetComponent<CameraFollow>().IsSmooth = false;
         }
         else
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillFail");
         }
     }
 
     private void LegionnaireSkillUsing()
-    {   
-        if(isLegionnaireSkill && !CharAction.isDeath)
+    {
+        if (isLegionnaireSkill && !CharAction.isDeath)
         {
             if (enemyCounter < enemies.Count)
             {
                 if (LegionnaireSkill())
                 {
                     var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
-                    enemyScript.GetDamage(3, 0, transform, 600);
+                    enemyScript.GetDamage(3, 0, transform, 1000);
                     enemyCounter++;
                 }
             }
             else
             {
+                transform.GetChild(0).gameObject.SetActive(true);
+                Destroy(skillEffect);
+                GetComponent<CharController>().Speed = startSpeed;
+                enemies.Clear();
+                animator.SetBool("Skill", false);
+                transform.rotation = startSkillRotation;
+                Camera.main.GetComponent<CameraFollow>().IsSmooth = true;
                 if (currentPhrase != null && isLegionnaireSkill)
                     currentPhrase.DeletePhrase();
                 if (isLegionnaireSkill)
                     currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
                 isLegionnaireSkill = false;
-                transform.GetChild(0).gameObject.SetActive(true);
-                Destroy(skillEffect);
-                GetComponent<CharController>().Speed = startSpeed;
-                enemies.Clear();
+                //rb.constraints = RigidbodyConstraints2D.FreezeRotation; 
             }
-        }      
+        }
     }
 
     private bool LegionnaireSkill()
     {
-        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > 2.75f)
+        var enemiesStatic = Physics2D.OverlapCircleAll(transform.position, 1, 1 << LayerMask.NameToLayer("EnemyStatic"));
+        foreach (var enemy in enemiesStatic)
+            enemy.GetComponent<Enemy>().DestroyStaticEnemy();
+
+        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > 1f)
         {
-            Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * 30;
+            Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * 15;
             GetComponent<Rigidbody2D>().velocity = dir;
+
+            float angle = -Mathf.Atan2(enemies[enemyCounter].transform.position.x - transform.position.x,
+                                            enemies[enemyCounter].transform.position.y - transform.position.y)
+                                                * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
             return false;
         }
         else
             return true;
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
-    {
-        if(isLegionnaireSkill)
-            if (collider.tag == "Destroyable")
-                Destroy(collider.gameObject.transform.parent.gameObject);
-    }
     #endregion  LegionnaireSkill
 
     #region ArcherSkill

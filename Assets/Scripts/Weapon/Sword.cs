@@ -43,7 +43,9 @@ public class Sword : MonoBehaviour
                                                    && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
                 {
                     if (enemy.transform.tag == "Destroyable")
-                        Destroy(enemy.gameObject.transform.parent.gameObject);
+                    {
+                        enemyScript.DestroyStaticEnemy();
+                    }
                     else if (enemy.transform.tag == "Enemy")
                     {
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, 0.25f);

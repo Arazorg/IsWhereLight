@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008342743, y: -0.0041713715}
+  m_Offset: {x: -0.025, y: -0.025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.2}
+  m_Size: {x: 0.825, y: 1.25}
   m_EdgeRadius: 0
 --- !u!50 &-4659355296405908417
 Rigidbody2D:
@@ -246,7 +246,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isidaHealingLaser: {fileID: 2061864243556104380, guid: 7872ba6ee2183f747a5de135fa043948,
-    type: 3}
-  skillActivatePrefab: {fileID: 4977691266691279578, guid: 9331a8a264f96da4c9841ea2b6691b5d,
     type: 3}
   offsetText: {x: 0, y: 0, z: 0}

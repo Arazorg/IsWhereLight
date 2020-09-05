@@ -46,10 +46,12 @@ public class EnemyMeleeAttack : MonoBehaviour
     public void DestroyObstacle()
     {
         var obstacles = Physics2D.OverlapCircleAll(transform.position, attackRange, 1 << LayerMask.NameToLayer("EnemyStatic"));
+        animator.speed = 3f;
         animator.Play("Attack");
+        animator.speed = 1f;
         foreach (var obstacle in obstacles)
         {
-            Destroy(obstacle.transform.parent.gameObject, 0.33f);
+            obstacle.GetComponent<Enemy>().DestroyStaticEnemy();
         } 
     }
 

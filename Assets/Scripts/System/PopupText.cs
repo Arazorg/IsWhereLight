@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PopupText : MonoBehaviour
 {
-    //Create a damage popup
+    //Create popup
     public static PopupText Create(Vector3 position, bool isPhrase,
                                     bool isCriticalHit = false, int damageAmount = -1,
                                         string phrase = "", float fontSize = 4f, bool isStatic = false)
@@ -52,12 +52,17 @@ public class PopupText : MonoBehaviour
 
     private void Update()
     {
-        if (transform.parent.localScale.x == -1)
-            transform.localScale = new Vector3(-1, 1, 1);
+        if (isPhrase)
+        {
+            if(transform.GetComponentInParent<CharInfo>() != null)
+            {
+                if (transform.parent.localScale.x == -1)
+                    transform.localScale = new Vector3(-1, 1, 1);
+                else
+                    transform.localScale = Vector3.one;
+            }
+        }
         else
-            transform.localScale = Vector3.one;
-
-        if (!isPhrase)
         {
             transform.position += moveVector * Time.deltaTime;
             moveVector -= moveVector * 3f * Time.deltaTime;
@@ -74,7 +79,7 @@ public class PopupText : MonoBehaviour
             }
         }
 
-        if(!isStatic)
+        if (!isStatic)
         {
             disappearTimer -= Time.deltaTime;
             if (disappearTimer < 0)
