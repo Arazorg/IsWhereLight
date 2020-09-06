@@ -18,7 +18,6 @@ public class CharController : MonoBehaviour
     [SerializeField] private float speed;
 #pragma warning restore 0649
 
-    public static bool isRotate;
     public string currentTag;
     public RuntimeAnimatorController CharacterRuntimeAnimatorController
     {
@@ -48,13 +47,10 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
-        isRotate = true;
         joystick = GameObject.Find($"Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         charGun.SpawnStartWeapon();
         gun = transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
-        if (gun.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow) //ОШИБКА
-            isRotate = false;
         m_FacingRight = true;
         isStop = false;
         currentTag = "Enemy";
@@ -68,7 +64,7 @@ public class CharController : MonoBehaviour
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
                                          Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
             //if(rb.velocity != Vector2.zero)
-                //AudioManager.instance.Play("Steps");
+            //AudioManager.instance.Play("Steps");
             if (!RotateGunToEnemy(currentTag))
             {
                 closestEnemy = null;
@@ -77,12 +73,6 @@ public class CharController : MonoBehaviour
                 else if (joystick.Horizontal < 0 && m_FacingRight)
                     Flip();
 
-                if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Bow)
-                    transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
-                else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Bow)
-                    transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
                 else
                 {
                     if (joystick.Horizontal != 0 && joystick.Vertical != 0)
@@ -103,12 +93,6 @@ public class CharController : MonoBehaviour
             }
             else
             {
-                if (!isRotate && m_FacingRight && transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Bow)
-                    transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Bow>().SetAngle(true);
-                else if (!isRotate && !m_FacingRight && transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Weapon>().TypeOfAttack
-                    == WeaponData.AttackType.Bow)
-                    transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).GetComponent<Bow>().SetAngle(false);
 
                 if (0 <= gunAngle && gunAngle <= 180)
                 {
@@ -127,9 +111,8 @@ public class CharController : MonoBehaviour
     private float RotateGun()
     {
         float gunAngle = -Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
-        if (isRotate)
-            transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).rotation
-                = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+        transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).rotation
+            = Quaternion.Euler(new Vector3(0, 0, gunAngle));
         return gunAngle;
     }
 
@@ -166,8 +149,7 @@ public class CharController : MonoBehaviour
                     gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
                                             closestEnemy.transform.position.y - transform.position.y)
                                                 * Mathf.Rad2Deg;
-                    if (isRotate)
-                        gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                    gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
 
                     return true;
                 }

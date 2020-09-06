@@ -4090,6 +4090,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7269adafc8598c4490a1a5fb1f92072, type: 2}
   - {fileID: 11400000, guid: 5edb3de8e5e40c7468483ad5b458e537, type: 2}
   - {fileID: 11400000, guid: 07a3d51b4fb98d14483e307a976214e5, type: 2}
+  - {fileID: 11400000, guid: f1794311731c7fc4f98ed3c9b8e7637f, type: 2}
   weaponsPrefabs:
   - {fileID: 1195910279473271634, guid: e8babcd27d5b8734a8d95539f5832ddc, type: 3}
   - {fileID: 9011886232207171539, guid: b28f0f33f7dd4554e9580f16f195a365, type: 3}

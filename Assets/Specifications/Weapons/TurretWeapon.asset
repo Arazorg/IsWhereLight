@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
+  m_Name: TurretWeapon
+  m_EditorClassIdentifier: 
+  weaponName: TurretWeapon
+  mainAnimator: {fileID: 9100000, guid: 6d382b8255523fc4eafb078884552bed, type: 2}
+  mainSprite: {fileID: -5334763350848274098, guid: 81c5266115149e54cb3e059d840415b8,
+    type: 3}
+  typeOfAttack: 0
+  offset: {x: 0, y: 0.725}
+  attackOffset: {x: 0, y: 0.725}
+  standartAngle: 0
+  attackAngle: 0
+  radius: 0
+  knoking: 200
+  fireRate: 0.25
+  damage: 1
+  critChance: 33
+  currentBullet: {fileID: 11400000, guid: db08bfb8a3605c84fbd9cc1de1cbea39, type: 2}
+  manecost: 0
+  firePointPosition: {x: -0.085, y: 0.85}

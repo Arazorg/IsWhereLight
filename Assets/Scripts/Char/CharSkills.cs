@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class CharSkills : MonoBehaviour
@@ -11,15 +12,26 @@ public class CharSkills : MonoBehaviour
 
     [Tooltip("Смещение текста над игроком")]
     [SerializeField] private Vector3 offsetText;
+
+    [Tooltip("Самонаводящяяся стрела")]
+    [SerializeField] private GameObject missileArrowPrefab;
+
+    [Tooltip("Спецификация стрелы")]
+    [SerializeField] private BulletData arrowData;
+
+    [Tooltip("Префаб турели механика")]
+    [SerializeField] private GameObject mechanicTurret;
 #pragma warning restore 0649
     public static bool isSkill;
 
+    private List<GameObject> enemies = new List<GameObject>();
     private string currentCharacter;
     private float timeToSkill = float.MinValue;
-    private GameObject skillEffect;
     private PopupText currentPhrase;
     private Animator animator;
     private Rigidbody2D rb;
+    private float startSpeed;
+    private int enemyCounter;
 
     public void ChooseSkill(string character)
     {
@@ -34,10 +46,12 @@ public class CharSkills : MonoBehaviour
                 IsidaSkillStart();
                 break;
             case "Archer":
+                ArcherSkillStart();
                 break;
             case "Keeper":
                 break;
             case "Mechanic":
+                MechanicSkillStart();
                 break;
             case "Raider":
                 break;
@@ -55,10 +69,12 @@ public class CharSkills : MonoBehaviour
                 IsidaSkillUsing();
                 break;
             case "Archer":
+                ArcherSkillUsing();
                 break;
             case "Keeper":
                 break;
             case "Mechanic":
+                MechanicSkillSUsing();
                 break;
             case "Raider":
                 break;
@@ -83,6 +99,12 @@ public class CharSkills : MonoBehaviour
                 currentPhrase.DeletePhrase();
             currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillFail");
         }
+        else
+        {
+            if (currentPhrase != null && isSkill)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        }
         IsidaSkill(alliesLasers);
     }
 
@@ -95,12 +117,7 @@ public class CharSkills : MonoBehaviour
             foreach (var item in alliesLasers)
                 Destroy(item.Value);
             alliesLasers.Clear();
-            if (currentPhrase != null && isSkill)
-                currentPhrase.DeletePhrase();
-            if (isSkill)
-                currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
             isSkill = false;
-            Destroy(skillEffect);
         }
     }
 
@@ -126,9 +143,6 @@ public class CharSkills : MonoBehaviour
 
     #region LegionnaireSkill
     public static bool isLegionnaireSkill;
-    private int enemyCounter;
-    private float startSpeed;
-    private List<GameObject> enemies = new List<GameObject>();
     private Quaternion startSkillRotation;
     private void LegionnaireSkillStart()
     {
@@ -158,6 +172,9 @@ public class CharSkills : MonoBehaviour
             startSpeed = GetComponent<CharController>().Speed;
             GetComponent<CharController>().Speed = 0;
             Camera.main.GetComponent<CameraFollow>().IsSmooth = false;
+            if (currentPhrase != null && isLegionnaireSkill)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
         }
         else
         {
@@ -183,16 +200,11 @@ public class CharSkills : MonoBehaviour
             else
             {
                 transform.GetChild(0).gameObject.SetActive(true);
-                Destroy(skillEffect);
                 GetComponent<CharController>().Speed = startSpeed;
                 enemies.Clear();
                 animator.SetBool("Skill", false);
                 transform.rotation = startSkillRotation;
                 Camera.main.GetComponent<CameraFollow>().IsSmooth = true;
-                if (currentPhrase != null && isLegionnaireSkill)
-                    currentPhrase.DeletePhrase();
-                if (isLegionnaireSkill)
-                    currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
                 isLegionnaireSkill = false;
                 //rb.constraints = RigidbodyConstraints2D.FreezeRotation; 
             }
@@ -223,10 +235,100 @@ public class CharSkills : MonoBehaviour
     #endregion  LegionnaireSkill
 
     #region ArcherSkill
+    private Dictionary<GameObject, GameObject> enemiesArrows = new Dictionary<GameObject, GameObject>();
+    private void ArcherSkillStart()
+    {
+        timeToSkill = Time.time + 2f;
+        animator = GetComponent<Animator>();
+        var enemiesArray = GameObject.FindGameObjectsWithTag("Enemy");
 
+        foreach (var enemy in enemiesArray)
+        {
+            var currentArrow = Instantiate(missileArrowPrefab, transform.position, Quaternion.identity);
+            currentArrow.GetComponent<Bullet>().Init(arrowData);
+            currentArrow.GetComponent<Bullet>().Damage = 5;
+            currentArrow.GetComponent<Bullet>().Knoking = 300;
+            currentArrow.transform.localScale = new Vector3(3, 3);
+            currentArrow.transform.tag = "HomingArrow";
+            enemiesArrows.Add(enemy, currentArrow);
+        }
+
+        if (enemiesArrows.Count != 0)
+        {
+            //animator.SetBool("Skill", true);
+            enemyCounter = 0;
+            isSkill = true;
+            if (currentPhrase != null && isSkill)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        }
+        else
+        {
+            enemiesArrows.Clear();
+            if (currentPhrase != null)
+                currentPhrase.DeletePhrase();
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillFail");
+        }
+    }
+
+    private void ArcherSkillUsing()
+    {
+        if (!CharAction.isDeath && isSkill && Time.time < timeToSkill)
+        {
+            foreach (var arrowEnemy in enemiesArrows)
+            {
+                if (arrowEnemy.Value != null)
+                    HomingArrow(arrowEnemy.Key, arrowEnemy.Value);
+            }
+        }
+        else
+        {
+            enemiesArrows.Clear();
+            //animator.SetBool("Skill", false);
+
+            isSkill = false;
+        }
+    }
+
+    private void HomingArrow(GameObject enemy, GameObject currentArrow)
+    {
+        if (!enemy.GetComponent<Enemy>().IsDeath)
+        {
+            Vector2 dir = (enemy.transform.position - currentArrow.transform.position).normalized;
+            float angle = -Mathf.Atan2(enemy.transform.position.x - currentArrow.transform.position.x,
+                                             enemy.transform.position.y - currentArrow.transform.position.y)
+                                                * Mathf.Rad2Deg;
+            currentArrow.transform.rotation = Quaternion.Euler(0, 0, angle);
+            currentArrow.GetComponent<Rigidbody2D>().velocity = dir * 8.5f;
+        }
+        else
+        {
+            currentArrow.GetComponent<Rigidbody2D>().velocity = currentArrow.transform.up * 8.5f;
+        }
+
+    }
     #endregion ArcherSkill
 
     #region MechanicSkill
+    GameObject turret = null;
+    private void MechanicSkillStart()
+    {
+        isSkill = true;
+        timeToSkill = Time.time + 15f;
+        animator = GetComponent<Animator>();
+        turret = Instantiate(mechanicTurret, transform.position, Quaternion.identity);
+        WeaponSpawner.instance.SetPrefab("TurretWeapon");
+        WeaponSpawner.instance.Spawn("TurretWeapon", turret.transform, true);
+    }
+
+    private void MechanicSkillSUsing()
+    {
+        if(Time.time > timeToSkill && isSkill)
+        {
+            Destroy(turret);
+            isSkill = false;
+        }
+    }
 
     #endregion MechanickSkill
 

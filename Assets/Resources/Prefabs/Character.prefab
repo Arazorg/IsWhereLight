@@ -248,3 +248,8 @@ MonoBehaviour:
   isidaHealingLaser: {fileID: 2061864243556104380, guid: 7872ba6ee2183f747a5de135fa043948,
     type: 3}
   offsetText: {x: 0, y: 0, z: 0}
+  missileArrowPrefab: {fileID: 836223107888240504, guid: 2eb5b84a56bf4504b822cefde044516a,
+    type: 3}
+  arrowData: {fileID: 11400000, guid: 9c92838f149db8f41a514487720deb19, type: 2}
+  mechanicTurret: {fileID: 4299368503429666952, guid: 860fb7ed93d8a4b4f96dd6fa6fa9c548,
+    type: 3}

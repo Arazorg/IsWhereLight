@@ -45,7 +45,7 @@ public class Bow : MonoBehaviour
         bulletSpawner.SetDamageCrit(stringingTime);
         Quaternion dir;
         if (stringingTime >= 1)
-             dir = Quaternion.AngleAxis(Random.Range(0,1), Vector3.forward);
+             dir = Quaternion.AngleAxis(0f, Vector3.forward);
         else
             dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = bulletSpawner.CurrentWeaponBullet.GetComponent<Rigidbody2D>();
@@ -53,14 +53,6 @@ public class Bow : MonoBehaviour
         bulletSpawner.CurrentWeaponBullet.transform.rotation 
             = Quaternion.Euler(0, 0, dir.eulerAngles.z + transform.rotation.eulerAngles.z);
         SetPosition(false);
-    }
-
-    public void SetAngle(bool isRight)
-    {
-        if (isRight)
-            transform.rotation = Quaternion.Euler(0, 0, GetComponent<Weapon>().StandartAngle);
-        else
-            transform.rotation = Quaternion.Euler(0, 0, -(GetComponent<Weapon>().StandartAngle));
     }
 
     private void SetPosition(bool isAttack)

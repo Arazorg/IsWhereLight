@@ -127,11 +127,12 @@ public class Bullet : MonoBehaviour
         if (collider.tag != "GunKeep"
                 && collider.tag != "StandartBullet"
                     && collider.tag != "StandartArrow"
-                        && collider.tag != "StandartLaser"
-                            && collider.tag != "ConstantLaser"
-                                && collider.tag != "EnemyBullet"
-                                    && collider.tag != "IgnoreAll"
-                                        && collider.tag != "NPC")
+                        && collider.tag != "HomingArrow"
+                            && collider.tag != "StandartLaser"
+                                && collider.tag != "ConstantLaser"
+                                    && collider.tag != "EnemyBullet"
+                                        && collider.tag != "IgnoreAll"
+                                            && collider.tag != "NPC")
         {
             if (collider.tag == "Destroyable")
             {
@@ -139,7 +140,7 @@ public class Bullet : MonoBehaviour
                 if (!gameObject.tag.Contains("Laser"))
                     Destroy(gameObject);
             }
-            else if ((gameObject.tag == "StandartBullet" && collider.tag != "Player")
+            else if (((gameObject.tag == "StandartBullet" || gameObject.tag == "HomingArrow") && collider.tag != "Player")
                         || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
             {
                 GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -148,8 +149,8 @@ public class Bullet : MonoBehaviour
             }
             else if (gameObject.tag == "StandartArrow" && collider.tag != "Player")
             {
-                var arrow = Instantiate(gameObject, transform.position, transform.rotation);
-                arrow.transform.parent = collider.transform;
+                var arrow = Instantiate(gameObject, transform);
+                //arrow.transform.parent = collider.transform;
                 arrow.tag = "IgnoreAll";
                 Destroy(gameObject);
             }

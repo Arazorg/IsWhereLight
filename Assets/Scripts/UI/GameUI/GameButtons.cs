@@ -250,10 +250,6 @@ public class GameButtons : MonoBehaviour
                 case FireActButtonStateEnum.changeGun:
                     charGun.ChangeGun();
                     currentWeapon = character.transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
-                    if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
-                        CharController.isRotate = false;
-                    else
-                        CharController.isRotate = true;
                     break;
                 case FireActButtonStateEnum.NPC:
                     charAction.currentNPC.GetComponent<Character>().ShowPhrase();
@@ -415,7 +411,6 @@ public class GameButtons : MonoBehaviour
             {
                 case WeaponData.AttackType.Bow:
                     currentWeapon.GetComponent<Bow>().Pulling();
-                    CharController.isRotate = true;
                     break;
             }
         }
@@ -465,24 +460,30 @@ public class GameButtons : MonoBehaviour
                 }
             }
         }
+        else
+            StopAttack();
     }
 
     public void AttackUp()
     {
-        if (charInfo.mane - manecost >= 0 && isAttackUp)
+        if (isAttackUp)
         {
-            switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+            if (charInfo.mane - manecost >= 0)
             {
-                case WeaponData.AttackType.Bow:
-                    charInfo.currentCountShoots++;
-                    charInfo.SpendMana(manecost);
-                    audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
-                    currentWeapon.GetComponent<Bow>().Shoot(Time.time - startStringingTime);
-                    startStringingTime = 0;
-                    CharController.isRotate = false;
-                    break;
+                switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+                {
+                    case WeaponData.AttackType.Bow:
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
+                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
+                        currentWeapon.GetComponent<Bow>().Shoot(Time.time - startStringingTime);
+                        startStringingTime = 0;
+                        break;
 
+                }
             }
+            else
+                StopAttack();
         }
         isAttackUp = false;
     }
@@ -505,7 +506,6 @@ public class GameButtons : MonoBehaviour
             case WeaponData.AttackType.ConstantLaser:
                 currentWeapon.GetComponent<ConstantLaser>().StopShoot();
                 isStaticAttack = false;
-
                 break;
         }
     }
@@ -553,11 +553,6 @@ public class GameButtons : MonoBehaviour
                         = WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber]
                             .GetComponent<Weapon>().MainSprite;
                 }
-
-                if (currentWeapon.GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Bow)
-                    CharController.isRotate = false;
-                else
-                    CharController.isRotate = true;
             }
         }
     }

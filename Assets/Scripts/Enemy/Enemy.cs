@@ -249,10 +249,16 @@ public class Enemy : MonoBehaviour
         {
             if (coll.gameObject.tag == "StandartBullet"
                 || coll.gameObject.tag == "StandartArrow"
-                    || coll.gameObject.tag == "StandartLaser")
+                    || coll.gameObject.tag == "HomingArrow"
+                        || coll.gameObject.tag == "StandartLaser")
             {
-                var bullet = coll.gameObject.GetComponent<Bullet>();
-                GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
+                if (transform.tag == "Destroyable")
+                    DestroyStaticEnemy();
+                else
+                {
+                    var bullet = coll.gameObject.GetComponent<Bullet>();
+                    GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
+                }
             }
         }
     }

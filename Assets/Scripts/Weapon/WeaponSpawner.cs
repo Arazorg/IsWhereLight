@@ -68,13 +68,25 @@ public class WeaponSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn(string weaponName, Transform spawnPosition)
+    public void Spawn(string weaponName, Transform spawnPosition, bool isAlly = false)
     {
         prefab = Instantiate(spawnPrefab, spawnPosition);
         script = prefab.GetComponent<Weapon>();
         script.Init(data);
         prefab.name = weaponName;
-        prefab.transform.tag = "Gun";
+        if (!isAlly)
+            prefab.transform.tag = "Gun";
+        else
+        {
+            var weaponScript = prefab.GetComponent<Weapon>();
+            if (weaponScript.TypeOfAttack != WeaponData.AttackType.Sword)
+            {
+                var bulletSpawner = prefab.GetComponent<BulletSpawner>();
+                bulletSpawner.SetBullet(weaponScript.CurrentBullet);
+            }
+            prefab.transform.tag = "GunKeep";
+        }
+           
         prefab.SetActive(true);
         prefab.transform.rotation = new Quaternion(0, 0, -90, 0);
         prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;

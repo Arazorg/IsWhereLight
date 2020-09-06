@@ -65,7 +65,11 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
 
         if (GetComponent<Gun>() != null)
+        {
+            Debug.Log("OK!");
             GetComponent<Gun>().SetBulletInfo(currentBulletScript);
+        }
+            
         else if (GetComponent<Bow>() != null)
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);
         else if (GetComponent<Laser>() != null)
