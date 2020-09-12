@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\UI\GameUI\PauseUI.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceDrag.cs" />
      <Compile Include="Assets\Scripts\Floor\Floor.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShaker.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaGenderAttribute.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\HealthBar.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\WeaponStoreUI.cs" />
@@ -90,6 +91,7 @@
      <Compile Include="Assets\Scripts\Bullet\BulletData.cs" />
      <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaAttribute.cs" />
+     <Compile Include="Assets\Scripts\Things\LobbyEnvironment.cs" />
      <Compile Include="Assets\Scripts\Audio\Sound.cs" />
      <Compile Include="Assets\Scripts\Char\CharGun.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfile.cs" />
@@ -109,6 +111,7 @@
      <Compile Include="Assets\Scripts\System\Common.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyUI\LobbyUI.cs" />
      <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShakePresets.cs" />
      <Compile Include="Assets\Scripts\System\SaveLoad\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfileUpdate.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
@@ -116,6 +119,7 @@
      <Compile Include="Assets\Scripts\System\Localization\LocalizationData.cs" />
      <Compile Include="Assets\AppMetrica\ExampleUI\MainSceneManager.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraUtilities.cs" />
      <Compile Include="Assets\Scripts\Bullet\BulletSpawner.cs" />
      <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
      <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
@@ -128,6 +132,7 @@
      <Compile Include="Assets\AppMetrica\ExampleUI\PopUp.cs" />
      <Compile Include="Assets\Scripts\LevelSpawner\LevelGeneration.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationManager.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShakeInstance.cs" />
      <Compile Include="Assets\Scripts\Weapon\WeaponData.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\PauseSettings.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\MenuButtons.cs" />
@@ -161,11 +166,6 @@
      <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
      <Compile Include="Assets\Scripts\Char\CharSkills.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
-     <Compile Include="Assets\Scripts\System\Camera\CameraShakeInstance.cs" />
-     <Compile Include="Assets\Scripts\System\Camera\CameraShakePresets.cs" />
-     <Compile Include="Assets\Scripts\System\Camera\CameraShaker.cs" />
-     <Compile Include="Assets\Scripts\System\Camera\CameraUtilities.cs" />
-     <Compile Include="Assets\Scripts\Things\LobbyEnvironment.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
@@ -186,43 +186,43 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Monetization">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -399,7 +399,13 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/arazo/Documents/Unity/IsWhereLight/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/Валерий/Documents/project/IsWhereLight/IsWhereLight/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Common">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.3f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
