@@ -2,15 +2,15 @@
 
 public class Bow : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     private BulletSpawner bulletSpawner;
     private float bulletSpeed;
     private float bulletScatterAngle;
-    private float stringingLength;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
+        transform.GetChild(0).localPosition = GetComponent<Weapon>().FirePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
@@ -43,11 +43,13 @@ public class Bow : MonoBehaviour
         animator.SetBool("PrepareAttack", false);
         bulletSpawner.Spawn();
         bulletSpawner.SetDamageCrit(stringingTime);
+
         Quaternion dir;
         if (stringingTime >= 1)
-             dir = Quaternion.AngleAxis(0f, Vector3.forward);
+            dir = Quaternion.AngleAxis(0f, Vector3.forward);
         else
             dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
+
         Rigidbody2D rb = bulletSpawner.CurrentWeaponBullet.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * bulletSpawner.CurrentWeaponBullet.transform.up * bulletSpeed, ForceMode2D.Impulse);
         bulletSpawner.CurrentWeaponBullet.transform.rotation 

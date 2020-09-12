@@ -4966,6 +4966,87 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - nameOfSound: LegionnaireSkill
+    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: ArcherSkill
+    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: MechanicSkill
+    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: KeeperSkill
+    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: RaiderSkill
+    clip: {fileID: 8300000, guid: 5f0e2eed553610141ab9a21ea26bd2c7, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: IsidaSkill
+    clip: {fileID: 8300000, guid: b0abce06b7abcfa46920408e741a2d1d, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: RiverLobby
+    clip: {fileID: 8300000, guid: ce39c54e1f69c63429687bb1a398f0fb, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: PortalLobby
+    clip: {fileID: 8300000, guid: 2b0621b94890b2044a50f73ec92c0000, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: StandartGrenade
+    clip: {fileID: 8300000, guid: 5f0e2eed553610141ab9a21ea26bd2c7, type: 3}
+    volume: 0.35
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &838771391
 Transform:
   m_ObjectHideFlags: 0

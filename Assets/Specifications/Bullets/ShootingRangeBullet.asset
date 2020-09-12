@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: ShootingRangeBullet
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 21300000, guid: 8dbd00e06b9114944863af3c01c5be28, type: 3}
+  colliderSize: {x: 0.1, y: 0.16}
+  colliderOffset: {x: 0, y: 0.17}
+  animators: []
   typeOfBullet: 0
   speed: 40
   scatter: 0

@@ -7,7 +7,7 @@ public class Sword : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
 #pragma warning restore 0649
 
-    public Animator animator;
+    private Animator animator;
     private Weapon currentWeapon;
 
     void Start()
@@ -15,16 +15,6 @@ public class Sword : MonoBehaviour
         animator = GetComponent<Animator>();
         currentWeapon = GetComponent<Weapon>();
         animator.runtimeAnimatorController = currentWeapon.MainAnimator;
-    }
-
-    void Update()
-    {
-        /*
-        if (Time.time < timeToBlock)
-            gameObject.tag = "BlockAll";
-        else
-            gameObject.tag = "GunKeep";
-        */
     }
 
     public void Hit()
@@ -43,13 +33,9 @@ public class Sword : MonoBehaviour
                                                    && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
                 {
                     if (enemy.transform.tag == "Destroyable")
-                    {
                         enemyScript.DestroyStaticEnemy();
-                    }
                     else if (enemy.transform.tag == "Enemy")
-                    {
-                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, 0.25f);
-                    }
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }
             else
@@ -60,12 +46,14 @@ public class Sword : MonoBehaviour
                     if (enemy.transform.tag == "Destroyable")
                         Destroy(enemy.gameObject.transform.parent.gameObject);
                     else if (enemy.transform.tag == "Enemy")
-                    {
-                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, 0.25f);
-                    }
-
+                        enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }
         }
+    }
+
+    public void StopShoot()
+    {
+        animator.SetBool("Attack", false);
     }
 }

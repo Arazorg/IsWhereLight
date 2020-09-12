@@ -35,15 +35,13 @@ public class Ally : MonoBehaviour
         timeToShoot = float.MinValue;
         gun = transform.GetChild(0);
         animator = gun.GetComponent<Animator>();
-        gun.localPosition = gun.GetComponent<Weapon>().firePointPosition;
+        gun.localPosition = gun.GetComponent<Weapon>().FirePointPosition;
         shootTime = gun.GetComponent<Weapon>().FireRate;
-        Debug.Log(shootTime);
-        //SetBulletInfo(GetComponent<Weapon>().CurrentBullet);
     }
 
     void Update()
     {
-        if(RotateGunToEnemy() && closestEnemy != null)
+        if (RotateGunToEnemy() && closestEnemy != null)
         {
             if (closestEnemy.transform.position.x - transform.position.x > 0 && !m_FacingRight)
                 Flip();
@@ -56,7 +54,7 @@ public class Ally : MonoBehaviour
             }
         }
         else
-            gun.GetComponent<Gun>().animator.SetBool("Attack", false);
+            gun.GetComponent<Gun>().StopShoot();
     }
 
     void OnBecameVisible()
@@ -76,11 +74,12 @@ public class Ally : MonoBehaviour
         {
             closestEnemy = null;
             float distanceToEnemy = Mathf.Infinity;
+            float minDistanceToEnemy = 1f;
             foreach (var enemy in enemies)
             {
                 Vector3 direction = enemy.transform.position - transform.position;
                 float curDistance = direction.sqrMagnitude;
-                if (curDistance < distanceToEnemy)
+                if (curDistance < distanceToEnemy && curDistance > minDistanceToEnemy)
                 {
                     closestEnemy = enemy;
                     distanceToEnemy = curDistance;

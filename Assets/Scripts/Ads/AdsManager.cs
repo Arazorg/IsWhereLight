@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
 public class AdsManager : MonoBehaviour
@@ -25,10 +23,7 @@ public class AdsManager : MonoBehaviour
             return true;
         }
         else
-        {
             return false;
-        }
     }
-
 //#endif
 }

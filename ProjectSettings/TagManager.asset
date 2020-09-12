@@ -25,6 +25,7 @@ TagManager:
   - Ally
   - Wall
   - HomingArrow
+  - StandartGrenade
   layers:
   - Default
   - TransparentFX

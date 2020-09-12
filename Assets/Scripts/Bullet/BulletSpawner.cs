@@ -27,16 +27,17 @@ public class BulletSpawner : MonoBehaviour
     private Bullet currentBulletScript;
 
     private BulletData spawnBulletData;
+    private string currentTag;
 
     public void Spawn()
     {
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
+        currentWeaponBullet.tag = currentTag;
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
         currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
-
         currentWeaponBullet.SetActive(true);
     }
 
@@ -48,7 +49,6 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.Damage = GetComponent<Weapon>().Damage;
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
         currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
-
         currentWeaponBullet.SetActive(true);
     }
 
@@ -56,7 +56,6 @@ public class BulletSpawner : MonoBehaviour
     {
         spawnPosition = transform.GetChild(0);
         spawnBulletData = bulletData;
-
         currentWeaponBullet = Instantiate(bulletsPrefabs[0], spawnPosition.position, spawnPosition.rotation);
         currentBulletScript = currentWeaponBullet.GetComponent<Bullet>();
         currentBulletScript.Init(spawnBulletData);
@@ -64,19 +63,30 @@ public class BulletSpawner : MonoBehaviour
         currentBulletScript.CritChance = GetComponent<Weapon>().CritChance;
         currentBulletScript.Knoking = GetComponent<Weapon>().Knoking;
 
-        if (GetComponent<Gun>() != null)
+        switch (bulletData.TypeOfBullet)
         {
-            Debug.Log("OK!");
-            GetComponent<Gun>().SetBulletInfo(currentBulletScript);
+            case BulletData.BulletType.Bow:
+                currentTag = "StandartArrow";
+                break;
+            case BulletData.BulletType.Grenade:
+                currentTag = "StandartGrenade";
+                break;
+            case BulletData.BulletType.Gun:
+                currentTag = "StandartBullet";
+                break;
+            case BulletData.BulletType.Laser:
+                currentTag = "StandartLaser";
+                break;
         }
-            
+
+        if (GetComponent<Gun>() != null)
+            GetComponent<Gun>().SetBulletInfo(currentBulletScript);           
         else if (GetComponent<Bow>() != null)
             GetComponent<Bow>().SetBulletInfo(currentBulletScript);
         else if (GetComponent<Laser>() != null)
             GetComponent<Laser>().SetBulletInfo(currentBulletScript);
         else if (GetComponent<ConstantLaser>() != null)
             GetComponent<ConstantLaser>().SetBulletInfo(currentBulletScript);
-
         Destroy(currentWeaponBullet);
     }
 

@@ -1,6 +1,4 @@
-﻿
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CharAction : MonoBehaviour
@@ -12,6 +10,7 @@ public class CharAction : MonoBehaviour
     [Tooltip("Спрайт кнопки(действие)")]
     [SerializeField] private Sprite actionImage;
 #pragma warning restore 0649
+
     public static bool isDeath;
 
     public bool IsEnterFirst
@@ -31,12 +30,10 @@ public class CharAction : MonoBehaviour
     public GameObject currentNPC;
     private Button fireActButton;
     private Transform characterControlUI;
-    private CurrentGameInfo currentGameInfo;
     private CharInfo charInfo;
 
     private float timeToOff;
     private float timeToDeathPanel;
-    private float standartSpeed;
 
     void Start()
     {
@@ -99,7 +96,7 @@ public class CharAction : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D coll)
+    void OnTriggerExit2D(Collider2D collider)
     {
         fireActButton.GetComponent<Image>().sprite = fireImage;
     }
@@ -129,18 +126,18 @@ public class CharAction : MonoBehaviour
     public void Death()
     {
         isDeath = true;
-        AudioManager.instance.Play("Death");
+
         CurrentGameInfo.instance.SaveCurrentGame("currentGameTemp");
         charInfo.SaveChar("characterTemp");
         NewSaveSystem.Delete("currentGame");
         NewSaveSystem.Delete("character");
+
+        AudioManager.instance.Play("Death");
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         GetComponent<SpriteRenderer>().color = color;
         transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(false);
-        standartSpeed = GetComponent<CharController>().Speed;
         GetComponent<Rigidbody2D>().simulated = false;
-        GetComponent<CharController>().SetRbVelocityZero();
         gameObject.tag = "IgnoreAll";
         timeToDeathPanel = Time.time + 1f;
     }
@@ -148,7 +145,7 @@ public class CharAction : MonoBehaviour
     public void Resurrect()
     {
         isDeath = false;
-        AudioManager.instance.Play("Resurrect");
+
         CurrentGameInfo.instance.LoadCurrentGame("currentGameTemp");
         CurrentGameInfo.instance.countResurrect--;
         CurrentGameInfo.instance.SaveCurrentGame();
@@ -158,10 +155,12 @@ public class CharAction : MonoBehaviour
         charInfo.SaveChar();
         NewSaveSystem.Delete("currentGameTemp");
         NewSaveSystem.Delete("characterTemp");
+
+        AudioManager.instance.Play("Resurrect");
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;
-        GetComponent<Rigidbody2D>().simulated = true;
         transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(true);
+        GetComponent<Rigidbody2D>().simulated = true;
         gameObject.tag = "Player";
     }
 }

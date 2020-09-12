@@ -23,6 +23,7 @@ public class CharGun : MonoBehaviour
 #pragma warning restore 0649
 
     public static bool isChange;
+
     public int CurrentWeaponNumber
     {
         get { return currentWeaponNumber; }
@@ -30,14 +31,11 @@ public class CharGun : MonoBehaviour
     }
     private int currentWeaponNumber;
 
-    //UI
     private GameObject gunInfoBar;
-    private Button fireActButton;
-    //Gameobjects
     private GameObject floorGun;
-    //Scripts 
+    private Button fireActButton;
     private GameButtons gameButtons;
-
+    
     void Start()
     {
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
@@ -51,7 +49,7 @@ public class CharGun : MonoBehaviour
     {
         if (coll.gameObject.tag == "Gun" && !CharAction.isDeath)
         {
-            GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.changeGun;//Change Gun
+            GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.changeGun;
             floorGun = coll.gameObject;
             fireActButton.GetComponent<Image>().sprite = pickUpImage;
             gunInfoBar.GetComponent<MovementUI>().MoveToEnd();
@@ -59,10 +57,9 @@ public class CharGun : MonoBehaviour
         }
     }
 
-
     void OnTriggerExit2D(Collider2D coll)
     {
-        GameButtons.FireActButtonState = 0;//Fire
+        GameButtons.FireActButtonState = 0;
         fireActButton.GetComponent<Image>().sprite = fireImage;
 
         if (coll.gameObject.tag == "Gun")
@@ -71,19 +68,15 @@ public class CharGun : MonoBehaviour
 
     public void ChangeGun()
     {
-
         if (WeaponSpawner.instance.countOfWeapon == 2)
         {
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.SetParent(null);
-
             WeaponSpawner.instance.SetPrefab(WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().WeaponName);
             WeaponSpawner.instance.Spawn(gameObject.transform.position, Quaternion.identity);
-
             Destroy(WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber]);
 
             WeaponSpawner.instance.SetPrefab(floorGun.gameObject.GetComponent<Weapon>().WeaponName);
             WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
-
             gameButtons.ChangeWeaponButton();
             SwapWeapon();
             Destroy(floorGun.gameObject);
@@ -109,25 +102,19 @@ public class CharGun : MonoBehaviour
     private void GetSpecGun(Collider2D coll)
     {
         var weapon = coll.gameObject.GetComponent<Weapon>();
-
         int damage = weapon.Damage;
         float critChance = weapon.CritChance;
-        float fireRate = weapon.FireRate;
         int manecost = weapon.Manecost;
-        BulletData bullet = weapon.CurrentBullet;
         gunInfoBar.GetComponentInChildren<TextMeshProUGUI>().text =
             $"{damage} DMG | {critChance}% CRIT | {manecost} MANA";
     }
 
     private void SetWeaponParam()
     {
-        if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
-            == WeaponData.AttackType.Gun)
+        if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Gun)
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
                 = transform.position + offsetGunDistant;
-
-        else if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack
-                == WeaponData.AttackType.Sword)
+        else if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Sword)
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
             = transform.position + offsetGunMelee;
     }
@@ -155,7 +142,6 @@ public class CharGun : MonoBehaviour
 
         gameButtons.currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite =
             WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().MainSprite;
-
         gameButtons.currentWeapon = transform.Find(charInfo.weapons[currentWeaponNumber]);
         WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].SetActive(true);
     }

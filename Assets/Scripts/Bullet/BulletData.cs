@@ -9,7 +9,8 @@ public class BulletData : ScriptableObject
         Gun,
         Sword,
         Bow,
-        Laser
+        Laser,
+        Grenade
     }
 
 #pragma warning disable 0649
@@ -18,6 +19,22 @@ public class BulletData : ScriptableObject
     public Sprite MainSprite
     {
         get { return mainSprite; }
+        protected set { }
+    }
+
+    [Tooltip("Размер коллайдера")]
+    [SerializeField] private Vector2 colliderSize;
+    public Vector2 ColliderSize
+    {
+        get { return colliderSize; }
+        protected set { }
+    }
+
+    [Tooltip("Смещение коллайдера")]
+    [SerializeField] private Vector2 colliderOffset;
+    public Vector2 ColliderOffset
+    {
+        get { return colliderOffset; }
         protected set { }
     }
 

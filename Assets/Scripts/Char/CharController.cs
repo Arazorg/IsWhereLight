@@ -7,18 +7,16 @@ public class CharController : MonoBehaviour
     [Tooltip("Аниматор персонажа")]
     [SerializeField] private Animator characterAnimator;
 
-    //Character's scripts
     [Tooltip("CharInfo скрипт")]
     [SerializeField] private CharInfo charInfo;
+
     [Tooltip("CharGun скрипт")]
     [SerializeField] private CharGun charGun;
 
-    //Character's variables
     [Tooltip("Скорость персонажа")]
     [SerializeField] private float speed;
 #pragma warning restore 0649
 
-    public string currentTag;
     public RuntimeAnimatorController CharacterRuntimeAnimatorController
     {
         get { return characterAnimator.runtimeAnimatorController; }
@@ -31,19 +29,21 @@ public class CharController : MonoBehaviour
         set { speed = value; }
     }
 
-    public GameObject closestEnemy = null;
-
-    //UI
+    public GameObject ClosestEnemy
+    {
+        get { return closestEnemy; }
+        set { closestEnemy = value; }
+    }
+    private GameObject closestEnemy = null;
+    
     private Joystick joystick;
-    //Characters components
     private Rigidbody2D rb;
-
-    //Character's guns variables
     private Transform gun;
-    private float gunAngle;
 
+    private float gunAngle;
     private bool m_FacingRight;
     private bool isStop;
+    private string currentTag;
 
     void Start()
     {
@@ -63,8 +63,6 @@ public class CharController : MonoBehaviour
             characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),
                                          Mathf.Lerp(0, joystick.Vertical * speed, 0.8f));
-            //if(rb.velocity != Vector2.zero)
-            //AudioManager.instance.Play("Steps");
             if (!RotateGunToEnemy(currentTag))
             {
                 closestEnemy = null;
@@ -72,7 +70,6 @@ public class CharController : MonoBehaviour
                     Flip();
                 else if (joystick.Horizontal < 0 && m_FacingRight)
                     Flip();
-
                 else
                 {
                     if (joystick.Horizontal != 0 && joystick.Vertical != 0)
@@ -93,7 +90,6 @@ public class CharController : MonoBehaviour
             }
             else
             {
-
                 if (0 <= gunAngle && gunAngle <= 180)
                 {
                     m_FacingRight = false;
@@ -141,22 +137,18 @@ public class CharController : MonoBehaviour
                         1 << LayerMask.NameToLayer("Ignore Raycast") |
                             1 << LayerMask.NameToLayer("Room"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
-
             if (hit.collider != null)
             {
                 if (hit.collider.tag == tag)
                 {
                     gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
-                                            closestEnemy.transform.position.y - transform.position.y)
-                                                * Mathf.Rad2Deg;
+                                                closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
                     gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
-
                     return true;
                 }
             }
         }
         return false;
-
     }
 
     private void Flip()
@@ -165,10 +157,5 @@ public class CharController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    public void SetRbVelocityZero()
-    {
-        rb.velocity = Vector2.zero;
     }
 }

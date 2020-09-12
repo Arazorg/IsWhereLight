@@ -2,23 +2,16 @@
 
 public class ConstantLaser : MonoBehaviour
 {
-    public Animator animator;
-    private Weapon weapon;
-    private bool isStart;
-    private bool isAttack;
-
     public bool IsAttack
     {
-        get
+        get { return isAttack; }
+        set
         {
-            return isAttack; 
-        }
-        set {
-            if(value)
+            if (value)
                 animator.SetBool("Attack", true);
             isAttack = value;
             timeToDamage = Time.time + GetComponent<Weapon>().FireRate;
-            if (GetComponentInParent<CharController>().closestEnemy != null)
+            if (GetComponentInParent<CharController>().ClosestEnemy != null)
             {
                 bulletSpawner.Spawn(transform);
                 bullet = bulletSpawner.CurrentWeaponBullet;
@@ -29,18 +22,23 @@ public class ConstantLaser : MonoBehaviour
                 isAttack = false;
         }
     }
-
+    
+    private Animator animator;
+    private Weapon weapon;
     private BulletSpawner bulletSpawner;
     private GameObject bullet;
+
+    private bool isStart;
+    private bool isAttack;
     private float timeToDamage;
 
     void Start()
     {
-        if(!isAttack)
+        if (!isAttack)
             timeToDamage = float.MaxValue;
         animator = GetComponent<Animator>();
         weapon = GetComponent<Weapon>();
-        transform.GetChild(0).localPosition = weapon.firePointPosition;
+        transform.GetChild(0).localPosition = weapon.FirePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
@@ -50,20 +48,18 @@ public class ConstantLaser : MonoBehaviour
 
     void Update()
     {
-        if(isAttack && !CharAction.isDeath)
+        if (isAttack && !CharAction.isDeath)
         {
             Shoot();
-            if(Time.time > timeToDamage)
+            if (Time.time > timeToDamage)
             {
-                var closestEnemy = GetComponentInParent<CharController>().closestEnemy;
+                var closestEnemy = GetComponentInParent<CharController>().ClosestEnemy;
                 timeToDamage = Time.time + weapon.FireRate;
-                if(closestEnemy != null)
+                if (closestEnemy != null)
                     closestEnemy.GetComponent<Enemy>()
                         .GetDamage(weapon.Damage, weapon.CritChance, closestEnemy.transform, weapon.Knoking);
             }
-            
         }
-            
     }
 
     public void Shoot()
@@ -71,7 +67,7 @@ public class ConstantLaser : MonoBehaviour
         Vector3 enemyPosition = Vector3.zero;
         try
         {
-            enemyPosition = GetComponentInParent<CharController>().closestEnemy.transform.position;
+            enemyPosition = GetComponentInParent<CharController>().ClosestEnemy.transform.position;
         }
         catch
         {
@@ -82,9 +78,9 @@ public class ConstantLaser : MonoBehaviour
             }
         }
 
-        if (GetComponentInParent<CharController>().closestEnemy != null)
+        if (GetComponentInParent<CharController>().ClosestEnemy != null)
         {
-            if(bullet == null)
+            if (bullet == null)
             {
                 bulletSpawner.Spawn(transform);
                 bullet = bulletSpawner.CurrentWeaponBullet;
@@ -99,10 +95,8 @@ public class ConstantLaser : MonoBehaviour
                 isStart = false;
             }
             bullet.GetComponent<SpriteRenderer>().size = laserScale;
-            bullet.transform.position
-            = new Vector3((enemyPosition.x + transform.GetChild(0).position.x) / 2,
-                            (enemyPosition.y + transform.GetChild(0).position.y) / 2);
-
+            bullet.transform.position = new Vector3((enemyPosition.x + transform.GetChild(0).position.x) / 2,
+                                                        (enemyPosition.y + transform.GetChild(0).position.y) / 2);
             bullet.transform.rotation = transform.rotation;
         }
         else

@@ -3,12 +3,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject explosionPrefab;
+#pragma warning disable 0649
+    [Tooltip("Префаб взрыва пули")]
+    [SerializeField] private GameObject explosionPrefab;
+#pragma warning restore 0649
+
+    private Animator animator;
     private BulletData data;
     private SpriteRenderer bulletSprite;
+
     private bool isRemoveConstant;
     private bool isStartConstant;
     private float endSize;
+
+    private readonly float speedOfLaserDisapperance = 4f; 
 
     /// <summary>
     /// Initialization of bullet
@@ -18,47 +26,85 @@ public class Bullet : MonoBehaviour
     {
         this.data = data;
         GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+        GetComponent<BoxCollider2D>().size = ColliderSize;
+        GetComponent<BoxCollider2D>().offset = ColliderOffset;
         bulletSprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         if (Animators.Count != 0)
-            GetComponent<Animator>().runtimeAnimatorController = Animators[0];
+            animator.runtimeAnimatorController = Animators[0];
+        if (gameObject.tag.Contains("StandartGrenade") && gameObject != null)
+        {
+            Destroy(gameObject, DeleteTime);
+        }
+            
     }
 
+    /// <summary>
+    /// Sprite of current bullet
+    /// </summary>
     public Sprite MainSprite
     {
-        get
-        {
-            return data.MainSprite;
-        }
-        protected set { }
+        get { return data.MainSprite; }
+        set { }
     }
 
+    /// <summary>
+    /// Collider size of current bullet
+    /// </summary>
+    public Vector2 ColliderSize
+    {
+        get { return data.ColliderSize; }
+        set { }
+    }
+
+    /// <summary>
+    /// Collider offset of current bullet
+    /// </summary>
+    public Vector2 ColliderOffset
+    {
+        get { return data.ColliderOffset; }
+        set { }
+    }
+
+    /// <summary>
+    /// Animators of current bullet
+    /// </summary>
     public List<RuntimeAnimatorController> Animators
     {
-        get
-        {
-            return data.Animators;
-        }
-        protected set { }
+        get { return data.Animators; }
+        set { }
     }
 
+    /// <summary>
+    /// Type of current bullet
+    /// </summary>
     public BulletData.BulletType TypeOfBullet
     {
-        get
-        {
-            return data.TypeOfBullet;
-        }
+        get { return data.TypeOfBullet; }
+        set { }
     }
 
+    /// <summary>
+    /// Damage of current bullet
+    /// </summary>
     public int Damage { get; set; }
+
+    /// <summary>
+    /// Critical chance of current bullet
+    /// </summary>
     public float CritChance { get; set; }
+
+    /// <summary>
+    /// Knoking of current bullet
+    /// </summary>
     public float Knoking { get; set; }
 
+    /// <summary>
+    /// Scatter of current bullet
+    /// </summary>
     public float Scatter
     {
-        get
-        {
-            return data.Scatter;
-        }
+        get { return data.Scatter; }
         set { }
     }
 
@@ -67,11 +113,8 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public float Speed
     {
-        get
-        {
-            return data.Speed;
-        }
-        protected set { }
+        get { return data.Speed; }
+        set { }
     }
 
     /// <summary>
@@ -79,22 +122,16 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public float DeleteTime
     {
-        get
-        {
-            return data.DeleteTime;
-        }
-        set
-        {
-            DeleteTime = value;
-        }
+        get { return data.DeleteTime; }
+        set { DeleteTime = value; }
     }
 
     void Update()
     {
         if (gameObject.tag.Contains("StandartLaser"))
         {
-            if (bulletSprite.size.x - 4f * Time.deltaTime > 0)
-                bulletSprite.size -= new Vector2(4f * Time.deltaTime, 0);
+            if (bulletSprite.size.x - speedOfLaserDisapperance * Time.deltaTime > 0)
+                bulletSprite.size -= new Vector2(speedOfLaserDisapperance * Time.deltaTime, 0);
             else
             {
                 bulletSprite.size = new Vector2(0, bulletSprite.size.y);
@@ -107,18 +144,23 @@ public class Bullet : MonoBehaviour
             {
                 isRemoveConstant = false;
                 Destroy(gameObject);
-
             }
             if (isStartConstant)
             {
-                if (bulletSprite.size.x + 4f * Time.deltaTime < endSize)
-                    bulletSprite.size += new Vector2(4f * Time.deltaTime, 0);
+                if (bulletSprite.size.x + speedOfLaserDisapperance * Time.deltaTime < endSize)
+                    bulletSprite.size += new Vector2(speedOfLaserDisapperance * Time.deltaTime, 0);
                 else
                 {
                     bulletSprite.size = new Vector2(endSize, bulletSprite.size.y);
                     isStartConstant = false;
                 }
             }
+        }
+        else if (gameObject.tag.Contains("StandartGrenade") && animator.GetBool("Explosion") == false)
+        {
+            var speedOfGrenadeRotate = 10.5f;
+            if (Time.timeScale != 0)
+                transform.Rotate(0, 0, speedOfGrenadeRotate);
         }
     }
 
@@ -137,8 +179,26 @@ public class Bullet : MonoBehaviour
             if (collider.tag == "Destroyable")
             {
                 collider.GetComponent<Enemy>().DestroyStaticEnemy();
-                if (!gameObject.tag.Contains("Laser"))
+                if (!gameObject.tag.Contains("Laser") && !gameObject.tag.Contains("StandartGrenade"))
                     Destroy(gameObject);
+                else if (gameObject.tag.Contains("StandartGrenade"))
+                {
+                    animator.SetBool("Explosion", true);
+                    AudioManager.instance.Play("StandartGrenade");
+                    CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, 0.5f);
+                    AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+                    float destroyTime = DeleteTime;
+                    foreach (AnimationClip clip in clips)
+                    {
+                        switch (clip.name)
+                        {
+                            case "Explosion":
+                                destroyTime = clip.length;
+                                break;
+                        }
+                    }
+                    Destroy(gameObject, destroyTime);
+                }
             }
             else if (((gameObject.tag == "StandartBullet" || gameObject.tag == "HomingArrow") && collider.tag != "Player")
                         || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
@@ -149,10 +209,44 @@ public class Bullet : MonoBehaviour
             }
             else if (gameObject.tag == "StandartArrow" && collider.tag != "Player")
             {
-                var arrow = Instantiate(gameObject, transform);
-                //arrow.transform.parent = collider.transform;
-                arrow.tag = "IgnoreAll";
-                Destroy(gameObject);
+                if (!collider.isTrigger)
+                {
+                    gameObject.GetComponent<Rigidbody2D>().simulated = false;
+                    var arrow = Instantiate(gameObject, transform.position, transform.rotation);
+                    arrow.transform.parent = collider.transform;
+                    arrow.tag = "IgnoreAll";
+                    Destroy(gameObject);
+                }
+            }
+            else if (((gameObject.tag == "StandartGrenade" && collider.tag != "Player" && collider.tag != "StandartGrenade")
+                        || (gameObject.tag == "EnemyGrenade" && collider.tag != "Enemy" && collider.tag != "EnemyGrenade")))
+            {
+                animator.SetBool("Explosion", true);
+                AudioManager.instance.Play("StandartGrenade");
+                CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, 0.5f);
+                AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+                float destroyTime = DeleteTime;
+                foreach (AnimationClip clip in clips)
+                {
+                    switch (clip.name)
+                    {
+                        case "Explosion":
+                            destroyTime = clip.length;
+                            break;
+                    }
+                }
+                if (gameObject != null)
+                {
+                    var enemies = Physics2D.OverlapCircleAll(transform.position, 1f,
+                        (1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("EnemyStatic")));
+                    foreach (var enemy in enemies)
+                    {
+                        var enemyScript = enemy.GetComponent<Enemy>();
+                        if (enemy.transform.tag == "Enemy")
+                            enemyScript.GetDamage(Damage, CritChance, transform, 500f);
+                    }
+                    Destroy(gameObject, destroyTime);
+                }
             }
         }
     }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216e8da4ff172d84f8d4e8e881788355, type: 3}
+  m_Name: ArrowArcherSkill
+  m_EditorClassIdentifier: 
+  mainSprite: {fileID: 21300000, guid: a0d4eec7c11672747a4e0c7805a99717, type: 3}
+  colliderSize: {x: 0.15, y: 1.5}
+  colliderOffset: {x: 0, y: 0}
+  animators: []
+  typeOfBullet: 2
+  speed: 20
+  scatter: 0
+  deleteTime: 5

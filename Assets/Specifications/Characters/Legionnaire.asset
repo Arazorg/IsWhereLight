@@ -20,4 +20,4 @@ MonoBehaviour:
   startWeapon: Blade of Power
   price: 0
   characterType: Defence
-  skillTime: 7
+  skillTime: 6

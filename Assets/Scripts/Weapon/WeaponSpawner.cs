@@ -13,17 +13,15 @@ public class WeaponSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> weaponsPrefabs;
 #pragma warning restore 0649
 
-    private GameButtons gameButtons;
-    private CharInfo charInfo;
-
-    private GameObject spawnPrefab;
-    private WeaponData data;
-
-    private GameObject prefab;
-    private Weapon script;
-
     public GameObject[] currentCharWeapon = new GameObject[2];
     public int countOfWeapon;
+
+    private GameButtons gameButtons;
+    private GameObject spawnPrefab;
+    private GameObject prefab;
+    private WeaponData data;
+    private CharInfo charInfo;
+    private Weapon script;
 
     private void Awake()
     {

@@ -29,3 +29,8 @@ MonoBehaviour:
   currentBullet: {fileID: 11400000, guid: 64d3d2531f5b70948ac6aaa3b15ba4bf, type: 2}
   manecost: 3
   firePointPosition: {x: 0.005, y: 0.8}
+  shakeParametrs:
+    magnitude: 0.2
+    roughness: 0.2
+    fadeInTime: 0.05
+    fadeOutTime: 0.3

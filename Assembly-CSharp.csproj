@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack\EnemyDistantAttack.cs" />
      <Compile Include="Assets\Scripts\Data\CurrentGame\CurrentGameInfo.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack\EnemyBulletSpawner.cs" />
+     <Compile Include="Assets\Scripts\Ally\Ally.cs" />
      <Compile Include="Assets\Scripts\Characters\Character.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaBooleanAttribute.cs" />
      <Compile Include="Assets\Scripts\Data\Settings\SettingsData.cs" />
@@ -113,7 +114,6 @@
      <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
      <Compile Include="Assets\Scripts\Char\CharAction.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizationData.cs" />
-     <Compile Include="Assets\Scripts\System\Camera\CameraFollow.cs" />
      <Compile Include="Assets\AppMetrica\ExampleUI\MainSceneManager.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\InterfaceSettings.cs" />
      <Compile Include="Assets\Scripts\Bullet\BulletSpawner.cs" />
@@ -161,7 +161,11 @@
      <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
      <Compile Include="Assets\Scripts\Char\CharSkills.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
-     <Compile Include="Assets\Ally.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShakeInstance.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShakePresets.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraShaker.cs" />
+     <Compile Include="Assets\Scripts\System\Camera\CameraUtilities.cs" />
+     <Compile Include="Assets\Scripts\Things\LobbyEnvironment.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

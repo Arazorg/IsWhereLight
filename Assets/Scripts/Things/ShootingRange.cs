@@ -165,7 +165,7 @@ public class ShootingRange : MonoBehaviour
         player.GetComponent<CharController>().Speed = 0;
         player.transform.position = startStand.transform.position;
         Camera.main.orthographicSize = 7f;
-        Camera.main.GetComponent<CameraFollow>().IsMove = false;
+        Camera.main.GetComponent<CameraShaker>().IsMove = false;
         Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
@@ -186,7 +186,7 @@ public class ShootingRange : MonoBehaviour
         charInfo.mane = startMane;
         charInfo.SpendMana(0);
         Camera.main.orthographicSize = 5f;
-        Camera.main.GetComponent<CameraFollow>().IsMove = true;
+        Camera.main.GetComponent<CameraShaker>().IsMove = true;
         Destroy(currentTarget);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();

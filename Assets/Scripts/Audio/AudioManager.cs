@@ -6,9 +6,13 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public AudioMixerGroup mixerGroup;
+#pragma warning disable 0649
+    [Tooltip("Группа миксеров")]
+    [SerializeField] private AudioMixerGroup mixerGroup;
 
-    public Sound[] sounds;
+    [Tooltip("ЗВуки")]
+    [SerializeField] private Sound[] sounds;
+#pragma warning restore 0649
 
     private bool musicOn;
     private bool effectsOn;
@@ -21,9 +25,7 @@ public class AudioManager : MonoBehaviour
         effectsOn = settingsInfo.effectsOn;
 
         if (instance != null)
-        {
             Destroy(gameObject);
-        }
         else
         {
             instance = this;
@@ -35,7 +37,6 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;
-
             s.source.outputAudioMixerGroup = mixerGroup;
         }
         if (musicOn)
@@ -83,10 +84,8 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + sound + " not found!");
             return;
         }
-        else //if (sound != "Effects")
-        {
+        else
             s.source.Pause();
-        }
 
         switch (sound)
         {

@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
+
 public class Laser : MonoBehaviour
 {
 #pragma warning disable 0649
     [Tooltip("Элемент в конце и начале лазера")]
     [SerializeField] private GameObject startEndElement;
 #pragma warning restore 0649
-    public Animator animator;
 
+    private Animator animator;
     private BulletSpawner bulletSpawner;
     private GameObject bullet;
     private GameObject startElement;
     private GameObject endElement;
-    private float bulletScatterAngle;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        transform.GetChild(0).localPosition = GetComponent<Weapon>().firePointPosition;
+        transform.GetChild(0).localPosition = GetComponent<Weapon>().FirePointPosition;
     }
 
     public void SetBulletInfo(Bullet bullet)
     {
         bulletSpawner = GetComponent<BulletSpawner>();
-        bulletScatterAngle = bullet.Scatter;
     }
 
     public void Shoot()
@@ -39,8 +38,12 @@ public class Laser : MonoBehaviour
         bullet = bulletSpawner.CurrentWeaponBullet;
         bullet.GetComponent<SpriteRenderer>().size = laserScale;
         bullet.GetComponent<BoxCollider2D>().size = laserScale + new Vector3(0, 0.33f);
-        bullet.transform.position
-            = new Vector3((hit.point.x + transform.GetChild(0).position.x) / 2,
-                            (hit.point.y + transform.GetChild(0).position.y) / 2);
+        bullet.transform.position = new Vector3((hit.point.x + transform.GetChild(0).position.x) / 2,
+                                                    (hit.point.y + transform.GetChild(0).position.y) / 2);
+    }
+
+    public void StopShoot()
+    {
+        animator.SetBool("Attack", false);
     }
 }

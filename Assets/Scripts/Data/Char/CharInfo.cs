@@ -82,7 +82,7 @@ public class CharInfo : MonoBehaviour
     {
         manaBar.SetMaxMin(mane, maxMane, 0);
         healthBar.SetMaxMin(health, maxHealth, 0);
-        Camera.main.GetComponent<CameraFollow>().Target = transform;
+        Camera.main.GetComponent<CameraShaker>().Target = transform;
     }
 
     private void GetComponents()

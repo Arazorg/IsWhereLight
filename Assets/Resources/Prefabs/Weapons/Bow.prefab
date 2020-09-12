@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsPrefabs:
-  - {fileID: 4791857465561777761, guid: 65ea6e9fdefa3914d913bccbee6e2826, type: 3}
+  - {fileID: 556777415679803174, guid: c14ef685a39e1e94c874e135927206c1, type: 3}
   bulletsSettings: []
   spawnPosition: {fileID: 0}
 --- !u!1 &1761059055311008228

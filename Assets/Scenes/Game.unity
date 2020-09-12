@@ -2598,10 +2598,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dda2d598050cc84e89352450c1ea529, type: 3}
+  m_Script: {fileID: 11500000, guid: cc18c9a3cd5a1ee48bd33cc04f438637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 2.5
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 10.8, y: 5.5, z: -1}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
+  smoothSpeed: 2.25
   offset: {x: 0, y: 0, z: -1}
 --- !u!20 &519420031
 Camera:

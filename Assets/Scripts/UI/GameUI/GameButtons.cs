@@ -82,33 +82,28 @@ public class GameButtons : MonoBehaviour
     public static bool IsGamePausedState;
     public static bool IsWeaponStoreState;
     public static Vector3 SpawnPosition;
+    public static bool isChange = true;
+    public Transform currentWeapon; // заменить на свойтсво(21 ссылка)
 
-    //Скрипты персонажа
     private CharInfo charInfo;
     private CharGun charGun;
     private CharAction charAction;
     private CharSkills charSkills;
-    //Скрипты
     private CurrentGameInfo currentGameInfo;
+    private AudioManager audioManager;
+    private Color startSkillButtonColor;
 
-    //Переменные
     private float attackRate;
     private float nextAttack;
     private float startTime;
     private float timeToSkill;
     private float startStringingTime;
-    
-    public static bool isChange = true;
     private bool isAttackDown;
     private bool isAttackUp;
     private bool isStaticAttack;
-
     private int priceResurrect;
     private int manecost;
 
-    private Color startSkillButtonColor;
-    public Transform currentWeapon;
-    private AudioManager audioManager;
     private void Awake()
     {
         if (instance != null)
@@ -205,13 +200,13 @@ public class GameButtons : MonoBehaviour
         if (isAttackUp && !CharAction.isDeath)
             AttackUp();
 
-        if(Time.time < timeToSkill)
+        if (Time.time < timeToSkill)
         {
-            var currentPercent = Math.Abs(timeToSkill-Time.time) / currentGameInfo.skillTime;
+            var currentPercent = Math.Abs(timeToSkill - Time.time) / currentGameInfo.skillTime;
             skillButtonBar.fillAmount = currentPercent;
             var color = skillButton.color;
             color.a = 255 - (205 * currentPercent);
-            skillButton.color = color;   
+            skillButton.color = color;
         }
         else
         {
@@ -221,7 +216,7 @@ public class GameButtons : MonoBehaviour
             color.a = 255;
             skillButton.color = color;
         }
-           
+
     }
 
     public void OpenPause()
@@ -272,14 +267,14 @@ public class GameButtons : MonoBehaviour
 
     public void StartSkill()
     {
-        if(Time.time > timeToSkill && !CharAction.isDeath)
+        if (Time.time > timeToSkill && !CharAction.isDeath)
         {
             charSkills.ChooseSkill(charInfo.character);
             timeToSkill = Time.time + currentGameInfo.skillTime;
             var color = skillButton.color;
             color.a = 50;
-            skillButton.color = color;  
-        }        
+            skillButton.color = color;
+        }
     }
 
     public void ChooseChallenge(int challengeNumber)
@@ -422,42 +417,36 @@ public class GameButtons : MonoBehaviour
         {
             if (Time.time > nextAttack)
             {
+                var weaponScript = currentWeapon.GetComponent<Weapon>();
+                CameraShaker.Instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
+                                                    weaponScript.ShakeParametrs.roughness,
+                                                         weaponScript.ShakeParametrs.fadeInTime,
+                                                             weaponScript.ShakeParametrs.fadeOutTime);
+                charInfo.currentCountShoots++;
+                charInfo.SpendMana(manecost);
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
+
                     case WeaponData.AttackType.Gun:
-                        charInfo.currentCountShoots++;
-                        charInfo.SpendMana(manecost);
-                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Gun>().Shoot();
-                        nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.Sword:
-                        charInfo.currentCountShoots++;
-                        charInfo.SpendMana(manecost);
-                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Sword>().Hit();
-                        nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.Laser:
-                        charInfo.currentCountShoots++;
-                        charInfo.SpendMana(manecost);
-                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Laser>().Shoot();
-                        nextAttack = Time.time + attackRate;
                         break;
                     case WeaponData.AttackType.ConstantLaser:
-                        charInfo.currentCountShoots++;
-                        charInfo.SpendMana(manecost);
-                        audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         if (!isStaticAttack)
                             currentWeapon.GetComponent<ConstantLaser>().IsAttack = true;
                         if (currentWeapon.GetComponent<ConstantLaser>().IsAttack)
                             isStaticAttack = true;
-                        nextAttack = Time.time + attackRate;
                         break;
                     default:
                         break;
                 }
+                audioManager.Play(weaponScript.WeaponName);
+                nextAttack = Time.time + attackRate;
             }
         }
         else
@@ -479,7 +468,6 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Bow>().Shoot(Time.time - startStringingTime);
                         startStringingTime = 0;
                         break;
-
                 }
             }
             else
@@ -495,13 +483,13 @@ public class GameButtons : MonoBehaviour
         switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
         {
             case WeaponData.AttackType.Sword:
-                currentWeapon.GetComponent<Sword>().animator.SetBool("Attack", false);
+                currentWeapon.GetComponent<Sword>().StopShoot();
                 break;
             case WeaponData.AttackType.Laser:
-                currentWeapon.GetComponent<Laser>().animator.SetBool("Attack", false);
+                currentWeapon.GetComponent<Laser>().StopShoot();
                 break;
             case WeaponData.AttackType.Gun:
-                currentWeapon.GetComponent<Gun>().animator.SetBool("Attack", false);
+                currentWeapon.GetComponent<Gun>().StopShoot();
                 break;
             case WeaponData.AttackType.ConstantLaser:
                 currentWeapon.GetComponent<ConstantLaser>().StopShoot();
@@ -514,7 +502,6 @@ public class GameButtons : MonoBehaviour
     {
         IsWeaponStoreState = true;
         weaponStoreUI.SetActive(IsWeaponStoreState);
-
     }
 
     public void SetWeaponInfo(Weapon weapon)

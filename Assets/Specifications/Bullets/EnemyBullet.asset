@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216e8da4ff172d84f8d4e8e881788355, type: 3}
   m_Name: EnemyBullet
   m_EditorClassIdentifier: 
-  mainSprite: {fileID: 21300000, guid: 73446064d4f091e468ba4abfa64a38be, type: 3}
+  mainSprite: {fileID: -7803065417098437583, guid: a39608affb0755048822c3b348f4de71,
+    type: 3}
+  colliderSize: {x: 0.2, y: 0.2}
+  colliderOffset: {x: 0, y: 0}
+  animators: []
   typeOfBullet: 0
   speed: 20
   scatter: 5

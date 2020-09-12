@@ -20,4 +20,4 @@ MonoBehaviour:
   startWeapon: Fortified Bow
   price: 1250
   characterType: Attack
-  skillTime: 10
+  skillTime: 7
