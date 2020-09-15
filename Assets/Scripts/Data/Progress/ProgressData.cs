@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 [System.Serializable]
 public class ProgressData
@@ -9,6 +7,7 @@ public class ProgressData
     public Dictionary<string, int> secretCodes;
     public Dictionary<string, bool> achivments;
     public Dictionary<string, bool> weapons;
+
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;

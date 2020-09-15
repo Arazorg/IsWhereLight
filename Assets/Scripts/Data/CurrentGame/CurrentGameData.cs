@@ -1,7 +1,6 @@
 ﻿[System.Serializable]
 public class CurrentGameData
 {
-
     public string character;
     public string skin;
     public string startWeapon;

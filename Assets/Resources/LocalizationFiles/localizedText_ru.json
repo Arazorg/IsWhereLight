@@ -839,7 +839,7 @@
     },
 	
 	{
-      "key": "HintDymanicJoystick",
+      "key": "HintDynamicJoystick",
       "value": "Нажми на экран в области, вокруг которой ты расположил джойстик, чтобы он появился под твоим пальцем."
     },
 
@@ -1036,7 +1036,51 @@
 	{
 	  "key": "Skill",
 	  "value": "Способность:"
-	}
-
+	},
+	
+	{
+      "key": "ShootingRangeGuyPhrase0",
+      "value": "Проверим, из чего ты сделан!"
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase1",
+      "value": "Сначала стреляй, потом сомневайся."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase2",
+      "value": "С утра нужно выпить кофе и немного пострелять."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase3",
+      "value": "Иногда надо пользоваться своими сильными сторонами."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase4",
+      "value": "Надежда - это прекрасно,\nно иногда надо действовать."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase5",
+      "value": "С опытом приходит мастерство."
+    },
+	
+	{
+      "key": "NoManePhrase0",
+      "value": "Нужно больше энергии..."
+    },
+	
+	{
+      "key": "NoManePhrase1",
+      "value": "Недостаточно маны!"
+    },
+	
+	{
+      "key": "NoManePhrase2",
+      "value": "У тебя недостаточно энергии!"
+    }
   ]
 }

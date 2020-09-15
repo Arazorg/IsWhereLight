@@ -26,17 +26,19 @@ public class Character : MonoBehaviour, IPointerDownHandler
 #pragma warning restore 0649
 
     public GameObject playerCharacter;
-    private int lastPhrase = -1;
-    private bool isHello = false;
-    private bool m_FacingRight;
+    private AudioManager audioManager;
     private PopupText currentPhrase;
 
-    private float timePhrase = 0.6f;
-    private float timeIgnore = 20f;
-    private float phraseTimer;
+    private int lastPhrase = -1;
     private int phrasesCount;
+    private float phraseTimer;
     private bool isIgnore;
-    private AudioManager audioManager; 
+    private bool isHello = false;
+    private bool m_FacingRight;
+
+    private readonly float timePhrase = 0.6f;
+    private readonly float timeIgnore = 20f;
+    private readonly int phraseCountToIngnore = 5;
 
     void Start()
     {
@@ -86,6 +88,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    /// Max health of character
+    /// </summary>
     public int MaxHealth
     {
         get
@@ -95,6 +100,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    /// Max mane of character
+    /// </summary>
     public int MaxMane
     {
         get
@@ -104,6 +112,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    /// Start weapon of character
+    /// </summary>
     public string StartWeapon
     {
         get
@@ -113,6 +124,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    ///  Price of character
+    /// </summary>
     public int Price
     {
         get
@@ -122,6 +136,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    /// Type of character
+    /// </summary>
     public string CharacterType
     {
         get
@@ -131,6 +148,9 @@ public class Character : MonoBehaviour, IPointerDownHandler
         protected set { }
     }
 
+    /// <summary>
+    /// Skill time of character
+    /// </summary>
     public float SkillTime
     {
         get
@@ -142,7 +162,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        if (phrasesCount > 5 && !isIgnore)
+        if (phrasesCount > phraseCountToIngnore && !isIgnore)
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
@@ -173,7 +193,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     private void CameraZoom()
     {
         Camera.main.orthographicSize = cameraSizeCharacter;
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
     }
 
     void OnTriggerEnter2D(Collider2D coll)

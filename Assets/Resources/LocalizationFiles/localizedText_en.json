@@ -1019,6 +1019,51 @@
 	{
 	  "key": "Skill",
 	  "value": "Ability:"
-	}
+	},
+	
+	{
+      "key": "ShootingRangeGuyPhrase0",
+      "value": "Let's see what you're made of!"
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase1",
+      "value": "Shoot first, doubt later."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase2",
+      "value": "Get up in the morning, drink your coffee\nand use shooting as a snack."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase3",
+      "value": "You know, sometimes, you got\nto play to your strengths."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase4",
+      "value": "Hope is all very well,\nbut sometimes it takes a little action too."
+    },
+	
+	{
+      "key": "ShootingRangeGuyPhrase5",
+      "value": "Skill comes with experience."
+    },
+	
+	{
+      "key": "NoManePhrase0",
+      "value": "I need more energy..."
+    },
+	
+	{
+      "key": "NoManePhrase1",
+      "value": "Not enough power!"
+    },
+	
+	{
+      "key": "NoManePhrase2",
+      "value": "You don't have enough mane!"
+    }
   ]
 }

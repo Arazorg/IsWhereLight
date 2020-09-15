@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBulletSpawner : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class EnemyBulletSpawner : MonoBehaviour
     public void Spawn()
     {
         currentEnemyBullet = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
-        //currentEnemyBullet.transform.tag = "EnemyBullet";
+        currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
         currentBulletScript.Damage = GetComponent<Enemy>().Damage;
@@ -33,7 +31,7 @@ public class EnemyBulletSpawner : MonoBehaviour
     {
         bulletData = _bulletData;
         currentEnemyBullet = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
-        //currentEnemyBullet.transform.tag = "EnemyBullet";
+        currentEnemyBullet.transform.tag = "EnemyBullet";
         currentBulletScript = currentEnemyBullet.GetComponent<Bullet>();
         currentBulletScript.Init(bulletData);
         currentBulletScript.Damage = GetComponent<Enemy>().Damage;

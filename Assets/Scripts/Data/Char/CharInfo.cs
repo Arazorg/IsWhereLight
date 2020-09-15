@@ -2,13 +2,11 @@
 
 public class CharInfo : MonoBehaviour
 {
-    //Gameobjects
     private ManaBar manaBar;
     private HealthBar healthBar;
     private CurrentGameInfo currentGameInfo;
     private CharAction charAction;
 
-    //Values
     public string character;
     public string skin;
     public string[] weapons;

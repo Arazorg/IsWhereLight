@@ -460,7 +460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44873149
@@ -746,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111277335
@@ -878,7 +878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136054954
@@ -1984,7 +1984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -225}
+  m_AnchoredPosition: {x: 0, y: -190}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234638181
@@ -4247,7 +4247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 225}
+  m_AnchoredPosition: {x: 0, y: 185}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774147843
@@ -4842,7 +4842,7 @@ MonoBehaviour:
   sounds:
   - nameOfSound: ClickUI
     clip: {fileID: 8300000, guid: 354c7ef82c3653c45ac952fa9f99d9da, type: 3}
-    volume: 0.8
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4851,7 +4851,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Theme
     clip: {fileID: 8300000, guid: 43bad0f540c0c224ba67f8e86f9ac95a, type: 3}
-    volume: 0.8
+    volume: 0.2
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4860,7 +4860,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Haze Staff
     clip: {fileID: 8300000, guid: a16792a3a2cf3274e9b1ab9d104496c9, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4869,7 +4869,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Blade of Power
     clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4878,7 +4878,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Battle-scarred Rifle
     clip: {fileID: 8300000, guid: 271a31f0f02c64a40ac07b76eb2dd4ef, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4887,7 +4887,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Fortified Bow
     clip: {fileID: 8300000, guid: 19c7a49d4e651054082d2355b9120752, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4905,7 +4905,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Resurrect
     clip: {fileID: 8300000, guid: d19fdc5b7a24ed042b425eb42607580d, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4914,7 +4914,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Cleaver
     clip: {fileID: 8300000, guid: d82e8a1ecef190a43ab04581a5319fa3, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4922,8 +4922,8 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: Shooting Range Weapon
-    clip: {fileID: 8300000, guid: 6ef3ebd2e1ebc4643b747e694dd79793, type: 3}
-    volume: 0.35
+    clip: {fileID: 8300000, guid: 7ae12bcd449f7ca4b9bcd4afdef9b413, type: 3}
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4932,7 +4932,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Death
     clip: {fileID: 8300000, guid: fd5a25e88ecdcdc48a39a6b247599ea6, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4941,7 +4941,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Healing Beam Blaster
     clip: {fileID: 8300000, guid: fbb0f20f90804524e9d0807d4007dca7, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4950,7 +4950,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Steps
     clip: {fileID: 8300000, guid: c9a5c14cc1d81714f9b55f141478352d, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -4959,61 +4959,61 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: Arrow
     clip: {fileID: 8300000, guid: e9db4d9c9dd4cea4b8f4a9c11d56691b, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: LegionnaireSkill
-    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
-    volume: 0.35
+  - nameOfSound: LegionnaireSkillStart
+    clip: {fileID: 8300000, guid: 01d8e758b767a52499a3d4dc65536906, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1.25
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: ArcherSkillStart
+    clip: {fileID: 8300000, guid: 2821d6057c2370943905992fcb57d15f, type: 3}
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: ArcherSkill
-    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
-    volume: 0.35
+  - nameOfSound: MechanicSkillStart
+    clip: {fileID: 8300000, guid: 4b3dfcda5c1a63c47951f6547aec4e19, type: 3}
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: MechanicSkill
-    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
-    volume: 0.35
+  - nameOfSound: KeeperSkillStart
+    clip: {fileID: 8300000, guid: cc06f836de486634ba507b93c124c2b6, type: 3}
+    volume: 1
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: KeeperSkill
-    clip: {fileID: 8300000, guid: 551c3d1c843198a42b443d430dc43433, type: 3}
-    volume: 0.35
+  - nameOfSound: RaiderSkillStart
+    clip: {fileID: 8300000, guid: bf83985e786695f46befca6fb5de21fb, type: 3}
+    volume: 0.5
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: RaiderSkill
-    clip: {fileID: 8300000, guid: 5f0e2eed553610141ab9a21ea26bd2c7, type: 3}
-    volume: 0.35
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - nameOfSound: IsidaSkill
-    clip: {fileID: 8300000, guid: b0abce06b7abcfa46920408e741a2d1d, type: 3}
-    volume: 0.35
+  - nameOfSound: IsidaSkillStart
+    clip: {fileID: 8300000, guid: 5c2ba499227caa640bffc447b7dcaf9f, type: 3}
+    volume: 0.3
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -5022,16 +5022,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameOfSound: RiverLobby
     clip: {fileID: 8300000, guid: ce39c54e1f69c63429687bb1a398f0fb, type: 3}
-    volume: 0.35
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - nameOfSound: PortalLobby
-    clip: {fileID: 8300000, guid: 2b0621b94890b2044a50f73ec92c0000, type: 3}
-    volume: 0.35
+    volume: 0.8
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -5039,12 +5030,84 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - nameOfSound: StandartGrenade
-    clip: {fileID: 8300000, guid: 5f0e2eed553610141ab9a21ea26bd2c7, type: 3}
-    volume: 0.35
+    clip: {fileID: 8300000, guid: 7f42eb8b1920af047b3154a2dc8e9a04, type: 3}
+    volume: 0.5
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: LegionnaireSkillUsing
+    clip: {fileID: 8300000, guid: 6ec28b0c9d0f50341a0726a9285a438d, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1.5
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: BushDestroy
+    clip: {fileID: 8300000, guid: 288274b7984f8614aa03320186644791, type: 3}
+    volume: 0.25
+    volumeVariance: 0.1
+    pitch: 0.7
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: NPC_Talk
+    clip: {fileID: 8300000, guid: 2177c0c9846586c419a1c7f96d5bf6ca, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: EnemyDeath0
+    clip: {fileID: 8300000, guid: c65a3bd5bb4f3ae4590b77bcc6382859, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: EnemyDeath1
+    clip: {fileID: 8300000, guid: 38516cd76a2d605479fe06db8007c407, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: BushDestroy
+    clip: {fileID: 8300000, guid: 288274b7984f8614aa03320186644791, type: 3}
+    volume: 0.5
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: BushDestroy
+    clip: {fileID: 8300000, guid: 288274b7984f8614aa03320186644791, type: 3}
+    volume: 0.5
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - nameOfSound: BushDestroy
+    clip: {fileID: 8300000, guid: 288274b7984f8614aa03320186644791, type: 3}
+    volume: 0.5
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &838771391
@@ -5299,12 +5362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b54dfdd9559c54db3d4fd24a9d4813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLocalization: 
-  color: 
-  joystickType: 
-  musicOn: 0
-  effectsOn: 0
-  fpsOn: 0
   joystickPosition:
   - 0
   - 0
@@ -5319,6 +5376,12 @@ MonoBehaviour:
   skillButtonPosition:
   - 0
   - 0
+  currentLocalization: 
+  color: 
+  joystickType: 
+  musicOn: 0
+  effectsOn: 0
+  fpsOn: 0
 --- !u!4 &886603901
 Transform:
   m_ObjectHideFlags: 0
@@ -7128,7 +7191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -125}
+  m_AnchoredPosition: {x: 0, y: -115}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132774810
@@ -8495,8 +8558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -50}
-  m_SizeDelta: {x: 150, y: 950}
+  m_AnchoredPosition: {x: -225, y: -100}
+  m_SizeDelta: {x: 150, y: 825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267803955
 MonoBehaviour:
@@ -8534,8 +8597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHorizontal: 1
-  startPos: {x: -200, y: -50, z: 0}
-  endPos: {x: 100, y: -50, z: 0}
+  startPos: {x: -225, y: -100, z: 0}
+  endPos: {x: 100, y: -100, z: 0}
   speed: 1
   isEnd: 0
   isMove: 0
@@ -11199,7 +11262,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 66c8eb6367fd39e4cad3172cfbd5e7c3, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -11649,8 +11712,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -100}
+  m_AnchoredPosition: {x: -25, y: 25}
+  m_SizeDelta: {x: -250, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885531071
 MonoBehaviour:

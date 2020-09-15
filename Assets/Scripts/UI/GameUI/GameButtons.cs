@@ -341,6 +341,7 @@ public class GameButtons : MonoBehaviour
 
     public void GoToFinishScene()
     {
+        audioManager.StopAllSounds();
         audioManager.Play("ClickUI");
         Time.timeScale = 1f;
         ProgressInfo.instance.currentCountShoots = charInfo.currentCountShoots;
@@ -351,7 +352,7 @@ public class GameButtons : MonoBehaviour
     public void ResurrectPlayerAd()
     {
         audioManager.Play("ClickUI");
-        //Show ad
+        AdsManager.AdShow();
         charAction.Resurrect();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
@@ -422,21 +423,30 @@ public class GameButtons : MonoBehaviour
                                                     weaponScript.ShakeParametrs.roughness,
                                                          weaponScript.ShakeParametrs.fadeInTime,
                                                              weaponScript.ShakeParametrs.fadeOutTime);
-                charInfo.currentCountShoots++;
-                charInfo.SpendMana(manecost);
                 switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
                 {
-
                     case WeaponData.AttackType.Gun:
+                        audioManager.Play(weaponScript.WeaponName);
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Gun>().Shoot();
                         break;
                     case WeaponData.AttackType.Sword:
+                        audioManager.Play(weaponScript.WeaponName);
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Sword>().Hit();
                         break;
                     case WeaponData.AttackType.Laser:
+                        audioManager.Play(weaponScript.WeaponName);
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
                         currentWeapon.GetComponent<Laser>().Shoot();
                         break;
                     case WeaponData.AttackType.ConstantLaser:
+                        audioManager.Play(weaponScript.WeaponName);
+                        charInfo.currentCountShoots++;
+                        charInfo.SpendMana(manecost);
                         if (!isStaticAttack)
                             currentWeapon.GetComponent<ConstantLaser>().IsAttack = true;
                         if (currentWeapon.GetComponent<ConstantLaser>().IsAttack)
@@ -444,8 +454,7 @@ public class GameButtons : MonoBehaviour
                         break;
                     default:
                         break;
-                }
-                audioManager.Play(weaponScript.WeaponName);
+                }               
                 nextAttack = Time.time + attackRate;
             }
         }
@@ -467,6 +476,7 @@ public class GameButtons : MonoBehaviour
                         audioManager.Play(currentWeapon.GetComponent<Weapon>().WeaponName);
                         currentWeapon.GetComponent<Bow>().Shoot(Time.time - startStringingTime);
                         startStringingTime = 0;
+                        StopAttack();
                         break;
                 }
             }

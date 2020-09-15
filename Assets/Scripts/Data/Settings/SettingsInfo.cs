@@ -6,17 +6,16 @@ public class SettingsInfo : MonoBehaviour
     public static SettingsInfo instance;
     public static Dictionary<string, float[]> startPositions = new Dictionary<string, float[]>();
 
+    public float[] joystickPosition = new float[2];
+    public float[] fireActButtonPosition = new float[2];
+    public float[] swapWeaponButtonPosition = new float[2];
+    public float[] skillButtonPosition = new float[2];
     public string currentLocalization;
     public string color;
     public string joystickType;
     public bool musicOn;
     public bool effectsOn;
-    public bool fpsOn;
-
-    public float[] joystickPosition = new float[2];
-    public float[] fireActButtonPosition = new float[2];
-    public float[] swapWeaponButtonPosition = new float[2];
-    public float[] skillButtonPosition = new float[2];
+    public bool fpsOn; 
 
     void Awake()
     {
@@ -39,10 +38,10 @@ public class SettingsInfo : MonoBehaviour
         fpsOn = data.fpsOn;
         color = data.color;
         joystickType = data.joystickType;
-
         joystickPosition = data.joystickPosition;
         fireActButtonPosition = data.fireActButtonPosition;
         swapWeaponButtonPosition = data.swapWeaponButtonPosition;
+
         if (data.skillButtonPosition != null)
             skillButtonPosition = data.skillButtonPosition;
     }
@@ -76,7 +75,6 @@ public class SettingsInfo : MonoBehaviour
         joystickType = "Dynamic";
     }
 
-
     private void InitDictionary()
     {
         startPositions["joystickPosition"] = new float[2] { 0, 0 };
@@ -86,7 +84,6 @@ public class SettingsInfo : MonoBehaviour
         startPositions["hpBarPosition"] = new float[2] { 200, -100 };
         startPositions["maneBarPosition"] = new float[2] { 200, -175 };
     }
-
 
     private void SetStartPositions()
     {

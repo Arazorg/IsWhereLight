@@ -200,8 +200,8 @@ public class ShootingRange : MonoBehaviour
 
     private void Result(int countShots)
     {
-        WeaponSpawner.instance.SetPrefab("Healing Beam Blaster");
-        WeaponSpawner.instance.Spawn("Healing Beam Blaster", rewardStand);
+        //WeaponSpawner.instance.SetPrefab("Healing Beam Blaster");
+        //WeaponSpawner.instance.Spawn("Healing Beam Blaster", rewardStand);
         if (result > countShots)
         {
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position

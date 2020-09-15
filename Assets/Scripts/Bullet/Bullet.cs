@@ -185,7 +185,7 @@ public class Bullet : MonoBehaviour
                 {
                     animator.SetBool("Explosion", true);
                     AudioManager.instance.Play("StandartGrenade");
-                    CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, 0.5f);
+                    CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 0.3f);
                     AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
                     float destroyTime = DeleteTime;
                     foreach (AnimationClip clip in clips)
@@ -223,7 +223,7 @@ public class Bullet : MonoBehaviour
             {
                 animator.SetBool("Explosion", true);
                 AudioManager.instance.Play("StandartGrenade");
-                CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, 0.5f);
+                CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 0.3f);
                 AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
                 float destroyTime = DeleteTime;
                 foreach (AnimationClip clip in clips)
@@ -242,7 +242,7 @@ public class Bullet : MonoBehaviour
                     foreach (var enemy in enemies)
                     {
                         var enemyScript = enemy.GetComponent<Enemy>();
-                        if (enemy.transform.tag == "Enemy")
+                        if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
                             enemyScript.GetDamage(Damage, CritChance, transform, 500f);
                     }
                     Destroy(gameObject, destroyTime);

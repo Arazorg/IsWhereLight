@@ -52,6 +52,7 @@ public class FinishOfGameButton : MonoBehaviour
         isShow = false;
         NewSaveSystem.Delete("character");
         NewSaveSystem.Delete("currentGame");
+        audioManager.Play("Theme");
     }
 
     void Update()

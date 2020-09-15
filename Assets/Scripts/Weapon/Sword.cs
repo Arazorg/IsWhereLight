@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour
                 {
                     if (enemy.transform.tag == "Destroyable")
                         enemyScript.DestroyStaticEnemy();
-                    else if (enemy.transform.tag == "Enemy")
+                    else if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }
@@ -45,7 +45,7 @@ public class Sword : MonoBehaviour
                 {
                     if (enemy.transform.tag == "Destroyable")
                         Destroy(enemy.gameObject.transform.parent.gameObject);
-                    else if (enemy.transform.tag == "Enemy")
+                    else if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }

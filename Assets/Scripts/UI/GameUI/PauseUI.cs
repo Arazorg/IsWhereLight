@@ -60,6 +60,7 @@ public class PauseUI : MonoBehaviour
 
     public void GoToMenu()
     {
+        audioManager.StopAllSounds();
         var currentGame = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         if (SceneManager.GetActiveScene().name != "Game")
         {

@@ -9,23 +9,21 @@ public class CurrentGameInfo : MonoBehaviour
     public string character;
     public string skin;
     public string startWeapon;
+    public string characterType;
     public int maxHealth;
     public int maxMane;
-    public bool wildMode;
-    public bool isLobby;
     public int challengeNumber;
     public int currentWave;
     public int countResurrect;
-    public bool canExit;
-    public string characterType;
     public float skillTime;
+    public bool wildMode;
+    public bool isLobby;
+    public bool canExit;
 
     void Awake()
     {
         if (instance != null)
-        {
             Destroy(gameObject);
-        }
         else
         {
             instance = this;

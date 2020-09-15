@@ -56,8 +56,6 @@ public class CharSkills : MonoBehaviour
     {
         offsetText = new Vector3(0, 0.85f, 0);
         currentCharacter = character;
-        //audioManager.Play($"{character}Skill");
-        Debug.Log($"{character}Skill");
         switch (character)
         {
             case "Legionnaire":
@@ -70,6 +68,7 @@ public class CharSkills : MonoBehaviour
                 ArcherSkillStart();
                 break;
             case "Keeper":
+                KeeperSkillStart();
                 break;
             case "Mechanic":
                 MechanicSkillStart();
@@ -94,6 +93,7 @@ public class CharSkills : MonoBehaviour
                 ArcherSkillUsing();
                 break;
             case "Keeper":
+                KeeperSkillUsing();
                 break;
             case "Mechanic":
                 MechanicSkillUsing();
@@ -103,7 +103,7 @@ public class CharSkills : MonoBehaviour
                 {
                     if (grenade.Key != null && grenade.Key.GetComponent<Animator>().GetBool("Explosion") == false)
                     {
-                        var currentPositionGrenade = RaiderSkillUsing(grenade.Key, grenade.Key.GetComponent<Bullet>().Speed * grenade.Value, startSkillTime);
+                        var currentPositionGrenade = RaiderSkillUsing(grenade.Key, grenade.Key.GetComponent<Bullet>().Speed * grenade.Value, startSkillTime, startPosition, startLocalScale);
                         if (currentPositionGrenade != Vector2.zero)
                             grenade.Key.transform.position = currentPositionGrenade;
                     }
@@ -139,6 +139,9 @@ public class CharSkills : MonoBehaviour
             if (currentPhrase != null && isSkill)
                 currentPhrase.DeletePhrase();
             currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+            if (soundKey == "")
+                soundKey = audioManager.Play($"{charInfo.character}SkillStart", true);
+            Debug.Log(soundKey);
         }
         IsidaSkill(alliesLasers);
     }
@@ -149,6 +152,8 @@ public class CharSkills : MonoBehaviour
             IsidaSkill(alliesLasers);
         else
         {
+            if (soundKey != "")
+                soundKey = audioManager.Stop(soundKey);
             foreach (var item in alliesLasers)
                 Destroy(item.Value);
             alliesLasers.Clear();
@@ -180,11 +185,12 @@ public class CharSkills : MonoBehaviour
 
     public static bool isLegionnaireSkill;
 
+    private string soundKey = "";
     private Quaternion startSkillRotation;
     private readonly float speedOfLegionnaireSkill = 15f;
     private readonly int damageOfLegionnaireSkill = 3;
     private readonly float knokingOfLegionnaireSkill = 1000f;
-    private readonly float distanceForNewEnemy = 1f;
+    private readonly float distanceForNewEnemy = 1.5f;
 
     private void LegionnaireSkillStart()
     {
@@ -227,6 +233,10 @@ public class CharSkills : MonoBehaviour
             {
                 if (LegionnaireSkill())
                 {
+                    audioManager.Play($"{charInfo.character}SkillStart");
+                    if (soundKey == "")
+                        soundKey = audioManager.Play($"{charInfo.character}SkillUsing", true);
+
                     var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
                     enemyScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
                     enemyCounter++;
@@ -234,6 +244,8 @@ public class CharSkills : MonoBehaviour
             }
             else
             {
+                if (soundKey != "")
+                    soundKey = audioManager.Stop(soundKey);
                 transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(true);
                 charController.Speed = startSpeed;
                 enemies.Clear();
@@ -249,7 +261,12 @@ public class CharSkills : MonoBehaviour
     {
         var enemiesStatic = Physics2D.OverlapCircleAll(transform.position, 1, 1 << LayerMask.NameToLayer("EnemyStatic"));
         foreach (var enemy in enemiesStatic)
-            enemy.GetComponent<Enemy>().DestroyStaticEnemy();
+        {
+            if (!enemy.GetComponent<Enemy>().EnemyName.Contains("Punchbag") &&
+                    !enemy.GetComponent<Enemy>().EnemyName.Contains("Thing"))
+                enemy.GetComponent<Enemy>().DestroyStaticEnemy();
+        }
+            
 
         if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy)
         {
@@ -293,6 +310,7 @@ public class CharSkills : MonoBehaviour
             isSkill = true;
             if (currentPhrase != null && isSkill)
                 currentPhrase.DeletePhrase();
+            audioManager.Play($"{charInfo.character}SkillStart");
             currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
         }
         else
@@ -334,6 +352,18 @@ public class CharSkills : MonoBehaviour
         else
             currentArrow.GetComponent<Rigidbody2D>().velocity = currentArrow.transform.up * speedOfArrowArcherSkill;
     }
+
+    private void KeeperSkillUsing()
+    {
+        if (!CharAction.isDeath && isSkill && Time.time < timeToSkill)
+        {
+            
+        }
+        else
+        {
+            isSkill = false;
+        }
+    }
     #endregion ArcherSkill
 
     #region MechanicSkill
@@ -344,6 +374,10 @@ public class CharSkills : MonoBehaviour
         isSkill = true;
         timeToSkill = Time.time + mechanicSkillDuration;
         turret = Instantiate(mechanicTurret, transform.position, Quaternion.identity);
+        audioManager.Play($"{charInfo.character}SkillStart");
+        if (currentPhrase != null && isSkill)
+            currentPhrase.DeletePhrase();
+        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
         WeaponSpawner.instance.SetPrefab("TurretWeapon");
         WeaponSpawner.instance.Spawn("TurretWeapon", turret.transform, true);
     }
@@ -360,23 +394,36 @@ public class CharSkills : MonoBehaviour
     #endregion MechanickSkill
 
     #region KeeperSkill
-
+    private readonly float keeperSkillDuration = 5f;
+    private void KeeperSkillStart()
+    {
+        timeToSkill = Time.time + keeperSkillDuration;
+        isSkill = true;
+        if (currentPhrase != null && isSkill)
+            currentPhrase.DeletePhrase();
+        audioManager.Play($"{charInfo.character}SkillStart");
+        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+    }
     #endregion KeeperSkill
 
     #region RaiderSkill
 
     private Dictionary<GameObject, float> grenades = new Dictionary<GameObject, float>();
     private int currentCountOfGrenades;
+    private Vector2 startPosition;
+    private float startLocalScale;
+
     private readonly int counfOfGrenades = 5;
     private readonly float Y_SpeedFactor = 1.3f;
     private readonly float gravitation = 22.5f;
-
     private void RaiderSkillStart()
     {
+        startPosition = transform.position + new Vector3(UnityEngine.Random.Range(0f, 0.25f), 0);
+        startLocalScale = transform.localScale.x;
         isSkill = true;
         startSkillTime = Time.time;
         currentCountOfGrenades = 0;
-
+        audioManager.Play($"{charInfo.character}SkillStart");
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
         currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
@@ -403,13 +450,13 @@ public class CharSkills : MonoBehaviour
         }
     }
 
-    private Vector2 RaiderSkillUsing(GameObject currentGrenade, float bulletSpeed, float startTime)
+    private Vector2 RaiderSkillUsing(GameObject currentGrenade, float bulletSpeed, float startTime, Vector2 startPosition, float startLocalScale)
     {
         Vector2 currentPosition = Vector2.zero;
-        Vector2 startPosition = transform.position + new Vector3(UnityEngine.Random.Range(0f, 0.25f), 0);
+
         if (isSkill && currentGrenade != null)
         {
-            currentPosition = new Vector2((startPosition.x + (bulletSpeed * (Time.time - startTime)) * transform.localScale.x),
+            currentPosition = new Vector2((startPosition.x + (bulletSpeed * (Time.time - startTime)) * startLocalScale),
                                             startPosition.y + (bulletSpeed * Y_SpeedFactor * (Time.time - startTime))
                                                 - (0.5f * gravitation * (float)Math.Pow(Time.time - startTime, 2)));
         }

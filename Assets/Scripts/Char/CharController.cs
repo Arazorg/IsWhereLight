@@ -35,7 +35,7 @@ public class CharController : MonoBehaviour
         set { closestEnemy = value; }
     }
     private GameObject closestEnemy = null;
-    
+
     private Joystick joystick;
     private Rigidbody2D rb;
     private Transform gun;
@@ -135,7 +135,8 @@ public class CharController : MonoBehaviour
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Player") |
                         1 << LayerMask.NameToLayer("Ignore Raycast") |
-                            1 << LayerMask.NameToLayer("Room"));
+                            1 << LayerMask.NameToLayer("Room") |
+                                1 << LayerMask.NameToLayer("SpawnPoint"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
             if (hit.collider != null)
             {

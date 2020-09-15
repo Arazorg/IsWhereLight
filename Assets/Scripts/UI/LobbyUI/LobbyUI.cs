@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,12 +14,15 @@ public class LobbyUI : MonoBehaviour
     [Tooltip("Кнопка назад в меню")]
     [SerializeField] private Button backToLobbyButton;
 
+    [Tooltip("Кнопка магазина внутриигровых покупок")]
+    [SerializeField] private Button shopButton;
+
     [Tooltip("UI управления персонажем")]
     [SerializeField] private GameObject characterControlUI;
 #pragma warning restore 0649
 
     private string characterKey;
-    private AudioManager audioManager; 
+    private AudioManager audioManager;
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
@@ -38,17 +39,19 @@ public class LobbyUI : MonoBehaviour
     public void HideLobby()
     {
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
+        shopButton.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void ShowLobby()
     {
         characterTextUI.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
+        shopButton.GetComponent<MovementUI>().MoveToEnd();
     }
-
 
     public void BackToMenu()
     {
+        audioManager.StopAllSounds();
         audioManager.Play("ClickUI");
         SceneManager.LoadScene("Menu");
     }

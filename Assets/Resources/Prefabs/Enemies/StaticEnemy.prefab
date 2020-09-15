@@ -76,15 +76,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -5163026663965216695, guid: 68cbe8a77ea7331488b7b9357ee13068,
+    type: 3}
   m_Color: {r: 0.9294118, g: 0.9294118, b: 0.9294118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.15, y: 1.1333333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8864976543508709735
@@ -140,18 +141,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04142797, y: -0.019727588}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.44}
-    newSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 1.15, y: 1.1333333}
+    newSize: {x: 1.15, y: 1.1333333}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8723813, y: 1.3759487}
+  m_Size: {x: 1.1, y: 1.1}
   m_EdgeRadius: 0
 --- !u!114 &348438649651236004
 MonoBehaviour:
@@ -165,6 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd4d2ec5b01623449098f31a209baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 7327246331232928379, guid: b44f06fc37dec0c46ac35ad8f79b55eb,
+    type: 3}
+  enemyData: {fileID: 0}
+  isKnoking: 0
 --- !u!61 &-7844409344960572222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,10 +186,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.15, y: 1.1333333}
+    newSize: {x: 1.15, y: 1.1333333}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0

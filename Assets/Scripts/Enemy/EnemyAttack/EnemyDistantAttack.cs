@@ -67,7 +67,10 @@ public class EnemyDistantAttack : MonoBehaviour
 
             Vector3 closeDirection = (shootTarget.transform.position - transform.position).normalized;
 
-            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("Ignore Raycast"));
+            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Enemy") | 
+                                        1 << LayerMask.NameToLayer("Ignore Raycast") |
+                                            1 << LayerMask.NameToLayer("Room") |
+                                                1 << LayerMask.NameToLayer("SpawnPoint"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, distanceToPlayer, layerMask);
 
             if (hit.collider != null)

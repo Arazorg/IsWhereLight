@@ -30,7 +30,8 @@ public class Laser : MonoBehaviour
         LayerMask layerMask
             = ~(1 << LayerMask.NameToLayer("Player") |
                     1 << LayerMask.NameToLayer("Ignore Raycast") |
-                        1 << LayerMask.NameToLayer("Room"));
+                        1 << LayerMask.NameToLayer("Room") |
+                             1 << LayerMask.NameToLayer("SpawnPoint"));
         RaycastHit2D hit = Physics2D.Raycast(transform.GetChild(0).position, transform.up, Mathf.Infinity, layerMask);
         var laserScale = new Vector3(0.8f, ((Vector3)hit.point - transform.GetChild(0).position).magnitude);
 
