@@ -108,7 +108,7 @@ public class ShootingRange : MonoBehaviour
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                     + new Vector3(0, 1f, 0), true, false, -1, "GiveWeapon");
         }
 
@@ -140,16 +140,19 @@ public class ShootingRange : MonoBehaviour
         shootingRangeUI.GetComponent<MovementUI>().MoveToStart();
         shootingRangeText.GetComponentInParent<MovementUI>().MoveToStart();
         playButton.GetComponent<MovementUI>().MoveToStart();
+
         startSpeed = player.GetComponent<CharController>().Speed;
         charGun = player.GetComponent<CharGun>();
         startMane = player.GetComponent<CharInfo>().mane;
+
         textTimer = (int)gameDuration;
         InvokeRepeating("OutputTime", 1f, 1f);
-        Debug.Log(charInfo.weapons[1]);
+
         if (charInfo.weapons[0] == "Shooting Range Weapon0" && charGun.CurrentWeaponNumber != 0)
             GameButtons.instance.SwapWeapon();
         else if (charInfo.weapons[1] == "Shooting Range Weapon1" && charGun.CurrentWeaponNumber != 1)
             GameButtons.instance.SwapWeapon();
+
         shootingRangeTimerText.gameObject.SetActive(true);
         shootingRangeTimerText.GetComponent<MovementUI>().MoveToEnd();
         result = 0;
@@ -169,7 +172,7 @@ public class ShootingRange : MonoBehaviour
         Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
+        currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
             + new Vector3(0, 1f, 0), true, false, -1, "ShootingRangeInfo", 5);
         SetCollider(true);
     }
@@ -200,13 +203,13 @@ public class ShootingRange : MonoBehaviour
 
     private void Result(int countShots)
     {
-        //WeaponSpawner.instance.SetPrefab("Healing Beam Blaster");
-        //WeaponSpawner.instance.Spawn("Healing Beam Blaster", rewardStand);
+        WeaponSpawner.instance.SetPrefab("Healing Beam Blaster");
+        WeaponSpawner.instance.Spawn("Healing Beam Blaster", rewardStand);
         if (result > countShots)
         {
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"GreatScore{UnityEngine.Random.Range(0, 5)}");
-        }   
+        }
         else
             currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
                 + new Vector3(0, 1f, 0), true, false, -1, $"WeakScore{UnityEngine.Random.Range(0, 3)}");
@@ -230,8 +233,8 @@ public class ShootingRange : MonoBehaviour
             result++;
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position 
-                    + new Vector3(0, 1f, 0), true, false, -1, $"GreatShoot{UnityEngine.Random.Range(0, 5)}", 5);
+            currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
+                    + new Vector3(0, 1f, 0), true, false, -1, $"GreatShoot{UnityEngine.Random.Range(0, 5)}", 5, false, $"{result} !\n");
             currentTarget.GetComponent<Animator>().SetBool("isDeath", true);
             AnimationClip[] clips = currentTarget.GetComponent<Animator>().runtimeAnimatorController.animationClips;
             foreach (AnimationClip clip in clips)
@@ -247,7 +250,6 @@ public class ShootingRange : MonoBehaviour
         else if (currentTarget != null)
             Destroy(currentTarget);
 
-
         spawnTimer = Time.time + spawnDuration;
         int currentStand;
         while (true)
@@ -260,7 +262,6 @@ public class ShootingRange : MonoBehaviour
             var data = enemySettings[UnityEngine.Random.Range(0, enemySettings.Count)];
             script.Init(data);
             currentTarget.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            currentTarget.transform.position += new Vector3(0, 0.5f, 0);
             break;
         }
         previousStand = currentStand;
@@ -273,7 +274,7 @@ public class ShootingRange : MonoBehaviour
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
             currentPhrase = PopupText.Create
-                (shootingRangeNPC.transform.position 
+                (shootingRangeNPC.transform.position
                     + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0, 6)}");
             isHello = true;
         }

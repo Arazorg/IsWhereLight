@@ -8,20 +8,20 @@ public class PopupText : MonoBehaviour
     //Create popup
     public static PopupText Create(Vector3 position, bool isPhrase,
                                     bool isCriticalHit = false, int damageAmount = -1,
-                                        string phrase = "", float fontSize = 4f, bool isStatic = false)
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "")
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
         if (!isPhrase)
             popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
         else
-            popupText.SetupPhrase(phrase, fontSize, isStatic);
+            popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
     }
 
     public static PopupText Create(Transform transform, Vector3 offset, bool isPhrase,
                                     bool isCriticalHit = false, int damageAmount = -1,
-                                        string phrase = "", float fontSize = 4f, bool isStatic = false)
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "")
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, transform);
         popupTextTransform.position += offset;
@@ -30,7 +30,7 @@ public class PopupText : MonoBehaviour
         if (!isPhrase)
             popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
         else
-            popupText.SetupPhrase(phrase, fontSize, isStatic);
+            popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
     }
 
@@ -124,11 +124,11 @@ public class PopupText : MonoBehaviour
         moveVector = new Vector3(1, 1) * 3f * (float)rnd.NextDouble();
     }
 
-    public void SetupPhrase(string key, float fontSize, bool isStatic)
+    public void SetupPhrase(string key, float fontSize, bool isStatic, string otherText = "")
     {
         isPhrase = true;
         this.isStatic = isStatic;
-        textMesh.SetText(LocalizedText.SetLocalization(key));
+        textMesh.SetText(otherText + LocalizedText.SetLocalization(key));
         textMesh.fontSize = fontSize;
         textColor = Color.white;
 

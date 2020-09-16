@@ -55,31 +55,7 @@ public class InterfaceSettings : MonoBehaviour
         if (MenuButtons.firstRun)
             SetStandart();
         else
-        {
-            SetCurrentColor(StringToColor(settingsInfo.color));
-            joystick.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(settingsInfo.joystickPosition[0] + 256,
-                                settingsInfo.joystickPosition[1] + 256);
-            fireActButton.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(settingsInfo.fireActButtonPosition[0],
-                                settingsInfo.fireActButtonPosition[1]);
-            swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(settingsInfo.swapWeaponButtonPosition[0],
-                                settingsInfo.swapWeaponButtonPosition[1]);
-            skillButton.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(settingsInfo.skillButtonPosition[0],
-                                settingsInfo.skillButtonPosition[1]);
-
-            if (settingsInfo.joystickType == "Dynamic")
-                dynamicJoystickButton.GetComponent<Image>().color = Color.red;
-            else
-                staticJoystickButton.GetComponent<Image>().color = Color.red;
-
-            if (settingsInfo.fpsOn)
-                fpsCounterButton.GetComponent<Image>().color = Color.red;
-            else
-                fpsCounterButton.GetComponent<Image>().color = Color.white;
-        }
+            GetCurrentSave();
     }
 
     void Update()
@@ -99,25 +75,31 @@ public class InterfaceSettings : MonoBehaviour
 
     public void InterfaceSettingsPanelClose()
     {
+        GetCurrentSave();
         audioManager.Play("ClickUI");
-        SetPosition();
-        settingsInfo.SaveSettings();
         InterfaceDrag.isDraging = false;
-
-        colorPanel.GetComponent<MovementUI>().MoveToStart();
         IsColorPanelState = false;
+        colorPanel.GetComponent<MovementUI>().MoveToStart();
         menuPanel.GetComponent<MovementUI>().MoveToStart();
         gameObject.GetComponent<MovementUI>().MoveToStart();
     }
 
+    public void SaveSettings()
+    {
+        audioManager.Play("ClickUI");
+        SetPosition();
+        settingsInfo.SaveSettings();
+        InterfaceSettingsPanelClose();
+    }
+
     public void CounterFPSOnOff()
     {
+        audioManager.Play("ClickUI");
         settingsInfo.fpsOn = !settingsInfo.fpsOn;
         if (settingsInfo.fpsOn)
             fpsCounterButton.GetComponent<Image>().color = Color.red;
         else
             fpsCounterButton.GetComponent<Image>().color = Color.white;
-        settingsInfo.SaveSettings();
 
         hintsText2.GetComponent<MovementUI>().MoveToEnd();
         if (settingsInfo.fpsOn)
@@ -244,4 +226,38 @@ public class InterfaceSettings : MonoBehaviour
         hintTimer = Time.time + 3f;
     }
 
+    private void GetCurrentSave()
+    {
+        settingsInfo.LoadSettings();
+        SetCurrentColor(StringToColor(settingsInfo.color));
+        joystick.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(settingsInfo.joystickPosition[0] + 256,
+                            settingsInfo.joystickPosition[1] + 256);
+        fireActButton.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(settingsInfo.fireActButtonPosition[0],
+                            settingsInfo.fireActButtonPosition[1]);
+        swapWeaponButton.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(settingsInfo.swapWeaponButtonPosition[0],
+                            settingsInfo.swapWeaponButtonPosition[1]);
+        skillButton.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(settingsInfo.skillButtonPosition[0],
+                            settingsInfo.skillButtonPosition[1]);
+
+        if (settingsInfo.joystickType == "Dynamic")
+        {
+            dynamicJoystickButton.GetComponent<Image>().color = Color.red;
+            fpsCounterButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            staticJoystickButton.GetComponent<Image>().color = Color.red;
+            dynamicJoystickButton.GetComponent<Image>().color = Color.white;
+        }
+            
+
+        if (settingsInfo.fpsOn)
+            fpsCounterButton.GetComponent<Image>().color = Color.red;
+        else
+            fpsCounterButton.GetComponent<Image>().color = Color.white;
+    }
 }

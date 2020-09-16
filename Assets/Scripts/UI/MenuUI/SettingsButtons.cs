@@ -95,7 +95,6 @@ public class SettingsButtons : MonoBehaviour
 
     public void SettingsPanelClose()
     {
-        settingsInfo.SaveSettings();
         audioManager.Play("ClickUI");
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
         gameObject.GetComponent<MovementUI>().MoveToStart();

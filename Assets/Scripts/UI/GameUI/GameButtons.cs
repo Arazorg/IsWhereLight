@@ -91,7 +91,6 @@ public class GameButtons : MonoBehaviour
     private CharSkills charSkills;
     private CurrentGameInfo currentGameInfo;
     private AudioManager audioManager;
-    private Color startSkillButtonColor;
 
     private float attackRate;
     private float nextAttack;
@@ -123,7 +122,6 @@ public class GameButtons : MonoBehaviour
         timeToSkill = float.MinValue;
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
-        startSkillButtonColor = skillButton.color;
         pause.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -204,18 +202,10 @@ public class GameButtons : MonoBehaviour
         {
             var currentPercent = Math.Abs(timeToSkill - Time.time) / currentGameInfo.skillTime;
             skillButtonBar.fillAmount = currentPercent;
-            var color = skillButton.color;
-            color.a = 255 - (205 * currentPercent);
-            skillButton.color = color;
         }
         else
-        {
             skillButtonBar.fillAmount = 0;
-            skillButton.color = startSkillButtonColor;
-            var color = skillButton.color;
-            color.a = 255;
-            skillButton.color = color;
-        }
+
 
     }
 
@@ -271,9 +261,6 @@ public class GameButtons : MonoBehaviour
         {
             charSkills.ChooseSkill(charInfo.character);
             timeToSkill = Time.time + currentGameInfo.skillTime;
-            var color = skillButton.color;
-            color.a = 50;
-            skillButton.color = color;
         }
     }
 
@@ -454,7 +441,7 @@ public class GameButtons : MonoBehaviour
                         break;
                     default:
                         break;
-                }               
+                }
                 nextAttack = Time.time + attackRate;
             }
         }

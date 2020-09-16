@@ -86,7 +86,7 @@ public class WeaponSpawner : MonoBehaviour
         }
            
         prefab.SetActive(true);
-        prefab.transform.rotation = new Quaternion(0, 0, -90, 0);
+        prefab.transform.rotation = Quaternion.Euler(0, 0, -90);
         prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
     }
 

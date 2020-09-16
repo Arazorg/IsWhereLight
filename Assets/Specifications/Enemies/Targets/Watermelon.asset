@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 7d920c051c9aa1c45a4c1fb1af8fa4ee, type: 2}
   actionColliderSize: {x: 1, y: 1}
-  colliderSize: {x: 1, y: 1}
+  colliderSize: {x: 0, y: 0}
   colliderOffset: {x: 0, y: 0}
   speed: 0
   health: 1
