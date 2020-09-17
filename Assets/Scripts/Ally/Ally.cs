@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ally : MonoBehaviour
 {
+
     private Animator animator;
     private BulletSpawner bulletSpawner;
     private float bulletSpeed;
@@ -34,32 +35,55 @@ public class Ally : MonoBehaviour
     {
         timeToShoot = float.MinValue;
         gun = transform.GetChild(0);
-        animator = gun.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         gun.localPosition = gun.GetComponent<Weapon>().FirePointPosition;
         shootTime = gun.GetComponent<Weapon>().FireRate;
     }
 
     void Update()
     {
-        if (RotateGunToEnemy() && closestEnemy != null)
+        if(!isDeath)
         {
-            if (closestEnemy.transform.position.x - transform.position.x > 0 && !m_FacingRight)
-                Flip();
-            else if (closestEnemy.transform.position.x - transform.position.x < 0 && m_FacingRight)
-                Flip();
-            if (Time.time > timeToShoot)
+            if (RotateGunToEnemy() && closestEnemy != null)
             {
-                gun.GetComponent<Gun>().Shoot();
-                timeToShoot = Time.time + shootTime;
+                if (closestEnemy.transform.position.x - transform.position.x > 0 && !m_FacingRight)
+                    Flip();
+                else if (closestEnemy.transform.position.x - transform.position.x < 0 && m_FacingRight)
+                    Flip();
+                if (Time.time > timeToShoot)
+                {
+                    gun.GetComponent<Gun>().Shoot();
+                    timeToShoot = Time.time + shootTime;
+                }
+            }
+            else
+                gun.GetComponent<Gun>().StopShoot();
+        }
+    }
+
+    public void Death()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        float deathTime = 0;
+        Destroy(transform.GetChild(0).gameObject);
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "Death":
+                    deathTime = clip.length;
+                    break;
             }
         }
-        else
-            gun.GetComponent<Gun>().StopShoot();
+        animator.SetBool("isDeath", true);
+        isDeath = true;
+        Destroy(gameObject, deathTime);
     }
 
     void OnBecameVisible()
     {
-        gameObject.tag = "Ally";
+        if(!isDeath)
+            gameObject.tag = "Ally";
     }
 
     void OnBecameInvisible()
@@ -118,4 +142,5 @@ public class Ally : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
 }

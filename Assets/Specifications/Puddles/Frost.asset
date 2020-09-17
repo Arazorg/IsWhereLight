@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd67e5a4021d8c4d82c8ad9936af8d9, type: 3}
+  m_Name: Frost
+  m_EditorClassIdentifier: 
+  particleSprite: {fileID: -2458830097735420091, guid: ee4c79375e938a442a9f9f404ea37bc9,
+    type: 3}
+  puddleColor: {r: 0, g: 1, b: 0.97866297, a: 0.39215687}
+  typeOfPuddle: 1

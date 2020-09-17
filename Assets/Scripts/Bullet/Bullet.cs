@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour
     private Animator animator;
     private BulletData data;
     private SpriteRenderer bulletSprite;
-
     private bool isRemoveConstant;
     private bool isStartConstant;
     private float endSize;

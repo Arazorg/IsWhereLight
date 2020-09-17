@@ -73,7 +73,10 @@ public class WeaponSpawner : MonoBehaviour
         script.Init(data);
         prefab.name = weaponName;
         if (!isAlly)
+        {
+            prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
             prefab.transform.tag = "Gun";
+        }
         else
         {
             var weaponScript = prefab.GetComponent<Weapon>();
@@ -83,11 +86,10 @@ public class WeaponSpawner : MonoBehaviour
                 bulletSpawner.SetBullet(weaponScript.CurrentBullet);
             }
             prefab.transform.tag = "GunKeep";
-        }
-           
+            prefab.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        }           
         prefab.SetActive(true);
-        prefab.transform.rotation = Quaternion.Euler(0, 0, -90);
-        prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        prefab.transform.rotation = Quaternion.Euler(0, 0, -90);        
     }
 
     public void Spawn(Transform transform, int currentWeaponNumber)

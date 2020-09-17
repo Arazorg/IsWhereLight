@@ -192,8 +192,6 @@ MonoBehaviour:
   charInfo: {fileID: 4952567868302082640}
   charGun: {fileID: 376914118}
   speed: 8.5
-  currentTag: 
-  closestEnemy: {fileID: 0}
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +252,17 @@ MonoBehaviour:
   grenadeData: {fileID: 11400000, guid: a1481b00984b5ed4bb3427d23345462a, type: 2}
   mechanicTurret: {fileID: 4299368503429666952, guid: 860fb7ed93d8a4b4f96dd6fa6fa9c548,
     type: 3}
+  keeperCloud: {fileID: 8875557222082125190, guid: 67299b9d718f3ac48ac4274722a049cf,
+    type: 3}
+  mageSkillBulletPrefab: {fileID: 6402966394464971090, guid: 8ae9f06598407904681c8996d6168bd5,
+    type: 3}
+  mageSkillBulletAnimators:
+  - {fileID: 9100000, guid: 781f0ce1563ef0c46a34296a31d45f71, type: 2}
+  - {fileID: 9100000, guid: 405075a72c8d7d449bf30ff2c44bde61, type: 2}
+  - {fileID: 9100000, guid: 1f6c785460000c542abe2873cf28bd45, type: 2}
+  mageSkillBulletPuddle: {fileID: 8716414207893850732, guid: 4286d749b37e17c42b1af359770d70a9,
+    type: 3}
+  puddlesData:
+  - {fileID: 11400000, guid: 4c3028395e9011e498b3f04069ceca9c, type: 2}
+  - {fileID: 11400000, guid: dd604722ec5f98f41a4ccca53bb1642d, type: 2}
+  - {fileID: 11400000, guid: 7f67e6a0ca437ee47b8429721c892585, type: 2}

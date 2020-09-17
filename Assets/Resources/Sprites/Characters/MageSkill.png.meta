@@ -1,0 +1,775 @@
+fileFormatVersion: 2
+guid: 50dbb612c8393a84abd90f9dc859d367
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2714749947982315805
+    second: MageSkill_0
+  - first:
+      213: 5118184666007603622
+    second: MageSkill_1
+  - first:
+      213: -4587935640841909121
+    second: MageSkill_2
+  - first:
+      213: 4547051316171231554
+    second: MageSkill_3
+  - first:
+      213: -8721525467716647006
+    second: MageSkill_4
+  - first:
+      213: 1377814937858747534
+    second: MageSkill_5
+  - first:
+      213: 4499540529690984388
+    second: MageSkill_6
+  - first:
+      213: 6279270853151362417
+    second: MageSkill_7
+  - first:
+      213: 5943230914208499466
+    second: MageSkill_8
+  - first:
+      213: 866028641351215054
+    second: MageSkill_9
+  - first:
+      213: -2236657583709218452
+    second: MageSkill_10
+  - first:
+      213: -6132193786558025355
+    second: MageSkill_11
+  - first:
+      213: 7056733786122036343
+    second: MageSkill_12
+  - first:
+      213: 3880000108711124826
+    second: MageSkill_13
+  - first:
+      213: 1986412584436423228
+    second: MageSkill_14
+  - first:
+      213: 7894419980044732308
+    second: MageSkill_15
+  - first:
+      213: 6479558825024000861
+    second: MageSkill_16
+  - first:
+      213: 4031621598532083613
+    second: MageSkill_17
+  - first:
+      213: 4926346207737070725
+    second: MageSkill_18
+  - first:
+      213: 4287469483723983162
+    second: MageSkill_19
+  - first:
+      213: -922729922856615124
+    second: MageSkill_20
+  - first:
+      213: 804372305744992697
+    second: MageSkill_21
+  - first:
+      213: 8545547438358275713
+    second: MageSkill_22
+  - first:
+      213: 5874240203463113984
+    second: MageSkill_23
+  - first:
+      213: -2427184284060135429
+    second: MageSkill_24
+  - first:
+      213: 6444130196056766168
+    second: MageSkill_25
+  - first:
+      213: -3639642130522263347
+    second: MageSkill_26
+  - first:
+      213: -6890387424199911714
+    second: MageSkill_27
+  - first:
+      213: -8637274938103832
+    second: MageSkill_28
+  - first:
+      213: -4871991563000120769
+    second: MageSkill_29
+  - first:
+      213: 3961633854550333533
+    second: MageSkill_30
+  - first:
+      213: 3251947652924549924
+    second: MageSkill_31
+  - first:
+      213: 2888941475602709983
+    second: MageSkill_32
+  - first:
+      213: -58003604168001850
+    second: MageSkill_33
+  - first:
+      213: -6172532395903123829
+    second: MageSkill_34
+  - first:
+      213: 8179037139300214610
+    second: MageSkill_35
+  - first:
+      213: -3471451773593701651
+    second: MageSkill_36
+  - first:
+      213: 831606647468562850
+    second: MageSkill_37
+  - first:
+      213: -4096309713032831938
+    second: MageSkill_38
+  - first:
+      213: -321996112711898917
+    second: MageSkill_39
+  - first:
+      213: 3039779657836183899
+    second: MageSkill_40
+  - first:
+      213: -7829690889264685582
+    second: MageSkill_41
+  - first:
+      213: 9144269391616742995
+    second: MageSkill_42
+  - first:
+      213: 2401541471771143368
+    second: MageSkill_43
+  - first:
+      213: -1439601121059815841
+    second: MageSkill_44
+  - first:
+      213: -8538857210994728212
+    second: MageSkill_45
+  - first:
+      213: -6138480999450111346
+    second: MageSkill_46
+  - first:
+      213: -1773584104885285995
+    second: MageSkill_47
+  - first:
+      213: -3510293113714588905
+    second: MageSkill_48
+  - first:
+      213: -6097734155127960622
+    second: MageSkill_49
+  - first:
+      213: 4528265864376547338
+    second: MageSkill_50
+  - first:
+      213: -6281942826407501567
+    second: MageSkill_51
+  - first:
+      213: -936553012690497587
+    second: MageSkill_52
+  - first:
+      213: 6351840991150603035
+    second: MageSkill_53
+  - first:
+      213: -89662147718131690
+    second: MageSkill_54
+  - first:
+      213: 3653556797266971195
+    second: MageSkill_55
+  - first:
+      213: 3937646618458069538
+    second: MageSkill_56
+  - first:
+      213: -4228291739691337228
+    second: MageSkill_57
+  - first:
+      213: 5243128908801414886
+    second: MageSkill_58
+  - first:
+      213: 4582234602204517674
+    second: MageSkill_59
+  - first:
+      213: 8787837967084149556
+    second: MageSkill_60
+  - first:
+      213: 7502423567455324501
+    second: MageSkill_61
+  - first:
+      213: 5652763740274664028
+    second: MageSkill_62
+  - first:
+      213: -8744598735039409552
+    second: MageSkill_63
+  - first:
+      213: 5008455255113243752
+    second: MageSkill_64
+  - first:
+      213: 1523359911263087259
+    second: MageSkill_65
+  - first:
+      213: -224619133232685499
+    second: MageSkill_66
+  - first:
+      213: -2568832306869682652
+    second: MageSkill_67
+  - first:
+      213: 3279780145840328727
+    second: MageSkill_68
+  - first:
+      213: -2484067555305217873
+    second: MageSkill_69
+  - first:
+      213: -780806927150516453
+    second: MageSkill_70
+  - first:
+      213: 3642001144634075272
+    second: MageSkill_71
+  - first:
+      213: -3516903131623705584
+    second: MageSkill_72
+  - first:
+      213: -6526778707792089800
+    second: MageSkill_73
+  - first:
+      213: 3607096080531445777
+    second: MageSkill_74
+  - first:
+      213: 1586816832383880131
+    second: MageSkill_75
+  - first:
+      213: 3702038780927994554
+    second: MageSkill_76
+  - first:
+      213: -4310925106170409414
+    second: MageSkill_77
+  - first:
+      213: 6939301249332000057
+    second: MageSkill_78
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MageSkill_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d110f7fb1babca520800000000000000
+      internalID: 2714749947982315805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_1
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a90c3026d1770740800000000000000
+      internalID: 5118184666007603622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c8343b7d06450c0800000000000000
+      internalID: -4587935640841909121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241dbdba41f5a1f30800000000000000
+      internalID: 4547051316171231554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a70a35bbcae6f680800000000000000
+      internalID: -8721525467716647006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c2c41d26bfe1310800000000000000
+      internalID: 1377814937858747534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_6
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf34bca544917e30800000000000000
+      internalID: 4499540529690984388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_7
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d0d8a6293742750800000000000000
+      internalID: 6279270853151362417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07848327099a7250800000000000000
+      internalID: 5943230914208499466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_9
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7ad0df570c40c00800000000000000
+      internalID: 866028641351215054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6914d627cbc5f0e0800000000000000
+      internalID: -2236657583709218452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_11
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1000
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571f95aad3216eaa0800000000000000
+      internalID: -6132193786558025355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7742d448dfd8ee160800000000000000
+      internalID: 7056733786122036343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_13
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f1430ba8788d530800000000000000
+      internalID: 3880000108711124826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_14
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ad2b898b7219b10800000000000000
+      internalID: 1986412584436423228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 500
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497005a352d9e8d60800000000000000
+      internalID: 7894419980044732308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d539dc2db640ce950800000000000000
+      internalID: 6479558825024000861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_17
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f1c41cb7233f730800000000000000
+      internalID: 4031621598532083613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_18
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 584c2c866c5ed5440800000000000000
+      internalID: 4926346207737070725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MageSkill_19
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3902ba87c6208b30800000000000000
+      internalID: 4287469483723983162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

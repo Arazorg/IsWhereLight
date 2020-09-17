@@ -1,7 +1,145 @@
 fileFormatVersion: 2
 guid: 360cddb77d1b36e4b872cab1d895a39d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1021471642245293758
+    second: TurretSpawn_0
+  - first:
+      213: -215882694377263052
+    second: TurretSpawn_1
+  - first:
+      213: -176640320135757260
+    second: TurretSpawn_2
+  - first:
+      213: -8738202333280297592
+    second: TurretSpawn_3
+  - first:
+      213: 6592807005494786591
+    second: TurretSpawn_4
+  - first:
+      213: -9168634346305954207
+    second: TurretSpawn_5
+  - first:
+      213: 6909512207509569007
+    second: TurretSpawn_6
+  - first:
+      213: 6922604453114386763
+    second: TurretSpawn_7
+  - first:
+      213: 626746217166657566
+    second: TurretSpawn_8
+  - first:
+      213: 2391718672000752040
+    second: TurretSpawn_9
+  - first:
+      213: 9008679929380137271
+    second: TurretSpawn_10
+  - first:
+      213: -7547829536929782438
+    second: TurretSpawn_11
+  - first:
+      213: -2997441884496312120
+    second: TurretSpawn_12
+  - first:
+      213: 4983900689843512569
+    second: TurretSpawn_13
+  - first:
+      213: -5842645076792469027
+    second: TurretSpawn_14
+  - first:
+      213: -4063289981140446929
+    second: TurretSpawn_15
+  - first:
+      213: -6516996029909877084
+    second: TurretSpawn_16
+  - first:
+      213: 2795825937897248338
+    second: TurretSpawn_17
+  - first:
+      213: 529248442322471193
+    second: TurretSpawn_18
+  - first:
+      213: 2821100249323994493
+    second: TurretSpawn_19
+  - first:
+      213: 780647329359912463
+    second: TurretSpawn_20
+  - first:
+      213: 338827249295867924
+    second: TurretSpawn_21
+  - first:
+      213: 7261336805369592441
+    second: TurretSpawn_22
+  - first:
+      213: 7601908586310084884
+    second: TurretSpawn_23
+  - first:
+      213: 6417191184255711673
+    second: TurretSpawn_24
+  - first:
+      213: 2140318355601006357
+    second: TurretSpawn_25
+  - first:
+      213: -6370302586698458089
+    second: TurretSpawn_26
+  - first:
+      213: 6472372993407533120
+    second: TurretSpawn_27
+  - first:
+      213: 5222818391075265427
+    second: TurretSpawn_28
+  - first:
+      213: 3491017243307940494
+    second: TurretSpawn_29
+  - first:
+      213: 5528760149436438547
+    second: TurretSpawn_30
+  - first:
+      213: 4573482978446541376
+    second: TurretSpawn_31
+  - first:
+      213: -7585528965903129938
+    second: TurretSpawn_32
+  - first:
+      213: 5515351105322473644
+    second: TurretSpawn_33
+  - first:
+      213: -6266678638036928741
+    second: TurretSpawn_34
+  - first:
+      213: -5587647914239219185
+    second: TurretSpawn_35
+  - first:
+      213: -3831938345591886683
+    second: TurretSpawn_36
+  - first:
+      213: -6088077689337214193
+    second: TurretSpawn_37
+  - first:
+      213: -6354339656483232997
+    second: TurretSpawn_38
+  - first:
+      213: -7486050594889797030
+    second: TurretSpawn_39
+  - first:
+      213: -4943824975126285378
+    second: TurretSpawn_40
+  - first:
+      213: -4244155321621615580
+    second: TurretSpawn_41
+  - first:
+      213: -6243080546768597193
+    second: TurretSpawn_42
+  - first:
+      213: 1637875271523937039
+    second: TurretSpawn_43
+  - first:
+      213: -5343362297571758044
+    second: TurretSpawn_44
+  - first:
+      213: -5060534139527394245
+    second: TurretSpawn_45
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +179,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +211,411 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TurretSpawn_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb66a20fb0ffc2e00800000000000000
+      internalID: 1021471642245293758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4303d7055d7010df0800000000000000
+      internalID: -215882694377263052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4320c4190927c8df0800000000000000
+      internalID: -176640320135757260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d965d564babb680800000000000000
+      internalID: -8738202333280297592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1a39339a0b5e7b50800000000000000
+      internalID: 6592807005494786591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_5
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 440
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16edcf8b3a772c080800000000000000
+      internalID: -9168634346305954207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed35db9eb483ef50800000000000000
+      internalID: 6909512207509569007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b499b649218021060800000000000000
+      internalID: 6922604453114386763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18d9862d56a2b800800000000000000
+      internalID: 626746217166657566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a91647d577113120800000000000000
+      internalID: 2391718672000752040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739e4ed6aa2450d70800000000000000
+      internalID: 9008679929380137271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 220
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55691ab609b04790800000000000000
+      internalID: -7547829536929782438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c848b7bc72f666d0800000000000000
+      internalID: -2997441884496312120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f462f5854f5a2540800000000000000
+      internalID: 4983900689843512569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd999112241caeea0800000000000000
+      internalID: -5842645076792469027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2158b65a4b4c97c0800000000000000
+      internalID: -4063289981140446929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae379aa3aafe85a0800000000000000
+      internalID: -6516996029909877084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TurretSpawn_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 180
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256503aa0e4ccc620800000000000000
+      internalID: 2795825937897248338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

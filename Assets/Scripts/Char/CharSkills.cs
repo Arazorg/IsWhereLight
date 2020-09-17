@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeMonkey.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,21 @@ public class CharSkills : MonoBehaviour
 
     [Tooltip("Префаб турели механика")]
     [SerializeField] private GameObject mechanicTurret;
+
+    [Tooltip("Префаб тучи хранителя")]
+    [SerializeField] private GameObject keeperCloud;
+
+    [Tooltip("Префаб пули тучи")]
+    [SerializeField] private GameObject mageSkillBulletPrefab;
+
+    [Tooltip("Анимации пуль тучи")]
+    [SerializeField] private RuntimeAnimatorController[] mageSkillBulletAnimators;
+
+    [Tooltip("Префаб лужи")]
+    [SerializeField] private GameObject mageSkillBulletPuddle;
+
+    [Tooltip("Анимации пуль тучи")]
+    [SerializeField] private PuddleData[] puddlesData;
 #pragma warning restore 0649
 
     public static bool isSkill;
@@ -266,7 +282,7 @@ public class CharSkills : MonoBehaviour
                     !enemy.GetComponent<Enemy>().EnemyName.Contains("Thing"))
                 enemy.GetComponent<Enemy>().DestroyStaticEnemy();
         }
-            
+
 
         if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy)
         {
@@ -352,23 +368,11 @@ public class CharSkills : MonoBehaviour
         else
             currentArrow.GetComponent<Rigidbody2D>().velocity = currentArrow.transform.up * speedOfArrowArcherSkill;
     }
-
-    private void KeeperSkillUsing()
-    {
-        if (!CharAction.isDeath && isSkill && Time.time < timeToSkill)
-        {
-            
-        }
-        else
-        {
-            isSkill = false;
-        }
-    }
     #endregion ArcherSkill
 
     #region MechanicSkill
     private GameObject turret = null;
-    private readonly float mechanicSkillDuration = 15f;
+    private readonly float mechanicSkillDuration = 5f;
     private void MechanicSkillStart()
     {
         isSkill = true;
@@ -386,7 +390,7 @@ public class CharSkills : MonoBehaviour
     {
         if (Time.time > timeToSkill && isSkill)
         {
-            Destroy(turret);
+            turret.GetComponent<Ally>().Death();
             isSkill = false;
         }
     }
@@ -394,15 +398,98 @@ public class CharSkills : MonoBehaviour
     #endregion MechanickSkill
 
     #region KeeperSkill
+
     private readonly float keeperSkillDuration = 5f;
+    private readonly float shootTime = 0.75f;
+
+    private GameObject currentCloud;
+    private GameObject currentBullet; 
+    private Transform currentCloudTransform;
+    private float timeToShoot;
+    private int currentPuddle;
     private void KeeperSkillStart()
     {
+        timeToShoot = Time.time + shootTime;
         timeToSkill = Time.time + keeperSkillDuration;
         isSkill = true;
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
         audioManager.Play($"{charInfo.character}SkillStart");
         currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        currentCloud = Instantiate(keeperCloud, transform);
+        currentCloudTransform = currentCloud.transform;
+        CameraShaker.Instance.ShakeOnce(0.5f, 0.5f, .1f, 0.8f);
+    }
+
+    private void KeeperSkillUsing()
+    {
+        if(Time.time < timeToSkill && isSkill && !CharAction.isDeath)
+            KeeperSkill();
+        else
+        {
+            if(currentCloud != null && isSkill)
+            {
+                AnimationClip[] clips = currentCloud.GetComponent<Animator>().runtimeAnimatorController.animationClips;
+                float deathTime = 0;
+                foreach (AnimationClip clip in clips)
+                {
+                    switch (clip.name)
+                    {
+                        case "Destroy":
+                            deathTime = clip.length;
+                            break;
+                    }
+                }
+                if (currentBullet != null)
+                {
+                    var puddle = Instantiate(mageSkillBulletPuddle, currentBullet.transform.position, Quaternion.identity);
+                    puddle.GetComponent<Puddle>().Init(puddlesData[currentPuddle]);
+                    Destroy(currentBullet);
+                }
+                timeToShoot = float.MaxValue;
+                isSkill = false;
+                currentCloud.GetComponent<Animator>().SetBool("isDestroy", true);
+
+                Destroy(currentCloud, deathTime);
+            }
+        }
+    }
+
+    private void KeeperSkill()
+    {
+        if(Time.timeScale != 0)
+            currentCloudTransform.position += UtilsClass.GetRandomDir() / 60;
+        if(Time.time > timeToShoot)
+        {
+            if(currentBullet != null)
+            {
+                var puddle = Instantiate(mageSkillBulletPuddle, currentBullet.transform.position, Quaternion.identity);
+                puddle.GetComponent<Puddle>().Init(puddlesData[currentPuddle]);
+                Destroy(currentBullet);
+            }
+            currentCloud.GetComponent<Animator>().Play("Attack");
+
+            currentBullet = Instantiate(mageSkillBulletPrefab, currentCloudTransform.GetChild(0).position, currentCloudTransform.rotation);
+            currentPuddle = UnityEngine.Random.Range(0, 3);
+            currentBullet.GetComponent<Animator>().runtimeAnimatorController = mageSkillBulletAnimators[currentPuddle];
+
+            AnimationClip[] clips = currentBullet.GetComponent<Animator>().runtimeAnimatorController.animationClips;
+            float deathTime = 0;
+            foreach (AnimationClip clip in clips)
+            {
+                switch (clip.name)
+                {
+                    case "Destroy":
+                        deathTime = clip.length;
+                        break;
+                }
+            }
+            Quaternion dir = Quaternion.AngleAxis(UnityEngine.Random.Range(-45, 45), Vector3.down);
+            Rigidbody2D rb = currentBullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(dir * -currentCloudTransform.up * 5, ForceMode2D.Impulse);
+            timeToShoot = Time.time + shootTime;
+        }
+        
     }
     #endregion KeeperSkill
 

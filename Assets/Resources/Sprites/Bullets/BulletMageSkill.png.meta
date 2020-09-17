@@ -1,0 +1,811 @@
+fileFormatVersion: 2
+guid: ee4c79375e938a442a9f9f404ea37bc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4468131872116940755
+    second: BulletMageSkill_0
+  - first:
+      213: -637756505384462756
+    second: BulletMageSkill_1
+  - first:
+      213: -3480602278031914828
+    second: BulletMageSkill_2
+  - first:
+      213: 4831774360796416349
+    second: BulletMageSkill_3
+  - first:
+      213: -5591099848676714798
+    second: BulletMageSkill_4
+  - first:
+      213: -2693915349575957623
+    second: BulletMageSkill_5
+  - first:
+      213: 7482603260336056593
+    second: BulletMageSkill_6
+  - first:
+      213: -1336104829008517539
+    second: BulletMageSkill_7
+  - first:
+      213: -2458830097735420091
+    second: BulletMageSkill_8
+  - first:
+      213: 4013579222767778347
+    second: BulletMageSkill_9
+  - first:
+      213: 5796156625983131675
+    second: BulletMageSkill_10
+  - first:
+      213: 5087244921115066977
+    second: BulletMageSkill_11
+  - first:
+      213: 8541095338510448783
+    second: BulletMageSkill_12
+  - first:
+      213: 3611605172491538723
+    second: BulletMageSkill_13
+  - first:
+      213: -2448584897139151596
+    second: BulletMageSkill_14
+  - first:
+      213: 8586078561573869898
+    second: BulletMageSkill_15
+  - first:
+      213: 900656766654309638
+    second: BulletMageSkill_16
+  - first:
+      213: -2337858548212699765
+    second: BulletMageSkill_17
+  - first:
+      213: 8867396655166717498
+    second: BulletMageSkill_18
+  - first:
+      213: 5649639014867052836
+    second: BulletMageSkill_19
+  - first:
+      213: 4354185121615673806
+    second: BulletMageSkill_20
+  - first:
+      213: -7285402452629479058
+    second: BulletMageSkill_21
+  - first:
+      213: -4433249697472624056
+    second: BulletMageSkill_22
+  - first:
+      213: 6047387705844676765
+    second: BulletMageSkill_23
+  - first:
+      213: -6330915664812645510
+    second: BulletMageSkill_24
+  - first:
+      213: -856925298905350095
+    second: BulletMageSkill_25
+  - first:
+      213: -3331134944270444843
+    second: BulletMageSkill_26
+  - first:
+      213: -448930074675513492
+    second: BulletMageSkill_27
+  - first:
+      213: -224693247876392676
+    second: BulletMageSkill_28
+  - first:
+      213: -5427790690974947035
+    second: BulletMageSkill_29
+  - first:
+      213: 2966734353506792014
+    second: BulletMageSkill_30
+  - first:
+      213: -1441226538014218851
+    second: BulletMageSkill_31
+  - first:
+      213: 3009972775602105410
+    second: BulletMageSkill_32
+  - first:
+      213: -8092932989372202506
+    second: BulletMageSkill_33
+  - first:
+      213: 1023519089189859675
+    second: BulletMageSkill_34
+  - first:
+      213: 8831014953382280805
+    second: BulletMageSkill_35
+  - first:
+      213: -8887932077128319244
+    second: BulletMageSkill_36
+  - first:
+      213: -8500568464902393279
+    second: BulletMageSkill_37
+  - first:
+      213: 1652378492457018445
+    second: BulletMageSkill_38
+  - first:
+      213: -3877101754999098732
+    second: BulletMageSkill_39
+  - first:
+      213: -181215502058397453
+    second: BulletMageSkill_40
+  - first:
+      213: 7852063874498132417
+    second: BulletMageSkill_41
+  - first:
+      213: -7427129366921071567
+    second: BulletMageSkill_42
+  - first:
+      213: 2554439774043101493
+    second: BulletMageSkill_43
+  - first:
+      213: -5433525016693442797
+    second: BulletMageSkill_44
+  - first:
+      213: -7094696344259999344
+    second: BulletMageSkill_45
+  - first:
+      213: -13506041811191839
+    second: BulletMageSkill_46
+  - first:
+      213: -7161361950398407092
+    second: BulletMageSkill_47
+  - first:
+      213: -5695384827403805081
+    second: BulletMageSkill_48
+  - first:
+      213: -7780115141346504753
+    second: BulletMageSkill_49
+  - first:
+      213: 6453598206407525657
+    second: BulletMageSkill_50
+  - first:
+      213: 8686535945067393491
+    second: BulletMageSkill_51
+  - first:
+      213: 1983322287162139187
+    second: BulletMageSkill_52
+  - first:
+      213: -8461560770442483511
+    second: BulletMageSkill_53
+  - first:
+      213: 27658983638260294
+    second: BulletMageSkill_54
+  - first:
+      213: 5600132723453035687
+    second: BulletMageSkill_55
+  - first:
+      213: -3233119846847433463
+    second: BulletMageSkill_56
+  - first:
+      213: -554061462065349485
+    second: BulletMageSkill_57
+  - first:
+      213: 3231932277818720683
+    second: BulletMageSkill_58
+  - first:
+      213: -7061647973836915231
+    second: BulletMageSkill_59
+  - first:
+      213: 7127313842087771619
+    second: BulletMageSkill_60
+  - first:
+      213: 4491968166841836698
+    second: BulletMageSkill_61
+  - first:
+      213: -2887651298414716457
+    second: BulletMageSkill_62
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BulletMageSkill_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df9127b34ef10e30800000000000000
+      internalID: 4468131872116940755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c565d5b56db3627f0800000000000000
+      internalID: -637756505384462756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b80e7d4baa62bfc0800000000000000
+      internalID: -3480602278031914828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1500
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d594c1a6e29ed0340800000000000000
+      internalID: 4831774360796416349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d652ef7f4c6862b0800000000000000
+      internalID: -5591099848676714798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9838d85334a4d9ad0800000000000000
+      internalID: -2693915349575957623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 119a28f450c87d760800000000000000
+      internalID: 7482603260336056593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_7
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1200
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56634cacb3357de0800000000000000
+      internalID: -1336104829008517539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547f075bd0b70edd0800000000000000
+      internalID: -2458830097735420091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a36fac90913b730800000000000000
+      internalID: 4013579222767778347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b105042fdb5107050800000000000000
+      internalID: 5796156625983131675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16249786d46899640800000000000000
+      internalID: 5087244921115066977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88f8ac25f0188670800000000000000
+      internalID: 8541095338510448783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_13
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321525fe4cffe1230800000000000000
+      internalID: 3611605172491538723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d62ab5201e40ed0800000000000000
+      internalID: -2448584897139151596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_15
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a491534f5f0e72770800000000000000
+      internalID: 8586078561573869898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6056bf0be86cf7c00800000000000000
+      internalID: 900656766654309638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_17
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8deba279024e8fd0800000000000000
+      internalID: -2337858548212699765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_18
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ef2b1c6425f0b70800000000000000
+      internalID: 8867396655166717498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429a65e30cc876e40800000000000000
+      internalID: 5649639014867052836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec971347c4c2d6c30800000000000000
+      internalID: 4354185121615673806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_21
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61a24da11d05ea90800000000000000
+      internalID: -7285402452629479058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_22
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a498573eee972c0800000000000000
+      internalID: -4433249697472624056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletMageSkill_23
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98bfe9f313ace350800000000000000
+      internalID: 6047387705844676765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
