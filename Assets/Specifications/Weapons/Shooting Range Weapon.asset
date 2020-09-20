@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Shooting Range Weapon
   m_EditorClassIdentifier: 
   weaponName: Shooting Range Weapon
-  mainAnimator: {fileID: 9100000, guid: 6d382b8255523fc4eafb078884552bed, type: 2}
-  mainSprite: {fileID: -5334763350848274098, guid: 81c5266115149e54cb3e059d840415b8,
+  mainAnimator: {fileID: 9100000, guid: dd72ed04e549226459e36737c45a5799, type: 2}
+  mainSprite: {fileID: -1128048868050835069, guid: 3d42ccc5743fb4e44ab3a5bbc884ba50,
     type: 3}
   typeOfAttack: 0
-  offset: {x: 0, y: 0}
-  attackOffset: {x: 0, y: 0}
+  offset: {x: 0.2, y: -0.45}
+  attackOffset: {x: 0.2, y: -0.45}
   standartAngle: 0
   attackAngle: 0
   radius: 0
-  knoking: 25
+  knoking: 0
   fireRate: 0.5
   damage: 1
   critChance: 0
   currentBullet: {fileID: 11400000, guid: 30290bf1cfbcaa846a552c923a142db7, type: 2}
   manecost: 1
-  firePointPosition: {x: -0.085, y: 0.85}
+  firePointPosition: {x: -0.095, y: 0.9}
   shakeParametrs:
     magnitude: 0.01
     roughness: 0.01

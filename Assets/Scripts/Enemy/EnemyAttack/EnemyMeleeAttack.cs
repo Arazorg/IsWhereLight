@@ -62,8 +62,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             timeToAttack = Time.time + attackRate;
             animator.Play("Attack");
-            player.GetComponent<CharAction>().IsPlayerHitted = true;
-            player.GetComponent<CharAction>().IsEnterFirst = true;
+            AudioManager.instance.Play("EnemyHit");
             charInfo.Damage(damage);
             
             var currentAngle = -Mathf.Atan2(player.transform.position.x - transform.position.x,

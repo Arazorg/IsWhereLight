@@ -192,6 +192,7 @@ MonoBehaviour:
   charInfo: {fileID: 4952567868302082640}
   charGun: {fileID: 376914118}
   speed: 8.5
+  joystick: {fileID: 0}
 --- !u!114 &4952567868302082640
 MonoBehaviour:
   m_ObjectHideFlags: 0

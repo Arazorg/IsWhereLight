@@ -6,15 +6,22 @@ public class ButtonImage : MonoBehaviour
     private enum Type
     {
         music,
-        effects
+        effects,
+        vibration
     }
-
+    
 #pragma warning disable 0649
     [Tooltip("Спрайт выключенного состояния")]
-    [SerializeField] private Sprite enableOffSprite;
+    [SerializeField] private Sprite enableSoundsOffSprite;
 
     [Tooltip("Спрайт включенного состояния")]
-    [SerializeField] private Sprite enableOnSprite;
+    [SerializeField] private Sprite enableSoundsOnSprite;
+
+    [Tooltip("Спрайт включенного состояния")]
+    [SerializeField] private Sprite enableVibrationOnSprite;
+
+    [Tooltip("Спрайт включенного состояния")]
+    [SerializeField] private Sprite enableVibrationOffSprite;
 
     [Tooltip("Тип спрайта")]
     [SerializeField] private Type type;
@@ -29,24 +36,38 @@ public class ButtonImage : MonoBehaviour
         {
             case Type.effects:
                 if (settingsInfo.effectsOn)
-                    GetComponent<Image>().sprite = enableOnSprite;
+                    GetComponent<Image>().sprite = enableSoundsOnSprite;
                 else
-                    GetComponent<Image>().sprite = enableOffSprite;
+                    GetComponent<Image>().sprite = enableSoundsOffSprite;
                 break;
             case Type.music:
                 if (settingsInfo.musicOn)
-                    GetComponent<Image>().sprite = enableOnSprite;
+                    GetComponent<Image>().sprite = enableSoundsOnSprite;
                 else
-                    GetComponent<Image>().sprite = enableOffSprite;
+                    GetComponent<Image>().sprite = enableSoundsOffSprite;
+                break;
+            case Type.vibration:
+                if (settingsInfo.isVibration)
+                    GetComponent<Image>().sprite = enableVibrationOnSprite;
+                else
+                    GetComponent<Image>().sprite = enableVibrationOffSprite;
                 break;
         }
     }
 
-    public void SetSprite(bool isEnable)
+    public void SetSoundsSprite(bool isEnable)
     {
         if (isEnable)
-            GetComponent<Image>().sprite = enableOnSprite;
+            GetComponent<Image>().sprite = enableSoundsOnSprite;
         else
-            GetComponent<Image>().sprite = enableOffSprite;
+            GetComponent<Image>().sprite = enableSoundsOffSprite;
+    }
+
+    public void SetVibrationSprite(bool isEnable)
+    {
+        if (isEnable)
+            GetComponent<Image>().sprite = enableVibrationOnSprite;
+        else
+            GetComponent<Image>().sprite = enableVibrationOffSprite;
     }
 }

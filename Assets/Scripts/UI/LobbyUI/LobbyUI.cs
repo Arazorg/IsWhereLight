@@ -11,6 +11,9 @@ public class LobbyUI : MonoBehaviour
     [Tooltip("UI текста")]
     [SerializeField] private GameObject characterTextUI;
 
+    [Tooltip("Панель доната")]
+    [SerializeField] private GameObject donatePanel;
+
     [Tooltip("Кнопка назад в меню")]
     [SerializeField] private Button backToLobbyButton;
 
@@ -47,6 +50,11 @@ public class LobbyUI : MonoBehaviour
         characterTextUI.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         shopButton.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    public void ShowDonatePanel()
+    {
+        donatePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
     public void BackToMenu()

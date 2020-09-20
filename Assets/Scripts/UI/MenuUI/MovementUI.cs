@@ -16,8 +16,10 @@ public class MovementUI : MonoBehaviour
     [SerializeField] float speed;
 #pragma warning restore 0649
 
-    public bool isEnd = false;
-    public bool isMove = false;
+    private bool isEnd = false;
+    private bool isStart = false;
+    private bool isMoveToStart = false;
+    private bool isMoveToEnd = false;
     private RectTransform currentUI_Element;
 
     float timeOfTravel = 0.25f;
@@ -39,9 +41,9 @@ public class MovementUI : MonoBehaviour
         if (Time.timeScale != 0)
             currentTime += 0.75f * Time.deltaTime;
         else
-            currentTime += 0.02f;
+            currentTime += 0.75f * Time.fixedDeltaTime;
         normalizedValue = currentTime / timeOfTravel;
-        if (!isEnd && isMove)
+        if (isMoveToEnd)
         {
             if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y && !isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
@@ -52,13 +54,12 @@ public class MovementUI : MonoBehaviour
             else if (speed < 0 && endPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
         }
-        else if (isEnd && isMove)
+        else if (isMoveToStart)
         {
             if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y && !isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
             else if (-speed < 0 && currentUI_Element.anchoredPosition.y > startPos.y && !isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
-
             if (-speed > 0 && currentUI_Element.anchoredPosition.x < startPos.x && isHorizontal)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
             else if (-speed < 0 && startPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
@@ -68,14 +69,14 @@ public class MovementUI : MonoBehaviour
     public void SetStart()
     {
         currentUI_Element.GetComponent<RectTransform>().anchoredPosition = startPos;
-        isMove = false;
+        isMoveToStart = false;
+        isMoveToEnd = false;
         isEnd = true;
     }
 
     public void SetEndPos(Vector3 endPos)
     {
         this.endPos = endPos;
-
     }
 
     public void SetStartPos(Vector3 startPos)
@@ -86,15 +87,15 @@ public class MovementUI : MonoBehaviour
     public void MoveToEnd()
     {
         currentTime = 0;
-        isEnd = false;
-        isMove = true;
+        isMoveToEnd = true;
+        isMoveToStart = false;
     }
 
     public void MoveToStart()
     {
         currentTime = 0;
-        isEnd = true;
-        isMove = true;
+        isMoveToStart = true;
+        isMoveToEnd = false;
     }
 
 }

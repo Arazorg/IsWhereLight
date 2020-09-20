@@ -26,11 +26,20 @@ public class InterfaceSettings : MonoBehaviour
     [Tooltip("UI кнопки счетчика ФПС")]
     [SerializeField] private GameObject fpsCounterButton;
 
-    [Tooltip("Кнопка динамического джойстика")]
-    [SerializeField] private Button dynamicJoystickButton;
+    [Tooltip("Кнопка вибрации")]
+    [SerializeField] private Button vibrationButton;
 
-    [Tooltip("Кнопка статического джойстика")]
-    [SerializeField] private Button staticJoystickButton;
+    [Tooltip("Текст динамического джойстика")]
+    [SerializeField] private TextMeshProUGUI dynamicJoystickButtonText;
+
+    [Tooltip("Текст статического джойстика")]
+    [SerializeField] private TextMeshProUGUI staticJoystickButtonText;
+
+    [Tooltip("Текст включенной вибрации")]
+    [SerializeField] private TextMeshProUGUI vibrationText;
+
+    [Tooltip("Текст вкл/выкл счетчика ФПС")]
+    [SerializeField] private TextMeshProUGUI fpsCounterOnOffText;
 
     [Tooltip("Текст подсказок джойстика")]
     [SerializeField] private TextMeshProUGUI hintsText;
@@ -104,11 +113,15 @@ public class InterfaceSettings : MonoBehaviour
         hintsText2.GetComponent<MovementUI>().MoveToEnd();
         if (settingsInfo.fpsOn)
         {
+            fpsCounterOnOffText.GetComponent<LocalizedText>().key = "On";
+            fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
             hintsText2.GetComponent<LocalizedText>().key = "OnFps";
             hintsText2.GetComponent<LocalizedText>().SetLocalization();
         }
         else
         {
+            fpsCounterOnOffText.GetComponent<LocalizedText>().key = "Off";
+            fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
             hintsText2.GetComponent<LocalizedText>().key = "OffFps";
             hintsText2.GetComponent<LocalizedText>().SetLocalization();
         }
@@ -175,7 +188,50 @@ public class InterfaceSettings : MonoBehaviour
         fireActButton.GetComponent<Image>().color = curColor;
         swapWeaponButton.GetComponent<Image>().color = curColor;
         skillButton.GetComponent<Image>().color = curColor;
+    }
 
+    public void VibrationOnOff()
+    {
+        audioManager.Play("ClickUI");
+        hintsText.GetComponent<MovementUI>().MoveToEnd();
+        settingsInfo.isVibration = !settingsInfo.isVibration;
+        if (settingsInfo.isVibration)
+        {
+            hintsText.GetComponent<LocalizedText>().key = "HintVibrationOn";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
+            vibrationText.GetComponent<LocalizedText>().key = "On";
+        }  
+        else
+        {
+            hintsText.GetComponent<LocalizedText>().key = "HintVibrationOff";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
+            vibrationText.GetComponent<LocalizedText>().key = "Off";
+        }            
+        vibrationText.GetComponent<LocalizedText>().SetLocalization();
+        vibrationButton.GetComponentInChildren<ButtonImage>().SetVibrationSprite(settingsInfo.isVibration);
+    }
+
+    public void SetJoystick(string type)
+    {
+        audioManager.Play("ClickUI");
+        hintsText.GetComponent<MovementUI>().MoveToEnd();
+        if (type == "Dynamic")
+        {
+            hintsText.GetComponent<LocalizedText>().key = "HintDynamicJoystick";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
+            dynamicJoystickButtonText.color = Color.red;
+            staticJoystickButtonText.color = Color.white;
+            settingsInfo.joystickType = "Dynamic";
+        }
+        else if (type == "Static")
+        {
+            hintsText.GetComponent<LocalizedText>().key = "HintStaticJoystick";
+            hintsText.GetComponent<LocalizedText>().SetLocalization();
+            dynamicJoystickButtonText.color = Color.white;
+            staticJoystickButtonText.color = Color.red;
+            settingsInfo.joystickType = "Static";
+        }
+        hintTimer = Time.time + 3f;
     }
 
     private void SetPosition()
@@ -203,29 +259,6 @@ public class InterfaceSettings : MonoBehaviour
             return Color.white;
     }
 
-    public void SetJoystick(string type)
-    {
-        audioManager.Play("ClickUI");
-        hintsText.GetComponent<MovementUI>().MoveToEnd();
-        if (type == "Dynamic")
-        {
-            hintsText.GetComponent<LocalizedText>().key = "HintDynamicJoystick";
-            hintsText.GetComponent<LocalizedText>().SetLocalization();
-            dynamicJoystickButton.GetComponent<Image>().color = Color.red;
-            staticJoystickButton.GetComponent<Image>().color = Color.white;
-            settingsInfo.joystickType = "Dynamic";
-        }
-        else if (type == "Static")
-        {
-            hintsText.GetComponent<LocalizedText>().key = "HintStaticJoystick";
-            hintsText.GetComponent<LocalizedText>().SetLocalization();
-            dynamicJoystickButton.GetComponent<Image>().color = Color.white;
-            staticJoystickButton.GetComponent<Image>().color = Color.red;
-            settingsInfo.joystickType = "Static";
-        }
-        hintTimer = Time.time + 3f;
-    }
-
     private void GetCurrentSave()
     {
         settingsInfo.LoadSettings();
@@ -245,19 +278,33 @@ public class InterfaceSettings : MonoBehaviour
 
         if (settingsInfo.joystickType == "Dynamic")
         {
-            dynamicJoystickButton.GetComponent<Image>().color = Color.red;
-            fpsCounterButton.GetComponent<Image>().color = Color.white;
+            dynamicJoystickButtonText.color = Color.red;
+            staticJoystickButtonText.color = Color.white;
         }
         else
         {
-            staticJoystickButton.GetComponent<Image>().color = Color.red;
-            dynamicJoystickButton.GetComponent<Image>().color = Color.white;
+            staticJoystickButtonText.color = Color.red;
+            dynamicJoystickButtonText.color = Color.white;
         }
             
-
         if (settingsInfo.fpsOn)
+        {
+            fpsCounterOnOffText.GetComponent<LocalizedText>().key = "On";
+            fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
             fpsCounterButton.GetComponent<Image>().color = Color.red;
+        }  
         else
+        {
+            fpsCounterOnOffText.GetComponent<LocalizedText>().key = "Off";
+            fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
             fpsCounterButton.GetComponent<Image>().color = Color.white;
+        }
+
+        if (settingsInfo.isVibration)
+            vibrationText.GetComponent<LocalizedText>().key = "On";
+        else
+            vibrationText.GetComponent<LocalizedText>().key = "Off";
+        vibrationText.GetComponent<LocalizedText>().SetLocalization();
+        vibrationButton.GetComponentInChildren<ButtonImage>().SetVibrationSprite(settingsInfo.isVibration);
     }
 }

@@ -36,7 +36,12 @@ public class CharController : MonoBehaviour
     }
     private GameObject closestEnemy = null;
 
-    private Joystick joystick;
+    public Joystick JousticVal
+    {
+        get { return joystick; }
+        set { joystick = value; }
+    }
+    public Joystick joystick;
     private Rigidbody2D rb;
     private Transform gun;
 
@@ -58,7 +63,7 @@ public class CharController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!CharAction.isDeath && !CharSkills.isLegionnaireSkill)
+        if (!CharAction.isDeath && !GetComponent<CharSkills>().isLegionnaireSkill)
         {
             characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),

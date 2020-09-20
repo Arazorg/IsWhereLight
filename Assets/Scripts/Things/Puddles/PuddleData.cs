@@ -36,4 +36,5 @@ public class PuddleData : ScriptableObject
         get { return typeOfPuddle; }
         protected set { }
     }
+#pragma warning restore 0649
 }

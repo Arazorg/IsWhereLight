@@ -1,9 +1,14 @@
 {
   "items": [
-
+  
+	{
+      "key": "Empty",
+      "value": ""
+    },
+	
     {
-      "key": "NewGameButton",
-      "value": "Новая игра"
+      "key": "Play",
+      "value": "Играть"
     },
 
     {
@@ -15,7 +20,37 @@
       "key": "Load",
       "value": "Загрузка..."
     },
-
+	
+	{
+      "key": "ChooseLanguage",
+      "value": "Выберите язык"
+    },
+	
+	{
+      "key": "OtherLanguages",
+      "value": "Другие языки\nСовсем скоро..."
+    },
+	
+	{
+      "key": "SecretCode",
+      "value": "Секретный код"
+    },
+	
+	{
+      "key": "CoinShop",
+      "value": "Магазин монет"
+    },
+	
+	{
+      "key": "Back",
+      "value": "Назад"
+    },
+	
+	{
+      "key": "Free",
+      "value": "БЕСПЛАТНО!"
+    },
+	
     {
       "key": "HaveCurrentGame",
       "value": "Вы действительно хотите закончить текущую игру?"
@@ -39,6 +74,16 @@
     {
       "key": "chooseCharacter",
       "value": "Выбор персонажа"
+    },
+	
+	{
+      "key": "On",
+      "value": "Вкл"
+    },
+	
+	{
+      "key": "Off",
+      "value": "Выкл"
     },
 
     {
@@ -507,11 +552,6 @@
     },
 
     {
-      "key": "Play",
-      "value": "Играть"
-    },
-
-    {
       "key": "GreatScore0",
       "value": "Отличный результат!"
     },
@@ -744,8 +784,8 @@
     },
 
     {
-      "key": "Death",
-      "value": "Вы умерли"
+      "key": "Revive",
+      "value": "Воскреси меня, прошу"
     },
 
     {
@@ -757,7 +797,12 @@
       "key": "Joystick",
       "value": "Джойстик"
     },
-
+	
+	{
+      "key": "CameraShake",
+      "value": "Тряска камеры"
+    },
+	
     {
       "key": "Dynamic",
       "value": "Динамический"
@@ -857,7 +902,37 @@
       "key": "HintMenu2",
       "value": "Ты можешь отправить фидбек или пожелание напрямую нам на электронную почту\n и получить персональный ответ, адрес ты найдешь в главном меню."
     },
+	
+	{
+      "key": "HintVibrationOn",
+      "value": "Тряска экрана включена"
+    },
+	
+	{
+      "key": "HintVibrationOff",
+      "value": "Тряска экрана выключена"
+    },
 
+	{
+      "key": "HintEffectsOn",
+      "value": "Звуки включены."
+    },
+	
+	{
+      "key": "HintEffectsOff",
+      "value": "Звуки выключены."
+    },
+		
+	{
+      "key": "HintMusicOn",
+      "value": "Музыка включена."
+    },
+	
+	{
+      "key": "HintMusicOff",
+      "value": "Музыка выключена."
+    },
+	
 	{
       "key": "Defence",
       "value": "Защита"

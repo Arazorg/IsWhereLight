@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Punchbag
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
-  actionColliderSize: {x: 1.4, y: 2.1}
-  colliderSize: {x: 0.25, y: 0.25}
-  colliderOffset: {x: 0, y: 0}
+  layerOrder: 2
+  actionColliderSize: {x: 1.1, y: 1.7}
+  actionColliderOffset: {x: 0, y: 0.3}
+  colliderSize: {x: 0.9, y: 1.6}
+  colliderOffset: {x: 0, y: -0.2}
   speed: 0
   health: 10000000
   typeOfAttack: 0

@@ -31,6 +31,8 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("Кнопка настроек")]
     [SerializeField] private Button settingsButton;
 
+    [Tooltip("Скрипт настроек в меню")]
+    [SerializeField] private SettingsButtons settingsButtons;
     [Tooltip("Кнопка 'VK'")]
     [SerializeField] private Button VkButton;
 
@@ -67,13 +69,12 @@ public class MenuButtons : MonoBehaviour
     private float timeToHint;
     private readonly float hintTime = 7.5f;
     private int currentHint = 0;
-
+    private bool isAllPanelHide;
+    private float isAllPanelHideTime;
     private readonly float achivmentTime = 2f;
     private float timeToAchivment;
     void Awake()
     {
-        //PlayerPrefs.DeleteAll();
-
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
@@ -88,15 +89,22 @@ public class MenuButtons : MonoBehaviour
         FilesCheck();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
+        audioManager.PlayAllSounds();
         audioManager.Play("Theme");
         SetStartObjectsActive();
         Camera.main.backgroundColor = Color.black;
         NewHint();
         currentHint++;
+        isAllPanelHideTime = float.MinValue;
     }
 
     void Update()
     {
+        if(Time.time > isAllPanelHideTime)
+        {
+            isAllPanelHide = true;
+            isAllPanelHideTime = Time.time + 0.5f;
+        }
         if (Application.platform == RuntimePlatform.Android
             || Application.platform == RuntimePlatform.IPhonePlayer
                 || Application.platform == RuntimePlatform.WindowsEditor)
@@ -253,13 +261,18 @@ public class MenuButtons : MonoBehaviour
 
     public void AllPanelHide()
     {
-        audioManager.Play("ClickUI");
-        exitButton.GetComponent<MovementUI>().MoveToStart();
-        settingsPanel.GetComponent<MovementUI>().MoveToStart();
-        settingsButton.GetComponent<MovementUI>().MoveToEnd();
-        secretCodePanel.GetComponent<MovementUI>().MoveToStart();
-        localizationPanel.GetComponent<MovementUI>().MoveToStart();
-        closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
+        if(isAllPanelHide)
+        {
+            exitButton.GetComponent<MovementUI>().MoveToStart();
+            settingsPanel.GetComponent<MovementUI>().MoveToStart();
+            settingsButton.GetComponent<MovementUI>().MoveToEnd();
+            secretCodePanel.GetComponent<MovementUI>().MoveToStart();
+            localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
+            settingsButtons.IsLocalizationPanelState = false;
+            settingsButtons.IsSecretPanelState = false;
+            isAllPanelHide = false;
+        }       
     }
 
     public void ExitGame()

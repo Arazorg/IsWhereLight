@@ -20,11 +20,27 @@ public class EnemyData : ScriptableObject
         protected set { }
     }
 
+    [Tooltip("Позиция в слоях спрайтов")]
+    [SerializeField] private int layerOrder;
+    public int LayerOrder
+    {
+        get { return layerOrder; }
+        protected set { }
+    }
+
     [Tooltip("Размер коллайдера действия")]
     [SerializeField] private Vector2 actionColliderSize;
     public Vector2 ActionColliderSize
     {
         get { return actionColliderSize; }
+        protected set { }
+    }
+
+    [Tooltip("Смещение коллайдера действия")]
+    [SerializeField] private Vector2 actionColliderOffset;
+    public Vector2 ActionColliderOffset
+    {
+        get { return actionColliderOffset; }
         protected set { }
     }
 

@@ -46,9 +46,9 @@ public class SettingsButtons : MonoBehaviour
     private ProgressInfo progressInfo;
 
     //Переменные состояния игры
-    private bool IsLocalizationPanelState = false;
-    private bool IsSecretPanelState = false;
-    private bool IsThanksPanelState = false;
+    public bool IsLocalizationPanelState = false;
+    public bool IsSecretPanelState = false;
+    public bool IsThanksPanelState = false;
     private bool musicOn;
     private bool effectsOn;
 
@@ -112,7 +112,7 @@ public class SettingsButtons : MonoBehaviour
             audioManager.Off("Theme");
         settingsInfo.musicOn = musicOn;
         settingsInfo.SaveSettings();
-        musicButton.GetComponentInChildren<ButtonImage>().SetSprite(musicOn);
+        musicButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(musicOn);
     }
 
     public void EffectsOnOff()
@@ -125,7 +125,7 @@ public class SettingsButtons : MonoBehaviour
             audioManager.Off("Effects");
         settingsInfo.effectsOn = effectsOn;
         settingsInfo.SaveSettings();
-        effectsButton.GetComponentInChildren<ButtonImage>().SetSprite(effectsOn);
+        effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(effectsOn);
     }
 
     public void SecretCodePanelOpenClose()

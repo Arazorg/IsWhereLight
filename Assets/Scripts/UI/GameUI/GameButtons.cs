@@ -17,6 +17,9 @@ public class GameButtons : MonoBehaviour
     [Tooltip("UI панель паузы")]
     [SerializeField] private GameObject pausePanel;
 
+    [Tooltip("Панель доната")]
+    [SerializeField] private GameObject donatePanel;
+
     [Tooltip("Кнопка паузы")]
     [SerializeField] private Button pauseButton;
 
@@ -93,7 +96,7 @@ public class GameButtons : MonoBehaviour
     private AudioManager audioManager;
 
     private float attackRate;
-    private float nextAttack;
+    private float[] nextAttack = new float[2];
     private float startTime;
     private float timeToSkill;
     private float startStringingTime;
@@ -102,7 +105,7 @@ public class GameButtons : MonoBehaviour
     private bool isStaticAttack;
     private int priceResurrect;
     private int manecost;
-
+    private Sound weaponSound;
     private void Awake()
     {
         if (instance != null)
@@ -131,8 +134,7 @@ public class GameButtons : MonoBehaviour
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
         SetCharScripts();
-        UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
-
+        
         if (SceneManager.GetActiveScene().name == "Game")
         {
             charInfo.LoadChar();
@@ -151,13 +153,15 @@ public class GameButtons : MonoBehaviour
             charInfo.SetStartParams();
             character.GetComponent<CharController>().Speed = 7.5f;
         }
+        UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
         SetCharAnim();
         moneyText = moneyText.GetComponent<TextMeshProUGUI>();
         moneyText.text = charInfo.money.ToString();
         FireActButtonState = FireActButtonStateEnum.none;
         IsGamePausedState = false;
         IsWeaponStoreState = false;
-        nextAttack = 0.0f;
+        nextAttack[0] = 0.0f;
+        nextAttack[1] = 0.0f;
     }
 
     private void SetStartUI()
@@ -195,6 +199,7 @@ public class GameButtons : MonoBehaviour
             AttackDown();
             PrepareAttack();
         }
+            
         if (isAttackUp && !CharAction.isDeath)
             AttackUp();
 
@@ -205,12 +210,11 @@ public class GameButtons : MonoBehaviour
         }
         else
             skillButtonBar.fillAmount = 0;
-
-
     }
 
     public void OpenPause()
     {
+        audioManager.StopAllSounds();
         audioManager.Play("ClickUI");
         Time.timeScale = 0f;
         IsGamePausedState = true;
@@ -336,30 +340,31 @@ public class GameButtons : MonoBehaviour
         SceneManager.LoadScene("FinishGame");
     }
 
-    public void ResurrectPlayerAd()
+    public void RevivePlayerAd()
     {
         audioManager.Play("ClickUI");
         AdsManager.AdShow();
-        charAction.Resurrect();
+        charAction.Revive();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         Time.timeScale = 1f;
         IsGamePausedState = false;
         ShowHideControlUI(true);
-
     }
 
-    public void ResurrectPlayerMoney()
+    public void RevivePlayerMoney()
     {
         if (ProgressInfo.instance.playerMoney >= priceResurrect)
         {
             ProgressInfo.instance.playerMoney -= priceResurrect;
             audioManager.Play("ClickUI");
-            charAction.Resurrect();
+            charAction.Revive();
             deathPanel.GetComponent<MovementUI>().MoveToStart();
             Time.timeScale = 1f;
             IsGamePausedState = false;
             ShowHideControlUI(true);
         }
+        else
+            donatePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
     public void GoToGame()
@@ -403,7 +408,7 @@ public class GameButtons : MonoBehaviour
     {
         if (charInfo.mane - manecost >= 0)
         {
-            if (Time.time > nextAttack)
+            if (Time.time > nextAttack[charGun.CurrentWeaponNumber])
             {
                 var weaponScript = currentWeapon.GetComponent<Weapon>();
                 CameraShaker.Instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
@@ -431,7 +436,8 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Laser>().Shoot();
                         break;
                     case WeaponData.AttackType.ConstantLaser:
-                        audioManager.Play(weaponScript.WeaponName);
+                        if (weaponSound == null)
+                            weaponSound = audioManager.Play(weaponScript.WeaponName, true);
                         charInfo.currentCountShoots++;
                         charInfo.SpendMana(manecost);
                         if (!isStaticAttack)
@@ -442,7 +448,19 @@ public class GameButtons : MonoBehaviour
                     default:
                         break;
                 }
-                nextAttack = Time.time + attackRate;
+                nextAttack[charGun.CurrentWeaponNumber] = Time.time + attackRate;
+            }
+            else
+            {
+                switch (currentWeapon.GetComponent<Weapon>().TypeOfAttack)
+                {
+                    case WeaponData.AttackType.Laser:
+                        currentWeapon.GetComponent<Laser>().StopShoot();
+                        break;
+                    case WeaponData.AttackType.Gun:
+                        currentWeapon.GetComponent<Gun>().StopShoot();
+                        break;
+                }
             }
         }
         else
@@ -489,6 +507,12 @@ public class GameButtons : MonoBehaviour
                 currentWeapon.GetComponent<Gun>().StopShoot();
                 break;
             case WeaponData.AttackType.ConstantLaser:
+                if (weaponSound != null)
+                {
+                    audioManager.Stop(weaponSound);
+                    weaponSound = null;
+                }
+                    
                 currentWeapon.GetComponent<ConstantLaser>().StopShoot();
                 isStaticAttack = false;
                 break;

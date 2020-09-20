@@ -11,6 +11,7 @@ public class SettingsData
     public bool musicOn;
     public bool effectsOn;
     public bool fpsOn;
+    public bool isVibration;
 
     public SettingsData(SettingsInfo settingsInfo)
     {
@@ -18,6 +19,7 @@ public class SettingsData
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
         fpsOn = settingsInfo.fpsOn;
+        isVibration = settingsInfo.isVibration;
         color = settingsInfo.color;
         joystickType = settingsInfo.joystickType;
         joystickPosition = settingsInfo.joystickPosition;

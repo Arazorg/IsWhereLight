@@ -244,6 +244,7 @@ public class Character : MonoBehaviour, IPointerDownHandler
     {
         if (!isIgnore)
         {
+            AudioManager.instance.Play($"NPC_Talk");
             int phrase = Random.Range(0, 8);
             while (phrase == lastPhrase)
                 phrase = Random.Range(0, 8);

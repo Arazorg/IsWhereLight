@@ -15,7 +15,8 @@ public class SettingsInfo : MonoBehaviour
     public string joystickType;
     public bool musicOn;
     public bool effectsOn;
-    public bool fpsOn; 
+    public bool fpsOn;
+    public bool isVibration;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class SettingsInfo : MonoBehaviour
         musicOn = data.musicOn;
         effectsOn = data.effectsOn;
         fpsOn = data.fpsOn;
+        isVibration = data.isVibration;
         color = data.color;
         joystickType = data.joystickType;
         joystickPosition = data.joystickPosition;
@@ -71,6 +73,7 @@ public class SettingsInfo : MonoBehaviour
         musicOn = true;
         effectsOn = true;
         fpsOn = true;
+        isVibration = true;
         color = "white";
         joystickType = "Dynamic";
     }

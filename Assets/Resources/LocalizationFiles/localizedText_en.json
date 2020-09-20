@@ -1,9 +1,14 @@
 {
   "items": [
-
+  
+	{
+      "key": "Empty",
+      "value": ""
+    },
+	
     {
-      "key": "NewGameButton",
-      "value": "New Game"
+      "key": "Play",
+      "value": "Play"
     },
 
     {
@@ -15,7 +20,37 @@
       "key": "Load",
       "value": "Load..."
     },
-
+	
+	{
+      "key": "ChooseLanguage",
+      "value": "Choose Language"
+    },
+	
+	{
+      "key": "OtherLanguages",
+      "value": "Other languages\nPretty soon..."
+    },
+	
+	{
+      "key": "SecretCode",
+      "value": "Secret Code"
+    },
+	
+	{
+      "key": "CoinShop",
+      "value": "Coin shop"
+    },
+	
+	{
+      "key": "Back",
+      "value": "Back"
+    },
+	
+	{
+      "key": "Free",
+      "value": "FREE!"
+    },
+	
     {
       "key": "HaveCurrentGame",
       "value": "Are you sure you want to quit the current game?"
@@ -40,7 +75,17 @@
       "key": "chooseCharacter",
       "value": "Select a character"
     },
-
+	
+	{
+      "key": "On",
+      "value": "On"
+    },
+	
+	{
+      "key": "Off",
+      "value": "Off"
+    },
+	
     {
       "key": "Day",
       "value": "Day"
@@ -517,11 +562,6 @@
     },
 
     {
-      "key": "Play",
-      "value": "Play"
-    },
-
-    {
       "key": "GreatScore0",
       "value": "Amazing!"
     },
@@ -727,8 +767,8 @@
     },
 
     {
-      "key": "Death",
-      "value": "You died"
+      "key": "Revive",
+      "value": "Revive me, please"
     },
 
     {
@@ -739,6 +779,11 @@
     {
       "key": "Joystick",
       "value": "Joystick"
+    },
+	
+	{
+      "key": "CameraShake",
+      "value": "Camera shake"
     },
 
     {
@@ -839,6 +884,36 @@
 	{
       "key": "HintMenu2",
       "value": "You can send a feedback or a wish directly to us by e-mail\n and receive a personal answer, you can find the address in the main menu."
+    },
+	
+	{
+      "key": "HintVibrationOn",
+      "value": "Screen shake on."
+    },
+	
+	{
+      "key": "HintVibrationOff",
+      "value": "Screen shake off."
+    },
+	
+	{
+      "key": "HintEffectsOn",
+      "value": "Effects on."
+    },
+	
+	{
+      "key": "HintEffectsOff",
+      "value": "Effects off."
+    },
+	
+	{
+      "key": "HintMusicOn",
+      "value": "Music on."
+    },
+	
+	{
+      "key": "HintMusicOff",
+      "value": "Music off."
     },
 	
 	{

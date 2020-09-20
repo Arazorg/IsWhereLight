@@ -37,6 +37,7 @@ public class FinishOfGameButton : MonoBehaviour
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        audioManager.PlayAllSounds();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         progressInfo.playerMoney += finishGameMoney;

@@ -57,6 +57,14 @@ public class CameraShaker : MonoBehaviour
         get { return isMove; }
     }
     private bool isMove;
+
+    public bool IsVibration
+    {
+        set { isVibration = value; }
+        get { return isVibration; }
+    }
+    private bool isVibration;
+
     public bool IsSmooth
     {
         set { isSmooth = value; }
@@ -89,7 +97,7 @@ public class CameraShaker : MonoBehaviour
                 cameraShakeInstances.RemoveAt(i);
                 i--;
             }
-            else if (c.CurrentState != CameraShakeState.Inactive)
+            else if (c.CurrentState != CameraShakeState.Inactive && SettingsInfo.instance.isVibration)
             {
                 posAddShake += CameraUtilities.MultiplyVectors(c.UpdateShake(), c.PositionInfluence);
                 rotAddShake += CameraUtilities.MultiplyVectors(c.UpdateShake(), c.RotationInfluence);
@@ -99,16 +107,10 @@ public class CameraShaker : MonoBehaviour
         if (target != null && isMove)
         {
             Vector3 desiredPosition = target.position + offset;
-
-            //if (IsSmooth)
-           // {
-                Vector3 smootheedPosition =
-                    Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-                transform.localPosition = smootheedPosition + posAddShake;
-                transform.localEulerAngles = rotAddShake;
-           // }
-            //else
-              //  transform.position = desiredPosition;
+            Vector3 smootheedPosition =
+                Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            transform.localPosition = smootheedPosition + posAddShake;
+            transform.localEulerAngles = rotAddShake;
         }
     }
     /// <summary>

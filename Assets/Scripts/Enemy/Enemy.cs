@@ -39,17 +39,22 @@ public class Enemy : MonoBehaviour
 
         foreach (var collider in GetComponents<BoxCollider2D>())
         {
-            //Debug.Log(gameObject.name);
-            collider.offset = ColliderOffset;
             if (collider.isTrigger)
+            {
+                collider.offset = ActionColliderOffset;
                 collider.size = ActionColliderSize;
+            }                
             else
+            {
+                collider.offset = ColliderOffset;
                 collider.size = ColliderSize;
+            }
         }
+        GetComponent<SpriteRenderer>().sortingOrder = LayerOrder;
         gameObject.tag = "Untagged";
-        if (!data.EnemyName.Contains("Static"))
+        if (!data.EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
             GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-        else
+        else if(!EnemyName.Contains("Punchbag"))
             gameObject.tag = "Destroyable";
 
         timeOfKnoking = float.MaxValue;
@@ -75,6 +80,14 @@ public class Enemy : MonoBehaviour
         get
         {
             return data.MainAnimator;
+        }
+        protected set { }
+    }
+    public int LayerOrder
+    {
+        get
+        {
+            return data.LayerOrder;
         }
         protected set { }
     }
@@ -209,6 +222,14 @@ public class Enemy : MonoBehaviour
         }
         protected set { }
     }
+    public Vector2 ActionColliderOffset
+    {
+        get
+        {
+            return data.ActionColliderOffset;
+        }
+        protected set { }
+    }
 
     public Vector2 ColliderSize
     {
@@ -290,6 +311,16 @@ public class Enemy : MonoBehaviour
             health -= damage;
             if (!EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
                 Knoking(objectTransform.position, knoking);
+            if(EnemyName.Contains("Punchbag"))
+            {
+                if (objectTransform.position.x > transform.position.x)
+                {
+                    GetComponent<Animator>().Play("DamageLeft");
+                }
+                    
+                if (objectTransform.position.x < transform.position.x)
+                    GetComponent<Animator>().Play("DamageRight");
+            }
             if(!EnemyName.Contains("Thing"))
             {
                 isEnemyHitted = true;

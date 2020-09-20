@@ -168,6 +168,7 @@
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
      <Compile Include="Assets\Scripts\Things\Puddles\Puddle.cs" />
      <Compile Include="Assets\Scripts\Things\Puddles\PuddleData.cs" />
+     <Compile Include="Assets\DonateUI.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

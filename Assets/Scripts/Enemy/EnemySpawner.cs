@@ -41,8 +41,7 @@ public class EnemySpawner : MonoBehaviour
                 spawnPoints.Add(Vector3.zero);
             textTimer = 5;
             spawnTimer.GetComponent<MovementUI>().MoveToEnd();
-            InvokeRepeating("OutputTime", 1f, 1f);
-            
+            InvokeRepeating("OutputTime", 1f, 1f);           
         }
     }
 
@@ -94,7 +93,6 @@ public class EnemySpawner : MonoBehaviour
                 prefab.name = "Enemy " + counter;
                 prefab.SetActive(true);
                 script.Init(data);
-                prefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
             }
         }
     }

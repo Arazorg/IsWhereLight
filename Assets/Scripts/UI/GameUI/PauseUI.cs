@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class PauseUI : MonoBehaviour
 
     [Tooltip("UI панели выхода")]
     [SerializeField] private GameObject exitPanel;
+
+    [Tooltip("Текст настроек паузы")]
+    [SerializeField] private TextMeshProUGUI settingsText;
 #pragma warning restore 0649
 
     private AudioManager audioManager;
@@ -33,7 +37,9 @@ public class PauseUI : MonoBehaviour
 
     public void ClosePause()
     {
+        audioManager.PlayAllSounds();
         audioManager.Play("ClickUI");
+        settingsText.GetComponent<MovementUI>().SetStart();
         Time.timeScale = 1f;
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;
@@ -54,13 +60,16 @@ public class PauseUI : MonoBehaviour
             settingsInfo.SaveSettings();
         }
         else
+        {
+            settingsText.GetComponent<MovementUI>().SetStart();
             pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
-
+        }
     }
 
     public void GoToMenu()
     {
         audioManager.StopAllSounds();
+        settingsText.GetComponent<MovementUI>().SetStart();
         var currentGame = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         if (SceneManager.GetActiveScene().name != "Game")
         {

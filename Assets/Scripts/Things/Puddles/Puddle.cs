@@ -46,13 +46,9 @@ public class Puddle : MonoBehaviour
         transform.localScale = new Vector3(0, 0, 1);
         this.data = data;
         GetComponent<SpriteRenderer>().color = PuddleColor;
-        GetComponent<ParticleSystem>().startColor = PuddleColor;
+        ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
+        settings.startColor = PuddleColor;
         GetComponent<ParticleSystem>().textureSheetAnimation.SetSprite(0, ParticleSprite);
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()

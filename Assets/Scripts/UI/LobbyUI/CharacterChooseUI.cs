@@ -12,6 +12,9 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Управление персонажем UI")]
     [SerializeField] private GameObject characterControlUI;
 
+    [Tooltip("Панель доната")]
+    [SerializeField] private GameObject donatePanel;
+
     [Tooltip("Кнопка перехода в игру")]
     [SerializeField] private Button goToGameButton;
 
@@ -245,6 +248,8 @@ public class CharacterChooseUI : MonoBehaviour
             GameBuyButtonAccess();
             progressInfo.SaveProgress();
         }
+        else
+            donatePanel.GetComponent<MovementUI>().MoveToEnd();
 
     }
 

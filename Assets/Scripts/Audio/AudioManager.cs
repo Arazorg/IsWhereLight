@@ -1,4 +1,5 @@
-﻿using UnityEngine.Audio;
+﻿
+using UnityEngine.Audio;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -46,51 +47,62 @@ public class AudioManager : MonoBehaviour
 
     public void StopAllSounds()
     {
+        AudioListener.pause = true;
         var allAudioSources = FindObjectsOfType<AudioSource>() as AudioSource[];
         foreach (var audio in allAudioSources)
         {
-            audio.Stop();
+            if(!audio.ignoreListenerPause)
+                audio.Stop();
         }
     }
 
-    public string Play(string sound, bool loop = false)
+    public void PlayAllSounds()
     {
-        string soundKey = "";
+        AudioListener.pause = false;
+    }
+
+    public Sound Play(string sound, bool loop = false)
+    {
         if ((sound == "Theme" && musicOn == true) || (sound != "Theme" && effectsOn == true))
         {
             Sound s = Array.Find(sounds, item => item.nameOfSound == sound);
+
             if (s == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return null;
             }
-            else if(sound != "Theme" && effectsOn)
+            else if (sound != "Theme" && effectsOn)
             {
                 s.source.volume = s.volume * 1f;
                 s.source.pitch = s.pitch * 1f;
+                s.source.ignoreListenerPause = s.ignorePause;
                 if (!loop)
+                {
                     s.source.PlayOneShot(s.clip);
+                    return null;
+                }
                 else
                 {
-                    var rnd = new System.Random();
-                    soundKey = sound + Time.time + rnd.NextDouble();
-                    if (!currentSounds.ContainsKey(sound))
-                        currentSounds.Add(soundKey, s);
                     s.source.Play();
+                    return s;
                 }
-                return soundKey;
             }
-            else if(sound == "Theme")
+            else if (sound == "Theme")
+            {
+                s.source.volume = s.volume * 1f;
+                s.source.pitch = s.pitch * 1f;
+                s.source.ignoreListenerPause = s.ignorePause;
                 s.source.Play();
+            }
+
         }
         return null;
     }
 
-    public string Stop(string soundKey)
+    public void Stop(Sound sound)
     {
-        currentSounds[soundKey].source.Stop();
-        currentSounds.Remove(soundKey);
-        return "";
+        sound.source.Stop();
     }
 
     public void On(string sound)
@@ -116,7 +128,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         else if (sound != "Effects")
-            s.source.Pause();
+            s.source.Stop();
 
         switch (sound)
         {

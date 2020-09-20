@@ -70,14 +70,14 @@ public class UISpawner : MonoBehaviour
         }
     }
 
-    public void SetUI()
+    public void SetUI(bool isNew = false)
     {
-        CreateJoystick();
+        CreateJoystick(isNew);
         SetPosition();
         SetColor();
     }
 
-    private void CreateJoystick()
+    private void CreateJoystick(bool isNew)
     {
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         if (settingsInfo.joystickType == "Dynamic")
@@ -86,6 +86,13 @@ public class UISpawner : MonoBehaviour
             joystick = Instantiate(staticJoystick, GameObject.Find("Canvas").transform.Find("CharacterControlUI"));
         joystick.name = "Joystick";
         joystick.transform.SetAsFirstSibling();
+        if (isNew)
+            GameObject.Find("Character(Clone)").GetComponent<CharController>().JousticVal = joystick.GetComponent<Joystick>();
+    }
+
+    public void DeleteJoystick()
+    {
+        Destroy(joystick);
     }
 
     private void SetPosition()

@@ -18,6 +18,10 @@ public class CharInfo : MonoBehaviour
     public int currentCountKilledEnemies;
     public int currentCountShoots;
 
+    private readonly float damageSoundTime = 0.75f;
+    private float timeToDamageSound;
+    private bool isDamageSound;
+
     public void Init(CharData data)
     {
         character = data.character;
@@ -30,6 +34,15 @@ public class CharInfo : MonoBehaviour
         money = data.money;      
         currentCountKilledEnemies = data.currentCountKilledEnemies;
         currentCountShoots = data.currentCountShoots;
+    }
+
+    void Update()
+    {
+        if(Time.time > timeToDamageSound)
+        {
+            isDamageSound = true;
+            timeToDamageSound = Time.time + damageSoundTime;
+        }
     }
 
     public void SetStartParams()
@@ -108,13 +121,21 @@ public class CharInfo : MonoBehaviour
 
     public void Damage(int damage)
     {
-        if(!CharSkills.isLegionnaireSkill)
+        if(!GetComponent<CharSkills>().isLegionnaireSkill)
         {
             if (health - damage < 0)
                 health = 0;
             else
+            {
+                charAction.IsPlayerHitted = true;
+                charAction.IsEnterFirst = true;
+                if (isDamageSound)
+                {
+                    AudioManager.instance.Play($"{character}Damage");
+                    isDamageSound = false;
+                }
                 health -= damage;
-
+            }
             healthBar.SetHealth(health);
 
             if (health <= 0)

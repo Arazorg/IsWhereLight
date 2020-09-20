@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: StaticBush
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
+  layerOrder: 2
   actionColliderSize: {x: 1, y: 1}
+  actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 0.9, y: 0.9}
   colliderOffset: {x: 0, y: 0}
   speed: 0

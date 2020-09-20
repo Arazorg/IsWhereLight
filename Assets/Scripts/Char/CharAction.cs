@@ -132,7 +132,7 @@ public class CharAction : MonoBehaviour
         NewSaveSystem.Delete("currentGame");
         NewSaveSystem.Delete("character");
 
-        AudioManager.instance.Play("Death");
+        AudioManager.instance.Play($"{charInfo.character}Death");
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         GetComponent<SpriteRenderer>().color = color;
@@ -142,7 +142,7 @@ public class CharAction : MonoBehaviour
         timeToDeathPanel = Time.time + 1f;
     }
 
-    public void Resurrect()
+    public void Revive()
     {
         isDeath = false;
 
@@ -156,7 +156,7 @@ public class CharAction : MonoBehaviour
         NewSaveSystem.Delete("currentGameTemp");
         NewSaveSystem.Delete("characterTemp");
 
-        AudioManager.instance.Play("Resurrect");
+        AudioManager.instance.Play("Revive");
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;
         transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(true);

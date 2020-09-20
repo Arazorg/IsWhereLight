@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Ant
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 801ace24f4b2d9349bdc758508e84589, type: 2}
+  layerOrder: 2
   actionColliderSize: {x: 1.5, y: 0.55}
+  actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 1.35, y: 0.35}
   colliderOffset: {x: 0.05, y: -0.05}
   speed: 4

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Tree
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 824e37dcf2f184043be3068a9f987b18, type: 2}
+  layerOrder: 2
   actionColliderSize: {x: 1, y: 1.25}
+  actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 0.75, y: 1}
   colliderOffset: {x: 0, y: -0.1}
   speed: 3

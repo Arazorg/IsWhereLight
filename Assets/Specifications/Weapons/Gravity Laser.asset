@@ -28,7 +28,7 @@ MonoBehaviour:
   critChance: 10
   currentBullet: {fileID: 11400000, guid: f45e52a237617f5469ed32e82830fc1e, type: 2}
   manecost: 1
-  firePointPosition: {x: -0.05, y: 1}
+  firePointPosition: {x: -0.02, y: 0.7}
   shakeParametrs:
     magnitude: 0.25
     roughness: 0.25

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Rabbit
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 13f8d5f7899348147a2eedc1c00aea64, type: 2}
+  layerOrder: 3
   actionColliderSize: {x: 1, y: 1}
+  actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 0, y: 0}
   colliderOffset: {x: 0, y: 0}
   speed: 0

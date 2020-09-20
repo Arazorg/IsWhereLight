@@ -261,7 +261,6 @@ public class ShootingRange : MonoBehaviour
             var script = currentTarget.GetComponent<Enemy>();
             var data = enemySettings[UnityEngine.Random.Range(0, enemySettings.Count)];
             script.Init(data);
-            currentTarget.GetComponent<SpriteRenderer>().sortingOrder = 2;
             break;
         }
         previousStand = currentStand;
@@ -269,7 +268,7 @@ public class ShootingRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (!isHello)
+        if (!isHello && coll.tag == "Player")
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
