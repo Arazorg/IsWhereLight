@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Звуки")]
     [SerializeField] private Sound[] sounds;
 #pragma warning restore 0649
+    public float themeVolume;
+    public float effectsVolume;
 
     private bool musicOn;
     private bool effectsOn;
@@ -74,7 +76,7 @@ public class AudioManager : MonoBehaviour
             }
             else if (sound != "Theme" && effectsOn)
             {
-                s.source.volume = s.volume * 1f;
+                s.source.volume = s.volume * 1f * settingsInfo.effectsVolume;
                 s.source.pitch = s.pitch * 1f;
                 s.source.ignoreListenerPause = s.ignorePause;
                 if (!loop)
@@ -90,7 +92,7 @@ public class AudioManager : MonoBehaviour
             }
             else if (sound == "Theme")
             {
-                s.source.volume = s.volume * 1f;
+                s.source.volume = s.volume * 1f * settingsInfo.musicVolume;
                 s.source.pitch = s.pitch * 1f;
                 s.source.ignoreListenerPause = s.ignorePause;
                 s.source.Play();

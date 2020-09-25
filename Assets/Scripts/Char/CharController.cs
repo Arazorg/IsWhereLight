@@ -49,7 +49,7 @@ public class CharController : MonoBehaviour
     private bool m_FacingRight;
     private bool isStop;
     private string currentTag;
-
+    private float startSpeed;
     void Start()
     {
         joystick = GameObject.Find($"Joystick").GetComponent<Joystick>();
@@ -59,6 +59,7 @@ public class CharController : MonoBehaviour
         m_FacingRight = true;
         isStop = false;
         currentTag = "Enemy";
+        startSpeed = Speed;
     }
 
     void FixedUpdate()
@@ -138,10 +139,11 @@ public class CharController : MonoBehaviour
             gun = transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask
-                = ~(1 << LayerMask.NameToLayer("Player") |
+                = ~(1 << LayerMask.NameToLayer("Ally") |
                         1 << LayerMask.NameToLayer("Ignore Raycast") |
-                            1 << LayerMask.NameToLayer("Room") |
-                                1 << LayerMask.NameToLayer("SpawnPoint"));
+                            1 << LayerMask.NameToLayer("Player") |
+                                1 << LayerMask.NameToLayer("Room") |
+                                    1 << LayerMask.NameToLayer("SpawnPoint"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
             if (hit.collider != null)
             {
@@ -163,5 +165,13 @@ public class CharController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void SetSpeed(bool isZero)
+    {
+        if (isZero)
+            Speed = 0;
+        else
+            Speed = startSpeed;
     }
 }

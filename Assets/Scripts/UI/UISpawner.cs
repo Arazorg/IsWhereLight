@@ -105,7 +105,7 @@ public class UISpawner : MonoBehaviour
         if (settingsInfo.joystickType == "Dynamic")
             joystickRectTransform.anchoredPosition = joystickPosition;
         else
-            joystickRectTransform.anchoredPosition = joystickPosition + new Vector2(256, 256);
+            joystickRectTransform.anchoredPosition = joystickPosition;
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
@@ -127,8 +127,7 @@ public class UISpawner : MonoBehaviour
 
         foreach (var image in joystick.transform.GetComponentsInChildren<Image>())
             image.color = newColor;
-        if (settingsInfo.joystickType == "Dynamic")
-            joystick.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        joystick.GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
         fireActButton.GetComponent<Image>().color = newColor;
         swapWeaponButton.GetComponent<Image>().color = newColor;

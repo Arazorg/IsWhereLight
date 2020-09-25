@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PauseUI : MonoBehaviour
 {
 #pragma warning disable 0649
     [Tooltip("Панель паузы")]
     [SerializeField] private GameObject pausePanel;
+
+    [Tooltip("Панель громкости звуков")]
+    [SerializeField] private GameObject soundVolumePanel;
 
     [Tooltip("Панель настроек")]
     [SerializeField] private GameObject pauseSettingsPanel;
@@ -32,7 +32,7 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = false;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();
+        gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();         
     }
 
     public void ClosePause()
@@ -40,6 +40,7 @@ public class PauseUI : MonoBehaviour
         audioManager.PlayAllSounds();
         audioManager.Play("ClickUI");
         settingsText.GetComponent<MovementUI>().SetStart();
+        soundVolumePanel.GetComponent<MovementUI>().SetStart();
         Time.timeScale = 1f;
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;
@@ -56,11 +57,14 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = !IsSettingsState;
         if (IsSettingsState)
         {
+            if (settingsInfo.musicOn || settingsInfo.effectsOn)
+                soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             pauseSettingsPanel.GetComponent<MovementUI>().MoveToEnd();
             settingsInfo.SaveSettings();
         }
         else
         {
+            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             settingsText.GetComponent<MovementUI>().SetStart();
             pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
         }

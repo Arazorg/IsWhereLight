@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9123307876621271708}
   - component: {fileID: 768692081765515187}
   - component: {fileID: 7455907721787683513}
+  - component: {fileID: 7657825584376210774}
   m_Layer: 2
   m_Name: Sword
   m_TagString: Untagged
@@ -191,3 +192,24 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!50 &7657825584376210774
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6007513576682042886}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

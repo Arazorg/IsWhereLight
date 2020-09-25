@@ -84,7 +84,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
     private void Shoot()
     {
-        AudioManager.instance.Play("EnemyShoot");
+        AudioManager.instance.Play("EnemyDistantAttack");
         enemyBulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
         Rigidbody2D rb = enemyBulletSpawner.currentEnemyBullet.GetComponent<Rigidbody2D>();

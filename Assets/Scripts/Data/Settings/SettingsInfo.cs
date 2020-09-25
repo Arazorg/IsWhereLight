@@ -13,6 +13,8 @@ public class SettingsInfo : MonoBehaviour
     public string currentLocalization;
     public string color;
     public string joystickType;
+    public float musicVolume;
+    public float effectsVolume;
     public bool musicOn;
     public bool effectsOn;
     public bool fpsOn;
@@ -37,6 +39,10 @@ public class SettingsInfo : MonoBehaviour
         musicOn = data.musicOn;
         effectsOn = data.effectsOn;
         fpsOn = data.fpsOn;
+        if(data.musicVolume != 0)
+            musicVolume = data.musicVolume;
+        if (data.effectsVolume != 0)
+            effectsVolume = data.effectsVolume;
         isVibration = data.isVibration;
         color = data.color;
         joystickType = data.joystickType;
@@ -72,6 +78,8 @@ public class SettingsInfo : MonoBehaviour
         currentLocalization = "localizedText_en";
         musicOn = true;
         effectsOn = true;
+        musicVolume = 1f;
+        effectsVolume = 1f;
         fpsOn = true;
         isVibration = true;
         color = "white";

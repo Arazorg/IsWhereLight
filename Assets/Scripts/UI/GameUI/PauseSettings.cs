@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,9 @@ public class PauseSettings : MonoBehaviour
 #pragma warning disable 0649
     [Tooltip("UI локализации")]
     [SerializeField] private GameObject localizationPanel;
+
+    [Tooltip("Панель громкости звуков")]
+    [SerializeField] private GameObject soundVolumePanel;
 
     [Tooltip("UI паузы")]
     [SerializeField] private GameObject pausePanel;
@@ -22,6 +26,12 @@ public class PauseSettings : MonoBehaviour
 
     [Tooltip("Текст настроек паузы")]
     [SerializeField] private TextMeshProUGUI settingsText;
+
+    [Tooltip("Слайдер музыки")]
+    [SerializeField] private Slider sliderMusic;
+
+    [Tooltip("Слайдер эффектов")]
+    [SerializeField] private Slider sliderEffects;
 #pragma warning restore 0649
     public static bool IsLocalizationPanelState;
 
@@ -41,6 +51,8 @@ public class PauseSettings : MonoBehaviour
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
+        sliderMusic.value = settingsInfo.musicVolume;
+        sliderEffects.value = settingsInfo.effectsVolume;
         IsLocalizationPanelState = false;
         timeToHint = float.MaxValue;
     }
@@ -57,11 +69,13 @@ public class PauseSettings : MonoBehaviour
         musicOn = !musicOn;
         if (musicOn)
         {
+            soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             ShowSettingsText("HintMusicOn");
             audioManager.On("Theme");
         }
         else
         {
+            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             ShowSettingsText("HintMusicOff");
             audioManager.Off("Theme");
         }            
@@ -75,12 +89,14 @@ public class PauseSettings : MonoBehaviour
         effectsOn = !effectsOn;
         if (effectsOn)
         {
+            soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             ShowSettingsText("HintEffectsOn");
             audioManager.On("Effects");
         }
             
         else
         {
+            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             ShowSettingsText("HintEffectsOff");
             audioManager.Off("Effects");
         }
@@ -101,7 +117,7 @@ public class PauseSettings : MonoBehaviour
         }
         else
         {
-            localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            localizationPanel.GetComponent<MovementUI>().MoveToStart();          
             pausePanel.GetComponent<MovementUI>().MoveToEnd();
             settingsText.GetComponent<MovementUI>().MoveToEnd();
         }
@@ -147,7 +163,15 @@ public class PauseSettings : MonoBehaviour
 
     public void ExportScreenshot()
     {
-        audioManager.Play("ClickUI");
+        StartCoroutine(CaptureScreen());
+    }
+
+    public IEnumerator CaptureScreen()
+    {
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        yield return new WaitForEndOfFrame();
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + @"/SomeLevel.png");
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
     }
 
     private void ShowSettingsText(string key)
@@ -159,5 +183,17 @@ public class PauseSettings : MonoBehaviour
         settingsText.GetComponent<LocalizedText>().key = key;
         settingsText.GetComponent<LocalizedText>().SetLocalization();
         timeToHint = Time.realtimeSinceStartup + hintTime;
+    }
+
+    public void SetMusic()
+    {
+        Debug.Log(sliderEffects.value);
+        settingsInfo.effectsVolume = sliderEffects.value;
+    }
+
+    public void SetEffects()
+    {
+        Debug.Log(sliderMusic.value);
+        settingsInfo.musicVolume = sliderMusic.value;
     }
 }

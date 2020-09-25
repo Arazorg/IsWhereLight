@@ -27,6 +27,7 @@ TagManager:
   - HomingArrow
   - StandartGrenade
   - Thing
+  - Portal
   layers:
   - Default
   - TransparentFX

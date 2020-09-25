@@ -30,6 +30,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
     [SerializeField] private bool snapX = false;
     [SerializeField] private bool snapY = false;
+    [SerializeField] public bool isFixed = false;
 
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
@@ -50,11 +51,17 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             Debug.LogError("The Joystick is not placed inside a canvas");
 
         Vector2 center = new Vector2(0.5f, 0.5f);
-        background.pivot = center;
+        if (GetComponent<FixedJoystick>() != null)
+            background.pivot = Vector2.zero;
+        else
+            background.pivot = center;
         handle.anchorMin = center;
         handle.anchorMax = center;
         handle.pivot = center;
-        handle.anchoredPosition = Vector2.zero;
+        //if (GetComponent<FixedJoystick>() != null)
+            handle.anchoredPosition = Vector2.zero;
+        ///else
+         //   handle.anchoredPosition = new Vector2(256, 256);
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
@@ -70,6 +77,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
         Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
         Vector2 radius = background.sizeDelta / 2;
+        if (GetComponent<FixedJoystick>() != null)
+            radius = background.GetChild(0).GetComponent<RectTransform>().sizeDelta / 2;
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);

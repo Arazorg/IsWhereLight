@@ -92,14 +92,6 @@ public class EnemyMovement : MonoBehaviour
         {
             if (enemy.TypeOfAttack == EnemyData.AttackType.Melee)
                 enemyMeleeAttack.DestroyObstacle();
-            else if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
-            {
-                enemyDistantAttack.ShootTarget = collider.transform;
-                enemyDistantAttack.TargetTag = "Destroyable";
-                enemyDistantAttack.Attack();
-                enemyDistantAttack.ShootTarget = currentTarget;
-                enemyDistantAttack.TargetTag = enemy.Target;
-            }
         }
     }
 

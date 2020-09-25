@@ -100,6 +100,9 @@ public class EnemySpawner : MonoBehaviour
     private void OutputTime()
     {
         textTimer--;
+        if(textTimer == 0)
+            AudioManager.instance.Play("StartChallenge");
+        AudioManager.instance.Play("TimerTick");
         spawnTimerText.text = textTimer.ToString();
     }
 }

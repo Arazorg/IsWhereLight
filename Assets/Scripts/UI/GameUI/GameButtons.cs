@@ -75,7 +75,6 @@ public class GameButtons : MonoBehaviour
         changeGun,
         NPC,
         weaponStore,
-        portalToGame,
         tvAds,
         shootingRange
     };
@@ -246,9 +245,6 @@ public class GameButtons : MonoBehaviour
                 case FireActButtonStateEnum.weaponStore:
                     OpenWeaponStore();
                     break;
-                case FireActButtonStateEnum.portalToGame:
-                    challengeUI.GetComponent<MovementUI>().MoveToEnd();
-                    break;
                 case FireActButtonStateEnum.tvAds:
                     AdsManager.AdShow();
                     break;
@@ -268,13 +264,14 @@ public class GameButtons : MonoBehaviour
         }
     }
 
-    public void ChooseChallenge(int challengeNumber)
+    public void ChooseChallenge(string challenge)
     {
         audioManager.Play("ClickUI");
+        var challengeNumber = Convert.ToInt32(challenge[challenge.Length - 1]);
         currentGameInfo.challengeNumber = challengeNumber;
         challengeText.GetComponentInParent<MovementUI>().MoveToEnd();
         playButton.GetComponent<MovementUI>().MoveToEnd();
-        challengeText.GetComponent<LocalizedText>().key = $@"ChallengeDescription{challengeNumber}";
+        challengeText.GetComponent<LocalizedText>().key = $@"{challenge}ChallengeDescription";
         challengeText.GetComponent<LocalizedText>().SetLocalization();
     }
 
@@ -286,7 +283,8 @@ public class GameButtons : MonoBehaviour
             challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
             challengeText.GetComponent<LocalizedText>().SetLocalization();
             challengeUI.GetComponent<MovementUI>().MoveToStart();
-            playButton.GetComponent<MovementUI>().SetStart();
+            playButton.GetComponent<MovementUI>().MoveToStart();
+            character.GetComponent<CharController>().SetSpeed(false);
         }
     }
 
@@ -369,6 +367,7 @@ public class GameButtons : MonoBehaviour
 
     public void GoToGame()
     {
+        currentGameInfo.challengeNumber = 2;
         audioManager.Play("ClickUI");
         if (SceneManager.GetActiveScene().name == "Lobby")
         {

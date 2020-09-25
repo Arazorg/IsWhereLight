@@ -33,6 +33,7 @@ public class MenuButtons : MonoBehaviour
 
     [Tooltip("Скрипт настроек в меню")]
     [SerializeField] private SettingsButtons settingsButtons;
+
     [Tooltip("Кнопка 'VK'")]
     [SerializeField] private Button VkButton;
 
@@ -75,6 +76,8 @@ public class MenuButtons : MonoBehaviour
     private float timeToAchivment;
     void Awake()
     {
+        //PlayerPrefs.DeleteAll();
+        //Application.Quit();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();

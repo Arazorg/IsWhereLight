@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     private float timeToOff;
     public bool isKnoking;
     private float timeOfKnoking;
-
+    private static float timeToBushDestroySound;
     /// <summary>
     /// Initialization of enemy
     /// </summary>
@@ -313,6 +313,7 @@ public class Enemy : MonoBehaviour
                 Knoking(objectTransform.position, knoking);
             if(EnemyName.Contains("Punchbag"))
             {
+                AudioManager.instance.Play("PunchbagDamage");
                 if (objectTransform.position.x > transform.position.x)
                 {
                     GetComponent<Animator>().Play("DamageLeft");
@@ -341,7 +342,7 @@ public class Enemy : MonoBehaviour
 
                         ColorUtility.TryParseHtmlString("#808080", out Color color);
                         gameObject.tag = "IgnoreAll";
-                        gameObject.layer = 2;
+                        GetComponent<SpriteRenderer>().sortingOrder = 1;
                         GetComponent<SpriteRenderer>().color = color;
                         GetComponent<EnemyAI>().Character.GetComponent<CharInfo>().currentCountKilledEnemies++;
                     }
@@ -363,7 +364,13 @@ public class Enemy : MonoBehaviour
 
     public void DestroyStaticEnemy()
     {
-        AudioManager.instance.Play("BushDestroy");
+        var bushDestroySoundTime = 0.15f;
+        if (Time.time > timeToBushDestroySound)
+        {
+            AudioManager.instance.Play("BushDestroy");
+            timeToBushDestroySound = Time.time + bushDestroySoundTime;
+        }
+            
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
         Destroy(gameObject);

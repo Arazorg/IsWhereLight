@@ -8,6 +8,8 @@ public class SettingsData
     public string color;
     public string joystickType;
     public string currentLocalization;
+    public float musicVolume;
+    public float effectsVolume;
     public bool musicOn;
     public bool effectsOn;
     public bool fpsOn;
@@ -18,6 +20,8 @@ public class SettingsData
         currentLocalization = settingsInfo.currentLocalization;
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
+        musicVolume = settingsInfo.musicVolume;
+        effectsVolume = settingsInfo.effectsVolume;
         fpsOn = settingsInfo.fpsOn;
         isVibration = settingsInfo.isVibration;
         color = settingsInfo.color;

@@ -42,7 +42,7 @@ public class Ally : MonoBehaviour
 
     void Update()
     {
-        if(!isDeath)
+        if (!isDeath)
         {
             if (RotateGunToEnemy() && closestEnemy != null)
             {
@@ -82,7 +82,7 @@ public class Ally : MonoBehaviour
 
     void OnBecameVisible()
     {
-        if(!isDeath)
+        if (!isDeath)
             gameObject.tag = "Ally";
     }
 
@@ -115,8 +115,9 @@ public class Ally : MonoBehaviour
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Ally") |
                         1 << LayerMask.NameToLayer("Ignore Raycast") |
-                            1 << LayerMask.NameToLayer("Ignore Raycast") |
-                                1 << LayerMask.NameToLayer("Player"));
+                            1 << LayerMask.NameToLayer("Player") |
+                                1 << LayerMask.NameToLayer("Room") |
+                                    1 << LayerMask.NameToLayer("SpawnPoint"));
             RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
 
             if (hit.collider != null)

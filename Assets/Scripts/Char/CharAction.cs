@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharAction : MonoBehaviour
@@ -28,10 +29,11 @@ public class CharAction : MonoBehaviour
     private bool isPlayerHitted;
 
     public GameObject currentNPC;
+    private GameObject joystick;
     private Button fireActButton;
     private Transform characterControlUI;
     private CharInfo charInfo;
-
+    private GameObject challengeUI;
     private float timeToOff;
     private float timeToDeathPanel;
 
@@ -42,6 +44,8 @@ public class CharAction : MonoBehaviour
         charInfo = GetComponent<CharInfo>();
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
+        if(SceneManager.GetActiveScene().name == "Lobby")
+            challengeUI = characterControlUI.Find("ChallengeUI").gameObject;
     }
 
     void Update()
@@ -50,22 +54,18 @@ public class CharAction : MonoBehaviour
         {
             characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
             timeToDeathPanel = float.MaxValue;
-        }         
+        }
         PlayerHitted();
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (!isDeath)
+        if (!isDeath && coll.isTrigger)
         {
             switch (coll.gameObject.name)
             {
                 case "WeaponStore":
                     GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.weaponStore;
-                    fireActButton.GetComponent<Image>().sprite = actionImage;
-                    break;
-                case "PortalToGame":
-                    GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.portalToGame;
                     fireActButton.GetComponent<Image>().sprite = actionImage;
                     break;
                 case "TvAds":
@@ -75,6 +75,11 @@ public class CharAction : MonoBehaviour
                 case "ShootingRangeStartPosition":
                     GameButtons.FireActButtonState = GameButtons.FireActButtonStateEnum.shootingRange;
                     fireActButton.GetComponent<Image>().sprite = actionImage;
+                    break;
+                case "PortalToForest":
+                    challengeUI.GetComponent<MovementUI>().MoveToEnd();
+                    GetComponent<CharController>().SetSpeed(true);
+                    GetComponent<CharController>().Speed = 0;
                     break;
             }
 
@@ -96,9 +101,15 @@ public class CharAction : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D coll)
     {
         fireActButton.GetComponent<Image>().sprite = fireImage;
+        if (coll.gameObject.name.Contains("Portal"))
+        {
+            challengeUI.GetComponent<MovementUI>().MoveToStart();
+            GetComponent<CharController>().SetSpeed(false);
+        }
+            
     }
 
     public void PlayerHitted()
