@@ -7,6 +7,17 @@ using UnityEngine.UI;
 public class GameButtons : MonoBehaviour
 {
     public static GameButtons instance;
+
+    public enum FireActButtonStateEnum
+    {
+        none,
+        changeGun,
+        NPC,
+        weaponStore,
+        tvAds,
+        shootingRange
+    };
+
 #pragma warning disable 0649
     [Tooltip("UI магазина оружия")]
     [SerializeField] private GameObject weaponStoreUI;
@@ -32,9 +43,6 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Текст количества денег")]
     [SerializeField] private TextMeshProUGUI moneyText;
 
-    [Tooltip("Текст описания испытания")]
-    [SerializeField] private TextMeshProUGUI challengeText;
-
     [Tooltip("Текст в панели")]
     [SerializeField] private TextMeshProUGUI deathPanelText;
 
@@ -46,9 +54,6 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Панель маны")]
     [SerializeField] private GameObject maneBar;
-
-    [Tooltip("Кнопка запуска игры")]
-    [SerializeField] private GameObject playButton;
 
     [Tooltip("Загрузочный экран")]
     [SerializeField] private GameObject loadScreen;
@@ -64,27 +69,14 @@ public class GameButtons : MonoBehaviour
 
     [Tooltip("Спрайт отката скилла")]
     [SerializeField] private Image skillButtonBar;
-
-    [Tooltip("Изображение кнопки скилла")]
-    [SerializeField] private Image skillButton;
 #pragma warning restore 0649
 
-    public enum FireActButtonStateEnum
-    {
-        none,
-        changeGun,
-        NPC,
-        weaponStore,
-        tvAds,
-        shootingRange
-    };
-
-    //Переменные состояния UI элементов
     public static FireActButtonStateEnum FireActButtonState;
-    public static bool IsGamePausedState;
-    public static bool IsWeaponStoreState;
     public static Vector3 SpawnPosition;
+    public static bool IsGamePausedState;
     public static bool isChange = true;
+    public static bool IsWeaponStoreState;
+
     public Transform currentWeapon; // заменить на свойтсво(21 ссылка)
 
     private CharInfo charInfo;
@@ -93,6 +85,7 @@ public class GameButtons : MonoBehaviour
     private CharSkills charSkills;
     private CurrentGameInfo currentGameInfo;
     private AudioManager audioManager;
+    private Sound weaponSound;
 
     private float attackRate;
     private float[] nextAttack = new float[2];
@@ -103,18 +96,14 @@ public class GameButtons : MonoBehaviour
     private bool isAttackUp;
     private bool isStaticAttack;
     private int priceResurrect;
-    private int manecost;
-    private Sound weaponSound;
+    private int manecost; 
+
     private void Awake()
     {
         if (instance != null)
-        {
             Destroy(gameObject);
-        }
         else
-        {
             instance = this;
-        }
     }
 
     void Start()
@@ -219,7 +208,8 @@ public class GameButtons : MonoBehaviour
         IsGamePausedState = true;
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
-        HideChallengeUI();
+        if(SceneManager.GetActiveScene().name == "Lobby")
+            challengeUI.GetComponent<ChallengeUI>().HideChallengeUI();
         if (SceneManager.GetActiveScene().name == "Lobby")
             ShootingRange.instance.CloseDifficultyPanel();
         ShowHideControlUI(false);
@@ -264,29 +254,6 @@ public class GameButtons : MonoBehaviour
         }
     }
 
-    public void ChooseChallenge(string challenge)
-    {
-        audioManager.Play("ClickUI");
-        var challengeNumber = Convert.ToInt32(challenge[challenge.Length - 1]);
-        currentGameInfo.challengeNumber = challengeNumber;
-        challengeText.GetComponentInParent<MovementUI>().MoveToEnd();
-        playButton.GetComponent<MovementUI>().MoveToEnd();
-        challengeText.GetComponent<LocalizedText>().key = $@"{challenge}ChallengeDescription";
-        challengeText.GetComponent<LocalizedText>().SetLocalization();
-    }
-
-    public void HideChallengeUI()
-    {
-        if (SceneManager.GetActiveScene().name == "Lobby")
-        {
-            challengeText.GetComponentInParent<MovementUI>().MoveToStart();
-            challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
-            challengeText.GetComponent<LocalizedText>().SetLocalization();
-            challengeUI.GetComponent<MovementUI>().MoveToStart();
-            playButton.GetComponent<MovementUI>().MoveToStart();
-            character.GetComponent<CharController>().SetSpeed(false);
-        }
-    }
 
     public void ShowHideControlUI(bool isShow)
     {

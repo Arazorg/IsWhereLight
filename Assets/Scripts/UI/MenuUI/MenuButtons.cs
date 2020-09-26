@@ -19,46 +19,31 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("UI панели секретного кода")]
     [SerializeField] private GameObject achivmentPanel;
 
-    [Tooltip("UI панели закрытия текущей игры")]
-    [SerializeField] private GameObject closeCurrentGamePanel;
-
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
-
-    [Tooltip("Кнопка 'продолжить игру'")]
-    [SerializeField] private Button continueButton;
 
     [Tooltip("Кнопка настроек")]
     [SerializeField] private Button settingsButton;
 
-    [Tooltip("Скрипт настроек в меню")]
-    [SerializeField] private SettingsButtons settingsButtons;
-
     [Tooltip("Кнопка 'VK'")]
-    [SerializeField] private Button VkButton;
+    [SerializeField] private Button vkButton;
 
     [Tooltip("Кнопка 'Twitter'")]
-    [SerializeField] private Button TwitterButton;
+    [SerializeField] private Button twitterButton;
 
     [Tooltip("Кнопка выхода из игры")]
     [SerializeField] private Button exitButton;
 
-    [Tooltip("Изображение типа игры, при наличии текущей игры")]
-    [SerializeField] private Image currentGameTypeImage;
-
-    [Tooltip("Текст волны текущей игры, при наличии текущей игры")]
-    [SerializeField] private TextMeshProUGUI currentGameTypeText;
-
     [Tooltip("Текст подсказок")]
     [SerializeField] private TextMeshProUGUI hintsText;
 
-    [Tooltip("Спрайты типов игры")]
-    [SerializeField] private Sprite[] gameTypeList;
+    [Tooltip("Скрипт настроек в меню")]
+    [SerializeField] private SettingsButtons settingsButtons;
 #pragma warning restore 0649
 
     //Переменные состояния игры
-    public static bool firstPlay;
     public static bool firstRun;
+    public static bool firstPlay;
     private bool showHint;
 
     //Скрипты
@@ -74,10 +59,9 @@ public class MenuButtons : MonoBehaviour
     private float isAllPanelHideTime;
     private readonly float achivmentTime = 2f;
     private float timeToAchivment;
+
     void Awake()
     {
-        //PlayerPrefs.DeleteAll();
-        //Application.Quit();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
@@ -103,7 +87,7 @@ public class MenuButtons : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > isAllPanelHideTime)
+        if (Time.time > isAllPanelHideTime)
         {
             isAllPanelHide = true;
             isAllPanelHideTime = Time.time + 0.5f;
@@ -161,40 +145,16 @@ public class MenuButtons : MonoBehaviour
                 timeToAchivment = Time.time + achivmentTime;
             }
         }
-
         settingsInfo.SaveSettings();
         progressInfo.SaveProgress();
-
-        if (PlayerPrefs.HasKey($"currentGame") && PlayerPrefs.HasKey($"character"))
-        {
-            firstPlay = false;
-            newGameButton.GetComponent<MovementUI>().SetStartPos(new Vector3(-350, -250));
-            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(-350, 250));
-        }
-        else
-        {
-            DeleteCurrentGame();
-            newGameButton.GetComponent<MovementUI>().SetEndPos(new Vector3(0, 250));
-            firstPlay = true;
-        }
     }
 
     private void SetStartObjectsActive()
     {
-        if (!firstPlay)
-        {
-            CurrentGameInfo currentGameInfo = new CurrentGameInfo();
-            currentGameInfo.LoadCurrentGame();
-            continueButton.GetComponent<MovementUI>().MoveToEnd();
-            currentGameTypeImage.sprite = gameTypeList[currentGameInfo.challengeNumber];
-            currentGameTypeText.GetComponent<LocalizedText>().addable = currentGameInfo.currentWave.ToString();
-            Destroy(currentGameInfo);
-        }
-
         newGameButton.GetComponent<MovementUI>().MoveToEnd();
         settingsButton.GetComponent<MovementUI>().MoveToEnd();
-        VkButton.GetComponent<MovementUI>().MoveToEnd();
-        TwitterButton.GetComponent<MovementUI>().MoveToEnd();
+        vkButton.GetComponent<MovementUI>().MoveToEnd();
+        twitterButton.GetComponent<MovementUI>().MoveToEnd();
         hintsText.GetComponent<MovementUI>().MoveToEnd();
     }
 
@@ -212,20 +172,8 @@ public class MenuButtons : MonoBehaviour
     public void NewGame()
     {
         audioManager.Play("ClickUI");
-        if (!firstPlay)
-            closeCurrentGamePanel.GetComponent<MovementUI>().MoveToEnd();
-        else
-        {
-            firstPlay = true;
-            SceneManager.LoadScene("Lobby");
-        }
-    }
-
-    public void ContinueGame()
-    {
-        audioManager.Play("ClickUI");
-        firstPlay = false;
-        SceneManager.LoadScene("Game");
+        firstPlay = true;
+        SceneManager.LoadScene("Lobby");
     }
 
     public void LinkToVk()
@@ -248,46 +196,25 @@ public class MenuButtons : MonoBehaviour
         settingsPanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
-    public void DeleteCurrentGameStartNewGame()
-    {
-        DeleteCurrentGame();
-        audioManager.Play("ClickUI");
-        firstPlay = true;
-        SceneManager.LoadScene("Lobby");
-    }
-
-    public void CloseCurrentGamePanel()
-    {
-        audioManager.Play("ClickUI");
-        closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
-    }
-
     public void AllPanelHide()
     {
-        if(isAllPanelHide)
+        if (isAllPanelHide)
         {
             exitButton.GetComponent<MovementUI>().MoveToStart();
             settingsPanel.GetComponent<MovementUI>().MoveToStart();
             settingsButton.GetComponent<MovementUI>().MoveToEnd();
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
-            closeCurrentGamePanel.GetComponent<MovementUI>().MoveToStart();
             settingsButtons.IsLocalizationPanelState = false;
             settingsButtons.IsSecretPanelState = false;
             isAllPanelHide = false;
-        }       
+        }
     }
 
     public void ExitGame()
     {
         audioManager.Play("ClickUI");
         Application.Quit();
-    }
-
-    private void DeleteCurrentGame()
-    {
-        PlayerPrefs.DeleteKey("character");
-        PlayerPrefs.DeleteKey("currentGame");
     }
 
     public void DeleteAllKeys()

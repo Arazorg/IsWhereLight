@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
@@ -51,10 +49,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             Debug.LogError("The Joystick is not placed inside a canvas");
 
         Vector2 center = new Vector2(0.5f, 0.5f);
-        if (GetComponent<FixedJoystick>() != null)
-            background.pivot = Vector2.zero;
-        else
-            background.pivot = center;
+        background.pivot = center;
         handle.anchorMin = center;
         handle.anchorMax = center;
         handle.pivot = center;
@@ -79,6 +74,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         Vector2 radius = background.sizeDelta / 2;
         if (GetComponent<FixedJoystick>() != null)
             radius = background.GetChild(0).GetComponent<RectTransform>().sizeDelta / 2;
+            
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);

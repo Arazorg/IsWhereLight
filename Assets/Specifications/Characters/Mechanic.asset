@@ -15,9 +15,9 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: 7ee0b609ae373fb448a662a213891da0, type: 2}
   characterClass: Mechanic
-  maxHealth: 900
-  maxMane: 120
+  maxHealth: 35
+  maxMane: 150
   startWeapon: Gravity Laser
   price: 1250
   characterType: Defence
-  skillTime: 10
+  skillTime: 15

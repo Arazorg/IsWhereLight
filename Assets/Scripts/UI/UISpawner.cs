@@ -105,7 +105,7 @@ public class UISpawner : MonoBehaviour
         if (settingsInfo.joystickType == "Dynamic")
             joystickRectTransform.anchoredPosition = joystickPosition;
         else
-            joystickRectTransform.anchoredPosition = joystickPosition;
+            joystickRectTransform.anchoredPosition = joystickPosition + new Vector2(256,256);
         fireActButton.GetComponent<RectTransform>().anchoredPosition
           = new Vector3(settingsInfo.fireActButtonPosition[0], settingsInfo.fireActButtonPosition[1]);
         swapWeaponButton.GetComponent<RectTransform>().anchoredPosition
@@ -113,6 +113,7 @@ public class UISpawner : MonoBehaviour
         skillButton.GetComponent<RectTransform>().anchoredPosition
             = new Vector3(settingsInfo.skillButtonPosition[0], settingsInfo.skillButtonPosition[1]);
     }
+
     public void HideShowFPS(bool show)
     {
         if (show && settingsInfo.fpsOn)

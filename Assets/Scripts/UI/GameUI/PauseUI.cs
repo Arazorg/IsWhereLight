@@ -32,7 +32,7 @@ public class PauseUI : MonoBehaviour
         IsSettingsState = false;
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();         
+        gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();
     }
 
     public void ClosePause()
@@ -82,24 +82,13 @@ public class PauseUI : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
         else
-        {     
-            if(currentGame.canExit)
-            {
-                ClosePause();
-                CharAction.isDeath = false;
-                currentGame.canExit = false;
-                CurrentGameInfo.instance.SaveCurrentGame();
-                SceneManager.LoadScene("Menu");
-            }
-            else
-            {
-                audioManager.Play("ClickUI");
-                pausePanel.GetComponent<MovementUI>().MoveToStart();
-                pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
-                exitPanel.GetComponent<MovementUI>().MoveToEnd();
-                IsSettingsState = false;
-            }
-        }                 
+        {
+            audioManager.Play("ClickUI");
+            pausePanel.GetComponent<MovementUI>().MoveToStart();
+            pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
+            exitPanel.GetComponent<MovementUI>().MoveToEnd();
+            IsSettingsState = false;
+        }
     }
 
     public void GoToMenuExitPanel()

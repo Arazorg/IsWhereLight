@@ -38,9 +38,6 @@ public class PauseSettings : MonoBehaviour
     private SettingsInfo settingsInfo;
     private AudioManager audioManager;
     private LocalizationManager localizationManager;
-
-    private bool musicOn;
-    private bool effectsOn;
     private float timeToHint;
     private readonly float hintTime = 3f;
 
@@ -49,8 +46,6 @@ public class PauseSettings : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-        musicOn = settingsInfo.musicOn;
-        effectsOn = settingsInfo.effectsOn;
         sliderMusic.value = settingsInfo.musicVolume;
         sliderEffects.value = settingsInfo.effectsVolume;
         IsLocalizationPanelState = false;
@@ -66,8 +61,8 @@ public class PauseSettings : MonoBehaviour
     public void MusicOnOff()
     {        
         audioManager.Play("ClickUI");
-        musicOn = !musicOn;
-        if (musicOn)
+        settingsInfo.musicOn = !settingsInfo.musicOn;
+        if (settingsInfo.musicOn)
         {
             soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             ShowSettingsText("HintMusicOn");
@@ -75,19 +70,19 @@ public class PauseSettings : MonoBehaviour
         }
         else
         {
-            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
+            if (!settingsInfo.effectsOn)
+                soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             ShowSettingsText("HintMusicOff");
             audioManager.Off("Theme");
         }            
-        settingsInfo.musicOn = musicOn;
-        musicButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(musicOn);
+        musicButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(settingsInfo.musicOn);
     }
 
     public void EffectsOnOff()
     {
         audioManager.Play("ClickUI");
-        effectsOn = !effectsOn;
-        if (effectsOn)
+        settingsInfo.effectsOn = !settingsInfo.effectsOn;
+        if (settingsInfo.effectsOn)
         {
             soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             ShowSettingsText("HintEffectsOn");
@@ -96,13 +91,13 @@ public class PauseSettings : MonoBehaviour
             
         else
         {
-            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
+            if(!settingsInfo.musicOn)
+                soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             ShowSettingsText("HintEffectsOff");
             audioManager.Off("Effects");
         }
             
-        settingsInfo.effectsOn = effectsOn;
-        effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(effectsOn);
+        effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(settingsInfo.effectsOn);
     }
 
     public void OpenCloseLocalizationPanel()
@@ -186,14 +181,12 @@ public class PauseSettings : MonoBehaviour
     }
 
     public void SetMusic()
-    {
-        Debug.Log(sliderEffects.value);
-        settingsInfo.effectsVolume = sliderEffects.value;
+    {   
+        settingsInfo.musicVolume = sliderMusic.value;
     }
 
     public void SetEffects()
     {
-        Debug.Log(sliderMusic.value);
-        settingsInfo.musicVolume = sliderMusic.value;
+        settingsInfo.effectsVolume = sliderEffects.value;
     }
 }

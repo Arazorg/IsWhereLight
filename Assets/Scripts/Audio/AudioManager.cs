@@ -15,19 +15,13 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Звуки")]
     [SerializeField] private Sound[] sounds;
 #pragma warning restore 0649
-    public float themeVolume;
-    public float effectsVolume;
+    private SettingsInfo settingsInfo;
+    private Sound theme;
 
     private bool musicOn;
     private bool effectsOn;
-    private SettingsInfo settingsInfo;
-    private Dictionary<string, Sound> currentSounds = new Dictionary<string, Sound>();
     void Awake()
     {
-        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        musicOn = settingsInfo.musicOn;
-        effectsOn = settingsInfo.effectsOn;
-
         if (instance != null)
             Destroy(gameObject);
         else
@@ -35,6 +29,11 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
+        musicOn = settingsInfo.musicOn;
+        effectsOn = settingsInfo.effectsOn;
+        theme = null;
 
         foreach (Sound s in sounds)
         {
@@ -45,6 +44,12 @@ public class AudioManager : MonoBehaviour
         }
         if (musicOn)
             Play("Theme");
+    }
+
+    void Update()
+    {
+        if(theme != null)
+            theme.source.volume = settingsInfo.musicVolume;
     }
 
     public void StopAllSounds()
@@ -92,10 +97,11 @@ public class AudioManager : MonoBehaviour
             }
             else if (sound == "Theme")
             {
-                s.source.volume = s.volume * 1f * settingsInfo.musicVolume;
-                s.source.pitch = s.pitch * 1f;
-                s.source.ignoreListenerPause = s.ignorePause;
-                s.source.Play();
+                theme = s;
+                theme.source.volume = theme.volume * 1f * settingsInfo.musicVolume;
+                theme.source.pitch = theme.pitch * 1f;
+                theme.source.ignoreListenerPause = theme.ignorePause;
+                theme.source.Play();
             }
 
         }

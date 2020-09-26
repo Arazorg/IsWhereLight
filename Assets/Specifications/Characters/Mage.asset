@@ -15,8 +15,8 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: fd99cf4f3b4f6b042a11fc4a1f4fb065, type: 2}
   characterClass: Keeper
-  maxHealth: 8
-  maxMane: 280
+  maxHealth: 12
+  maxMane: 350
   startWeapon: Haze Staff
   price: 400
   characterType: Attack
