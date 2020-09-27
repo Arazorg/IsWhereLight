@@ -65,16 +65,15 @@ public class PauseSettings : MonoBehaviour
         if (settingsInfo.musicOn)
         {
             soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
-            ShowSettingsText("HintMusicOn");
             audioManager.On("Theme");
         }
         else
         {
             if (!settingsInfo.effectsOn)
                 soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
-            ShowSettingsText("HintMusicOff");
             audioManager.Off("Theme");
-        }            
+        }
+        settingsText.GetComponent<MovementUI>().MoveToStart();
         musicButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(settingsInfo.musicOn);
     }
 
@@ -85,18 +84,15 @@ public class PauseSettings : MonoBehaviour
         if (settingsInfo.effectsOn)
         {
             soundVolumePanel.GetComponent<MovementUI>().MoveToEnd();
-            ShowSettingsText("HintEffectsOn");
             audioManager.On("Effects");
-        }
-            
+        }          
         else
         {
             if(!settingsInfo.musicOn)
                 soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
-            ShowSettingsText("HintEffectsOff");
             audioManager.Off("Effects");
         }
-            
+        settingsText.GetComponent<MovementUI>().MoveToStart();
         effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(settingsInfo.effectsOn);
     }
 

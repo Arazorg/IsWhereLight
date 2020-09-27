@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
@@ -20,17 +21,19 @@ public class Sword : MonoBehaviour
     public void Hit()
     {
         animator.SetBool("Attack", true);
-        var enemies = Physics2D.OverlapCircleAll(currentWeapon.transform.position, currentWeapon.Radius, 
-                (1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("EnemyStatic")));
+        var character = currentWeapon.transform.parent.position;
+        var enemies = Physics2D.OverlapCircleAll(character, currentWeapon.Radius, (1 << LayerMask.NameToLayer("Enemy") | 
+                                                                                        1 << LayerMask.NameToLayer("EnemyStatic")));
         foreach (var enemy in enemies)
         {
             var enemyScript = enemy.GetComponent<Enemy>();
-            var currentAngle = -Mathf.Atan2(enemy.transform.position.x - transform.position.x,
-                                         enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+            var currentAngle = -Mathf.Atan2(enemy.transform.position.x - character.x,
+                                         enemy.transform.position.y - character.y) * Mathf.Rad2Deg;
+            Debug.Log(currentAngle);
             if (currentAngle > 0)
             {
-                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle
-                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle)
+                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngleRight
+                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngleRight)
                 {
                     if (enemy.transform.tag == "Destroyable")
                         enemyScript.DestroyStaticEnemy();
@@ -40,11 +43,11 @@ public class Sword : MonoBehaviour
             }
             else
             {
-                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngle - 360
-                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngle - 360)
+                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngleLeft - 360
+                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngleLeft - 360)
                 {
                     if (enemy.transform.tag == "Destroyable")
-                        Destroy(enemy.gameObject.transform.parent.gameObject);
+                        enemyScript.DestroyStaticEnemy();
                     else if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }

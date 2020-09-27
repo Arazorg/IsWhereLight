@@ -86,6 +86,7 @@ public class PauseUI : MonoBehaviour
             audioManager.Play("ClickUI");
             pausePanel.GetComponent<MovementUI>().MoveToStart();
             pauseSettingsPanel.GetComponent<MovementUI>().MoveToStart();
+            soundVolumePanel.GetComponent<MovementUI>().MoveToStart();
             exitPanel.GetComponent<MovementUI>().MoveToEnd();
             IsSettingsState = false;
         }

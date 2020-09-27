@@ -35,7 +35,8 @@ public class ChallengeUI : MonoBehaviour
             challengeText.GetComponent<LocalizedText>().SetLocalization();
             GetComponent<MovementUI>().MoveToStart();
             playButton.GetComponent<MovementUI>().MoveToStart();
-            GameObject.Find("Character(Clone)").GetComponent<CharController>().SetSpeed(false);
+            CharAction.isDeath = false;
+            GameObject.Find("Character(Clone)").GetComponent<CharController>().SetZeroSpeed(false);
         }
     }
 

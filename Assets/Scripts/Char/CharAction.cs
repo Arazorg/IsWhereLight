@@ -78,8 +78,8 @@ public class CharAction : MonoBehaviour
                     break;
                 case "PortalToForest":
                     challengeUI.GetComponent<MovementUI>().MoveToEnd();
-                    GetComponent<CharController>().SetSpeed(true);
-                    GetComponent<CharController>().Speed = 0;
+                    GetComponent<CharController>().SetZeroSpeed(true);
+                    isDeath = true;
                     break;
             }
 
@@ -103,13 +103,7 @@ public class CharAction : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        fireActButton.GetComponent<Image>().sprite = fireImage;
-        if (coll.gameObject.name.Contains("Portal"))
-        {
-            challengeUI.GetComponent<MovementUI>().MoveToStart();
-            GetComponent<CharController>().SetSpeed(false);
-        }
-            
+        fireActButton.GetComponent<Image>().sprite = fireImage;            
     }
 
     public void PlayerHitted()

@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     public bool isKnoking;
     private float timeOfKnoking;
     private static float timeToBushDestroySound;
+
     /// <summary>
     /// Initialization of enemy
     /// </summary>
@@ -305,6 +306,7 @@ public class Enemy : MonoBehaviour
     {
         if(!isDeath)
         {
+            Debug.Log("!");
             bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
             if (isCriticalHit)
                 damage *= 2;
@@ -364,15 +366,14 @@ public class Enemy : MonoBehaviour
 
     public void DestroyStaticEnemy()
     {
-        var bushDestroySoundTime = 0.15f;
+        var bushDestroySoundTime = 0.1f;
         if (Time.time > timeToBushDestroySound)
         {
             AudioManager.instance.Play("BushDestroy");
             timeToBushDestroySound = Time.time + bushDestroySoundTime;
         }
             
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+        Destroy(Instantiate(explosionPrefab, transform.position, Quaternion.identity), explosionPrefab.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
         Destroy(gameObject);
     }
 

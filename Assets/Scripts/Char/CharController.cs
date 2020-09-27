@@ -167,7 +167,7 @@ public class CharController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public void SetSpeed(bool isZero)
+    public void SetZeroSpeed(bool isZero)
     {
         if (isZero)
             Speed = 0;

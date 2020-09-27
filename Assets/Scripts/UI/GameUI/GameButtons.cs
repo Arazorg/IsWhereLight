@@ -208,8 +208,6 @@ public class GameButtons : MonoBehaviour
         IsGamePausedState = true;
         pause.SetActive(IsGamePausedState);
         pausePanel.GetComponent<MovementUI>().MoveToEnd();
-        if(SceneManager.GetActiveScene().name == "Lobby")
-            challengeUI.GetComponent<ChallengeUI>().HideChallengeUI();
         if (SceneManager.GetActiveScene().name == "Lobby")
             ShootingRange.instance.CloseDifficultyPanel();
         ShowHideControlUI(false);
@@ -503,6 +501,7 @@ public class GameButtons : MonoBehaviour
         {
             if (WeaponSpawner.instance.countOfWeapon == 2)
             {
+                AudioManager.instance.Play("WeaponSwap");
                 if (charGun.CurrentWeaponNumber == 0)
                 {
                     WeaponSpawner.instance.currentCharWeapon[charGun.CurrentWeaponNumber].SetActive(false);

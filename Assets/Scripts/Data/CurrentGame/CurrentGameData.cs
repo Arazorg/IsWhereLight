@@ -11,7 +11,6 @@ public class CurrentGameData
     public int challengeNumber;
     public int currentWave = 0;
     public int countResurrect = 1;
-    public bool canExit = true;
     public string characterType;
     public float skillTime;
 
@@ -27,7 +26,6 @@ public class CurrentGameData
         challengeNumber = currentGameInfo.challengeNumber;
         currentWave = currentGameInfo.currentWave;
         countResurrect = currentGameInfo.countResurrect;
-        canExit = currentGameInfo.canExit;
         characterType = currentGameInfo.characterType;
         skillTime = currentGameInfo.skillTime;
     }

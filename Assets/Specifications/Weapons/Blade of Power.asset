@@ -20,7 +20,8 @@ MonoBehaviour:
   offset: {x: -0.1, y: -0.25}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
-  attackAngle: 80
+  attackAngleRight: 69.7
+  attackAngleLeft: 73.3
   radius: 1.75
   knoking: 40
   fireRate: 0.45

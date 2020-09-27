@@ -72,11 +72,18 @@ public class WeaponData : ScriptableObject
         get { return standartAngle; }
     }
 
-    [Tooltip("Угол атаки")]
-    [SerializeField] private float attackAngle;
-    public float AttackAngle
+    [Tooltip("Угол атаки справа")]
+    [SerializeField] private float attackAngleRight;
+    public float AttackAngleRight
     {
-        get { return attackAngle; }
+        get { return attackAngleRight; }
+    }
+
+    [Tooltip("Угол атаки слева")]
+    [SerializeField] private float attackAngleLeft;
+    public float AttackAngleLeft
+    {
+        get { return attackAngleLeft; }
     }
 
     [Tooltip("Радиус атаки")]

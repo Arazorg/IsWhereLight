@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Список настроек для врагов")]
     [SerializeField] private List<EnemyData> enemySettings;
 
-    [Range(1, 125)]
+    [Range(0, 125)]
     [Tooltip("Количество объектов в пуле")]
     [SerializeField] private int enemyCount;
 

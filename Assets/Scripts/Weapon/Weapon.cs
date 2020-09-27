@@ -65,9 +65,14 @@ public class Weapon : MonoBehaviour
         get { return data.Knoking; }
     }
 
-    public float AttackAngle
+    public float AttackAngleRight
     {
-        get { return data.AttackAngle; }
+        get { return data.AttackAngleRight; }
+    }
+
+    public float AttackAngleLeft
+    {
+        get { return data.AttackAngleLeft; }
     }
 
     public float Radius

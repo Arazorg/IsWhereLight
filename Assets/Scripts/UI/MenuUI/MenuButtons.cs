@@ -194,14 +194,16 @@ public class MenuButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         settingsButton.GetComponent<MovementUI>().MoveToStart();
         settingsPanel.GetComponent<MovementUI>().MoveToEnd();
+        settingsPanel.GetComponent<SettingsButtons>().CheckMusicEffectsPanels();
     }
 
     public void AllPanelHide()
     {
         if (isAllPanelHide)
         {
+            Debug.Log("!");
             exitButton.GetComponent<MovementUI>().MoveToStart();
-            settingsPanel.GetComponent<MovementUI>().MoveToStart();
+            settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
             settingsButton.GetComponent<MovementUI>().MoveToEnd();
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
             localizationPanel.GetComponent<MovementUI>().MoveToStart();

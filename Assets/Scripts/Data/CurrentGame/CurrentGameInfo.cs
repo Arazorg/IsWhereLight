@@ -18,7 +18,6 @@ public class CurrentGameInfo : MonoBehaviour
     public float skillTime;
     public bool wildMode;
     public bool isLobby;
-    public bool canExit;
 
     void Awake()
     {
@@ -44,7 +43,6 @@ public class CurrentGameInfo : MonoBehaviour
         challengeNumber = currentGameData.challengeNumber;
         currentWave = currentGameData.currentWave;
         countResurrect = currentGameData.countResurrect;
-        canExit = currentGameData.canExit;
         characterType = currentGameData.characterType;
         skillTime = currentGameData.skillTime;
     }
@@ -53,7 +51,6 @@ public class CurrentGameInfo : MonoBehaviour
     {
         currentWave = 0;
         countResurrect = 1;
-        canExit = true;
     }
 
     public void SaveCurrentGame(string key = "currentGame")

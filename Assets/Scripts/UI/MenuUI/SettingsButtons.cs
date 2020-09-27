@@ -17,6 +17,12 @@ public class SettingsButtons : MonoBehaviour
     [Tooltip("UI панели благодарностей")]
     [SerializeField] private GameObject thanksPanel;
 
+    [Tooltip("UI панели громкости музыки")]
+    [SerializeField] private GameObject musicVolumePanel;
+
+    [Tooltip("UI панели громкости эффектов")]
+    [SerializeField] private GameObject effectsVolumePanel;
+
     [Tooltip("UI панели меню")]
     [SerializeField] private GameObject menuPanel;
 
@@ -37,6 +43,12 @@ public class SettingsButtons : MonoBehaviour
 
     [Tooltip("Кнопка эффектов")]
     [SerializeField] private Button effectsButton;
+
+    [Tooltip("Слайдер музыки")]
+    [SerializeField] private Slider sliderMusic;
+
+    [Tooltip("Слайдер эффектов")]
+    [SerializeField] private Slider sliderEffects;
 #pragma warning restore 0649
 
     //Скрипты
@@ -63,6 +75,8 @@ public class SettingsButtons : MonoBehaviour
         musicOn = settingsInfo.musicOn;
         effectsOn = settingsInfo.effectsOn;
 
+        sliderMusic.value = settingsInfo.musicVolume;
+        sliderEffects.value = settingsInfo.effectsVolume;
         moneyImage.gameObject.SetActive(false);
     }
 
@@ -80,7 +94,7 @@ public class SettingsButtons : MonoBehaviour
     {
         IsThanksPanelState = !IsThanksPanelState;
         audioManager.Play("ClickUI");
-        if(IsThanksPanelState)
+        if (IsThanksPanelState)
         {
             SettingsPanelClose();
             menuPanel.GetComponent<MenuButtons>().AllPanelHide();
@@ -100,6 +114,8 @@ public class SettingsButtons : MonoBehaviour
         gameObject.GetComponent<MovementUI>().MoveToStart();
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
+        musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
+        effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void MusicOnOff()
@@ -107,9 +123,16 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         musicOn = !musicOn;
         if (musicOn)
+        {
+            musicVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             audioManager.On("Theme");
+        }
         else
+        {
+            musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
             audioManager.Off("Theme");
+        }
+
         settingsInfo.musicOn = musicOn;
         settingsInfo.SaveSettings();
         musicButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(musicOn);
@@ -120,9 +143,16 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         effectsOn = !effectsOn;
         if (effectsOn)
+        {
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             audioManager.On("Effects");
+        }
         else
+        {
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
             audioManager.Off("Effects");
+        }
+
         settingsInfo.effectsOn = effectsOn;
         settingsInfo.SaveSettings();
         effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(effectsOn);
@@ -187,6 +217,28 @@ public class SettingsButtons : MonoBehaviour
             moneyPlusText.GetComponent<LocalizedText>().SetLocalization();
             moneyImage.gameObject.SetActive(false);
         }
+    }
 
+    public void CheckMusicEffectsPanels()
+    {
+        if (musicOn)
+            musicVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+            musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
+
+        if (effectsOn)
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+        else
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
+    }
+
+    public void SetMusic()
+    {
+        settingsInfo.musicVolume = sliderMusic.value;
+    }
+
+    public void SetEffects()
+    {
+        settingsInfo.effectsVolume = sliderEffects.value;
     }
 }

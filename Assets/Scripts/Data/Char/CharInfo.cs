@@ -117,6 +117,7 @@ public class CharInfo : MonoBehaviour
             mane = maxMane;
         else
             mane += fillAmount;
+        manaBar.SetMane(mane);
     }
 
     public void Damage(int damage)
