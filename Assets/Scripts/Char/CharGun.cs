@@ -14,12 +14,6 @@ public class CharGun : MonoBehaviour
 
     [Tooltip("Спрайт кнопки(атака)")]
     [SerializeField] private Sprite fireImage;
-
-    [Tooltip("Смещение дальнего оружия")]
-    [SerializeField] private Vector3 offsetGunDistant;
-
-    [Tooltip("Смещение ближнего оружия")]
-    [SerializeField] private Vector3 offsetGunMelee;
 #pragma warning restore 0649
 
     public static bool isChange;
@@ -80,7 +74,6 @@ public class CharGun : MonoBehaviour
             gameButtons.ChangeWeaponButton();
             SwapWeapon();
             Destroy(floorGun.gameObject);
-            SetWeaponParam();
         }
         else
         {
@@ -89,7 +82,6 @@ public class CharGun : MonoBehaviour
             Destroy(floorGun.gameObject);
             gameButtons.SwapWeapon();
             WeaponSpawner.instance.SwapWeapon(1);
-            SetWeaponParam();
         }
 
     }
@@ -109,16 +101,6 @@ public class CharGun : MonoBehaviour
             $"{damage} DMG | {critChance}% CRIT | {manecost} MANA";
     }
 
-    private void SetWeaponParam()
-    {
-        if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Gun)
-            WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
-                = transform.position + offsetGunDistant;
-        else if (WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().TypeOfAttack == WeaponData.AttackType.Sword)
-            WeaponSpawner.instance.currentCharWeapon[currentWeaponNumber].transform.position
-            = transform.position + offsetGunMelee;
-    }
-
     public void SpawnStartWeapon()
     {
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
@@ -128,7 +110,6 @@ public class CharGun : MonoBehaviour
         var spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
         WeaponSpawner.instance.SetPrefab(spawnWeapon);
         WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
-        SetWeaponParam();
 
         if (charInfo.weapons[1] != null && charInfo.weapons[1] != "")
         {
@@ -137,7 +118,6 @@ public class CharGun : MonoBehaviour
             spawnWeapon = Regex.Replace(charInfo.weapons[currentWeaponNumber], "[0-9]", "", RegexOptions.IgnoreCase);
             WeaponSpawner.instance.SetPrefab(spawnWeapon);
             WeaponSpawner.instance.Spawn(transform, currentWeaponNumber);
-            SetWeaponParam();
         }
 
         gameButtons.currentWeaponImage.transform.GetChild(0).GetComponent<Image>().sprite =

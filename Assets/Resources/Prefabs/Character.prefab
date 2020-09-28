@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4952567868302082640}
   - component: {fileID: -4743250278244837176}
   - component: {fileID: -3602805931546443996}
+  - component: {fileID: 8678840469138477278}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -174,8 +175,6 @@ MonoBehaviour:
     type: 3}
   fireImage: {fileID: 654179995542460430, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
-  offsetGunDistant: {x: 0, y: -0.35, z: 0}
-  offsetGunMelee: {x: -0.2, y: -0.35, z: 0}
 --- !u!114 &6216328486193946665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +266,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c3028395e9011e498b3f04069ceca9c, type: 2}
   - {fileID: 11400000, guid: dd604722ec5f98f41a4ccca53bb1642d, type: 2}
   - {fileID: 11400000, guid: 7f67e6a0ca437ee47b8429721c892585, type: 2}
+  isLegionnaireSkill: 0
+--- !u!114 &8678840469138477278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216328486193946668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f5dcfe0dfebba42adc4b5a5cf739b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

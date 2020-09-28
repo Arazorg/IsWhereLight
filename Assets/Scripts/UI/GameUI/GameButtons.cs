@@ -330,18 +330,6 @@ public class GameButtons : MonoBehaviour
             donatePanel.GetComponent<MovementUI>().MoveToEnd();
     }
 
-    public void GoToGame()
-    {
-        currentGameInfo.challengeNumber = 2;
-        audioManager.Play("ClickUI");
-        if (SceneManager.GetActiveScene().name == "Lobby")
-        {
-            charInfo.SaveChar();
-            currentGameInfo.SaveCurrentGame();
-        }
-        SceneManager.LoadScene("Game");
-    }
-
     public void FireActStateUp()
     {
         if (!CharAction.isDeath)

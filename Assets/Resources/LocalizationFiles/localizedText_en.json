@@ -27,6 +27,21 @@
     },
 	
 	{
+      "key": "AmplificationText",
+      "value": "Choose Amplifications"
+    },
+		
+	{
+      "key": "AmplificationsPoints",
+      "value": "Amplifications Points:"
+    },
+	
+	{
+      "key": "CurrentAmplifications",
+      "value": "Current Amplifications"
+    },
+	
+	{
       "key": "OtherLanguages",
       "value": "Other languages\nPretty soon..."
     },

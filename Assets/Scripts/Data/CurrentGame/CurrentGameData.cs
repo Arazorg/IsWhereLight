@@ -4,6 +4,7 @@ public class CurrentGameData
     public string character;
     public string skin;
     public string startWeapon;
+    public string[] currentAmplifications = new string[4];
     public int maxHealth;
     public int maxMane;
     public bool wildMode;
@@ -19,6 +20,7 @@ public class CurrentGameData
         character = currentGameInfo.character;
         skin = currentGameInfo.skin;
         startWeapon = currentGameInfo.startWeapon;
+        currentAmplifications = currentGameInfo.currentAmplifications;
         maxHealth = currentGameInfo.maxHealth;
         maxMane = currentGameInfo.maxMane;
         wildMode = currentGameInfo.wildMode;

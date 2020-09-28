@@ -10,6 +10,7 @@ public class CurrentGameInfo : MonoBehaviour
     public string skin;
     public string startWeapon;
     public string characterType;
+    public string[] currentAmplifications;
     public int maxHealth;
     public int maxMane;
     public int challengeNumber;
@@ -36,6 +37,7 @@ public class CurrentGameInfo : MonoBehaviour
         character = currentGameData.character;
         skin = currentGameData.skin;
         startWeapon = currentGameData.startWeapon;
+        currentAmplifications = currentGameData.currentAmplifications;
         maxHealth = currentGameData.maxHealth;
         maxMane = currentGameData.maxMane;
         wildMode = currentGameData.wildMode;
@@ -51,6 +53,7 @@ public class CurrentGameInfo : MonoBehaviour
     {
         currentWave = 0;
         countResurrect = 1;
+        currentAmplifications = new string[4];
     }
 
     public void SaveCurrentGame(string key = "currentGame")

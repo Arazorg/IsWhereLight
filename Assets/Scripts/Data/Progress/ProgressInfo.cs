@@ -9,15 +9,16 @@ public class ProgressInfo : MonoBehaviour
     public Dictionary<string, bool> characters;
     public Dictionary<string, int> secretCodes;
     public Dictionary<string, bool> achivments;
-    public Dictionary<string, bool> weapons;
+    public Dictionary<string, bool> amplifications;
 
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;
+    public int countOfAmplificationPoint;
 
     public int currentCountKilledEnemies;
     public int currentCountShoots;
-
+   
     void Awake()
     {
         if (instance != null)
@@ -55,18 +56,20 @@ public class ProgressInfo : MonoBehaviour
                     achivments[achivment.Key] = achivment.Value;
             }
         }
-        if (data.weapons != null)
+        if (data.amplifications != null)
         {
-            foreach (var weapon in data.weapons)
+            foreach (var amplification in data.amplifications)
             {
-                if (weapons.ContainsKey(weapon.Key))
-                    weapons[weapon.Key] = weapon.Value;
+                if (amplifications.ContainsKey(amplification.Key))
+                    amplifications[amplification.Key] = amplification.Value;
             }
         }
+        
 
         playerMoney = data.playerMoney;
         countKilledEnemies = data.countKilledEnemies;
         countShoots = data.countShoots;
+        countOfAmplificationPoint = data.countOfAmplificationPoint;
     }
 
     public void SaveProgress()
@@ -75,7 +78,7 @@ public class ProgressInfo : MonoBehaviour
         json += $"\n{JsonConvert.SerializeObject(characters)}";
         json += $"\n{JsonConvert.SerializeObject(secretCodes)}";
         json += $"\n{JsonConvert.SerializeObject(achivments)}";
-        json += $"\n{JsonConvert.SerializeObject(weapons)}";
+        json += $"\n{JsonConvert.SerializeObject(amplifications)}";
         NewSaveSystem.Save("progressInfo", json);
     }
 
@@ -102,7 +105,7 @@ public class ProgressInfo : MonoBehaviour
                         data.achivments = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[3]);
                         break;
                     case 4:
-                        data.weapons = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[4]);
+                        data.amplifications = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[4]);
                         break;
                     default:
                         break;
@@ -117,7 +120,7 @@ public class ProgressInfo : MonoBehaviour
         CharactersInit();
         SecretCodesInit();
         AchivmentsInit();
-        WeaponsInit();
+        AmplificationsInit();
     }
 
     private void CharactersInit()
@@ -152,12 +155,13 @@ public class ProgressInfo : MonoBehaviour
         };
     }
 
-    private void WeaponsInit()
+    private void AmplificationsInit()
     {
-        weapons = new Dictionary<string, bool>
+        amplifications = new Dictionary<string, bool>
         {
-            {"pistol", true },
-            {"staff", true }
+            {"acceleration", true },
+            {"hpBoost", true },
+            {"maneBoost", true }
         };
     }
 
@@ -199,5 +203,13 @@ public class ProgressInfo : MonoBehaviour
             return 0;
         }
         return -1;
+    }
+
+    public bool CheckAmplification(string amplification)
+    {
+        if (amplifications.ContainsKey(amplification))
+            if (amplifications[amplification])
+                return true;
+        return false;
     }
 }

@@ -21,19 +21,21 @@ public class Sword : MonoBehaviour
     public void Hit()
     {
         animator.SetBool("Attack", true);
-        var character = currentWeapon.transform.parent.position;
-        var enemies = Physics2D.OverlapCircleAll(character, currentWeapon.Radius, (1 << LayerMask.NameToLayer("Enemy") | 
+        var character = currentWeapon.transform.parent;
+        var enemies = Physics2D.OverlapCircleAll(transform.position, currentWeapon.Radius, (1 << LayerMask.NameToLayer("Enemy") |
                                                                                         1 << LayerMask.NameToLayer("EnemyStatic")));
         foreach (var enemy in enemies)
         {
             var enemyScript = enemy.GetComponent<Enemy>();
-            var currentAngle = -Mathf.Atan2(enemy.transform.position.x - character.x,
-                                         enemy.transform.position.y - character.y) * Mathf.Rad2Deg;
-            Debug.Log(currentAngle);
+            var currentAngle = (-Mathf.Atan2(enemy.transform.position.x - transform.position.x,
+                                         enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg);
             if (currentAngle > 0)
+                currentAngle *= -1;
+
+            if (character.localScale.x == 1)
             {
-                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngleRight
-                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngleRight)
+                if ((transform.localEulerAngles.z - 360) - currentWeapon.AttackAngleRight <= currentAngle
+                                               && currentAngle <= (transform.localEulerAngles.z - 360) + currentWeapon.AttackAngleLeft)
                 {
                     if (enemy.transform.tag == "Destroyable")
                         enemyScript.DestroyStaticEnemy();
@@ -43,8 +45,8 @@ public class Sword : MonoBehaviour
             }
             else
             {
-                if (currentAngle <= transform.rotation.eulerAngles.z + currentWeapon.AttackAngleLeft - 360
-                                                   && currentAngle >= transform.rotation.eulerAngles.z - currentWeapon.AttackAngleLeft - 360)
+                if ((transform.localEulerAngles.z - 360) - currentWeapon.AttackAngleRight <= currentAngle
+                                                   && currentAngle <= (transform.localEulerAngles.z - 360) + currentWeapon.AttackAngleRight)
                 {
                     if (enemy.transform.tag == "Destroyable")
                         enemyScript.DestroyStaticEnemy();

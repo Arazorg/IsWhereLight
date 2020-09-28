@@ -210,8 +210,8 @@ TextureImporter:
         y: 1000
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.498033, y: 0.113300174}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +227,12 @@ TextureImporter:
       name: Blade of Power_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 319
         y: 1000
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.51376915, y: 0.11644745}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,8 +252,8 @@ TextureImporter:
         y: 800
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5255713, y: 0.122742005}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -273,8 +273,8 @@ TextureImporter:
         y: 800
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5334393, y: 0.14162536}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,8 +294,8 @@ TextureImporter:
         y: 600
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.54524153, y: 0.15421447}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -315,8 +315,8 @@ TextureImporter:
         y: 600
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.54917544, y: 0.1793924}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,8 +336,8 @@ TextureImporter:
         y: 400
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.52753836, y: 0.12903671}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,8 +357,8 @@ TextureImporter:
         y: 400
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.49803287, y: 0.116447754}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,12 +374,12 @@ TextureImporter:
       name: Blade of Power_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 200
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.46262652, y: 0.12903649}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,12 +395,12 @@ TextureImporter:
       name: Blade of Power_9
       rect:
         serializedVersion: 2
-        x: 320
-        y: 200
+        x: 319
+        y: 199
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4527914, y: 0.18253975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -417,11 +417,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.4586925, y: 0.13533133}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -441,8 +441,8 @@ TextureImporter:
         y: 0
         width: 320
         height: 200
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.48229665, y: 0.12274222}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

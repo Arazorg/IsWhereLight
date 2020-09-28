@@ -2408,7 +2408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2398335414307126386, guid: e15e22bc5949d9c449c1e54cf35036f7,
+  m_Sprite: {fileID: 2933742895028581260, guid: e15e22bc5949d9c449c1e54cf35036f7,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -2615,7 +2615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6953,7 +6953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2398335414307126386, guid: e15e22bc5949d9c449c1e54cf35036f7,
+  m_Sprite: {fileID: 2933742895028581260, guid: e15e22bc5949d9c449c1e54cf35036f7,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -9934,7 +9934,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280822015
-  m_fontColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9946,7 +9946,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -10626,8 +10626,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\rDo you really want to leave?\r\nProgress will be lost"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0f84dea201d261b47ad3ff3120b22c52, type: 2}
-  m_sharedMaterial: {fileID: -5708717883316627545, guid: 0f84dea201d261b47ad3ff3120b22c52,
+  m_fontAsset: {fileID: 11400000, guid: aca1bb14f44b2db4fbc99d95e58fc922, type: 2}
+  m_sharedMaterial: {fileID: 1051851919365630558, guid: aca1bb14f44b2db4fbc99d95e58fc922,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10652,7 +10652,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.45
+  m_fontSize: 34.7
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1

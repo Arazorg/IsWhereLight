@@ -27,6 +27,21 @@
     },
 	
 	{
+      "key": "AmplificationText",
+      "value": "Выбери усиления"
+    },
+	
+	{
+      "key": "AmplificationsPoints",
+      "value": "Очков усилений:"
+    },
+	
+	{
+      "key": "CurrentAmplifications",
+      "value": "Текущие усиления"
+    },
+	
+	{
       "key": "OtherLanguages",
       "value": "Другие языки\nСовсем скоро..."
     },

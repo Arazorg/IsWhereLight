@@ -17,10 +17,11 @@ MonoBehaviour:
   mainSprite: {fileID: -1128048868050835069, guid: 3d42ccc5743fb4e44ab3a5bbc884ba50,
     type: 3}
   typeOfAttack: 0
-  offset: {x: 0.2, y: -0.45}
-  attackOffset: {x: 0.2, y: -0.45}
+  offset: {x: 0.015, y: -0.365}
+  attackOffset: {x: 0.015, y: -0.365}
   standartAngle: 0
-  attackAngle: 0
+  attackAngleRight: 0
+  attackAngleLeft: 0
   radius: 0
   knoking: 0
   fireRate: 0.5

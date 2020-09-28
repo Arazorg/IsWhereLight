@@ -201,7 +201,6 @@ public class MenuButtons : MonoBehaviour
     {
         if (isAllPanelHide)
         {
-            Debug.Log("!");
             exitButton.GetComponent<MovementUI>().MoveToStart();
             settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
             settingsButton.GetComponent<MovementUI>().MoveToEnd();

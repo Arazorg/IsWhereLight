@@ -17,14 +17,14 @@ MonoBehaviour:
   mainSprite: {fileID: 2157179613550031661, guid: f6587b3a669903c4390840a0deffda7b,
     type: 3}
   typeOfAttack: 1
-  offset: {x: -0.1, y: -0.25}
+  offset: {x: 0, y: -0.35}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
   attackAngleRight: 69.7
   attackAngleLeft: 73.3
-  radius: 1.75
+  radius: 1.7
   knoking: 40
-  fireRate: 0.45
+  fireRate: 0.2
   damage: 6
   critChance: 10
   currentBullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}
