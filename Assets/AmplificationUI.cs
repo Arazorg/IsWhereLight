@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class AmplificationUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+#pragma warning disable 0649
+    [Tooltip("Текст количества очков усилений")]
+    [SerializeField] private TextMeshProUGUI amplificationsPointsText;
+#pragma warning restore 0649
+
+    public int amplificationPoints;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        amplificationPoints = ProgressInfo.instance.countOfAmplificationPoint;
+        amplificationsPointsText.text = amplificationPoints.ToString();
     }
 }

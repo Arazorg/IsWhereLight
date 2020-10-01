@@ -136,6 +136,7 @@ public class CharacterChooseUI : MonoBehaviour
         currentGameInfo.skillTime = currentCharacter.SkillTime;
         characterPrice = currentCharacter.Price;
         currentGameInfo.isLobby = true;
+        currentGameInfo.currentAmplifications = new string[4];
     }
 
     private void SetInfoBar()

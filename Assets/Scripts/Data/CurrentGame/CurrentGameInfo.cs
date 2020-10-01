@@ -33,11 +33,9 @@ public class CurrentGameInfo : MonoBehaviour
 
     private void Init(CurrentGameData currentGameData)
     {
-        SetStartParametrs();
         character = currentGameData.character;
         skin = currentGameData.skin;
         startWeapon = currentGameData.startWeapon;
-        currentAmplifications = currentGameData.currentAmplifications;
         maxHealth = currentGameData.maxHealth;
         maxMane = currentGameData.maxMane;
         wildMode = currentGameData.wildMode;
@@ -53,7 +51,6 @@ public class CurrentGameInfo : MonoBehaviour
     {
         currentWave = 0;
         countResurrect = 1;
-        currentAmplifications = new string[4];
     }
 
     public void SaveCurrentGame(string key = "currentGame")
@@ -64,6 +61,7 @@ public class CurrentGameInfo : MonoBehaviour
 
     public bool LoadCurrentGame(string key = "currentGame")
     {
+        SetStartParametrs();
         var currentGameString = NewSaveSystem.Load(key);
         if (currentGameString != null)
         {

@@ -62,6 +62,7 @@ public class MenuButtons : MonoBehaviour
 
     void Awake()
     {
+        //DeleteAllKeys();
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();

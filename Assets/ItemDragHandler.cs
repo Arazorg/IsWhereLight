@@ -31,13 +31,22 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDr
         canvasGroup.alpha = 1f;
         if (isStart)
         {
-            transform.parent = startParent;
-            rectTransform.anchoredPosition = startPos;
+            var currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+            for(int i = 0; i <  currentGameInfo.currentAmplifications.Length; i++)
+            {
+                if (currentGameInfo.currentAmplifications[i] == GetComponent<Amplification>().AmplificationName)
+                    currentGameInfo.currentAmplifications[i] = "";
+            }
+            SetStart();
         }
+            
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
+    public void OnDrop(PointerEventData eventData){}
 
+    public void SetStart()
+    {
+        transform.parent = startParent;
+        rectTransform.anchoredPosition = startPos;
     }
 }

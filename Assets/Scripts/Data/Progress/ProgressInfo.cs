@@ -117,6 +117,7 @@ public class ProgressInfo : MonoBehaviour
 
     public void SetStartProgress()
     {
+        countOfAmplificationPoint = 5;
         CharactersInit();
         SecretCodesInit();
         AchivmentsInit();
@@ -159,9 +160,9 @@ public class ProgressInfo : MonoBehaviour
     {
         amplifications = new Dictionary<string, bool>
         {
-            {"acceleration", true },
-            {"hpBoost", true },
-            {"maneBoost", true }
+            {"Acceleration", true },
+            {"HpBoost", true },
+            {"ManeBoost", true }
         };
     }
 
