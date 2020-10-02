@@ -23,12 +23,6 @@ public class CharController : MonoBehaviour
         set { characterAnimator.runtimeAnimatorController = value; }
     }
 
-    public float Speed
-    {
-        get { return speed; }
-        set { speed = value; }
-    }
-
     public GameObject ClosestEnemy
     {
         get { return closestEnemy; }
@@ -50,6 +44,7 @@ public class CharController : MonoBehaviour
     private bool isStop;
     private string currentTag;
     private float startSpeed;
+
     void Start()
     {
         joystick = GameObject.Find($"Joystick").GetComponent<Joystick>();
@@ -59,7 +54,8 @@ public class CharController : MonoBehaviour
         m_FacingRight = true;
         isStop = false;
         currentTag = "Enemy";
-        startSpeed = Speed;
+        speed = GameObject.Find("CharParametrsHandler").GetComponent<CharParametrs>().CharSpeed;
+        startSpeed = GameObject.Find("CharParametrsHandler").GetComponent<CharParametrs>().CharSpeed;
     }
 
     void FixedUpdate()
@@ -170,8 +166,8 @@ public class CharController : MonoBehaviour
     public void SetZeroSpeed(bool isZero)
     {
         if (isZero)
-            Speed = 0;
+            speed = 0;
         else
-            Speed = startSpeed;
+            speed = startSpeed;
     }
 }

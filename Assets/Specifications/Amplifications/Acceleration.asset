@@ -16,3 +16,6 @@ MonoBehaviour:
   amplificationSprite: {fileID: -1395452768043437775, guid: c2b286af284f7394dbbabdc8d82e0f32,
     type: 3}
   amplificationPrice: 1
+  speedBoost: 5
+  hpBoost: 0
+  maneBoost: 0

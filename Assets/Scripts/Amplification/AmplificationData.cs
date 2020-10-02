@@ -25,5 +25,26 @@ public class AmplificationData : ScriptableObject
     {
         get { return amplificationPrice; }
     }
+
+    [Tooltip("Буст скорости")]
+    [SerializeField] private float speedBoost;
+    public float SpeedBoost
+    {
+        get { return speedBoost; }
+    }
+
+    [Tooltip("Буст здоровья")]
+    [SerializeField] private int hpBoost;
+    public int HpBoost
+    {
+        get { return hpBoost; }
+    }
+
+    [Tooltip("Буст маны")]
+    [SerializeField] private int maneBoost;
+    public int ManeBoost
+    {
+        get { return maneBoost; }
+    }
 #pragma warning restore 0649
 }

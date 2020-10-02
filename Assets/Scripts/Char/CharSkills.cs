@@ -223,8 +223,7 @@ public class CharSkills : MonoBehaviour
             startSkillRotation = transform.rotation;
             animator.SetBool("Skill", true);
             transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(false);
-            startSpeed = charController.Speed;
-            charController.Speed = 0;
+            charController.SetZeroSpeed(true);
             Camera.main.GetComponent<CameraShaker>().IsSmooth = false;
             if (currentPhrase != null && isLegionnaireSkill)
                 currentPhrase.DeletePhrase();
@@ -261,7 +260,7 @@ public class CharSkills : MonoBehaviour
                 }
                 audioManager.Play($"{charInfo.character}SkillStart", true);
                 transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(true);
-                charController.Speed = startSpeed;
+                charController.SetZeroSpeed(false);
                 enemies.Clear();
                 animator.SetBool("Skill", false);
                 transform.rotation = startSkillRotation;

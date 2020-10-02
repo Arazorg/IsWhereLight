@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandler
+public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandler, IPointerDownHandler
 {
     public bool isStart;
     private RectTransform rectTransform;
@@ -44,8 +44,16 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDr
 
     public void OnDrop(PointerEventData eventData){}
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        GetComponentInParent<AmplificationUI>().SetAmplificationDescription
+            ($"{GetComponent<Amplification>().AmplificationName}Description", GetComponent<Amplification>().AmplificationPrice.ToString());
+    }
+
     public void SetStart()
     {
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.alpha = 1f;
         transform.parent = startParent;
         rectTransform.anchoredPosition = startPos;
     }

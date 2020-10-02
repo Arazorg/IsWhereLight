@@ -113,7 +113,7 @@
      <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
      <Compile Include="Assets\Scripts\System\Camera\CameraShakePresets.cs" />
      <Compile Include="Assets\Scripts\UI\DonateUI.cs" />
-     <Compile Include="Assets\AmplificationUI.cs" />
+     <Compile Include="Assets\Scripts\UI\AmplificationUI.cs" />
      <Compile Include="Assets\Scripts\System\SaveLoad\Scripts\SaveSystem.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaUserProfileUpdate.cs" />
      <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
@@ -171,11 +171,12 @@
      <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
      <Compile Include="Assets\Scripts\Char\CharSkills.cs" />
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
-     <Compile Include="Assets\CharAmplification.cs" />
-     <Compile Include="Assets\ItemDragHandler.cs" />
-     <Compile Include="Assets\ItemDropHandler.cs" />
-     <Compile Include="Assets\Amplification.cs" />
-     <Compile Include="Assets\AmplificationData.cs" />
+     <Compile Include="Assets\Scripts\UI\ItemDragHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\ItemDropHandler.cs" />
+     <Compile Include="Assets\Scripts\Amplification\Amplification.cs" />
+     <Compile Include="Assets\Scripts\Amplification\AmplificationData.cs" />
+     <Compile Include="Assets\Scripts\Char\CharParametrs.cs" />
+     <Compile Include="Assets\Scripts\Char\CharAmplifications.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

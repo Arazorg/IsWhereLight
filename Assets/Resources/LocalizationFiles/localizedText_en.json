@@ -22,6 +22,16 @@
     },
 	
 	{
+      "key": "Price",
+      "value": "Price"
+    },
+	
+	{
+      "key": "Description",
+      "value": "Description"
+    },
+	
+	{
       "key": "ChooseLanguage",
       "value": "Choose Language"
     },
@@ -39,6 +49,21 @@
 	{
       "key": "CurrentAmplifications",
       "value": "Current Amplifications"
+    },
+	
+	{
+      "key": "AccelerationDescription",
+      "value": "Be faster!"
+    },
+	
+	{
+      "key": "HpBoostDescription",
+      "value": "This will definitely help you survive a couple of extra shots."
+    },
+	
+	{
+      "key": "ManeBoostDescription",
+      "value": "We need more mana!"
     },
 	
 	{
@@ -702,7 +727,7 @@
     },
 
     {
-      "key": "ChallengeDiscover",
+      "key": "Discover",
       "value": "Select and discover"
     },
 

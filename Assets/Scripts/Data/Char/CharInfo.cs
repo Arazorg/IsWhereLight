@@ -5,6 +5,7 @@ public class CharInfo : MonoBehaviour
     private ManaBar manaBar;
     private HealthBar healthBar;
     private CurrentGameInfo currentGameInfo;
+    private CharParametrs charParametrs;
     private CharAction charAction;
 
     public string character;
@@ -53,8 +54,8 @@ public class CharInfo : MonoBehaviour
         skin = currentGameInfo.skin;
         weapons[0] = currentGameInfo.startWeapon;
         weapons[1] = null;
-        maxHealth = currentGameInfo.maxHealth;
-        maxMane = currentGameInfo.maxMane;
+        maxHealth = charParametrs.CharHp;
+        maxMane = charParametrs.CharMane;
         health = maxHealth;
         mane = maxMane;
         money = 0;
@@ -84,7 +85,7 @@ public class CharInfo : MonoBehaviour
 
     private void FindObjects()
     {
-        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
+        GetComponents();
         manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
     }
@@ -99,6 +100,7 @@ public class CharInfo : MonoBehaviour
     private void GetComponents()
     {
         charAction = GetComponent<CharAction>();
+        charParametrs = GameObject.Find("CharParametrsHandler").GetComponent<CharParametrs>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
     }
 

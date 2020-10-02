@@ -11,8 +11,6 @@ public class CurrentGameInfo : MonoBehaviour
     public string startWeapon;
     public string characterType;
     public string[] currentAmplifications;
-    public int maxHealth;
-    public int maxMane;
     public int challengeNumber;
     public int currentWave;
     public int countResurrect;
@@ -36,8 +34,6 @@ public class CurrentGameInfo : MonoBehaviour
         character = currentGameData.character;
         skin = currentGameData.skin;
         startWeapon = currentGameData.startWeapon;
-        maxHealth = currentGameData.maxHealth;
-        maxMane = currentGameData.maxMane;
         wildMode = currentGameData.wildMode;
         isLobby = currentGameData.isLobby;
         challengeNumber = currentGameData.challengeNumber;

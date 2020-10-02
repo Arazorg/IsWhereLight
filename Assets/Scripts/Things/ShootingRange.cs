@@ -141,7 +141,6 @@ public class ShootingRange : MonoBehaviour
         shootingRangeText.GetComponentInParent<MovementUI>().MoveToStart();
         playButton.GetComponent<MovementUI>().MoveToStart();
 
-        startSpeed = player.GetComponent<CharController>().Speed;
         charGun = player.GetComponent<CharGun>();
         startMane = player.GetComponent<CharInfo>().mane;
 
@@ -165,7 +164,7 @@ public class ShootingRange : MonoBehaviour
         else
             charInfo.mane = 60;
         charInfo.SpendMana(0);
-        player.GetComponent<CharController>().Speed = 0;
+        player.GetComponent<CharController>().SetZeroSpeed(true);
         player.transform.position = startStand.transform.position;
         Camera.main.orthographicSize = 7f;
         Camera.main.GetComponent<CameraShaker>().IsMove = false;
@@ -185,7 +184,7 @@ public class ShootingRange : MonoBehaviour
         startStand.gameObject.SetActive(true);
         GameButtons.isChange = true;
         isGame = false;
-        player.GetComponent<CharController>().Speed = startSpeed;
+        player.GetComponent<CharController>().SetZeroSpeed(false);
         charInfo.mane = startMane;
         charInfo.SpendMana(0);
         Camera.main.orthographicSize = 5f;

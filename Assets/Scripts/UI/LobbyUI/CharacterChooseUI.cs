@@ -90,6 +90,7 @@ public class CharacterChooseUI : MonoBehaviour
 
     private Animator animator;
     private CurrentGameInfo currentGameInfo;
+    private CharParametrs charParametrs;
     private ProgressInfo progressInfo;
     private Character currentCharacter;
     private AudioManager audioManager;
@@ -106,7 +107,7 @@ public class CharacterChooseUI : MonoBehaviour
     public void ChooseCharacter(Character character, Animator animator)
     {
         skinCounter = 0;
-
+        charParametrs = GameObject.Find("CharParametrsHandler").GetComponent<CharParametrs>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
 
@@ -129,8 +130,8 @@ public class CharacterChooseUI : MonoBehaviour
     {
         currentGameInfo.character = currentCharacter.CharacterClass;
         currentGameInfo.skin = currentCharacter.Animations[skinCounter].name;
-        currentGameInfo.maxHealth = currentCharacter.MaxHealth;
-        currentGameInfo.maxMane = currentCharacter.MaxMane;
+        charParametrs.CharHp = currentCharacter.MaxHealth;
+        charParametrs.CharMane = currentCharacter.MaxMane;
         currentGameInfo.startWeapon = currentCharacter.StartWeapon;
         currentGameInfo.characterType = currentCharacter.CharacterType;
         currentGameInfo.skillTime = currentCharacter.SkillTime;
@@ -173,8 +174,8 @@ public class CharacterChooseUI : MonoBehaviour
         maneText.GetComponent<LocalizedText>().SetLocalization();
         startWeaponText.GetComponent<LocalizedText>().SetLocalization();
 
-        healthText.text += ": " + currentGameInfo.maxHealth.ToString();
-        maneText.text += ": " + currentGameInfo.maxMane.ToString();
+        healthText.text += ": " + charParametrs.CharHp.ToString();
+        maneText.text += ": " + charParametrs.CharMane.ToString();
         startWeaponText.text += ": " + LocalizedText.SetLocalization(currentGameInfo.startWeapon.ToString());
     }
 

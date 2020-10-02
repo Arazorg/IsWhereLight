@@ -25,4 +25,19 @@ public class Amplification : MonoBehaviour
     {
         get { return data.AmplificationPrice; }
     }
+
+    public float SpeedBoost
+    {
+        get { return data.SpeedBoost; }
+    }
+
+    public int HpBoost
+    {
+        get { return data.HpBoost; }
+    }
+
+    public int ManeBoost
+    {
+        get { return data.ManeBoost; }
+    }
 }

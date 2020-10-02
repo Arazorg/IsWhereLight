@@ -121,6 +121,7 @@ public class GameButtons : MonoBehaviour
         SetStartUI();
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
+        Debug.Log(character.name);
         SetCharScripts();
         
         if (SceneManager.GetActiveScene().name == "Game")
@@ -134,12 +135,12 @@ public class GameButtons : MonoBehaviour
             currentGameInfo.SetIsLobbyState(false);
             SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
             character.transform.position = SpawnPosition;
+            CharAmplifications.instance.SetAmplifications();
         }
 
         else if (SceneManager.GetActiveScene().name == "Lobby")
         {
             charInfo.SetStartParams();
-            character.GetComponent<CharController>().Speed = 7.5f;
         }
         UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
         SetCharAnim();
