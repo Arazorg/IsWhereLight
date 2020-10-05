@@ -7,9 +7,6 @@ public class CharController : MonoBehaviour
     [Tooltip("Аниматор персонажа")]
     [SerializeField] private Animator characterAnimator;
 
-    [Tooltip("CharInfo скрипт")]
-    [SerializeField] private CharInfo charInfo;
-
     [Tooltip("CharGun скрипт")]
     [SerializeField] private CharGun charGun;
 
@@ -38,6 +35,7 @@ public class CharController : MonoBehaviour
     public Joystick joystick;
     private Rigidbody2D rb;
     private Transform gun;
+    private CharInfo charInfo;
 
     private float gunAngle;
     private bool m_FacingRight;
@@ -47,6 +45,7 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
         joystick = GameObject.Find($"Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody2D>() as Rigidbody2D;
         charGun.SpawnStartWeapon();

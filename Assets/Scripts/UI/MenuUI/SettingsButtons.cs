@@ -102,7 +102,7 @@ public class SettingsButtons : MonoBehaviour
         }
         else
         {
-            menuPanel.GetComponent<MenuButtons>().SettingsPanelOpen();
+            menuPanel.GetComponent<MenuButtons>().SettingsPanelOpenClose();
             thanksPanel.GetComponent<MovementUI>().MoveToStart();
         }
     }
@@ -110,8 +110,7 @@ public class SettingsButtons : MonoBehaviour
     public void SettingsPanelClose()
     {
         audioManager.Play("ClickUI");
-        settingsButton.GetComponent<MovementUI>().MoveToEnd();
-        gameObject.GetComponent<MovementUI>().MoveToStart();
+        GetComponent<MovementUI>().MoveToStart();
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
         musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
@@ -163,9 +162,19 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         IsSecretPanelState = !IsSecretPanelState;
         if (IsSecretPanelState)
+        {
             secretCodePanel.GetComponent<MovementUI>().MoveToEnd();
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
+            musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
+        }
         else
+        {
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
+            if (effectsOn)
+                effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+            if (musicOn)
+                musicVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+        }
         IsLocalizationPanelState = false;
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
         moneyPlusText.text = "";
@@ -179,9 +188,20 @@ public class SettingsButtons : MonoBehaviour
         audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState; //ошибка при выходе в меню из лобби
         if (IsLocalizationPanelState)
+        {
             localizationPanel.GetComponent<MovementUI>().MoveToEnd();
+            effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
+            musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
+        }          
         else
+        {
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            if (effectsOn)
+                effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+            if (musicOn)
+                musicVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+        }
+            
         IsSecretPanelState = false;
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         moneyPlusText.text = "";

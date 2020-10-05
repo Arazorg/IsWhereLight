@@ -29,48 +29,14 @@ public class CurrentGameInfo : MonoBehaviour
         }
     }
 
-    private void Init(CurrentGameData currentGameData)
-    {
-        character = currentGameData.character;
-        skin = currentGameData.skin;
-        startWeapon = currentGameData.startWeapon;
-        wildMode = currentGameData.wildMode;
-        isLobby = currentGameData.isLobby;
-        challengeNumber = currentGameData.challengeNumber;
-        currentWave = currentGameData.currentWave;
-        countResurrect = currentGameData.countResurrect;
-        characterType = currentGameData.characterType;
-        skillTime = currentGameData.skillTime;
-    }
-
     private void SetStartParametrs()
     {
         currentWave = 0;
         countResurrect = 1;
     }
 
-    public void SaveCurrentGame(string key = "currentGame")
-    {
-        string json = JsonUtility.ToJson(this);
-        NewSaveSystem.Save(key, json);
-    }
-
-    public bool LoadCurrentGame(string key = "currentGame")
-    {
-        SetStartParametrs();
-        var currentGameString = NewSaveSystem.Load(key);
-        if (currentGameString != null)
-        {
-            CurrentGameData saveObject = JsonUtility.FromJson<CurrentGameData>(currentGameString);
-            Init(saveObject);
-            return true;
-        };
-        return false;
-    }
-
     public void SetIsLobbyState(bool isLobby)
     {
         this.isLobby = isLobby;
-        SaveCurrentGame();
     }
 }

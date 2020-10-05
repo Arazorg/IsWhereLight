@@ -131,12 +131,6 @@ public class CharAction : MonoBehaviour
     public void Death()
     {
         isDeath = true;
-
-        CurrentGameInfo.instance.SaveCurrentGame("currentGameTemp");
-        charInfo.SaveChar("characterTemp");
-        NewSaveSystem.Delete("currentGame");
-        NewSaveSystem.Delete("character");
-
         AudioManager.instance.Play($"{charInfo.character}Death");
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
@@ -150,17 +144,9 @@ public class CharAction : MonoBehaviour
     public void Revive()
     {
         isDeath = false;
-
-        CurrentGameInfo.instance.LoadCurrentGame("currentGameTemp");
         CurrentGameInfo.instance.countResurrect--;
-        CurrentGameInfo.instance.SaveCurrentGame();
-        charInfo.LoadChar("characterTemp");
         charInfo.Healing(charInfo.maxHealth);
         charInfo.FillMana(charInfo.maxMane);
-        charInfo.SaveChar();
-        NewSaveSystem.Delete("currentGameTemp");
-        NewSaveSystem.Delete("characterTemp");
-
         AudioManager.instance.Play("Revive");
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;

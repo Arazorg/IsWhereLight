@@ -39,8 +39,8 @@ public class ChallengeUI : MonoBehaviour
             challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
             challengeText.GetComponent<LocalizedText>().SetLocalization();
             GetComponent<MovementUI>().MoveToStart();
-            challengePanel.GetComponent<MovementUI>().MoveToStart();
-            amplificationPanel.GetComponent<MovementUI>().MoveToStart();
+            challengePanel.GetComponent<MovementUI>().SetStart();
+            amplificationPanel.GetComponent<MovementUI>().SetStart();
             playButton.GetComponent<MovementUI>().MoveToStart();
             CharAction.isDeath = false;
             GameObject.Find("Character(Clone)").GetComponent<CharController>().SetZeroSpeed(false);
@@ -49,7 +49,7 @@ public class ChallengeUI : MonoBehaviour
 
     public void CancelChooseChallenge()
     {
-        challengeText.GetComponent<LocalizedText>().key = "ChallengeDiscover";
+        challengeText.GetComponent<LocalizedText>().key = "Discover";
         challengeText.GetComponent<LocalizedText>().SetLocalization();
         playButton.GetComponent<MovementUI>().SetStart();
     }
@@ -70,11 +70,6 @@ public class ChallengeUI : MonoBehaviour
     {
         CurrentGameInfo.instance.challengeNumber = 2;
         AudioManager.instance.Play("ClickUI");
-        if (SceneManager.GetActiveScene().name == "Lobby")
-        {
-            GameObject.Find("Character(Clone)").GetComponent<CharInfo>().SaveChar();
-            CurrentGameInfo.instance.SaveCurrentGame();
-        }
         SceneManager.LoadScene("Game");
     }
 }

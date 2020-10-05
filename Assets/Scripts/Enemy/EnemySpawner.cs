@@ -63,8 +63,6 @@ public class EnemySpawner : MonoBehaviour
     {
         CancelInvoke("OutputTime");
         CurrentGameInfo.instance.currentWave++;
-        CurrentGameInfo.instance.SaveCurrentGame();
-        GameObject.Find("Character(Clone)").GetComponent<CharInfo>().SaveChar();
         spawnTimer.GetComponent<MovementUI>().MoveToStart();
         for (int i = 0; i < enemyCount; i++)
         {

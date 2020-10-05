@@ -64,7 +64,7 @@ public class CharSkills : MonoBehaviour
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        charInfo = GetComponent<CharInfo>();
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
         charGun = GetComponent<CharGun>();
         charController = GetComponent<CharController>();
     }
@@ -328,14 +328,14 @@ public class CharSkills : MonoBehaviour
             if (currentPhrase != null && isSkill)
                 currentPhrase.DeletePhrase();
             audioManager.Play($"{charInfo.character}SkillStart");
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         }
         else
         {
             enemiesArrows.Clear();
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillFail");
+            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
         }
     }
 
@@ -382,7 +382,7 @@ public class CharSkills : MonoBehaviour
         audioManager.Play($"{charInfo.character}SkillStart");
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         WeaponSpawner.instance.SetPrefab("TurretWeapon");
         WeaponSpawner.instance.Spawn("TurretWeapon", turret.transform, true);
     }
@@ -416,7 +416,7 @@ public class CharSkills : MonoBehaviour
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
         audioManager.Play($"{charInfo.character}SkillStart");
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         currentCloud = Instantiate(keeperCloud, transform);
         currentCloudTransform = currentCloud.transform;
         CameraShaker.Instance.ShakeOnce(0.5f, 0.5f, .1f, 0.8f);
@@ -515,7 +515,7 @@ public class CharSkills : MonoBehaviour
         audioManager.Play($"{charInfo.character}SkillStart");
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{GetComponent<CharInfo>().character}SkillUsed");
+        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
 
         for (int i = 0; i < counfOfGrenades; i++)
         {

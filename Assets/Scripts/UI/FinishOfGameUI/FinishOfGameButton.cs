@@ -29,7 +29,6 @@ public class FinishOfGameButton : MonoBehaviour
 
     public static int finishGameMoney;
     private ProgressInfo progressInfo;
-    private CurrentGameInfo currentGameInfo;
     private bool isShow;
     private float timeToShow;
     private AudioManager audioManager;
@@ -39,7 +38,6 @@ public class FinishOfGameButton : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.PlayAllSounds();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
-        currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         progressInfo.playerMoney += finishGameMoney;
         progressInfo.SaveProgress();
 
@@ -58,7 +56,7 @@ public class FinishOfGameButton : MonoBehaviour
 
     void Update()
     {
-        if(Time.time > timeToShow && !isShow)
+        if (Time.time > timeToShow && !isShow)
         {
             countKilledEnemiesText.text += progressInfo.currentCountKilledEnemies;
             countShootsText.text += progressInfo.currentCountShoots;
@@ -71,12 +69,23 @@ public class FinishOfGameButton : MonoBehaviour
     public void GoToMenu()
     {
         audioManager.Play("ClickUI");
+        DestroyGameObjects();
         SceneManager.LoadScene("Menu");
     }
 
     public void GoToLobby()
     {
         audioManager.Play("ClickUI");
-        SceneManager.LoadScene("Lobby");
+        DestroyGameObjects();
+        SceneManager.LoadScene("Lobby");        
+    }
+
+    private void DestroyGameObjects()
+    {
+        Destroy(GameObject.Find("CurrentGameHandler"));
+        Destroy(GameObject.Find("LevelGeneration"));
+        Destroy(GameObject.Find("CharParametrsHandler"));
+        Destroy(GameObject.Find("CharInfoHandler"));
+        Destroy(GameObject.Find("CharAmplificationsHandler"));
     }
 }

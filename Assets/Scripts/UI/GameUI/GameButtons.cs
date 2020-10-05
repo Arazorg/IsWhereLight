@@ -121,27 +121,18 @@ public class GameButtons : MonoBehaviour
         SetStartUI();
 
         character = Instantiate(character, SpawnPosition, Quaternion.identity);
-        Debug.Log(character.name);
         SetCharScripts();
-        
-        if (SceneManager.GetActiveScene().name == "Game")
-        {
-            charInfo.LoadChar();
-            currentGameInfo.LoadCurrentGame();
-        }
 
         if (SceneManager.GetActiveScene().name == "Game")
         {
+            CharAmplifications.instance.SetAmplifications();
             currentGameInfo.SetIsLobbyState(false);
             SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
             character.transform.position = SpawnPosition;
-            CharAmplifications.instance.SetAmplifications();
         }
+        charInfo.SetStartParams();
+            
 
-        else if (SceneManager.GetActiveScene().name == "Lobby")
-        {
-            charInfo.SetStartParams();
-        }
         UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
         SetCharAnim();
         moneyText = moneyText.GetComponent<TextMeshProUGUI>();
@@ -164,7 +155,7 @@ public class GameButtons : MonoBehaviour
 
     private void SetCharScripts()
     {
-        charInfo = character.GetComponent<CharInfo>();
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
         charGun = character.GetComponent<CharGun>();
         charAction = character.GetComponent<CharAction>();
         charSkills = character.GetComponent<CharSkills>();

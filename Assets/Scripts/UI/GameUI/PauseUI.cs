@@ -78,7 +78,7 @@ public class PauseUI : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Game")
         {
             ClosePause();
-            DeleteGame();
+            DestroyGameObjects();
             SceneManager.LoadScene("Menu");
         }
         else
@@ -92,12 +92,11 @@ public class PauseUI : MonoBehaviour
         }
     }
 
-    public void GoToMenuExitPanel()
+    public void GoToFinishGame()
     {
         CharAction.isDeath = false;
         ClosePause();
-        DeleteGame();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("FinishGame");
     }
 
     public void CloseExitPanel()
@@ -107,9 +106,12 @@ public class PauseUI : MonoBehaviour
         exitPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
-    private void DeleteGame()
+    private void DestroyGameObjects()
     {
-        NewSaveSystem.Delete("character");
-        NewSaveSystem.Delete("currentGame");
+        Destroy(GameObject.Find("CurrentGameHandler"));
+        Destroy(GameObject.Find("LevelGeneration"));
+        Destroy(GameObject.Find("CharParametrsHandler"));
+        Destroy(GameObject.Find("CharInfoHandler"));
+        Destroy(GameObject.Find("CharAmplificationsHandler"));
     }
 }

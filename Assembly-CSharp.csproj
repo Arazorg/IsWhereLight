@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\UI\GameUI\Bars\ManaBar.cs" />
      <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
-     <Compile Include="Assets\Scripts\Data\Char\CharData.cs" />
      <Compile Include="Assets\Scripts\UI\MenuUI\MovementUI.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack\EnemyDistantAttack.cs" />
      <Compile Include="Assets\Scripts\Data\CurrentGame\CurrentGameInfo.cs" />
@@ -87,7 +86,6 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\LevelSpawner\Room.cs" />
-     <Compile Include="Assets\Scripts\Data\CurrentGame\CurrentGameData.cs" />
      <Compile Include="Assets\Scripts\Bullet\BulletData.cs" />
      <Compile Include="Assets\Scripts\System\Startup\StartupManager.cs" />
      <Compile Include="Assets\AppMetrica\Profile\YandexAppMetricaAttribute.cs" />

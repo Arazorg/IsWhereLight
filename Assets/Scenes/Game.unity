@@ -8191,8 +8191,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2059212700}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: GoToMenuExitPanel
+        m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
+        m_MethodName: GoToFinishGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9272,8 +9272,7 @@ MonoBehaviour:
   skin: 
   startWeapon: 
   characterType: 
-  maxHealth: 0
-  maxMane: 0
+  currentAmplifications: []
   challengeNumber: 0
   currentWave: 0
   countResurrect: 1

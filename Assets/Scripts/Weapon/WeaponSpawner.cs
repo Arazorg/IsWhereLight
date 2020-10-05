@@ -96,7 +96,7 @@ public class WeaponSpawner : MonoBehaviour
 
     public void Spawn(Transform transform, int currentWeaponNumber)
     {
-        charInfo = GameObject.Find("Character(Clone)").GetComponent<CharInfo>();
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
 
         currentCharWeapon[currentWeaponNumber] = Instantiate(spawnPrefab, transform);
         currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);

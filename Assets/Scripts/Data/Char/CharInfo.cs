@@ -2,6 +2,8 @@
 
 public class CharInfo : MonoBehaviour
 {
+    public static CharInfo instance;
+
     private ManaBar manaBar;
     private HealthBar healthBar;
     private CurrentGameInfo currentGameInfo;
@@ -23,18 +25,15 @@ public class CharInfo : MonoBehaviour
     private float timeToDamageSound;
     private bool isDamageSound;
 
-    public void Init(CharData data)
+    void Awake()
     {
-        character = data.character;
-        skin = data.skin;
-        weapons = data.weapons;
-        maxHealth = data.maxHealth;
-        maxMane = data.maxMane;
-        health = data.health;
-        mane = data.mane;
-        money = data.money;      
-        currentCountKilledEnemies = data.currentCountKilledEnemies;
-        currentCountShoots = data.currentCountShoots;
+        if (instance != null)
+            Destroy(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Update()
@@ -48,6 +47,7 @@ public class CharInfo : MonoBehaviour
 
     public void SetStartParams()
     {
+        GetComponents();
         FindObjects();
         weapons = new string[2];
         character = currentGameInfo.character;
@@ -64,25 +64,6 @@ public class CharInfo : MonoBehaviour
         SetObjects();
     }
 
-    public void SaveChar(string key = "character")
-    {
-        string json = JsonUtility.ToJson(this);
-        NewSaveSystem.Save(key, json);
-    }
-
-    public void LoadChar(string key = "character")
-    {
-        GetComponents();
-        SetStartParams();
-        var charString = NewSaveSystem.Load(key);
-        if (charString != null)
-        {
-            CharData saveObject = JsonUtility.FromJson<CharData>(charString);
-            Init(saveObject);
-        };
-        SetObjects();
-    }
-
     private void FindObjects()
     {
         GetComponents();
@@ -92,9 +73,9 @@ public class CharInfo : MonoBehaviour
 
     private void SetObjects()
     {
-        manaBar.SetMaxMin(mane, maxMane, 0);
-        healthBar.SetMaxMin(health, maxHealth, 0);
-        Camera.main.GetComponent<CameraShaker>().Target = transform;
+        manaBar.SetMaxMin(maxMane, maxMane, 0);
+        healthBar.SetMaxMin(maxHealth, maxHealth, 0);
+        Camera.main.GetComponent<CameraShaker>().Target = GameObject.Find("Character(Clone)").transform;
     }
 
     private void GetComponents()

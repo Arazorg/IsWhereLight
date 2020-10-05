@@ -6,9 +6,6 @@ using TMPro;
 public class CharGun : MonoBehaviour
 {
 #pragma warning disable 0649
-    [Tooltip("CharInfo скрипт")]
-    [SerializeField] private CharInfo charInfo;
-
     [Tooltip("Спрайт кнопки(поднятия оружия)")]
     [SerializeField] private Sprite pickUpImage;
 
@@ -25,6 +22,7 @@ public class CharGun : MonoBehaviour
     }
     private int currentWeaponNumber;
 
+    private CharInfo charInfo;
     private GameObject gunInfoBar;
     private GameObject floorGun;
     private Button fireActButton;
@@ -103,6 +101,7 @@ public class CharGun : MonoBehaviour
 
     public void SpawnStartWeapon()
     {
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         gameButtons = characterControlUI.GetComponent<GameButtons>();
         WeaponSpawner.instance.countOfWeapon = 0;

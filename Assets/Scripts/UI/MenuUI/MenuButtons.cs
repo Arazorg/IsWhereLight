@@ -57,6 +57,7 @@ public class MenuButtons : MonoBehaviour
     private int currentHint = 0;
     private bool isAllPanelHide;
     private float isAllPanelHideTime;
+    private bool isSettingsPanel;
     private readonly float achivmentTime = 2f;
     private float timeToAchivment;
 
@@ -66,13 +67,6 @@ public class MenuButtons : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-
-        try
-        {
-            Destroy(GameObject.Find("CurrentGameHandler"));
-            Destroy(GameObject.Find("LevelGeneration"));
-        }
-        catch { }
 
         FilesCheck();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
@@ -189,13 +183,17 @@ public class MenuButtons : MonoBehaviour
         Application.OpenURL("https://twitter.com/arazorg");
     }
 
-    public void SettingsPanelOpen()
+    public void SettingsPanelOpenClose()
     {
         audioManager.Play("ClickUI");
-        audioManager.Play("ClickUI");
-        settingsButton.GetComponent<MovementUI>().MoveToStart();
-        settingsPanel.GetComponent<MovementUI>().MoveToEnd();
-        settingsPanel.GetComponent<SettingsButtons>().CheckMusicEffectsPanels();
+        if (!isSettingsPanel)
+        {
+            settingsPanel.GetComponent<MovementUI>().MoveToEnd();
+            settingsPanel.GetComponent<SettingsButtons>().CheckMusicEffectsPanels();
+        }
+        else
+            settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
+        isSettingsPanel = !isSettingsPanel;
     }
 
     public void AllPanelHide()
@@ -203,8 +201,8 @@ public class MenuButtons : MonoBehaviour
         if (isAllPanelHide)
         {
             exitButton.GetComponent<MovementUI>().MoveToStart();
+            isSettingsPanel = false;
             settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
-            settingsButton.GetComponent<MovementUI>().MoveToEnd();
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
             settingsButtons.IsLocalizationPanelState = false;
