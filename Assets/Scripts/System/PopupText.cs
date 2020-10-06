@@ -54,7 +54,7 @@ public class PopupText : MonoBehaviour
     {
         if (isPhrase)
         {
-            if (transform.GetComponentInParent<CharInfo>() != null)
+           if (transform.parent.GetComponent<CharController>() != null)
             {
                 transform.rotation = Quaternion.Euler(0, 0, -transform.parent.rotation.z);
                 if (transform.parent.localScale.x == -1)
