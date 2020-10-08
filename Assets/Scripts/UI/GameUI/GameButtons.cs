@@ -46,6 +46,9 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Текст в панели")]
     [SerializeField] private TextMeshProUGUI deathPanelText;
 
+    [Tooltip("Текст денег в панели смерти")]
+    [SerializeField] private TextMeshProUGUI deathPanelMoneyText;
+
     [Tooltip("Префаб персонажа")]
     [SerializeField] private GameObject character;
 
@@ -115,6 +118,8 @@ public class GameButtons : MonoBehaviour
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
         pause.SetActive(false);
+        if(SceneManager.GetActiveScene().name == "Game")
+            deathPanelMoneyText.gameObject.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
@@ -284,6 +289,8 @@ public class GameButtons : MonoBehaviour
         {
             priceResurrect = (100 + ((int)((Time.time - startTime) * 2)) % 300);
             deathPanelText.text = priceResurrect.ToString();
+            deathPanelMoneyText.gameObject.SetActive(true);
+            deathPanelMoneyText.text = ProgressInfo.instance.playerMoney.ToString();
             deathPanel.GetComponent<MovementUI>().MoveToEnd();
             Time.timeScale = 0f;
             IsGamePausedState = true;
@@ -309,6 +316,7 @@ public class GameButtons : MonoBehaviour
         AdsManager.AdShow();
         charAction.Revive();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
+        deathPanelMoneyText.gameObject.SetActive(false);
         Time.timeScale = 1f;
         IsGamePausedState = false;
         ShowHideControlUI(true);
@@ -322,6 +330,7 @@ public class GameButtons : MonoBehaviour
             audioManager.Play("ClickUI");
             charAction.Revive();
             deathPanel.GetComponent<MovementUI>().MoveToStart();
+            deathPanelMoneyText.gameObject.SetActive(false);
             Time.timeScale = 1f;
             IsGamePausedState = false;
             ShowHideControlUI(true);

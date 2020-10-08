@@ -9,6 +9,7 @@ public class CharInfo : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
     private CharParametrs charParametrs;
     private CharAction charAction;
+    private GameObject player;
 
     public string character;
     public string skin;
@@ -24,6 +25,7 @@ public class CharInfo : MonoBehaviour
     private readonly float damageSoundTime = 0.75f;
     private float timeToDamageSound;
     private bool isDamageSound;
+    private float timeOfKnoking;
 
     void Awake()
     {
@@ -80,7 +82,7 @@ public class CharInfo : MonoBehaviour
 
     private void GetComponents()
     {
-        charAction = GetComponent<CharAction>();
+        charAction = GameObject.Find("Character(Clone)").GetComponent<CharAction>();
         charParametrs = GameObject.Find("CharParametrsHandler").GetComponent<CharParametrs>();
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
     }
@@ -103,14 +105,17 @@ public class CharInfo : MonoBehaviour
         manaBar.SetMane(mane);
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage, Transform objectTransform = null, float knoking = 0f)
     {
-        if(!GetComponent<CharSkills>().isLegionnaireSkill)
+        if (player == null)
+            player = GameObject.Find("Character(Clone)");
+        if(!player.GetComponent<CharSkills>().isLegionnaireSkill)
         {
             if (health - damage < 0)
                 health = 0;
             else
             {
+                Knoking(player.transform.position + Vector3.one, 500);
                 charAction.IsPlayerHitted = true;
                 charAction.IsEnterFirst = true;
                 if (isDamageSound)
@@ -126,6 +131,17 @@ public class CharInfo : MonoBehaviour
             {
                 charAction.Death();
             }
+        }
+    }
+
+    private void Knoking(Vector3 objectPosition, float weaponKnoking)
+    {
+        if (!CharAction.isDeath && Time.time > timeOfKnoking)
+        {
+            CameraShaker.instance.ShakeOnce(0.5f, 0.5f, .15f, .2f);
+            player.GetComponent<Rigidbody2D>().AddForce
+                (objectPosition.normalized * weaponKnoking);
+            timeOfKnoking = Time.time + 0.5f;
         }
     }
 

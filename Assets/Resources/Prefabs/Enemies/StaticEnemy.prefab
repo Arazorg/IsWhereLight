@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd4d2ec5b01623449098f31a209baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 7327246331232928379, guid: b44f06fc37dec0c46ac35ad8f79b55eb,
+  explosionPrefab: {fileID: 8721383499746475501, guid: b44f06fc37dec0c46ac35ad8f79b55eb,
     type: 3}
   enemyData: {fileID: 0}
   isKnoking: 0

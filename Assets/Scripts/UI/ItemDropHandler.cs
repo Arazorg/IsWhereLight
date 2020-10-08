@@ -34,7 +34,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler, IPointerClickHandler
     private void SetAmplification(PointerEventData eventData)
     {
         var dragAmplification = eventData.pointerDrag.gameObject;
-        dragAmplification.transform.parent = gameObject.transform;
+        dragAmplification.transform.SetParent(gameObject.transform);
         dragAmplification.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         dragAmplification.GetComponent<ItemDragHandler>().isStart = false;
         transform.GetChild(0).GetComponent<Image>().color = new Color(255, 255, 255, 255);

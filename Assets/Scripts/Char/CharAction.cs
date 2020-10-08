@@ -32,7 +32,6 @@ public class CharAction : MonoBehaviour
 
     private Button fireActButton;
     private Transform characterControlUI;
-    private CharInfo charInfo;
     private GameObject challengeUI;
 
     private float timeToOff;
@@ -42,7 +41,6 @@ public class CharAction : MonoBehaviour
     {
         isDeath = false;
         timeToDeathPanel = float.MaxValue;
-        charInfo = GetComponent<CharInfo>();
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
         if(SceneManager.GetActiveScene().name == "Lobby")
@@ -95,7 +93,7 @@ public class CharAction : MonoBehaviour
 
             if (coll.tag == "EnemyBullet")
             {
-                charInfo.Damage(coll.GetComponent<Bullet>().Damage);
+                CharInfo.instance.Damage(coll.GetComponent<Bullet>().Damage);
                 isPlayerHitted = true;
                 isEnterFirst = true;
             }
@@ -132,11 +130,11 @@ public class CharAction : MonoBehaviour
     public void Death()
     {
         isDeath = true;
-        AudioManager.instance.Play($"{charInfo.character}Death");
+        AudioManager.instance.Play($"{CharInfo.instance.character}Death");
         GetComponent<Animator>().SetBool("Death", true);
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         GetComponent<SpriteRenderer>().color = color;
-        transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(false);
+        transform.Find(CharInfo.instance.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(false);
         GetComponent<Rigidbody2D>().simulated = false;
         gameObject.tag = "IgnoreAll";
         timeToDeathPanel = Time.time + 1f;
@@ -146,12 +144,12 @@ public class CharAction : MonoBehaviour
     {
         isDeath = false;
         CurrentGameInfo.instance.countResurrect--;
-        charInfo.Healing(charInfo.maxHealth);
-        charInfo.FillMana(charInfo.maxMane);
+        CharInfo.instance.Healing(CharInfo.instance.maxHealth);
+        CharInfo.instance.FillMana(CharInfo.instance.maxMane);
         AudioManager.instance.Play("Revive");
         GetComponent<Animator>().SetBool("Death", false);
         GetComponent<SpriteRenderer>().color = Color.white;
-        transform.Find(charInfo.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(true);
+        transform.Find(CharInfo.instance.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(true);
         GetComponent<Rigidbody2D>().simulated = true;
         gameObject.tag = "Player";
     }

@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
             {
                 collider.offset = ActionColliderOffset;
                 collider.size = ActionColliderSize;
-            }                
+            }
             else
             {
                 collider.offset = ColliderOffset;
@@ -53,20 +53,20 @@ public class Enemy : MonoBehaviour
         gameObject.tag = "Untagged";
         if (!data.EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
             GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
-        else if(!EnemyName.Contains("Punchbag"))
+        else if (!EnemyName.Contains("Punchbag"))
             gameObject.tag = "Destroyable";
 
         timeOfKnoking = float.MaxValue;
         isEnemyHitted = false;
         isEnterFirst = true;
 
-        if (!data.EnemyName.Contains("Target") && 
+        if (!data.EnemyName.Contains("Target") &&
                 !data.EnemyName.Contains("Static") &&
                     !data.EnemyName.Contains("Thing") &&
                         !data.EnemyName.Contains("Punchbag"))
             GetComponent<EnemyAI>().StartAI();
     }
-    
+
     void Start()
     {
         if (enemyData != null)
@@ -305,7 +305,7 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
     {
-        if(!isDeath)
+        if (!isDeath)
         {
             bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
             if (isCriticalHit)
@@ -313,18 +313,18 @@ public class Enemy : MonoBehaviour
             health -= damage;
             if (!EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
                 Knoking(objectTransform.position, knoking);
-            if(EnemyName.Contains("Punchbag"))
+            if (EnemyName.Contains("Punchbag"))
             {
                 AudioManager.instance.Play("PunchbagDamage");
                 if (objectTransform.position.x > transform.position.x)
                 {
                     GetComponent<Animator>().Play("DamageLeft");
                 }
-                    
+
                 if (objectTransform.position.x < transform.position.x)
                     GetComponent<Animator>().Play("DamageRight");
             }
-            if(!EnemyName.Contains("Thing"))
+            if (!EnemyName.Contains("Thing"))
             {
                 isEnemyHitted = true;
                 PopupText.Create(transform.position, false, isCriticalHit, damage);
@@ -346,7 +346,7 @@ public class Enemy : MonoBehaviour
                         gameObject.tag = "IgnoreAll";
                         GetComponent<SpriteRenderer>().sortingOrder = 1;
                         GetComponent<SpriteRenderer>().color = color;
-                        GetComponent<EnemyAI>().Character.GetComponent<CharInfo>().currentCountKilledEnemies++;
+                        CharInfo.instance.currentCountKilledEnemies++;
                     }
 
                 }
@@ -372,8 +372,8 @@ public class Enemy : MonoBehaviour
             AudioManager.instance.Play("BushDestroy");
             timeToBushDestroySound = Time.time + bushDestroySoundTime;
         }
-            
-        Destroy(Instantiate(explosionPrefab, transform.position, Quaternion.identity), explosionPrefab.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+        Destroy(Instantiate(explosionPrefab, transform.position, Quaternion.identity),
+                     explosionPrefab.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
         Destroy(gameObject);
     }
 
@@ -383,7 +383,7 @@ public class Enemy : MonoBehaviour
         {
             if (!data.EnemyName.Contains("Target") && !EnemyName.Contains("Thing"))
                 gameObject.tag = "Enemy";
-            else if(EnemyName.Contains("Thing"))
+            else if (EnemyName.Contains("Thing"))
                 gameObject.tag = "Thing";
         }
     }

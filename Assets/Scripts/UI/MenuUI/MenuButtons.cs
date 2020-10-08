@@ -197,7 +197,6 @@ public class MenuButtons : MonoBehaviour
             settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
-            exitButton.GetComponent<MovementUI>().MoveToStart();
             settingsButtons.IsLocalizationPanelState = false;
             settingsButtons.IsSecretPanelState = false;
             isAllPanelHide = false;
@@ -206,6 +205,7 @@ public class MenuButtons : MonoBehaviour
     public void OpenExitPanel()
     {
         audioManager.Play("ClickUI");
+        exitButton.GetComponent<MovementUI>().MoveToStart();
         AllPanelHide();
         exitPanel.GetComponent<MovementUI>().MoveToEnd();
     }

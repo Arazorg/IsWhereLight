@@ -13,7 +13,7 @@ public class PopupText : MonoBehaviour
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
         if (!isPhrase)
-            popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
+            popupText.SetupDamage(damageAmount, isCriticalHit, 2.85f);
         else
             popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
@@ -28,7 +28,7 @@ public class PopupText : MonoBehaviour
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
 
         if (!isPhrase)
-            popupText.SetupDamage(damageAmount, isCriticalHit, fontSize);
+            popupText.SetupDamage(damageAmount, isCriticalHit, 2.85f);
         else
             popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
@@ -107,7 +107,7 @@ public class PopupText : MonoBehaviour
         textMesh.SetText(damageAmount.ToString());
         if (isCriticalHit)
         {
-            textMesh.fontSize = fontSize + 2;
+            textMesh.fontSize = fontSize + 0.75f;
             textColor = Color.red;
         }
         else

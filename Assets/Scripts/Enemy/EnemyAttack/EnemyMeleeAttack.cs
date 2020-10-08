@@ -24,8 +24,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        GameObject player = GameObject.Find("Character(Clone)");
-        charInfo = player.GetComponent<CharInfo>();
+        charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
         timeToAttack = Time.time;
 
         var enemy = GetComponent<Enemy>();
