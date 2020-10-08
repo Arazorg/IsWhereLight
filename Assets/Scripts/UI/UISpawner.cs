@@ -97,7 +97,8 @@ public class UISpawner : MonoBehaviour
 
     private void SetPosition()
     {
-        HideShowFPS(true);
+        if(Time.timeScale != 0)
+            HideShowFPS(true);
         var joystickPosition = new Vector2(settingsInfo.joystickPosition[0], settingsInfo.joystickPosition[1]);
         var joystickRectTransform = joystick.GetComponent<RectTransform>();
         joystickRectTransform.anchorMin = Vector2.zero;

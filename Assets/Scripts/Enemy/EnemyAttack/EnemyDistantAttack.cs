@@ -37,6 +37,7 @@ public class EnemyDistantAttack : MonoBehaviour
         enemy = GetComponent<Enemy>();
         fireRate = enemy.FireRate;
         targetTag = enemy.Target;
+
         var bulletData = enemy.DataOfBullet;
         bulletSpeed = bulletData.Speed;
         bulletScatterAngle = bulletData.Scatter;

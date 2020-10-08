@@ -96,7 +96,7 @@ public class PauseSettings : MonoBehaviour
         effectsButton.GetComponentInChildren<ButtonImage>().SetSoundsSprite(settingsInfo.effectsOn);
     }
 
-    public void OpenCloseLocalizationPanel()
+    public void OpenCloseLocalizationPanel(bool isClose = false)
     {       
         audioManager.Play("ClickUI");
         IsLocalizationPanelState = !IsLocalizationPanelState;
@@ -108,7 +108,9 @@ public class PauseSettings : MonoBehaviour
         }
         else
         {
-            localizationPanel.GetComponent<MovementUI>().MoveToStart();          
+            localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            if (isClose)
+                localizationPanel.GetComponent<MovementUI>().SetStart();
             pausePanel.GetComponent<MovementUI>().MoveToEnd();
             settingsText.GetComponent<MovementUI>().MoveToEnd();
         }

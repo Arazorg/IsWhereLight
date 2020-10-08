@@ -15,20 +15,22 @@ public class MovementUI : MonoBehaviour
     [Tooltip("Скорость движения")]
     [SerializeField] float speed;
 #pragma warning restore 0649
+    public bool IsHorizontal
+    {
+        set { isHorizontal = value; }
+    }
 
-    private bool isEnd = false;
-    private bool isStart = false;
-    private bool isMoveToStart = false;
-    private bool isMoveToEnd = false;
     private RectTransform currentUI_Element;
 
-    float timeOfTravel = 0.25f;
-    float currentTime = 0;
-    float normalizedValue;
+    private readonly float timeOfTravel = 0.25f;
+    private float currentTime = 0;
+    private float normalizedValue;
+    private bool isMoveToEnd = false;
+    private bool isMoveToStart = false;
 
     void Start()
     {
-        currentUI_Element = gameObject.GetComponent<RectTransform>();
+        currentUI_Element = GetComponent<RectTransform>();
         currentUI_Element.GetComponent<RectTransform>().anchoredPosition = startPos;
     }
 
@@ -36,6 +38,7 @@ public class MovementUI : MonoBehaviour
     {
         MoveToPosition();
     }
+
     private void MoveToPosition()
     {
         if (Time.timeScale != 0)
@@ -71,7 +74,11 @@ public class MovementUI : MonoBehaviour
         currentUI_Element.GetComponent<RectTransform>().anchoredPosition = startPos;
         isMoveToStart = false;
         isMoveToEnd = false;
-        isEnd = true;
+    }
+
+    public Vector3 GetEndPos()
+    {
+        return currentUI_Element.GetComponent<RectTransform>().anchoredPosition;
     }
 
     public void SetEndPos(Vector3 endPos)

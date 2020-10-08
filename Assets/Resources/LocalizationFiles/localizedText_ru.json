@@ -27,6 +27,11 @@
     },
 	
 	{
+      "key": "WantToQuit",
+      "value": "Вы действительно хотите выйти?"
+    },
+	
+	{
       "key": "Description",
       "value": "Описание"
     },
@@ -1070,7 +1075,7 @@
 	
 	{
       "key": "ThanksText",
-      "value": "В игре использовался контент, распространяемый по лицензии CC BY-ND 3.0.\n\nНаши благодарности данным ресурсам и авторам:\n\nwww.noiseforfun.com\n\nHaelDB opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch http://opengameart.org/users/qubodup\n\nremaxim https://opengameart.org/users/remaxim"
+      "value": "В игре использовался контент, распространяемый по лицензии CC BY-ND 3.0.\n\nНаши благодарности данным ресурсам и авторам:\n\nwww.noiseforfun.com\n\nHaelDB\n opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch\n http://opengameart.org/users/qubodup\n\nremaxim\n https://opengameart.org/users/remaxim"
     },
 	
 	{

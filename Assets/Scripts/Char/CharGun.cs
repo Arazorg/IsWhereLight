@@ -25,9 +25,9 @@ public class CharGun : MonoBehaviour
     private CharInfo charInfo;
     private GameObject gunInfoBar;
     private GameObject floorGun;
-    private Button fireActButton;
     private GameButtons gameButtons;
-    
+    private Button fireActButton;
+       
     void Start()
     {
         var characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");

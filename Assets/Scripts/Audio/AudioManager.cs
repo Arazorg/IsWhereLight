@@ -7,7 +7,6 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
 #pragma warning disable 0649
     [Tooltip("Группа миксеров")]
     [SerializeField] private AudioMixerGroup mixerGroup;
@@ -15,11 +14,10 @@ public class AudioManager : MonoBehaviour
     [Tooltip("Звуки")]
     [SerializeField] private Sound[] sounds;
 #pragma warning restore 0649
+
     private SettingsInfo settingsInfo;
     private Sound theme;
 
-    private bool musicOn;
-    private bool effectsOn;
     void Awake()
     {
         if (instance != null)
@@ -31,8 +29,6 @@ public class AudioManager : MonoBehaviour
         }
 
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
-        musicOn = settingsInfo.musicOn;
-        effectsOn = settingsInfo.effectsOn;
         theme = null;
 
         foreach (Sound s in sounds)
@@ -42,7 +38,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = mixerGroup;
         }
-        if (musicOn)
+        if (settingsInfo.musicOn)
             Play("Theme");
     }
 
@@ -70,7 +66,8 @@ public class AudioManager : MonoBehaviour
 
     public Sound Play(string sound, bool loop = false)
     {
-        if ((sound == "Theme" && musicOn == true) || (sound != "Theme" && effectsOn == true))
+        if ((sound == "Theme" && settingsInfo.musicOn == true) 
+                || (sound != "Theme" && settingsInfo.effectsOn == true))
         {
             Sound s = Array.Find(sounds, item => item.nameOfSound == sound);
 
@@ -79,7 +76,7 @@ public class AudioManager : MonoBehaviour
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return null;
             }
-            else if (sound != "Theme" && effectsOn)
+            else if (sound != "Theme" && settingsInfo.effectsOn)
             {
                 s.source.volume = s.volume * 1f * settingsInfo.effectsVolume;
                 s.source.pitch = s.pitch * 1f;
@@ -118,11 +115,11 @@ public class AudioManager : MonoBehaviour
         switch (sound)
         {
             case "Theme":
-                musicOn = true;
+                settingsInfo.musicOn = true;
                 Play(sound);
                 break;
             default:
-                effectsOn = true;
+                settingsInfo.effectsOn = true;
                 break;
         }
     }
@@ -141,10 +138,10 @@ public class AudioManager : MonoBehaviour
         switch (sound)
         {
             case "Theme":
-                musicOn = false;
+                settingsInfo.musicOn = false;
                 break;
             default:
-                effectsOn = false;
+                settingsInfo.effectsOn = false;
                 break;
         }
     }

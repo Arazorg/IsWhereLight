@@ -50,6 +50,7 @@ public class ShootingRange : MonoBehaviour
     [SerializeField] private Button playButton;
 #pragma warning restore 0649
 
+    private GameObject charInfoHandler;
     private GameObject player;
     private CharInfo charInfo;
     private CharGun charGun;
@@ -99,8 +100,9 @@ public class ShootingRange : MonoBehaviour
 
     public void ShowDifficultyPanel()
     {
+        charInfoHandler = GameObject.Find("CharInfoHandler");
         player = GameObject.Find("Character(Clone)");
-        charInfo = player.GetComponent<CharInfo>();
+        charInfo = charInfoHandler.GetComponent<CharInfo>();
         if (charInfo.weapons[0] == "Shooting Range Weapon0" ||
                     charInfo.weapons[1] == "Shooting Range Weapon1")
             shootingRangeUI.GetComponent<MovementUI>().MoveToEnd();
@@ -142,7 +144,7 @@ public class ShootingRange : MonoBehaviour
         playButton.GetComponent<MovementUI>().MoveToStart();
 
         charGun = player.GetComponent<CharGun>();
-        startMane = player.GetComponent<CharInfo>().mane;
+        startMane = charInfoHandler.GetComponent<CharInfo>().mane;
 
         textTimer = (int)gameDuration;
         InvokeRepeating("OutputTime", 1f, 1f);

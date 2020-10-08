@@ -419,7 +419,7 @@ public class CharSkills : MonoBehaviour
         currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         currentCloud = Instantiate(keeperCloud, transform);
         currentCloudTransform = currentCloud.transform;
-        CameraShaker.Instance.ShakeOnce(0.5f, 0.5f, .1f, 0.8f);
+        CameraShaker.instance.ShakeOnce(0.5f, 0.5f, .1f, 0.8f);
     }
 
     private void KeeperSkillUsing()

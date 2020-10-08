@@ -8,6 +8,9 @@ public class InterfaceSettings : MonoBehaviour
     [Tooltip("UI панели меню")]
     [SerializeField] private GameObject menuPanel;
 
+    [Tooltip("UI панели настроек")]
+    [SerializeField] private GameObject settingsPanel;
+
     [Tooltip("UI панели цвета")]
     [SerializeField] private GameObject colorPanel;
 
@@ -80,6 +83,10 @@ public class InterfaceSettings : MonoBehaviour
             hintsText2.GetComponent<MovementUI>().MoveToStart();
             hintTimer2 = float.MaxValue;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && settingsPanel.GetComponent<SettingsButtons>().IsInterfacePanelState)
+            InterfaceSettingsPanelClose();
+
     }
 
     public void InterfaceSettingsPanelClose()
@@ -90,7 +97,9 @@ public class InterfaceSettings : MonoBehaviour
         IsColorPanelState = false;
         colorPanel.GetComponent<MovementUI>().MoveToStart();
         menuPanel.GetComponent<MovementUI>().MoveToStart();
-        gameObject.GetComponent<MovementUI>().MoveToStart();
+        menuPanel.GetComponent<MenuButtons>().SettingsPanelOpenClose();
+        settingsPanel.GetComponent<SettingsButtons>().IsInterfacePanelState = false;
+        GetComponent<MovementUI>().MoveToStart();
     }
 
     public void SaveSettings()
@@ -200,13 +209,13 @@ public class InterfaceSettings : MonoBehaviour
             hintsText.GetComponent<LocalizedText>().key = "HintVibrationOn";
             hintsText.GetComponent<LocalizedText>().SetLocalization();
             vibrationText.GetComponent<LocalizedText>().key = "On";
-        }  
+        }
         else
         {
             hintsText.GetComponent<LocalizedText>().key = "HintVibrationOff";
             hintsText.GetComponent<LocalizedText>().SetLocalization();
             vibrationText.GetComponent<LocalizedText>().key = "Off";
-        }            
+        }
         vibrationText.GetComponent<LocalizedText>().SetLocalization();
         vibrationButton.GetComponentInChildren<ButtonImage>().SetVibrationSprite(settingsInfo.isVibration);
     }
@@ -286,13 +295,13 @@ public class InterfaceSettings : MonoBehaviour
             staticJoystickButtonText.color = Color.red;
             dynamicJoystickButtonText.color = Color.white;
         }
-            
+
         if (settingsInfo.fpsOn)
         {
             fpsCounterOnOffText.GetComponent<LocalizedText>().key = "On";
             fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
             fpsCounterButton.GetComponent<Image>().color = Color.red;
-        }  
+        }
         else
         {
             fpsCounterOnOffText.GetComponent<LocalizedText>().key = "Off";

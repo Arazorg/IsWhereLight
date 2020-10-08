@@ -2,13 +2,14 @@
 
 public class EnemyAI : MonoBehaviour
 {
-    private Transform targetTransform;
     public GameObject Character
     {
         get { return character; }
     }
     private GameObject character;
+
     private Enemy enemy;
+    private Transform targetTransform;
 
     public void StartAI()
     {
@@ -22,7 +23,7 @@ public class EnemyAI : MonoBehaviour
         targetTransform = character.transform;
         if (targetTag == "Building")
             targetTransform = GetNearestBuilding();
-        GetComponent<EnemyMovement>().SetCurrentTarget(targetTransform);
+        GetComponent<EnemyMovement>().CurrentTarget = targetTransform;
         
         if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
             GetComponent<EnemyDistantAttack>().ShootTarget = targetTransform;

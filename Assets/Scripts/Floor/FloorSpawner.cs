@@ -16,6 +16,7 @@ public class FloorSpawner : MonoBehaviour
     [Tooltip("Полы")]
     [SerializeField] private Dictionary<GameObject, Floor> floors;
 #pragma warning restore 0649
+
     private Transform floorsTransformLeftTop;
     private Transform floorsTransformRightBot;
 
@@ -40,5 +41,4 @@ public class FloorSpawner : MonoBehaviour
         this.floorsTransformLeftTop = floorsTransformLeftTop;
         this.floorsTransformRightBot = floorsTransformRightBot;
     }
-
 }

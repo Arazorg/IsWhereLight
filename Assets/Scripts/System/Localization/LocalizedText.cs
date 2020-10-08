@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LocalizedText : MonoBehaviour
 {
@@ -11,7 +8,7 @@ public class LocalizedText : MonoBehaviour
     public string addable;
     public string key;
 
-    TextMeshProUGUI text;
+    private TextMeshProUGUI text;
 
     void Start()
     {

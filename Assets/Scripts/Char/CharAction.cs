@@ -29,11 +29,12 @@ public class CharAction : MonoBehaviour
     private bool isPlayerHitted;
 
     public GameObject currentNPC;
-    private GameObject joystick;
+
     private Button fireActButton;
     private Transform characterControlUI;
     private CharInfo charInfo;
     private GameObject challengeUI;
+
     private float timeToOff;
     private float timeToDeathPanel;
 
@@ -77,7 +78,7 @@ public class CharAction : MonoBehaviour
                     fireActButton.GetComponent<Image>().sprite = actionImage;
                     break;
                 case "PortalToForest":
-                    challengeUI.GetComponent<MovementUI>().MoveToEnd();
+                    challengeUI.GetComponent<ChallengeUI>().OpenChallengeUI();
                     GetComponent<CharController>().SetZeroSpeed(true);
                     isDeath = true;
                     break;

@@ -19,6 +19,9 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("UI панели секретного кода")]
     [SerializeField] private GameObject achivmentPanel;
 
+    [Tooltip("UI панели подтверждения выхода")]
+    [SerializeField] private GameObject exitPanel;
+
     [Tooltip("Кнопка 'новая игра'")]
     [SerializeField] private Button newGameButton;
 
@@ -31,7 +34,7 @@ public class MenuButtons : MonoBehaviour
     [Tooltip("Кнопка 'Twitter'")]
     [SerializeField] private Button twitterButton;
 
-    [Tooltip("Кнопка выхода из игры")]
+    [Tooltip("Кнопка выхода")]
     [SerializeField] private Button exitButton;
 
     [Tooltip("Текст подсказок")]
@@ -44,6 +47,7 @@ public class MenuButtons : MonoBehaviour
     //Переменные состояния игры
     public static bool firstRun;
     public static bool firstPlay;
+    public bool isSettingsPanel;
     private bool showHint;
 
     //Скрипты
@@ -57,7 +61,7 @@ public class MenuButtons : MonoBehaviour
     private int currentHint = 0;
     private bool isAllPanelHide;
     private float isAllPanelHideTime;
-    private bool isSettingsPanel;
+
     private readonly float achivmentTime = 2f;
     private float timeToAchivment;
 
@@ -67,12 +71,11 @@ public class MenuButtons : MonoBehaviour
         settingsInfo = GameObject.Find("SettingsHandler").GetComponent<SettingsInfo>();
         progressInfo = GameObject.Find("ProgressHandler").GetComponent<ProgressInfo>();
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
-
+        
         FilesCheck();
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.PlayAllSounds();
-        audioManager.Play("Theme");
         SetStartObjectsActive();
         Camera.main.backgroundColor = Color.black;
         NewHint();
@@ -86,15 +89,6 @@ public class MenuButtons : MonoBehaviour
         {
             isAllPanelHide = true;
             isAllPanelHideTime = Time.time + 0.5f;
-        }
-        if (Application.platform == RuntimePlatform.Android
-            || Application.platform == RuntimePlatform.IPhonePlayer
-                || Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                exitButton.GetComponent<MovementUI>().MoveToEnd();
-            }
         }
 
         if (showHint)
@@ -151,6 +145,7 @@ public class MenuButtons : MonoBehaviour
         vkButton.GetComponent<MovementUI>().MoveToEnd();
         twitterButton.GetComponent<MovementUI>().MoveToEnd();
         hintsText.GetComponent<MovementUI>().MoveToEnd();
+        exitButton.GetComponent<MovementUI>().MoveToEnd();
     }
 
     private void NewHint()
@@ -171,16 +166,9 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
-    public void LinkToVk()
+    public void LinkTo(string link)
     {
-        //audioManager.Play("ClickUI");
-        Application.OpenURL("https://vk.com/arazorg");
-    }
-
-    public void LinkToTwitter()
-    {
-        // audioManager.Play("ClickUI");
-        Application.OpenURL("https://twitter.com/arazorg");
+        Application.OpenURL(link);
     }
 
     public void SettingsPanelOpenClose()
@@ -189,10 +177,15 @@ public class MenuButtons : MonoBehaviour
         if (!isSettingsPanel)
         {
             settingsPanel.GetComponent<MovementUI>().MoveToEnd();
+            exitButton.GetComponent<MovementUI>().MoveToEnd();
+            exitPanel.GetComponent<MovementUI>().MoveToStart();
             settingsPanel.GetComponent<SettingsButtons>().CheckMusicEffectsPanels();
         }
         else
+        {
             settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
+        }
+            
         isSettingsPanel = !isSettingsPanel;
     }
 
@@ -200,15 +193,28 @@ public class MenuButtons : MonoBehaviour
     {
         if (isAllPanelHide)
         {
-            exitButton.GetComponent<MovementUI>().MoveToStart();
             isSettingsPanel = false;
             settingsPanel.GetComponent<SettingsButtons>().SettingsPanelClose();
             secretCodePanel.GetComponent<MovementUI>().MoveToStart();
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
+            exitButton.GetComponent<MovementUI>().MoveToStart();
             settingsButtons.IsLocalizationPanelState = false;
             settingsButtons.IsSecretPanelState = false;
             isAllPanelHide = false;
         }
+    }
+    public void OpenExitPanel()
+    {
+        audioManager.Play("ClickUI");
+        AllPanelHide();
+        exitPanel.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    public void CloseExitPanel()
+    {       
+        audioManager.Play("ClickUI");
+        exitButton.GetComponent<MovementUI>().MoveToEnd();
+        exitPanel.GetComponent<MovementUI>().MoveToStart();
     }
 
     public void ExitGame()

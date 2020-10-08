@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 [CreateAssetMenu(menuName = "Amplifications/Standart Amplification", fileName = "New Amplification")]
 public class AmplificationData : ScriptableObject
 {

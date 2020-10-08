@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
@@ -8,6 +6,11 @@ public class EnemyMeleeAttack : MonoBehaviour
     [Tooltip("Player's layer")]
     [SerializeField] private LayerMask playerLayers;
 #pragma warning restore 0649
+    public bool IsAttack
+    {
+        get { return isAttack; }
+    }
+    private bool isAttack;
 
     private CharInfo charInfo;
     private Animator animator;
@@ -18,7 +21,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float attackAngle;
     private float timeToAttack;
 
-    public bool isAttack;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -39,8 +41,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             isAttack = true;
             Attack();
-        }
-        
+        }      
     }
     
     public void DestroyObstacle()

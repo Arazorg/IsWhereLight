@@ -26,21 +26,9 @@ public class CharParametrs : MonoBehaviour
         }
     }
 
-    public float CharSpeed
-    {
-        get { return charSpeed; }
-        set { charSpeed = value; }
-    }
+    public float CharSpeed { get { return charSpeed; } set { charSpeed = value; } }
 
-    public int CharHp
-    {
-        get { return charHp; }
-        set { charHp = value; }
-    }
+    public int CharHp { get; set; }
 
-    public int CharMane
-    {
-        get { return charMane; }
-        set { charMane = value; }
-    }
+    public int CharMane { get; set; }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
 #pragma warning disable 0649
     [Tooltip("Префаб взрыва статического врага")]
     [SerializeField] private GameObject explosionPrefab;
@@ -22,12 +18,14 @@ public class Enemy : MonoBehaviour
     private bool isDeath = false;
 
     private EnemyData data;
-    private bool isEnemyHitted = false;
-    private bool isEnterFirst = true;
-    private float timeToOff;
-    public bool isKnoking;
-    private float timeOfKnoking;
+
     private static float timeToBushDestroySound;
+    private float timeToOff;
+    private float timeOfKnoking;
+    private bool isEnemyHitted;
+    private bool isEnterFirst;
+    public bool isKnoking;
+
 
     /// <summary>
     /// Initialization of enemy
@@ -59,6 +57,9 @@ public class Enemy : MonoBehaviour
             gameObject.tag = "Destroyable";
 
         timeOfKnoking = float.MaxValue;
+        isEnemyHitted = false;
+        isEnterFirst = true;
+
         if (!data.EnemyName.Contains("Target") && 
                 !data.EnemyName.Contains("Static") &&
                     !data.EnemyName.Contains("Thing") &&

@@ -24,11 +24,19 @@ public class LobbyUI : MonoBehaviour
     [SerializeField] private GameObject characterControlUI;
 #pragma warning restore 0649
 
+    public bool IsLobbyState
+    {
+        get { return isLobbyState; }
+        set { isLobbyState = value; }
+    }
+    private bool isLobbyState;
+
     private string characterKey;
-    private AudioManager audioManager;
+
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
+        isLobbyState = true;
+      
         NewSaveSystem.Delete("character");
         NewSaveSystem.Delete("currentGame");
         Camera.main.backgroundColor = Color.black;
@@ -39,10 +47,17 @@ public class LobbyUI : MonoBehaviour
         ShowLobby();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isLobbyState)
+            BackToMenu();
+    }
+
     public void HideLobby()
     {
         backToLobbyButton.GetComponent<MovementUI>().MoveToStart();
         shopButton.GetComponent<MovementUI>().MoveToStart();
+        isLobbyState = false;
     }
 
     public void ShowLobby()
@@ -50,17 +65,19 @@ public class LobbyUI : MonoBehaviour
         characterTextUI.GetComponent<MovementUI>().MoveToEnd();
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         shopButton.GetComponent<MovementUI>().MoveToEnd();
+        isLobbyState = true;
     }
 
     public void ShowDonatePanel()
     {
         donatePanel.GetComponent<MovementUI>().MoveToEnd();
+        isLobbyState = false;
     }
 
     public void BackToMenu()
     {
-        audioManager.StopAllSounds();
-        audioManager.Play("ClickUI");
+        AudioManager.instance.StopAllSounds();
+        AudioManager.instance.Play("ClickUI");
         SceneManager.LoadScene("Menu");
     }
 }

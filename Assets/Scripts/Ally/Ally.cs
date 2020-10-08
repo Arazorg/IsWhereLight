@@ -1,15 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ally : MonoBehaviour
 {
-
-    private Animator animator;
-    private BulletSpawner bulletSpawner;
-    private float bulletSpeed;
-    private float bulletScatterAngle;
-
     public bool IsDeath
     {
         get { return isDeath; }
@@ -26,14 +18,18 @@ public class Ally : MonoBehaviour
 
     private GameObject closestEnemy = null;
     private Transform gun;
+    private Animator animator;
+
     private float gunAngle;
-    private bool m_FacingRight = true;
     private float timeToShoot;
     private float shootTime;
+    private bool m_FacingRight;
 
     void Start()
     {
+        m_FacingRight = true;
         timeToShoot = float.MinValue;
+
         gun = transform.GetChild(0);
         animator = GetComponent<Animator>();
         gun.localPosition = gun.GetComponent<Weapon>().FirePointPosition;
@@ -143,5 +139,4 @@ public class Ally : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
 }

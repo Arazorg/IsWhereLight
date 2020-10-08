@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StartupManager : MonoBehaviour
@@ -12,5 +11,4 @@ public class StartupManager : MonoBehaviour
             yield return null;
         }
     }
-
 }

@@ -24,10 +24,13 @@ public class Bullet : MonoBehaviour
     public void Init(BulletData data)
     {
         this.data = data;
-        GetComponent<SpriteRenderer>().sprite = data.MainSprite;
+
+        GetComponent<SpriteRenderer>().sprite = MainSprite;
         GetComponent<BoxCollider2D>().size = ColliderSize;
         GetComponent<BoxCollider2D>().offset = ColliderOffset;
+
         bulletSprite = GetComponent<SpriteRenderer>();
+
         animator = GetComponent<Animator>();
         if (Animators.Count != 0)
             animator.runtimeAnimatorController = Animators[0];
@@ -43,8 +46,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public Sprite MainSprite
     {
-        get { return data.MainSprite; }
-        set { }
+        get
+        {
+            return data.MainSprite;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -52,8 +58,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public Vector2 ColliderSize
     {
-        get { return data.ColliderSize; }
-        set { }
+        get
+        {
+            return data.ColliderSize;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -61,8 +70,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public Vector2 ColliderOffset
     {
-        get { return data.ColliderOffset; }
-        set { }
+        get
+        {
+            return data.ColliderOffset;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -70,8 +82,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public List<RuntimeAnimatorController> Animators
     {
-        get { return data.Animators; }
-        set { }
+        get
+        {
+            return data.Animators;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -79,8 +94,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public BulletData.BulletType TypeOfBullet
     {
-        get { return data.TypeOfBullet; }
-        set { }
+        get
+        {
+            return data.TypeOfBullet;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -103,8 +121,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public float Scatter
     {
-        get { return data.Scatter; }
-        set { }
+        get
+        {
+            return data.Scatter;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -112,8 +133,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public float Speed
     {
-        get { return data.Speed; }
-        set { }
+        get
+        {
+            return data.Speed;
+        }
+        protected set { }
     }
 
     /// <summary>
@@ -121,8 +145,11 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public float DeleteTime
     {
-        get { return data.DeleteTime; }
-        set { DeleteTime = value; }
+        get
+        {
+            return data.DeleteTime;
+        }
+        protected set { }
     }
 
     void Update()
@@ -180,24 +207,8 @@ public class Bullet : MonoBehaviour
                 collider.GetComponent<Enemy>().DestroyStaticEnemy();
                 if (!gameObject.tag.Contains("Laser") && !gameObject.tag.Contains("StandartGrenade"))
                     Destroy(gameObject);
-                else if (gameObject.tag.Contains("StandartGrenade"))
-                {
-                    animator.SetBool("Explosion", true);
-                    AudioManager.instance.Play("StandartGrenade");
-                    CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 0.3f);
-                    AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-                    float destroyTime = DeleteTime;
-                    foreach (AnimationClip clip in clips)
-                    {
-                        switch (clip.name)
-                        {
-                            case "Explosion":
-                                destroyTime = clip.length;
-                                break;
-                        }
-                    }
-                    Destroy(gameObject, destroyTime);
-                }
+                else if (gameObject.tag.Contains("StandartGrenade"))               
+                    Destroy(gameObject, GrenadeExplosion());
             }
             else if (((gameObject.tag == "StandartBullet" || gameObject.tag == "HomingArrow") && collider.tag != "Player")
                         || (gameObject.tag == "EnemyBullet" && collider.tag != "Enemy"))
@@ -220,20 +231,7 @@ public class Bullet : MonoBehaviour
             else if (((gameObject.tag == "StandartGrenade" && collider.tag != "Player" && collider.tag != "StandartGrenade")
                         || (gameObject.tag == "EnemyGrenade" && collider.tag != "Enemy" && collider.tag != "EnemyGrenade")))
             {
-                animator.SetBool("Explosion", true);
-                AudioManager.instance.Play("StandartGrenade");
-                CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 0.3f);
-                AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-                float destroyTime = DeleteTime;
-                foreach (AnimationClip clip in clips)
-                {
-                    switch (clip.name)
-                    {
-                        case "Explosion":
-                            destroyTime = clip.length;
-                            break;
-                    }
-                }
+                var destroyTime = GrenadeExplosion();
                 if (gameObject != null)
                 {
                     var enemies = Physics2D.OverlapCircleAll(transform.position, 1f,
@@ -260,5 +258,24 @@ public class Bullet : MonoBehaviour
         endSize = bulletSprite.size.x;
         bulletSprite.size = new Vector2(0, bulletSprite.size.y);
         isStartConstant = true;
+    }
+
+    private float GrenadeExplosion()
+    {
+        animator.SetBool("Explosion", true);
+        AudioManager.instance.Play("StandartGrenade");
+        CameraShaker.instance.ShakeOnce(1f, 1f, .1f, 0.3f);
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        float destroyTime = DeleteTime;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "Explosion":
+                    destroyTime = clip.length;
+                    break;
+            }
+        }
+        return destroyTime;
     }
 }

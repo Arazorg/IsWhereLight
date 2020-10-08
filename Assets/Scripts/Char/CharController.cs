@@ -37,11 +37,11 @@ public class CharController : MonoBehaviour
     private Transform gun;
     private CharInfo charInfo;
 
+    private string currentTag;
+    private float startSpeed;
     private float gunAngle;
     private bool m_FacingRight;
     private bool isStop;
-    private string currentTag;
-    private float startSpeed;
 
     void Start()
     {
@@ -165,8 +165,12 @@ public class CharController : MonoBehaviour
     public void SetZeroSpeed(bool isZero)
     {
         if (isZero)
+        {
             speed = 0;
+            rb.velocity = Vector2.zero;
+        }
+                    
         else
-            speed = startSpeed;
+            speed = startSpeed;         
     }
 }

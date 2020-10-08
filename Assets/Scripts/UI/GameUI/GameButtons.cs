@@ -76,6 +76,7 @@ public class GameButtons : MonoBehaviour
     public static bool IsGamePausedState;
     public static bool isChange = true;
     public static bool IsWeaponStoreState;
+    public static bool isOpenPause = true;
 
     public Transform currentWeapon; // заменить на свойтсво(21 ссылка)
 
@@ -96,7 +97,7 @@ public class GameButtons : MonoBehaviour
     private bool isAttackUp;
     private bool isStaticAttack;
     private int priceResurrect;
-    private int manecost; 
+    private int manecost;
 
     private void Awake()
     {
@@ -131,7 +132,7 @@ public class GameButtons : MonoBehaviour
             character.transform.position = SpawnPosition;
         }
         charInfo.SetStartParams();
-            
+
 
         UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
         SetCharAnim();
@@ -171,6 +172,9 @@ public class GameButtons : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OpenPause();
+
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
                 OpenPause();
@@ -179,7 +183,7 @@ public class GameButtons : MonoBehaviour
             AttackDown();
             PrepareAttack();
         }
-            
+
         if (isAttackUp && !CharAction.isDeath)
             AttackUp();
 
@@ -194,15 +198,19 @@ public class GameButtons : MonoBehaviour
 
     public void OpenPause()
     {
-        audioManager.StopAllSounds();
-        audioManager.Play("ClickUI");
-        Time.timeScale = 0f;
-        IsGamePausedState = true;
-        pause.SetActive(IsGamePausedState);
-        pausePanel.GetComponent<MovementUI>().MoveToEnd();
-        if (SceneManager.GetActiveScene().name == "Lobby")
-            ShootingRange.instance.CloseDifficultyPanel();
-        ShowHideControlUI(false);
+        if(isOpenPause)
+        {
+            audioManager.StopAllSounds();
+            audioManager.Play("ClickUI");
+            Time.timeScale = 0f;
+            IsGamePausedState = true;
+            pause.SetActive(IsGamePausedState);
+            pause.GetComponent<PauseUI>().timeToClose = Time.realtimeSinceStartup + 0.25f;
+            pausePanel.GetComponent<MovementUI>().MoveToEnd();
+            if (SceneManager.GetActiveScene().name == "Lobby")
+                ShootingRange.instance.CloseDifficultyPanel();
+            ShowHideControlUI(false);
+        }      
     }
 
     public void FireActStateDown()
@@ -355,7 +363,7 @@ public class GameButtons : MonoBehaviour
             if (Time.time > nextAttack[charGun.CurrentWeaponNumber])
             {
                 var weaponScript = currentWeapon.GetComponent<Weapon>();
-                CameraShaker.Instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
+                CameraShaker.instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
                                                     weaponScript.ShakeParametrs.roughness,
                                                          weaponScript.ShakeParametrs.fadeInTime,
                                                              weaponScript.ShakeParametrs.fadeOutTime);
@@ -456,7 +464,7 @@ public class GameButtons : MonoBehaviour
                     audioManager.Stop(weaponSound);
                     weaponSound = null;
                 }
-                    
+
                 currentWeapon.GetComponent<ConstantLaser>().StopShoot();
                 isStaticAttack = false;
                 break;

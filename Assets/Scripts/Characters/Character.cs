@@ -26,7 +26,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
 #pragma warning restore 0649
 
     public GameObject playerCharacter;
-    private AudioManager audioManager;
     private PopupText currentPhrase;
 
     private int lastPhrase = -1;
@@ -42,7 +41,6 @@ public class Character : MonoBehaviour, IPointerDownHandler
 
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
         offsetText = new Vector3(0, 0.85f, 0);
         if (transform.localScale.x == 1)
             m_FacingRight = true;
@@ -175,14 +173,13 @@ public class Character : MonoBehaviour, IPointerDownHandler
             isIgnore = false;
             phrasesCount = 0;
         }
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!characterControlUI.gameObject.activeSelf)
         {
-            audioManager.Play("ClickUI");
+            AudioManager.instance.Play("ClickUI");
             lobbyUI.GetComponent<LobbyUI>().HideLobby();
             CameraZoom();
             characterChooseUI.gameObject.SetActive(true);

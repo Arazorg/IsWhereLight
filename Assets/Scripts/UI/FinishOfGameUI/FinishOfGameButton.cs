@@ -56,6 +56,10 @@ public class FinishOfGameButton : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            GoToLobby();
+
         if (Time.time > timeToShow && !isShow)
         {
             countKilledEnemiesText.text += progressInfo.currentCountKilledEnemies;
@@ -77,7 +81,7 @@ public class FinishOfGameButton : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         DestroyGameObjects();
-        SceneManager.LoadScene("Lobby");        
+        SceneManager.LoadScene("Lobby");
     }
 
     private void DestroyGameObjects()

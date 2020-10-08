@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -22,11 +21,13 @@ public class EnemySpawner : MonoBehaviour
     [Tooltip("Текст таймера до спауна")]
     [SerializeField] private TextMeshProUGUI spawnTimerText;
 #pragma warning restore 0649
+
     public static int textTimer;
 
     private GameObject enemyPrefab;
-    private float nextSpawn;
+
     private readonly float spawnRate = 24f;
+    private float nextSpawn; 
     private int counter;
 
     private List<Vector3> spawnPoints = new List<Vector3>();

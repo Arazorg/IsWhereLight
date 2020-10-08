@@ -20,12 +20,12 @@ public class PauseUI : MonoBehaviour
     [Tooltip("Текст настроек паузы")]
     [SerializeField] private TextMeshProUGUI settingsText;
 #pragma warning restore 0649
+    public static bool IsSettingsState;
+    public float timeToClose;
 
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
     private GameButtons gameButtons;
-
-    public static bool IsSettingsState;
 
     void Start()
     {
@@ -35,12 +35,23 @@ public class PauseUI : MonoBehaviour
         gameButtons = GameObject.Find("CharacterControlUI").GetComponent<GameButtons>();
     }
 
+    void Update()
+    {
+       if (Input.GetKeyDown(KeyCode.Escape) 
+                && Time.realtimeSinceStartup > timeToClose)
+            ClosePause();
+    }
+
     public void ClosePause()
     {
         audioManager.PlayAllSounds();
         audioManager.Play("ClickUI");
         settingsText.GetComponent<MovementUI>().SetStart();
         soundVolumePanel.GetComponent<MovementUI>().SetStart();
+        if(PauseSettings.IsLocalizationPanelState)
+            pauseSettingsPanel.GetComponent<PauseSettings>().OpenCloseLocalizationPanel(true);
+        if (SceneManager.GetActiveScene().name == "Game")
+            exitPanel.GetComponent<MovementUI>().SetStart();
         Time.timeScale = 1f;
         settingsInfo.SaveSettings();
         GameButtons.IsGamePausedState = false;

@@ -3,21 +3,26 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private bool m_FacingRight;
+    public Transform CurrentTarget
+    {
+        get { return currentTarget; }
+        set { currentTarget = value; }
+    }
     private Transform currentTarget;
-    private Vector3 roamPosition;
-    private float timeToNewRoam;
 
     private Enemy enemy;
     private EnemyMeleeAttack enemyMeleeAttack;
-    private EnemyDistantAttack enemyDistantAttack;
     private Rigidbody2D rb;
+
+    private Vector3 roamPosition;
+    private bool m_FacingRight;
+    private float timeToNewRoam;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         enemy = GetComponent<Enemy>();
         enemyMeleeAttack = GetComponent<EnemyMeleeAttack>();
-        enemyDistantAttack = GetComponent<EnemyDistantAttack>();
         timeToNewRoam = float.MaxValue;
         SetFacing();
     }
@@ -40,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
                     if (Vector3.Distance(transform.position, transform.position + roamPosition) < distanceNewRoam
                                         || Time.time > timeToNewRoam)
                     {
-                        if (enemyMeleeAttack.isAttack)
+                        if (enemyMeleeAttack.IsAttack)
                         {
                             roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 3);
                         }
@@ -109,11 +114,6 @@ public class EnemyMovement : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    public void SetCurrentTarget(Transform target)
-    {
-        currentTarget = target;
     }
 
     private Vector2 CalculateScreenSizeInWorldCoords()

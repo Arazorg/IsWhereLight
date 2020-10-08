@@ -51,19 +51,18 @@ public class SettingsButtons : MonoBehaviour
     [SerializeField] private Slider sliderEffects;
 #pragma warning restore 0649
 
-    //Скрипты
+    public bool IsLocalizationPanelState = false;
+    public bool IsSecretPanelState = false;
+    public bool IsThanksPanelState = false;
+    public bool IsInterfacePanelState = false;
+
     private AudioManager audioManager;
     private SettingsInfo settingsInfo;
     private LocalizationManager localizationManager;
     private ProgressInfo progressInfo;
 
-    //Переменные состояния игры
-    public bool IsLocalizationPanelState = false;
-    public bool IsSecretPanelState = false;
-    public bool IsThanksPanelState = false;
     private bool musicOn;
     private bool effectsOn;
-
 
     void Start()
     {
@@ -73,7 +72,7 @@ public class SettingsButtons : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
 
         musicOn = settingsInfo.musicOn;
-        effectsOn = settingsInfo.effectsOn;
+        effectsOn = settingsInfo.effectsOn;       
 
         sliderMusic.value = settingsInfo.musicVolume;
         sliderEffects.value = settingsInfo.effectsVolume;
@@ -88,6 +87,7 @@ public class SettingsButtons : MonoBehaviour
         menuPanel.GetComponent<MenuButtons>().AllPanelHide();
         menuPanel.GetComponent<MovementUI>().MoveToEnd();
         interfaceSettingsPanel.GetComponent<MovementUI>().MoveToEnd();
+        IsInterfacePanelState = true;
     }
 
     public void ThanksPanelOpenClose()
@@ -114,7 +114,7 @@ public class SettingsButtons : MonoBehaviour
         secretCodePanel.GetComponent<MovementUI>().MoveToStart();
         localizationPanel.GetComponent<MovementUI>().MoveToStart();
         musicVolumePanel.GetComponent<MovementUI>().MoveToStart();
-        effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();
+        effectsVolumePanel.GetComponent<MovementUI>().MoveToStart();     
     }
 
     public void MusicOnOff()
@@ -196,10 +196,11 @@ public class SettingsButtons : MonoBehaviour
         else
         {
             localizationPanel.GetComponent<MovementUI>().MoveToStart();
-            if (effectsOn)
-                effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
             if (musicOn)
                 musicVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+            if (effectsOn)
+                effectsVolumePanel.GetComponent<MovementUI>().MoveToEnd();
+            
         }
             
         IsSecretPanelState = false;

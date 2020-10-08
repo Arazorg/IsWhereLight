@@ -27,6 +27,11 @@
     },
 	
 	{
+      "key": "WantToQuit",
+      "value": "Are you sure you want to quit?"
+    },
+	
+	{
       "key": "Description",
       "value": "Description"
     },
@@ -1058,7 +1063,7 @@
 	
 	{
       "key": "ThanksText",
-      "value": "The game used content licensed under the CC BY-ND 3.0 license.\n\nOur thanks to these resources and authors:\n\nwww.noiseforfun.com\n\nHaelDB opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch http://opengameart.org/users/qubodup\n\nremaxim https://opengameart.org/users/remaxim"
+      "value": "The game used content licensed under the CC BY-ND 3.0 license.\n\nOur thanks to these resources and authors:\n\nwww.noiseforfun.com\n\nHaelDB\n opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch\n http://opengameart.org/users/qubodup\n\nremaxim\n https://opengameart.org/users/remaxim"
     },
 
 	{

@@ -87,6 +87,12 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Позиция камеры при выборе персонажа")]
     [SerializeField] private Vector3 cameraLobbyPosition;
 #pragma warning restore 0649
+    public bool IsCharacterChooseUI
+    {
+        get { return isCharacterChooseUIState; }
+        set { isCharacterChooseUIState = value; }
+    }
+    private bool isCharacterChooseUIState;
 
     private Animator animator;
     private CurrentGameInfo currentGameInfo;
@@ -98,7 +104,7 @@ public class CharacterChooseUI : MonoBehaviour
     private int characterPrice;
     private int skinCounter;
     private bool isCharacter;
-
+    
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -124,6 +130,8 @@ public class CharacterChooseUI : MonoBehaviour
     {
         if (isCharacter)
             animator.runtimeAnimatorController = currentCharacter.Animations[skinCounter];
+        if (Input.GetKeyDown(KeyCode.Escape))
+            BackToLobby();
     }
 
     public void SetSpecChar()
@@ -262,6 +270,7 @@ public class CharacterChooseUI : MonoBehaviour
         characterText.gameObject.SetActive(false);
         gameObject.SetActive(false);
         characterControlUI.SetActive(true);
+        lobbyUI.SetActive(false);
         GameButtons.SpawnPosition = currentCharacter.transform.position;
         characters.Remove(currentCharacter);
         foreach (var character in characters)

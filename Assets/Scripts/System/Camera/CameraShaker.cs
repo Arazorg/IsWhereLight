@@ -8,7 +8,7 @@ public class CameraShaker : MonoBehaviour
     /// <summary>
     /// The single instance of the CameraShaker in the current scene. Do not use if you have multiple instances.
     /// </summary>
-    public static CameraShaker Instance;
+    public static CameraShaker instance;
     static Dictionary<string, CameraShaker> instanceList = new Dictionary<string, CameraShaker>();
 
     /// <summary>
@@ -76,7 +76,7 @@ public class CameraShaker : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        instance = this;
         instanceList.Add(gameObject.name, this);
     }
 

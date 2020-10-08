@@ -27,6 +27,7 @@ public class BulletSpawner : MonoBehaviour
     private Bullet currentBulletScript;
 
     private BulletData spawnBulletData;
+
     private string currentTag;
 
     public void Spawn()
