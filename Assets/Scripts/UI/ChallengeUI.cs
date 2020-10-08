@@ -33,10 +33,18 @@ public class ChallengeUI : MonoBehaviour
         CurrentGameInfo.instance.challengeNumber = challengeNumber;
 
         if (lastSelectedButton != null)
-            lastSelectedButton.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+        {
+            lastSelectedButton.GetComponent<Image>().color = Color.white;
+            lastSelectedButton.GetComponent<RectTransform>().localScale = Vector3.one;
+        }
+           
         lastSelectedButton = EventSystem.current.currentSelectedGameObject;
         if(lastSelectedButton.GetComponent<Button>() != null)
+        {
             lastSelectedButton.GetComponent<UnityEngine.UI.Image>().color = Color.red;
+            lastSelectedButton.GetComponent<RectTransform>().localScale = new Vector3(1.25f, 1.25f, 1);
+        }
+            
 
         playButton.GetComponent<MovementUI>().MoveToEnd();
         challengeText.GetComponent<LocalizedText>().key = $@"{challenge}ChallengeDescription";
@@ -66,7 +74,10 @@ public class ChallengeUI : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Lobby")
         {
             if (lastSelectedButton != null)
-                lastSelectedButton.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+            {
+                lastSelectedButton.GetComponent<Image>().color = Color.white;
+                lastSelectedButton.GetComponent<RectTransform>().localScale = Vector3.one;
+            }           
             challengeText.GetComponentInParent<MovementUI>().MoveToStart();
             challengeText.GetComponent<LocalizedText>().key = "ChallengeText";
             challengeText.GetComponent<LocalizedText>().SetLocalization();
