@@ -59,7 +59,7 @@ public class ChallengeUI : MonoBehaviour
     }
 
     void Update()
-    {
+    {       
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isChallengeState)
