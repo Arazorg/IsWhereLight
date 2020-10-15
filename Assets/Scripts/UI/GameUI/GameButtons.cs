@@ -239,7 +239,7 @@ public class GameButtons : MonoBehaviour
                     OpenWeaponStore();
                     break;
                 case FireActButtonStateEnum.tvAds:
-                    AdsManager.AdShow();
+                    AdsManager.instance.AdShow();
                     break;
                 case FireActButtonStateEnum.shootingRange:
                     ShootingRange.instance.ShowDifficultyPanel();
@@ -313,7 +313,7 @@ public class GameButtons : MonoBehaviour
     public void RevivePlayerAd()
     {
         audioManager.Play("ClickUI");
-        AdsManager.AdShow();
+        AdsManager.instance.AdShow();
         charAction.Revive();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         deathPanelMoneyText.gameObject.SetActive(false);
