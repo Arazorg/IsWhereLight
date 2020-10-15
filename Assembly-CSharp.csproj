@@ -107,7 +107,7 @@
      <Compile Include="Assets\Scripts\UI\ButtonImage.cs" />
      <Compile Include="Assets\AppMetrica\YMMJSONUtils.cs" />
      <Compile Include="Assets\Scripts\Char\CharAmplifications.cs" />
-     <Compile Include="Assets\PinchZoom.cs" />
+     <Compile Include="Assets\Scripts\UI\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\Data\Progress\ProgressInfo.cs" />
      <Compile Include="Assets\Scripts\Amplification\AmplificationData.cs" />
      <Compile Include="Assets\Scripts\System\Localization\LocalizedText.cs" />
