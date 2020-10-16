@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class CharInfo : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class CharInfo : MonoBehaviour
 
     private ManaBar manaBar;
     private HealthBar healthBar;
+    private TextMeshProUGUI moneyText;
     private CurrentGameInfo currentGameInfo;
     private CharParametrs charParametrs;
     private CharAction charAction;
@@ -71,6 +73,7 @@ public class CharInfo : MonoBehaviour
         GetComponents();
         manaBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<ManaBar>();
         healthBar = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.GetComponentInChildren<HealthBar>();
+        moneyText = GameObject.Find("Canvas").transform.Find("CharacterControlUI").transform.Find("MoneyImage").transform.Find("MoneyText").GetComponent<TextMeshProUGUI>();
     }
 
     private void SetObjects()
@@ -152,5 +155,11 @@ public class CharInfo : MonoBehaviour
         else
             health += healing;
         healthBar.SetHealth(health);
+    }
+
+    public void MoneyPlus(int money)
+    {
+        this.money += money;
+        moneyText.text = this.money.ToString();
     }
 }

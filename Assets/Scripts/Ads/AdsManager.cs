@@ -8,13 +8,18 @@ public class AdsManager : MonoBehaviour
 
 #pragma warning disable 0649
     [Tooltip("ID игры")]
-    [SerializeField] private string gameID;
+    [SerializeField] private string gameIDGoogle;
+
+    [Tooltip("ID игры")]
+    [SerializeField] private string gameIDApple;
 
     [Tooltip("ID игры")]
     [SerializeField] private string placementID;
 #pragma warning restore 0649
 
     public static AdsManager instance;
+
+    private bool isRevive;
     void Awake()
     {
         if (instance != null)
@@ -31,20 +36,19 @@ public class AdsManager : MonoBehaviour
         if (Advertisement.isSupported)
         {
             Advertisement.debugMode = true;
-            Advertisement.Initialize(gameID); //ID here
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+                Advertisement.Initialize(gameIDApple, true);
+            else
+                Advertisement.Initialize(gameIDGoogle, true);
         }
     }
 
     [System.Obsolete]
-    public bool AdShow()
+    public void AdShow(bool isRevive = false)
     {
+        this.isRevive = isRevive;
         if (Advertisement.IsReady())
-        {
-            StartCoroutine(showAdsWithTimeOut(3));
-            return true;
-        }
-        else
-            return false;
+            StartCoroutine(ShowAdsWithTimeOut(3));
     }
 
     public void HandleShowResult(ShowResult result)
@@ -52,10 +56,10 @@ public class AdsManager : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("<color=green>The ad was skipped before reaching the end.</color>");
+                ProgressInfo.instance.MoneyPlus(500);
                 break;
             case ShowResult.Skipped:
-                Debug.Log("<color=yellow>The ad was skipped before reaching the end.</color>");
+                ProgressInfo.instance.MoneyPlus(5);
                 break;
             case ShowResult.Failed:
                 Debug.LogError("<color=red>The ad failed to be shown.</color>");
@@ -64,7 +68,7 @@ public class AdsManager : MonoBehaviour
     }
 
     [System.Obsolete]
-    IEnumerator showAdsWithTimeOut(float timeOut)
+    IEnumerator ShowAdsWithTimeOut(float timeOut)
     {
         //Check if ad is supported on this platform 
         if (!Advertisement.isSupported)
@@ -79,7 +83,10 @@ public class AdsManager : MonoBehaviour
         if (!Advertisement.isInitialized)
         {
             //Initialize ad
-            Advertisement.Initialize(gameID, true);
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+                Advertisement.Initialize(gameIDApple, true);
+            else
+                Advertisement.Initialize(gameIDGoogle, true);
         }
 
 

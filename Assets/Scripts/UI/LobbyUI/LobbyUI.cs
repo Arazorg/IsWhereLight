@@ -22,6 +22,9 @@ public class LobbyUI : MonoBehaviour
 
     [Tooltip("UI управления персонажем")]
     [SerializeField] private GameObject characterControlUI;
+
+    [Tooltip("Объект прибавления денег")]
+    [SerializeField] private GameObject moneyText;
 #pragma warning restore 0649
 
     public bool IsLobbyState
@@ -79,5 +82,11 @@ public class LobbyUI : MonoBehaviour
         AudioManager.instance.StopAllSounds();
         AudioManager.instance.Play("ClickUI");
         SceneManager.LoadScene("Menu");
+    }
+
+    public void HideMoneyPanel()
+    {
+        moneyText.GetComponentInChildren<MovementUI>().SetStart();
+        moneyText.SetActive(false);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ProgressInfo : MonoBehaviour
@@ -18,7 +19,9 @@ public class ProgressInfo : MonoBehaviour
 
     public int currentCountKilledEnemies;
     public int currentCountShoots;
-   
+
+    private GameObject moneyText;
+
     void Awake()
     {
         if (instance != null)
@@ -212,5 +215,15 @@ public class ProgressInfo : MonoBehaviour
             if (amplifications[amplification])
                 return true;
         return false;
+    }
+
+    public void MoneyPlus(int money)
+    {
+        moneyText = GameObject.Find("Canvas").transform.Find("PlayerMoneyPlus").gameObject;
+        moneyText.SetActive(true);
+        playerMoney += money;
+        moneyText.GetComponentInChildren<TextMeshProUGUI>().text = money.ToString();
+        moneyText.GetComponentInChildren<MovementUI>().MoveToEnd();
+        SaveProgress();
     }
 }

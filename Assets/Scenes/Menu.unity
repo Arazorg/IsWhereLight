@@ -7249,8 +7249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a62419c2a1034f4191e2bdb552defa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameID: 3572524
-  placementID: 
+  gameIDGoogle: 3572524
+  gameIDApple: 3572525
+  placementID: video
 --- !u!4 &898800677
 Transform:
   m_ObjectHideFlags: 0

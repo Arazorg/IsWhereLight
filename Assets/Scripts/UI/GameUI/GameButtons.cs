@@ -313,7 +313,7 @@ public class GameButtons : MonoBehaviour
     public void RevivePlayerAd()
     {
         audioManager.Play("ClickUI");
-        AdsManager.instance.AdShow();
+        AdsManager.instance.AdShow(true);
         charAction.Revive();
         deathPanel.GetComponent<MovementUI>().MoveToStart();
         deathPanelMoneyText.gameObject.SetActive(false);
