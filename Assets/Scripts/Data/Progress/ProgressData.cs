@@ -8,6 +8,8 @@ public class ProgressData
     public Dictionary<string, bool> achivments;
     public Dictionary<string, bool> amplifications;
 
+    public Dictionary<string, int> forestLevelsStarsCount;
+
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;

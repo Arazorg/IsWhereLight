@@ -329,28 +329,31 @@ public class Enemy : MonoBehaviour
                 isEnemyHitted = true;
                 PopupText.Create(transform.position, false, isCriticalHit, damage);
                 if (health <= 0)
-                {
-                    if (EnemyName.Contains("Target"))
-                        ShootingRange.instance.Spawn(true);
-                    else
-                    {
-                        AudioManager.instance.Play($"EnemyDeath{UnityEngine.Random.Range(0, 2)}");
-                        GetComponent<Animator>().Play("Death");
-                        foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
-                            Destroy(collider2D);
-
-                        isDeath = true;
-                        GetComponent<Rigidbody2D>().simulated = false;
-
-                        ColorUtility.TryParseHtmlString("#808080", out Color color);
-                        gameObject.tag = "IgnoreAll";
-                        GetComponent<SpriteRenderer>().sortingOrder = 1;
-                        GetComponent<SpriteRenderer>().color = color;
-                        CharInfo.instance.currentCountKilledEnemies++;
-                    }
-
-                }
+                    Death();
             }
+        }
+    }
+
+    private void Death()
+    {
+        if (EnemyName.Contains("Target"))
+            ShootingRange.instance.Spawn(true);
+        else
+        {
+            AudioManager.instance.Play($"EnemyDeath{UnityEngine.Random.Range(0, 2)}");
+            GetComponent<Animator>().Play("Death");
+            foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
+                Destroy(collider2D);
+
+            isDeath = true;
+            GetComponent<Rigidbody2D>().simulated = false;
+
+            ColorUtility.TryParseHtmlString("#808080", out Color color);
+            gameObject.tag = "IgnoreAll";
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+            GetComponent<SpriteRenderer>().color = color;
+            CharInfo.instance.currentCountKilledEnemies++;
+            EnemySpawner.instance.DeleteEnemy(gameObject);
         }
     }
 

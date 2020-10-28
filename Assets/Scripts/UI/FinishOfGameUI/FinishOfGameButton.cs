@@ -47,16 +47,19 @@ public class FinishOfGameButton : MonoBehaviour
         goToMenu.GetComponent<MovementUI>().MoveToEnd();
         countShootsText.GetComponent<MovementUI>().MoveToEnd();
         countKilledEnemiesText.GetComponent<MovementUI>().MoveToEnd();
+
         timeToShow = Time.time + 0.1f;
         isShow = false;
-        NewSaveSystem.Delete("character");
-        NewSaveSystem.Delete("currentGame");
+        if(CurrentGameInfo.instance.isWin)
+            finishOfGameText.GetComponent<LocalizedText>().key = "FinishOfGameWin";
+        else
+            finishOfGameText.GetComponent<LocalizedText>().key = "FinishOfGameLose";
+        finishOfGameText.GetComponent<LocalizedText>().SetLocalization();
         audioManager.Play("Theme");
     }
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
             GoToLobby();
 
@@ -91,5 +94,6 @@ public class FinishOfGameButton : MonoBehaviour
         Destroy(GameObject.Find("CharParametrsHandler"));
         Destroy(GameObject.Find("CharInfoHandler"));
         Destroy(GameObject.Find("CharAmplificationsHandler"));
+        Destroy(GameObject.Find("EnemySpawner"));
     }
 }

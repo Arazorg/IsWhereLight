@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,19 +7,29 @@ public class LevelGeneration : MonoBehaviour
 {
     public static LevelGeneration instance;
 
+    [Serializable]
+    public struct ChallengeType
+    {
+        public string name;
+        public GameObject prefab;
+    }
+
 #pragma warning disable 0649
     [Tooltip("Маска спаун поинтов")]
     [SerializeField] private LayerMask whatIsSpawnPoint;
 
     [Tooltip("Комнаты")]
-    [SerializeField] public GameObject[] rooms;
+    [SerializeField] public ChallengeType[] challenges;
 
     [Tooltip("Спецификация куста")]
     [SerializeField] public EnemyData bushStaticTile;
 #pragma warning restore 0649
 
+
     private Transform leftTop;
     private Transform rightBot;
+    private GameObject currentRoom;
+
     void Awake()
     {
         if (instance != null)
@@ -33,16 +44,19 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    public Vector3 StartSpawnLevel(int roomsNumber)
+    public Vector3 StartSpawnLevel(string challengeName)
     {
         var startSpawn = transform.position;
         transform.position = startSpawn;
-        var room = Instantiate(rooms[roomsNumber], transform.position, Quaternion.identity);
-        leftTop = room.GetComponent<Room>().floorsTransformLeftTop;
-        rightBot = room.GetComponent<Room>().floorsTransformRightBot;
+        foreach (var challenge in challenges)
+            if(challenge.name == challengeName)
+                currentRoom = Instantiate(challenge.prefab, transform.position, Quaternion.identity);
+
+        leftTop = currentRoom.GetComponent<Room>().floorsTransformLeftTop;
+        rightBot = currentRoom.GetComponent<Room>().floorsTransformRightBot;
         SpawnFloor();
         SetEnemySpawnPoints();
-        return room.GetComponent<Room>().characterSpawnPosition.position;
+        return currentRoom.GetComponent<Room>().characterSpawnPosition.position;
     }
 
     private void SpawnFloor()
@@ -53,7 +67,6 @@ public class LevelGeneration : MonoBehaviour
     }
     private void SetEnemySpawnPoints()
     {
-        EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         List<Vector3> spawnPoints = new List<Vector3>();
         for (float x = leftTop.position.x + 0.5f; x <= rightBot.position.x; x++)
         {
@@ -64,8 +77,7 @@ public class LevelGeneration : MonoBehaviour
                     spawnPoints.Add(new Vector3(x, y, 0));
             }
         }
-        enemySpawner.SpawnPoints = spawnPoints;
+        var levelInfo = currentRoom.GetComponent<LevelInfo>();
+        EnemySpawner.instance.SetParameters(spawnPoints, levelInfo.EnemiesSettings, levelInfo.CountOfFlocks, levelInfo.EnemiesCount);
     }
-
-
 }

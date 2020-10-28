@@ -1,16 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+
 #pragma warning disable 0649
     [Tooltip("Список настроек для врагов")]
     [SerializeField] private List<EnemyData> enemySettings;
 
-    [Range(0, 125)]
+    [Tooltip("Количество волн")]
+    [SerializeField] private int countOfFlocks;
+
+    [Range(0, 100)]
     [Tooltip("Количество объектов в пуле")]
-    [SerializeField] private int enemyCount;
+    [SerializeField] private int enemiesCoint;
 
     [Tooltip("Ссылка на префабы врагов")]
     [SerializeField] private GameObject[] enemiesPrefabs;
@@ -22,58 +29,84 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI spawnTimerText;
 #pragma warning restore 0649
 
-    public static int textTimer;
-
-    private GameObject enemyPrefab;
-
-    private readonly float spawnRate = 24f;
-    private float nextSpawn; 
-    private int counter;
-
-    private List<Vector3> spawnPoints = new List<Vector3>();
-    public List<Vector3> SpawnPoints
+    void Awake()
     {
-        get { return spawnPoints; }
-        set 
+        if (instance != null)
+            Destroy(gameObject);
+        else
         {
-            if (value.Count != 0)
-                spawnPoints = value;
-            else
-                spawnPoints.Add(Vector3.zero);
-            textTimer = 5;
-            spawnTimer.GetComponent<MovementUI>().MoveToEnd();
-            InvokeRepeating("OutputTime", 1f, 1f);           
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    void Start()
+    public int textTimer;
+
+    private GameObject enemyPrefab;
+    private List<GameObject> enemies = new List<GameObject>();
+    private List<Vector3> spawnPoints = new List<Vector3>();
+
+    private float nextSpawn;
+    private int counter;
+    private int currentCountOfFlocks = 0;
+
+    public void SetParameters(List<Vector3> spawnPoints, List<EnemyData> enemySettings, int countOfFlocks, int enemiesCoint)
     {
         nextSpawn = Time.time + 5f;
+        if (spawnPoints.Count != 0)
+            this.spawnPoints = spawnPoints;
+        else
+            this.spawnPoints.Add(Vector3.zero);
+
+        this.enemySettings = enemySettings;
+        this.countOfFlocks = countOfFlocks;
+        this.enemiesCoint = enemiesCoint;
+
+        textTimer = 5;
+        spawnTimer.GetComponent<MovementUI>().MoveToEnd();
+        InvokeRepeating("OutputTime", 1f, 1f);
     }
 
     void Update()
     {
         if (Time.time > nextSpawn)
         {
+            spawnTimer.GetComponent<MovementUI>().MoveToStart();
+            CancelInvoke("OutputTime");
             SpawnFlock();
-            nextSpawn = Time.time + spawnRate;
+            nextSpawn = int.MaxValue;
+        }
+
+        if (counter != 0 && enemies.Count == 0)
+        {
+            if (currentCountOfFlocks < countOfFlocks)
+                SpawnFlock();
+            else
+            {
+                CurrentGameInfo.instance.isWin = true;
+                ProgressInfo.instance.SetLevelsForestStar(Regex.Replace(CurrentGameInfo.instance.challengeName, "[0-9]", "", RegexOptions.IgnoreCase));
+                GameButtons.instance.GoToFinishScene();
+                Destroy(gameObject);
+            }
+                
         }
     }
 
     private void SpawnFlock()
     {
-        CancelInvoke("OutputTime");
-        CurrentGameInfo.instance.currentWave++;
-        spawnTimer.GetComponent<MovementUI>().MoveToStart();
-        for (int i = 0; i < enemyCount; i++)
+        for (int i = 0; i < enemiesCoint; i++)
         {
-            Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
+            var currentEnemy = Spawn(enemySettings[Random.Range(0, enemySettings.Count)].EnemyName, counter);
+            if (currentEnemy != null)
+                enemies.Add(currentEnemy);
             counter++;
         }
+        currentCountOfFlocks++;
     }
 
-    public void Spawn(string enemyName, int counter)
+    public GameObject Spawn(string enemyName, int counter)
     {
+        GameObject currentEnemy = null;
         foreach (var data in enemySettings)
         {
             if (data.name == enemyName)
@@ -87,21 +120,27 @@ public class EnemySpawner : MonoBehaviour
                         enemyPrefab = enemiesPrefabs[1];
                         break;
                 }
-                var prefab = Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)], new Quaternion(0, 0, 0, 0));
-                var script = prefab.GetComponent<Enemy>();
-                prefab.name = "Enemy " + counter;
-                prefab.SetActive(true);
+                currentEnemy = Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)], new Quaternion(0, 0, 0, 0));
+                var script = currentEnemy.GetComponent<Enemy>();
+                currentEnemy.name = "Enemy " + counter;
+                currentEnemy.SetActive(true);
                 script.Init(data);
             }
         }
+        return currentEnemy;
     }
 
     private void OutputTime()
     {
         textTimer--;
-        if(textTimer == 0)
+        if (textTimer == 0)
             AudioManager.instance.Play("StartChallenge");
         AudioManager.instance.Play("TimerTick");
         spawnTimerText.text = textTimer.ToString();
+    }
+
+    public void DeleteEnemy(GameObject enemy)
+    {
+        enemies.Remove(enemy);
     }
 }

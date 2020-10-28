@@ -1,5 +1,6 @@
 ﻿using System;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -118,7 +119,7 @@ public class GameButtons : MonoBehaviour
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
         pause.SetActive(false);
-        if(SceneManager.GetActiveScene().name == "Game")
+        if (SceneManager.GetActiveScene().name == "Game")
             deathPanelMoneyText.gameObject.SetActive(false);
         currentGameInfo = GameObject.Find("CurrentGameHandler").GetComponent<CurrentGameInfo>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -133,7 +134,7 @@ public class GameButtons : MonoBehaviour
         {
             CharAmplifications.instance.SetAmplifications();
             currentGameInfo.SetIsLobbyState(false);
-            SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeNumber);
+            SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeName);
             character.transform.position = SpawnPosition;
         }
         charInfo.SetStartParams();
@@ -203,7 +204,7 @@ public class GameButtons : MonoBehaviour
 
     public void OpenPause()
     {
-        if(isOpenPause)
+        if (isOpenPause)
         {
             audioManager.StopAllSounds();
             audioManager.Play("ClickUI");
@@ -215,7 +216,7 @@ public class GameButtons : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Lobby")
                 ShootingRange.instance.CloseDifficultyPanel();
             ShowHideControlUI(false);
-        }      
+        }
     }
 
     public void FireActStateDown()
@@ -266,7 +267,7 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
-            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.textTimer != 0)
+            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.instance.textTimer != 0)
                 spawnTimer.GetComponent<MovementUI>().MoveToEnd();
             UISpawner.instance.HideShowFPS(true);
         }
@@ -303,7 +304,8 @@ public class GameButtons : MonoBehaviour
     public void GoToFinishScene()
     {
         audioManager.StopAllSounds();
-        audioManager.Play("ClickUI");
+        if (!CurrentGameInfo.instance.isWin)
+            audioManager.Play("ClickUI");
         Time.timeScale = 1f;
         ProgressInfo.instance.currentCountShoots = charInfo.currentCountShoots;
         ProgressInfo.instance.currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
@@ -314,12 +316,6 @@ public class GameButtons : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         AdsManager.instance.AdShow(true);
-        charAction.Revive();
-        deathPanel.GetComponent<MovementUI>().MoveToStart();
-        deathPanelMoneyText.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-        IsGamePausedState = false;
-        ShowHideControlUI(true);
     }
 
     public void RevivePlayerMoney()
@@ -328,15 +324,20 @@ public class GameButtons : MonoBehaviour
         {
             ProgressInfo.instance.playerMoney -= priceResurrect;
             audioManager.Play("ClickUI");
-            charAction.Revive();
-            deathPanel.GetComponent<MovementUI>().MoveToStart();
-            deathPanelMoneyText.gameObject.SetActive(false);
-            Time.timeScale = 1f;
-            IsGamePausedState = false;
-            ShowHideControlUI(true);
+            Revive();
         }
         else
             donatePanel.GetComponent<MovementUI>().MoveToEnd();
+    }
+
+    public void Revive()
+    {
+        charAction.Revive();
+        deathPanel.GetComponent<MovementUI>().MoveToStart();
+        deathPanelMoneyText.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        IsGamePausedState = false;
+        ShowHideControlUI(true);
     }
 
     public void FireActStateUp()

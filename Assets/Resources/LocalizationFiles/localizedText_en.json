@@ -752,10 +752,15 @@
     },
 
     {
-      "key": "FinishOfGame",
-      "value": "Finish of game"
+      "key": "FinishOfGameWin",
+      "value": "Yeah! Win!"
     },
-
+	
+	{
+      "key": "FinishOfGameLose",
+      "value": "Get on him, get on him again!"
+    },
+	
     {
       "key": "Stats",
       "value": "Stats:"
@@ -857,72 +862,27 @@
     },
 	
 	{
-      "key": "Forest0ChallengeDescription",
+      "key": "ForestTrainingDescription",
       "value": "Training"
     },
 	
 	{
-      "key": "Forest1ChallengeDescription",
-      "value": "Destroy all monster portals,\n or the monsters will destroy you!"
+      "key": "ForestAttackDescription",
+      "value": "Destroy all monster portals,\nor the monsters will destroy you!"
     },
 
     {
-      "key": "Forest2ChallengeDescription",
-      "value": "The boss will drain your lifeforce,\n you need to kill him asap!"
-    },
-
-    {
-      "key": "Forest3ChallengeDescription",
-      "value": "Blast your way through huge hordes of enemies\n and take what is rightfully yours!"
-    },
-
-    {
-      "key": "Forest4ChallengeDescription",
-      "value": "Destroy all places of power\n that the boss feeds on to defeat him!"
-    },
-
-    {
-      "key": "Forest5ChallengeDescription",
-      "value": "Get the boss trapped in the dark anomaly\n and don't fall into it yourself!"
-    },
-
-    {
-      "key": "Forest6ChallengeDescription",
-      "value": "Manage the turrets wisely and destroy 'em all!"
-    },
-
-    {
-      "key": "Forest7ChallengeDescription",
-      "value": "Someone here knew the big bang theory ..."
-    },
-
-    {
-      "key": "Forest8ChallengeDescription",
-      "value": "The battle of high technologies,\n but your actions will make the difference!"
-    },
-
-    {
-      "key": "Forest9ChallengeDescription",
-      "value": "Heal the mercenaries and survive yourself\n while you're under attack!"
-    },
-
-    {
-      "key": "Forest10ChallengeDescription",
+      "key": "ForestDefenceDescription",
       "value": "Capture all the points faster than enemies!"
     },
 
     {
-      "key": "Forest11ChallengeDescription",
-      "value": "Guys brought this big rig,\n hold on until it destroys the boss!"
-    },
-
-    {
-      "key": "Forest12ChallengeDescription",
-      "value": "Too many of them, it's time to run away!"
+      "key": "ForestHealDescription",
+      "value": "Heal the mercenaries and survive yourself\nwhile you're under attack!"
     },
 	
 	{
-      "key": "Forest13ChallengeDescription",
+      "key": "ForestBossDescription",
       "value": "BOSS!"
     },
 	

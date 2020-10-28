@@ -53,13 +53,16 @@ public class AdsManager : MonoBehaviour
 
     public void HandleShowResult(ShowResult result)
     {
+        //добавить возрождение
         switch (result)
         {
             case ShowResult.Finished:
-                ProgressInfo.instance.MoneyPlus(500);
+                if (isRevive)
+                    GameButtons.instance.Revive();
+                else
+                    ProgressInfo.instance.MoneyPlus(500);
                 break;
             case ShowResult.Skipped:
-                ProgressInfo.instance.MoneyPlus(5);
                 break;
             case ShowResult.Failed:
                 Debug.LogError("<color=red>The ad failed to be shown.</color>");

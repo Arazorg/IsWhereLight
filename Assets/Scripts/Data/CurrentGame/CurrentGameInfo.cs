@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CurrentGameInfo : MonoBehaviour
 {
@@ -11,12 +9,13 @@ public class CurrentGameInfo : MonoBehaviour
     public string startWeapon;
     public string characterType;
     public string[] currentAmplifications;
-    public int challengeNumber;
+    public string challengeName;
     public int currentWave;
     public int countResurrect;
     public float skillTime;
     public bool wildMode;
     public bool isLobby;
+    public bool isWin;
 
     void Awake()
     {

@@ -510,7 +510,7 @@ MonoBehaviour:
   isNotRefresh: 0
   isAdd: 0
   addable: 
-  key: FinishOfGame
+  key: FinishOfGameLose
 --- !u!114 &633884773
 MonoBehaviour:
   m_ObjectHideFlags: 0

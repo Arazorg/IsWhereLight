@@ -12,6 +12,8 @@ public class ProgressInfo : MonoBehaviour
     public Dictionary<string, bool> achivments;
     public Dictionary<string, bool> amplifications;
 
+    public Dictionary<string, int> forestLevelsStarsCount;
+
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;
@@ -43,6 +45,7 @@ public class ProgressInfo : MonoBehaviour
                     characters[character.Key] = character.Value;
             }
         }
+
         if (data.secretCodes != null)
         {
             foreach (var secretCode in data.secretCodes)
@@ -51,6 +54,7 @@ public class ProgressInfo : MonoBehaviour
                     secretCodes[secretCode.Key] = secretCode.Value;
             }
         }
+
         if (data.achivments != null)
         {
             foreach (var achivment in data.achivments)
@@ -59,6 +63,7 @@ public class ProgressInfo : MonoBehaviour
                     achivments[achivment.Key] = achivment.Value;
             }
         }
+
         if (data.amplifications != null)
         {
             foreach (var amplification in data.amplifications)
@@ -67,7 +72,15 @@ public class ProgressInfo : MonoBehaviour
                     amplifications[amplification.Key] = amplification.Value;
             }
         }
-        
+
+        if (data.forestLevelsStarsCount != null)
+        {
+            foreach (var forestLevelStarCount in data.forestLevelsStarsCount)
+            {
+                if (forestLevelsStarsCount.ContainsKey(forestLevelStarCount.Key))
+                    forestLevelsStarsCount[forestLevelStarCount.Key] = forestLevelStarCount.Value;
+            }
+        }
 
         playerMoney = data.playerMoney;
         countKilledEnemies = data.countKilledEnemies;
@@ -82,6 +95,7 @@ public class ProgressInfo : MonoBehaviour
         json += $"\n{JsonConvert.SerializeObject(secretCodes)}";
         json += $"\n{JsonConvert.SerializeObject(achivments)}";
         json += $"\n{JsonConvert.SerializeObject(amplifications)}";
+        json += $"\n{JsonConvert.SerializeObject(forestLevelsStarsCount)}";
         NewSaveSystem.Save("progressInfo", json);
     }
 
@@ -110,6 +124,9 @@ public class ProgressInfo : MonoBehaviour
                     case 4:
                         data.amplifications = JsonConvert.DeserializeObject<Dictionary<string, bool>>(strings[4]);
                         break;
+                    case 5:
+                        data.forestLevelsStarsCount = JsonConvert.DeserializeObject<Dictionary<string, int>>(strings[5]);
+                        break;
                     default:
                         break;
                 }
@@ -125,6 +142,7 @@ public class ProgressInfo : MonoBehaviour
         SecretCodesInit();
         AchivmentsInit();
         AmplificationsInit();
+        ForestLevelsStarsInit();
     }
 
     private void CharactersInit()
@@ -169,6 +187,17 @@ public class ProgressInfo : MonoBehaviour
         };
     }
 
+    private void ForestLevelsStarsInit()
+    {
+        forestLevelsStarsCount = new Dictionary<string, int>
+        {
+            {"ForestAttack", 1 },
+            {"ForestDefence", 1 },
+            {"ForestHeal", 1 },
+            {"ForestBoss", 1 }
+        };
+    }
+
     public bool CharacterAccess(string character)
     {
         if (characters[character])
@@ -179,14 +208,14 @@ public class ProgressInfo : MonoBehaviour
 
     public bool NewAchivment(string achivment)
     {
-        if(achivments.ContainsKey(achivment))
+        if (achivments.ContainsKey(achivment))
         {
-            if(!achivments[achivment])
+            if (!achivments[achivment])
             {
                 achivments[achivment] = true;
                 SaveProgress();
                 return true;
-            }                
+            }
         }
         return false;
     }
@@ -215,6 +244,25 @@ public class ProgressInfo : MonoBehaviour
             if (amplifications[amplification])
                 return true;
         return false;
+    }
+
+    public int CheckLevelsForestStar(string challengeName)
+    {
+        if (forestLevelsStarsCount.ContainsKey(challengeName))
+            return forestLevelsStarsCount[challengeName];
+        else
+            return -1;
+    }
+
+    public void SetLevelsForestStar(string challengeName)
+    {
+        if (forestLevelsStarsCount.ContainsKey(challengeName))
+        {
+            forestLevelsStarsCount[challengeName]++;
+            if (forestLevelsStarsCount[challengeName] > 3)
+                forestLevelsStarsCount[challengeName] = 3;
+        }           
+        SaveProgress();
     }
 
     public void MoneyPlus(int money)

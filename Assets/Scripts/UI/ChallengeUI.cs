@@ -22,15 +22,17 @@ public class ChallengeUI : MonoBehaviour
     [Tooltip("Кнопка запуска игры")]
     [SerializeField] private GameObject playButton;
 #pragma warning restore 0649
+
     private bool isAmplificationState;
     private bool isChallengeState;
     private static GameObject lastSelectedButton = null;
 
-    public void ChooseChallenge(string challenge)
+    public void ChooseChallenge(string challengeName)
     {
         AudioManager.instance.Play("ClickUI");
-        var challengeNumber = Convert.ToInt32(challenge[challenge.Length - 1]);
-        CurrentGameInfo.instance.challengeNumber = challengeNumber;
+        CurrentGameInfo.instance.challengeName = challengeName;
+        if (challengeName != "ForestTraining")
+            CurrentGameInfo.instance.challengeName += ProgressInfo.instance.forestLevelsStarsCount[challengeName];
 
         if (lastSelectedButton != null)
         {
@@ -41,13 +43,12 @@ public class ChallengeUI : MonoBehaviour
         lastSelectedButton = EventSystem.current.currentSelectedGameObject;
         if(lastSelectedButton.GetComponent<Button>() != null)
         {
-            lastSelectedButton.GetComponent<UnityEngine.UI.Image>().color = Color.red;
+            lastSelectedButton.GetComponent<Image>().color = Color.red;
             lastSelectedButton.GetComponent<RectTransform>().localScale = new Vector3(1.25f, 1.25f, 1);
-        }
-            
+        }           
 
         playButton.GetComponent<MovementUI>().MoveToEnd();
-        challengeText.GetComponent<LocalizedText>().key = $@"{challenge}ChallengeDescription";
+        challengeText.GetComponent<LocalizedText>().key = $@"{challengeName}Description";
         challengeText.GetComponent<LocalizedText>().SetLocalization();
     }
 
@@ -118,7 +119,6 @@ public class ChallengeUI : MonoBehaviour
     public void GoToGame()
     {
         GameButtons.isOpenPause = true;
-        CurrentGameInfo.instance.challengeNumber = 2;
         AudioManager.instance.Play("ClickUI");
         SceneManager.LoadScene("Game");
     }

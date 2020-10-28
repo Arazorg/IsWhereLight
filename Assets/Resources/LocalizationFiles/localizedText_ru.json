@@ -722,10 +722,15 @@
       "key": "Stats",
       "value": "Статистика:"
     },
-
+    
     {
-      "key": "FinishOfGame",
-      "value": "Конец игры"
+      "key": "FinishOfGameWin",
+      "value": "Ура! Победа!"
+    },
+	
+	{
+      "key": "FinishOfGameLose",
+      "value": "Увы, попробуйте снова"
     },
 
     {
@@ -874,72 +879,27 @@
     },
 	
 	{
-      "key": "Forest0ChallengeDescription",
+      "key": "ForestTrainingDescription",
       "value": "Обучение"
     },
 	
-    {
-      "key": "Forest1ChallengeDescription",
-      "value": "Уничтожь все порталы с монстрами,\n или монстры уничтожат тебя!"
+	{
+      "key": "ForestAttackDescription",
+      "value": "Уничтожь все порталы с монстрами,\nили монстры уничтожат тебя!""
     },
 
     {
-      "key": "Forest2ChallengeDescription",
-      "value": "Босс будет вытягивать из тебя жизненную силу,\n нужно уничтожить его как можно скорее!"
-    },
-
-    {
-      "key": "Forest3ChallengeDescription",
-      "value": "Прорвись сквозь огромные полчища врагов и захвати то,\n что принадлежит тебе по праву!"
-    },
-
-    {
-      "key": "Forest4ChallengeDescription",
-      "value": "Уничтожь все места силы, которыми питается босс,\n чтобы победить его!"
-    },
-
-    {
-      "key": "Forest5ChallengeDescription",
-      "value": "Замани босса в ловушку темной аномалии\n и не попадись в нее сам!"
-    },
-
-    {
-      "key": "Forest6ChallengeDescription",
-      "value": "Грамотно управляй турелями и уничтожь их всех!"
-    },
-
-    {
-      "key": "Forest7ChallengeDescription",
-      "value": "Кто-то тут знал теорию большого взрыва..."
-    },
-
-    {
-      "key": "Forest8ChallengeDescription",
-      "value": "Битва высоких технологий, все решат твои действия!"
-    },
-
-    {
-      "key": "Forest9ChallengeDescription",
-      "value": "Исцеляй наемников и выживи сам, пока вас атакуют!"
-    },
-
-    {
-      "key": "Forest10ChallengeDescription",
+      "key": "ForestDefenceDescription",
       "value": "Захвати все точки быстрее врагов!"
     },
 
     {
-      "key": "Forest11ChallengeDescription",
-      "value": "Ребята притащили эту установку,\n продержись, пока она не сотрет босса с лица земли!"
-    },
-
-    {
-      "key": "Forest12ChallengeDescription",
-      "value": "Их слишком много, убегай!"
+      "key": "ForestHealDescription",
+      "value": "Исцеляй наемников и выживи сам, пока вас атакуют!!"
     },
 	
 	{
-      "key": "Forest13ChallengeDescription",
+      "key": "ForestBossDescription",
       "value": "БОСС!"
     },
 	

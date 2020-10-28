@@ -73,6 +73,7 @@ public class MenuButtons : MonoBehaviour
         localizationManager = GameObject.Find("LocalizationManager").GetComponent<LocalizationManager>();
         
         FilesCheck();
+
         localizationManager.LoadLocalizedText(settingsInfo.currentLocalization);
         audioManager = FindObjectOfType<AudioManager>();
         audioManager.PlayAllSounds();
