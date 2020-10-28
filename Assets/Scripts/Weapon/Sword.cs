@@ -27,6 +27,8 @@ public class Sword : MonoBehaviour
         foreach (var enemy in enemies)
         {
             var enemyScript = enemy.GetComponent<Enemy>();
+            var bossScript = enemy.GetComponent<Boss>();
+
             var currentAngle = (-Mathf.Atan2(enemy.transform.position.x - transform.position.x,
                                          enemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg);
             if (currentAngle > 0)
@@ -37,10 +39,12 @@ public class Sword : MonoBehaviour
                 if ((transform.localEulerAngles.z - 360) - currentWeapon.AttackAngleRight <= currentAngle
                                                && currentAngle <= (transform.localEulerAngles.z - 360) + currentWeapon.AttackAngleLeft)
                 {
-                    if (enemy.transform.tag == "Destroyable")
+                    if (enemy.transform.tag == "Destroyable" && enemyScript != null)
                         enemyScript.DestroyStaticEnemy();
-                    else if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
+                    else if ((enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing") && enemyScript != null)
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
+                    else if (enemy.transform.tag == "Enemy" && bossScript != null)
+                        bossScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }
             else
@@ -48,10 +52,12 @@ public class Sword : MonoBehaviour
                 if ((transform.localEulerAngles.z - 360) - currentWeapon.AttackAngleRight <= currentAngle
                                                    && currentAngle <= (transform.localEulerAngles.z - 360) + currentWeapon.AttackAngleRight)
                 {
-                    if (enemy.transform.tag == "Destroyable")
+                    if (enemy.transform.tag == "Destroyable" && enemyScript != null)
                         enemyScript.DestroyStaticEnemy();
-                    else if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
+                    else if ((enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing") && enemyScript != null)
                         enemyScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
+                    else if (enemy.transform.tag == "Enemy" && bossScript != null)
+                        bossScript.GetDamage(currentWeapon.Damage, currentWeapon.CritChance, transform, currentWeapon.Knoking);
                 }
             }
         }

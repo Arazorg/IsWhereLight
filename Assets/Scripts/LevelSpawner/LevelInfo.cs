@@ -34,8 +34,18 @@ public class LevelInfo : MonoBehaviour
         get { return data.EnemiesSettings; }
     }
 
+    public BossData bossSetting
+    {
+        get { return data.BossSetting; }
+    }
+
     public LevelData.LevelType TypeOfLevel
     {
         get { return data.TypeOfLevel; }
+    }
+
+    public Vector3 BossSpawnPoint
+    {
+        get { return data.BossSpawnPoint; }
     }
 }

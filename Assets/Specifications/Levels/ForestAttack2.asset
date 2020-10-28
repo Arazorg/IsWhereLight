@@ -17,3 +17,5 @@ MonoBehaviour:
   enemiesCount: 25
   enemiesSettings:
   - {fileID: 11400000, guid: d50c4d8d3b4c32a4caaf7972e907522d, type: 2}
+  bossSetting: {fileID: 0}
+  bossSpawnPoint: {x: 0, y: 0, z: 0}

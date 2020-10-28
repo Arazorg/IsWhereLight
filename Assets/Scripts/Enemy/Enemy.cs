@@ -307,7 +307,7 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            bool isCriticalHit = UnityEngine.Random.Range(0, 100) < critChance;
+            bool isCriticalHit = Random.Range(0, 100) < critChance;
             if (isCriticalHit)
                 damage *= 2;
             health -= damage;

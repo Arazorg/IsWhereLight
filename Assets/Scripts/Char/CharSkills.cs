@@ -247,7 +247,11 @@ public class CharSkills : MonoBehaviour
                 if (LegionnaireSkill())
                 {
                     var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
-                    enemyScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
+                    var bossScript = enemies[enemyCounter].GetComponent<Boss>();
+                    if (enemyScript != null)
+                        enemyScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
+                    else if(bossScript != null)
+                        bossScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
                     enemyCounter++;
                 }
             }

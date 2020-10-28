@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b94651824056b43a2c592c17209b19, type: 3}
   m_Name: ForestBoss2
   m_EditorClassIdentifier: 
-  typeOfLevel: 0
+  typeOfLevel: 3
   countOfFlocks: 1
   enemiesCount: 1
-  enemiesSettings:
-  - {fileID: 11400000, guid: 60e6ff4eddc99444a92393c4b4cab2ae, type: 2}
+  enemiesSettings: []
+  bossSetting: {fileID: 11400000, guid: bf082dd5c909904408bd7db8f2d33794, type: 2}
+  bossSpawnPoint: {x: 15, y: 20, z: 0}

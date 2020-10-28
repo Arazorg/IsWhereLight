@@ -42,5 +42,19 @@ public class LevelData : ScriptableObject
         get { return enemiesSettings; }
     }
 
+    [Tooltip("Босс на уровне")]
+    [SerializeField] private BossData bossSetting;
+    public BossData BossSetting
+    {
+        get { return bossSetting; }
+    }
+
+    [Tooltip("Место спауна босса")]
+    [SerializeField] private Vector3 bossSpawnPoint;
+    public Vector3 BossSpawnPoint
+    {
+        get { return bossSpawnPoint; }
+    }
+
 #pragma warning restore 0649
 }

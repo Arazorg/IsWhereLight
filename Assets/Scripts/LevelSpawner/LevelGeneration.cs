@@ -51,7 +51,6 @@ public class LevelGeneration : MonoBehaviour
         foreach (var challenge in challenges)
             if(challenge.name == challengeName)
                 currentRoom = Instantiate(challenge.prefab, transform.position, Quaternion.identity);
-
         leftTop = currentRoom.GetComponent<Room>().floorsTransformLeftTop;
         rightBot = currentRoom.GetComponent<Room>().floorsTransformRightBot;
         SpawnFloor();
@@ -65,6 +64,7 @@ public class LevelGeneration : MonoBehaviour
         floorSpawner.SetCorners(leftTop, rightBot);
         floorSpawner.StartSpawn();
     }
+
     private void SetEnemySpawnPoints()
     {
         List<Vector3> spawnPoints = new List<Vector3>();
@@ -78,6 +78,13 @@ public class LevelGeneration : MonoBehaviour
             }
         }
         var levelInfo = currentRoom.GetComponent<LevelInfo>();
-        EnemySpawner.instance.SetParameters(spawnPoints, levelInfo.EnemiesSettings, levelInfo.CountOfFlocks, levelInfo.EnemiesCount);
+        if (!(levelInfo.TypeOfLevel == LevelData.LevelType.Boss))
+            EnemySpawner.instance.SetParameters(levelInfo, spawnPoints);
+        else
+        {
+            Debug.Log("!");
+            EnemySpawner.instance.SetParameters(levelInfo);
+        }
+            
     }
 }
