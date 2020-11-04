@@ -24,7 +24,7 @@ MonoBehaviour:
   attackAngleLeft: 73.3
   radius: 1.7
   knoking: 40
-  fireRate: 0.2
+  fireRate: 0.75
   damage: 6
   critChance: 10
   currentBullet: {fileID: 11400000, guid: 61d13b6707e11d04aa44c6150b344b70, type: 2}

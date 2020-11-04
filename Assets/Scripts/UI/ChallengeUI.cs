@@ -32,8 +32,13 @@ public class ChallengeUI : MonoBehaviour
         AudioManager.instance.Play("ClickUI");
         CurrentGameInfo.instance.challengeName = challengeName;
         if (challengeName != "ForestTraining")
-            CurrentGameInfo.instance.challengeName += ProgressInfo.instance.forestLevelsStarsCount[challengeName];
-
+        {
+            if (ProgressInfo.instance.forestLevelsStarsCount[challengeName] + 1 > 3)
+                CurrentGameInfo.instance.challengeName += 3;
+            else
+                CurrentGameInfo.instance.challengeName += (ProgressInfo.instance.forestLevelsStarsCount[challengeName] + 1);
+        }
+            
         if (lastSelectedButton != null)
         {
             lastSelectedButton.GetComponent<Image>().color = Color.white;

@@ -1,6 +1,7 @@
 ﻿using CodeMonkey.Utils;
 using System;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class CharSkills : MonoBehaviour
@@ -24,6 +25,9 @@ public class CharSkills : MonoBehaviour
     [Tooltip("Префаб турели механика")]
     [SerializeField] private GameObject mechanicTurret;
 
+    [Tooltip("Спецификация турели механика")]
+    [SerializeField] private AllyData mechanicTurretData;
+
     [Tooltip("Префаб тучи хранителя")]
     [SerializeField] private GameObject keeperCloud;
 
@@ -41,6 +45,7 @@ public class CharSkills : MonoBehaviour
 #pragma warning restore 0649
 
     public static bool isSkill;
+    public static bool isUsingSkill;
 
     private List<GameObject> enemies = new List<GameObject>();
 
@@ -166,7 +171,7 @@ public class CharSkills : MonoBehaviour
                 audioManager.Stop(sound);
                 sound = null;
             }
-                
+
             foreach (var item in alliesLasers)
                 Destroy(item.Value);
             alliesLasers.Clear();
@@ -196,14 +201,12 @@ public class CharSkills : MonoBehaviour
 
     #region LegionnaireSkill
 
-    public bool isLegionnaireSkill;
-
     private Quaternion startSkillRotation;
     private readonly float speedOfLegionnaireSkill = 15f;
     private readonly float durationOfLegionnaireSkill = 3.75f;
     private readonly int damageOfLegionnaireSkill = 3;
     private readonly float knokingOfLegionnaireSkill = 1000f;
-    private readonly float distanceForNewEnemy = 2f;
+    private readonly float distanceForNewEnemy = 2.33f;
 
     private void LegionnaireSkillStart()
     {
@@ -218,14 +221,14 @@ public class CharSkills : MonoBehaviour
         if (enemies.Count != 0)
         {
             timeToSkill = Time.time + durationOfLegionnaireSkill;
-            isLegionnaireSkill = true;
+            isUsingSkill = true;
             enemyCounter = 0;
             startSkillRotation = transform.rotation;
             animator.SetBool("Skill", true);
             transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(false);
             charController.SetZeroSpeed(true);
             Camera.main.GetComponent<CameraShaker>().IsSmooth = false;
-            if (currentPhrase != null && isLegionnaireSkill)
+            if (currentPhrase != null && isUsingSkill)
                 currentPhrase.DeletePhrase();
             currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
             sound = audioManager.Play($"{charInfo.character}SkillUsing", true);
@@ -240,7 +243,7 @@ public class CharSkills : MonoBehaviour
 
     private void LegionnaireSkillUsing()
     {
-        if (isLegionnaireSkill && !CharAction.isDeath)
+        if (isUsingSkill && !CharAction.isDeath)
         {
             if (enemyCounter < enemies.Count && Time.time < timeToSkill)
             {
@@ -250,7 +253,7 @@ public class CharSkills : MonoBehaviour
                     var bossScript = enemies[enemyCounter].GetComponent<Boss>();
                     if (enemyScript != null)
                         enemyScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
-                    else if(bossScript != null)
+                    else if (bossScript != null)
                         bossScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
                     enemyCounter++;
                 }
@@ -269,7 +272,7 @@ public class CharSkills : MonoBehaviour
                 animator.SetBool("Skill", false);
                 transform.rotation = startSkillRotation;
                 Camera.main.GetComponent<CameraShaker>().IsSmooth = true;
-                isLegionnaireSkill = false;
+                isUsingSkill = false;
             }
         }
     }
@@ -284,8 +287,21 @@ public class CharSkills : MonoBehaviour
                 enemy.GetComponent<Enemy>().DestroyStaticEnemy();
         }
 
+        var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
+        var bossScript = enemies[enemyCounter].GetComponent<Boss>();
 
-        if (Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy)
+        if (//Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy
+            enemyScript != null && !enemyScript.isPlayerInCollider)
+        {
+            Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * speedOfLegionnaireSkill;
+            rb.velocity = dir;
+            float angle = -Mathf.Atan2(enemies[enemyCounter].transform.position.x - transform.position.x,
+                                            enemies[enemyCounter].transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            return false;
+        }
+        else if (//Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy
+                  bossScript != null && !bossScript.isPlayerInCollider)
         {
             Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * speedOfLegionnaireSkill;
             rb.velocity = dir;
@@ -362,13 +378,31 @@ public class CharSkills : MonoBehaviour
 
     private void HomingArrow(GameObject enemy, GameObject currentArrow)
     {
-        if (!enemy.GetComponent<Enemy>().IsDeath)
+        var enemyScript = enemy.GetComponent<Enemy>();
+        var bossScript = enemy.GetComponent<Boss>();
+
+        if (enemyScript != null )
         {
-            Vector2 dir = (enemy.transform.position - currentArrow.transform.position).normalized;
-            float angle = -Mathf.Atan2(enemy.transform.position.x - currentArrow.transform.position.x,
-                                             enemy.transform.position.y - currentArrow.transform.position.y) * Mathf.Rad2Deg;
-            currentArrow.transform.rotation = Quaternion.Euler(0, 0, angle);
-            currentArrow.GetComponent<Rigidbody2D>().velocity = dir * speedOfArrowArcherSkill;
+            if (!enemyScript.IsDeath)
+            {
+                Vector2 dir = (enemy.transform.position - currentArrow.transform.position).normalized;
+                float angle = -Mathf.Atan2(enemy.transform.position.x - currentArrow.transform.position.x,
+                                                 enemy.transform.position.y - currentArrow.transform.position.y) * Mathf.Rad2Deg;
+                currentArrow.transform.rotation = Quaternion.Euler(0, 0, angle);
+                currentArrow.GetComponent<Rigidbody2D>().velocity = dir * speedOfArrowArcherSkill;
+            }
+        }
+        else if(bossScript != null)
+        {
+            if(!bossScript.IsDeath)
+            {
+                Vector2 dir = (enemy.transform.position - currentArrow.transform.position).normalized;
+                float angle = -Mathf.Atan2(enemy.transform.position.x - currentArrow.transform.position.x,
+                                                 enemy.transform.position.y - currentArrow.transform.position.y) * Mathf.Rad2Deg;
+                currentArrow.transform.rotation = Quaternion.Euler(0, 0, angle);
+                currentArrow.GetComponent<Rigidbody2D>().velocity = dir * speedOfArrowArcherSkill;
+                currentArrow.GetComponent<Rigidbody2D>().velocity = dir * speedOfArrowArcherSkill;
+            }
         }
         else
             currentArrow.GetComponent<Rigidbody2D>().velocity = currentArrow.transform.up * speedOfArrowArcherSkill;
@@ -383,12 +417,11 @@ public class CharSkills : MonoBehaviour
         isSkill = true;
         timeToSkill = Time.time + mechanicSkillDuration;
         turret = Instantiate(mechanicTurret, transform.position, Quaternion.identity);
+        turret.GetComponent<Ally>().Init(mechanicTurretData);
         audioManager.Play($"{charInfo.character}SkillStart");
         if (currentPhrase != null && isSkill)
             currentPhrase.DeletePhrase();
         currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
-        WeaponSpawner.instance.SetPrefab("TurretWeapon");
-        WeaponSpawner.instance.Spawn("TurretWeapon", turret.transform, true);
     }
 
     private void MechanicSkillUsing()
@@ -408,7 +441,7 @@ public class CharSkills : MonoBehaviour
     private readonly float shootTime = 0.75f;
 
     private GameObject currentCloud;
-    private GameObject currentBullet; 
+    private GameObject currentBullet;
     private Transform currentCloudTransform;
     private float timeToShoot;
     private int currentPuddle;
@@ -428,11 +461,11 @@ public class CharSkills : MonoBehaviour
 
     private void KeeperSkillUsing()
     {
-        if(Time.time < timeToSkill && isSkill && !CharAction.isDeath)
+        if (Time.time < timeToSkill && isSkill && !CharAction.isDeath)
             KeeperSkill();
         else
         {
-            if(currentCloud != null && isSkill)
+            if (currentCloud != null && isSkill)
             {
                 AnimationClip[] clips = currentCloud.GetComponent<Animator>().runtimeAnimatorController.animationClips;
                 float deathTime = 0;
@@ -462,11 +495,11 @@ public class CharSkills : MonoBehaviour
 
     private void KeeperSkill()
     {
-        if(Time.timeScale != 0)
+        if (Time.timeScale != 0)
             currentCloudTransform.position += UtilsClass.GetRandomDir() / 60;
-        if(Time.time > timeToShoot)
+        if (Time.time > timeToShoot)
         {
-            if(currentBullet != null)
+            if (currentBullet != null)
             {
                 var puddle = Instantiate(mageSkillBulletPuddle, currentBullet.transform.position, Quaternion.identity);
                 puddle.GetComponent<Puddle>().Init(puddlesData[currentPuddle]);
@@ -493,7 +526,7 @@ public class CharSkills : MonoBehaviour
             rb.AddForce(-currentCloudTransform.up * 5, ForceMode2D.Impulse);
             timeToShoot = Time.time + shootTime;
         }
-        
+
     }
     #endregion KeeperSkill
 

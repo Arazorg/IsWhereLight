@@ -20,4 +20,9 @@ public class DonateUI : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Lobby")
             lobbyUI.IsLobbyState = true;
     }
+
+    public void ShowAd()
+    {
+        AdsManager.instance.AdShow();
+    }
 }

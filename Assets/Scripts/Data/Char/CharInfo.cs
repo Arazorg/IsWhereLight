@@ -112,7 +112,7 @@ public class CharInfo : MonoBehaviour
     {
         if (player == null)
             player = GameObject.Find("Character(Clone)");
-        if(!player.GetComponent<CharSkills>().isLegionnaireSkill)
+        if(!CharSkills.isUsingSkill)
         {
             if (health - damage < 0)
                 health = 0;
@@ -141,7 +141,7 @@ public class CharInfo : MonoBehaviour
     {
         if (!CharAction.isDeath && Time.time > timeOfKnoking)
         {
-            CameraShaker.instance.ShakeOnce(0.5f, 0.5f, .15f, .2f);
+            CameraShaker.instance.ShakeOnce(2f, 2f, .15f, .2f);
             player.GetComponent<Rigidbody2D>().AddForce
                 (objectPosition.normalized * weaponKnoking);
             timeOfKnoking = Time.time + 0.5f;

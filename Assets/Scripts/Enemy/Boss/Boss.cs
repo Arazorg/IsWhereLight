@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class Boss : MonoBehaviour
         set { isDeath = value; }
     }
     private bool isDeath = false;
+    public bool isPlayerInCollider;
 
     private BossData data;
     private HealthBar healthBar;
@@ -37,10 +36,11 @@ public class Boss : MonoBehaviour
                 collider.size = ColliderSize;
             }
         }
-
+        isPlayerInCollider = false;
         GetComponent<SpriteRenderer>().sortingOrder = LayerOrder;
         gameObject.tag = "Untagged";
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
+        GetComponent<BossAI>().StartAI();
     }
 
     /// <summary>
@@ -238,7 +238,16 @@ public class Boss : MonoBehaviour
                 var bullet = coll.gameObject.GetComponent<Bullet>();
                 GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
             }
+
+            if (coll.gameObject.tag == "Player")
+                isPlayerInCollider = true;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+            isPlayerInCollider = false;
     }
 
     public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
@@ -254,10 +263,10 @@ public class Boss : MonoBehaviour
             if (health <= 0)
             {
                 health = 0;
-                healthBar.GetComponent<MovementUI>().MoveToStart();               
+                healthBar.GetComponent<MovementUI>().MoveToStart();
                 Death();
             }
-               
+
         }
     }
 
@@ -266,7 +275,7 @@ public class Boss : MonoBehaviour
         AudioManager.instance.Play($"{EnemyName}Death");
         GetComponent<Animator>().Play("Death");
         isDeath = true;
-        GetComponent<Rigidbody2D>().simulated = false;
+        //GetComponent<Rigidbody2D>().simulated = false;
 
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         gameObject.tag = "IgnoreAll";

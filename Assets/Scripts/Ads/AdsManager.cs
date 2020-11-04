@@ -33,27 +33,45 @@ public class AdsManager : MonoBehaviour
 
     void Start()
     {
+        CheckAds();
+    }
+
+    private void CheckAds()
+    {
         if (Advertisement.isSupported)
         {
             Advertisement.debugMode = true;
+
             if (Application.platform == RuntimePlatform.IPhonePlayer)
                 Advertisement.Initialize(gameIDApple, true);
             else
+            {
                 Advertisement.Initialize(gameIDGoogle, true);
+                Debug.Log("ok");
+            }
         }
     }
 
-    [System.Obsolete]
     public void AdShow(bool isRevive = false)
     {
-        this.isRevive = isRevive;
-        if (Advertisement.IsReady())
-            StartCoroutine(ShowAdsWithTimeOut(3));
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+            AnotherUI.instance.ShowInternetNotReachablePanel();
+        else
+        {
+            this.isRevive = isRevive;
+            if (Advertisement.IsReady())
+            {
+                StartCoroutine(ShowAdsWithTimeOut(3));
+            }
+            else
+            {
+                CheckAds();
+            }
+        }
     }
 
     public void HandleShowResult(ShowResult result)
     {
-        //добавить возрождение
         switch (result)
         {
             case ShowResult.Finished:
@@ -65,12 +83,10 @@ public class AdsManager : MonoBehaviour
             case ShowResult.Skipped:
                 break;
             case ShowResult.Failed:
-                Debug.LogError("<color=red>The ad failed to be shown.</color>");
                 break;
         }
     }
 
-    [System.Obsolete]
     IEnumerator ShowAdsWithTimeOut(float timeOut)
     {
         //Check if ad is supported on this platform 

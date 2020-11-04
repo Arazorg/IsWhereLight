@@ -56,8 +56,14 @@ public class ConstantLaser : MonoBehaviour
                 var closestEnemy = GetComponentInParent<CharController>().ClosestEnemy;
                 timeToDamage = Time.time + weapon.FireRate;
                 if (closestEnemy != null)
-                    closestEnemy.GetComponent<Enemy>()
-                        .GetDamage(weapon.Damage, weapon.CritChance, closestEnemy.transform, weapon.Knoking);
+                {
+                    var bossScript = closestEnemy.GetComponent<Boss>();
+                    var enemyScript = closestEnemy.GetComponent<Enemy>();
+                    if((enemyScript != null))
+                        enemyScript.GetDamage(weapon.Damage, weapon.CritChance, closestEnemy.transform, weapon.Knoking);
+                    else if (bossScript != null)
+                        bossScript.GetDamage(weapon.Damage, weapon.CritChance, closestEnemy.transform, weapon.Knoking);
+                }
             }
         }
     }

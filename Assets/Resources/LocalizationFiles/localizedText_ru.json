@@ -32,6 +32,11 @@
     },
 	
 	{
+      "key": "InternetNotReachable",
+      "value": "Отсутсвует подключение к интернету..."
+    },
+	
+	{
       "key": "Description",
       "value": "Описание"
     },

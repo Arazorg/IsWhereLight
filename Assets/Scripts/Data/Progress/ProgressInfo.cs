@@ -191,10 +191,10 @@ public class ProgressInfo : MonoBehaviour
     {
         forestLevelsStarsCount = new Dictionary<string, int>
         {
-            {"ForestAttack", 1 },
-            {"ForestDefence", 1 },
-            {"ForestHeal", 1 },
-            {"ForestBoss", 1 }
+            {"ForestAttack", 0 },
+            {"ForestDefence", 0 },
+            {"ForestHeal", 0 },
+            {"ForestBoss", 0 }
         };
     }
 

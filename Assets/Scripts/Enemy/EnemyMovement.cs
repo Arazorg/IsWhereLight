@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public bool isMovement = true;
     public Transform CurrentTarget
     {
         get { return currentTarget; }
@@ -73,7 +74,8 @@ public class EnemyMovement : MonoBehaviour
                 }
 
                 roamPosition = roamPosition.normalized;
-                rb.velocity = roamPosition * 5f;
+                if(isMovement)
+                    rb.velocity = roamPosition * 5f;
 
             }
         }

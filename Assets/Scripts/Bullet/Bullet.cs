@@ -239,8 +239,11 @@ public class Bullet : MonoBehaviour
                     foreach (var enemy in enemies)
                     {
                         var enemyScript = enemy.GetComponent<Enemy>();
-                        if (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing")
+                        var bossScript = enemy.GetComponent<Boss>();
+                        if ((enemyScript != null) && (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing"))
                             enemyScript.GetDamage(Damage, CritChance, transform, 500f);
+                        else if ((bossScript != null) && (enemy.transform.tag == "Enemy" || enemy.transform.tag == "Thing"))
+                            bossScript.GetDamage(Damage, CritChance, transform, 500f);
                     }
                     Destroy(gameObject, destroyTime);
                 }

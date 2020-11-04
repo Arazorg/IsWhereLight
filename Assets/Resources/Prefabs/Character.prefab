@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36391b65b8faa844a8cf63ad3d3fdc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charInfo: {fileID: 0}
   pickUpImage: {fileID: 2861288570726444558, guid: b78a732fe7bfaf341be7a12a056502ee,
     type: 3}
   fireImage: {fileID: 654179995542460430, guid: b78a732fe7bfaf341be7a12a056502ee,
@@ -186,7 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterAnimator: {fileID: 2124288211051524171}
-  charInfo: {fileID: 0}
   charGun: {fileID: 376914118}
   speed: 8.5
   joystick: {fileID: 0}
@@ -226,8 +224,9 @@ MonoBehaviour:
     type: 3}
   arrowData: {fileID: 11400000, guid: 4b33daf3039afa54b8c0a075c8bcb2dc, type: 2}
   grenadeData: {fileID: 11400000, guid: a1481b00984b5ed4bb3427d23345462a, type: 2}
-  mechanicTurret: {fileID: 4299368503429666952, guid: 860fb7ed93d8a4b4f96dd6fa6fa9c548,
+  mechanicTurret: {fileID: 4831557055087099815, guid: 56ecfe004705bd244af2b5df3d633d18,
     type: 3}
+  mechanicTurretData: {fileID: 11400000, guid: de9c3e92b26285340b0fad62cd9c5463, type: 2}
   keeperCloud: {fileID: 8875557222082125190, guid: 67299b9d718f3ac48ac4274722a049cf,
     type: 3}
   mageSkillBulletPrefab: {fileID: 6402966394464971090, guid: 8ae9f06598407904681c8996d6168bd5,
@@ -242,4 +241,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c3028395e9011e498b3f04069ceca9c, type: 2}
   - {fileID: 11400000, guid: dd604722ec5f98f41a4ccca53bb1642d, type: 2}
   - {fileID: 11400000, guid: 7f67e6a0ca437ee47b8429721c892585, type: 2}
-  isLegionnaireSkill: 0

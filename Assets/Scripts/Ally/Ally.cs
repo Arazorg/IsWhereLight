@@ -2,6 +2,11 @@
 
 public class Ally : MonoBehaviour
 {
+#pragma warning disable 0649
+    [Tooltip("Спецификация союзника")]
+    [SerializeField] public AllyData data;
+#pragma warning restore 0649
+
     public bool IsDeath
     {
         get { return isDeath; }
@@ -17,7 +22,7 @@ public class Ally : MonoBehaviour
     private string currentTag;
 
     private GameObject closestEnemy = null;
-    private Transform gun;
+    private Transform weapon;
     private Animator animator;
 
     private float gunAngle;
@@ -25,15 +30,155 @@ public class Ally : MonoBehaviour
     private float shootTime;
     private bool m_FacingRight;
 
+    public RuntimeAnimatorController MainAnimator
+    {
+        get
+        {
+            return data.MainAnimator;
+        }
+        protected set { }
+    }
+    public int LayerOrder
+    {
+        get
+        {
+            return data.LayerOrder;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// Attack of current enemy
+    /// </summary>
+    public int Speed
+    {
+        get
+        {
+            return data.Speed;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// Health of current enemy
+    /// </summary>
+    private int health;
+    public int Health
+    {
+        get
+        {
+            return data.Health;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// Target of current enemy
+    /// </summary>
+    public string Target
+    {
+        get
+        {
+            return data.Target;
+        }
+        protected set { }
+    }
+
+    /// <summary>
+    /// Name of current enemy
+    /// </summary>
+    public string EnemyName
+    {
+        get
+        {
+            return data.AllyName;
+        }
+        protected set { }
+    }
+
+    public Vector2 ActionColliderSize
+    {
+        get
+        {
+            return data.ActionColliderSize;
+        }
+        protected set { }
+    }
+    public Vector2 ActionColliderOffset
+    {
+        get
+        {
+            return data.ActionColliderOffset;
+        }
+        protected set { }
+    }
+
+    public Vector2 ColliderSize
+    {
+        get
+        {
+            return data.СolliderSize;
+        }
+        protected set { }
+    }
+
+    public Vector2 ColliderOffset
+    {
+        get
+        {
+            return data.ColliderOffset;
+        }
+        protected set { }
+    }
+
+    public string AllyWeaponName
+    {
+        get
+        {
+            return data.AllyWeaponName;
+        }
+        protected set { }
+    }
+
+    public void Init(AllyData data)
+    {
+        this.data = data;
+        health = Health;
+
+        foreach (var collider in GetComponents<BoxCollider2D>())
+        {
+            if (collider.isTrigger)
+            {
+                collider.offset = ActionColliderOffset;
+                collider.size = ActionColliderSize;
+            }
+            else
+            {
+                collider.offset = ColliderOffset;
+                collider.size = ColliderSize;
+            }
+        }
+
+        GetComponent<SpriteRenderer>().sortingOrder = LayerOrder;
+        gameObject.tag = "Untagged";
+        GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
+    }
+
     void Start()
     {
+        if (data != null)
+            Init(data);
+
         m_FacingRight = true;
         timeToShoot = float.MinValue;
 
-        gun = transform.GetChild(0);
+        WeaponSpawner.instance.SetPrefab(AllyWeaponName);
+        WeaponSpawner.instance.Spawn(AllyWeaponName, transform, true);
+
+        weapon = transform.GetChild(0);
         animator = GetComponent<Animator>();
-        gun.localPosition = gun.GetComponent<Weapon>().FirePointPosition;
-        shootTime = gun.GetComponent<Weapon>().FireRate;
+        weapon.localPosition = weapon.GetComponent<Weapon>().FirePointPosition;
+        shootTime = weapon.GetComponent<Weapon>().FireRate;
     }
 
     void Update()
@@ -48,12 +193,49 @@ public class Ally : MonoBehaviour
                     Flip();
                 if (Time.time > timeToShoot)
                 {
-                    gun.GetComponent<Gun>().Shoot();
+                    var weaponScript = weapon.GetComponent<Weapon>();
+                    CameraShaker.instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
+                                                        weaponScript.ShakeParametrs.roughness,
+                                                             weaponScript.ShakeParametrs.fadeInTime,
+                                                                 weaponScript.ShakeParametrs.fadeOutTime);
+                    switch (weapon.GetComponent<Weapon>().TypeOfAttack)
+                    {
+                        case WeaponData.AttackType.Gun:
+                            AudioManager.instance.Play(weaponScript.WeaponName);
+                            weapon.GetComponent<Gun>().Shoot();
+                            break;
+                        case WeaponData.AttackType.Sword:
+                            AudioManager.instance.Play(weaponScript.WeaponName);
+                            weapon.GetComponent<Sword>().Hit();
+                            break;
+                        case WeaponData.AttackType.Laser:
+                            AudioManager.instance.Play(weaponScript.WeaponName);
+                            weapon.GetComponent<Laser>().Shoot();
+                            break;
+                        default:
+                            break;
+                    }
                     timeToShoot = Time.time + shootTime;
                 }
             }
             else
-                gun.GetComponent<Gun>().StopShoot();
+            {
+                var weaponScript = weapon.GetComponent<Weapon>();
+                switch (weapon.GetComponent<Weapon>().TypeOfAttack)
+                {
+                    case WeaponData.AttackType.Gun:
+                        weapon.GetComponent<Gun>().StopShoot();
+                        break;
+                    case WeaponData.AttackType.Sword:
+                        weapon.GetComponent<Sword>().StopShoot();
+                        break;
+                    case WeaponData.AttackType.Laser:
+                        weapon.GetComponent<Laser>().StopShoot();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 
@@ -76,17 +258,6 @@ public class Ally : MonoBehaviour
         Destroy(gameObject, deathTime);
     }
 
-    void OnBecameVisible()
-    {
-        if (!isDeath)
-            gameObject.tag = "Ally";
-    }
-
-    void OnBecameInvisible()
-    {
-        gameObject.tag = "Untagged";
-    }
-
     private bool RotateGunToEnemy(string tag = "Enemy")
     {
         var enemies = GameObject.FindGameObjectsWithTag(tag);
@@ -106,7 +277,7 @@ public class Ally : MonoBehaviour
                 }
             }
 
-            gun = transform.GetChild(0);
+            weapon = transform.GetChild(0);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Ally") |
@@ -123,7 +294,7 @@ public class Ally : MonoBehaviour
                     gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
                                             closestEnemy.transform.position.y - transform.position.y)
                                                 * Mathf.Rad2Deg;
-                    gun.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                    weapon.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
 
                     return true;
                 }
@@ -138,5 +309,16 @@ public class Ally : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnBecameVisible()
+    {
+        if (!isDeath)
+            gameObject.tag = "Ally";
+    }
+
+    void OnBecameInvisible()
+    {
+        gameObject.tag = "Untagged";
     }
 }

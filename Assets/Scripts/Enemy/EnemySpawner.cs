@@ -163,7 +163,6 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject SpawnBoss()
     {
-        GameObject currentBoss = null;
         bossHpBar.GetComponent<MovementUI>().MoveToEnd();
         switch (bossSettings.TypeOfBoss)
         {
@@ -171,12 +170,14 @@ public class EnemySpawner : MonoBehaviour
                 bossPrefab = bossesPrefabs[0];
                 break;
         }
-        currentBoss = Instantiate(bossPrefab, bossSpawnPoint, new Quaternion(0, 0, 0, 0));
+        GameObject currentBoss = Instantiate(bossPrefab, bossSpawnPoint, new Quaternion(0, 0, 0, 0));
         var script = currentBoss.GetComponent<Boss>();
         currentBoss.name = "Boss";
         currentBoss.SetActive(true);
         script.Init(bossSettings);
-
+        enemies.Add(currentBoss);
+        currentCountOfFlocks++;
+        counter++;
         return currentBoss;
     }
 

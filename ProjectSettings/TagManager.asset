@@ -28,6 +28,7 @@ TagManager:
   - StandartGrenade
   - Thing
   - Portal
+  - Puddle
   layers:
   - Default
   - TransparentFX

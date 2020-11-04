@@ -32,6 +32,11 @@
     },
 	
 	{
+      "key": "InternetNotReachable",
+      "value": "No access to the Internet..."
+    },
+	
+	{
       "key": "Description",
       "value": "Description"
     },

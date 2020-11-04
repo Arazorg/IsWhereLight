@@ -184,7 +184,7 @@ public class GameButtons : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Home))
                 OpenPause();
-        if (isAttackDown && !CharAction.isDeath)
+        if (isAttackDown && !CharAction.isDeath && !CharSkills.isUsingSkill)
         {
             AttackDown();
             PrepareAttack();
@@ -421,6 +421,9 @@ public class GameButtons : MonoBehaviour
                         break;
                     case WeaponData.AttackType.Gun:
                         currentWeapon.GetComponent<Gun>().StopShoot();
+                        break;
+                    case WeaponData.AttackType.Sword:
+                        currentWeapon.GetComponent<Sword>().StopShoot();
                         break;
                 }
             }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 0}
   layerOrder: 2
-  actionColliderSize: {x: 1.1, y: 1.7}
+  actionColliderSize: {x: 1.4, y: 2}
   actionColliderOffset: {x: 0, y: 0.3}
-  colliderSize: {x: 0.9, y: 1.6}
-  colliderOffset: {x: 0, y: -0.2}
+  colliderSize: {x: 0.9, y: 1.8}
+  colliderOffset: {x: 0, y: 0.3}
   speed: 0
   health: 10000000
   typeOfAttack: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f19351c4079a39459921541187ab5e3, type: 3}
-  m_Name: TurretWeapon
+  m_Name: Turret Weapon
   m_EditorClassIdentifier: 
-  weaponName: TurretWeapon
+  weaponName: Turret Weapon
   mainAnimator: {fileID: 9100000, guid: 6d382b8255523fc4eafb078884552bed, type: 2}
   mainSprite: {fileID: -5334763350848274098, guid: 81c5266115149e54cb3e059d840415b8,
     type: 3}
@@ -20,7 +20,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0.725}
   attackOffset: {x: 0, y: 0.725}
   standartAngle: 0
-  attackAngle: 0
+  attackAngleRight: 0
+  attackAngleLeft: 0
   radius: 0
   knoking: 25
   fireRate: 0.25

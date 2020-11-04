@@ -81,10 +81,6 @@ public class LevelGeneration : MonoBehaviour
         if (!(levelInfo.TypeOfLevel == LevelData.LevelType.Boss))
             EnemySpawner.instance.SetParameters(levelInfo, spawnPoints);
         else
-        {
-            Debug.Log("!");
-            EnemySpawner.instance.SetParameters(levelInfo);
-        }
-            
+            EnemySpawner.instance.SetParameters(levelInfo);           
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d21e003c322d342bf0bb448a2906df, type: 3}
+  m_Name: ForestTurret
+  m_EditorClassIdentifier: 
+  mainAnimator: {fileID: 9100000, guid: 073a0959434c17f46a3023da68c949aa, type: 2}
+  layerOrder: 2
+  actionColliderSize: {x: 1.1, y: 0.65}
+  actionColliderOffset: {x: -0.025, y: 0.75}
+  colliderSize: {x: 1.1, y: 0.65}
+  colliderOffset: {x: -0.025, y: 0.75}
+  speed: 0
+  health: 25
+  target: Enemy
+  allyName: Forest Turret
+  allyWeaponName: Gravity Laser

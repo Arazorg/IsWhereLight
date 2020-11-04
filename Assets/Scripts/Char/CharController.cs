@@ -59,7 +59,7 @@ public class CharController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!CharAction.isDeath && !GetComponent<CharSkills>().isLegionnaireSkill)
+        if (!CharAction.isDeath && !CharSkills.isUsingSkill)
         {
             characterAnimator.SetFloat("Speed", Math.Abs(joystick.Horizontal));
             rb.velocity = new Vector2(Mathf.Lerp(0, joystick.Horizontal * speed, 0.8f),

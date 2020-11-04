@@ -26,6 +26,8 @@ public class Laser : MonoBehaviour
 
     public void Shoot()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", true);
         LayerMask layerMask
             = ~(1 << LayerMask.NameToLayer("Player") |
@@ -45,6 +47,8 @@ public class Laser : MonoBehaviour
 
     public void StopShoot()
     {
+        if(animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", false);
     }
 }

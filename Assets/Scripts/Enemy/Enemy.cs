@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,11 +22,10 @@ public class Enemy : MonoBehaviour
 
     private static float timeToBushDestroySound;
     private float timeToOff;
-    private float timeOfKnoking;
     private bool isEnemyHitted;
     private bool isEnterFirst;
     public bool isKnoking;
-
+    public bool isPlayerInCollider;
 
     /// <summary>
     /// Initialization of enemy
@@ -56,9 +56,9 @@ public class Enemy : MonoBehaviour
         else if (!EnemyName.Contains("Punchbag"))
             gameObject.tag = "Destroyable";
 
-        timeOfKnoking = float.MaxValue;
         isEnemyHitted = false;
         isEnterFirst = true;
+        isPlayerInCollider = false;
 
         if (!data.EnemyName.Contains("Target") &&
                 !data.EnemyName.Contains("Static") &&
@@ -253,8 +253,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > timeOfKnoking)
-            isKnoking = false;
         EnemyHitted();
     }
 
@@ -300,7 +298,16 @@ public class Enemy : MonoBehaviour
                     GetDamage(bullet.Damage, bullet.CritChance, bullet.transform, bullet.Knoking);
                 }
             }
+
+            if (coll.gameObject.tag == "Player")
+                isPlayerInCollider = true;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+            isPlayerInCollider = false;
     }
 
     public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
@@ -312,7 +319,7 @@ public class Enemy : MonoBehaviour
                 damage *= 2;
             health -= damage;
             if (!EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
-                Knoking(objectTransform.position, knoking);
+                //Knoking(objectTransform.position, knoking);
             if (EnemyName.Contains("Punchbag"))
             {
                 AudioManager.instance.Play("PunchbagDamage");
@@ -361,9 +368,7 @@ public class Enemy : MonoBehaviour
     {
         if (!isDeath)
         {
-            GetComponent<Rigidbody2D>().AddForce((transform.position - objectPosition).normalized * weaponKnoking);
-            isKnoking = true;
-            timeOfKnoking = Time.time + 1f;
+              
         }
     }
 

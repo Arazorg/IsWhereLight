@@ -35,11 +35,10 @@ public class LobbyUI : MonoBehaviour
     private bool isLobbyState;
 
     private string characterKey;
-
+    
     void Start()
     {
         isLobbyState = true;
-      
         NewSaveSystem.Delete("character");
         NewSaveSystem.Delete("currentGame");
         Camera.main.backgroundColor = Color.black;
