@@ -18,13 +18,13 @@ MonoBehaviour:
   actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 0.75, y: 1.3}
   colliderOffset: {x: 0, y: 0}
-  speed: 2
-  health: 12
+  speed: 20
+  health: 18
   typeOfAttack: 1
   damage: 1
-  attackRange: 7
+  attackRange: 10.273472
   attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
-  target: Player
+  target: Ally
   enemyName: Skeleton
-  fireRate: 1
+  fireRate: 0.70656097
