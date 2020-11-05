@@ -22,6 +22,8 @@ public class Bow : MonoBehaviour
 
     public void Pulling()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("PrepareAttack", true);
         SetPosition(true);
     }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
@@ -23,6 +25,9 @@ public class Boss : MonoBehaviour
         health = Health;
         healthBar = GameObject.Find("Canvas").transform.GetComponentInChildren<HealthBar>();
         healthBar.SetMaxMin(health, health, 0);
+        var bossNameText = healthBar.transform.Find("BossNameText").GetComponent<LocalizedText>();
+        bossNameText.key = "Boss" + data.EnemyName;
+        bossNameText.SetLocalization();
         foreach (var collider in GetComponents<BoxCollider2D>())
         {
             if (collider.isTrigger)
@@ -256,9 +261,12 @@ public class Boss : MonoBehaviour
         {
             bool isCriticalHit = Random.Range(0, 100) < critChance;
             if (isCriticalHit)
+            {
                 damage *= 2;
+                ShakeGameObject(gameObject, 0.075f, 0.0325f);
+            }
+                
             health -= damage;
-            healthBar.SetHealth(health);
             PopupText.Create(transform.position, false, isCriticalHit, damage);
             if (health <= 0)
             {
@@ -266,7 +274,7 @@ public class Boss : MonoBehaviour
                 healthBar.GetComponent<MovementUI>().MoveToStart();
                 Death();
             }
-
+            healthBar.SetHealth(health);
         }
     }
 
@@ -283,6 +291,68 @@ public class Boss : MonoBehaviour
         GetComponent<SpriteRenderer>().color = color;
         //CharInfo.instance.currentCountKilledEnemies++;
         EnemySpawner.instance.DeleteEnemy(gameObject);
+    }
+
+    private bool isShaking = false;
+    public IEnumerator ShakeGameObjectCOR(GameObject objectToShake, float totalShakeDuration, float decreasePoint)
+    {
+        if (decreasePoint >= totalShakeDuration)
+        {
+            Debug.LogError("decreasePoint must be less than totalShakeDuration...Exiting");
+            yield break;
+        }
+
+        Transform objTransform = objectToShake.transform;
+        Vector3 defaultPos = objTransform.position;
+        Quaternion defaultRot = objTransform.rotation;
+
+        float counter = 0f;
+        const float speed = 0.1f;
+        const float angleRot = 1.5f;
+
+        while (counter < totalShakeDuration)
+        {
+            counter += Time.deltaTime;
+            float decreaseSpeed = speed;
+
+            Vector3 tempPosition = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+            tempPosition.z = defaultPos.z;
+
+            objTransform.position = tempPosition;
+            objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-angleRot, angleRot), new Vector3(0f, 0f, 1f));
+            yield return null;
+
+            if (counter >= decreasePoint)
+            {
+                counter = 0f;
+                while (counter <= decreasePoint)
+                {
+                    counter += Time.deltaTime;
+                    decreaseSpeed = Mathf.Lerp(speed, 0, counter / decreasePoint);
+                    float decreaseAngle = Mathf.Lerp(angleRot, 0, counter / decreasePoint);
+
+                    Vector3 tempPos = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+                    tempPos.z = defaultPos.z;
+                    objTransform.position = tempPos;
+                    objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-decreaseAngle, decreaseAngle), new Vector3(0f, 0f, 1f));
+
+                    yield return null;
+                }
+                break;
+            }
+        }
+        objTransform.position = defaultPos;
+        objTransform.rotation = defaultRot;
+        isShaking = false;
+    }
+
+
+    public void ShakeGameObject(GameObject objectToShake, float shakeDuration, float decreasePoint)
+    {
+        if (isShaking)
+            return;
+        isShaking = true;
+        StartCoroutine(ShakeGameObjectCOR(objectToShake, shakeDuration, decreasePoint));
     }
 
     void OnBecameVisible()

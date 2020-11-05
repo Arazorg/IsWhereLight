@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ForestAttack3
   m_EditorClassIdentifier: 
   typeOfLevel: 0
-  countOfFlocks: 3
-  enemiesCount: 20
+  countOfFlocks: 2
+  enemiesCount: 22
   enemiesSettings:
   - {fileID: 11400000, guid: b9f12ff922d910841b7af59225384532, type: 2}
   - {fileID: 11400000, guid: 6c0e89ca546a43345a97dd70324a97e5, type: 2}
+  percentOfEliteEnemy: 7
   bossSetting: {fileID: 0}
   bossSpawnPoint: {x: 0, y: 0, z: 0}

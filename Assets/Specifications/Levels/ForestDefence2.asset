@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: ForestDefence2
   m_EditorClassIdentifier: 
   typeOfLevel: 0
-  countOfFlocks: 3
-  enemiesCount: 10
+  countOfFlocks: 5
+  enemiesCount: 17
   enemiesSettings:
   - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
   - {fileID: 11400000, guid: 152e4a425462cca4e948e8500ba984dd, type: 2}
+  percentOfEliteEnemy: 10
+  bossSetting: {fileID: 0}
+  bossSpawnPoint: {x: 0, y: 0, z: 0}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 namespace CodeMonkey.Utils {
 
@@ -483,7 +484,5 @@ namespace CodeMonkey.Utils {
                 return timer <= 0f;
             }, "CAMERA_SHAKE");
         }
-
     }
-
 }

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5d21e003c322d342bf0bb448a2906df, type: 3}
-  m_Name: MechanicTurret
+  m_Name: AllyPunchbag
   m_EditorClassIdentifier: 
-  mainAnimator: {fileID: 9100000, guid: 073a0959434c17f46a3023da68c949aa, type: 2}
+  mainAnimator: {fileID: 9100000, guid: 4f03a14046b25c44fa2898b4d5fd49c1, type: 2}
   layerOrder: 2
-  actionColliderSize: {x: 1.1, y: 0.65}
-  actionColliderOffset: {x: -0.025, y: 0.75}
-  colliderSize: {x: 1.1, y: 0.65}
-  colliderOffset: {x: -0.025, y: 0.75}
+  actionColliderSize: {x: 0.9, y: 1.6}
+  actionColliderOffset: {x: 0, y: 0}
+  colliderSize: {x: 0.9, y: 1.6}
+  colliderOffset: {x: 0, y: 0}
   speed: 0
-  health: 15
-  target: Enemy
-  allyName: Mechanic Turret
-  allyWeaponName: Turret Weapon
+  health: 1000000
+  target: 
+  allyName: AllyPunchbag
+  allyWeaponName: 

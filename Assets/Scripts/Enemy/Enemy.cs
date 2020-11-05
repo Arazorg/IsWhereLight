@@ -79,19 +79,13 @@ public class Enemy : MonoBehaviour
     /// <param name="data"></param>
     public RuntimeAnimatorController MainAnimator
     {
-        get
-        {
-            return data.MainAnimator;
-        }
-        protected set { }
+        get { return data.MainAnimator; }
+        set { data.MainAnimator = value; }
     }
     public int LayerOrder
     {
-        get
-        {
-            return data.LayerOrder;
-        }
-        protected set { }
+        get { return data.LayerOrder; }
+        set { data.LayerOrder = value; }
     }
 
     /// <summary>
@@ -99,11 +93,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public int Speed
     {
-        get
-        {
-            return data.Speed;
-        }
-        protected set { }
+        get { return data.Speed; }
+        set { data.Speed = value; }
     }
 
 
@@ -112,23 +103,18 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public EnemyData.AttackType TypeOfAttack
     {
-        get
-        {
-            return data.TypeOfAttack;
-        }
-        protected set { }
+        get { return data.TypeOfAttack; }
+        set { data.TypeOfAttack = value; }
     }
 
     /// <summary>
     /// Attack of current enemy
     /// </summary>
+    private int damage;
     public int Damage
     {
-        get
-        {
-            return data.Damage;
-        }
-        protected set { }
+        get { return data.Damage; }
+        set { data.Damage = value; }
     }
 
     /// <summary>
@@ -136,11 +122,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public float AttackRange
     {
-        get
-        {
-            return data.AttackRange;
-        }
-        protected set { }
+        get { return data.AttackRange; }
+        set { data.AttackRange = value; }
     }
 
     /// <summary>
@@ -148,23 +131,18 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public float AttackAngle
     {
-        get
-        {
-            return data.AttackAngle;
-        }
-        protected set { }
+        get { return data.AttackAngle; }
+        set { data.AttackAngle = value; }
     }
 
     /// <summary>
     /// BulletData of current enemy
     /// </summary>
+    private BulletData dataOfBullet;
     public BulletData DataOfBullet
     {
-        get
-        {
-            return data.DataOfBullet;
-        }
-        protected set { }
+        get { return data.DataOfBullet; }
+        set { dataOfBullet = value; }
     }
 
     /// <summary>
@@ -173,11 +151,8 @@ public class Enemy : MonoBehaviour
     private int health;
     public int Health
     {
-        get
-        {
-            return data.Health;
-        }
-        protected set { }
+        get { return data.Health; }
+        set { data.Health = value; }
     }
 
     /// <summary>
@@ -185,11 +160,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public string Target
     {
-        get
-        {
-            return data.Target;
-        }
-        protected set { }
+        get { return data.Target; }
+        set { data.Target = value; }
     }
 
     /// <summary>
@@ -197,11 +169,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public string EnemyName
     {
-        get
-        {
-            return data.EnemyName;
-        }
-        protected set { }
+        get { return data.EnemyName; }
+        set { data.EnemyName = value; }
     }
 
     /// <summary>
@@ -209,37 +178,25 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public float FireRate
     {
-        get
-        {
-            return data.FireRate;
-        }
-        protected set { }
+        get { return data.FireRate; }
+        set { data.FireRate = value; }
     }
 
     public Vector2 ActionColliderSize
     {
-        get
-        {
-            return data.ActionColliderSize;
-        }
-        protected set { }
+        get { return data.ActionColliderSize; }
+        set { data.ActionColliderSize = value; }
     }
     public Vector2 ActionColliderOffset
     {
-        get
-        {
-            return data.ActionColliderOffset;
-        }
-        protected set { }
+        get { return data.ActionColliderOffset; }
+        set { data.ActionColliderOffset = value; }
     }
 
     public Vector2 ColliderSize
     {
-        get
-        {
-            return data.СolliderSize;
-        }
-        protected set { }
+        get { return data.СolliderSize; }
+        set { data.СolliderSize = value; }
     }
 
     public Vector2 ColliderOffset
@@ -248,7 +205,7 @@ public class Enemy : MonoBehaviour
         {
             return data.ColliderOffset;
         }
-        protected set { }
+        set { data.ColliderOffset = value; }
     }
 
     private void Update()
@@ -319,14 +276,12 @@ public class Enemy : MonoBehaviour
                 damage *= 2;
             health -= damage;
             if (!EnemyName.Contains("Static") && !EnemyName.Contains("Punchbag"))
-                //Knoking(objectTransform.position, knoking);
+                Knoking();
             if (EnemyName.Contains("Punchbag"))
             {
                 AudioManager.instance.Play("PunchbagDamage");
                 if (objectTransform.position.x > transform.position.x)
-                {
                     GetComponent<Animator>().Play("DamageLeft");
-                }
 
                 if (objectTransform.position.x < transform.position.x)
                     GetComponent<Animator>().Play("DamageRight");
@@ -347,7 +302,7 @@ public class Enemy : MonoBehaviour
             ShootingRange.instance.Spawn(true);
         else
         {
-            AudioManager.instance.Play($"EnemyDeath{UnityEngine.Random.Range(0, 2)}");
+            AudioManager.instance.Play($"EnemyDeath{Random.Range(0, 2)}");
             GetComponent<Animator>().Play("Death");
             foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
                 Destroy(collider2D);
@@ -364,12 +319,71 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Knoking(Vector3 objectPosition, float weaponKnoking)
+    private void Knoking()
     {
-        if (!isDeath)
+        if (!isDeath) { }
+    }
+
+    private bool isShaking = false;
+    public IEnumerator ShakeGameObjectCOR(GameObject objectToShake, float totalShakeDuration, float decreasePoint)
+    {
+        if (decreasePoint >= totalShakeDuration)
         {
-              
+            Debug.LogError("decreasePoint must be less than totalShakeDuration...Exiting");
+            yield break;
         }
+
+        Transform objTransform = objectToShake.transform;
+        Vector3 defaultPos = objTransform.position;
+        Quaternion defaultRot = objTransform.rotation;
+
+        float counter = 0f;
+        const float speed = 0.175f;
+        const float angleRot = 1.5f;
+
+        while (counter < totalShakeDuration)
+        {
+            counter += Time.deltaTime;
+            float decreaseSpeed = speed;
+
+            Vector3 tempPosition = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+            tempPosition.z = defaultPos.z;
+
+            objTransform.position = tempPosition;
+            objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-angleRot, angleRot), new Vector3(0f, 0f, 1f));
+            yield return null;
+
+            if (counter >= decreasePoint)
+            {
+                counter = 0f;
+                while (counter <= decreasePoint)
+                {
+                    counter += Time.deltaTime;
+                    decreaseSpeed = Mathf.Lerp(speed, 0, counter / decreasePoint);
+                    float decreaseAngle = Mathf.Lerp(angleRot, 0, counter / decreasePoint);
+
+                    Vector3 tempPos = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+                    tempPos.z = defaultPos.z;
+                    objTransform.position = tempPos;
+                    objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-decreaseAngle, decreaseAngle), new Vector3(0f, 0f, 1f));
+
+                    yield return null;
+                }
+                break;
+            }
+        }
+        objTransform.position = defaultPos;
+        objTransform.rotation = defaultRot;
+        isShaking = false;
+    }
+
+
+    public void ShakeGameObject(GameObject objectToShake, float shakeDuration, float decreasePoint)
+    {
+        if (isShaking)
+            return;
+        isShaking = true;
+        StartCoroutine(ShakeGameObjectCOR(objectToShake, shakeDuration, decreasePoint));
     }
 
     public void DestroyStaticEnemy()

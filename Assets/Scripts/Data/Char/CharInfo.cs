@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CharInfo : MonoBehaviour
@@ -27,7 +28,7 @@ public class CharInfo : MonoBehaviour
     private readonly float damageSoundTime = 0.75f;
     private float timeToDamageSound;
     private bool isDamageSound;
-    private float timeOfKnoking;
+    private float timeOfKnoking = float.MinValue;
 
     void Awake()
     {
@@ -118,7 +119,7 @@ public class CharInfo : MonoBehaviour
                 health = 0;
             else
             {
-                Knoking(player.transform.position + Vector3.one, 500);
+                Knoking();
                 charAction.IsPlayerHitted = true;
                 charAction.IsEnterFirst = true;
                 if (isDamageSound)
@@ -137,15 +138,76 @@ public class CharInfo : MonoBehaviour
         }
     }
 
-    private void Knoking(Vector3 objectPosition, float weaponKnoking)
+    private void Knoking()
     {
         if (!CharAction.isDeath && Time.time > timeOfKnoking)
         {
-            CameraShaker.instance.ShakeOnce(2f, 2f, .15f, .2f);
-            player.GetComponent<Rigidbody2D>().AddForce
-                (objectPosition.normalized * weaponKnoking);
-            timeOfKnoking = Time.time + 0.5f;
+            CameraShaker.instance.ShakeOnce(1f, 1f, .2f, .15f);
+            timeOfKnoking = Time.time + 0.75f;
+            ShakeGameObject(gameObject, 0.15f, 0.075f);
         }
+    }
+
+    private bool isShaking = false;
+    public IEnumerator ShakeGameObjectCOR(GameObject objectToShake, float totalShakeDuration, float decreasePoint)
+    {
+        if (decreasePoint >= totalShakeDuration)
+        {
+            Debug.LogError("decreasePoint must be less than totalShakeDuration...Exiting");
+            yield break;
+        }
+
+        Transform objTransform = objectToShake.transform;
+        Vector3 defaultPos = objTransform.position;
+        Quaternion defaultRot = objTransform.rotation;
+
+        float counter = 0f;
+        const float speed = 0.1f;
+        const float angleRot = 1.5f;
+
+        while (counter < totalShakeDuration)
+        {
+            counter += Time.deltaTime;
+            float decreaseSpeed = speed;
+
+            Vector3 tempPosition = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+            tempPosition.z = defaultPos.z;
+
+            objTransform.position = tempPosition;
+            objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-angleRot, angleRot), new Vector3(0f, 0f, 1f));
+            yield return null;
+
+            if (counter >= decreasePoint)
+            {
+                counter = 0f;
+                while (counter <= decreasePoint)
+                {
+                    counter += Time.deltaTime;
+                    decreaseSpeed = Mathf.Lerp(speed, 0, counter / decreasePoint);
+                    float decreaseAngle = Mathf.Lerp(angleRot, 0, counter / decreasePoint);
+
+                    Vector3 tempPos = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+                    tempPos.z = defaultPos.z;
+                    objTransform.position = tempPos;
+                    objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-decreaseAngle, decreaseAngle), new Vector3(0f, 0f, 1f));
+
+                    yield return null;
+                }
+                break;
+            }
+        }
+        objTransform.position = defaultPos;
+        objTransform.rotation = defaultRot;
+        isShaking = false;
+    }
+
+
+    public void ShakeGameObject(GameObject objectToShake, float shakeDuration, float decreasePoint)
+    {
+        if (isShaking)
+            return;
+        isShaking = true;
+        StartCoroutine(ShakeGameObjectCOR(objectToShake, shakeDuration, decreasePoint));
     }
 
     public void Healing(int healing)

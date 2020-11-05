@@ -758,7 +758,7 @@
 
     {
       "key": "FinishOfGameWin",
-      "value": "Yeah! Win!"
+      "value": "Yeah!\nWin!"
     },
 	
 	{
@@ -893,12 +893,12 @@
 	
     {
       "key": "HintStaticJoystick",
-      "value": "The position of the joystick is fixed in one place."
+      "value": "The joystick is fixed in one place."
     },
 
     {
       "key": "HintDynamicJoystick",
-      "value": "Tap the screen so that the joystick appears right under your finger."
+      "value": "Joystick appears right under your finger."
     },
 	
 	{
@@ -1168,7 +1168,12 @@
 	
 	{
       "key": "NoManePhrase2",
-      "value": "You don't have enough mane!"
+      "value": "I don't have enough mane!"
+    },
+	
+	{
+      "key": "BossGreatBear",
+      "value": "GREAT BEAR"
     }
   ]
 }

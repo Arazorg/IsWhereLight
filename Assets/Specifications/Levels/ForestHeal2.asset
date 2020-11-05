@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: ForestHeal2
   m_EditorClassIdentifier: 
   typeOfLevel: 0
-  countOfFlocks: 1
-  enemiesCount: 1
+  countOfFlocks: 3
+  enemiesCount: 5
   enemiesSettings:
   - {fileID: 11400000, guid: 6c0e89ca546a43345a97dd70324a97e5, type: 2}
   - {fileID: 11400000, guid: 223f8557a3db55046a7ba6538fca7d7f, type: 2}
   - {fileID: 11400000, guid: 60e6ff4eddc99444a92393c4b4cab2ae, type: 2}
+  percentOfEliteEnemy: 8
+  bossSetting: {fileID: 0}
+  bossSpawnPoint: {x: 0, y: 0, z: 0}

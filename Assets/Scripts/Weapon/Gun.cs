@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", true);
         bulletSpawner.Spawn();
         Quaternion dir = Quaternion.AngleAxis(Random.Range(-bulletScatterAngle, bulletScatterAngle + 1), Vector3.forward);
@@ -32,6 +34,8 @@ public class Gun : MonoBehaviour
 
     public void StopShoot()
     {
+        if(animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", false);
     }
 }

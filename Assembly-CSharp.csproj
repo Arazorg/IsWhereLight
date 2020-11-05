@@ -188,6 +188,8 @@
      <Compile Include="Assets\Scripts\UI\GameUI\GameButtons.cs" />
      <Compile Include="Assets\BossAI.cs" />
      <Compile Include="Assets\Scripts\Ally\AllyData.cs" />
+     <Compile Include="Assets\Scripts\System\CoroutineFunctions.cs" />
+     <Compile Include="Assets\EndGameUI.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

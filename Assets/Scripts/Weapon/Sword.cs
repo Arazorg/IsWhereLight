@@ -20,6 +20,8 @@ public class Sword : MonoBehaviour
 
     public void Hit()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", true);
         var character = currentWeapon.transform.parent;
         var enemies = Physics2D.OverlapCircleAll(transform.position, currentWeapon.Radius, (1 << LayerMask.NameToLayer("Enemy") |
@@ -65,6 +67,8 @@ public class Sword : MonoBehaviour
 
     public void StopShoot()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", false);
     }
 }

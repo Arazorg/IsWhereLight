@@ -42,6 +42,13 @@ public class LevelData : ScriptableObject
         get { return enemiesSettings; }
     }
 
+    [Tooltip("Средний процент элитных врагов на уровне")]
+    [SerializeField] private int percentOfEliteEnemy;
+    public int PercentOfEliteEnemy
+    {
+        get { return percentOfEliteEnemy; }
+    }
+
     [Tooltip("Босс на уровне")]
     [SerializeField] private BossData bossSetting;
     public BossData BossSetting

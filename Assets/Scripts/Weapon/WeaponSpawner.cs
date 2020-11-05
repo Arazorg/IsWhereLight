@@ -70,7 +70,10 @@ public class WeaponSpawner : MonoBehaviour
     {
         prefab = Instantiate(spawnPrefab, spawnPosition);
         script = prefab.GetComponent<Weapon>();
-        script.Init(data);
+        if (isAlly)
+            script.Init(data, true);
+        else
+            script.Init(data);
         prefab.name = weaponName;
         if (!isAlly)
         {
@@ -99,7 +102,7 @@ public class WeaponSpawner : MonoBehaviour
         charInfo = GameObject.Find("CharInfoHandler").GetComponent<CharInfo>();
 
         currentCharWeapon[currentWeaponNumber] = Instantiate(spawnPrefab, transform);
-        currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data);
+        currentCharWeapon[currentWeaponNumber].GetComponent<Weapon>().Init(data, true);
         currentCharWeapon[currentWeaponNumber].name = data.WeaponName + currentWeaponNumber;
         currentCharWeapon[currentWeaponNumber].transform.tag = "GunKeep";
         currentCharWeapon[currentWeaponNumber].GetComponent<SpriteRenderer>().sortingOrder = 3;

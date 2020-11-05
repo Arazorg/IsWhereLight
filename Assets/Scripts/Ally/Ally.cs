@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Ally : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class Ally : MonoBehaviour
     private float timeToShoot;
     private float shootTime;
     private bool m_FacingRight;
+    private int maxHealth;
 
     public RuntimeAnimatorController MainAnimator
     {
@@ -144,7 +146,7 @@ public class Ally : MonoBehaviour
     {
         this.data = data;
         health = Health;
-
+        maxHealth = health;
         foreach (var collider in GetComponents<BoxCollider2D>())
         {
             if (collider.isTrigger)
@@ -172,18 +174,25 @@ public class Ally : MonoBehaviour
         m_FacingRight = true;
         timeToShoot = float.MinValue;
 
-        WeaponSpawner.instance.SetPrefab(AllyWeaponName);
-        WeaponSpawner.instance.Spawn(AllyWeaponName, transform, true);
-
-        weapon = transform.GetChild(0);
         animator = GetComponent<Animator>();
-        weapon.localPosition = weapon.GetComponent<Weapon>().FirePointPosition;
-        shootTime = weapon.GetComponent<Weapon>().FireRate;
+
+        if (AllyWeaponName != "")
+        {
+            WeaponSpawner.instance.SetPrefab(AllyWeaponName);
+            WeaponSpawner.instance.Spawn(AllyWeaponName, transform, true);
+        }
+
+        if (transform.childCount > 0)
+        {
+            weapon = transform.GetChild(0);
+            weapon.localPosition = weapon.GetComponent<Weapon>().FirePointPosition;
+            shootTime = weapon.GetComponent<Weapon>().FireRate;
+        }
     }
 
     void Update()
     {
-        if (!isDeath)
+        if (!isDeath && transform.tag == "Ally")
         {
             if (RotateGunToEnemy() && closestEnemy != null)
             {
@@ -191,7 +200,7 @@ public class Ally : MonoBehaviour
                     Flip();
                 else if (closestEnemy.transform.position.x - transform.position.x < 0 && m_FacingRight)
                     Flip();
-                if (Time.time > timeToShoot)
+                if (Time.time > timeToShoot && weapon != null)
                 {
                     var weaponScript = weapon.GetComponent<Weapon>();
                     CameraShaker.instance.ShakeOnce(weaponScript.ShakeParametrs.magnitude,
@@ -220,22 +229,50 @@ public class Ally : MonoBehaviour
             }
             else
             {
-                var weaponScript = weapon.GetComponent<Weapon>();
-                switch (weapon.GetComponent<Weapon>().TypeOfAttack)
+                if(weapon != null)
                 {
-                    case WeaponData.AttackType.Gun:
-                        weapon.GetComponent<Gun>().StopShoot();
-                        break;
-                    case WeaponData.AttackType.Sword:
-                        weapon.GetComponent<Sword>().StopShoot();
-                        break;
-                    case WeaponData.AttackType.Laser:
-                        weapon.GetComponent<Laser>().StopShoot();
-                        break;
-                    default:
-                        break;
-                }
+                    switch (weapon.GetComponent<Weapon>().TypeOfAttack)
+                    {
+                        case WeaponData.AttackType.Gun:
+                            weapon.GetComponent<Gun>().StopShoot();
+                            break;
+                        case WeaponData.AttackType.Sword:
+                            weapon.GetComponent<Sword>().StopShoot();
+                            break;
+                        case WeaponData.AttackType.Laser:
+                            weapon.GetComponent<Laser>().StopShoot();
+                            break;
+                        default:
+                            break;
+                    }
+                }                
             }
+        }
+    }
+
+    public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
+    {
+        if (!isDeath)
+        {
+            bool isCriticalHit = Random.Range(0, 100) < critChance;
+            if (isCriticalHit)
+                damage *= 2;
+            health -= damage;
+
+            PopupText.Create(transform.position, false, isCriticalHit, damage);
+            if (health <= 0)
+                Death();
+        }
+    }
+
+    public void GetHeal(int heal)
+    {
+        if (!isDeath)
+        {
+            health += heal;
+            if (health > maxHealth)
+                health = maxHealth;
+            PopupText.Create(transform.position, false, false, heal, "", 4, false, "", true);
         }
     }
 
@@ -277,7 +314,8 @@ public class Ally : MonoBehaviour
                 }
             }
 
-            weapon = transform.GetChild(0);
+            if(transform.childCount > 0)
+                weapon = transform.GetChild(0);
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Ally") |
@@ -309,6 +347,78 @@ public class Ally : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private bool isShaking = false;
+    public IEnumerator ShakeGameObjectCOR(GameObject objectToShake, float totalShakeDuration, float decreasePoint)
+    {
+        if (decreasePoint >= totalShakeDuration)
+        {
+            Debug.LogError("decreasePoint must be less than totalShakeDuration...Exiting");
+            yield break;
+        }
+
+        Transform objTransform = objectToShake.transform;
+        Vector3 defaultPos = objTransform.position;
+        Quaternion defaultRot = objTransform.rotation;
+
+        float counter = 0f;
+        const float speed = 0.1f;
+        const float angleRot = 1.5f;
+
+        while (counter < totalShakeDuration)
+        {
+            counter += Time.deltaTime;
+            float decreaseSpeed = speed;
+
+            Vector3 tempPosition = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+            tempPosition.z = defaultPos.z;
+
+            objTransform.position = tempPosition;
+            objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-angleRot, angleRot), new Vector3(0f, 0f, 1f));
+            yield return null;
+
+            if (counter >= decreasePoint)
+            {
+                counter = 0f;
+                while (counter <= decreasePoint)
+                {
+                    counter += Time.deltaTime;
+                    decreaseSpeed = Mathf.Lerp(speed, 0, counter / decreasePoint);
+                    float decreaseAngle = Mathf.Lerp(angleRot, 0, counter / decreasePoint);
+
+                    Vector3 tempPos = defaultPos + Random.insideUnitSphere * decreaseSpeed;
+                    tempPos.z = defaultPos.z;
+                    objTransform.position = tempPos;
+                    objTransform.rotation = defaultRot * Quaternion.AngleAxis(Random.Range(-decreaseAngle, decreaseAngle), new Vector3(0f, 0f, 1f));
+
+                    yield return null;
+                }
+                break;
+            }
+        }
+        objTransform.position = defaultPos;
+        objTransform.rotation = defaultRot;
+        isShaking = false;
+    }
+
+
+    public void ShakeGameObject(GameObject objectToShake, float shakeDuration, float decreasePoint)
+    {
+        if (isShaking)
+            return;
+        isShaking = true;
+        StartCoroutine(ShakeGameObjectCOR(objectToShake, shakeDuration, decreasePoint));
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+
+        if (coll.tag == "EnemyBullet")
+        {
+            CharInfo.instance.Damage(coll.GetComponent<Bullet>().Damage);
+        }
+
     }
 
     void OnBecameVisible()

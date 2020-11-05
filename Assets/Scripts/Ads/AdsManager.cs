@@ -45,10 +45,7 @@ public class AdsManager : MonoBehaviour
             if (Application.platform == RuntimePlatform.IPhonePlayer)
                 Advertisement.Initialize(gameIDApple, true);
             else
-            {
                 Advertisement.Initialize(gameIDGoogle, true);
-                Debug.Log("ok");
-            }
         }
     }
 

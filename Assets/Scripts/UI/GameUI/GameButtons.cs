@@ -116,6 +116,7 @@ public class GameButtons : MonoBehaviour
         startTime = Time.time;
         Time.timeScale = 1f;
         timeToSkill = float.MinValue;
+        CharAction.isDeath = false;
         UISpawner.instance.SetUI();
         UISpawner.instance.IsStartFpsCounter = true;
         pause.SetActive(false);

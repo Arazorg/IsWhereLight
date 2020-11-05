@@ -15,7 +15,7 @@ public class EnemyData : ScriptableObject
     public RuntimeAnimatorController MainAnimator
     {
         get { return mainAnimator; }
-        protected set { }
+        set { mainAnimator = value; }
     }
 
     [Tooltip("Позиция в слоях спрайтов")]
@@ -23,7 +23,7 @@ public class EnemyData : ScriptableObject
     public int LayerOrder
     {
         get { return layerOrder; }
-        protected set { }
+        set { layerOrder = value; }
     }
 
     [Tooltip("Размер коллайдера действия")]
@@ -31,7 +31,7 @@ public class EnemyData : ScriptableObject
     public Vector2 ActionColliderSize
     {
         get { return actionColliderSize; }
-        protected set { }
+        set { actionColliderSize = value; }
     }
 
     [Tooltip("Смещение коллайдера действия")]
@@ -39,7 +39,7 @@ public class EnemyData : ScriptableObject
     public Vector2 ActionColliderOffset
     {
         get { return actionColliderOffset; }
-        protected set { }
+        set { actionColliderOffset = value; }
     }
 
     [Tooltip("Размер коллайдера")]
@@ -47,7 +47,7 @@ public class EnemyData : ScriptableObject
     public Vector2 СolliderSize
     {
         get { return colliderSize; }
-        protected set { }
+        set { colliderSize = value; }
     }
 
     [Tooltip("Смещение коллайдера")]
@@ -55,16 +55,16 @@ public class EnemyData : ScriptableObject
     public Vector2 ColliderOffset
     {
         get { return colliderOffset; }
-        protected set { }
+        set { colliderOffset = value; }
     }
-    
 
-   [Tooltip("Скорость врага")]
+
+    [Tooltip("Скорость врага")]
     [SerializeField] private int speed;
     public int Speed
     {
         get { return speed; }
-        protected set { }
+        set { speed = value; }
     }
 
     [Tooltip("Здоровье врага")]
@@ -72,6 +72,7 @@ public class EnemyData : ScriptableObject
     public int Health
     {
         get { return health; }
+        set { health = value; }
     }
 
     [Tooltip("Тип атаки врага")]
@@ -79,7 +80,7 @@ public class EnemyData : ScriptableObject
     public AttackType TypeOfAttack
     {
         get { return typeOfAttack; }
-        protected set { }
+        set { typeOfAttack = value; }
     }
 
     [Tooltip("Атака врага")]
@@ -87,7 +88,7 @@ public class EnemyData : ScriptableObject
     public int Damage
     {
         get { return damage; }
-        protected set { }
+        set { damage = value; }
     }
 
     [Tooltip("Радиус атаки врага")]
@@ -95,7 +96,7 @@ public class EnemyData : ScriptableObject
     public float AttackRange
     {
         get { return attackRange; }
-        protected set { }
+        set { attackRange = value; }
     }
 
     [Tooltip("Угол атаки врага")]
@@ -103,7 +104,7 @@ public class EnemyData : ScriptableObject
     public float AttackAngle
     {
         get { return attackAngle; }
-        protected set { }
+        set { attackAngle = value; }
     }
 
     [Tooltip("Пуля врага")]
@@ -111,18 +112,15 @@ public class EnemyData : ScriptableObject
     public BulletData DataOfBullet
     {
         get { return dataOfBullet; }
-        protected set { }
+        set { dataOfBullet = value; }
     }
 
     [Tooltip("Цель атаки врага")]
     [SerializeField] private string target;
     public string Target
     {
-        set
-        {
-            target = value;
-        }
         get { return target; }
+        set { target = value; }
     }
 
     [Tooltip("Имя врага")]
@@ -130,6 +128,7 @@ public class EnemyData : ScriptableObject
     public string EnemyName
     {
         get { return enemyName; }
+        set { enemyName = value; }
     }
 
     [Tooltip("Частота атаки врага")]
@@ -137,7 +136,7 @@ public class EnemyData : ScriptableObject
     public float FireRate
     {
         get { return fireRate; }
-        protected set { }
+        set { fireRate = value; }
     }
 #pragma warning restore 0649
 }

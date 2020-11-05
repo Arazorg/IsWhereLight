@@ -35,12 +35,10 @@ public class CharAction : MonoBehaviour
     private GameObject challengeUI;
 
     private float timeToOff;
-    private float timeToDeathPanel;
 
     void Start()
     {
         isDeath = false;
-        timeToDeathPanel = float.MaxValue;
         characterControlUI = GameObject.Find("Canvas").transform.Find("CharacterControlUI");
         fireActButton = characterControlUI.Find("FireActButton").GetComponent<Button>();
         if(SceneManager.GetActiveScene().name == "Lobby")
@@ -49,11 +47,6 @@ public class CharAction : MonoBehaviour
 
     void Update()
     {
-        if (isDeath && Time.time > timeToDeathPanel)
-        {
-            characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
-            timeToDeathPanel = float.MaxValue;
-        }
         PlayerHitted();
     }
 
@@ -137,7 +130,13 @@ public class CharAction : MonoBehaviour
         transform.Find(CharInfo.instance.weapons[GetComponent<CharGun>().CurrentWeaponNumber]).gameObject.SetActive(false);
         GetComponent<Rigidbody2D>().simulated = false;
         gameObject.tag = "IgnoreAll";
-        timeToDeathPanel = Time.time + 1f;
+        Invoke("OpenDeathPanel", 1f);
+    }
+
+    private void OpenDeathPanel()
+    {
+        if (isDeath)
+            characterControlUI.gameObject.GetComponent<GameButtons>().OpenDeathPanel();
     }
 
     public void Revive()

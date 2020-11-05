@@ -130,6 +130,9 @@ public class CharSkills : MonoBehaviour
     #region IsidaSkill
     private Dictionary<GameObject, GameObject> alliesLasers = new Dictionary<GameObject, GameObject>();
     private readonly float isidaSkillDuration = 2f;
+    private float timeToHeal = float.MinValue;
+    private readonly float healTime = 0.5f;
+    private readonly int laserHeal = 3;
 
     private void IsidaSkillStart()
     {
@@ -141,6 +144,8 @@ public class CharSkills : MonoBehaviour
         {
             var laser = Instantiate(isidaHealingLaser, transform.position, Quaternion.identity);
             alliesLasers.Add(ally, laser);
+            ally.GetComponentInChildren<SpriteRenderer>().color = new Color32(204, 255, 206, 255);
+            ally.GetComponent<Ally>().ShakeGameObject(ally, 0.15f, 0.075f);
         }
 
         if (alliesLasers.Count == 0)
@@ -163,7 +168,16 @@ public class CharSkills : MonoBehaviour
     private void IsidaSkillUsing()
     {
         if (Time.time < timeToSkill && isSkill && !CharAction.isDeath)
+        {
             IsidaSkill(alliesLasers);
+            if(Time.time > timeToHeal)
+            {
+                foreach (var ally in alliesLasers.Keys)
+                    ally.GetComponent<Ally>().GetHeal(laserHeal);
+
+                timeToHeal = Time.time + healTime;
+            }
+        }           
         else
         {
             if (sound != null)
@@ -174,6 +188,8 @@ public class CharSkills : MonoBehaviour
 
             foreach (var item in alliesLasers)
                 Destroy(item.Value);
+            foreach (var ally in alliesLasers.Keys)
+                ally.GetComponentInChildren<SpriteRenderer>().color = Color.white;
             alliesLasers.Clear();
             isSkill = false;
         }
@@ -202,11 +218,11 @@ public class CharSkills : MonoBehaviour
     #region LegionnaireSkill
 
     private Quaternion startSkillRotation;
+    private Collider2D disableCollider;
     private readonly float speedOfLegionnaireSkill = 15f;
     private readonly float durationOfLegionnaireSkill = 3.75f;
     private readonly int damageOfLegionnaireSkill = 3;
     private readonly float knokingOfLegionnaireSkill = 1000f;
-    private readonly float distanceForNewEnemy = 2.33f;
 
     private void LegionnaireSkillStart()
     {
@@ -227,6 +243,14 @@ public class CharSkills : MonoBehaviour
             animator.SetBool("Skill", true);
             transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(false);
             charController.SetZeroSpeed(true);
+            foreach (var collider in GetComponents<Collider2D>())
+            {
+                if (!collider.isTrigger)
+                {
+                    disableCollider = collider;
+                    collider.isTrigger = true;
+                }               
+            }
             Camera.main.GetComponent<CameraShaker>().IsSmooth = false;
             if (currentPhrase != null && isUsingSkill)
                 currentPhrase.DeletePhrase();
@@ -268,6 +292,7 @@ public class CharSkills : MonoBehaviour
                 audioManager.Play($"{charInfo.character}SkillStart", true);
                 transform.Find(charInfo.weapons[charGun.CurrentWeaponNumber]).gameObject.SetActive(true);
                 charController.SetZeroSpeed(false);
+                disableCollider.isTrigger = false;
                 enemies.Clear();
                 animator.SetBool("Skill", false);
                 transform.rotation = startSkillRotation;

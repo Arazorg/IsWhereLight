@@ -48,24 +48,24 @@ public class MovementUI : MonoBehaviour
         normalizedValue = currentTime / timeOfTravel;
         if (isMoveToEnd)
         {
-            if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y && !isHorizontal)
+            if (speed > 0 && currentUI_Element.anchoredPosition.y < endPos.y)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
-            else if (speed < 0 && currentUI_Element.anchoredPosition.y > endPos.y && !isHorizontal)
+            else if (speed < 0 && currentUI_Element.anchoredPosition.y > endPos.y)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
-            if (speed > 0 && currentUI_Element.anchoredPosition.x < endPos.x && isHorizontal)
+            if (speed > 0 && currentUI_Element.anchoredPosition.x < endPos.x)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
-            else if (speed < 0 && endPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
+            else if (speed < 0 && endPos.x < currentUI_Element.anchoredPosition.x)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(startPos, endPos, normalizedValue);
         }
         else if (isMoveToStart)
         {
-            if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y && !isHorizontal)
+            if (-speed > 0 && currentUI_Element.anchoredPosition.y < startPos.y)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
-            else if (-speed < 0 && currentUI_Element.anchoredPosition.y > startPos.y && !isHorizontal)
+            else if (-speed < 0 && currentUI_Element.anchoredPosition.y > startPos.y)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
-            if (-speed > 0 && currentUI_Element.anchoredPosition.x < startPos.x && isHorizontal)
+            if (-speed > 0 && currentUI_Element.anchoredPosition.x < startPos.x)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
-            else if (-speed < 0 && startPos.x < currentUI_Element.anchoredPosition.x && isHorizontal)
+            else if (-speed < 0 && startPos.x < currentUI_Element.anchoredPosition.x)
                 currentUI_Element.anchoredPosition = Vector3.Lerp(endPos, startPos, normalizedValue);
         }
     }

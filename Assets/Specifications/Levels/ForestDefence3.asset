@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfLevel: 0
   countOfFlocks: 1
-  enemiesCount: 15
+  enemiesCount: 8
   enemiesSettings:
   - {fileID: 11400000, guid: b9f12ff922d910841b7af59225384532, type: 2}
+  percentOfEliteEnemy: 50
+  bossSetting: {fileID: 0}
+  bossSpawnPoint: {x: 0, y: 0, z: 0}

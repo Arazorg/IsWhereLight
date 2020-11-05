@@ -6732,9 +6732,9 @@ MonoBehaviour:
     ignorePause: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - nameOfSound: PunchbagDamage
-    clip: {fileID: 8300000, guid: 027a7e898e3f5a049abece9148681c0a, type: 3}
-    volume: 1
+  - nameOfSound: Turret Weapon
+    clip: {fileID: 8300000, guid: 7ae12bcd449f7ca4b9bcd4afdef9b413, type: 3}
+    volume: 0.5
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1

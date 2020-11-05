@@ -8,20 +8,21 @@ public class Weapon : MonoBehaviour
 #pragma warning restore 0649
 
     private WeaponData data;
-    private PopupText currentPhrase = null;
+    //private PopupText currentPhrase = null;
 
     /// <summary>
     /// Initialization of weapon
     /// </summary>
     /// <param name="data"></param>
-    public void Init(WeaponData data)
+    public void Init(WeaponData data, bool isUsed = false)
     {
         this.data = data;
         critChance = CritChance;
 
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
         GetComponent<SpriteRenderer>().sprite = MainSprite;
-        transform.localPosition += (Vector3)Offset;
+        if(isUsed)
+            transform.localPosition += (Vector3)Offset;
         transform.rotation = Quaternion.Euler(0, 0, StandartAngle);
     }
 
@@ -119,13 +120,13 @@ public class Weapon : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (transform.tag == "Gun" && coll.tag == "Player")
-            currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, WeaponName, 3.75f, true);
+        //if (transform.tag == "Gun" && coll.tag == "Player")
+        //    currentPhrase = PopupText.Create(transform.position + offsetText, true, false, -1, WeaponName, 3.75f, true);
     }
 
     void OnTriggerExit2D()
     {
-        if (currentPhrase != null)
-            currentPhrase.DeletePhrase();
+        //if (currentPhrase != null)
+        //    currentPhrase.DeletePhrase();
     }
 }

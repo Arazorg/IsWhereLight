@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5341f059f2a2744485259f615747da1, type: 3}
-  m_Name: Bear
+  m_Name: GreatBear
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 2a14723116d9ee84699338bcca2bca50, type: 2}
   layerOrder: 2
@@ -26,5 +26,5 @@ MonoBehaviour:
   attackAngle: 60
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Player
-  enemyName: Bear
+  enemyName: GreatBear
   fireRate: 1

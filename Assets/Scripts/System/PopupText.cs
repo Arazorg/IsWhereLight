@@ -8,12 +8,12 @@ public class PopupText : MonoBehaviour
     //Create popup
     public static PopupText Create(Vector3 position, bool isPhrase,
                                     bool isCriticalHit = false, int damageAmount = -1,
-                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "")
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "", bool isHeal = false)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, position, Quaternion.identity);
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
         if (!isPhrase)
-            popupText.SetupDamage(damageAmount, isCriticalHit, 2.85f);
+            popupText.SetupDamageHeal(damageAmount, isCriticalHit, 2.85f, isHeal);
         else
             popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
@@ -21,14 +21,14 @@ public class PopupText : MonoBehaviour
 
     public static PopupText Create(Transform transform, Vector3 offset, bool isPhrase,
                                     bool isCriticalHit = false, int damageAmount = -1,
-                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "")
+                                        string phrase = "", float fontSize = 4f, bool isStatic = false, string otherText = "", bool isHeal = false)
     {
         Transform popupTextTransform = Instantiate(GameAssets.gameAssets.pfDamagePopup, transform);
         popupTextTransform.position += offset;
         PopupText popupText = popupTextTransform.GetComponent<PopupText>();
 
         if (!isPhrase)
-            popupText.SetupDamage(damageAmount, isCriticalHit, 2.85f);
+            popupText.SetupDamageHeal(damageAmount, isCriticalHit, 2.85f, isHeal);
         else
             popupText.SetupPhrase(phrase, fontSize, isStatic, otherText);
         return popupText;
@@ -54,14 +54,14 @@ public class PopupText : MonoBehaviour
     {
         if (isPhrase)
         {
-           if (transform.parent != null)
-           {
+            if (transform.parent != null)
+            {
                 transform.rotation = Quaternion.Euler(0, 0, -transform.parent.rotation.z);
                 if (transform.parent.localScale.x == -1)
                     transform.localScale = new Vector3(-1, 1, 1);
                 else
                     transform.localScale = Vector3.one;
-           }
+            }
         }
         else
         {
@@ -101,20 +101,27 @@ public class PopupText : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetupDamage(int damageAmount, bool isCriticalHit, float fontSize)
+    public void SetupDamageHeal(int damageAmount, bool isCriticalHit, float fontSize, bool isHeal)
     {
         isPhrase = false;
         textMesh.SetText(damageAmount.ToString());
         if (isCriticalHit)
         {
             textMesh.fontSize = fontSize + 0.75f;
-            textColor = Color.red;
+            if (isHeal)
+                textColor = Color.blue;
+            else
+                textColor = Color.red;
         }
         else
         {
             textMesh.fontSize = fontSize;
-            textColor = Color.yellow;
+            if (isHeal)
+                textColor = Color.green;
+            else
+                textColor = Color.yellow;
         }
+
         textMesh.color = textColor;
         disappearTimer = DISAPPEAR_TIMER_MAX_DAMAGE;
 

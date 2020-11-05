@@ -118,6 +118,8 @@ public class ConstantLaser : MonoBehaviour
 
     public void StopShoot()
     {
+        if (animator == null)
+            animator = GetComponent<Animator>();
         animator.SetBool("Attack", false);
         timeToDamage = float.MaxValue;
         isAttack = false;

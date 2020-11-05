@@ -95,8 +95,18 @@ public class CharGun : MonoBehaviour
         int damage = weapon.Damage;
         float critChance = weapon.CritChance;
         int manecost = weapon.Manecost;
-        gunInfoBar.GetComponentInChildren<TextMeshProUGUI>().text =
-            $"{damage} DMG | {critChance}% CRIT | {manecost} MANA";
+
+        foreach (var infoText in gunInfoBar.GetComponentsInChildren<TextMeshProUGUI>())
+        {
+            if (infoText.name == "DamageText")
+                infoText.text = damage.ToString();
+            if(infoText.name == "CritText")
+                infoText.text = critChance.ToString() + "%";
+            if(infoText.name == "ManeText")
+                infoText.text = manecost.ToString();
+            if (infoText.name == "WeaponNameText")
+                infoText.text = weapon.WeaponName;
+        }
     }
 
     public void SpawnStartWeapon()

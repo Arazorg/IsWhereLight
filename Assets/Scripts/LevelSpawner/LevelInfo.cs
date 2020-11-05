@@ -34,6 +34,11 @@ public class LevelInfo : MonoBehaviour
         get { return data.EnemiesSettings; }
     }
 
+    public int PercentOfEliteEnemy
+    {
+        get { return data.PercentOfEliteEnemy; }
+    }
+
     public BossData bossSetting
     {
         get { return data.BossSetting; }
