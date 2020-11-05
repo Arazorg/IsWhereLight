@@ -26,9 +26,6 @@ public class EndGameUI : MonoBehaviour
 
     [Tooltip("Кнопка выхода в лобби")]
     [SerializeField] private GameObject lobbyButton;
-
-    [Tooltip("Кнопка выхода в меню")]
-    [SerializeField] private GameObject menuButton;
 #pragma warning restore 0649
 
     private bool isResultSet = false;
@@ -133,8 +130,6 @@ public class EndGameUI : MonoBehaviour
 
     private void EnableEndGamePanels()
     {
-        lobbyButton.GetComponentInChildren<MovementUI>().MoveToEnd();
-        menuButton.GetComponentInChildren<MovementUI>().MoveToEnd();
         GetComponentInChildren<StarsImages>().FillStars(biomeAndLevel);
     }
 

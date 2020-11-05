@@ -254,6 +254,7 @@ public class Ally : MonoBehaviour
     {
         if (!isDeath)
         {
+            Debug.Log(health);
             bool isCriticalHit = Random.Range(0, 100) < critChance;
             if (isCriticalHit)
                 damage *= 2;
@@ -278,21 +279,15 @@ public class Ally : MonoBehaviour
 
     public void Death()
     {
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        float deathTime = 0;
         Destroy(transform.GetChild(0).gameObject);
-        foreach (AnimationClip clip in clips)
-        {
-            switch (clip.name)
-            {
-                case "Death":
-                    deathTime = clip.length;
-                    break;
-            }
-        }
         animator.SetBool("isDeath", true);
         isDeath = true;
-        Destroy(gameObject, deathTime);
+        foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
+            Destroy(collider2D);
+        ColorUtility.TryParseHtmlString("#808080", out Color color);
+        gameObject.tag = "IgnoreAll";
+        GetComponent<SpriteRenderer>().sortingOrder = 1;
+        GetComponent<SpriteRenderer>().color = color;
     }
 
     private bool RotateGunToEnemy(string tag = "Enemy")

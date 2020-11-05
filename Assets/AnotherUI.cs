@@ -33,7 +33,7 @@ public class AnotherUI : MonoBehaviour
 
     public void ShowInternetNotReachablePanel()
     {
-        var internetPanelTime = 1f;
+        var internetPanelTime = 1.75f;
         if(internetNotReachablePanel == null)
             internetNotReachablePanel = GameObject.Find("Canvas").transform.Find("InternetNotReachablePanel").gameObject;
         internetNotReachablePanel.GetComponent<MovementUI>().MoveToEnd();
