@@ -758,7 +758,7 @@
 
     {
       "key": "FinishOfGameWin",
-      "value": "Yeah!\nWin!"
+      "value": "Yeah! Win!"
     },
 	
 	{
@@ -815,7 +815,12 @@
       "key": "CountOfShoots",
       "value": "Count of shoots: "
     },
-
+	
+	{
+      "key": "GameDuration",
+      "value": "Game duration"
+    },
+	
     {
       "key": "Exit",
       "value": "Exit"

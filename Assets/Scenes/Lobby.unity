@@ -175,9 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4076ca117d0a4642adb6964f37fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doneStar: {fileID: 21300000, guid: 9fe3db499bff71b44a0259174a564a81, type: 3}
-  notDoneStar: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  doneStar: {fileID: 21300000, guid: 752a25bbd81129e42bf82f19377d99ac, type: 3}
+  notDoneStar: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   level: ForestBoss
+  newStarEffect: {fileID: 5992852034513968615, guid: 0cfb2f40bb4db1645a81b1491294789a,
+    type: 3}
 --- !u!1 &28040277
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,9 +5525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4076ca117d0a4642adb6964f37fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doneStar: {fileID: 21300000, guid: 9fe3db499bff71b44a0259174a564a81, type: 3}
-  notDoneStar: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  doneStar: {fileID: 21300000, guid: 752a25bbd81129e42bf82f19377d99ac, type: 3}
+  notDoneStar: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   level: ForestHeal
+  newStarEffect: {fileID: 5992852034513968615, guid: 0cfb2f40bb4db1645a81b1491294789a,
+    type: 3}
 --- !u!1 &337162816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,7 +5745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8725,7 +8729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -15920,7 +15924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16146,7 +16150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -19254,7 +19258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -23368,7 +23372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -25659,9 +25663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4076ca117d0a4642adb6964f37fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doneStar: {fileID: 21300000, guid: 9fe3db499bff71b44a0259174a564a81, type: 3}
-  notDoneStar: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  doneStar: {fileID: 21300000, guid: 752a25bbd81129e42bf82f19377d99ac, type: 3}
+  notDoneStar: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   level: ForestAttack
+  newStarEffect: {fileID: 5992852034513968615, guid: 0cfb2f40bb4db1645a81b1491294789a,
+    type: 3}
 --- !u!1 &1262542506
 GameObject:
   m_ObjectHideFlags: 0
@@ -28336,7 +28342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -29302,7 +29308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -29553,7 +29559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -31457,9 +31463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4076ca117d0a4642adb6964f37fc0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doneStar: {fileID: 21300000, guid: 9fe3db499bff71b44a0259174a564a81, type: 3}
-  notDoneStar: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  doneStar: {fileID: 21300000, guid: 752a25bbd81129e42bf82f19377d99ac, type: 3}
+  notDoneStar: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   level: ForestDefence
+  newStarEffect: {fileID: 5992852034513968615, guid: 0cfb2f40bb4db1645a81b1491294789a,
+    type: 3}
 --- !u!1 &1643170482
 GameObject:
   m_ObjectHideFlags: 0
@@ -31517,7 +31525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -32569,7 +32577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -39099,7 +39107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e2c4fce4aa5e8549b4b2a0bd23bd043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901928775707f7c41a00f6bc0f595682, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

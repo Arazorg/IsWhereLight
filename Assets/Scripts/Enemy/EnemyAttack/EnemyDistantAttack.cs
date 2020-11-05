@@ -68,7 +68,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
             Vector3 closeDirection = (shootTarget.transform.position - transform.position).normalized;
 
-            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Enemy") | 
+            LayerMask layerMask = ~(1 << LayerMask.NameToLayer("Enemy") |
                                         1 << LayerMask.NameToLayer("Ignore Raycast") |
                                             1 << LayerMask.NameToLayer("Room") |
                                                 1 << LayerMask.NameToLayer("SpawnPoint"));
@@ -80,6 +80,8 @@ public class EnemyDistantAttack : MonoBehaviour
                     return true;
             }
         }
+        else
+            GetComponent<EnemyAI>().GetTarget(targetTag);
         return false;
     }
 

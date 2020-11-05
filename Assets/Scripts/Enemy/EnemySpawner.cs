@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -59,21 +60,35 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public int textTimer;
+    private int textTimer;
+    public int TextTimer
+    {
+        get { return textTimer; }
+        set { textTimer = value; }
+    }
 
     private GameObject enemyPrefab;
     private GameObject bossPrefab;
-
     private LevelData.LevelType levelType;
     private List<GameObject> enemies = new List<GameObject>();
     private List<Vector3> spawnPoints = new List<Vector3>();
+    private List<Vector3> currentSpawnPoints = new List<Vector3>();
     private Vector3 bossSpawnPoint = new Vector3();
 
     private int counter = 0;
     private int currentCountOfFlocks = 0;
 
+    public float GameDuration
+    {
+        get { return gameDuration; }
+    }
+    private float gameDuration = float.MinValue;
+
+    private bool isNewFlock = true;
+
     public void SetParameters(LevelInfo levelInfo, List<Vector3> spawnPoints)
     {
+        gameDuration = Time.time;
         levelType = levelInfo.TypeOfLevel;
         enemiesSettings = levelInfo.EnemiesSettings;
         countOfFlocks = levelInfo.CountOfFlocks;
@@ -81,7 +96,10 @@ public class EnemySpawner : MonoBehaviour
         enemiesCount = levelInfo.EnemiesCount;
 
         if (spawnPoints.Count != 0)
-            SetSpawnPoints(spawnPoints);
+        {
+            this.spawnPoints = spawnPoints;
+            SetSpawnPoints();
+        }
         else
             this.spawnPoints.Add(Vector3.zero);
 
@@ -94,6 +112,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SetParameters(LevelInfo levelInfo)
     {
+        gameDuration = Time.time;
         levelType = levelInfo.TypeOfLevel;
 
         bossSpawnPoint = levelInfo.BossSpawnPoint;
@@ -103,16 +122,17 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer.GetComponent<MovementUI>().MoveToEnd();
         InvokeRepeating("OutputTime", 1f, 1f);
         Invoke("DisableTimer", 5f);
-        Invoke("FirstSpawn", 6f);
+        Invoke("FirstSpawn", 5f);
     }
 
-    private void SetSpawnPoints(List<Vector3> spawnPoints)
+    private void SetSpawnPoints()
     {
         for (int i = 0; i < enemiesCount; ++i)
         {
             var point = spawnPoints[Random.Range(0, spawnPoints.Count)];
-            spawnPoints.Remove(point);
-            this.spawnPoints.Add(point);
+            while (currentSpawnPoints.Contains(point))
+                point = spawnPoints[Random.Range(0, spawnPoints.Count)];
+            currentSpawnPoints.Add(point);
         }
     }
 
@@ -123,14 +143,19 @@ public class EnemySpawner : MonoBehaviour
             if (currentCountOfFlocks < countOfFlocks)
             {
                 CreateEnemySpawnPoints();
-                Invoke("SpawnFlock", 1f);
+                if(isNewFlock)
+                {
+                    Invoke("SpawnFlock", 1f);
+                    isNewFlock = false;
+                }                                   
             }
             else
             {
                 GameObject.Find("Character(Clone)").GetComponent<CharController>().SetZeroSpeed(true);
                 ProgressInfo.instance.SetLevelsForestStar(Regex.Replace(CurrentGameInfo.instance.challengeName, "[0-9]", "", RegexOptions.IgnoreCase));
                 ProgressInfo.instance.SaveProgress();
-                GameObject.Find("Canvas").transform.Find("EndGamePanel").GetComponent<EndGameUI>().OpenPanel(true);
+                GameObject.Find("Canvas").transform.Find("EndGamePanel").GetComponent<EndGameUI>().SetResults(true, Time.time - gameDuration);
+                Destroy(gameObject);
             }
         }
     }
@@ -153,7 +178,7 @@ public class EnemySpawner : MonoBehaviour
     private void CreateEnemySpawnPoints()
     {
         if (levelType != LevelData.LevelType.Boss)
-            foreach (var spawnPoint in spawnPoints)
+            foreach (var spawnPoint in currentSpawnPoints)
                 Destroy(Instantiate(enemySpawnPointPrefab, spawnPoint, Quaternion.identity), 0.75f);
     }
 
@@ -166,7 +191,10 @@ public class EnemySpawner : MonoBehaviour
                 enemies.Add(currentEnemy);
             counter++;
         }
+        isNewFlock = true;
         currentCountOfFlocks++;
+        currentSpawnPoints.Clear();
+        SetSpawnPoints();
     }
 
     public GameObject Spawn(string enemyName, int counter)
@@ -185,8 +213,9 @@ public class EnemySpawner : MonoBehaviour
                         enemyPrefab = enemiesPrefabs[1];
                         break;
                 }
-                var currentSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-                spawnPoints.Remove(currentSpawnPoint);
+
+                Vector3 currentSpawnPoint = currentSpawnPoints[Random.Range(0, currentSpawnPoints.Count)];
+                currentSpawnPoints.Remove(currentSpawnPoint);
                 currentEnemy = Instantiate(enemyPrefab, currentSpawnPoint, new Quaternion(0, 0, 0, 0));
                 var script = currentEnemy.GetComponent<Enemy>();
                 currentEnemy.name = "Enemy " + counter;

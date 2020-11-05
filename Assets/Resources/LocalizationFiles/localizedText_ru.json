@@ -730,7 +730,7 @@
     
     {
       "key": "FinishOfGameWin",
-      "value": "Ура!\nПобеда!"
+      "value": "Ура! Победа!"
     },
 	
 	{
@@ -745,14 +745,19 @@
 
     {
       "key": "CountOfEnemies",
-      "value": "Количество убитых врагов: "
+      "value": "Количество убитых врагов"
     },
 
     {
       "key": "CountOfShoots",
-      "value": "Количество выстрелов: "
+      "value": "Количество выстрелов"
     },
-
+	
+	{
+      "key": "GameDuration",
+      "value": "Длительность игры"
+    },
+	
     {
       "key": "Standart",
       "value": "Стандартные"

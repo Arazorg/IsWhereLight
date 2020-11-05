@@ -173,7 +173,7 @@ public class CharSkills : MonoBehaviour
             if(Time.time > timeToHeal)
             {
                 foreach (var ally in alliesLasers.Keys)
-                    ally.GetComponent<Ally>().GetHeal(laserHeal);
+                    ally.GetComponent<Ally>().Heal(laserHeal);
 
                 timeToHeal = Time.time + healTime;
             }
@@ -275,9 +275,9 @@ public class CharSkills : MonoBehaviour
                 {
                     var enemyScript = enemies[enemyCounter].GetComponent<Enemy>();
                     var bossScript = enemies[enemyCounter].GetComponent<Boss>();
-                    if (enemyScript != null)
+                    if (enemyScript != null && !enemyScript.IsDeath)
                         enemyScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
-                    else if (bossScript != null)
+                    else if (bossScript != null && !bossScript.IsDeath)
                         bossScript.GetDamage(damageOfLegionnaireSkill, 0, transform, knokingOfLegionnaireSkill);
                     enemyCounter++;
                 }
@@ -316,7 +316,7 @@ public class CharSkills : MonoBehaviour
         var bossScript = enemies[enemyCounter].GetComponent<Boss>();
 
         if (//Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy
-            enemyScript != null && !enemyScript.isPlayerInCollider)
+            enemyScript != null && !enemyScript.isPlayerInCollider && !enemyScript.IsDeath)
         {
             Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * speedOfLegionnaireSkill;
             rb.velocity = dir;
@@ -326,7 +326,7 @@ public class CharSkills : MonoBehaviour
             return false;
         }
         else if (//Math.Abs((enemies[enemyCounter].transform.position - transform.position).magnitude) > distanceForNewEnemy
-                  bossScript != null && !bossScript.isPlayerInCollider)
+                  bossScript != null && !bossScript.isPlayerInCollider && !enemyScript.IsDeath)
         {
             Vector2 dir = (enemies[enemyCounter].transform.position - transform.position).normalized * speedOfLegionnaireSkill;
             rb.velocity = dir;

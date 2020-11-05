@@ -263,7 +263,7 @@ public class Boss : MonoBehaviour
             if (isCriticalHit)
             {
                 damage *= 2;
-                ShakeGameObject(gameObject, 0.075f, 0.0325f);
+                ShakeGameObject(gameObject, 0.075f, 0.0225f);
             }
                 
             health -= damage;
@@ -283,13 +283,12 @@ public class Boss : MonoBehaviour
         AudioManager.instance.Play($"{EnemyName}Death");
         GetComponent<Animator>().Play("Death");
         isDeath = true;
-        //GetComponent<Rigidbody2D>().simulated = false;
-
+        GetComponent<Rigidbody2D>().simulated = false;
         ColorUtility.TryParseHtmlString("#808080", out Color color);
         gameObject.tag = "IgnoreAll";
         GetComponent<SpriteRenderer>().sortingOrder = 1;
         GetComponent<SpriteRenderer>().color = color;
-        //CharInfo.instance.currentCountKilledEnemies++;
+        CharInfo.instance.currentCountKilledEnemies++;
         EnemySpawner.instance.DeleteEnemy(gameObject);
     }
 

@@ -11,16 +11,12 @@ public class ProgressInfo : MonoBehaviour
     public Dictionary<string, int> secretCodes;
     public Dictionary<string, bool> achivments;
     public Dictionary<string, bool> amplifications;
-
     public Dictionary<string, int> forestLevelsStarsCount;
 
     public int playerMoney;
     public int countKilledEnemies;
     public int countShoots;
     public int countOfAmplificationPoint;
-
-    public int currentCountKilledEnemies;
-    public int currentCountShoots;
 
     private GameObject moneyText;
 

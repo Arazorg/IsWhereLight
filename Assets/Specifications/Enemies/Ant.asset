@@ -25,6 +25,6 @@ MonoBehaviour:
   attackRange: 5
   attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
-  target: Player
+  target: Ally
   enemyName: Ant
   fireRate: 1

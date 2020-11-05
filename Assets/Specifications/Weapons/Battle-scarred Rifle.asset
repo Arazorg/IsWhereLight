@@ -25,7 +25,7 @@ MonoBehaviour:
   radius: 0
   knoking: 25
   fireRate: 0.35
-  damage: 200
+  damage: 15
   critChance: 15
   currentBullet: {fileID: 11400000, guid: db08bfb8a3605c84fbd9cc1de1cbea39, type: 2}
   manecost: 0

@@ -268,7 +268,7 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
-            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.instance.textTimer != 0)
+            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.instance.TextTimer != 0)
                 spawnTimer.GetComponent<MovementUI>().MoveToEnd();
             UISpawner.instance.HideShowFPS(true);
         }
@@ -308,9 +308,7 @@ public class GameButtons : MonoBehaviour
         if (!CurrentGameInfo.instance.isWin)
             audioManager.Play("ClickUI");
         Time.timeScale = 1f;
-        ProgressInfo.instance.currentCountShoots = charInfo.currentCountShoots;
-        ProgressInfo.instance.currentCountKilledEnemies = charInfo.currentCountKilledEnemies;
-        SceneManager.LoadScene("FinishGame");
+        GameObject.Find("Canvas").transform.Find("EndGamePanel").GetComponent<EndGameUI>().SetResults(false, Time.time - EnemySpawner.instance.GameDuration);
     }
 
     public void RevivePlayerAd()

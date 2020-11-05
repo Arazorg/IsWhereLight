@@ -250,7 +250,7 @@ public class Ally : MonoBehaviour
         }
     }
 
-    public void GetDamage(int damage, float critChance, Transform objectTransform = null, float knoking = 0f)
+    public void Damage(int damage, float critChance)
     {
         if (!isDeath)
         {
@@ -265,7 +265,7 @@ public class Ally : MonoBehaviour
         }
     }
 
-    public void GetHeal(int heal)
+    public void Heal(int heal)
     {
         if (!isDeath)
         {
@@ -316,6 +316,8 @@ public class Ally : MonoBehaviour
 
             if(transform.childCount > 0)
                 weapon = transform.GetChild(0);
+            if (closestEnemy.GetComponent<Enemy>().IsDeath)
+                return false;
             Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
             LayerMask layerMask
                 = ~(1 << LayerMask.NameToLayer("Ally") |

@@ -18,15 +18,42 @@ public class EnemyAI : MonoBehaviour
         GetTarget(enemy.Target);
     }
 
-    private void GetTarget(string targetTag = "")
+    public void GetTarget(string targetTag = "")
     {
         targetTransform = character.transform;
         if (targetTag == "Building")
             targetTransform = GetNearestBuilding();
-        GetComponent<EnemyMovement>().CurrentTarget = targetTransform;
-        
+        else if(targetTag == "Ally")
+            targetTransform = GetNearestAlly();
+        if(targetTransform == null)
+            targetTransform = character.transform;
+
+        GetComponent<EnemyMovement>().CurrentTarget = targetTransform;       
         if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
             GetComponent<EnemyDistantAttack>().ShootTarget = targetTransform;
+    }
+
+    private Transform GetNearestAlly()
+    {
+        var allies = GameObject.FindGameObjectsWithTag("Ally");
+        if (allies.Length != 0)
+        {
+            GameObject closestAlly = null;
+            float distanceToAlly = Mathf.Infinity;
+            foreach (GameObject ally in allies)
+            {
+                Vector3 direction = ally.transform.position - transform.position;
+                float curDistance = direction.sqrMagnitude;
+                if (curDistance < distanceToAlly)
+                {
+                    closestAlly = ally;
+                    distanceToAlly = curDistance;
+                }
+            }
+            return closestAlly.transform;
+        }
+        else
+            return null;
     }
 
     private Transform GetNearestBuilding()
