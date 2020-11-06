@@ -16,12 +16,12 @@ public class EnemyAI : MonoBehaviour
         enemy = GetComponent<Enemy>();
         character = GameObject.Find("Character(Clone)");
         GetTarget(enemy.Target);
-        InvokeRepeating("CheckTarget", 0, 0.33f);
+       // InvokeRepeating("CheckTarget", 0, 0.33f);
     }
 
     public void StopAI()
     {
-        CancelInvoke("CheckTarget");
+       // CancelInvoke("CheckTarget");
     }
     
     public void GetTarget(string targetTag = "")

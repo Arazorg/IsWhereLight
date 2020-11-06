@@ -33,7 +33,7 @@
 	
 	{
       "key": "InternetNotReachable",
-      "value": "No access to the Internet..."
+      "value": "No internet connection..."
     },
 	
 	{
@@ -48,17 +48,17 @@
 	
 	{
       "key": "AmplificationText",
-      "value": "Choose Amplifications"
+      "value": "Choose buffs"
     },
 		
 	{
       "key": "AmplificationsPoints",
-      "value": "Amplifications Points:"
+      "value": "Buff Points:"
     },
 	
 	{
       "key": "CurrentAmplifications",
-      "value": "Current Amplifications"
+      "value": "Current buffs"
     },
 	
 	{
@@ -68,7 +68,7 @@
 	
 	{
       "key": "HpBoostDescription",
-      "value": "This will definitely help you survive a couple of extra shots."
+      "value": "This will help you to survive a couple of extra shots."
     },
 	
 	{
@@ -78,7 +78,7 @@
 	
 	{
       "key": "OtherLanguages",
-      "value": "Other languages\nPretty soon..."
+      "value": "Other languages\nComing soon..."
     },
 	
 	{
@@ -763,7 +763,7 @@
 	
 	{
       "key": "FinishOfGameLose",
-      "value": "Get on him, get on him again!"
+      "value": "Better luck next time!"
     },
 	
     {
@@ -788,7 +788,7 @@
 
     {
       "key": "Transparency",
-      "value": "Transparency"
+      "value": "Clarity"
     },
 
     {
@@ -818,7 +818,7 @@
 	
 	{
       "key": "GameDuration",
-      "value": "Game duration"
+      "value": "Duration of the game"
     },
 	
     {
@@ -828,7 +828,7 @@
 
     {
       "key": "Revive",
-      "value": "Revive me, please"
+      "value": "Bring me back please!"
     },
 
     {
@@ -968,7 +968,7 @@
 	
 	{
       "key": "OffFps",
-      "value": "The frames per second will not be visible in the game and in the lobby."
+      "value": "FPS won't be visible in the game and lobby."
     },
 	
 	{
@@ -978,7 +978,7 @@
 	
 	{
       "key": "OnFps",
-      "value": "The frames per second will be visible in the game and in the lobby."
+      "value": "FPS will be be visible in the game and lobby."
     },
 	
 	{
@@ -988,7 +988,7 @@
 	
 	{
       "key": "ChangeColorTrancparency",
-      "value": "Change the colors and transparency of the interface!"
+      "value": "Change the colors and clarity of the interface!"
     },
 	
 	{
@@ -1175,10 +1175,15 @@
       "key": "NoManePhrase2",
       "value": "I don't have enough mane!"
     },
-	
+		
+	{
+      "key": "DragDropBuffs",
+      "value": "Drag and drop buffs"
+    },
+
 	{
       "key": "BossGreatBear",
-      "value": "GREAT BEAR"
+      "value": "THE GREAT BEAR"
     }
   ]
 }

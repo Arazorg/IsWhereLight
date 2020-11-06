@@ -35,28 +35,27 @@ public class StarsImages : MonoBehaviour
         starLevel = ProgressInfo.instance.CheckLevelsForestStar(level);
         if (!isInstantly)
             for (int i = 0; i < starLevel; i++)
-                Invoke("FillCurrentStar", i + 0.5f);
+            {
+                if ((starsCounter + 1) == starLevel)
+                    Invoke("NewStarSpawn", i + 0.5f);
+                else
+                    GetComponentsInChildren<Image>()[i].sprite = doneStar;
+                starsCounter++;
+            }
         else
             for (int i = 0; i < starLevel; i++)
-                GetComponentsInChildren<Image>()[i].sprite = doneStar;                
+                GetComponentsInChildren<Image>()[i].sprite = doneStar;
     }
 
-    private void FillCurrentStar()
+    private void NewStarSpawn()
     {
-        if ((starsCounter + 1) == starLevel)
-            NewStarSpawn(starsCounter);
-        GetComponentsInChildren<Image>()[starsCounter].sprite = doneStar;     
-        starsCounter++;
-    }
-
-    public void NewStarSpawn(int starNumber)
-    {
-        Destroy(Instantiate(GetComponentsInChildren<Image>()[starNumber].gameObject,
-                                GetComponentsInChildren<Image>()[starNumber].gameObject.transform.position, 
-                                    Quaternion.identity), 0.33f);
-        var starMovement = GetComponentsInChildren<Image>()[starNumber].GetComponent<MovementUI>();
+        Destroy(Instantiate(GetComponentsInChildren<Image>()[starsCounter - 1].gameObject,
+                                GetComponentsInChildren<Image>()[starsCounter - 1].gameObject.transform.position,
+                                    Quaternion.identity), 1f);
+        var starMovement = GetComponentsInChildren<Image>()[starsCounter - 1].GetComponent<MovementUI>();
         starMovement.SetStartPos(starTransform.position);
         starMovement.SetStart();
+        GetComponentsInChildren<Image>()[starsCounter - 1].sprite = doneStar;
         starMovement.GetComponent<MovementUI>().MoveToEnd();
     }
 }

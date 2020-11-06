@@ -179,7 +179,7 @@ public class GameButtons : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !EndGameUI.isEndGamePanelOpen)
             OpenPause();
 
         if (Application.platform == RuntimePlatform.Android)

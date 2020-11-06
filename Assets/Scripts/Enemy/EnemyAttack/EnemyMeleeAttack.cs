@@ -38,6 +38,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (Time.time > timeToAttack && !GetComponent<Enemy>().IsDeath)
         {
+            Debug.Log("ATTACK");
             isAttack = true;
             Attack();
         }
@@ -65,14 +66,10 @@ public class EnemyMeleeAttack : MonoBehaviour
             AudioManager.instance.Play("EnemyMeleeAttack");
 
             if (target.transform.tag == "Player")
-            {
-                Debug.Log("!");
                 charInfo.Damage(damage);
-            }
-
             else if (target.transform.tag == "Ally")
                 target.GetComponent<Ally>().Damage(damage, 15);
-        }
-        isAttack = false;
+            isAttack = false;
+        }       
     }
 }

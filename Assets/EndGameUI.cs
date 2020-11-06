@@ -28,8 +28,10 @@ public class EndGameUI : MonoBehaviour
     [SerializeField] private GameObject lobbyButton;
 #pragma warning restore 0649
 
+    public static bool isEndGamePanelOpen;
     private bool isResultSet = false;
     private string biomeAndLevel = "";
+    
 
     void Start()
     {
@@ -46,6 +48,7 @@ public class EndGameUI : MonoBehaviour
 
     private void SetUI()
     {
+        isEndGamePanelOpen = false;
         foreach (var image in GetComponentsInChildren<Image>())
         {
             var color = image.color;
@@ -65,6 +68,7 @@ public class EndGameUI : MonoBehaviour
 
     public void SetResults(bool isWin, float gameDuration)
     {
+        gameObject.SetActive(true);
         if (!isResultSet)
         {
             isResultSet = true;
@@ -93,6 +97,7 @@ public class EndGameUI : MonoBehaviour
 
     private void OpenPanel(bool isWin)
     {
+        isEndGamePanelOpen = true;
         if (isWin)
             endGamePanelText.GetComponent<LocalizedText>().key = "FinishOfGameWin";
         else
