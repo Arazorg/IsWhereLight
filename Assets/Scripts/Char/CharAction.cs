@@ -52,7 +52,7 @@ public class CharAction : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (!isDeath && coll.isTrigger)
+        if (!isDeath)
         {
             switch (coll.gameObject.name)
             {
@@ -83,13 +83,13 @@ public class CharAction : MonoBehaviour
                     fireActButton.GetComponent<Image>().sprite = actionImage;
                     break;
             }
+        }
 
-            if (coll.tag == "EnemyBullet")
-            {
-                CharInfo.instance.Damage(coll.GetComponent<Bullet>().Damage);
-                isPlayerHitted = true;
-                isEnterFirst = true;
-            }
+        if (coll.tag == "EnemyBullet" && coll.isTrigger)
+        {
+            CharInfo.instance.Damage(coll.GetComponent<Bullet>().Damage);
+            isPlayerHitted = true;
+            isEnterFirst = true;
         }
     }
 

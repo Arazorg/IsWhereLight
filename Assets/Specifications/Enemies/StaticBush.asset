@@ -25,6 +25,6 @@ MonoBehaviour:
   attackRange: 0
   attackAngle: 0
   dataOfBullet: {fileID: 0}
-  target: 
+  target: Ally
   enemyName: StaticBush
   fireRate: 0

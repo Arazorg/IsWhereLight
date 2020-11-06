@@ -76,7 +76,7 @@ public class EnemyDistantAttack : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.tag == targetTag)
+                if ((hit.collider.tag == targetTag) || (hit.collider.tag == "Player"))
                     return true;
             }
         }

@@ -162,7 +162,6 @@ public class Ally : MonoBehaviour
         }
 
         GetComponent<SpriteRenderer>().sortingOrder = LayerOrder;
-        gameObject.tag = "Untagged";
         GetComponent<Animator>().runtimeAnimatorController = MainAnimator;
     }
 
@@ -254,7 +253,6 @@ public class Ally : MonoBehaviour
     {
         if (!isDeath)
         {
-            Debug.Log(health);
             bool isCriticalHit = Random.Range(0, 100) < critChance;
             if (isCriticalHit)
                 damage *= 2;
@@ -277,17 +275,37 @@ public class Ally : MonoBehaviour
         }
     }
 
-    public void Death()
+    public void Death(bool isCreated = false)
     {
-        Destroy(transform.GetChild(0).gameObject);
-        animator.SetBool("isDeath", true);
+        if(transform.childCount > 0)
+            Destroy(transform.GetChild(0).gameObject);
         isDeath = true;
-        foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
-            Destroy(collider2D);
-        ColorUtility.TryParseHtmlString("#808080", out Color color);
         gameObject.tag = "IgnoreAll";
-        GetComponent<SpriteRenderer>().sortingOrder = 1;
-        GetComponent<SpriteRenderer>().color = color;
+        if (isCreated)
+        {
+            animator.Play("Death");
+            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                switch (clip.name)
+                {
+                    case "Death":
+                        Destroy(gameObject, clip.length);
+                        break;
+                }
+            }
+        }
+        else
+        {
+            animator.SetBool("isDeath", true);
+            
+            foreach (var collider2D in gameObject.GetComponents<BoxCollider2D>())
+                Destroy(collider2D);
+            ColorUtility.TryParseHtmlString("#808080", out Color color);
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+            GetComponent<SpriteRenderer>().color = color;
+        }
+           
     }
 
     private bool RotateGunToEnemy(string tag = "Enemy")
@@ -311,29 +329,33 @@ public class Ally : MonoBehaviour
 
             if(transform.childCount > 0)
                 weapon = transform.GetChild(0);
-            if (closestEnemy.GetComponent<Enemy>().IsDeath)
-                return false;
-            Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
-            LayerMask layerMask
-                = ~(1 << LayerMask.NameToLayer("Ally") |
-                        1 << LayerMask.NameToLayer("Ignore Raycast") |
-                            1 << LayerMask.NameToLayer("Player") |
-                                1 << LayerMask.NameToLayer("Room") |
-                                    1 << LayerMask.NameToLayer("SpawnPoint"));
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
 
-            if (hit.collider != null)
+            try
             {
-                if (hit.collider.tag == tag)
-                {
-                    gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
-                                            closestEnemy.transform.position.y - transform.position.y)
-                                                * Mathf.Rad2Deg;
-                    weapon.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                Vector3 closeDirection = (closestEnemy.transform.position - transform.position);
+                LayerMask layerMask
+                    = ~(1 << LayerMask.NameToLayer("Ally") |
+                            1 << LayerMask.NameToLayer("Ignore Raycast") |
+                                1 << LayerMask.NameToLayer("Player") |
+                                    1 << LayerMask.NameToLayer("Room") |
+                                        1 << LayerMask.NameToLayer("SpawnPoint"));
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, closeDirection, Mathf.Infinity, layerMask);
 
-                    return true;
+                if (hit.collider != null)
+                {
+                    if (hit.collider.tag == tag)
+                    {
+                        gunAngle = -Mathf.Atan2(closestEnemy.transform.position.x - transform.position.x,
+                                                closestEnemy.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+                        weapon.rotation = Quaternion.Euler(new Vector3(0, 0, gunAngle));
+                        return true;
+                    }
                 }
             }
+            catch
+            {
+                return false;
+            }           
         }
         return false;
     }
@@ -410,22 +432,8 @@ public class Ally : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-
-        if (coll.tag == "EnemyBullet")
-        {
-            CharInfo.instance.Damage(coll.GetComponent<Bullet>().Damage);
-        }
-
-    }
-
-    void OnBecameVisible()
-    {
-        if (!isDeath)
-            gameObject.tag = "Ally";
-    }
-
-    void OnBecameInvisible()
-    {
-        gameObject.tag = "Untagged";
+        if(!IsDeath)
+            if (coll.tag == "EnemyBullet")
+                 Damage(coll.GetComponent<Bullet>().Damage, coll.GetComponent<Bullet>().CritChance);
     }
 }

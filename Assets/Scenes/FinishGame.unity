@@ -1805,12 +1805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49342d1fa44a0a442b6eac6db42aa773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishOfGameText: {fileID: 633884770}
-  statsPanel: {fileID: 1174268859}
-  countKilledEnemiesText: {fileID: 1808888700}
-  countShootsText: {fileID: 1057652882}
-  goToLobby: {fileID: 292438502}
-  goToMenu: {fileID: 675512455}
 --- !u!1 &1689649684
 GameObject:
   m_ObjectHideFlags: 0

@@ -453,7 +453,7 @@ public class CharSkills : MonoBehaviour
     {
         if (Time.time > timeToSkill && isSkill)
         {
-            turret.GetComponent<Ally>().Death();
+            turret.GetComponent<Ally>().Death(true);
             isSkill = false;
         }
     }

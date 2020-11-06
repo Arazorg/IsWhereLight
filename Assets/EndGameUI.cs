@@ -135,6 +135,7 @@ public class EndGameUI : MonoBehaviour
 
     public void GoToScene(string scene)
     {
+        Time.timeScale = 1f;
         AudioManager.instance.Play("ClickUI");
         GameObject.Find("Character(Clone)").GetComponent<CharController>().SetZeroSpeed(false);
         SceneManager.LoadScene(scene);

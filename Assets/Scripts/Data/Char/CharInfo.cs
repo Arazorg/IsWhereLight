@@ -69,6 +69,17 @@ public class CharInfo : MonoBehaviour
         SetObjects();
     }
 
+    public void ReviveParametrs()
+    {
+        GetComponents();
+        FindObjects();
+        health = maxHealth;
+        mane = maxMane;
+        currentCountKilledEnemies = 0;
+        currentCountShoots = 0;
+        SetObjects();
+    }
+
     private void FindObjects()
     {
         GetComponents();

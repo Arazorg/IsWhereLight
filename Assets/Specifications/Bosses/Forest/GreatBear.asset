@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GreatBear
   m_EditorClassIdentifier: 
   mainAnimator: {fileID: 9100000, guid: 2a14723116d9ee84699338bcca2bca50, type: 2}
-  layerOrder: 2
-  actionColliderSize: {x: 3, y: 4.5}
-  actionColliderOffset: {x: 0.3, y: -0.45}
+  layerOrder: 3
+  actionColliderSize: {x: 4, y: 6}
+  actionColliderOffset: {x: 0.2, y: 0}
   colliderSize: {x: 3, y: 3.25}
   colliderOffset: {x: 0.2, y: 0}
   speed: 4

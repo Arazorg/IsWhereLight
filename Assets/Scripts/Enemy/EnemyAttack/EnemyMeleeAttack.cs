@@ -40,9 +40,9 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             isAttack = true;
             Attack();
-        }      
+        }
     }
-    
+
     public void DestroyObstacle()
     {
         var obstacles = Physics2D.OverlapCircleAll(transform.position, attackRange, 1 << LayerMask.NameToLayer("EnemyStatic"));
@@ -52,7 +52,7 @@ public class EnemyMeleeAttack : MonoBehaviour
         foreach (var obstacle in obstacles)
         {
             obstacle.GetComponent<Enemy>().DestroyStaticEnemy();
-        } 
+        }
     }
 
     public void Attack()
@@ -63,32 +63,16 @@ public class EnemyMeleeAttack : MonoBehaviour
             timeToAttack = Time.time + attackRate;
             animator.Play("Attack");
             AudioManager.instance.Play("EnemyMeleeAttack");
-            charInfo.Damage(damage);
-            
-            var currentAngle = -Mathf.Atan2(target.transform.position.x - transform.position.x,
-                                   target.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
-            if (currentAngle > 0)
+
+            if (target.transform.tag == "Player")
             {
-                if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle
-                                                   && currentAngle >= transform.rotation.eulerAngles.z - attackAngle)
-                {
-                    if (target.transform.tag == "Player")
-                        charInfo.Damage(damage);
-                    else if (target.transform.tag == "Ally")
-                        target.GetComponent<Ally>().Damage(damage, 15);
-                }
-                    
+                Debug.Log("!");
+                charInfo.Damage(damage);
             }
-            else
-            {
-                if (currentAngle <= transform.rotation.eulerAngles.z + attackAngle - 360
-                                                      && currentAngle >= transform.rotation.eulerAngles.z - attackAngle - 360)
-                    if (target.transform.tag == "Player")
-                        charInfo.Damage(damage);
-                    else if (target.transform.tag == "Ally")
-                        target.GetComponent<Ally>().Damage(damage, 15);
-            }
-            isAttack = false;
+
+            else if (target.transform.tag == "Ally")
+                target.GetComponent<Ally>().Damage(damage, 15);
         }
+        isAttack = false;
     }
 }

@@ -18,13 +18,13 @@ MonoBehaviour:
   actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 0.75, y: 1}
   colliderOffset: {x: 0, y: -0.1}
-  speed: 4
-  health: 15
+  speed: 5
+  health: 25
   typeOfAttack: 1
-  damage: 1
-  attackRange: 5
+  damage: 5
+  attackRange: 0
   attackAngle: 0
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
-  target: Player
+  target: Ally
   enemyName: OldTree
-  fireRate: 2
+  fireRate: 1

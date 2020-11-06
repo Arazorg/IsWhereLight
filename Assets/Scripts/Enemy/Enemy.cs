@@ -34,7 +34,11 @@ public class Enemy : MonoBehaviour
     public void Init(EnemyData data)
     {
         this.data = data;
-        health = Health;
+        health = data.Health;
+        speed = data.Speed;
+        damage = data.Damage;
+        fireRate = data.FireRate;
+        attackRange = data.AttackRange;
 
         foreach (var collider in GetComponents<BoxCollider2D>())
         {
@@ -80,23 +84,13 @@ public class Enemy : MonoBehaviour
     public RuntimeAnimatorController MainAnimator
     {
         get { return data.MainAnimator; }
-        set { data.MainAnimator = value; }
+        set { }
     }
     public int LayerOrder
     {
         get { return data.LayerOrder; }
-        set { data.LayerOrder = value; }
+        set { }
     }
-
-    /// <summary>
-    /// Attack of current enemy
-    /// </summary>
-    public int Speed
-    {
-        get { return data.Speed; }
-        set { data.Speed = value; }
-    }
-
 
     /// <summary>
     /// Type of attack of current enemy
@@ -104,7 +98,27 @@ public class Enemy : MonoBehaviour
     public EnemyData.AttackType TypeOfAttack
     {
         get { return data.TypeOfAttack; }
-        set { data.TypeOfAttack = value; }
+        set { }
+    }
+
+    /// <summary>
+    /// Health of current enemy
+    /// </summary>
+    private int health;
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+
+    /// <summary>
+    /// Attack of current enemy
+    /// </summary>
+    private int speed;
+    public int Speed
+    {
+        get { return speed; }
+        set { speed = value; }
     }
 
     /// <summary>
@@ -113,18 +127,30 @@ public class Enemy : MonoBehaviour
     private int damage;
     public int Damage
     {
-        get { return data.Damage; }
-        set { data.Damage = value; }
+        get { return damage; }
+        set { damage = value; }
+    }
+
+    /// <summary>
+    /// FireRate of current enemy
+    /// </summary>
+    private float fireRate;
+    public float FireRate
+    {
+        get { return fireRate; }
+        set { fireRate = value; }
     }
 
     /// <summary>
     /// Attack range of current enemy
     /// </summary>
+    private float attackRange;
     public float AttackRange
     {
-        get { return data.AttackRange; }
-        set { data.AttackRange = value; }
+        get { return attackRange; }
+        set { attackRange = value; }
     }
+
 
     /// <summary>
     /// Attack angle of current enemy
@@ -132,7 +158,7 @@ public class Enemy : MonoBehaviour
     public float AttackAngle
     {
         get { return data.AttackAngle; }
-        set { data.AttackAngle = value; }
+        set { }
     }
 
     /// <summary>
@@ -142,18 +168,9 @@ public class Enemy : MonoBehaviour
     public BulletData DataOfBullet
     {
         get { return data.DataOfBullet; }
-        set { dataOfBullet = value; }
+        set { }
     }
 
-    /// <summary>
-    /// Health of current enemy
-    /// </summary>
-    private int health;
-    public int Health
-    {
-        get { return data.Health; }
-        set { data.Health = value; }
-    }
 
     /// <summary>
     /// Target of current enemy
@@ -161,7 +178,7 @@ public class Enemy : MonoBehaviour
     public string Target
     {
         get { return data.Target; }
-        set { data.Target = value; }
+        set { }
     }
 
     /// <summary>
@@ -170,33 +187,24 @@ public class Enemy : MonoBehaviour
     public string EnemyName
     {
         get { return data.EnemyName; }
-        set { data.EnemyName = value; }
-    }
-
-    /// <summary>
-    /// FireRate of current enemy
-    /// </summary>
-    public float FireRate
-    {
-        get { return data.FireRate; }
-        set { data.FireRate = value; }
+        set { }
     }
 
     public Vector2 ActionColliderSize
     {
         get { return data.ActionColliderSize; }
-        set { data.ActionColliderSize = value; }
+        set { }
     }
     public Vector2 ActionColliderOffset
     {
         get { return data.ActionColliderOffset; }
-        set { data.ActionColliderOffset = value; }
+        set { }
     }
 
     public Vector2 ColliderSize
     {
         get { return data.СolliderSize; }
-        set { data.СolliderSize = value; }
+        set { }
     }
 
     public Vector2 ColliderOffset
@@ -205,7 +213,7 @@ public class Enemy : MonoBehaviour
         {
             return data.ColliderOffset;
         }
-        set { data.ColliderOffset = value; }
+        set { }
     }
 
     private void Update()
@@ -286,6 +294,7 @@ public class Enemy : MonoBehaviour
                 if (objectTransform.position.x < transform.position.x)
                     GetComponent<Animator>().Play("DamageRight");
             }
+
             if (!EnemyName.Contains("Thing"))
             {
                 isEnemyHitted = true;
@@ -308,6 +317,7 @@ public class Enemy : MonoBehaviour
                 Destroy(collider2D);
 
             isDeath = true;
+            GetComponent<EnemyAI>().StopAI();
             GetComponent<Rigidbody2D>().simulated = false;
 
             ColorUtility.TryParseHtmlString("#808080", out Color color);

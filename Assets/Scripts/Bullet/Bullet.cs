@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     private bool isStartConstant;
     private float endSize;
 
-    private readonly float speedOfLaserDisapperance = 4f; 
+    private readonly float speedOfLaserDisapperance = 4f;
 
     /// <summary>
     /// Initialization of bullet
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject, DeleteTime);
         }
-            
+
     }
 
     /// <summary>
@@ -192,22 +192,22 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+
         if (collider.tag != "GunKeep"
-                && collider.tag != "StandartBullet"
-                    && collider.tag != "StandartArrow"
-                        && collider.tag != "HomingArrow"
-                            && collider.tag != "StandartLaser"
-                                && collider.tag != "ConstantLaser"
-                                    && collider.tag != "EnemyBullet"
-                                        && collider.tag != "IgnoreAll"
-                                            && collider.tag != "NPC")
+            && collider.tag != "StandartBullet"
+                && collider.tag != "StandartArrow"
+                    && collider.tag != "HomingArrow"
+                        && collider.tag != "StandartLaser"
+                            && collider.tag != "ConstantLaser"
+                                    && collider.tag != "IgnoreAll"
+                                        && collider.tag != "NPC")
         {
             if (collider.tag == "Destroyable")
             {
                 collider.GetComponent<Enemy>().DestroyStaticEnemy();
                 if (!gameObject.tag.Contains("Laser") && !gameObject.tag.Contains("StandartGrenade"))
                     Destroy(gameObject);
-                else if (gameObject.tag.Contains("StandartGrenade"))               
+                else if (gameObject.tag.Contains("StandartGrenade"))
                     Destroy(gameObject, GrenadeExplosion());
             }
             else if (((gameObject.tag == "StandartBullet" || gameObject.tag == "HomingArrow") && collider.tag != "Player")
@@ -249,6 +249,7 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
+
     }
 
     public void RemoveConstant()

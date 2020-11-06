@@ -68,9 +68,6 @@ public class GameButtons : MonoBehaviour
     [Tooltip("Панель смерти")]
     [SerializeField] private GameObject deathPanel;
 
-    [Tooltip("Таймер до спауна")]
-    [SerializeField] private GameObject spawnTimer;
-
     [Tooltip("Спрайт отката скилла")]
     [SerializeField] private Image skillButtonBar;
 #pragma warning restore 0649
@@ -138,7 +135,10 @@ public class GameButtons : MonoBehaviour
             SpawnPosition = LevelGeneration.instance.StartSpawnLevel(currentGameInfo.challengeName);
             character.transform.position = SpawnPosition;
         }
-        charInfo.SetStartParams();
+        if (SceneManager.GetActiveScene().name == "Lobby")
+            charInfo.SetStartParams();   
+        else
+            charInfo.ReviveParametrs();
 
 
         UISpawner.instance.SetSkillButtonSprite(currentGameInfo.character);
@@ -268,8 +268,6 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToEnd();
             healthBar.GetComponent<MovementUI>().MoveToEnd();
             maneBar.GetComponent<MovementUI>().MoveToEnd();
-            if (SceneManager.GetActiveScene().name == "Game" && EnemySpawner.instance.TextTimer != 0)
-                spawnTimer.GetComponent<MovementUI>().MoveToEnd();
             UISpawner.instance.HideShowFPS(true);
         }
         else
@@ -278,8 +276,6 @@ public class GameButtons : MonoBehaviour
             moneyImage.GetComponent<MovementUI>().MoveToStart();
             healthBar.GetComponent<MovementUI>().MoveToStart();
             maneBar.GetComponent<MovementUI>().MoveToStart();
-            if (SceneManager.GetActiveScene().name == "Game")
-                spawnTimer.GetComponent<MovementUI>().MoveToStart();
             UISpawner.instance.HideShowFPS(false);
         }
 
@@ -305,9 +301,7 @@ public class GameButtons : MonoBehaviour
     public void GoToFinishScene()
     {
         audioManager.StopAllSounds();
-        if (!CurrentGameInfo.instance.isWin)
-            audioManager.Play("ClickUI");
-        Time.timeScale = 1f;
+        audioManager.Play("ClickUI");
         GameObject.Find("Canvas").transform.Find("EndGamePanel").GetComponent<EndGameUI>().SetResults(false, Time.time - EnemySpawner.instance.GameDuration);
     }
 

@@ -18,13 +18,13 @@ MonoBehaviour:
   actionColliderOffset: {x: 0, y: 0}
   colliderSize: {x: 1, y: 1.25}
   colliderOffset: {x: 0.05, y: -0.05}
-  speed: 3
-  health: 18
+  speed: 5
+  health: 15
   typeOfAttack: 0
-  damage: 1
+  damage: 5
   attackRange: 1
   attackAngle: 60
   dataOfBullet: {fileID: 11400000, guid: 76c038d4f42d63344b8a36eabeef3cfd, type: 2}
   target: Ally
   enemyName: Fox
-  fireRate: 1
+  fireRate: 0.75

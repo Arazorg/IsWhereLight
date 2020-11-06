@@ -142,9 +142,9 @@ public class EnemySpawner : MonoBehaviour
         {
             if (currentCountOfFlocks < countOfFlocks)
             {
-                CreateEnemySpawnPoints();
                 if(isNewFlock)
                 {
+                    CreateEnemySpawnPoints();
                     Invoke("SpawnFlock", 1f);
                     isNewFlock = false;
                 }                                   
@@ -218,22 +218,23 @@ public class EnemySpawner : MonoBehaviour
                 currentSpawnPoints.Remove(currentSpawnPoint);
                 currentEnemy = Instantiate(enemyPrefab, currentSpawnPoint, new Quaternion(0, 0, 0, 0));
                 var script = currentEnemy.GetComponent<Enemy>();
-                currentEnemy.name = "Enemy " + counter;
+                currentEnemy.name = "Enemy" + counter;
                 currentEnemy.SetActive(true);
                 script.Init(data);
 
                 if (Random.Range(0, 101) < percentOfEliteEnemy)
                 {
+                    var currentEnemyScript = currentEnemy.GetComponent<Enemy>();
                     var scaleFactor = Random.Range(1.01f, 1.51f);
-                    currentEnemy.transform.localScale = new Vector3(scaleFactor, scaleFactor);
-                    script.AttackRange *= scaleFactor;
-
                     var parametrsFactor = Random.Range(1.01f, 2f);
-                    script.Damage = (int)System.Math.Floor(script.Damage * parametrsFactor);
-                    script.Health = (int)System.Math.Floor(script.Health * parametrsFactor);
-                    script.Speed = (int)System.Math.Floor(script.Health * parametrsFactor);
-                    script.FireRate *= Random.Range(0.75f, 1.01f);
-                    script.Init(data);
+
+                    currentEnemy.transform.localScale = new Vector3(scaleFactor, scaleFactor);
+                    
+                    currentEnemyScript.AttackRange *= scaleFactor;
+                    currentEnemyScript.Damage = (int)System.Math.Floor(script.Damage * parametrsFactor);
+                    currentEnemyScript.Health = (int)System.Math.Floor(script.Health * parametrsFactor);
+                    currentEnemyScript.Speed = (int)System.Math.Floor(script.Health * parametrsFactor);
+                    currentEnemyScript.FireRate *= Random.Range(0.75f, 1.01f);
                 }
             }
         }

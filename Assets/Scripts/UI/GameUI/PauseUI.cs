@@ -105,9 +105,8 @@ public class PauseUI : MonoBehaviour
 
     public void GoToFinishGame()
     {
-        CharAction.isDeath = false;
         ClosePause();
-        SceneManager.LoadScene("FinishGame");
+        gameButtons.GoToFinishScene();
     }
 
     public void CloseExitPanel()
