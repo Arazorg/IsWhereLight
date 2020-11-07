@@ -1,115 +1,115 @@
 fileFormatVersion: 2
-guid: e239e3846827e584fa6610952f254d23
+guid: 44a9b02910c619142a091d4edb685a7d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1595982907714843850
-    second: Engineer_0
+      213: 765554742592216817
+    second: MechanicSprite_0
   - first:
-      213: 8990500200165734550
-    second: Engineer_1
+      213: -5802496395728673176
+    second: MechanicSprite_1
   - first:
-      213: -2352024994645696844
-    second: Engineer_2
+      213: 3835484562389922339
+    second: MechanicSprite_2
   - first:
-      213: 1793122157173168027
-    second: Engineer_3
+      213: 1246923436528675009
+    second: MechanicSprite_3
   - first:
-      213: -8507582930033106367
-    second: Engineer_4
+      213: -8982319373218976776
+    second: MechanicSprite_4
   - first:
-      213: -108375393647570834
-    second: Engineer_5
+      213: -5957683962703737837
+    second: MechanicSprite_5
   - first:
-      213: 5367806484380279552
-    second: Engineer_6
+      213: 3143222780941261720
+    second: MechanicSprite_6
   - first:
-      213: -7585582138226216863
-    second: Engineer_7
+      213: -6526674556439634288
+    second: MechanicSprite_7
   - first:
-      213: 8653171277889920987
-    second: Engineer_8
+      213: 690762886548756240
+    second: MechanicSprite_8
   - first:
-      213: -338893158742587362
-    second: Engineer_9
+      213: -5434036033587193245
+    second: MechanicSprite_9
   - first:
-      213: 8427318611949727933
-    second: Engineer_10
+      213: 5995287875040822932
+    second: MechanicSprite_10
   - first:
-      213: 7821621830254815850
-    second: Engineer_11
+      213: -521736953324869753
+    second: MechanicSprite_11
   - first:
-      213: -2839174222963352668
-    second: Engineer_12
+      213: -7101418513019485364
+    second: MechanicSprite_12
   - first:
-      213: 2144281202929646806
-    second: Engineer_13
+      213: 2599440758935106626
+    second: MechanicSprite_13
   - first:
-      213: -4673958941445058099
-    second: Engineer_14
+      213: -6840231568661175809
+    second: MechanicSprite_14
   - first:
-      213: 4583559622803311028
-    second: Engineer_15
+      213: 6193418091753734784
+    second: MechanicSprite_15
   - first:
-      213: 182453050316403655
-    second: Engineer_16
+      213: 9210052224602583143
+    second: MechanicSprite_16
   - first:
-      213: 608365305822866749
-    second: Engineer_17
+      213: 8834050249520116060
+    second: MechanicSprite_17
   - first:
-      213: 5690341195539677112
-    second: Engineer_18
+      213: -6591533369339613137
+    second: MechanicSprite_18
   - first:
-      213: 5216197952760334869
-    second: Engineer_19
+      213: -2464641133609093037
+    second: MechanicSprite_19
   - first:
-      213: -8458871526519041246
-    second: Engineer_20
+      213: 9136919909687306230
+    second: MechanicSprite_20
   - first:
-      213: 7956754634909351912
-    second: Engineer_21
+      213: -5527393380643117965
+    second: MechanicSprite_21
   - first:
-      213: -1192759184548784452
-    second: Engineer_22
+      213: -5362963367586690294
+    second: MechanicSprite_22
   - first:
-      213: 4780143525249927869
-    second: Engineer_23
+      213: 121907467447313980
+    second: MechanicSprite_23
   - first:
-      213: -787535030416305288
-    second: Engineer_24
+      213: 4243225580709954600
+    second: MechanicSprite_24
   - first:
-      213: -464290148431489886
-    second: Engineer_25
+      213: 2658403539887683967
+    second: MechanicSprite_25
   - first:
-      213: -6180851393262945397
-    second: Engineer_26
+      213: -2334414097899273952
+    second: MechanicSprite_26
   - first:
-      213: 7853503181318152655
-    second: Engineer_27
+      213: -6916321817324466509
+    second: MechanicSprite_27
   - first:
-      213: -8920834484783488483
-    second: Engineer_28
+      213: -5192109568992565191
+    second: MechanicSprite_28
   - first:
-      213: 4678748565131096271
-    second: Engineer_29
+      213: -5473375623123955035
+    second: MechanicSprite_29
   - first:
-      213: 6013067503943677758
-    second: Engineer_30
+      213: -579546794114961496
+    second: MechanicSprite_30
   - first:
-      213: 310281721028898674
-    second: Engineer_31
+      213: -956112011492996145
+    second: MechanicSprite_31
   - first:
-      213: -8544420667040763517
-    second: Engineer_32
+      213: 1095622772379772129
+    second: MechanicSprite_32
   - first:
-      213: -7144953473731400909
-    second: Engineer_33
+      213: -538743247516983772
+    second: MechanicSprite_33
   - first:
-      213: 7004815462645135441
-    second: Engineer_34
+      213: -3311605499534015863
+    second: MechanicSprite_34
   - first:
-      213: -4217014028176089559
-    second: Engineer_35
+      213: -3899282314431995121
+    second: MechanicSprite_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +194,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -221,7 +233,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Engineer_0
+      name: MechanicSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -235,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac430f9aff1162610800000000000000
-      internalID: 1595982907714843850
+      spriteID: 1fe13587bfbcf9a00800000000000000
+      internalID: 765554742592216817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_1
+      name: MechanicSprite_1
       rect:
         serializedVersion: 2
         x: 220
@@ -256,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698f4ff5c4ca4cc70800000000000000
-      internalID: 8990500200165734550
+      spriteID: 866ab126544697fa0800000000000000
+      internalID: -5802496395728673176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_2
+      name: MechanicSprite_2
       rect:
         serializedVersion: 2
         x: 440
@@ -277,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4be9d4b9abdeb5fd0800000000000000
-      internalID: -2352024994645696844
+      spriteID: 322feb263e06a3530800000000000000
+      internalID: 3835484562389922339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_3
+      name: MechanicSprite_3
       rect:
         serializedVersion: 2
         x: 660
@@ -298,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9750310a1372e810800000000000000
-      internalID: 1793122157173168027
+      spriteID: 1c8a6605246fd4110800000000000000
+      internalID: 1246923436528675009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_4
+      name: MechanicSprite_4
       rect:
         serializedVersion: 2
         x: 880
@@ -319,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1422336766efee980800000000000000
-      internalID: -8507582930033106367
+      spriteID: 8fb6c24de14685380800000000000000
+      internalID: -8982319373218976776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_5
+      name: MechanicSprite_5
       rect:
         serializedVersion: 2
         x: 1100
@@ -340,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e605e375729fe7ef0800000000000000
-      internalID: -108375393647570834
+      spriteID: 31c8007400e025da0800000000000000
+      internalID: -5957683962703737837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_6
+      name: MechanicSprite_6
       rect:
         serializedVersion: 2
         x: 0
@@ -361,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0036684ce874e7a40800000000000000
-      internalID: 5367806484380279552
+      spriteID: 89b5beb3778fe9b20800000000000000
+      internalID: 3143222780941261720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_7
+      name: MechanicSprite_7
       rect:
         serializedVersion: 2
         x: 220
@@ -382,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1607a744c399ab690800000000000000
-      internalID: -7585582138226216863
+      spriteID: 09ed5da12189c65a0800000000000000
+      internalID: -6526674556439634288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_8
+      name: MechanicSprite_8
       rect:
         serializedVersion: 2
         x: 440
@@ -403,14 +415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdfdd374e6d361870800000000000000
-      internalID: 8653171277889920987
+      spriteID: 01713cc7f25169900800000000000000
+      internalID: 690762886548756240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_9
+      name: MechanicSprite_9
       rect:
         serializedVersion: 2
         x: 660
@@ -424,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e188658b7720c4bf0800000000000000
-      internalID: -338893158742587362
+      spriteID: 36adc59a40d6694b0800000000000000
+      internalID: -5434036033587193245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_10
+      name: MechanicSprite_10
       rect:
         serializedVersion: 2
         x: 880
@@ -445,14 +457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db03d42b0a9d3f470800000000000000
-      internalID: 8427318611949727933
+      spriteID: 496c306de8a833350800000000000000
+      internalID: 5995287875040822932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_11
+      name: MechanicSprite_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -466,14 +478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a67c72d9bfb8c60800000000000000
-      internalID: 7821621830254815850
+      spriteID: 78760e6510b62c8f0800000000000000
+      internalID: -521736953324869753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_12
+      name: MechanicSprite_12
       rect:
         serializedVersion: 2
         x: 0
@@ -487,14 +499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4abd2d8361a3998d0800000000000000
-      internalID: -2839174222963352668
+      spriteID: c434712cc71b27d90800000000000000
+      internalID: -7101418513019485364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_13
+      name: MechanicSprite_13
       rect:
         serializedVersion: 2
         x: 220
@@ -508,14 +520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc3b27a46402cd10800000000000000
-      internalID: 2144281202929646806
+      spriteID: 244bffa0991131420800000000000000
+      internalID: 2599440758935106626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_14
+      name: MechanicSprite_14
       rect:
         serializedVersion: 2
         x: 440
@@ -529,14 +541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc118604b13c22fb0800000000000000
-      internalID: -4673958941445058099
+      spriteID: ff1a98021ad9211a0800000000000000
+      internalID: -6840231568661175809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_15
+      name: MechanicSprite_15
       rect:
         serializedVersion: 2
         x: 660
@@ -550,14 +562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b9c30431331c9f30800000000000000
-      internalID: 4583559622803311028
+      spriteID: 0828578b0f073f550800000000000000
+      internalID: 6193418091753734784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_16
+      name: MechanicSprite_16
       rect:
         serializedVersion: 2
         x: 880
@@ -571,14 +583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3bb442514388200800000000000000
-      internalID: 182453050316403655
+      spriteID: 760bb3a83bda0df70800000000000000
+      internalID: 9210052224602583143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_17
+      name: MechanicSprite_17
       rect:
         serializedVersion: 2
         x: 1100
@@ -592,14 +604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d6e3bb509517800800000000000000
-      internalID: 608365305822866749
+      spriteID: c51f89aa5e9d89a70800000000000000
+      internalID: 8834050249520116060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_18
+      name: MechanicSprite_18
       rect:
         serializedVersion: 2
         x: 0
@@ -613,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bff9ea2b2728fe40800000000000000
-      internalID: 5690341195539677112
+      spriteID: f20f063f25b2684a0800000000000000
+      internalID: -6591533369339613137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_20
+      name: MechanicSprite_20
       rect:
         serializedVersion: 2
         x: 330
@@ -634,14 +646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2239a25e92d0c9a80800000000000000
-      internalID: -8458871526519041246
+      spriteID: 6f72b169f3cdcce70800000000000000
+      internalID: 9136919909687306230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_21
+      name: MechanicSprite_21
       rect:
         serializedVersion: 2
         x: 660
@@ -655,14 +667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eff6ba0f221c6e60800000000000000
-      internalID: 7956754634909351912
+      spriteID: 374ebe47101ca43b0800000000000000
+      internalID: -5527393380643117965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_23
+      name: MechanicSprite_23
       rect:
         serializedVersion: 2
         x: 990
@@ -676,14 +688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbac7edb53b765240800000000000000
-      internalID: 4780143525249927869
+      spriteID: c362aac123a11b100800000000000000
+      internalID: 121907467447313980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_24
+      name: MechanicSprite_24
       rect:
         serializedVersion: 2
         x: 0
@@ -697,14 +709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8731cd7ff0d1215f0800000000000000
-      internalID: -787535030416305288
+      spriteID: 82441102f27f2ea30800000000000000
+      internalID: 4243225580709954600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_26
+      name: MechanicSprite_26
       rect:
         serializedVersion: 2
         x: 330
@@ -718,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b7517c764393aa0800000000000000
-      internalID: -6180851393262945397
+      spriteID: 021cc080fbe7a9fd0800000000000000
+      internalID: -2334414097899273952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_27
+      name: MechanicSprite_27
       rect:
         serializedVersion: 2
         x: 660
@@ -739,14 +751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc16ed4a88f3dfc60800000000000000
-      internalID: 7853503181318152655
+      spriteID: 3be471e83f94400a0800000000000000
+      internalID: -6916321817324466509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_29
+      name: MechanicSprite_29
       rect:
         serializedVersion: 2
         x: 990
@@ -760,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc0f10ae7014ee040800000000000000
-      internalID: 4678748565131096271
+      spriteID: 5a21a65bed9aa04b0800000000000000
+      internalID: -5473375623123955035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_30
+      name: MechanicSprite_30
       rect:
         serializedVersion: 2
         x: 0
@@ -781,14 +793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37f1074905b27350800000000000000
-      internalID: 6013067503943677758
+      spriteID: 8afaf06e24905f7f0800000000000000
+      internalID: -579546794114961496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_32
+      name: MechanicSprite_32
       rect:
         serializedVersion: 2
         x: 330
@@ -802,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38177817cae1c6980800000000000000
-      internalID: -8544420667040763517
+      spriteID: 1e4668b4b1f643f00800000000000000
+      internalID: 1095622772379772129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_33
+      name: MechanicSprite_33
       rect:
         serializedVersion: 2
         x: 660
@@ -823,14 +835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33beb85dba608dc90800000000000000
-      internalID: -7144953473731400909
+      spriteID: 42e1c9aeedff588f0800000000000000
+      internalID: -538743247516983772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Engineer_35
+      name: MechanicSprite_35
       rect:
         serializedVersion: 2
         x: 990
@@ -844,8 +856,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92e99b585182a75c0800000000000000
-      internalID: -4217014028176089559
+      spriteID: f036151f467f2e9c0800000000000000
+      internalID: -3899282314431995121
       vertices: []
       indices: 
       edges: []

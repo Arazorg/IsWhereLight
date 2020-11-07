@@ -1,115 +1,115 @@
 fileFormatVersion: 2
-guid: 4d1fc57d3e0157c419a6bbdaad50c032
+guid: a36165aa5dee1be4baad36c3052ee7c4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5711848221618334454
-    second: Knight_0
+      213: -8032956168420134280
+    second: LegionnaireSprite_0
   - first:
-      213: -8985680732576350864
-    second: Knight_1
+      213: 5164704844417609560
+    second: LegionnaireSprite_1
   - first:
-      213: 7827260208125532704
-    second: Knight_2
+      213: 1473919918343445388
+    second: LegionnaireSprite_2
   - first:
-      213: 5457420103614929235
-    second: Knight_3
+      213: -7290899258158303527
+    second: LegionnaireSprite_3
   - first:
-      213: 8480205167599975839
-    second: Knight_4
+      213: 6636628717169670217
+    second: LegionnaireSprite_4
   - first:
-      213: 1086178698101399146
-    second: Knight_5
+      213: -6469113140541759986
+    second: LegionnaireSprite_5
   - first:
-      213: 5891436520834976337
-    second: Knight_6
+      213: 6648081289574790181
+    second: LegionnaireSprite_6
   - first:
-      213: -7232600524240232993
-    second: Knight_7
+      213: 4877377089999778431
+    second: LegionnaireSprite_7
   - first:
-      213: -3132395524043622482
-    second: Knight_8
+      213: -1596414968466745453
+    second: LegionnaireSprite_8
   - first:
-      213: -3454224475449390428
-    second: Knight_9
+      213: -7097454646075341393
+    second: LegionnaireSprite_9
   - first:
-      213: -1931806161188048838
-    second: Knight_10
+      213: 1215027803695340727
+    second: LegionnaireSprite_10
   - first:
-      213: 8050277750723066518
-    second: Knight_11
+      213: -2745266084816029188
+    second: LegionnaireSprite_11
   - first:
-      213: 2970891327743047638
-    second: Knight_12
+      213: 5186656392445073184
+    second: LegionnaireSprite_12
   - first:
-      213: -6829252746764741924
-    second: Knight_13
+      213: 6803308289025006363
+    second: LegionnaireSprite_13
   - first:
-      213: -5975492866275850269
-    second: Knight_14
+      213: -8264455390715769914
+    second: LegionnaireSprite_14
   - first:
-      213: -2842457401268938568
-    second: Knight_15
+      213: 2668221769090703347
+    second: LegionnaireSprite_15
   - first:
-      213: 4295182413440860059
-    second: Knight_16
+      213: -3346416713982655969
+    second: LegionnaireSprite_16
   - first:
-      213: 5239619439560480652
-    second: Knight_17
+      213: -3945526310652757659
+    second: LegionnaireSprite_17
   - first:
-      213: -147784537767356358
-    second: Knight_18
+      213: -4968171318011091115
+    second: LegionnaireSprite_18
   - first:
-      213: 704507623093092579
-    second: Knight_19
+      213: -3599503672233170678
+    second: LegionnaireSprite_19
   - first:
-      213: 3976178806821576110
-    second: Knight_20
+      213: -6054135175325906923
+    second: LegionnaireSprite_20
   - first:
-      213: 1834488996138295012
-    second: Knight_21
+      213: -2796540123236814229
+    second: LegionnaireSprite_21
   - first:
-      213: -7390346120022462700
-    second: Knight_22
+      213: 1071825463792761439
+    second: LegionnaireSprite_22
   - first:
-      213: -2385440076330715168
-    second: Knight_23
+      213: 3617896933885584984
+    second: LegionnaireSprite_23
   - first:
-      213: 3512217387855826278
-    second: Knight_24
+      213: -8501571877156090452
+    second: LegionnaireSprite_24
   - first:
-      213: -838537513500199956
-    second: Knight_25
+      213: 8958262178142337639
+    second: LegionnaireSprite_25
   - first:
-      213: -1542469255227862975
-    second: Knight_26
+      213: -7715934588061621228
+    second: LegionnaireSprite_26
   - first:
-      213: 2191548177814091055
-    second: Knight_27
+      213: -692579691403042887
+    second: LegionnaireSprite_27
   - first:
-      213: 6233677863790552796
-    second: Knight_28
+      213: -6902842730224300282
+    second: LegionnaireSprite_28
   - first:
-      213: -1107112461086146938
-    second: Knight_29
+      213: 2727946271467262262
+    second: LegionnaireSprite_29
   - first:
-      213: 7458251115238873156
-    second: Knight_30
+      213: 2257120685539039718
+    second: LegionnaireSprite_30
   - first:
-      213: -5761138208794630004
-    second: Knight_31
+      213: 2387782086168193561
+    second: LegionnaireSprite_31
   - first:
-      213: -576961472236008984
-    second: Knight_32
+      213: 7914129672186704512
+    second: LegionnaireSprite_32
   - first:
-      213: -7861573357357442326
-    second: Knight_33
+      213: 137448492255965930
+    second: LegionnaireSprite_33
   - first:
-      213: 1908704770266616795
-    second: Knight_34
+      213: -3356495728462771039
+    second: LegionnaireSprite_34
   - first:
-      213: 8152962870561592963
-    second: Knight_35
+      213: -8984749663270358158
+    second: LegionnaireSprite_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +194,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -221,7 +233,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight_0
+      name: LegionnaireSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -235,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a051e7b1e407bb0b0800000000000000
-      internalID: -5711848221618334454
+      spriteID: 872f80ddce4358090800000000000000
+      internalID: -8032956168420134280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_1
+      name: LegionnaireSprite_1
       rect:
         serializedVersion: 2
         x: 220
@@ -256,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07df6bd5bf27c4380800000000000000
-      internalID: -8985680732576350864
+      spriteID: 85f204531b7bca740800000000000000
+      internalID: 5164704844417609560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_2
+      name: LegionnaireSprite_2
       rect:
         serializedVersion: 2
         x: 440
@@ -277,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02a5fdd40b300ac60800000000000000
-      internalID: 7827260208125532704
+      spriteID: c8bdb384b5a647410800000000000000
+      internalID: 1473919918343445388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_3
+      name: LegionnaireSprite_3
       rect:
         serializedVersion: 2
         x: 660
@@ -298,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3591b0a6ba6acbb40800000000000000
-      internalID: 5457420103614929235
+      spriteID: 9d6b058e0c581da90800000000000000
+      internalID: -7290899258158303527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_4
+      name: LegionnaireSprite_4
       rect:
         serializedVersion: 2
         x: 880
@@ -319,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9d7a3d7badbfa570800000000000000
-      internalID: 8480205167599975839
+      spriteID: 948fd09e7aa0a1c50800000000000000
+      internalID: 6636628717169670217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_5
+      name: LegionnaireSprite_5
       rect:
         serializedVersion: 2
         x: 1100
@@ -340,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6e1ee665c1e21f00800000000000000
-      internalID: 1086178698101399146
+      spriteID: e0e523e9fd71936a0800000000000000
+      internalID: -6469113140541759986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_6
+      name: LegionnaireSprite_6
       rect:
         serializedVersion: 2
         x: 0
@@ -361,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15ac1213d4692c150800000000000000
-      internalID: 5891436520834976337
+      spriteID: 524b607b5bab24c50800000000000000
+      internalID: 6648081289574790181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_7
+      name: LegionnaireSprite_7
       rect:
         serializedVersion: 2
         x: 220
@@ -382,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdd5b56a424a0ab90800000000000000
-      internalID: -7232600524240232993
+      spriteID: f72b0153f9cefa340800000000000000
+      internalID: 4877377089999778431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_8
+      name: LegionnaireSprite_8
       rect:
         serializedVersion: 2
         x: 440
@@ -403,14 +415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea73b55fdde7784d0800000000000000
-      internalID: -3132395524043622482
+      spriteID: 3975c6a5b0568d9e0800000000000000
+      internalID: -1596414968466745453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_9
+      name: LegionnaireSprite_9
       rect:
         serializedVersion: 2
         x: 660
@@ -424,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aa016e04212010d0800000000000000
-      internalID: -3454224475449390428
+      spriteID: fa5cb337a96c08d90800000000000000
+      internalID: -7097454646075341393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_10
+      name: LegionnaireSprite_10
       rect:
         serializedVersion: 2
         x: 880
@@ -445,14 +457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30b9731888d035e0800000000000000
-      internalID: -1931806161188048838
+      spriteID: 7bcdb779955acd010800000000000000
+      internalID: 1215027803695340727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_11
+      name: LegionnaireSprite_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -466,14 +478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a341b46f458bf60800000000000000
-      internalID: 8050277750723066518
+      spriteID: cf9fc987a0bd6e9d0800000000000000
+      internalID: -2745266084816029188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_12
+      name: LegionnaireSprite_12
       rect:
         serializedVersion: 2
         x: 0
@@ -487,14 +499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d7b9601ce9ba3920800000000000000
-      internalID: 2970891327743047638
+      spriteID: 02792b34284baf740800000000000000
+      internalID: 5186656392445073184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_13
+      name: LegionnaireSprite_13
       rect:
         serializedVersion: 2
         x: 220
@@ -508,14 +520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd21abb4fce9931a0800000000000000
-      internalID: -6829252746764741924
+      spriteID: b1b5ec8e7d43a6e50800000000000000
+      internalID: 6803308289025006363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_14
+      name: LegionnaireSprite_14
       rect:
         serializedVersion: 2
         x: 440
@@ -529,14 +541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e74fbbc5e8c21da0800000000000000
-      internalID: -5975492866275850269
+      spriteID: 6cb035eeb91ce4d80800000000000000
+      internalID: -8264455390715769914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_15
+      name: LegionnaireSprite_15
       rect:
         serializedVersion: 2
         x: 660
@@ -550,14 +562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b85f24bd009d88d0800000000000000
-      internalID: -2842457401268938568
+      spriteID: 3ff9d98ef8d670520800000000000000
+      internalID: 2668221769090703347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_16
+      name: LegionnaireSprite_16
       rect:
         serializedVersion: 2
         x: 880
@@ -571,14 +583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9fb5aee5ad8b9b30800000000000000
-      internalID: 4295182413440860059
+      spriteID: f1242ac8ab32f81d0800000000000000
+      internalID: -3346416713982655969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_17
+      name: LegionnaireSprite_17
       rect:
         serializedVersion: 2
         x: 1100
@@ -592,14 +604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c87db3d9e1ed6b840800000000000000
-      internalID: 5239619439560480652
+      spriteID: 569b59989bcae39c0800000000000000
+      internalID: -3945526310652757659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_18
+      name: LegionnaireSprite_18
       rect:
         serializedVersion: 2
         x: 0
@@ -613,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a38d413feb6f2fdf0800000000000000
-      internalID: -147784537767356358
+      spriteID: 5572aae32828d0bb0800000000000000
+      internalID: -4968171318011091115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_20
+      name: LegionnaireSprite_20
       rect:
         serializedVersion: 2
         x: 330
@@ -634,14 +646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead5900ee893e2730800000000000000
-      internalID: 3976178806821576110
+      spriteID: 518808c52246bfba0800000000000000
+      internalID: -6054135175325906923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_21
+      name: LegionnaireSprite_21
       rect:
         serializedVersion: 2
         x: 660
@@ -655,14 +667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ee9f2fb50a657910800000000000000
-      internalID: 1834488996138295012
+      spriteID: b62b75a1391b039d0800000000000000
+      internalID: -2796540123236814229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_23
+      name: LegionnaireSprite_23
       rect:
         serializedVersion: 2
         x: 990
@@ -676,14 +688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e7b351a3e635eed0800000000000000
-      internalID: -2385440076330715168
+      spriteID: 856a93ac71a553230800000000000000
+      internalID: 3617896933885584984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_24
+      name: LegionnaireSprite_24
       rect:
         serializedVersion: 2
         x: 0
@@ -697,14 +709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66dc8111b17edb030800000000000000
-      internalID: 3512217387855826278
+      spriteID: cad09a5cb69540a80800000000000000
+      internalID: -8501571877156090452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_26
+      name: LegionnaireSprite_26
       rect:
         serializedVersion: 2
         x: 330
@@ -718,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1409e2d726c089ae0800000000000000
-      internalID: -1542469255227862975
+      spriteID: 414ef687f5e7be490800000000000000
+      internalID: -7715934588061621228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_27
+      name: LegionnaireSprite_27
       rect:
         serializedVersion: 2
         x: 660
@@ -739,14 +751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2573c6d471f96e10800000000000000
-      internalID: 2191548177814091055
+      spriteID: 9bf954ba0767366f0800000000000000
+      internalID: -692579691403042887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_29
+      name: LegionnaireSprite_29
       rect:
         serializedVersion: 2
         x: 990
@@ -760,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e3d86151fb2a0f0800000000000000
-      internalID: -1107112461086146938
+      spriteID: 631582d3eac9bd520800000000000000
+      internalID: 2727946271467262262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_30
+      name: LegionnaireSprite_30
       rect:
         serializedVersion: 2
         x: 0
@@ -781,14 +793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4485971bfd7018760800000000000000
-      internalID: 7458251115238873156
+      spriteID: 6e99db40e47e25f10800000000000000
+      internalID: 2257120685539039718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_32
+      name: LegionnaireSprite_32
       rect:
         serializedVersion: 2
         x: 330
@@ -802,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e9494e09983ef7f0800000000000000
-      internalID: -576961472236008984
+      spriteID: 08231198103a4dd60800000000000000
+      internalID: 7914129672186704512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_33
+      name: LegionnaireSprite_33
       rect:
         serializedVersion: 2
         x: 660
@@ -823,14 +835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aead8031fa416e290800000000000000
-      internalID: -7861573357357442326
+      spriteID: ae274dbeca058e100800000000000000
+      internalID: 137448492255965930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight_35
+      name: LegionnaireSprite_35
       rect:
         serializedVersion: 2
         x: 990
@@ -844,8 +856,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 386d5c6d884252170800000000000000
-      internalID: 8152962870561592963
+      spriteID: 273b5f4d8c1cf4380800000000000000
+      internalID: -8984749663270358158
       vertices: []
       indices: 
       edges: []

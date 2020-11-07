@@ -1,115 +1,115 @@
 fileFormatVersion: 2
-guid: dae992613d39ced4eb9cbe4736e7d078
+guid: 2e1b3849dfc231e4c89d9ada8762488b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7285376162372006033
-    second: Mage_0
+      213: -346501629321228892
+    second: ShamanSprite_0
   - first:
-      213: 1377322663251520538
-    second: Mage_1
+      213: 8947276077515227126
+    second: ShamanSprite_1
   - first:
-      213: 2429379624658069490
-    second: Mage_2
+      213: -5396698925054737451
+    second: ShamanSprite_2
   - first:
-      213: -3092618186771702557
-    second: Mage_3
+      213: 7758909355532606117
+    second: ShamanSprite_3
   - first:
-      213: -4641263954899877479
-    second: Mage_4
+      213: -8185640247741131216
+    second: ShamanSprite_4
   - first:
-      213: -8166337472594541346
-    second: Mage_5
+      213: 2418646563988418054
+    second: ShamanSprite_5
   - first:
-      213: 1096285362524239212
-    second: Mage_6
+      213: 1040889502730129948
+    second: ShamanSprite_6
   - first:
-      213: 4253546779495731248
-    second: Mage_7
+      213: 5856850435821298802
+    second: ShamanSprite_7
   - first:
-      213: 1274746488674406708
-    second: Mage_8
+      213: -4305715404028050073
+    second: ShamanSprite_8
   - first:
-      213: 9212246532928583636
-    second: Mage_9
+      213: 8480365681421721821
+    second: ShamanSprite_9
   - first:
-      213: -5942188552865138373
-    second: Mage_10
+      213: -260006361123673984
+    second: ShamanSprite_10
   - first:
-      213: -6145811785143785226
-    second: Mage_11
+      213: 198658781068436059
+    second: ShamanSprite_11
   - first:
-      213: 2500756243025465008
-    second: Mage_12
+      213: 8509003647943692925
+    second: ShamanSprite_12
   - first:
-      213: 165249942049237903
-    second: Mage_13
+      213: 3861844487400458583
+    second: ShamanSprite_13
   - first:
-      213: -2299194201641771868
-    second: Mage_14
+      213: -2420118367208652761
+    second: ShamanSprite_14
   - first:
-      213: 5778758470489192460
-    second: Mage_15
+      213: -5324859437431383322
+    second: ShamanSprite_15
   - first:
-      213: 8304308162624823460
-    second: Mage_16
+      213: -7682505274593203661
+    second: ShamanSprite_16
   - first:
-      213: 724036592561312853
-    second: Mage_17
+      213: -1989403532165499467
+    second: ShamanSprite_17
   - first:
-      213: -4238177709470043494
-    second: Mage_18
+      213: -4756856458795925123
+    second: ShamanSprite_18
   - first:
-      213: -7137835376753442
-    second: Mage_19
+      213: 5191496143239364516
+    second: ShamanSprite_19
   - first:
-      213: -4155876389953645837
-    second: Mage_20
+      213: -3090101968819106902
+    second: ShamanSprite_20
   - first:
-      213: -7701205261946630212
-    second: Mage_21
+      213: -6546502861278251690
+    second: ShamanSprite_21
   - first:
-      213: 3833122427344389646
-    second: Mage_22
+      213: -5321308406329665708
+    second: ShamanSprite_22
   - first:
-      213: -8818395805821502685
-    second: Mage_23
+      213: 1267300438707942959
+    second: ShamanSprite_23
   - first:
-      213: -715291917276890088
-    second: Mage_24
+      213: 2820329868679555205
+    second: ShamanSprite_24
   - first:
-      213: -6774040804925556745
-    second: Mage_25
+      213: -3799354862712508399
+    second: ShamanSprite_25
   - first:
-      213: -2235294348357820249
-    second: Mage_26
+      213: 8810689916861492122
+    second: ShamanSprite_26
   - first:
-      213: -4436453726814458780
-    second: Mage_27
+      213: -6615087545896335947
+    second: ShamanSprite_27
   - first:
-      213: 7204741587825200610
-    second: Mage_28
+      213: -3361490876987266664
+    second: ShamanSprite_28
   - first:
-      213: -1184466108291028268
-    second: Mage_29
+      213: 6354848423080373619
+    second: ShamanSprite_29
   - first:
-      213: 8500114434529349520
-    second: Mage_30
+      213: -597580228518097854
+    second: ShamanSprite_30
   - first:
-      213: 3373308337185956342
-    second: Mage_31
+      213: 2706225463391083253
+    second: ShamanSprite_31
   - first:
-      213: -7155467020076445409
-    second: Mage_32
+      213: -5479256145289751062
+    second: ShamanSprite_32
   - first:
-      213: 2691408081326803586
-    second: Mage_33
+      213: 1382042606475704558
+    second: ShamanSprite_33
   - first:
-      213: -2635387592081919345
-    second: Mage_34
+      213: -8633471768628841691
+    second: ShamanSprite_34
   - first:
-      213: 8169229147089231738
-    second: Mage_35
+      213: 5656113563525816916
+    second: ShamanSprite_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +194,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -221,7 +233,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mage_0
+      name: ShamanSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -235,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6fc7badaf425ea90800000000000000
-      internalID: -7285376162372006033
+      spriteID: 4adc63e9a9af03bf0800000000000000
+      internalID: -346501629321228892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_1
+      name: ShamanSprite_1
       rect:
         serializedVersion: 2
         x: 220
@@ -256,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1ca3343aab3d1310800000000000000
-      internalID: 1377322663251520538
+      spriteID: 6ff35a3103c1b2c70800000000000000
+      internalID: 8947276077515227126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_2
+      name: ShamanSprite_2
       rect:
         serializedVersion: 2
         x: 440
@@ -277,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f7e050b5e3e6b120800000000000000
-      internalID: 2429379624658069490
+      spriteID: 5d3416cabe21b15b0800000000000000
+      internalID: -5396698925054737451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_3
+      name: ShamanSprite_3
       rect:
         serializedVersion: 2
         x: 660
@@ -298,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ec5f8ff420d415d0800000000000000
-      internalID: -3092618186771702557
+      spriteID: 5aad9fc43fe2dab60800000000000000
+      internalID: 7758909355532606117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_4
+      name: ShamanSprite_4
       rect:
         serializedVersion: 2
         x: 880
@@ -319,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9914e53060be69fb0800000000000000
-      internalID: -4641263954899877479
+      spriteID: 036df366093c66e80800000000000000
+      internalID: -8185640247741131216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_5
+      name: ShamanSprite_5
       rect:
         serializedVersion: 2
         x: 1100
@@ -340,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed48a06f5575bae80800000000000000
-      internalID: -8166337472594541346
+      spriteID: 60eafb34c32c09120800000000000000
+      internalID: 2418646563988418054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_6
+      name: ShamanSprite_6
       rect:
         serializedVersion: 2
         x: 0
@@ -361,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c65b7b59ab9c63f00800000000000000
-      internalID: 1096285362524239212
+      spriteID: c1299a4ec7bf17e00800000000000000
+      internalID: 1040889502730129948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_7
+      name: ShamanSprite_7
       rect:
         serializedVersion: 2
         x: 220
@@ -382,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 030995b7242a70b30800000000000000
-      internalID: 4253546779495731248
+      spriteID: 27468b1c076b74150800000000000000
+      internalID: 5856850435821298802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_8
+      name: ShamanSprite_8
       rect:
         serializedVersion: 2
         x: 440
@@ -403,14 +415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4315d147d2fc0b110800000000000000
-      internalID: 1274746488674406708
+      spriteID: 7650bf617a60f34c0800000000000000
+      internalID: -4305715404028050073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_9
+      name: ShamanSprite_9
       rect:
         serializedVersion: 2
         x: 660
@@ -424,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d73882c96978df70800000000000000
-      internalID: 9212246532928583636
+      spriteID: dd02e8608af40b570800000000000000
+      internalID: 8480365681421721821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_10
+      name: ShamanSprite_10
       rect:
         serializedVersion: 2
         x: 880
@@ -445,14 +457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b39b4168efa198da0800000000000000
-      internalID: -5942188552865138373
+      spriteID: 088a1e59795446cf0800000000000000
+      internalID: -260006361123673984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_11
+      name: ShamanSprite_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -466,14 +478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f8681a4eb0b5baa0800000000000000
-      internalID: -6145811785143785226
+      spriteID: b52a81ddb17c1c200800000000000000
+      internalID: 198658781068436059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_12
+      name: ShamanSprite_12
       rect:
         serializedVersion: 2
         x: 0
@@ -487,14 +499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0be8f5fad8874b220800000000000000
-      internalID: 2500756243025465008
+      spriteID: d72df243cbd061670800000000000000
+      internalID: 8509003647943692925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_13
+      name: ShamanSprite_13
       rect:
         serializedVersion: 2
         x: 220
@@ -508,14 +520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8baffe52f51b4200800000000000000
-      internalID: 165249942049237903
+      spriteID: 7590e41b917089530800000000000000
+      internalID: 3861844487400458583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_14
+      name: ShamanSprite_14
       rect:
         serializedVersion: 2
         x: 440
@@ -529,14 +541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ac11852e0f9710e0800000000000000
-      internalID: -2299194201641771868
+      spriteID: 7204128da230a6ed0800000000000000
+      internalID: -2420118367208652761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_15
+      name: ShamanSprite_15
       rect:
         serializedVersion: 2
         x: 660
@@ -550,14 +562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c08b9443636423050800000000000000
-      internalID: 5778758470489192460
+      spriteID: 6ea1401dd8c4a16b0800000000000000
+      internalID: -5324859437431383322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_16
+      name: ShamanSprite_16
       rect:
         serializedVersion: 2
         x: 880
@@ -571,14 +583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a021aa9644de3370800000000000000
-      internalID: 8304308162624823460
+      spriteID: 33aaeca0822426590800000000000000
+      internalID: -7682505274593203661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_17
+      name: ShamanSprite_17
       rect:
         serializedVersion: 2
         x: 1100
@@ -592,14 +604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5545000e17b4c0a00800000000000000
-      internalID: 724036592561312853
+      spriteID: 5b53e5e17083464e0800000000000000
+      internalID: -1989403532165499467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_18
+      name: ShamanSprite_18
       rect:
         serializedVersion: 2
         x: 0
@@ -613,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a923f0cf3d7fe25c0800000000000000
-      internalID: -4238177709470043494
+      spriteID: d7142fde0404cfdb0800000000000000
+      internalID: -4756856458795925123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_20
+      name: ShamanSprite_19
       rect:
         serializedVersion: 2
         x: 330
@@ -634,14 +646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f2516e217c5356c0800000000000000
-      internalID: -4155876389953645837
+      spriteID: 4afb79e8c36eb0840800000000000000
+      internalID: 5191496143239364516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_21
+      name: ShamanSprite_20
       rect:
         serializedVersion: 2
         x: 660
@@ -655,14 +667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf4d43fd92df1590800000000000000
-      internalID: -7701205261946630212
+      spriteID: aab4dc4a1a0cd15d0800000000000000
+      internalID: -3090101968819106902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_23
+      name: ShamanSprite_21
       rect:
         serializedVersion: 2
         x: 990
@@ -676,14 +688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32bf6398cb3ce9580800000000000000
-      internalID: -8818395805821502685
+      spriteID: 6557e6025562625a0800000000000000
+      internalID: -6546502861278251690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_24
+      name: ShamanSprite_22
       rect:
         serializedVersion: 2
         x: 0
@@ -697,14 +709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81cb0008ac5c216f0800000000000000
-      internalID: -715291917276890088
+      spriteID: 4579b6ca23ae626b0800000000000000
+      internalID: -5321308406329665708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_26
+      name: ShamanSprite_23
       rect:
         serializedVersion: 2
         x: 330
@@ -718,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0a1bd12a3aaf0e0800000000000000
-      internalID: -2235294348357820249
+      spriteID: f2632e8d80b569110800000000000000
+      internalID: 1267300438707942959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_27
+      name: ShamanSprite_24
       rect:
         serializedVersion: 2
         x: 660
@@ -739,14 +751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46c24ce37dc8e62c0800000000000000
-      internalID: -4436453726814458780
+      spriteID: 588a114a213d32720800000000000000
+      internalID: 2820329868679555205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_29
+      name: ShamanSprite_25
       rect:
         serializedVersion: 2
         x: 990
@@ -760,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dae2de995eef8fe0800000000000000
-      internalID: -1184466108291028268
+      spriteID: 1103e58d1eaf54bc0800000000000000
+      internalID: -3799354862712508399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_30
+      name: ShamanSprite_26
       rect:
         serializedVersion: 2
         x: 0
@@ -781,14 +793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09fca4cea0976f570800000000000000
-      internalID: 8500114434529349520
+      spriteID: a9b25a06ccbd54a70800000000000000
+      internalID: 8810689916861492122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_32
+      name: ShamanSprite_27
       rect:
         serializedVersion: 2
         x: 330
@@ -802,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f11125218aca2bc90800000000000000
-      internalID: -7155467020076445409
+      spriteID: 5b50dbcdcec7234a0800000000000000
+      internalID: -6615087545896335947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_33
+      name: ShamanSprite_28
       rect:
         serializedVersion: 2
         x: 660
@@ -823,14 +835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28a8919e36dc95520800000000000000
-      internalID: 2691408081326803586
+      spriteID: 89925797bd59951d0800000000000000
+      internalID: -3361490876987266664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mage_35
+      name: ShamanSprite_29
       rect:
         serializedVersion: 2
         x: 990
@@ -844,8 +856,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f550970aeee5170800000000000000
-      internalID: 8169229147089231738
+      spriteID: 37d282ba8f4f03850800000000000000
+      internalID: 6354848423080373619
       vertices: []
       indices: 
       edges: []

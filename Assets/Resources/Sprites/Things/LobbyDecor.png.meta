@@ -1,0 +1,943 @@
+fileFormatVersion: 2
+guid: 18d0416dd507bf24083ed31ab73e548b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8852031943670442744
+    second: LobbyDecor_0
+  - first:
+      213: -1993618368750696915
+    second: LobbyDecor_1
+  - first:
+      213: -7990189027126023193
+    second: LobbyDecor_2
+  - first:
+      213: -3054871159518472157
+    second: LobbyDecor_3
+  - first:
+      213: 6807831089815640048
+    second: LobbyDecor_4
+  - first:
+      213: -8882225645139334970
+    second: LobbyDecor_5
+  - first:
+      213: 1911421808120123510
+    second: LobbyDecor_6
+  - first:
+      213: 5259885730039970714
+    second: LobbyDecor_7
+  - first:
+      213: -312019163783766993
+    second: LobbyDecor_8
+  - first:
+      213: -6529609253546358306
+    second: LobbyDecor_9
+  - first:
+      213: -7100668735002081007
+    second: LobbyDecor_10
+  - first:
+      213: -8493876021544035229
+    second: LobbyDecor_11
+  - first:
+      213: 3243956461183771553
+    second: LobbyDecor_12
+  - first:
+      213: -3968206709167687791
+    second: LobbyDecor_13
+  - first:
+      213: -5742569378007939936
+    second: LobbyDecor_14
+  - first:
+      213: -6472552959469349436
+    second: LobbyDecor_15
+  - first:
+      213: -2075845431800801803
+    second: LobbyDecor_16
+  - first:
+      213: -6233469686370493186
+    second: LobbyDecor_17
+  - first:
+      213: -4720868050560268104
+    second: LobbyDecor_18
+  - first:
+      213: -110451862620961470
+    second: LobbyDecor_19
+  - first:
+      213: -7849958412390589135
+    second: LobbyDecor_20
+  - first:
+      213: 8592242323346977644
+    second: LobbyDecor_21
+  - first:
+      213: 7193780951849412383
+    second: LobbyDecor_22
+  - first:
+      213: -7538123009549635223
+    second: LobbyDecor_23
+  - first:
+      213: -6795537918345613415
+    second: LobbyDecor_24
+  - first:
+      213: 4644084581705094466
+    second: LobbyDecor_25
+  - first:
+      213: 4291498778771637682
+    second: LobbyDecor_26
+  - first:
+      213: -2248191246009624562
+    second: LobbyDecor_27
+  - first:
+      213: -1569063332401339502
+    second: LobbyDecor_28
+  - first:
+      213: -1592203956276502087
+    second: LobbyDecor_29
+  - first:
+      213: -2371885107011838017
+    second: LobbyDecor_30
+  - first:
+      213: -8024469956092051296
+    second: LobbyDecor_31
+  - first:
+      213: 3274955073863181828
+    second: LobbyDecor_32
+  - first:
+      213: 137649213873471485
+    second: LobbyDecor_33
+  - first:
+      213: -2301634144108154879
+    second: LobbyDecor_34
+  - first:
+      213: 7655898703210167970
+    second: LobbyDecor_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LobbyDecor_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 688
+        width: 94
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa23e6172cb8da70800000000000000
+      internalID: 8852031943670442744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 652
+        width: 167
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26cbe008ae3554e0800000000000000
+      internalID: -1993618368750696915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_2
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 621
+        width: 46
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ebede5e9652d1190800000000000000
+      internalID: -7990189027126023193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_3
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 744
+        width: 78
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328d056addaea95d0800000000000000
+      internalID: -3054871159518472157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_4
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 595
+        width: 98
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f752578e464a7e50800000000000000
+      internalID: 6807831089815640048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_5
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 744
+        width: 212
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8ea96f5defbb480800000000000000
+      internalID: -8882225645139334970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_6
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 638
+        width: 188
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6705fe0e10cb68a10800000000000000
+      internalID: 1911421808120123510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_7
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 580
+        width: 294
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bbd22143edef840800000000000000
+      internalID: 5259885730039970714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_8
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 426
+        width: 98
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2cdd83493c7babf0800000000000000
+      internalID: -312019163783766993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_9
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 612
+        width: 58
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed90440bafa2265a0800000000000000
+      internalID: -6529609253546358306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_10
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 514
+        width: 123
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1198a7e086b557d90800000000000000
+      internalID: -7100668735002081007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_11
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 488
+        width: 120
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36cd8a9c2c0bf1a80800000000000000
+      internalID: -8493876021544035229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_12
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 488
+        width: 67
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a321b7d639d40d20800000000000000
+      internalID: 3243956461183771553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_13
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 427
+        width: 169
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197fcb0c5091ee8c0800000000000000
+      internalID: -3968206709167687791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_14
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 499
+        width: 74
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a40dcd739b4e40b0800000000000000
+      internalID: -5742569378007939936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_15
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 448
+        width: 186
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c51dec506fdc26a0800000000000000
+      internalID: -6472552959469349436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_16
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 339
+        width: 100
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f555ecf39d1133e0800000000000000
+      internalID: -2075845431800801803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_17
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 191
+        width: 77
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc98b9b8544e79a0800000000000000
+      internalID: -6233469686370493186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_18
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 200
+        width: 126
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b84dde258b1c7eb0800000000000000
+      internalID: -4720868050560268104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_19
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 196
+        width: 160
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24582bbbd98977ef0800000000000000
+      internalID: -110451862620961470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_20
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 348
+        width: 87
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d9edf2a685f0390800000000000000
+      internalID: -7849958412390589135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_21
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 271
+        width: 89
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c637c239ed6cd3770800000000000000
+      internalID: 8592242323346977644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_22
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 324
+        width: 218
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17a4f259a175d360800000000000000
+      internalID: 7193780951849412383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_23
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 263
+        width: 125
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961789ebf05336790800000000000000
+      internalID: -7538123009549635223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_24
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 212
+        width: 136
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fef4f744661b1a0800000000000000
+      internalID: -6795537918345613415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_25
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 18
+        width: 117
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2459667525a137040800000000000000
+      internalID: 4644084581705094466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_26
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 247
+        width: 162
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5c4b6e6677e8b30800000000000000
+      internalID: 4291498778771637682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_27
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 20
+        width: 125
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08147229f1dcc0e0800000000000000
+      internalID: -2248191246009624562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_30
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 22
+        width: 129
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf158cdf0f551fd0800000000000000
+      internalID: -2371885107011838017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_31
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 13
+        width: 170
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0c654271b53a090800000000000000
+      internalID: -8024469956092051296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_32
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 11
+        width: 142
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4066af8c94af27d20800000000000000
+      internalID: 3274955073863181828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_33
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 7
+        width: 170
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff3a801b3709e100800000000000000
+      internalID: 137649213873471485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LobbyDecor_34
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 37
+        width: 351
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100f585c0f3fe00e0800000000000000
+      internalID: -2301634144108154879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

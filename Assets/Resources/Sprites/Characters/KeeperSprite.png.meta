@@ -1,115 +1,115 @@
 fileFormatVersion: 2
-guid: 1f7bc707f251353498770b515e0bf4cd
+guid: e8cb33b64a69ba940849730aeb9c7668
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -989085045499774128
-    second: Medic_0
+      213: 1732981496825462447
+    second: KeeperSprite_0
   - first:
-      213: -7600532880668818381
-    second: Medic_1
+      213: -3884437258398791715
+    second: KeeperSprite_1
   - first:
-      213: -736170810418894871
-    second: Medic_2
+      213: 6082984835526365081
+    second: KeeperSprite_2
   - first:
-      213: -5434389561254478432
-    second: Medic_3
+      213: -4085918137531516821
+    second: KeeperSprite_3
   - first:
-      213: 6150788257232039784
-    second: Medic_4
+      213: -3341760078697946433
+    second: KeeperSprite_4
   - first:
-      213: 2025656586907250227
-    second: Medic_5
+      213: -8213426946421790099
+    second: KeeperSprite_5
   - first:
-      213: 4971320235876615928
-    second: Medic_6
+      213: 1654446236981680724
+    second: KeeperSprite_6
   - first:
-      213: 1074945825285285942
-    second: Medic_7
+      213: 6389926799176852868
+    second: KeeperSprite_7
   - first:
-      213: 6528401372357834209
-    second: Medic_8
+      213: -1053451483343395689
+    second: KeeperSprite_8
   - first:
-      213: -377593294910829702
-    second: Medic_9
+      213: 7948037879010461735
+    second: KeeperSprite_9
   - first:
-      213: -3313715971738755374
-    second: Medic_10
+      213: 4245920268273985686
+    second: KeeperSprite_10
   - first:
-      213: -8095699519662879096
-    second: Medic_11
+      213: 7779746913605131561
+    second: KeeperSprite_11
   - first:
-      213: -338732496018055790
-    second: Medic_12
+      213: -8324243750863341509
+    second: KeeperSprite_12
   - first:
-      213: -1474376404097217290
-    second: Medic_13
+      213: 9127800682212121189
+    second: KeeperSprite_13
   - first:
-      213: 422153507410128689
-    second: Medic_14
+      213: -4980601145835750900
+    second: KeeperSprite_14
   - first:
-      213: -7529938206353921692
-    second: Medic_15
+      213: -4710250573503205007
+    second: KeeperSprite_15
   - first:
-      213: -8169019609823076853
-    second: Medic_16
+      213: 4363990032214418620
+    second: KeeperSprite_16
   - first:
-      213: -7455254938075854764
-    second: Medic_17
+      213: 7187483671709350977
+    second: KeeperSprite_17
   - first:
-      213: -4459186002028408445
-    second: Medic_18
+      213: -6178352752180410828
+    second: KeeperSprite_18
   - first:
-      213: -8677216165329701666
-    second: Medic_19
+      213: 7313655758969453026
+    second: KeeperSprite_19
   - first:
-      213: -1840305361283302984
-    second: Medic_20
+      213: 3564939840188953225
+    second: KeeperSprite_20
   - first:
-      213: -3649265827813244863
-    second: Medic_21
+      213: 3155110421037913220
+    second: KeeperSprite_21
   - first:
-      213: 2001509816455279793
-    second: Medic_22
+      213: -237377501343040583
+    second: KeeperSprite_22
   - first:
-      213: 7805257579548773758
-    second: Medic_23
+      213: -2355460898489426901
+    second: KeeperSprite_23
   - first:
-      213: -3262308161297981265
-    second: Medic_24
+      213: 7871807532415163731
+    second: KeeperSprite_24
   - first:
-      213: 2159209196961991023
-    second: Medic_25
+      213: 4725571921314873780
+    second: KeeperSprite_25
   - first:
-      213: -8480020971681975847
-    second: Medic_26
+      213: 9074828860775670257
+    second: KeeperSprite_26
   - first:
-      213: 8198850978847856955
-    second: Medic_27
+      213: -7797037416644668705
+    second: KeeperSprite_27
   - first:
-      213: -5444073136223364764
-    second: Medic_28
+      213: -4634946061939028236
+    second: KeeperSprite_28
   - first:
-      213: 8338994264443533406
-    second: Medic_29
+      213: -9165797553501441219
+    second: KeeperSprite_29
   - first:
-      213: 7011056027586593509
-    second: Medic_30
+      213: 4704120776369075140
+    second: KeeperSprite_30
   - first:
-      213: 2998237371774992767
-    second: Medic_31
+      213: 7572603800495650146
+    second: KeeperSprite_31
   - first:
-      213: 2240496243914818064
-    second: Medic_32
+      213: 585822258798482094
+    second: KeeperSprite_32
   - first:
-      213: 6133475167601655330
-    second: Medic_33
+      213: -3815730258298308166
+    second: KeeperSprite_33
   - first:
-      213: 7293455440341933491
-    second: Medic_34
+      213: -7455988444391588237
+    second: KeeperSprite_34
   - first:
-      213: -9203212200808324961
-    second: Medic_35
+      213: 2505101348697916951
+    second: KeeperSprite_35
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,6 +194,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -221,7 +233,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Medic_0
+      name: KeeperSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -235,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05bb55a34601642f0800000000000000
-      internalID: -989085045499774128
+      spriteID: fae3b985d79cc0810800000000000000
+      internalID: 1732981496825462447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_1
+      name: KeeperSprite_1
       rect:
         serializedVersion: 2
         x: 220
@@ -256,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3340f084d9b758690800000000000000
-      internalID: -7600532880668818381
+      spriteID: dd709d4e4e4b71ac0800000000000000
+      internalID: -3884437258398791715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_2
+      name: KeeperSprite_2
       rect:
         serializedVersion: 2
         x: 440
@@ -277,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e768fe5c8898c5f0800000000000000
-      internalID: -736170810418894871
+      spriteID: 99f03a79a7a1b6450800000000000000
+      internalID: 6082984835526365081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_3
+      name: KeeperSprite_3
       rect:
         serializedVersion: 2
         x: 660
@@ -298,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0adf5569c7b2594b0800000000000000
-      internalID: -5434389561254478432
+      spriteID: b68bb1f1a17eb47c0800000000000000
+      internalID: -4085918137531516821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_4
+      name: KeeperSprite_4
       rect:
         serializedVersion: 2
         x: 880
@@ -319,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86fa5f8e45dfb5550800000000000000
-      internalID: 6150788257232039784
+      spriteID: fb2a0a0f9eeaf91d0800000000000000
+      internalID: -3341760078697946433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_5
+      name: KeeperSprite_5
       rect:
         serializedVersion: 2
         x: 1100
@@ -340,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33e6983fee39c1c10800000000000000
-      internalID: 2025656586907250227
+      spriteID: d6a68e575bb040e80800000000000000
+      internalID: -8213426946421790099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_6
+      name: KeeperSprite_6
       rect:
         serializedVersion: 2
         x: 0
@@ -361,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f603245a6dadf440800000000000000
-      internalID: 4971320235876615928
+      spriteID: 45a564f3616c5f610800000000000000
+      internalID: 1654446236981680724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_7
+      name: KeeperSprite_7
       rect:
         serializedVersion: 2
         x: 220
@@ -382,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6382be46889faee00800000000000000
-      internalID: 1074945825285285942
+      spriteID: 4856fad81949da850800000000000000
+      internalID: 6389926799176852868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_8
+      name: KeeperSprite_8
       rect:
         serializedVersion: 2
         x: 440
@@ -403,14 +415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5bf8e857a899a50800000000000000
-      internalID: 6528401372357834209
+      spriteID: 794653315736161f0800000000000000
+      internalID: -1053451483343395689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_9
+      name: KeeperSprite_9
       rect:
         serializedVersion: 2
         x: 660
@@ -424,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b454b16e482caf0800000000000000
-      internalID: -377593294910829702
+      spriteID: 72884c7275a1d4e60800000000000000
+      internalID: 7948037879010461735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_10
+      name: KeeperSprite_10
       rect:
         serializedVersion: 2
         x: 880
@@ -445,14 +457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2de19f961e05302d0800000000000000
-      internalID: -3313715971738755374
+      spriteID: 6982a17fcf98cea30800000000000000
+      internalID: 4245920268273985686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_11
+      name: KeeperSprite_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -466,14 +478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e81320e2c46af80800000000000000
-      internalID: -8095699519662879096
+      spriteID: 92d10eb599637fb60800000000000000
+      internalID: 7779746913605131561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_12
+      name: KeeperSprite_12
       rect:
         serializedVersion: 2
         x: 0
@@ -487,14 +499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d56fce6949c4bf0800000000000000
-      internalID: -338732496018055790
+      spriteID: b38760e89685a7c80800000000000000
+      internalID: -8324243750863341509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_13
+      name: KeeperSprite_13
       rect:
         serializedVersion: 2
         x: 220
@@ -508,14 +520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc4198d876f98be0800000000000000
-      internalID: -1474376404097217290
+      spriteID: 56a52dbfb567cae70800000000000000
+      internalID: 9127800682212121189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_14
+      name: KeeperSprite_14
       rect:
         serializedVersion: 2
         x: 440
@@ -529,14 +541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13fadd9d06acbd500800000000000000
-      internalID: 422153507410128689
+      spriteID: c0a7e8e65a951eab0800000000000000
+      internalID: -4980601145835750900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_15
+      name: KeeperSprite_15
       rect:
         serializedVersion: 2
         x: 660
@@ -550,14 +562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 469e1adb819408790800000000000000
-      internalID: -7529938206353921692
+      spriteID: 171f2433f04d1aeb0800000000000000
+      internalID: -4710250573503205007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_16
+      name: KeeperSprite_16
       rect:
         serializedVersion: 2
         x: 880
@@ -571,14 +583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0e9b4932ffc1ae80800000000000000
-      internalID: -8169019609823076853
+      spriteID: cb46c7910d1009c30800000000000000
+      internalID: 4363990032214418620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_17
+      name: KeeperSprite_17
       rect:
         serializedVersion: 2
         x: 1100
@@ -592,14 +604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 458030a222d998890800000000000000
-      internalID: -7455254938075854764
+      spriteID: 14cf72981521fb360800000000000000
+      internalID: 7187483671709350977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_18
+      name: KeeperSprite_18
       rect:
         serializedVersion: 2
         x: 0
@@ -613,14 +625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381d3b9f4f9cd12c0800000000000000
-      internalID: -4459186002028408445
+      spriteID: 436ca3df7e4124aa0800000000000000
+      internalID: -6178352752180410828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_20
+      name: KeeperSprite_20
       rect:
         serializedVersion: 2
         x: 330
@@ -634,14 +646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b93676360ce576e0800000000000000
-      internalID: -1840305361283302984
+      spriteID: 982b91495e5397130800000000000000
+      internalID: 3564939840188953225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_21
+      name: KeeperSprite_21
       rect:
         serializedVersion: 2
         x: 660
@@ -655,14 +667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 140483270143b5dc0800000000000000
-      internalID: -3649265827813244863
+      spriteID: 4841911263439cb20800000000000000
+      internalID: 3155110421037913220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_23
+      name: KeeperSprite_23
       rect:
         serializedVersion: 2
         x: 990
@@ -676,14 +688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7d0e612a68d15c60800000000000000
-      internalID: 7805257579548773758
+      spriteID: b2c1737eac8bf4fd0800000000000000
+      internalID: -2355460898489426901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_24
+      name: KeeperSprite_24
       rect:
         serializedVersion: 2
         x: 0
@@ -697,14 +709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa0e9f10304f9b2d0800000000000000
-      internalID: -3262308161297981265
+      spriteID: 35d99dd7e374e3d60800000000000000
+      internalID: 7871807532415163731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_26
+      name: KeeperSprite_26
       rect:
         serializedVersion: 2
         x: 330
@@ -718,14 +730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d17807fad9e05a80800000000000000
-      internalID: -8480020971681975847
+      spriteID: 1f12ff3b4c440fd70800000000000000
+      internalID: 9074828860775670257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_27
+      name: KeeperSprite_27
       rect:
         serializedVersion: 2
         x: 660
@@ -739,14 +751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b391790a68b28c170800000000000000
-      internalID: 8198850978847856955
+      spriteID: fd21770b7cb5bc390800000000000000
+      internalID: -7797037416644668705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_29
+      name: KeeperSprite_29
       rect:
         serializedVersion: 2
         x: 990
@@ -760,14 +772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e583d240a1f0ab370800000000000000
-      internalID: 8338994264443533406
+      spriteID: d33f66400bb8cc080800000000000000
+      internalID: -9165797553501441219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_30
+      name: KeeperSprite_30
       rect:
         serializedVersion: 2
         x: 0
@@ -781,14 +793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e209a89f464c4160800000000000000
-      internalID: 7011056027586593509
+      spriteID: 4c373003ce4684140800000000000000
+      internalID: 4704120776369075140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_32
+      name: KeeperSprite_32
       rect:
         serializedVersion: 2
         x: 330
@@ -802,14 +814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 012c3239677d71f10800000000000000
-      internalID: 2240496243914818064
+      spriteID: ea253359d32412800800000000000000
+      internalID: 585822258798482094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_33
+      name: KeeperSprite_33
       rect:
         serializedVersion: 2
         x: 660
@@ -823,14 +835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22e739b1b2b7e1550800000000000000
-      internalID: 6133475167601655330
+      spriteID: ab97b63fb8dcb0bc0800000000000000
+      internalID: -3815730258298308166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medic_35
+      name: KeeperSprite_35
       rect:
         serializedVersion: 2
         x: 990
@@ -844,8 +856,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90674a934f974080800000000000000
-      internalID: -9203212200808324961
+      spriteID: 716cd7f6768e3c220800000000000000
+      internalID: 2505101348697916951
       vertices: []
       indices: 
       edges: []
