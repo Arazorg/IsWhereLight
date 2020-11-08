@@ -48,7 +48,6 @@ public class EnemyMovement : MonoBehaviour
                     {
                         if (enemyMeleeAttack.IsAttack)
                         {
-                            Debug.Log("@@@@@@@@@@@@@");
                             roamPosition = currentTarget.position - transform.position + (UtilsClass.GetRandomDir() / 10);
                         }
                         else

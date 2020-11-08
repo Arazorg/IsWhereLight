@@ -20,14 +20,15 @@ MonoBehaviour:
   offset: {x: 0, y: -0.25}
   attackOffset: {x: 0, y: 0}
   standartAngle: 0
-  attackAngle: 0
+  attackAngleRight: 0
+  attackAngleLeft: 0
   radius: 0
   knoking: 200
   fireRate: 0.5
   damage: 3
   critChance: 10
   currentBullet: {fileID: 11400000, guid: f45e52a237617f5469ed32e82830fc1e, type: 2}
-  manecost: 1
+  manecost: 25
   firePointPosition: {x: -0.02, y: 0.7}
   shakeParametrs:
     magnitude: 0.25

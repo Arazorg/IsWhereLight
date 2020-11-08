@@ -15,9 +15,9 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: 84a02648942eb964790c5f716f74d1f1, type: 2}
   characterClass: Legionnaire
-  maxHealth: 450
-  maxMane: 50
+  maxHealth: 45
+  maxMane: 75
   startWeapon: Blade of Power
   price: 100
-  characterType: Defence
+  characterType: Tank
   skillTime: 10

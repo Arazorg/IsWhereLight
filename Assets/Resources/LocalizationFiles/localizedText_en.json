@@ -47,17 +47,17 @@
     },
 	
 	{
-      "key": "AmplificationText",
+      "key": "BuffsText",
       "value": "Choose buffs"
     },
 		
 	{
-      "key": "AmplificationsPoints",
-      "value": "Buff Points:"
+      "key": "BuffsPoints",
+      "value": "Buffs Points:"
     },
 	
 	{
-      "key": "CurrentAmplifications",
+      "key": "CurrentBuffs",
       "value": "Current buffs"
     },
 	
@@ -220,6 +220,16 @@
       "key": "Mechanic",
       "value": "Mechanic"
     },
+	
+	{
+      "key": "Voodoo",
+      "value": "Voodoo"
+    },
+	
+    {
+      "key": "Droid",
+      "value": "Droid"
+    },
 
     {
       "key": "SimpleLegionnaire",
@@ -259,6 +269,16 @@
     {
       "key": "SimpleMechanic",
       "value": "Simple Mechanic"
+    },
+	
+	{
+      "key": "SimpleVoodoo",
+      "value": "Simple Voodoo"
+    },
+
+    {
+      "key": "SimpleDroid",
+      "value": "Simple Droid"
     },
 
     {
@@ -952,13 +972,13 @@
     },
 	
 	{
-      "key": "Defence",
-      "value": "Defence"
+      "key": "Tank",
+      "value": "Tank"
     },
 	
 	{
-      "key": "Attack",
-      "value": "Attack"
+      "key": "Damager",
+      "value": "Damager"
     },
 	
 	{
@@ -997,8 +1017,13 @@
     },
 		
 	{
-      "key": "Healing",
-      "value": "Healing"
+      "key": "Healer",
+      "value": "Healer"
+    },
+	
+	{
+      "key": "Summoner",
+      "value": "Summoner"
     },
 	
 	{
@@ -1128,7 +1153,7 @@
 	
 	{
 	  "key": "Skill",
-	  "value": "Ability:"
+	  "value": "Skill:"
 	},
 	
 	{
@@ -1180,7 +1205,22 @@
       "key": "DragDropBuffs",
       "value": "Drag and drop buffs"
     },
-
+	
+	{
+      "key": "SetColor",
+      "value": "Set\nColor"
+    },
+		
+	{
+      "key": "FpsCounter",
+      "value": "FPS\nCounter"
+    },
+	
+	{
+      "key": "AvailableBuffsPoints",
+      "value": "Available buffs\npoints"
+    },
+	
 	{
       "key": "BossGreatBear",
       "value": "THE GREAT BEAR"

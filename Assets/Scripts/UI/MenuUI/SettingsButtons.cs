@@ -49,6 +49,9 @@ public class SettingsButtons : MonoBehaviour
 
     [Tooltip("Слайдер эффектов")]
     [SerializeField] private Slider sliderEffects;
+
+    [Tooltip("Кнопка выхода")]
+    [SerializeField] private Button exitButton;
 #pragma warning restore 0649
 
     public bool IsLocalizationPanelState = false;
@@ -82,7 +85,7 @@ public class SettingsButtons : MonoBehaviour
     public void InterfaceSettingsOpen()
     {
         audioManager.Play("ClickUI");
-        InterfaceDrag.isDraging = true;
+        InterfaceDrag.isDraging = true;       
         SettingsPanelClose();
         menuPanel.GetComponent<MenuButtons>().AllPanelHide();
         menuPanel.GetComponent<MovementUI>().MoveToEnd();
@@ -99,6 +102,7 @@ public class SettingsButtons : MonoBehaviour
             SettingsPanelClose();
             menuPanel.GetComponent<MenuButtons>().AllPanelHide();
             thanksPanel.GetComponent<MovementUI>().MoveToEnd();
+            exitButton.GetComponent<MovementUI>().MoveToStart();
         }
         else
         {

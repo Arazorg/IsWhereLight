@@ -114,10 +114,6 @@ public class InterfaceSettings : MonoBehaviour
     {
         audioManager.Play("ClickUI");
         settingsInfo.fpsOn = !settingsInfo.fpsOn;
-        if (settingsInfo.fpsOn)
-            fpsCounterButton.GetComponent<Image>().color = Color.red;
-        else
-            fpsCounterButton.GetComponent<Image>().color = Color.white;
 
         hintsText2.GetComponent<MovementUI>().MoveToEnd();
         if (settingsInfo.fpsOn)
@@ -300,13 +296,11 @@ public class InterfaceSettings : MonoBehaviour
         {
             fpsCounterOnOffText.GetComponent<LocalizedText>().key = "On";
             fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
-            fpsCounterButton.GetComponent<Image>().color = Color.red;
         }
         else
         {
             fpsCounterOnOffText.GetComponent<LocalizedText>().key = "Off";
             fpsCounterOnOffText.GetComponent<LocalizedText>().SetLocalization();
-            fpsCounterButton.GetComponent<Image>().color = Color.white;
         }
 
         if (settingsInfo.isVibration)

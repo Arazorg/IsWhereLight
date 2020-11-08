@@ -49,7 +49,6 @@ public class CharSkills : MonoBehaviour
 
     private List<GameObject> enemies = new List<GameObject>();
 
-    private PopupText currentPhrase;
     private Animator animator;
     private Rigidbody2D rb;
     private CharInfo charInfo;
@@ -76,8 +75,7 @@ public class CharSkills : MonoBehaviour
 
     public void ChooseSkill(string character)
     {
-        float offsetY = 0.9f;
-        offsetText = new Vector3(0, offsetY, 0);
+        offsetText = new Vector3(0, 0.9f, 0);
         currentCharacter = character;
         switch (character)
         {
@@ -150,15 +148,18 @@ public class CharSkills : MonoBehaviour
 
         if (alliesLasers.Count == 0)
         {
-            if (currentPhrase != null)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
+            if (GameButtons.currentCharacterPhrase != null)
+                GameButtons.currentCharacterPhrase.DeletePhrase();
+               
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
         }
         else
         {
-            if (currentPhrase != null && isSkill)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+            if (GameButtons.currentCharacterPhrase != null && isSkill)
+                GameButtons.currentCharacterPhrase.DeletePhrase();
+            
+                
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
             if (sound == null)
                 sound = audioManager.Play($"{charInfo.character}SkillStart", true);
         }
@@ -252,16 +253,19 @@ public class CharSkills : MonoBehaviour
                 }               
             }
             Camera.main.GetComponent<CameraShaker>().IsSmooth = false;
-            if (currentPhrase != null && isUsingSkill)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+            if (GameButtons.currentCharacterPhrase != null && isUsingSkill)
+                GameButtons.currentCharacterPhrase.DeletePhrase();
+
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
             sound = audioManager.Play($"{charInfo.character}SkillUsing", true);
         }
         else
         {
-            if (currentPhrase != null)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
+            if (GameButtons.currentCharacterPhrase != null)
+                GameButtons.currentCharacterPhrase.DeletePhrase();                
+            
+                
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
         }
     }
 
@@ -370,17 +374,17 @@ public class CharSkills : MonoBehaviour
         {
             enemyCounter = 0;
             isSkill = true;
-            if (currentPhrase != null && isSkill)
-                currentPhrase.DeletePhrase();
+            if (GameButtons.currentCharacterPhrase != null && isSkill)
+                GameButtons.currentCharacterPhrase.DeletePhrase();
             audioManager.Play($"{charInfo.character}SkillStart");
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         }
         else
         {
             enemiesArrows.Clear();
-            if (currentPhrase != null)
-                currentPhrase.DeletePhrase();
-            currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
+            if (GameButtons.currentCharacterPhrase != null)
+                GameButtons.currentCharacterPhrase.DeletePhrase();
+            GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillFail");
         }
     }
 
@@ -444,9 +448,10 @@ public class CharSkills : MonoBehaviour
         turret = Instantiate(mechanicTurret, transform.position, Quaternion.identity);
         turret.GetComponent<Ally>().Init(mechanicTurretData);
         audioManager.Play($"{charInfo.character}SkillStart");
-        if (currentPhrase != null && isSkill)
-            currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+        if (GameButtons.currentCharacterPhrase != null && isSkill)
+            GameButtons.currentCharacterPhrase.DeletePhrase();
+        
+        GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
     }
 
     private void MechanicSkillUsing()
@@ -475,10 +480,11 @@ public class CharSkills : MonoBehaviour
         timeToShoot = Time.time + shootTime;
         timeToSkill = Time.time + keeperSkillDuration;
         isSkill = true;
-        if (currentPhrase != null && isSkill)
-            currentPhrase.DeletePhrase();
+        if (GameButtons.currentCharacterPhrase != null && isSkill)
+            GameButtons.currentCharacterPhrase.DeletePhrase();
+        
         audioManager.Play($"{charInfo.character}SkillStart");
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+        GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
         currentCloud = Instantiate(keeperCloud, transform);
         currentCloudTransform = currentCloud.transform;
         CameraShaker.instance.ShakeOnce(0.5f, 0.5f, .1f, 0.8f);
@@ -575,9 +581,11 @@ public class CharSkills : MonoBehaviour
         startSkillTime = Time.time;
         currentCountOfGrenades = 0;
         audioManager.Play($"{charInfo.character}SkillStart");
-        if (currentPhrase != null && isSkill)
-            currentPhrase.DeletePhrase();
-        currentPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
+        if (GameButtons.currentCharacterPhrase != null && isSkill)
+        
+            GameButtons.currentCharacterPhrase.DeletePhrase();
+        
+        GameButtons.currentCharacterPhrase = PopupText.Create(transform, offsetText, true, false, -1, $"{charInfo.character}SkillUsed");
 
         for (int i = 0; i < counfOfGrenades; i++)
         {
@@ -626,6 +634,5 @@ public class CharSkills : MonoBehaviour
         }
         return currentPosition;
     }
-
     #endregion RaiderSkill
 }

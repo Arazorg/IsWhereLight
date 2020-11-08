@@ -16,24 +16,24 @@ public class EnemyAI : MonoBehaviour
         enemy = GetComponent<Enemy>();
         character = GameObject.Find("Character(Clone)");
         GetTarget(enemy.Target);
-       // InvokeRepeating("CheckTarget", 0, 0.33f);
+        InvokeRepeating("CheckTarget", 0, 0.33f);
     }
 
     public void StopAI()
     {
-       // CancelInvoke("CheckTarget");
+        CancelInvoke("CheckTarget");
     }
-    
+
     public void GetTarget(string targetTag = "")
     {
         targetTransform = character.transform;
         if (targetTag == "Building")
             targetTransform = GetNearestBuilding();
-        else if(targetTag == "Ally")
+        else if (targetTag == "Ally")
             targetTransform = GetNearestAlly();
-        if(targetTransform == null)
+        if (targetTransform == null)
             targetTransform = character.transform;
-        GetComponent<EnemyMovement>().CurrentTarget = targetTransform;       
+        GetComponent<EnemyMovement>().CurrentTarget = targetTransform;
         if (enemy.TypeOfAttack == EnemyData.AttackType.Distant)
             GetComponent<EnemyDistantAttack>().ShootTarget = targetTransform;
     }

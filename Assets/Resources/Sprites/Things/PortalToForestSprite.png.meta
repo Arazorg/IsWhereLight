@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: 8406550082137570125
     second: PortaltoForest_2
+  - first:
+      213: -4930317127602756822
+    second: PortalToForestSprite_0
+  - first:
+      213: -8824383451241165982
+    second: PortalToForestSprite_1
+  - first:
+      213: 2113915608880197449
+    second: PortalToForestSprite_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,6 +41,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -66,6 +76,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -120,64 +131,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PortaltoForest_0
+      name: PortalToForestSprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 400
-        height: 400
+        x: 24
+        y: 5
+        width: 364
+        height: 390
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454eb98ffa7d349d0800000000000000
-      internalID: -2791150193249360812
+      spriteID: a23a633c1bef39bb0800000000000000
+      internalID: -4930317127602756822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortaltoForest_1
+      name: PortalToForestSprite_1
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 400
-        height: 400
+        x: 423
+        y: 5
+        width: 364
+        height: 390
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df952e8b7e876a50800000000000000
-      internalID: 6514332047331663827
+      spriteID: 26b4fe2310e798580800000000000000
+      internalID: -8824383451241165982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortaltoForest_2
+      name: PortalToForestSprite_2
       rect:
         serializedVersion: 2
-        x: 800
-        y: 0
-        width: 400
-        height: 400
+        x: 823
+        y: 5
+        width: 364
+        height: 390
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4b375882c01aa470800000000000000
-      internalID: 8406550082137570125
+      spriteID: 94f2578db03265d10800000000000000
+      internalID: 2113915608880197449
       vertices: []
       indices: 
       edges: []

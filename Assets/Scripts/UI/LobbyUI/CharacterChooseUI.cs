@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class CharacterChooseUI : MonoBehaviour
 {
+    [System.Serializable]
+    public struct CharacterClassTypeImage
+    {
+        public string classType;
+        public Sprite classTypeImage;
+    }
+
 #pragma warning disable 0649
     [Tooltip("Лобби UI")]
     [SerializeField] private GameObject lobbyUI;
@@ -75,8 +82,11 @@ public class CharacterChooseUI : MonoBehaviour
     [Tooltip("Лист персонажей лобби")]
     [SerializeField] private List<Character> characters;
 
+    //[Tooltip("Лист персонажей лобби")]
+    //[SerializeField] private List<Sprite> charactersTypes;
+
     [Tooltip("Лист персонажей лобби")]
-    [SerializeField] private List<Sprite> charactersTypes;
+    [SerializeField] private CharacterClassTypeImage[] charactersTypes;
 
     [Tooltip("Размер камеры в игре")]
     [SerializeField] private float cameraSizeGame;
@@ -160,18 +170,9 @@ public class CharacterChooseUI : MonoBehaviour
         backToLobbyButton.GetComponent<MovementUI>().MoveToEnd();
         moneyImage.GetComponent<MovementUI>().MoveToEnd();
 
-        switch (currentGameInfo.characterType)
-        {
-            case "Defence":
-                typeImage.sprite = charactersTypes[0];
-                break;
-            case "Attack":
-                typeImage.sprite = charactersTypes[1];
-                break;
-            case "Healing":
-                typeImage.sprite = charactersTypes[2];
-                break;
-        }
+        foreach (var type in charactersTypes)
+            if(type.classType == currentGameInfo.characterType)
+                typeImage.sprite = type.classTypeImage;
 
         typeText.GetComponent<LocalizedText>().key = currentGameInfo.characterType;
         typeText.GetComponent<LocalizedText>().SetLocalization();

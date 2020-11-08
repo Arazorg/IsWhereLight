@@ -74,6 +74,7 @@ public class GameButtons : MonoBehaviour
 
     public static FireActButtonStateEnum FireActButtonState;
     public static Vector3 SpawnPosition;
+    public static PopupText currentCharacterPhrase;
     public static bool IsGamePausedState;
     public static bool isChange = true;
     public static bool IsWeaponStoreState;
@@ -88,6 +89,7 @@ public class GameButtons : MonoBehaviour
     private CurrentGameInfo currentGameInfo;
     private AudioManager audioManager;
     private Sound weaponSound;
+    private Vector3 offsetText;
 
     private float attackRate;
     private float[] nextAttack = new float[2];
@@ -99,7 +101,7 @@ public class GameButtons : MonoBehaviour
     private bool isStaticAttack;
     private int priceResurrect;
     private int manecost;
-
+    private float manePhraseTime;
     private void Awake()
     {
         if (instance != null)
@@ -110,6 +112,8 @@ public class GameButtons : MonoBehaviour
 
     void Start()
     {
+        manePhraseTime = float.MinValue;
+        offsetText = new Vector3(0, 0.9f, 0);
         startTime = Time.time;
         Time.timeScale = 1f;
         timeToSkill = float.MinValue;
@@ -357,6 +361,16 @@ public class GameButtons : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            if (manePhraseTime < Time.time)
+            {
+                if (currentCharacterPhrase != null)
+                    currentCharacterPhrase.DeletePhrase();
+                currentCharacterPhrase = PopupText.Create(character.transform, offsetText, true, false, -1, $"NoManePhrase{UnityEngine.Random.Range(0, 3)}");
+                manePhraseTime = Time.time + 3f;
+            }
+        }
     }
 
     private void AttackDown()
@@ -419,10 +433,21 @@ public class GameButtons : MonoBehaviour
                         currentWeapon.GetComponent<Sword>().StopShoot();
                         break;
                 }
+                
             }
         }
         else
-            StopAttack();
+        {
+            StopAttack();          
+            if(manePhraseTime < Time.time)
+            {
+                if (currentCharacterPhrase != null)
+                    currentCharacterPhrase.DeletePhrase();
+                currentCharacterPhrase = PopupText.Create(character.transform, offsetText, true, false, -1, $"NoManePhrase{UnityEngine.Random.Range(0, 3)}");
+                manePhraseTime = Time.time + 3f;
+            }
+           
+        }        
     }
 
     public void AttackUp()
@@ -444,7 +469,17 @@ public class GameButtons : MonoBehaviour
                 }
             }
             else
+            {
                 StopAttack();
+                if (manePhraseTime < Time.time)
+                {
+                    if (currentCharacterPhrase != null)
+                        currentCharacterPhrase.DeletePhrase();
+                    currentCharacterPhrase = PopupText.Create(character.transform, offsetText, true, false, -1, $"NoManePhrase{UnityEngine.Random.Range(0, 3)}");
+                    manePhraseTime = Time.time + 3f;
+                }
+            }
+            
         }
         isAttackUp = false;
     }

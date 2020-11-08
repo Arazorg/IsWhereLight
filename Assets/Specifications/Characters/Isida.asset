@@ -15,9 +15,9 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: d8368446e80895042b2bc7a7729e991d, type: 2}
   characterClass: Isida
-  maxHealth: 16
-  maxMane: 250
+  maxHealth: 10
+  maxMane: 275
   startWeapon: Healing Beam Blaster
   price: 2500
-  characterType: Healing
+  characterType: Healer
   skillTime: 10

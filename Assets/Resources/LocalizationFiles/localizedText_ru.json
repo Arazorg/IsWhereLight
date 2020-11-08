@@ -47,17 +47,17 @@
     },
 	
 	{
-      "key": "AmplificationText",
+      "key": "BuffsText",
       "value": "Выбери усиления"
     },
 	
 	{
-      "key": "AmplificationsPoints",
+      "key": "BuffsPoints",
       "value": "Очков усилений:"
     },
 	
 	{
-      "key": "CurrentAmplifications",
+      "key": "CurrentBuffs",
       "value": "Текущие усиления"
     },
 	
@@ -210,6 +210,16 @@
       "key": "Mechanic",
       "value": "Механик"
     },
+	
+	{
+      "key": "Voodoo",
+      "value": "Шаман"
+    },
+	
+    {
+      "key": "Droid",
+      "value": "Дройд"
+    },
 
     {
       "key": "SimpleLegionnaire",
@@ -249,6 +259,16 @@
     {
       "key": "SimpleMechanic",
       "value": "Обычный Механик"
+    },
+	
+	{
+      "key": "SimpleVoodoo",
+      "value": "Обычный Шаман"
+    },
+
+    {
+      "key": "SimpleDroid",
+      "value": "Обычный Дройд"
     },
 
     {
@@ -969,13 +989,13 @@
     },
 	
 	{
-      "key": "Defence",
-      "value": "Защита"
+      "key": "Tank",
+      "value": "Танк"
     },
 	
 	{
-      "key": "Attack",
-      "value": "Атака"
+      "key": "Damager",
+      "value": "Дамагер"
     },
 	
 	{
@@ -1009,10 +1029,15 @@
     },
 	
 	{
-      "key": "Healing",
-      "value": "Лечение"
+      "key": "Healer",
+      "value": "Лекарь"
     },
-		
+	
+	{
+      "key": "Summoner",
+      "value": "Призыватель"
+    },
+	
 	{
       "key": "FirstStartAchivment",
       "value": "Первый запуск!"
@@ -1196,6 +1221,21 @@
 	{
       "key": "DragDropBuffs",
       "value": "Перетаскивай баффы"
+    },
+	
+	{
+      "key": "SetColor",
+      "value": "Установить\nЦвет"
+    },
+		
+	{
+      "key": "FpsCounter",
+      "value": "Счетчик\nФПС"
+    },
+	
+	{
+      "key": "AvailableBuffsPoints",
+      "value": "Доступные очки\nдля улучшений!"
     },
 	
 	{

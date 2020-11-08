@@ -15,9 +15,9 @@ MonoBehaviour:
   animations:
   - {fileID: 9100000, guid: b0146c3851675be41af2322c95a40d48, type: 2}
   characterClass: Archer
-  maxHealth: 20
-  maxMane: 150
+  maxHealth: 10
+  maxMane: 200
   startWeapon: Fortified Bow
   price: 1250
-  characterType: Attack
-  skillTime: 8
+  characterType: Damager
+  skillTime: 10

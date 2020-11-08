@@ -86,6 +86,7 @@ public class MenuButtons : MonoBehaviour
 
     void Update()
     {
+
         if (Time.time > isAllPanelHideTime)
         {
             isAllPanelHide = true;

@@ -38,7 +38,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         if (Time.time > timeToAttack && !GetComponent<Enemy>().IsDeath)
         {
-            Debug.Log("ATTACK");
             isAttack = true;
             Attack();
         }

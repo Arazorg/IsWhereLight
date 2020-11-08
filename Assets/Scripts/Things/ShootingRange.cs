@@ -69,7 +69,7 @@ public class ShootingRange : MonoBehaviour
     private int difficultyLevel;
 
     private bool isGame;
-    private bool isHello = false;
+    private bool isPhrase = false;
 
     private void Awake()
     {
@@ -170,7 +170,7 @@ public class ShootingRange : MonoBehaviour
         player.transform.position = startStand.transform.position;
         Camera.main.orthographicSize = 7f;
         Camera.main.GetComponent<CameraShaker>().IsMove = false;
-        Camera.main.transform.position = new Vector3(-15, 11.25f, -1);
+        Camera.main.transform.position = new Vector3(-19.25f, 11.25f, -1);
         if (currentPhrase != null)
             currentPhrase.DeletePhrase();
         currentPhrase = PopupText.Create(shootingRangeNPC.transform.position
@@ -269,15 +269,21 @@ public class ShootingRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (!isHello && coll.tag == "Player")
+        if (coll.tag == "Player" && !isPhrase)
         {
             if (currentPhrase != null)
                 currentPhrase.DeletePhrase();
             currentPhrase = PopupText.Create
-                (shootingRangeNPC.transform.position
-                    + new Vector3(0, 1f, 0), true, false, -1, $"Hello{UnityEngine.Random.Range(0, 6)}");
-            isHello = true;
+                (shootingRangeNPC.transform.position + new Vector3(0, 1f, 0), true, false, -1, $"ShootingRangeGuyPhrase{UnityEngine.Random.Range(0, 6)}");
+            isPhrase = true;
+            Invoke("SetIsPhrase", 60);
         }
+
+    }
+
+    private void SetIsPhrase()
+    {
+        isPhrase = false;
     }
 
     private void SetCollider(bool isGame)
