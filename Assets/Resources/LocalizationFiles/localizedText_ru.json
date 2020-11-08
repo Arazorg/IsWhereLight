@@ -180,10 +180,25 @@
       "key": "Gravity Laser",
       "value": "Гравитационный Лазер"
     },
+	
+	{
+      "key": "ShootingRangeDifficulty1",
+      "value": "Просто, новый спаун раз в две секунды"
+    },
+
+    {
+      "key": "ShootingRangeDifficulty2",
+      "value": "Сложно, новый спаун раз в секунду"
+    },
 
     {
       "key": "Legionnaire",
       "value": "Легионер"
+    },
+	
+	{
+      "key": "Keeper",
+      "value": "Хранитель"
     },
 
     {
@@ -199,11 +214,6 @@
     {
       "key": "Isida",
       "value": "Изида"
-    },
-
-    {
-      "key": "Keeper",
-      "value": "Хранитель"
     },
 
     {
@@ -267,38 +277,8 @@
     },
 
     {
-      "key": "SimpleDroid",
+      "key": "Simple Droid",
       "value": "Обычный Дройд"
-    },
-
-    {
-      "key": "Hello0",
-      "value": "Привет!"
-    },
-
-    {
-      "key": "Hello1",
-      "value": "Здорова!"
-    },
-
-    {
-      "key": "Hello2",
-      "value": "Как поживаешь?"
-    },
-
-    {
-      "key": "Hello3",
-      "value": "Салют!"
-    },
-
-    {
-      "key": "Hello4",
-      "value": "Здравствуй."
-    },
-
-    {
-      "key": "Hello5",
-      "value": "Приветствую!"
     },
 
     {
@@ -600,6 +580,136 @@
       "key": "MechanicShootReaction1",
       "value": "Противник замечен. Турели активированы."
     },
+	
+	{
+      "key": "VoodooPhrase0",
+      "value": "Дарова сучара"
+    },
+	
+	{
+      "key": "VoodooPhrase1",
+      "value": "Чо каво?"
+    },
+	
+	{
+      "key": "VoodooPhrase2",
+      "value": "Тут будет нормальная фраза"
+    },
+	
+	{
+      "key": "VoodooPhrase3",
+      "value": "У пишущего фразы не варит котелок"
+    },
+	
+	{
+      "key": "VoodooPhrase4",
+      "value": "Я веселый лесной чудик"
+    },
+	
+	{
+      "key": "VoodooPhrase5",
+      "value": "Низкий iq компенсируется размером члена"
+    },
+	
+	{
+      "key": "VoodooPhrase6",
+      "value": "Грибничок-дурачок-левачок"
+    },
+	
+	{
+      "key": "VoodooPhrase7",
+      "value": "Весенний лес, весенний лес. Мой член\nвеликому медведю в жопу влез"
+    },
+	
+	{
+      "key": "VoodooShootReaction0",
+      "value": "Э, ахуел?"
+    },
+	
+	{
+      "key": "VoodooShootReaction1",
+      "value": "Что ты творишь, гребаный расист?"
+    },
+	
+	{
+      "key": "DroidPhrase0",
+      "value": "Привет, я робот"
+    },
+	
+	{
+      "key": "DroidPhrase1",
+      "value": "Функционирую хорошо без веществ, не то что ты"
+    },
+	
+	{
+      "key": "DroidPhrase2",
+      "value": "Хз что сказать"
+    },
+	
+	{
+      "key": "DroidPhrase3",
+      "value": "Делаю вид, что говорю что-то полезное"
+    },
+	
+	{
+      "key": "DroidPhrase4",
+      "value": "Я просто робот. Жалкая имитация жизни."
+    },
+	
+	{
+      "key": "DroidPhrase5",
+      "value": "Я хочу к маме! Валера! Валера!!!"
+    },
+	
+	{
+      "key": "DroidPhrase6",
+      "value": "Мой интеллект пока на стадии разработки."
+    },
+	
+	{
+      "key": "DroidPhrase7",
+      "value": "Что такое релиз и как до него дожить?"
+    },
+	
+	{
+      "key": "DroidShootReaction0",
+      "value": "Какое плохое зло я тебе сделал?"
+    },
+	
+	{
+      "key": "DroidShootReaction1",
+      "value": "Тебе все равно не причинить мне боль."
+    },
+	
+	{
+      "key": "Hello0",
+      "value": "Привет!"
+    },
+
+    {
+      "key": "Hello1",
+      "value": "Здорова!"
+    },
+
+    {
+      "key": "Hello2",
+      "value": "Как поживаешь?"
+    },
+
+    {
+      "key": "Hello3",
+      "value": "Салют!"
+    },
+
+    {
+      "key": "Hello4",
+      "value": "Здравствуй."
+    },
+
+    {
+      "key": "Hello5",
+      "value": "Приветствую!"
+    },
 
     {
       "key": "Check",
@@ -685,130 +795,8 @@
       "key": "WeakScore2",
       "value": "Наверное ты устал..."
     },
-
-    {
-      "key": "ChallengeText",
-      "value": "Выбери испытание"
-    },
-
-    {
-      "key": "DifficultyText",
-      "value": "Выбери сложность"
-    },
-
-    {
-      "key": "Discover",
-      "value": "Выбери и узнай!"
-    },
-
-    {
-      "key": "Challenge0",
-      "value": "Защита"
-    },
-
-    {
-      "key": "Challenge1",
-      "value": "Урон + Защита"
-    },
-
-    {
-      "key": "Challenge2",
-      "value": "Урон"
-    },
-
-    {
-      "key": "ShootingRangeInfo",
-      "value": "Тир! Больше попаданий - лучше награда!"
-    },
-
-
-    {
-      "key": "ShootingRangeDifficulty1",
-      "value": "Просто, новый спаун раз в две секунды"
-    },
-
-    {
-      "key": "ShootingRangeDifficulty2",
-      "value": "Сложно, новый спаун раз в секунду"
-    },
-
-    {
-      "key": "GoToMenu",
-      "value": "В меню"
-    },
-
-    {
-      "key": "GoToLobby",
-      "value": "В лобби"
-    },
-
-
-    {
-      "key": "Stats",
-      "value": "Статистика:"
-    },
-    
-    {
-      "key": "FinishOfGameWin",
-      "value": "Ура! Победа!"
-    },
 	
 	{
-      "key": "FinishOfGameLose",
-      "value": "Увы, попробуйте снова"
-    },
-
-    {
-      "key": "Wave",
-      "value": "Волна-"
-    },
-
-    {
-      "key": "CountOfEnemies",
-      "value": "Количество убитых врагов"
-    },
-
-    {
-      "key": "CountOfShoots",
-      "value": "Количество выстрелов"
-    },
-	
-	{
-      "key": "GameDuration",
-      "value": "Длительность игры"
-    },
-	
-    {
-      "key": "Standart",
-      "value": "Стандартные"
-    },
-
-    {
-      "key": "Transparency",
-      "value": "Прозрачность"
-    },
-
-    {
-      "key": "ChooseColor",
-      "value": "Выбери цвет"
-    },
-
-    {
-      "key": "CodeDontExist",
-      "value": "Данный код не существует"
-    },
-
-    {
-      "key": "AlreadyUseCode",
-      "value": "Данный код уже использован"
-    },
-
-    {
-      "key": "Colors",
-      "value": "Цвета"
-    },
-
-    {
       "key": "ShutUp0",
       "value": "УМОЛЯЮ, ПРЕКРАТИ!"
     },
@@ -859,6 +847,101 @@
     },
 
     {
+      "key": "ChallengeText",
+      "value": "Выбери испытание"
+    },
+
+    {
+      "key": "DifficultyText",
+      "value": "Выбери сложность"
+    },
+
+    {
+      "key": "Discover",
+      "value": "Выбери и узнай!"
+    },
+
+    {
+      "key": "ShootingRangeInfo",
+      "value": "Тир! Больше попаданий - лучше награда!"
+    },
+
+    {
+      "key": "GoToMenu",
+      "value": "В меню"
+    },
+
+    {
+      "key": "GoToLobby",
+      "value": "В лобби"
+    },
+
+    {
+      "key": "Stats",
+      "value": "Статистика:"
+    },
+    
+    {
+      "key": "FinishOfGameWin",
+      "value": "Ура! Победа!"
+    },
+	
+	{
+      "key": "FinishOfGameLose",
+      "value": "Увы, попробуйте снова"
+    },
+
+    {
+      "key": "Wave",
+      "value": "Волна-"
+    },
+
+    {
+      "key": "CountOfEnemies",
+      "value": "Количество убитых врагов"
+    },
+	
+	{
+      "key": "Standart",
+      "value": "Стандартные"
+    },
+	
+	{
+      "key": "Transparency",
+      "value": "Прозрачность"
+    },
+	
+	{
+      "key": "ChooseColor",
+      "value": "Выбери цвет"
+    },
+	
+	{
+      "key": "CodeDontExist",
+      "value": "Данный код не существует"
+    },
+	
+	{
+      "key": "AlreadyUseCode",
+      "value": "Данный код уже использован"
+    },
+	
+	{
+      "key": "Colors",
+      "value": "Цвета"
+    },
+
+    {
+      "key": "CountOfShoots",
+      "value": "Количество выстрелов"
+    },
+	
+	{
+      "key": "GameDuration",
+      "value": "Длительность игры"
+    },
+
+    {
       "key": "Exit",
       "value": "Выйти"
     },
@@ -889,6 +972,11 @@
     },
 	
 	{
+      "key": "Static",
+      "value": "Статический"
+    },
+	
+	{
       "key": "Music",
       "value": "Музыка"
     },
@@ -896,11 +984,6 @@
 	{
       "key": "Effects",
       "value": "Эффекты"
-    },
-	
-    {
-      "key": "Static",
-      "value": "Статический"
     },
 
     {
@@ -989,8 +1072,8 @@
     },
 	
 	{
-      "key": "Tank",
-      "value": "Танк"
+      "key": "Patron",
+      "value": "Защитник"
     },
 	
 	{
@@ -999,33 +1082,8 @@
     },
 	
 	{
-      "key": "CounterFPS",
-      "value": "Счетчик ФПС"
-    },
-	
-	{
-      "key": "Save",
-      "value": "Сохранить"
-    },
-	
-	{
-      "key": "OffFps",
-      "value": "Количество кадров в секунду НЕ будут видны в игре и лобби."
-    },
-	
-	{
-      "key": "StandartInterface",
-      "value": "Нам кажется что так удобнее всего, но все в твоих руках."
-    },
-	
-	{
-      "key": "OnFps",
-      "value": "Количество кадров в секунду будут видны в игре и лобби."
-    },
-	
-	{
-      "key": "ChangeColorTrancparency",
-      "value": "Меняй цвета и прозрачность интерфейса!"
+      "key": "Summoner",
+      "value": "Призыватель"
     },
 	
 	{
@@ -1034,8 +1092,33 @@
     },
 	
 	{
-      "key": "Summoner",
-      "value": "Призыватель"
+      "key": "CounterFPS",
+      "value": "Счетчик ФПС"
+    },
+	
+	{
+      "key": "OffFps",
+      "value": "Количество кадров в секунду НЕ будут видны в игре и лобби."
+    },
+	
+	{
+      "key": "Save",
+      "value": "Сохранить"
+    },
+	
+	{
+      "key": "OnFps",
+      "value": "Количество кадров в секунду будут видны в игре и лобби."
+    },
+	
+	{
+      "key": "StandartInterface",
+      "value": "Нам кажется что так удобнее всего, но все в твоих руках."
+    },
+	
+	{
+      "key": "ChangeColorTrancparency",
+      "value": "Меняй цвета и прозрачность интерфейса!"
     },
 	
 	{
@@ -1069,13 +1152,23 @@
     },
 	
 	{
-      "key": "ThanksText",
-      "value": "В игре использовался контент, распространяемый по лицензии CC BY-ND 3.0.\n\nНаши благодарности данным ресурсам и авторам:\n\nwww.noiseforfun.com\n\nHaelDB\n opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch\n http://opengameart.org/users/qubodup\n\nremaxim\n https://opengameart.org/users/remaxim"
+      "key": "KeeperDescription",
+      "value": "Никто не знает, сколько ему лет и каков его истинный потенциал.\nЕго навыков будет достаточно, чтобы прорваться даже через огромные полчища врагов."
     },
 	
 	{
-      "key": "KeeperDescription",
-      "value": "Никто не знает, сколько ему лет и каков его истинный потенциал.\nЕго навыков будет достаточно, чтобы прорваться даже через огромные полчища врагов."
+      "key": "VoodooDescription",
+      "value": "Лесное НЛО, адекватное описание совсем скоро..."
+    },
+	
+	{
+      "key": "DroidDescription",
+      "value": "Боевой Дройд серийный номер 13371488"
+    },
+	
+	{
+      "key": "ThanksText",
+      "value": "В игре использовался контент, распространяемый по лицензии CC BY-ND 3.0.\n\nНаши благодарности данным ресурсам и авторам:\n\nwww.noiseforfun.com\n\nHaelDB\n opengameart.org/users/haeldb\n\nIwan 'qubodup' Gabovitch\n http://opengameart.org/users/qubodup\n\nremaxim\n https://opengameart.org/users/remaxim"
     },
 	
 	{
@@ -1109,6 +1202,16 @@
     },
 	
 	{
+      "key": "VoodooSkillDescription",
+      "value": "Скилл еще не придуман"
+    },
+	
+	{
+      "key": "DroidSkillDescription",
+      "value": "Скилл еще не придуман"
+    },
+	
+	{
       "key": "LegionnaireSkillUsed",
       "value": "Враги будут уничтожены!"
     },
@@ -1139,6 +1242,16 @@
     },
 	
 	{
+      "key": "VoodooSkillUsed",
+      "value": "-"
+    },
+	
+	{
+      "key": "DroidSkillUsed",
+      "value": "-"
+    },
+	
+	{
       "key": "LegionnaireSkillFail",
       "value": "Лучше приберегу силы..."
     },
@@ -1166,6 +1279,16 @@
 	{
       "key": "KeeperSkillFail",
       "value": "Я не колдую просто так."
+    },
+	
+	{
+      "key": "VoodooSkillFail",
+      "value": "-"
+    },
+	
+	{
+      "key": "DroidSkillFail",
+      "value": "-"
     },
 	
 	{
